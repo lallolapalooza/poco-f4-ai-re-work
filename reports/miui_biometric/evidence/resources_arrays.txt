@@ -1,0 +1,14 @@
+== type: array
+   device_need_operating_mode = ['polaris', 'dipper', 'sirius', 'ursa', 'perseus', 'andromeda', 'cepheus', 'gauguin', 'gauguininpro', 'grus', 'equuleus', 'violet', 'gram', 'pyxis', 'davinci', 'davinciin', 'raphael', 'raphaelin', 'crux', 'tucana', 'phoenix', 'phoenixin', 'umi', 'cmi', 'lmi', 'lmiin', 'picasso', 'picassoin', 'curtanacn', 'curtana', 'excalibur', 'joyeuse', 'monet', 'monetin', 'vangogh', 'toco', 'tocoin', 'surya', 'karna', 'cas', 'apollo', 'citrus', 'lime', 'venus', 'sweet', 'sweetin', 'courbet', 'cetus', 'haydn', 'haydnin', 'star', 'mars', 'mojito', 'courbet', 'renoir', 'rainbow', 'sunny', 'thyme', 'alioth', 'aliothin', 'vayu', 'vayuin', 'odin', 'vili', 'pissarro', 'pissarropro', 'pissarroin', 'pissarroinpro', 'zeus', 'cupid', 'ingres', 'ingresin', 'zizhan', 'taoyao', 'zijin', 'psyche', 'lisa', 'mona', 'thor', 'unicorn', 'mayfly', 'munch', 'enuma', 'elish', 'dagu', 'ziyi', 'redwood', 'pipa', 'marble', 'yudi']
+   get_frame_nonsequence = ['sunny', 'mojito', 'curtana', 'secret', 'maltose', 'joyeuse', 'excalibur', 'ares', 'ginkgo', 'biloba', 'iris', 'XIG02', 'lilac', 'selene', 'eos', 'cupid', 'light', 'thunder', 'evergo', 'evergreen', 'viva', 'vida', 'fleur', 'miel', 'yunluo', 'earth', 'fire', 'gale']
+   need_more_stream_in_auth = []
+   virtual_light_device = ['xun']
+== type: drawable
+   $ic_launcher_foreground__0 = res/Fd.xml
+   ic_launcher_background = res/0w.xml
+   ic_launcher_foreground = res/Qr.xml
+== type: mipmap
+   ic_launcher = res/BW.xml
+   ic_launcher_round = res/0K.xml
+== type: string
+   app_name = Biometric

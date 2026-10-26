@@ -1,0 +1,10 @@
+{
+  "name": "焉红",
+  "type": "MOVIE_RELIGHTING",
+  "icon": "icon.png",
+  "relightingType": "0x27",
+  "cameraDefinedType": 16,
+  "startColor": "#74BCEE",
+  "endColor": "#74BCEE",
+  "nameResName": "refocus_movie_yanhong"
+}

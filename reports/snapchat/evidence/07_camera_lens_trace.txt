@@ -1,0 +1,139 @@
+# Camera -> Looksery lens data-path transcript and excerpts
+# Date: 2026-10-24. All commands run from the workspace.
+
+## Commands
+
+$ APK=".../partner-com.snapchat.android_200.apk"
+$ $PY $TOOLS/decompile_classes.py "$APK" --regex 'com\.looksery\.sdk\.(LSCoreManagerWrapper|RenderDriver|...)$' --out reports/snapchat/sources/java --max 6 --timeout 420
+$ $PY $TOOLS/decompile_classes.py "$APK" --regex '^m0b$|^rk6$' --out reports/snapchat/sources/java --max 2
+$ $PY $TOOLS/decompile_classes.py "$APK" --regex 'Hs8|IJ4' --out reports/snapchat/sources/java --max 4
+$ aarch64-linux-gnu-objdump -d --start-address=0x767338 --stop-address=0x7673f4 native/libs/libcamplat+....so
+$ python  # RELA-based JNINativeMethod extraction, see native/jni_binding_table.txt
+
+## 1. Producer -> texture target selection (rk6.java:91-150)
+
+public final void a(C7363Og5 og5, S45 s45, float[] fArr, int i, EnumC2325Emg emg,
+                    long j, long j2, C24957jIg jIg, C24957jIg jIg2, Collection collection,
+                    boolean z, ..., int i2) {
+    ...
+    ((InterfaceC39171umg) this.m.get()).b(
+        i4,
+        enumC2325EmgE == EnumC2325Emg.EXTERNAL_OES ? 36197 : 3553,
+        j, fArr3, c24957jIg4.c, NY7.O0(z4, z3, z2));
+}
+
+=> 36197 = GL_TEXTURE_EXTERNAL_OES (camera SurfaceTexture), 3553 = GL_TEXTURE_2D (video).
+
+## 2. Lens camera callback builds frame state (Hs8.java:64-100)
+
+public final void b(int i, int i2, long j, float[] fArr, float[] fArr2, EnumC34220qmg qmg) {
+    if (!((C22910he8) this.a0.get()).b) throw new IllegalStateException(
+        "LensesCameraFeatureProcessingCoreSub must be initialized first");
+    ...
+    C3393Goa g = JIi.g(i, i2, j, fArr, fArr2,
+                         size.width, size.height,    // input image size
+                         processing.width, processing.height, // screen/processing size
+                         fov, -1.0f, orientation, front, crop);
+    ((InterfaceC36695smg) s55.x().a().a(g)).b();
+}
+
+## 3. Render lambda submits the frame (WA4.e(Object), classes4.dex bytecode)
+
+LGoa fields:
+  a I  b I  c J  d [F  e [F  f I  g I  h I  i I  j F  k F  l I  m Z  n I  o Z
+  (texture, target, timestampNs, mat4, mat4, inW, inH, screenW, screenH,
+   hFov, vFov, orientation, frontCamera, recordingState, cropToScreen)
+
+key calls:
+  -> LSCoreManagerWrapper.setInputImageSize(f, g)
+  -> LSCoreManagerWrapper.setScreenSize(h, i)
+  -> LSCoreManagerWrapper.setCameraParams(j, k, l)
+  -> LSCoreManagerWrapper.setFrontCameraEnabled(m)
+  -> LSCoreManagerWrapper.setRecordingState(PREVIEW|VIDEO|PHOTO)
+  -> LSCoreManagerWrapper.processFrameToTexture(a, b, c, d, e, f, g, config) -> int
+  -> IJIi.g(...) stores the next LGoa
+
+## 4. Java entry point (LSCoreManagerWrapper.java)
+
+private native int nativeProcessFrameToTexture(long j, int inputTex, int texTarget,
+        double timestampSeconds, float[] mat4a, float[] mat4b, int width, int height,
+        ImageProcessingConfig config);
+
+public int processFrameToTexture(int i, int i2, long j, float[] fArr, float[] fArr2, int i3, int i4) {
+    return nativeProcessFrameToTexture(getNativeHandle(), i, i2,
+        this.mCameraTimestampConverter.convert(j), fArr, fArr2, i3, i4, null);
+}
+public int processFrameToTexture(int i, long j, float[] fArr, float[] fArr2, int i2, int i3, ImageProcessingConfig c) {
+    return nativeProcessFrameToTexture(getNativeHandle(), i, 36197, convert(j), fArr, fArr2, i2, i3, c);
+}
+=> the one-texture overload hardcodes 36197 as the texture target.
+
+## 5. Timestamp conversion (TimestampConverter.java)
+
+public double convert(long j) {
+    ...
+    return (j / 1.0E9d) + this.mTimestampOffsetSeconds;   // ns -> seconds
+}
+Offset is computed once by comparing j to elapsedRealtime/uptimeMillis/currentTimeMillis,
+i.e. camera timestamps may be CLOCK_MONOTONIC, CLOCK_BOOTTIME or CLOCK_REALTIME.
+
+## 6. JNI binding table (native/jni_binding_table.txt)
+
+vaddr=0x01c83ec8 fn=0x00766838 nativeSetInputImageSize (JII)V
+vaddr=0x01c83f10 fn=0x00767338 nativeCreateTexture (J)I
+vaddr=0x01c83f58 fn=0x00767500 nativeProcessFrameToTexture (JIID[F[FIILcom/looksery/sdk/domain/ImageProcessingConfig;)I
+vaddr=0x01c83f70 fn=0x00767610 nativeProcessTextureToTexture (JIDI[F[FII)I
+vaddr=0x01c83f88 fn=0x00767718 nativeProcessBitmap (JLandroid/graphics/Bitmap;Landroid/graphics/Bitmap;DIZI)Z
+vaddr=0x01c83fa0 fn=0x0076780c nativeDrawExternalTexture (JIII[F[F)V
+vaddr=0x01c83fb8 fn=0x00767a00 nativeDrawTexture (JIII[FZ)V
+vaddr=0x01c83fd0 fn=0x00767bcc nativeRelease (J)V
+vaddr=0x01c84498 fn=0x0076bfec nativeSetCameraParams (JFFI)V
+vaddr=0x01c84318 fn=0x0076b040 nativeSetFrontCameraEnabled (JZ)V
+vaddr=0x01c84ca8 fn=0x00770b2c nativeSetTrackingSurface (JLandroid/view/Surface;)V
+vaddr=0x01c84cd8 fn=0x00770c94 nativeSetExternalTextureStream (JLcom/looksery/sdk/media/ExternalTextureStream;Ljava/lang/String;Lcom/looksery/sdk/ExternalTextureSourceType;)V
+vaddr=0x01c83cd0 fn=0x00753bd8 nativeInit (Lcom/looksery/sdk/FaceTrackerWrapper$Mode;Lcom/looksery/sdk/FaceTrackerWrapper$LandmarksType;Lcom/looksery/sdk/facedetector/ExternalFaceDetectorFactory;)J
+vaddr=0x01c83d30 fn=0x00754458 nativeTrackImage (JLandroid/graphics/Bitmap;)[[F
+
+## 7. createCameraTexture creates an OES texture (0x767338)
+
+767338: glGenTextures(1, &tex)
+767360: glActiveTexture(GL_TEXTURE1 = 0x84C1)
+76736c: glBindTexture(36197 = 0x8D65, tex)
+767374: glTexParameterf(36197, GL_TEXTURE_MIN_FILTER(0x2801), 9728.0f)
+767388: glTexParameterf(36197, GL_TEXTURE_MAG_FILTER(0x2800), value @0x2fb520)
+76739c: glTexParameteri(36197, GL_TEXTURE_WRAP_S(0x2802), GL_CLAMP_TO_EDGE(0x812F))
+7673ac: glTexParameteri(36197, GL_TEXTURE_WRAP_T(0x2803), GL_CLAMP_TO_EDGE(0x812F))
+7673c8: return tex
+
+## 8. Engine internal call names (strings / typeinfo in libcamplat)
+
+0x26cd03  CoreManagerWrapper::processFrameToTexture
+0x261b18  CoreManager::processFrameToTexture
+0x23f117  void LS::TrackingManager::track(LS::ImageArray &&, LS::SharedTexture,
+          std::shared_ptr<TrackingData>, const LS::Timestamp &,
+          const std::shared_ptr<const ImageProcessingConfig> &)
+0x354365  LS::FaceDetectorStage
+0x356c0d  LS::TrackingStage   (execute(LS::Frame&) @0x3569ee)
+0x3540ea  LS::ShapeFitter
+0x354bcb  LS::CascadeRegressor
+0x354c35  LS::ShapeRegressor
+0x33b794  LS::Tracking::NaturalFeatureTracker
+0x254f14  #extension GL_OES_EGL_image_external : require
+0x2786ac  uniform samplerExternalOES sTexture;
+0x26222b  common/rgbToNv21Tex
+0x250d20  LS::ImageConverters::RGBToNV21ConverterSGImpl::renderNV21Data
+0x239f9c  YUV2RGBx Convertor is running with incorrect target size width!
+
+## 9. Processing size cap (Size.java)
+
+private static final Size OPTIMAL_FOR_PROCESSING = new Size(600, 800);
+optimizeForProcessing(): scale = sqrt(600*800/(w*h)); if scale < 1:
+  width = floor(w*scale/32)*32; height = floor((width/w)*h/4)*4;
+
+## 10. Model assets used by the per-frame path (confirmed)
+
+assets/looksery/core/HaarCascades/haarcascade_frontalface_alt2.xml  837462 B
+assets/looksery/core/LiteTrackingData_ert.lns                      302357 B (LZC v1 + zstd)
+assets/looksery/core/NaturalFeatureTracker/SystemData/tree-ORB-*.bin 16019 B x2
+assets/looksery/core/Landmarks/triangulation*.txt
+assets/looksery/core/scenarium/facestretchLiquify.glsl

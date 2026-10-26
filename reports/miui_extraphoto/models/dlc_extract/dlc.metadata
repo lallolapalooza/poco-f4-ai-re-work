@@ -1,0 +1,3 @@
+converter-command=snpe-tensorflow-to-dlc verbose=False out_node=['img_output'] allow_unconsumed_nodes=True model_version=None input_dim=[['hed_input', '1,512,512,3']] in_type=None
+converter-version=1.22.0.212
+model-version=N/A

@@ -1,0 +1,7 @@
+[android_log] eai_init_ex() - params: 0x7ffb9ccf4650, 0x4d9000, 5820, 0x0
+
+[android_log] Error: fixed point model, float runtime!
+
+[android_log] load_layer_call_table failed: 12
+
+init rc=0 handle=(nil)

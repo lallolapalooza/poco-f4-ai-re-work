@@ -1,0 +1,362 @@
+6DNNNet
+ANeuralNetworksBurst_create
+ANeuralNetworksBurst_free
+ANeuralNetworksCompilation_create
+ANeuralNetworksCompilation_createForDevices
+ANeuralNetworksCompilation_finish
+ANeuralNetworksCompilation_free
+ANeuralNetworksCompilation_setCaching
+ANeuralNetworksCompilation_setPreference
+ANeuralNetworksCompilation_setPriority
+ANeuralNetworksCompilation_setTimeout
+ANeuralNetworksDevice_getExtensionSupport
+ANeuralNetworksDevice_getFeatureLevel
+ANeuralNetworksDevice_getName
+ANeuralNetworksDevice_getType
+ANeuralNetworksDevice_getVersion
+ANeuralNetworksEvent_createFromSyncFenceFd
+ANeuralNetworksEvent_free
+ANeuralNetworksEvent_getSyncFenceFd
+ANeuralNetworksEvent_wait
+ANeuralNetworksExecution_burstCompute
+ANeuralNetworksExecution_compute
+ANeuralNetworksExecution_create
+ANeuralNetworksExecution_free
+ANeuralNetworksExecution_getDuration
+ANeuralNetworksExecution_getOutputOperandDimensions
+ANeuralNetworksExecution_getOutputOperandRank
+ANeuralNetworksExecution_setInput
+ANeuralNetworksExecution_setInputFromMemory
+ANeuralNetworksExecution_setLoopTimeout
+ANeuralNetworksExecution_setMeasureTiming
+ANeuralNetworksExecution_setOutput
+ANeuralNetworksExecution_setOutputFromMemory
+ANeuralNetworksExecution_setTimeout
+ANeuralNetworksExecution_startCompute
+ANeuralNetworksExecution_startComputeWithDependencies
+ANeuralNetworks_getDevice
+ANeuralNetworks_getDeviceCount
+ANeuralNetworksMemory_copy
+ANeuralNetworksMemory_createFromAHardwareBuffer
+ANeuralNetworksMemory_createFromDesc
+ANeuralNetworksMemory_createFromFd
+ANeuralNetworksMemoryDesc_addInputRole
+ANeuralNetworksMemoryDesc_addOutputRole
+ANeuralNetworksMemoryDesc_create
+ANeuralNetworksMemoryDesc_finish
+ANeuralNetworksMemoryDesc_free
+ANeuralNetworksMemoryDesc_setDimensions
+ANeuralNetworksMemory_free
+ANeuralNetworksModel_addOperand
+ANeuralNetworksModel_addOperation
+ANeuralNetworksModel_create
+ANeuralNetworksModel_finish
+ANeuralNetworksModel_free
+ANeuralNetworksModel_getExtensionOperandType
+ANeuralNetworksModel_getExtensionOperationType
+ANeuralNetworksModel_getSupportedOperationsForDevices
+ANeuralNetworksModel_identifyInputsAndOutputs
+ANeuralNetworksModel_relaxComputationFloat32toFloat16
+ANeuralNetworksModel_setOperandExtensionData
+ANeuralNetworksModel_setOperandSymmPerChannelQuantParams
+ANeuralNetworksModel_setOperandValue
+ANeuralNetworksModel_setOperandValueFromMemory
+/Candide/
+Candide
+Candide-3 has been loaded successfully
+Candide-3 start loading from the file %s
+CandideCenter
+Candide index is out of bounds
+CandidePerspective
+Check failed: output->Resize(out_shape) == MaceStatus::MACE_SUCCESS 
+Check failed: TransformFilter( context, operator_def_.get(), 1, OpenCLBufferType::ARGUMENT, mem_type) == MaceStatus::MACE_SUCCESS 
+Check failed: TransformFilter( context, operator_def_.get(), 1, OpenCLBufferType::CONV2D_FILTER, mem_type) == MaceStatus::MACE_SUCCESS 
+Check failed: TransformFilter( context, operator_def_.get(), 1, OpenCLBufferType::DW_CONV2D_FILTER, mem_type) == MaceStatus::MACE_SUCCESS 
+Check failed: TransformFilter( context, operator_def_.get(), 1, OpenCLBufferType::WEIGHT_WIDTH, mem_type) == MaceStatus::MACE_SUCCESS 
+Check failed: TransformFilter( context, operator_def_.get(), 1, OpenCLBufferType::WINOGRAD_FILTER, mem_type, wino_block_size_) == MaceStatus::MACE_SUCCESS 
+Check failed: TransformFilter( context, operator_def_.get(), 2, OpenCLBufferType::ARGUMENT, mem_type) == MaceStatus::MACE_SUCCESS 
+Check failed: TransformFilter( context, operator_def_.get(), 3, OpenCLBufferType::ARGUMENT, mem_type) == MaceStatus::MACE_SUCCESS 
+Check failed: TransformFilter( context, operator_def_.get(), i, OpenCLBufferType::ARGUMENT, mem_type) == MaceStatus::MACE_SUCCESS 
+Check failed: TransformFilter(context, operator_def_.get(), i, OpenCLBufferType::IN_OUT_CHANNEL, context->GetOpMemoryType()) == MaceStatus::MACE_SUCCESS 
+Check failed: TransformFilter( context, operator_def_.get(), i, OpenCLBufferType::IN_OUT_CHANNEL, mem_type) == MaceStatus::MACE_SUCCESS 
+CompileMACEModelFromLibdnn
+Condition consumerOp->type() == MACEConstants::LayerType::Eltwise || consumerOp->type() == MACEConstants::LayerType::Const || consumerOp->type() == MACEConstants::LayerType::Concat should be true
+Condition hexagonLayer->GetOutputShape().empty() should be false
+Condition hexagon_nn_init(&m_id) != 0 should be false
+Condition libdnnParams.groups == libdnnParams.outputChannels && dnnLayer.blobs(0).channels() == 1 should be true
+Condition libdnnParams.outputPadding != 0 should be false
+Condition libdnnParams.padMode == protobuf_dnn::LayerParameter_PadMode_SAME_TOP_LEFT_HEAVY should be false
+Condition libdnnParams.strideW > 1 || libdnnParams.strideH > 1 should be false
+ConvertLibdnnToMACE
+Couldn't map hexagon nn library version to java enum
+Creating MaceEngine, MACE version: 
+Error creating TfLite Interpreter.
+Error creating tflite interpreter options.
+Error creating tflite model from file.
+Error creating TfLite XNNPack Delegate.
+Error invoking TfLite Interpreter.
+Error TfLite interpreter allocating tensors.
+Failed to prepare hexagon network
+FastDnnImplMACE
+FastDnnLibDNNInferenceTime
+file:///%s?hexagon_nn_domains_skel_handle_invoke&_modver=1.0&_dom=%s
+/HaarCascades/haarcascade_frontalface_alt2.xml
+hexagon
+hexagon_nn
+"hexagonNNLibraryVersion" : %d
+hybrid_hexagon
+HYBRID_HEXAGON_MACE
+isCandideFound
+isPerspectiveCandideSet
+libdnn
+LibDNN
+"LibDNNInferenceTime":%f,
+libdnn inference time is empty.
+libdnn_outputs
+libhexagon_nn_skel.so
+libhexagon_nn_skel_v65.so
+libhexagon_nn_skel_v66.so
+/LiteTrackingData_ert.lns
+MACE
+MACE_CPP_MIN_LOG_LEVEL
+MACE_CPP_MIN_VLOG_LEVEL
+MACE do not support the device 
+MACE do not support the device type: 
+MACE do not support the input data type: 
+MACE do not support the output data type: 
+MACE failed with 
+MACE_LIMIT_OPENCL_KERNEL_TIME
+MACE_LOG_TENSOR_RANGE
+MACE only support NONE, NHWC, NCHW and OIHW formats of input now.
+MACE_OPENCL_PROFILING
+MACE_OPENCL_QUEUE_WINDOW_SIZE
+MACE_OUT_OF_RANGE_CHECK
+MACE_RUN_PARAMETER_PATH
+MACE_RUNTIME_FAILURE_RATIO
+MACE_TUNING
+MACEVER-594c0a3
+m_nnapi->ANeuralNetworksBurst_create failed with error 
+m_nnapi->ANeuralNetworksCompilation_createForDevices failed with error 
+m_nnapi->ANeuralNetworksCompilation_finish failed with error 
+m_nnapi->ANeuralNetworksCompilation_setCaching failed with error 
+m_nnapi->ANeuralNetworksCompilation_setPreference failed with error 
+m_nnapi->ANeuralNetworksExecution_burstCompute failed with error 
+m_nnapi->ANeuralNetworksExecution_create failed with error 
+m_nnapi->ANeuralNetworksExecution_setInputFromMemory failed with error 
+m_nnapi->ANeuralNetworksExecution_setOutputFromMemory failed with error 
+m_nnapi->ANeuralNetworksMemory_createFromFd failed with error 
+m_nnapi->ANeuralNetworksModel_addOperand failed with error 
+m_nnapi->ANeuralNetworksModel_addOperation failed with error 
+m_nnapi->ANeuralNetworksModel_finish failed with error 
+m_nnapi->ANeuralNetworksModel_identifyInputsAndOutputs failed with error 
+m_nnapi->ANeuralNetworksModel_relaxComputationFloat32toFloat16 failed with error 
+m_nnapi->ANeuralNetworksModel_setOperandSymmPerChannelQuantParams failed with error 
+m_nnapi->ANeuralNetworksModel_setOperandValue failed with error 
+Must be orthographic or Perspective Candide must be set for Head Component to get barycentric pos
+Must be orthographic or Perspective Candide must be set for Head Component to get position
+N2LS10ObjectPoolINS_7CandideEE4NodeE
+N2LS10ObjectPoolINS_7CandideEE7DeleterE
+N2LS15DeformedCandideE
+N2LS7CandideE
+N2LS8Tracking21NaturalFeatureTrackerE
+N2OE4Scan13TfLiteOptionsE
+N2OE4Scan13TfLiteWrapperE
+N7FastDnn15FastDnnImplMACEE
+N7FastDnn15ModelConversion7Network4MACEE
+N7FastDnn15ModelConversion9MACELayerE
+/NaturalFeatureTracker/SystemData
+NeuralModelInference: cache directory is empty, falling back to libdnn
+nnapi->ANeuralNetworksDevice_getName failed with error 
+nnapi->ANeuralNetworks_getDeviceCount failed with error 
+nnapi->ANeuralNetworks_getDevice failed with error 
+NSt6__ndk120__shared_ptr_emplaceIN2LS7CandideENS_9allocatorIS2_EEEE
+NSt6__ndk120__shared_ptr_emplaceIN2LS8Tracking21NaturalFeatureTrackerENS_9allocatorIS3_EEEE
+NSt6__ndk120__shared_ptr_pointerIPN2LS10ObjectPoolINS1_7CandideEE4NodeENS4_7DeleterENS_9allocatorIS5_EEEE
+OE.Scan.TfLiteOptions
+OE.Scan.TfLiteOptions.shared_library_path
+Only libdnn layer using kmeans compression and linear symmetric unsigned compression methods are supported
+Only support uncompressed or compressed using kmeans and linear symmetric unsigned method libdnn layer
+perspectiveCandideData
+PKN7FastDnn15ModelConversion7Network4MACEE
+PKN7FastDnn15ModelConversion9MACELayerE
+PN7FastDnn15FastDnnImplMACE4ImplE
+PN7FastDnn15ModelConversion7Network15MACETransformerE
+PN7FastDnn15ModelConversion7Network4MACEE
+PN7FastDnn15ModelConversion9MACELayerE
+RenderRecorder Cannot save render replay - no scenarium host.
+/scenarium
+/scenarium/
+[scenarium] Delayed reference with name '%s' not found.
+scenarium/envProvider/SphereForPanoramicSampling.mesh
+[scenarium] Factory for type '%s' not found.
+[scenarium] Factory found an inaccessible type: %s
+/scenarium/screentexture.glsl
+[scenarium] uniform and parameter type mismatch for uniform: %s
+Setup hexagon dynamic library path. Supported : %d
+SNPE
+tensor_buf->Allocate( mem_block.x() + MACE_EXTRA_BUFFER_PAD_SIZE)
+TfLiteInterpreterAllocateTensors
+TfLiteInterpreterCreate
+TfLiteInterpreterDelete
+TfLiteInterpreterGetInputTensor
+TfLiteInterpreterGetInputTensorCount
+TfLiteInterpreterGetOutputTensor
+TfLiteInterpreterGetOutputTensorCount
+TfLiteInterpreterInvoke
+TfLiteInterpreterOptionsAddDelegate
+TfLiteInterpreterOptionsCreate
+TfLiteInterpreterOptionsDelete
+TfLiteInterpreterOptionsSetNumThreads
+TfLiteModelCreateFromFile
+TfLiteModelDelete
+TfLiteTensorData
+TfLiteTensorDim
+TfLiteTensorNumDims
+TfLiteXNNPackDelegateCreate
+TfLiteXNNPackDelegateDelete
+TfLiteXNNPackDelegateOptionsDefault
+tree-ORB-sharp-b-20-d-2-r-10-numSig-195777265.bin
+triangulation.txt
+triangulation_with_mouth.txt
+Tried to choose SNPE backend, but was not enabled at compile time.
+Unable to parse libdnn proto
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:129:open /dev/ion failed!
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:134:stat Failed on /dev/ion 
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:172::Error: %x: NULL != (m = malloc(sizeof(*m)))
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:204:rpcmem allocation error: %d: trying ics
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:205::error: %d: AEE_SUCCESS == (nErr = rpcmem_contig_alloc_ics(m, heap_mask, size, &po))
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:222:Error 0x%x: ION mem alloc failed for size 0x%x, heapid %d, flags 0x%x
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:256::error: %d: mfree
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:303::error: %d: (uintptr_t)remote_register_buf
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:331::Error: %x: 0 < rpcmem_ionfd
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:343:ION allocation ioctl failed %d
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:355::Error: %x: MAP_FAILED != (m->paddr = (void *)mmap(NULL, alloc.len, PROT_READ|PROT_WRITE, MAP_SHARED, m->data.fd, 0))
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:360:Error 0x%x (errno 0x%x): rpc contig allocation failed. size 0x%x, heap_mask 0x%x, flags 0x%x
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:377::Error: %x: 0 < rpcmem_ionfd
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:400::Error: %x: ioctl(rpcmem_ionfd, ION_IOC_ALLOC_KK, &alloc) >= 0
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:403::Error: %x: 0 <= ioctl(rpcmem_ionfd, ION_IOC_MAP, &m->data)
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:412::Error: %x: MAP_FAILED != (m->paddr = (void *)mmap(NULL, alloc.len, PROT_READ|PROT_WRITE, MAP_SHARED, m->data.fd, 0))
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:417:Error 0x%x (errno 0x%x): rpc contig allocation failed. size 0x%x, heap_mask 0x%x, flags 0x%x
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:445::Error: %x: 0 < rpcmem_ionfd
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:457::Error: %x: 0 <= ioctl(rpcmem_ionfd, ION_IOC_ALLOC_ICS, &alloc)
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:459::Error: %x: 0 <= ioctl(rpcmem_ionfd, ION_IOC_MAP, &m->data)
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:461::Error: %x: MAP_FAILED != (m->paddr = (void *)mmap(NULL, alloc.len, PROT_READ|PROT_WRITE, MAP_SHARED, m->data.fd, 0))
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:465:Error 0x%x (errno 0x%x): rpc contig ics allocation failed. mask 0x%x, size 0x%x
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/include/mace/utils/logging.h
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/allocator.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/allocator.h
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/arg_helper.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/buffer.h
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/device.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/kv_storage.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/memory_optimizer.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/net.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/net_def_adapter.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/ops/op_condition_context.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/ops/operator.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/ops/operator.h
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/registry/op_delegator_registry.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/registry/op_registration_info.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/registry/ops_registry.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/runtime/cpu/cpu_runtime.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/runtime_failure_mock.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/runtime/opencl/opencl_allocator.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/runtime/opencl/opencl_helper.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/runtime/opencl/opencl_runtime.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/runtime/opencl/opencl_util.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/runtime/opencl/scratch_image.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/tensor.h
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/types.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/core/workspace.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/libmace/mace.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/activation.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/activation.h
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/adaptive_instance_norm.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/argmax.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/arm/base/activation.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/arm/base/bias_add.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/arm/base/conv_2d_1x1.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/arm/base/conv_2d.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/arm/base/deconv_2d.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/arm/base/depthwise_deconv_2d_general.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/arm/base/gemm.h
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/arm/fp32/conv_2d_3x3_winograd.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/arm/fp32/gemm.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/arm/fp32/gemv.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/batch_norm.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/common/conv_pool_2d_util.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/common/matrix.h
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/common/transpose.h
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/concat.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/conv_2d.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/deconv_2d.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/depthwise_conv2d.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/depthwise_deconv2d.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/eltwise.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/embedding.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/fully_connected.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/grid_sample.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/matmul.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/buffer/buffer_transform.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/buffer/buffer_type_transform.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/buffer/conv_2d_1x1.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/buffer/conv_2d.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/buffer/conv_2d_general.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/buffer/depthwise_conv2d.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/buffer/grid_sample.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/buffer/pooling.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/buffer/softmax.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/buffer_transformer.h
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/buffer/utils.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/activation.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/adaptive_instance_norm.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/argmax.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/batch_norm.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/buffer_to_image.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/concat.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/conv_2d_1x1.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/conv_2d_3x3.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/conv_2d.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/conv_2d_general.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/deconv_2d.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/depthwise_conv2d.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/depthwise_deconv2d.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/eltwise.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/embedding.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/fully_connected.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/grid_sample.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/image_to_buffer.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/matmul.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/pad.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/pooling.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/reduce.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/reshape.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/resize_bilinear.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/resize_nearest_neighbor.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/softmax.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/strided_slice.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/transpose.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/transpose.h
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/opencl/image/winograd_conv2d.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/pad.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/pad_context.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/pooling.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/reduce.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/ref/activation.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/ref/bias_add.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/ref/deconv_2d.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/ref/depthwise_deconv_2d.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/ref/gemm.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/reshape.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/resize_bilinear.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/resize_nearest_neighbor.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/softmax.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/strided_slice.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/ops/transpose.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/port/android/env.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/port/file_system.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/port/linux_base/env.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/utils/math.h
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/utils/rwlock.h
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/utils/thread_pool.cc
+/var/lib/jenkins/workspace/.conancache/mace/594c0a350e0fc3a0d99f94d1d9b87853cc8d3ac3/_/_/source/mace/utils/tuner.h

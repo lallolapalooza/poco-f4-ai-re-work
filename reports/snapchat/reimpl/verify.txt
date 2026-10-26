@@ -1,0 +1,35 @@
+Snapchat / Looksery CV reimplementation -- verification
+run at        : 2026-10-24 00:33:46
+python        : 3.12.12 (Linux-7.2.9-arch1-1-x86_64-with-glibc2.44)
+numpy         : 2.5.4
+assets (sha256):
+  f14cf5e321f9d9b6186e81e307f309fbe8efc03598ddbf0ca4070f0794ffc30a  looksery/core/HaarCascades/haarcascade_frontalface_alt2.xml
+  da0220813a5ac53562fd4fa055783d5ca1b73a64e7ea1a07842443b3924c653f  looksery/core/LiteTrackingData_ert.lns
+  17fd82fc6a8db3090ed627c11b9996c850c66f6f5667fd14607a41c7d8226ba2  looksery/core/NaturalFeatureTracker/SystemData/tree-ORB-sharp-b-20-d-2-r-10-numSig-195777265.bin
+  2f581d50c8c42fb4295111170e3ba9d38da76b48bcac30b751824779fcfc86e0  looksery/core/Landmarks/triangulation.txt
+
+[PASS] haar_asset (0.1s)
+       20x20 cascade, 20 stages, 1047 trees, 2094 nodes, 4535 weighted rects, trees/stage [3, 9, 14, 19, 19, 27, 31, 39, 45, 47, 53, 67, 63, 71, 75, 78, 91, 97, 90, 109]
+[PASS] lzc_container (0.0s)
+       LZC v1, 6 entries, zstd frame 302059B -> 383911B, ERT pipeline: /Tracking.xml, /FaceRegressor.bin, /CandideRegressor.bin, /DenoiseRegressor.bin, /CandidePespectiveRegressor.bin, /EyesRegressor.bin
+[PASS] orb_vocabulary_tree (0.0s)
+       1 root + 20 level-1 + 400 leaves, 32-byte ORB centroids, level-1 self-map 19/20, leaves 400
+[PASS] landmark_triangulation (0.0s)
+       118 triangles (68-pt), 124 (with mouth), max index 75
+[PASS] cascade_jax_vs_scalar (1.2s)
+       JAX vs scalar stage-0 sum on 4 windows: max |diff| = 3.35e-08
+[PASS] haar_face_detection (30.7s)
+       box (44.0,34.0,20.0) vs patch (44, 34), err 0.0px, windows 1, stage survivors [21414, 10200, 391, 36, 28, 12]...
+[PASS] haar_no_false_positives (11.9s)
+       random noise: 0 boxes, survivors [6479, 3398, 847, 49, 8, 3, 1, 0]
+[PASS] orb_frame_to_frame_tracking (7.2s)
+       400 FAST-9 keypoints, 256-bit BRIEF, 344 matches, 343 inliers, translation [ 7. -5.] (truth [7,-5])
+[PASS] liquify_identity (3.4s)
+       coefficient 0 -> displacement 0, max |diff| = 1.9e-06
+[PASS] mesh_warp_identity (79.3s)
+       identity warp over 118 triangles, max |diff| = 0.0e+00
+[PASS] mesh_landmark_deformation (0.5s)
+       landmark shift [3.0, -2.0] -> centroid shift [-2.0, 3.0]
+
+result: 11/11 checks passed
+exit: 0

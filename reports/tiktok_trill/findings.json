@@ -1,0 +1,307 @@
+{
+  "slug": "tiktok_trill",
+  "package": "com.ss.android.ugc.trill",
+  "app_name": "TikTok (trill partner build 24.2.0)",
+  "ai_summary": "ByteDance effect-SDK face stack. Three non-TFLite '.model' bundles (smash-face base detector, extra landmark/eye model, age attribute model) feed FaceDetectTaskTT and FaceAttributesTask inside libeffect.so; the ByteNN runtime (libbytenn.so + JNI libbytennwrapper.so, pitaya stones libByteAINN/libByteAIDT) provides app-level inference. Container decoded: 16-byte file id, size/name/record-count header, then per record a name, a 32-byte per-file key, a 32-byte blob whose u32@+4 is the descriptor-block length ((len-4)%16==0), and a [graph descriptor][plaintext weights] payload. The descriptor field layout (op enum, tensor ids, quantisation) is only known to the stripped libeffect.so, so tensor extraction is still blocked; the 'mean' record is fully decoded as [u32 7620][1905 fp32][8 zero] and holds anchor/prior geometry, not normalisation means.",
+  "features": [
+    {
+      "name": "TT face detection (smash-face base model)",
+      "entrypoints": [
+        "libeffect.so:FaceDetectTaskTT.cpp / --faceDetectAlgorithm",
+        "libeffect.so:FS_AddExtraModelFromBuf",
+        "com.bef.effectsdk.ModelsList.<clinit> (assets/model/ttfacemodel/tt_face_v10.0.model)",
+        "com.bef.effectsdk.EffectSDKUtils.copyAssets",
+        "VESettings.isUseTTFaceDetect / setUseTTFaceDetect (classes6.dex strings)"
+      ],
+      "pipeline": [
+        "camera/editor frame from VESDK",
+        "effect SDK resolves model dir and loads model/ttfacemodel/tt_face_v10.0.model",
+        "libeffect.so smash-face loader locates record names (detect, base120, base120det, pout, eyecls, partface, image, slowimage, mean) by searching the buffer",
+        "byteNN/espresso engine created via espresso::Thrustor::CreateNet(name, modelBuffer, inputs)",
+        "faces returned as BEF_HUMAN_FACE_* / VEFaceInfo, consumed by FaceReshape/beauty effects"
+      ],
+      "models": [
+        "assets/model/ttfacemodel/tt_face_v10.0.model"
+      ],
+      "confidence": "confirmed",
+      "notes": "Model load and task wiring confirmed by strings and code xref in libeffect.so (0xd65d93 'smash face base model version;: %s', 0xd65e80 'Extract model name: slowimage fail', xref at 0x68b384). Exact tensor I/O inferred from record names."
+    },
+    {
+      "name": "Face landmark / eye refinement (extra model)",
+      "entrypoints": [
+        "libeffect.so:FS_AddExtraModelFromBuf Face",
+        "com.bef.effectsdk.ModelsList.<clinit> (assets/model/ttfacemodel/tt_face_extra_v13.0.model)",
+        "libeffect.so strings: tt_face_extra_v13.0.model, tt_face_extra_fast_v13.0.model, iris/eyecls/partface"
+      ],
+      "pipeline": [
+        "base detector returns face boxes",
+        "extra model added to the face finder from buffer",
+        "iris/eyecls/partface outputs refine landmarks and eye state"
+      ],
+      "models": [
+        "assets/model/ttfacemodel/tt_face_extra_v13.0.model"
+      ],
+      "confidence": "confirmed",
+      "notes": "Loading path confirmed ('createFinder init FS_AddExtraModelFromBuf Face fail', 'use fast-mode faceDetect240'); tensor wiring inferred from record names."
+    },
+    {
+      "name": "Face attributes (age)",
+      "entrypoints": [
+        "libeffect.so:FaceAttributesTask.cpp / FaceAttributesAlgorithm / handleFaceAttributeEvent",
+        "libeffect.so string ttfaceattrmodel/tt_face_attribute_age_v1.1.model",
+        "com.ss.android.medialib.model.FaceAttribute* , com.ss.android.vesdk.faceinfo.VEFaceAttributeInfo",
+        "nativeSetFaceAttribute / setFaceAttribute (classes6.dex)"
+      ],
+      "pipeline": [
+        "detected+aligned face crop",
+        "age model agenet inference",
+        "attribute event delivered to Java (VEFaceAttributeInfo)"
+      ],
+      "models": [
+        "assets/model/ttfaceattrmodel/tt_face_attribute_age_v1.1.model"
+      ],
+      "confidence": "confirmed",
+      "notes": "Task and file path confirmed in libeffect.so; output layout (number of classes) unknown."
+    },
+    {
+      "name": "App-level ML SDK inference via ByteNN JNI",
+      "entrypoints": [
+        "com.ss.android.ugc.aweme.inferenceengine.InferenceEngineServiceImpl (classes5.dex)",
+        "X.8Kf (classes5.dex)",
+        "com.ss.bytenn.API (classes6.dex, 9 native methods)"
+      ],
+      "pipeline": [
+        "MLConfigModel JSON (bytenn_forward_type, num_threads)",
+        "ByteNNConfig.init(forwardType, MappedByteBuffer model, null, '', '')",
+        "API.InitEngine -> SetEngineInputs(Tensor.setData(ByteBuffer)) -> Inference -> GetEngineOutputs (float32)"
+      ],
+      "models": [],
+      "confidence": "confirmed",
+      "notes": "Generic evaluator; does not itself reference the three face assets, which are provisioned by the effect SDK."
+    },
+    {
+      "name": "Video-frame interface (VESDK GL texture -> libeffect -> VEFaceDetectInfo)",
+      "entrypoints": [
+        "com.ss.android.ugc.aweme.view.customView.NaviGLSurfaceView.onDrawFrame (classes6.dex, pc 452/514/578)",
+        "com.bef.effectsdk.BEFEffectNative.processFrame(long,int,int,int,int,double)",
+        "libeffect.so:0x2eac68 nativeProcessFrame -> bef_effect_set_width_height + bef_effect_process_texture (0x3097f0) -> bef_effect_process_texture_with_loading_timeout",
+        "libeffect.so:0x458d08 FaceDetectTaskTT::process -> 0x68bc04 FS_DoPredict",
+        "libeffect.so:0x9a0100 / 0x9e4f80 image normalisation + Thrustor::SetInput/Inference",
+        "libeffect.so:FaceAttributesTask::process (0x51a5xx) -> agenet submodel"
+      ],
+      "pipeline": [
+        "camera SurfaceTexture.updateTexImage on the GL thread; frame rendered into FBO LJJJJJ (texture LJJJJJL, GL_TEXTURE_2D/RGBA8, 270*h/480 x h)",
+        "BEFEffectNative.processFrame(handle, inTextureId, outTextureId, width, height, System.nanoTime()/1e9)",
+        "nativeProcessFrame: set_width_height(handle,w,h) then process_texture(handle,inTex,outTex,ts); loading timeout argument forced to 0",
+        "effect graph converts the texture to a packed CPU image (RGB888 3ch or RGBA8888 4ch); YUV and gray are rejected by FaceDetectTaskTT",
+        "FS_DoPredict(handle, data, channels<=3, ..., stride=3*w, flags, result*)",
+        "smash ModelPackage resolves submodels by name search (base120, base120det, pout, eyecls, partface, image, slowimage, mean; extra/iris in the second file)",
+        "detector preprocessing: format validation 0x68fc4c, then letterbox planner 0x9cf6d8/0x9cf7ac (short side scaled to the net input, other side aligned, scale cached at +0x34/+0x38); numeric extent unknown; the two u8->float32 loops at 0x9a0100 and 0x9e4fb0 belong to GAN nets (FUN_0099f8b0 'up_0_bright_high', FUN_009e4a90 'LaughGanRet does not init.')",
+        "espresso::Thrustor per submodel: CreateNet(0x697ce8) -> SetInput(0x9a017c) -> Inference(0x697a90/0x9e50b8) -> Extract(0x697a60)/getOutput(0x69e2d4); setThreads(4)",
+        "postprocess: dequantise + index permute (0x697ab4-0x697b88, table 0x12a2bf0), 19/47-class threshold helper (0x69f740-0x69f858)",
+        "algorithm_result_face_st -> FaceDetect/FaceExtInfo -> VEFaceDetectInfo{PVJ[]}: rect, score, 106 points, 106 visibility, yaw/pitch/roll, eyeDistance, faceID, action, trackCount, PVI(eyes 22+22, brows 13+13, lips 64, iris 20+20)",
+        "consumers: GL overlay X.EHf/X.EHg, rect extraction La.LIZ, attribute callback X.EHr.onResult, effect nodes FaceReshape_V2/FaceDistortion (landmark pos 23/19/13/105)",
+        "effect writes the result into the output texture (or 256x256 preview) and the view draws it to the surface; recording is VESDK-native"
+      ],
+      "models": [
+        "assets/model/ttfacemodel/tt_face_v10.0.model",
+        "assets/model/ttfacemodel/tt_face_extra_v13.0.model",
+        "assets/model/ttfaceattrmodel/tt_face_attribute_age_v1.1.model"
+      ],
+      "confidence": "confirmed",
+      "notes": "Frame path confirmed end to end: NaviGLSurfaceView.onDrawFrame passes (inTextureId, outTextureId, width, height, System.nanoTime()/1e9) into nativeProcessFrame, whose x3/x4 are forwarded by register-shuttle thunks (0xaf58d4 / 0xa9f91c) as args 2-3 of bef_effect_process_texture; the log format at .rodata 0xc9ef2c fixes the loading-timeout and timestamp arguments. Textures are GL_TEXTURE_2D/RGBA8 with per-texture FBOs (C36620EXe.LIZJ); rotation and camera facing are one-shot setters. The DNNs receive a packed CPU RGB(A) buffer via FS_DoPredict (channels <= 3, YUV/gray rejected). FS_DoPredict also holds the adaptive frame-skip logic (2, then 4, then interval/3 while no face is found) and caches the input extent at [handle+0x17c]/[handle+0x178]. The detector's own resize/normalisation stays unknown; the two u8->f32 loops in libeffect belong to GAN modules. See PIPELINE.md sections 3, 5, 8 and evidence/frame_pipeline_native.md."
+    }
+  ],
+  "models": [
+    {
+      "path": "assets/model/ttfacemodel/tt_face_v10.0.model",
+      "format": "ByteDance 'smashed face' bundle (16-B id, size/name/record-count header, 9 records: detect, base120, base120det, pout, eyecls, partface, image, slowimage, mean; proprietary graph payload; NOT TFLite, NOT bytenn 'BM')",
+      "size": 905491,
+      "io": {
+        "inputs": [
+          "image / slowimage: raw tensor blob (exact shape unknown; 120 inferred from record name base120)"
+        ],
+        "outputs": [
+          "pout: objectness/classification head",
+          "base120det, partface: regression/part-score heads",
+          "eyecls: eye-state head"
+        ],
+        "preprocessing": "no normalisation constants in the container: the 'mean' record is [u32 7620][1905 float32][8 zero] holding a monotone anchor/prior table (30.03/73.78, 30.07/86.69, 30.16/99.6 ...); preprocessing must come from libeffect.so (unknown)",
+        "notes": "payload = [descriptor block of size blob2+4, high entropy 7.7-8.0][weight data, entropy 5.0-7.7]; descriptor tails contain int16 op/tensor arrays and u32 offsets just below the block size"
+      },
+      "ops": [],
+      "weights": "unavailable",
+      "jax_reimpl": "reimpl/model.py (ModelPackage reader real; JAX apply is ARCHITECTURE_ONLY placeholder)",
+      "verification": "container parsed and invariants checked on all 3 files (reimpl/verify.txt exit 0); no numerical reference run possible",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "assets/model/ttfacemodel/tt_face_extra_v13.0.model",
+      "format": "ByteDance 'smashed face' bundle, model name 'v13.0', tag 'iris', 2 records (iris, extra)",
+      "size": 573858,
+      "io": {
+        "inputs": [
+          "face crop tensor blob (shape unknown)"
+        ],
+        "outputs": [
+          "iris: eye/iris landmarks",
+          "extra: landmark/refinement output"
+        ]
+      },
+      "ops": [],
+      "weights": "unavailable",
+      "jax_reimpl": "reimpl/model.py (container reader only)",
+      "verification": "container parsed; payload encoding undecoded",
+      "confidence": "inferred"
+    },
+    {
+      "path": "assets/model/ttfaceattrmodel/tt_face_attribute_age_v1.1.model",
+      "format": "ByteDance 'smashed face' bundle, model name 'tt_face_attribute_age_v1.1', tag 'agenet', 1 record (agenet)",
+      "size": 203028,
+      "io": {
+        "inputs": [
+          "aligned face crop tensor blob (shape unknown)"
+        ],
+        "outputs": [
+          "agenet: age attribute output (class layout unknown)"
+        ]
+      },
+      "ops": [],
+      "weights": "unavailable",
+      "jax_reimpl": "reimpl/model.py (container reader only)",
+      "verification": "container parsed; payload encoding undecoded",
+      "confidence": "inferred"
+    }
+  ],
+  "reimplementation": {
+    "path": "reimpl/model.py",
+    "run_command": "python reimpl/model.py --demo  (and: python reimpl/model.py models/*.model)",
+    "status": "architecture_only",
+    "limitations": "Only the .model container and the descriptor-block split are decoded (verified). The descriptor field layout is understood exclusively by the stripped 19 MB libeffect.so smash-face loader (FS_AddExtraModelFromBuf), so neither weights nor layer topology were extracted; bytenn's XOR+inv_sbox model cipher was tested and does not apply to these payloads. JAX apply() is a shape-compatible placeholder for the documented I/O (1x3x120x120 -> pout/box)."
+  },
+  "unknowns": [
+    "Descriptor-block field layout (op enum, tensor ids, quantisation scale/zero-point) inside each record payload - blocks weight extraction",
+    "Weight encoding after the descriptor block (float32-dominant but mixed with integer tables)",
+    "Exact input tensor shape/dtype for image/slowimage (120 inferred; faceDetect240/280 modes use non-shipped models)",
+    "Age model output layout (class count, logits vs probabilities)",
+    "Whether the extra model is always loaded or only for landmark/eye effects",
+    "Default AB value of enable_fastmode_faceDetect240 / isUseTTFaceDetect for this build (server-side)",
+    "Numeric detector input extent and stride/padding alignment (the letterbox algorithm itself is confirmed at 0x9cf6d8/0x9cf7ac; the numbers are read at runtime from model info net[+8]/net[+0xc] and the planner fields info[0x18]/info[8])",
+    "Numeric mean[c]/scale[c] values used by the (x/255 - mean)/scale normalisation (runtime struct at [obj+0x40]+0x134; not in .rodata)",
+    "Which submodel (base120 vs image vs slowimage) consumes which normalisation variant",
+    "Record -> tensor/field attribution for pout, base120det, partface, eyecls, agenet (descriptor schema still unknown)",
+    "Default values of dectectIntervalTime / skip_frame / framerate for this build (server-side AB and downloaded effect config; no shipped asset sets them)",
+    "OES (GL_TEXTURE_EXTERNAL_OES) support at the VESDK recorder entry - that path is native libttvesdk.so, outside the analysed AI assets",
+    "Detector input normalisation (mean/scale constants, if any) - the two u8->f32 loops found in libeffect belong to GAN nets (FUN_0099f8b0, FUN_009e4a90), not to FS_DoPredict/0x9cf2d4"
+  ],
+  "data_pipelines": [
+    {
+      "id": "face_frame_video",
+      "name": "Camera frame -> face detection/landmarks -> effect render (AR/Navi preview)",
+      "status": "confirmed (steps 1-13); encoder branch inferred",
+      "sources_triggers": {
+        "ui_entry": "com.ss.android.ugc.aweme.view.customView.NaviGLSurfaceView.onDrawFrame(GL10)",
+        "native_entry": "Java_com_bef_effectsdk_BEFEffectNative_nativeProcessFrame @ libeffect.so:0x2eac68",
+        "gating": "effect package requirement.faceDetect (assets/ttlive_reshape_composer distortion_test/content.json true; ttlive_Live_Beauty_12 beauty.json false); ShouldGenerateTask + face_detect_interval/skip_frame config keys",
+        "lifecycle": "onSurfaceCreated: createHandle/initResourceFinder(270,480,'android')/setOrientation 0/setFrameOrientation 0/setCameraPosition true; teardown deletes 5 FBOs+5 textures"
+      },
+      "transport": {
+        "kind": "GL_TEXTURE_2D (3553), internal format GL_RGBA (6408), type GL_UNSIGNED_BYTE (5121), GL_LINEAR, one FBO per texture",
+        "input": "C36620EXe.LJJJJJL[0]; extent (270*h/480, h)",
+        "output": "C36620EXe.LJJJIL[0]; extent (LJFF, LJI) preview size",
+        "timestamp": "System.nanoTime()/1.0E9 seconds (monotonic), not the SurfaceTexture timestamp",
+        "rotation_facing": "one-shot setters: setOrientation/0, setFrameOrientation/0, setCameraPosition(true) -> native bef_effect_set_camera_device_position(handle, !z) (0x2ead0c)",
+        "internal_cpu_format": "packed RGB888 (type 3, 3ch, stride 3*w) or RGBA8888 (types 0-2, 4ch, stride 4*w); types 4 (gray) and 5 (YUV) rejected",
+        "thread": "GL render thread, one synchronous call per frame; espresso::Thrustor::setThreads(4)"
+      },
+      "preprocessing": {
+        "order": "u8 HWC packed image -> (resize/crop, unknown) -> (normalisation, unknown) -> model input",
+        "confirmed": "packed 1 byte/channel, no channel swap in the copy loop; aspect-preserving letterbox planner 0x9cf6d8 (portrait) / 0x9cf7ac (landscape): scale = net short side / short extent, other side rounded to the nearest multiple of the alignment field, scale cached at +0x34/+0x38 for back-mapping; face-box crop helpers GetSquareBox/expand box (0x6a2bec/0x6a2aa8)",
+        "unknown": "numeric net input extent + alignment (read at runtime from model info net[+8]/net[+0xc]); detector u8->f32 normalisation (no such loop in 0x68bc04/0x9cf2d4/0x9cf6d8/0x9cf7ac)",
+        "negative_result": "the two u8->f32 loops found next to Thrustor::SetInput/Inference belong to GAN nets: 0x9a0100 in FUN_0099f8b0 (layer name 'up_0_bright_high', f = u8/128 - 1), 0x9e4fb0 in FUN_009e4a90 ('LaughGanRet does not init.', f = (u8/255 - mean)/scale). Not the face detector."
+      },
+      "model_invocation": {
+        "engine": "espresso/ByteNN (libbytenn.so) C++ API espresso::Thrustor, imported by libeffect.so",
+        "models": "model/ttfacemodel/tt_face_v10.0.model (record detect/base120/base120det/pout/eyecls/partface/image/slowimage/mean), model/ttfacemodel/tt_face_extra_v13.0.model (iris/extra)",
+        "submodel_lookup": "name search inside the buffer (base120 0x696268, base120det 0x696334, pout 0x6963d0, iris 0x69641c, eyecls 0x696470, partface 0x696544, extra 0x6964d4, slowimage 0x6965d8, mean 0x68a6a8)",
+        "calls": "CreateNet 0x697ce8, SetInput 0x9a017c, Inference 0x697a90/0x9e50b8, Extract 0x697a60, getOutput 0x69e2d4, ReInferShape 0x6a5238, SkipLayer 0x696bb0, setThreads(4) 0x9b2588",
+        "cadence": "per task; bef_face_detect_ext_param_st{dectectIntervalTime, useFastModel, imageMode, maxFaceNum}; JSON keys skip_frame/base_skip_frames/framerate/face_detect_interval; AB enable_fastmode_faceDetect240 (fast model not shipped)",
+        "threads": "4 (hard-coded), CPU runtime enforced at 0x99bc1c for one net"
+      },
+      "postprocessing": {
+        "dequant_permute": "0x697ab4-0x697b88: element *= scale, store via int32 index table at .rodata 0x12a2bf0",
+        "classify": "0x69f740-0x69f858: argmax over 19 or 47 classes, thresholds 0.5 / 0.125, cached in [obj+0x70]",
+        "result_structs": "algorithm_result_face_st (0xca414b), algorithm_result_face_attrs_st (0xca40e9), algorithm_result_st{m_type,m_timeStamp}",
+        "java_bridge": "FaceDetectInfo -> VEFaceDetectInfo.covert -> VEFaceDetectInfo{PVJ[]}; PVJ = rect, score, PointF[106], float[106] visibility, yaw, pitch, roll, eyeDistance, faceID, action, trackCount, PVI",
+        "extension": "PVI flag bits: 0 eyes (22+22), 1 eyebrows (13+13), 2 lips (64), 3 iris (20+20)"
+      },
+      "consumers": [
+        "GL overlay X.EHf.LIZ / X.EHg.LIZ (VEFaceAttributeInfo, VEFaceDetectInfo)",
+        "La.LIZ(VEFaceDetectInfo) -> Rect[]",
+        "X.EHr.onResult(FaceAttributeInfo, FaceDetectInfo)",
+        "effect nodes FaceReshape_V2 / FaceDistortion using landmark pos 23/19/13/105",
+        "result texture drawn to the preview surface; encoder via VESDK native recorder (inferred)"
+      ],
+      "failure_modes": [
+        "process_texture returns -5 (null handle) / -6 (null effect)",
+        "FaceDetectTaskTT logs no detector / no result container / null image and skips",
+        "YUV or gray input rejected",
+        "missing submodel: 'The Model your provide don't contain a submodel: %s'",
+        "Thrustor/net creation failures logged (0xd66659/0xd6669f/0xd66684)",
+        "missing prob tensor: 'smash espresso prob is null'"
+      ],
+      "confidence": "confirmed: entry/args/texture format/cpu buffer/normalisation formulas/engine/call order/result structs/consumers; inferred: record->tensor attribution, encoder branch; unknown: resize geometry, mean/scale values, cadence defaults, OES at the VESDK recorder entry",
+      "evidence": [
+        "PIPELINE.md",
+        "evidence/frame_pipeline_native.md",
+        "evidence/beffectnative_callers.txt",
+        "evidence/thrustor_calls.txt",
+        "sources/classes/NaviGLSurfaceView.java",
+        "sources/classes/C36620EXe.java",
+        "sources/classes/PVJ.java",
+        "native/libeffect_fs_decompiled.c"
+      ]
+    },
+    {
+      "id": "face_attribute_age",
+      "name": "Face crop -> age attribute (FaceAttributesTask) -> VEFaceAttributeInfo",
+      "status": "inferred wiring, confirmed strings/model file",
+      "sources_triggers": {
+        "entry": "libeffect.so FaceAttributesTask::process (log strings 0xd2505a/0xd25094/0xd250ed)",
+        "gating": "effect requirement needFaceAttributes (Parser log 0xca1013)",
+        "lifecycle": "same effect graph/frame as face detection; attribute results delivered through X.EHr.onResult(FaceAttributeInfo, FaceDetectInfo)"
+      },
+      "transport": {
+        "kind": "aligned face crop from the detected box (square crop helpers GetSquareBox/expand box at 0x6a2bec/0x6a2aa8)",
+        "format": "CPU buffer, same RGB(A) u8 path as the detector",
+        "thread": "GL render thread, gated by the task scheduler"
+      },
+      "preprocessing": {
+        "unknown": "crop margin/alignment and normalisation for agenet were not recovered (same helpers likely as the detector)"
+      },
+      "model_invocation": {
+        "model": "model/ttfaceattrmodel/tt_face_attribute_age_v1.1.model (record agenet, 202892 B)",
+        "engine": "espresso/ByteNN; FS_DoAttrPredict / FS_DoAttrPredictBatch / FS_CreateAttrHandlerFromBuf (strings)",
+        "record_lookup": "agenet xrefs 0x6b49e0, 0x2fbd40, 0x2fbd98",
+        "cadence": "per task, gated like face detection"
+      },
+      "postprocessing": {
+        "unknown": "age output layout (class count, logits vs probabilities)"
+      },
+      "consumers": [
+        "VEFaceAttributeInfo / FaceAttributeInfo Java models",
+        "X.EHf/X.EHg overlay",
+        "effect nodes that declare needFaceAttributes"
+      ],
+      "failure_modes": [
+        "missing attribute model: 'createFinder init FS_AddExtraModelFromBuf Face fail' path logs and the callback is simply not delivered"
+      ],
+      "confidence": "inferred",
+      "evidence": [
+        "report.md sections 3-5",
+        "PIPELINE.md section 4",
+        "native/libeffect_string_xref_68b360.s"
+      ]
+    }
+  ]
+}

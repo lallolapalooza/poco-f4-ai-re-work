@@ -1,0 +1,10 @@
+{
+  "name": "彩虹光",
+  "type": "RELIGHTING",
+  "icon": "icon.png",
+  "startColor": "#A8ABFF",
+  "endColor": "#AEAAFF",
+  "relightingType": "0x15",
+  "cameraDefinedType": 4,
+  "nameResName": "refocus_relighting_caihong"
+}

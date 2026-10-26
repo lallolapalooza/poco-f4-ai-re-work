@@ -1,0 +1,2597 @@
+{
+ "slug": "miui_mediaeditor",
+ "package": "com.miui.mediaeditor",
+ "app_name": "Mi Media Editor (Gallery Editor) 1.9.0.6-global",
+ "ai_summary": "Two inference stacks. (1) FaceUnity Nama/FuAI 8.2.0: libCNamaSDK.so (renderer + bundle loader) and libfuai.so (vendored TensorFlow Lite with FUAI_* model API) run 33 TFLite models shipped inside 22 custom `.bundle` containers (ZIP archives obfuscated with a XOR key and a 1024-byte keyed prologue) for face detection/landmarks, face parsing/beauty, del-spot, teeth seg, skin seg, age/gender, bindi seg, body keypoints, scene recognition and makeup. (2) Mi stack: libinpaint.so/libvis.so (NNF inpainting), libaiedit.so (MNN), libmotion_photo_mace.so (MACE) with external weights, and ML Kit bundled language ID (tflite_langid.tflite.jpg, NGramHash + KmeansEmbeddingLookup custom ops).",
+ "features": [
+  {
+   "name": "face detection and landmark regression (91/98/154 points)",
+   "entrypoints": [
+    "com.faceunity.wrapper.Faceunity (JNI)",
+    "FUAI_NewFaceProcessorFromBundle @0x3f86a8",
+    "FUAI_FaceProcessorGetAllLandmarksFromResult"
+   ],
+   "pipeline": [
+    "RGBA crop -> 1-ch 40x40/64x64/112x112 float",
+    "facecheck40 detector (face/non-face)",
+    "n-small_256 / n-0.5_416 YOLO detectors",
+    "s1 / face_landmark_mb360_64 / XScore landmark nets",
+    "Fpe ERefine1..3 refinement (91-pt + dense 13/16/56/98 subsets)",
+    "post: FUAI_FaceProcessorGetFaceMeshV2*, MaskTransform in libfuai.so"
+   ],
+   "models": [
+    "ai_face_processor_detect_landmark.bundle",
+    "ai_beauty_type_processor.bundle(s1_112_98)"
+   ],
+   "confidence": "confirmed"
+  },
+  {
+   "name": "face beauty (parsing, even skin, del-spot, teeth, skin mask)",
+   "entrypoints": [
+    "FUAI_NewFaceBeautyProcessorFromBundle @0x439598",
+    "FUAI_FaceBeautyProcessorEvenSkin / FaceDelSpot / TeethSeg",
+    "com.faceunity.core.controller.facebeauty.FaceBeautyController (loadBundleFile)"
+   ],
+   "pipeline": [
+    "align 75-pt mean_shape -> face crop",
+    "Fprs.0003 parsing 384x512x3 -> 15ch softmax masks (cate_mask_order, out_mask_scale 0.5)",
+    "skin_model_expand 320x320 -> skin mask (threshold 0.6)",
+    "SPADE 256x256 generators for even-skin and flaw removal (Tanh output)",
+    "del-spot: 4 classifiers 24x24 (hair/lines/highlight/acne_mole) + mole_seg 24x24x1, protected masks *_0815A.data / face_mask_mapper_skin_mask.data",
+    "teeth FprsTeeth 256x192 -> 4ch, teeth_mask_order=3",
+    "blend via GLSL (image_beauty_facebeauty/facewarp bundles)"
+   ],
+   "models": [
+    "ai_face_beauty_processor.bundle",
+    "graphics/image_beauty_facebeauty.bundle",
+    "graphics/image_beauty_facewarp.bundle",
+    "graphics/image_beauty_basic.bundle"
+   ],
+   "confidence": "confirmed"
+  },
+  {
+   "name": "body reshape / body slim",
+   "entrypoints": [
+    "FUAI_NewHumanProcessorFromBundle @0x41fdf4",
+    "FUAI_HumanProcessorGetPofJoint2dsFromResult",
+    "graphics/image_beauty_bodyslim.bundle (GLSL warp)"
+   ],
+   "pipeline": [
+    "RetinaNet-MobileNetV2 detector 320x320 (score 0.7)",
+    "FULLBODY_POFH2D 288x384x3 uint8 -> heatmaps 25kp 72x96, bdycntr 67 joints, POF offsets 48x64x78, BBF 6x8x192",
+    "MaxAveWeight estimation (size 12, ave_threshold 0.2), bbox expand 1.15",
+    "skeleton/rigid solve in libfuai (FUAI_HumanSkeleton*), mesh warp in GL"
+   ],
+   "models": [
+    "ai_human_processor_beautybody_mb.bundle"
+   ],
+   "confidence": "confirmed"
+  },
+  {
+   "name": "scene recognition / scene-aware beauty",
+   "entrypoints": [
+    "FUAI_PhotoEditingProcessorGetSceneTypeResult",
+    "FUAI_NewPhotoEditingProcessorFromBundle"
+   ],
+   "pipeline": [
+    "MobileOne S2 size384 FP16 classifier (MOBILEONE_S2_SIZE384_EXP30_DATA7.0.0_FP16.tflite, zip entry encrypted-prologue only)",
+    "scene id selects GLSL beauty preset"
+   ],
+   "models": [
+    "ai_photo_editing_processor_scene_recog.bundle",
+    "graphics/image_editor_scenebeauty.bundle"
+   ],
+   "confidence": "inferred"
+  },
+  {
+   "name": "makeup (texture layers)",
+   "entrypoints": [
+    "FaceUnity Nama MakeUpController (libCNamaSDK.so)",
+    "fuRenderBundles (JNI)"
+   ],
+   "pipeline": [
+    "select style bundle",
+    "decode PNG layers (brow/eye/lip masks)",
+    "blend in GL with face UV from landmarks"
+   ],
+   "models": [
+    "assets/makeup/item_bundle/*.bundle"
+   ],
+   "confidence": "confirmed"
+  },
+  {
+   "name": "object removal / inpainting",
+   "entrypoints": [
+    "com.miui.gallery.editor.photo.app.remover.Inpaint.inpaintBmpData",
+    "com.miui.mediaeditor.aigc.remover.InpaintProJni.nativeInit/nativeInpaint",
+    "libinpaint_jni.so (7 JNI)",
+    "libinpaint.so + libvis.so (NNF)"
+   ],
+   "pipeline": [
+    "Java passes bitmap + mask + RemoverNNFData",
+    "libvis NNF inference (model path supplied by plugin, not in APK)",
+    "upsampleBmpData blends the repaired patch"
+   ],
+   "models": [],
+   "confidence": "inferred"
+  },
+  {
+   "name": "language identification",
+   "entrypoints": [
+    "com.google.mlkit.nl.languageid.bundled.internal.ThickLanguageIdentifier.nativeIdentifyPossibleLanguages",
+    "liblanguage_id_l2c_jni.so @0xfce08 (op registration)"
+   ],
+   "pipeline": [
+    "tokenise text into <=128 word tokens (letters+marks)",
+    "per n in 1..4 hash every n-gram with MurmurHash64A(seed=10911) % vocab + 1",
+    "KmeansEmbeddingLookup codebook mean-pool -> 24 dims/order",
+    "concat 96 -> FC160 ReLU -> FC200 ReLU -> FC111 -> softmax",
+    "threshold 0.3, map via IndexToClassID"
+   ],
+   "models": [
+    "assets/tflite_langid.tflite.jpg"
+   ],
+   "confidence": "confirmed"
+  }
+ ],
+ "models": [
+  {
+   "path": "assets/model/ai_face_processor_detect_landmark.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 6450804,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/model/ai_face_beauty_processor.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 21870544,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/model/ai_face_attribute_processor.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 1912131,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/model/ai_face_bindi_seg_processor.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 512057,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/model/ai_beauty_type_processor.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 10299493,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/model/ai_human_processor_beautybody_mb.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 6244199,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/model/ai_photo_editing_processor_scene_recog.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 10741303,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/graphics/image_beauty_basic.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 2915687,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/graphics/image_beauty_facebeauty.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 4103446,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/graphics/image_beauty_facewarp.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 340615,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/graphics/image_beauty_bodyslim.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 18457,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/graphics/image_editor_enhance.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 3994454,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/graphics/image_editor_scenebeauty.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 174160,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/graphics/image_editor_autocrop.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 4769,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/graphics/image_editor_idphoto.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 6111,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/graphics/image_editor_portrait.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 5532,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/makeup/item_bundle/jingdian.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 374406,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/makeup/item_bundle/jingfu.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 123080,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/makeup/item_bundle/liti.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 231584,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/makeup/item_bundle/nanshi.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 84719,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/makeup/item_bundle/oumei.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 385035,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "assets/makeup/item_bundle/wenrou.bundle",
+   "format": "fuai_bundle (ZIP: TFLite + GLSL + PNG + config.json, XOR-obfuscated container)",
+   "size": 196743,
+   "weights": "partial",
+   "confidence": "confirmed",
+   "io": {
+    "container": "magic f35b0612 + 8B hdr + 16B IV + 1040B ciphertext + body; XOR key = b[4]^b[5]^b[6]"
+   }
+  },
+  {
+   "path": "in bundle ai_beauty_type_processor -> dense_eb.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 436824,
+   "io": {
+    "inputs": [
+     {
+      "name": "image",
+      "shape": [
+       1,
+       40,
+       40,
+       1
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       1,
+       13,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_1",
+      "shape": [
+       1,
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "CONV_2D",
+    "FULLY_CONNECTED",
+    "LOGISTIC",
+    "PACK",
+    "RESHAPE",
+    "SHAPE",
+    "STRIDED_SLICE"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_beauty_type_processor -> dense_eye_iris.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 504020,
+   "io": {
+    "inputs": [
+     {
+      "name": "image",
+      "shape": [
+       1,
+       64,
+       64,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "eye_s1",
+      "shape": [
+       1,
+       8,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "ht",
+      "shape": [
+       1,
+       64,
+       64,
+       1
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       1,
+       8,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_1",
+      "shape": [
+       1,
+       25,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_2",
+      "shape": [
+       1,
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "CONCATENATION",
+    "CONV_2D",
+    "FULLY_CONNECTED",
+    "LOGISTIC",
+    "MUL",
+    "PACK",
+    "RESHAPE",
+    "SHAPE",
+    "STRIDED_SLICE"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_beauty_type_processor -> dense_iris.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 200152,
+   "io": {
+    "inputs": [
+     {
+      "name": "image",
+      "shape": [
+       1,
+       64,
+       64,
+       1
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       25,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_1",
+      "shape": [
+       25,
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "AVERAGE_POOL_2D",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "RESHAPE",
+    "SOFTMAX"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_beauty_type_processor -> dense_mouth.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 453380,
+   "io": {
+    "inputs": [
+     {
+      "name": "image",
+      "shape": [
+       1,
+       64,
+       64,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "upper_s1",
+      "shape": [
+       1,
+       18,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "dense_s1",
+      "shape": [
+       1,
+       56,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "ht_upper_s1",
+      "shape": [
+       1,
+       64,
+       64,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "ht_dense_s1",
+      "shape": [
+       1,
+       64,
+       64,
+       1
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       56,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_1",
+      "shape": [
+       18,
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "CONCATENATION",
+    "CONV_2D",
+    "FULLY_CONNECTED",
+    "MUL",
+    "RESHAPE"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_beauty_type_processor -> face_landmark_lite_210818_360.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 484264,
+   "io": {
+    "inputs": [
+     {
+      "name": "input",
+      "shape": [
+       1,
+       64,
+       64,
+       1
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "add_7",
+      "shape": [
+       1,
+       154
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "AVERAGE_POOL_2D",
+    "CONV_2D",
+    "RESHAPE",
+    "SUB"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_beauty_type_processor -> model_hair.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 2791684,
+   "io": {
+    "inputs": [
+     {
+      "name": "inputs",
+      "shape": [
+       1,
+       96,
+       96,
+       1
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       7,
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "CONCATENATION",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "PRELU",
+    "RESHAPE",
+    "SUB"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_beauty_type_processor -> mouth_checker_14.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 32332,
+   "io": {
+    "inputs": [
+     {
+      "name": "input",
+      "shape": [
+       1,
+       40,
+       40,
+       3
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "softmax",
+      "shape": [
+       1,
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "AVERAGE_POOL_2D",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "MAX_POOL_2D",
+    "RESHAPE",
+    "SOFTMAX"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_beauty_type_processor -> n-0.5_416_0.05_4aspect6.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 1864936,
+   "io": {
+    "inputs": [
+     {
+      "name": "input_1",
+      "shape": [
+       1,
+       416,
+       416,
+       3
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       1,
+       7098,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_1",
+      "shape": [
+       1,
+       7098,
+       4
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_2",
+      "shape": [
+       1,
+       7098,
+       10
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "CONCATENATION",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MAX_POOL_2D",
+    "MUL",
+    "PAD",
+    "RESHAPE",
+    "RESIZE_NEAREST_NEIGHBOR",
+    "SPLIT",
+    "STRIDED_SLICE",
+    "TRANSPOSE"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_beauty_type_processor -> n-small_256_0.05_only_a5.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 101380,
+   "io": {
+    "inputs": [
+     {
+      "name": "input_1",
+      "shape": [
+       1,
+       256,
+       256,
+       3
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       1,
+       3072,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_1",
+      "shape": [
+       1,
+       3072,
+       4
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_2",
+      "shape": [
+       1,
+       3072,
+       10
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "CONCATENATION",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MAX_POOL_2D",
+    "MUL",
+    "PAD",
+    "RESHAPE",
+    "RESIZE_NEAREST_NEIGHBOR",
+    "SPLIT",
+    "STRIDED_SLICE",
+    "TRANSPOSE"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_beauty_type_processor -> s1_112_98.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 2106152,
+   "io": {
+    "inputs": [
+     {
+      "name": "inputs",
+      "shape": [
+       1,
+       112,
+       112,
+       1
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_1",
+      "shape": [
+       98,
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "AVERAGE_POOL_2D",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "RESHAPE",
+    "SOFTMAX"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_beauty_type_processor -> s2.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 594960,
+   "io": {
+    "inputs": [
+     {
+      "name": "inputs",
+      "shape": [
+       1,
+       112,
+       112,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "inputs_ht",
+      "shape": [
+       1,
+       112,
+       112,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "inputs_lms",
+      "shape": [
+       1,
+       77,
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       1,
+       77,
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "AVERAGE_POOL_2D",
+    "CONCATENATION",
+    "CONV_2D",
+    "MUL",
+    "PACK",
+    "RESHAPE",
+    "SHAPE",
+    "STRIDED_SLICE"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_beauty_type_processor -> s3.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 987788,
+   "io": {
+    "inputs": [
+     {
+      "name": "inputs_le",
+      "shape": [
+       1,
+       64,
+       64,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "inputs_leb",
+      "shape": [
+       1,
+       64,
+       64,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "inputs_re",
+      "shape": [
+       1,
+       64,
+       64,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "inputs_reb",
+      "shape": [
+       1,
+       64,
+       64,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "inputs_mouth",
+      "shape": [
+       1,
+       64,
+       64,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "ht_le",
+      "shape": [
+       1,
+       64,
+       64,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "ht_leb",
+      "shape": [
+       1,
+       64,
+       64,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "ht_re",
+      "shape": [
+       1,
+       64,
+       64,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "ht_reb",
+      "shape": [
+       1,
+       64,
+       64,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "ht_mouth",
+      "shape": [
+       1,
+       64,
+       64,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "lm_le",
+      "shape": [
+       1,
+       8,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "lm_leb",
+      "shape": [
+       1,
+       6,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "lm_re",
+      "shape": [
+       1,
+       8,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "lm_reb",
+      "shape": [
+       1,
+       6,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "lm_mouth",
+      "shape": [
+       1,
+       18,
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       1,
+       8,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_1",
+      "shape": [
+       1,
+       6,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_2",
+      "shape": [
+       1,
+       8,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_3",
+      "shape": [
+       1,
+       6,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_4",
+      "shape": [
+       1,
+       18,
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "AVERAGE_POOL_2D",
+    "CONCATENATION",
+    "CONV_2D",
+    "MUL",
+    "PACK",
+    "RESHAPE",
+    "SHAPE",
+    "STRIDED_SLICE"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_face_beauty_processor -> Fprs.0003.Exp007e33_quan1_sm.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 1196952,
+   "io": {
+    "inputs": [
+     {
+      "name": "serving_default_image:0",
+      "shape": [
+       1,
+       512,
+       384,
+       3
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "StatefulPartitionedCall:0",
+      "shape": [
+       1,
+       512,
+       384,
+       15
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "AVERAGE_POOL_2D",
+    "CONCATENATION",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "DEQUANTIZE",
+    "QUANTIZE",
+    "RESIZE_BILINEAR",
+    "RESIZE_NEAREST_NEIGHBOR",
+    "SOFTMAX"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "reimpl/bundles/Fprs.0003.Exp007e33_quan1_sm",
+   "verification": "FAIL max_abs 0.176",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_face_beauty_processor -> FprsTeeth.0001.Exp002pe99_quan1_sm.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 598456,
+   "io": {
+    "inputs": [
+     {
+      "name": "serving_default_image:0",
+      "shape": [
+       1,
+       192,
+       256,
+       3
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "StatefulPartitionedCall:0",
+      "shape": [
+       1,
+       192,
+       256,
+       4
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "AVERAGE_POOL_2D",
+    "CONCATENATION",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "DEQUANTIZE",
+    "QUANTIZE",
+    "RESIZE_BILINEAR",
+    "RESIZE_NEAREST_NEIGHBOR",
+    "SOFTMAX"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_face_beauty_processor -> hair_1209a_acnenet_crop0.1pos0.1_3x24x24_quat.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 117360,
+   "io": {
+    "inputs": [
+     {
+      "name": "input_1",
+      "shape": [
+       1,
+       24,
+       24,
+       3
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       1,
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "AVERAGE_POOL_2D",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "FULLY_CONNECTED",
+    "MAX_POOL_2D",
+    "MUL",
+    "SOFTMAX"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "reimpl/bundles/hair_1209a_acnenet_crop0.1pos0.1_3x24x24_quat",
+   "verification": "PASS vs LiteRT interpreter",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_face_beauty_processor -> highlight_1209a_acnenet_crop0.2pos0.1_3x24x24_quat.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 116640,
+   "io": {
+    "inputs": [
+     {
+      "name": "input_1",
+      "shape": [
+       1,
+       24,
+       24,
+       3
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       1,
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "AVERAGE_POOL_2D",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "FULLY_CONNECTED",
+    "MAX_POOL_2D",
+    "MUL",
+    "SOFTMAX"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_face_beauty_processor -> lines_1209a_acnenet_crop0.1pos0.1_3x24x24_quat.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 117360,
+   "io": {
+    "inputs": [
+     {
+      "name": "input_1",
+      "shape": [
+       1,
+       24,
+       24,
+       3
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       1,
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "AVERAGE_POOL_2D",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "FULLY_CONNECTED",
+    "MAX_POOL_2D",
+    "MUL",
+    "SOFTMAX"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_face_beauty_processor -> mobile_spade_256_ch16_from16_40000_ft16_ftsave_yunfu.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 9968196,
+   "io": {
+    "inputs": [
+     {
+      "name": "input_tensor",
+      "shape": [
+       1,
+       256,
+       256,
+       3
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "generator_1/Tanh",
+      "shape": [
+       1,
+       256,
+       256,
+       3
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "DEQUANTIZE",
+    "MUL",
+    "RESIZE_BILINEAR",
+    "TANH"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_face_beauty_processor -> mobile_spade_256_ch16_from16_ftsevere_lr0.0001_117_16001.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 9968400,
+   "io": {
+    "inputs": [
+     {
+      "name": "input_tensor",
+      "shape": [
+       1,
+       256,
+       256,
+       3
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "generator_1/Tanh",
+      "shape": [
+       1,
+       256,
+       256,
+       3
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "DEQUANTIZE",
+    "MUL",
+    "RESIZE_BILINEAR",
+    "RESIZE_NEAREST_NEIGHBOR",
+    "TANH"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_face_beauty_processor -> mole_seg_24x24x3_1206_quat.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 144408,
+   "io": {
+    "inputs": [
+     {
+      "name": "input_1",
+      "shape": [
+       1,
+       24,
+       24,
+       3
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       1,
+       24,
+       24,
+       1
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "CONCATENATION",
+    "CONV_2D",
+    "LOGISTIC",
+    "MAX_POOL_2D",
+    "MUL",
+    "RESIZE_BILINEAR"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "reimpl/bundles/mole_seg_24x24x3_1206_quat",
+   "verification": "PASS vs LiteRT interpreter",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_face_beauty_processor -> skin_model_expand_supply_pta18000_quant_resizetrain_seg153.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 2433488,
+   "io": {
+    "inputs": [
+     {
+      "name": "input_layer",
+      "shape": [
+       1,
+       320,
+       320,
+       3
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       1,
+       320,
+       320,
+       1
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "AVERAGE_POOL_2D",
+    "CONCATENATION",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "DEQUANTIZE",
+    "LOGISTIC",
+    "QUANTIZE",
+    "RESIZE_BILINEAR"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_face_processor_detect_landmark -> Fpe.0007.Exp101.ERefine3e70_refine1.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 1473180,
+   "io": {
+    "inputs": [
+     {
+      "name": "serving_default_inputs_f14:0",
+      "shape": [
+       1,
+       364,
+       4,
+       48
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "serving_default_inputs_landmark:0",
+      "shape": [
+       1,
+       91,
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "StatefulPartitionedCall:0",
+      "shape": [
+       1,
+       91,
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "CONCATENATION",
+    "CONV_2D",
+    "FULLY_CONNECTED",
+    "PRELU",
+    "RESHAPE",
+    "STRIDED_SLICE"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_face_processor_detect_landmark -> Fpe.0007.Exp101.ERefine3e70_refine2.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 1100456,
+   "io": {
+    "inputs": [
+     {
+      "name": "serving_default_inputs_landmark:0",
+      "shape": [
+       1,
+       91,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "serving_default_inputs_f28:0",
+      "shape": [
+       1,
+       364,
+       4,
+       32
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "StatefulPartitionedCall:0",
+      "shape": [
+       1,
+       91,
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "CONCATENATION",
+    "CONV_2D",
+    "FULLY_CONNECTED",
+    "PRELU",
+    "RESHAPE",
+    "STRIDED_SLICE"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_face_processor_detect_landmark -> Fpe.0007.Exp101.ERefine3e70_refine3.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 948808,
+   "io": {
+    "inputs": [
+     {
+      "name": "serving_default_inputs_f56:0",
+      "shape": [
+       1,
+       364,
+       4,
+       24
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "serving_default_inputs_landmark:0",
+      "shape": [
+       1,
+       91,
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "StatefulPartitionedCall:4",
+      "shape": [
+       13,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "StatefulPartitionedCall:0",
+      "shape": [
+       91,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "StatefulPartitionedCall:1",
+      "shape": [
+       13,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "StatefulPartitionedCall:5",
+      "shape": [
+       16,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "StatefulPartitionedCall:2",
+      "shape": [
+       16,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "StatefulPartitionedCall:3",
+      "shape": [
+       56,
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "CONCATENATION",
+    "CONV_2D",
+    "DIV",
+    "FULLY_CONNECTED",
+    "GATHER",
+    "MUL",
+    "PRELU",
+    "REDUCE_MAX",
+    "REDUCE_MIN",
+    "RESHAPE",
+    "STRIDED_SLICE",
+    "SUB"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_face_processor_detect_landmark -> Fpe.0007.Exp101.XScore.s76e150_base.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 735956,
+   "io": {
+    "inputs": [
+     {
+      "name": "serving_default_inputs:0",
+      "shape": [
+       1,
+       112,
+       112,
+       1
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "StatefulPartitionedCall:1",
+      "shape": [
+       1,
+       28,
+       28,
+       32
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "StatefulPartitionedCall:3",
+      "shape": [
+       1,
+       14,
+       14,
+       48
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "StatefulPartitionedCall:2",
+      "shape": [
+       1,
+       91,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "StatefulPartitionedCall:5",
+      "shape": [
+       1,
+       1,
+       1,
+       91
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "StatefulPartitionedCall:4",
+      "shape": [
+       1,
+       1,
+       1,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "StatefulPartitionedCall:0",
+      "shape": [
+       1,
+       56,
+       56,
+       24
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "CONCATENATION",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "PAD",
+    "PRELU",
+    "RESHAPE",
+    "SOFTMAX"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_face_processor_detect_landmark -> face_landmark_mb360_64.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 346788,
+   "io": {
+    "inputs": [
+     {
+      "name": "input",
+      "shape": [
+       1,
+       64,
+       64,
+       1
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "add_7",
+      "shape": [
+       1,
+       154
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "AVERAGE_POOL_2D",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "RESHAPE",
+    "SUB"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "reimpl/bundles/face_landmark_mb360_64",
+   "verification": "PASS vs LiteRT interpreter",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_face_processor_detect_landmark -> facecheck40_dense_2000000_regress.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 155144,
+   "io": {
+    "inputs": [
+     {
+      "name": "input",
+      "shape": [
+       1,
+       40,
+       40,
+       1
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "detect",
+      "shape": [
+       1,
+       1
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "RESHAPE"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "reimpl/bundles/facecheck40_dense_2000000_regress",
+   "verification": "PASS vs LiteRT interpreter",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_face_processor_detect_landmark -> head.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 7804,
+   "io": {
+    "inputs": [
+     {
+      "name": "input_1",
+      "shape": [
+       1,
+       126
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       1,
+       14
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "FULLY_CONNECTED"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "reimpl/bundles/head",
+   "verification": "PASS vs LiteRT interpreter",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_face_processor_detect_landmark -> n-0.5_416_0.05_4aspect6.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 1864936,
+   "io": {
+    "inputs": [
+     {
+      "name": "input_1",
+      "shape": [
+       1,
+       416,
+       416,
+       3
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       1,
+       7098,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_1",
+      "shape": [
+       1,
+       7098,
+       4
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_2",
+      "shape": [
+       1,
+       7098,
+       10
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "CONCATENATION",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MAX_POOL_2D",
+    "MUL",
+    "PAD",
+    "RESHAPE",
+    "RESIZE_NEAREST_NEIGHBOR",
+    "SPLIT",
+    "STRIDED_SLICE",
+    "TRANSPOSE"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_face_processor_detect_landmark -> n-small_256_0.05_only_a5.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 101380,
+   "io": {
+    "inputs": [
+     {
+      "name": "input_1",
+      "shape": [
+       1,
+       256,
+       256,
+       3
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       1,
+       3072,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_1",
+      "shape": [
+       1,
+       3072,
+       4
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_2",
+      "shape": [
+       1,
+       3072,
+       10
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "CONCATENATION",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "LOGISTIC",
+    "MAX_POOL_2D",
+    "MUL",
+    "PAD",
+    "RESHAPE",
+    "RESIZE_NEAREST_NEIGHBOR",
+    "SPLIT",
+    "STRIDED_SLICE",
+    "TRANSPOSE"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_face_processor_detect_landmark -> s1.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 672836,
+   "io": {
+    "inputs": [
+     {
+      "name": "inputs",
+      "shape": [
+       1,
+       64,
+       64,
+       1
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       91,
+       2
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_1",
+      "shape": [
+       2
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "AVERAGE_POOL_2D",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "RESHAPE",
+    "SOFTMAX"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "reimpl/bundles/s1",
+   "verification": "PASS vs LiteRT interpreter",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_human_processor_beautybody_mb -> FULLBODY_POFH2D_20210302_0001_e1604_q.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 1268024,
+   "io": {
+    "inputs": [
+     {
+      "name": "Input_img",
+      "shape": [
+       1,
+       256,
+       192,
+       3
+      ],
+      "dtype": "UINT8"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Output_hms",
+      "shape": [
+       1,
+       64,
+       48,
+       31
+      ],
+      "dtype": "UINT8"
+     },
+     {
+      "name": "Output_pofs",
+      "shape": [
+       1,
+       64,
+       48,
+       78
+      ],
+      "dtype": "UINT8"
+     },
+     {
+      "name": "Output_bbfs",
+      "shape": [
+       1,
+       8,
+       6,
+       192
+      ],
+      "dtype": "UINT8"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "PAD",
+    "RESIZE_BILINEAR"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "in bundle ai_human_processor_beautybody_mb -> human_detector_retinanet_mobilenetv2_1.0_quant.tflite",
+   "format": "tflite (TFL3 flatbuffer)",
+   "size": 2674640,
+   "io": {
+    "inputs": [
+     {
+      "name": "input_1",
+      "shape": [
+       1,
+       320,
+       320,
+       3
+      ],
+      "dtype": "FLOAT32"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "Identity",
+      "shape": [
+       1,
+       19125,
+       1
+      ],
+      "dtype": "FLOAT32"
+     },
+     {
+      "name": "Identity_1",
+      "shape": [
+       1,
+       19125,
+       4
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "ADD",
+    "CONCATENATION",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "DEQUANTIZE",
+    "LOGISTIC",
+    "MUL",
+    "PACK",
+    "PAD",
+    "QUANTIZE",
+    "RESHAPE",
+    "RESIZE_NEAREST_NEIGHBOR",
+    "SHAPE",
+    "STRIDED_SLICE"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "",
+   "verification": "not converted",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "assets/tflite_langid.tflite.jpg",
+   "format": "tflite (TFL3)",
+   "size": 315520,
+   "io": {
+    "inputs": [
+     {
+      "name": "Placeholder",
+      "shape": [
+       1
+      ],
+      "dtype": "STRING"
+     }
+    ],
+    "outputs": [
+     {
+      "name": "pod/Softmax",
+      "shape": [
+       1,
+       111
+      ],
+      "dtype": "FLOAT32"
+     }
+    ]
+   },
+   "ops": [
+    "CUSTOM:NGramHash",
+    "UNPACK",
+    "CUSTOM:KmeansEmbeddingLookup",
+    "CONCATENATION",
+    "FULLY_CONNECTED",
+    "SOFTMAX"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "reimpl/model.py + reimpl/langid_pipeline.py",
+   "verification": "PASS: JAX vs NumPy max|d|=1.3e-06, 27/28 multilingual top-1 (reimpl/verify.txt)",
+   "confidence": "confirmed"
+  }
+ ],
+ "reimplementation": {
+  "path": "reimpl/",
+  "run_command": "python reimpl/verify.py && python reimpl/model.py 'Bonjour tout le monde'",
+  "status": "verified",
+  "limitations": "langid: verified numerically vs an independent NumPy implementation (max|d|=1.3e-06) and end-to-end 27/28 on 28 languages; bundle models: 6 of 7 converted models match the LiteRT reference interpreter within 1e-4, Fprs parsing model drifts (1.76e-01) due to quantized-graph emulation; the first 1024 bytes of each .bundle (and hence the first ZIP entry of each bundle) stay encrypted because BundleHelper::_obfuscation_key is never initialised in the APK."
+ },
+ "unknowns": [
+  "U1 value of CNamaSDK::BundleHelper::_obfuscation_key (never written in libCNamaSDK.so; only 7 GOT-relative reads and an empty-string static init) - blocks the 1024-byte prologue and with it 48 of 726 bundle entries: config.json of the landmark/beauty-type/scene bundles and the offset-0 models acne_mole_acnenet_1206_3x24x24_quat, age_gender160_0422, bindi_seg_tiny_2024_0924, Bdycntr.0406.Exp387c.x3e210_quan1 and MOBILEONE_S2_SIZE384_EXP30_DATA7.0.0_FP16",
+  "U2 exact scheme of BundleHelper::VerifySignature (0x5707e4, no mbedTLS calls) and content of the 64-byte ZIP EOCD comment",
+  "U3 CORRECTED (2026-10-24): com.miui.mediaeditor.algo.* IS defined in the APK (2,664 com.miui.mediaeditor classes; e.g. algo.beauty.face.FaceBeautyAlgorithm, algo.beauty.common.core.render.GlTexturePhotoRenderer, algo.beauty.common.BeautyBaseManager). The FaceUnity SDK classes are obfuscated (j2.c/j2.d/k2.a/f2.b/m2.a/gltexturerender.d), not absent. Still absent: the makeup-style selector (no Makeup* class) and any caller of XmsContext.setupBeauty - see U7/U8",
+  "U4 inpaint (libvis NNF), libaiedit (MNN) and motion-photo (MACE) weights are external files, so their I/O contracts are unknown",
+  "U5 which TFLite delegate (GPU/Hexagon/XNNPACK) is actually used per device",
+  "U6 why the Fprs face-parsing JAX conversion drifts (quantized graph emulation)",
+  "U7 which Java class selects makeup/item_bundle/<style>.bundle and binds it (no Makeup* class in either dex; the photo UI only exposes image_threed/image_red* sliders). The item contract itself (makeup_config.json + script.js + PNG layers) is fully recovered",
+  "U8 no in-APK caller of XmsContext.setupBeauty(soPath,bundlePath,cachePath,flag): the video beauty path (BeautyWapper in libMiVideoSDK.so, filter 'movit.filter.face.beauty') is an SDK capability; the host app wiring is outside this APK",
+  "U9 float input normalization for the FuAI parser/skin/teeth nets (no mean/std fields in config.json; libfuai exposes a mean_stddev_normalization key). Blocks a bit-exact JAX reimplementation of Fprs beyond the current 1.76e-01 drift",
+  "U10 FaceUnity GPU-vs-CPU delegate selection at runtime (per-model tflite_use_gpu with device gating; fallback branch inside libfuai not observed)"
+ ],
+ "data_pipelines": [
+  {
+   "id": "editor_photo_face_beauty",
+   "name": "Photo editor: decode -> FuAI/CNamaSDK -> TFLite -> GL render -> save",
+   "trigger": {
+    "ui": "com.miui.mediaeditor.beauty.module.facebeauty.render.FaceBeautyRenderFragment (created by FaceBeautyFunctionFragment.renderFragment)",
+    "model": "com.miui.mediaeditor.beauty.module.facebeauty.FaceBeautyViewModel.D/E (FaceBeautyMenuEntity per slider)",
+    "algo": "com.miui.mediaeditor.algo.beauty.face.FaceBeautyAlgorithm.a(BaseParam)/e(BaseParam,cb) -> processor map (BaseAlgorithm.h)",
+    "confidence": "confirmed",
+    "evidence": "sources/classes2/com.miui.mediaeditor.beauty.module.facebeauty.render.FaceBeautyRenderFragment.java; .../FaceBeautyViewModel.java:85-118; .../algo/beauty/face/FaceBeautyAlgorithm.java"
+   },
+   "transport": {
+    "input": "android.graphics.Bitmap (ARGB_8888; RGBA_F16 downcast; EXIF 3/6/8 rotated 180/90/270) or NV21 byte[]",
+    "format_enum": "com.faceunity.core.enumeration.FUInputBufferEnum: FU_FORMAT_BITMAP=999, FU_FORMAT_NV21_BUFFER=2, FU_FORMAT_YUV_BUFFER=0, FU_FORMAT_RGBA_BUFFER=4",
+    "nv21_layout": "Y plane w*h, then V at even offsets and U at odd (FURenderBridge.b); stride == width; w,h padded to even in gltexturerender.d.k",
+    "gl": "GLES20 context (setEGLContextClientVersion(2)), GL_TEXTURE_2D 3553, RENDERMODE_WHEN_DIRTY",
+    "threads": "GLSurfaceView render thread for all fu* calls; HandlerThread('KIT_...') per controller; single-thread ExecutorService for save",
+    "confidence": "confirmed",
+    "evidence": "sources/classes2/com.faceunity.core.support.FURenderBridge.java:400-560; .../gltexturerender.d.java:218-260; .../BaseGLTextureRenderer.java:130-145,440-560"
+   },
+   "preprocess": [
+    "1. Bitmap decode / EXIF rotate (gltexturerender.d.k)",
+    "2. optional RGBA->NV21: fuImageBeautyConvertRGBA2NV21WithBitmap(bitmap,w',h',buf) @0xbea334",
+    "3. fuImageBeautyPreProcess(format, tex=0, w, h, buf, stride=w, null,0, null,0, items, isGpu=1, isNewImage, processMode, scale=-1f) via FURenderBridge.h",
+    "4. engine-side per-model crop: config.json image_w/h/channels, mean_shape alignment (75 pts in 512x512 / 384x384 / 512x512 frames), netin_image_expand_udlr_ratio, landmark subsets (teeth kps75 46..63; bindi 28 ids), detect_rotation_crop=false",
+    "5. normalize: float32 tensors for parser/skin/teeth (internal QUANTIZE ops), uint8 for body keypoint; mean_stddev_normalization key exists in libfuai but value unknown"
+   ],
+   "model_invocation": {
+    "runtime": "FuAI 8.2.0 (vendored TensorFlow Lite, libfuai.so); faai/model/tflite/tflite_model.cc + tflite_model_preprocess.cc",
+    "selection": "algo.beauty.face.a.c(): graphics/image_beauty_facebeauty.bundle (GL) + model/ai_beauty_type_processor.bundle (FUAITYPE_FACEPROCESSOR_IMAGE_BEAUTY) + model/ai_face_beauty_processor.bundle (FUAITYPE_IMAGE_BEAUTY) + model/ai_face_bindi_seg_processor.bundle (FUAITYPE_FACEPROCESSOR_BINDI_SEG_PROCESSOR) + optional ai_wrinkle_remover_processor.bundle from getDir('libs')",
+    "loading": "k2.a.e(path,type,cb): fuIsAIModelLoaded(type) -> fuLoadAIModelFromPackage(bundleZipBytes,type); items via f2.b.a(path) -> fuSetInputCameraBufferMatrixState(1) -> fuCreateItemFromPackage(bytes)",
+    "session_params": "config.json tflite_model_param: tflite_name, threads, tflite_use_xnnpack, tflite_use_gpu + tflite_gpu_param{tflite_model_token,max_queue_count=8,tflite_gpu_use_serialization,tflite_init_create_gpu_close,tflite_release_tmp_memory}, tflite_use_dsp",
+    "tensor_binding": "Java binds only the image buffer (fuImageBeautyPreProcess / fuImageBeautyPreview / fuImageBeautyGetResultBitmap); per-tensor binding is inside libfuai using the config.json netin_/netout_ blocks",
+    "primary_model": "Fprs.0003.Exp007e33_quan1_sm.tflite: image FLOAT32 [1,512,384,3] -> [1,512,384,15] softmax, 1,196,952 B",
+    "confidence": "confirmed"
+   },
+   "postprocess": [
+    "parsing 15ch softmax; cate_mask_order [0..13,0,0,0,14,0]; out_mask_scale 0.5; flg_multiface_post_use_prob",
+    "skin seg: 320x320x1, mask_threshold 0.6, keep_block_radio 0.01",
+    "del-spot: 4 x 24x24x3->2 classifiers + mole_seg 24x24->24x24x1; diff_thresh 0.48, protected_mask_thresh 110, unit_rad_scale 35, expend_corner 1.2, scale_size 0.25",
+    "teeth: 192x256x4, teeth_mask_order 3, region from kps75 46..63, expand 0.25",
+    "mask->image via 80-vertex UV mesh (face_mask_mapper_face_mask.json, 136 tris) + 540x960 uint8 skin prior with 12-byte {w,h,c} header",
+    "landmark indexing for reshape via face_warp.json (283 verts / 528 tris; eye 113/86; mouth 106/44; face_uv_zz/bz 166 verts; eye_offset/chin_offset bases)",
+    "GPU warp: RGBA8 displacement map decoded as (r-127/255, (g-0.5)*2) and (b-127/255, (a-0.5)*2), applied as UV offset * intensity * scale * block_scale after rotation (image_chin_warp_fs.glsl)",
+    "coordinate transform API: FUAI_FaceProcessorGetResultAllLandmarksWarp @0x64a9c4, GetResultRectWarp @0x64a7e8, FUAI_SkinSegmenterGetResultMaskWarp @0x64a084",
+    "per-face state persisted as image_face_data JSON {p_rect,p_do_face_beauty,p_bdyscores,p_jointscores,p_pofdirpoints,p_pofdirscores}"
+   ],
+   "output": {
+    "preview": "texture id from fuImageBeautyPreview(items) drawn by n2.b shader in BaseGLTextureRenderer.b()",
+    "export": "gltexturerender.c.run -> FURenderBridge.d -> fuImageBeautyGetResultBitmap(w,h,items) -> CacheData(IMAGE) -> BeautyExportDataResult.d.f7421c = Bitmap.copy(ARGB_8888,true) -> editor save (com.miui.gallery.editor.photo.app.saver.SaveParam)",
+    "confidence": "confirmed (up to Bitmap); file write inferred"
+   },
+   "lifecycle": {
+    "init": "BeautyBaseManager.b(): fuSetMaxFaces(5), fuSetHumanProcessorSetMaxHumans(1), fuSetFaceProcessorDetectMode(IMAGE), fuImageBeautySetAttributePath, fuImageBeautySetFaceBeautyPath, FURenderKit.e(sdkImageCache); AtomicBoolean guard",
+    "per_image": "one preprocess + one preview render + one result read per user action; no per-frame loop",
+    "teardown": "BeautyBaseManager.d(): k2.a.d.a().g() (release all AI models), editor impl a() (fuReleaseGLResources/fuDone/fuOnDeviceLost), destroy items",
+    "fallback": "fuIsAIModelLoaded short-circuit; load errors 10001/10002 with fuGetSystemError; missing dynamic-feature bundle -> download prompt (photo_editor_common_download_failed_msg)"
+   },
+   "confidence": "confirmed",
+   "evidence": [
+    "PIPELINE.md sections 0-7",
+    "sources/classes/com.faceunity.core.support.FURenderBridge.java",
+    "sources/classes2/com.faceunity.core.renderer.gltexturerender.d.java",
+    "sources/classes2/com.faceunity.core.renderer.gltexturerender.BaseGLTextureRenderer.java",
+    "sources/classes2/k2.a.java",
+    "sources/classes2/f2.b.java",
+    "sources/classes2/m2.a.java",
+    "sources/classes2/com.miui.mediaeditor.algo.beauty.face.a.java",
+    "models/bundles/config_ai_face_beauty_processor.json",
+    "evidence/native_fuai_params.txt"
+   ]
+  },
+  {
+   "id": "editor_video_beauty",
+   "name": "Video editor / transcode: MediaCodec frames -> MLT graph -> dlopen'd FaceUnity beauty -> encoder",
+   "trigger": {
+    "java": "com.xiaomi.milab.videosdk.XmsContext.setupBeauty(soPath,bundlePath,cachePath,flag) / shutDownBeauty()",
+    "jni": "Java_com_xiaomi_milab_videosdk_XmsContext_nativeSetupBeauty @0xf4704 -> Context::setupBeauty @0xed444",
+    "caller_in_apk": "none (definition only) - the app-level video UI (com.miui.mediaeditor.video.*) never calls it",
+    "confidence": "confirmed (API), unknown (who calls it)"
+   },
+   "transport": {
+    "decode": "libMiVideoSDK.so: NDK AMediaCodec (createDecoderByType/dequeueOutputBuffer/createInputSurface) plus bundled libhevc software HEVC decoder (external/libhevc/decoder/ihevcd_*.c); frames pulled via FrameRetriever.nativeGetNextFrame @0x108840 / nativeGetNextFrameData @0x108914; MLT/Movit GL graph",
+    "beauty_input": "BeautyWapper::render(int,void*,int,void*,int,int,int,int*,int,int,int,void*) - texture/ptr + dims + params array + output ptr",
+    "graph_properties": "filter.face.beauty.{tex.render,cache.texture,cache.position,last.position,surface.width,surface.height,backup}",
+    "confidence": "confirmed (symbols/strings), inferred (argument meaning)",
+    "confirmed_decode_evidence": "evidence/video_beauty_native.txt"
+   },
+   "preprocess": [
+    "FaceUnity library is not linked: BeautyWapper dlopens soPath and resolves a 5-entry function table (setupFunc, setParamdFunc, setParamsFunc, renderFunc, destoryFunc) logged as 'BeautyWapper setupFunc.ptr ...'",
+    "Context::setupBeauty then calls faceProcessorSetFaceLandmarkQuality, setMaxFaces, setFaceProcessorDetectMode, enableVideoHash(true) and registers mlt_face_beauty_register()",
+    "per-frame params are pushed from MLT properties by _Z15configFaceParamP12BeautyWapperP16mlt_properties_s (configFaceParam) and _Z12refreshParamP12BeautyWapper..."
+   ],
+   "model_invocation": {
+    "runtime": "same FaceUnity engine (bundle_path passed to setupBeauty)",
+    "cadence": "per video frame (render cadence of the timeline), with a texture cache (cacheNum/mix_order log fields)",
+    "confidence": "confirmed (engine + cadence strings), unknown (which bundle the host passes)"
+   },
+   "postprocess": [
+    "beauty output texture is mixed back by the Movit node (mix_order log field), then encoded by MediaTranscode",
+    "no Java-side mask/landmark handling in this path"
+   ],
+   "output": {
+    "preview": "XmsTextureView / GL surface",
+    "export": "com.xiaomi.milab.videosdk.MediaTranscode (hardware encode)",
+    "confidence": "confirmed"
+   },
+   "lifecycle": {
+    "init": "setupBeauty once per XmsContext (soPath,bundlePath,cachePath)",
+    "teardown": "shutDownBeauty -> Context::shutdownBeauty",
+    "fallback": "'BeautyWapper ... dlopen get error: %s' -> filter not registered, video renders without beauty"
+   },
+   "confidence": "confirmed",
+   "evidence": [
+    "PIPELINE.md section 1.2 / 2.3",
+    "sources/classes2/com.xiaomi.milab.videosdk.XmsContext.java:204,453",
+    "evidence/video_beauty_native.txt",
+    "native/libMiVideoSDK.elf.txt"
+   ]
+  },
+  {
+   "id": "editor_photo_makeup",
+   "name": "Makeup styles: item package (makeup_config.json + script.js + PNG layers) composited by MakeUpController",
+   "trigger": {
+    "assets": "assets/makeup/item_bundle/{jingdian,jingfu,liti,nanshi,oumei,wenrou}.bundle (6 styles, 84,719-385,035 B)",
+    "java_selector": "unknown - no Makeup* class in either dex; the photo UI only exposes image_threed / image_red / image_red_type / image_sharpenbrown / image_sharpenbrown_type sliders (m2.a.g0/c0/b0/M/L), auto-set by the smart-style table in IFUCoreBeautyImpl.c",
+    "confidence": "confirmed (params/assets), unknown (style selection)"
+   },
+   "transport": {
+    "item": "bundle zip -> fuCreateItemFromPackage(bytes) -> handle; bound with fuBindItems(faceHandle,[handle])",
+    "textures": "PNG layers loaded inside the engine by script.js via FaceUnity.LoadTexture(file,0)",
+    "script_engine": "duktape (DukValue bindings in libCNamaSDK)"
+   },
+   "preprocess": [
+    "makeup_config.json keys per group: tex_eyeBrow/makeup_eyeBrow_color/makeup_intensity_eyeBrow, tex_eye*/makeup_eye_color(2), tex_eyeLiner, tex_eyelash, tex_lip_mask_bz/zz/is_two_color/lip_type/lip_blend_weight_type/makeup_lip_color, tex_blusher, tex_highlight, tex_shadow + blend_type_tex_* ",
+    "brow_warp/brow_warp_type/use_brow_v2/use_eye_v2 select mesh variants from face_warp.json (face_uv_zz/face_uv_bz = 166-vertex lip meshes)"
+   ],
+   "model_invocation": {
+    "runtime": "no TFLite in the makeup path - textures + GLSL only",
+    "confidence": "confirmed"
+   },
+   "postprocess": [
+    "native MakeUpController: makeup_index_v, makeup_current_index, makeupPreprocessLipMask, GetLipMaskTexture, makeupPointsCalc, makeup_distance, makeup_occlusion_type, makeup_lip_color2, makeup_blusher_color2",
+    "layer order: eyeBrow -> eye -> eyeLiner -> eyelash -> lip -> blusher -> highlight -> shadow (config order), multiplied by makeup_intensity_* and blend_type_tex_*",
+    "occlusion uses the parsing mask (15-class) and lip masks (mask1.png = bz, mask2*.png = zz)"
+   ],
+   "output": {
+    "consumer": "same GLTexturePhotoRenderer path; result lands in the exported Bitmap (CacheData)",
+    "confidence": "inferred (no makeup-specific Java caller)"
+   },
+   "lifecycle": {
+    "init": "item created when the style is applied; textures loaded by script.js OnBind",
+    "teardown": "fuDestroyItem / fuUnbindItems",
+    "fallback": "missing texture -> script.js sets the param to 0 (graceful)"
+   },
+   "confidence": "confirmed",
+   "evidence": [
+    "PIPELINE.md section 5.5",
+    "models/bundles/makeup_jingdian_config.json",
+    "models/bundles/makeup_jingdian_script.js",
+    "evidence/editor_datapath.txt",
+    "sources/classes2/com.faceunity.core.controller.BaseSingleController.java",
+    "sources/classes2/f2.b.java"
+   ]
+  },
+  {
+   "id": "editor_photo_inpaint",
+   "name": "Object removal: mask -> libvis NNF inpaint -> NNF upsample -> composite",
+   "trigger": {
+    "ui": "com.miui.mediaeditor.photo.remover.RemoverRenderFragment + RemoverGestureView (brush strokes -> mask bitmap)",
+    "algo": "com.miui.mediaeditor.algo.base.BaseAlgorithm dispatch; InpaintAIEngine (BaseAIEngine, FUNC d/e) decides local vs edge-cloud",
+    "jni": "com.miui.gallery.editor.photo.app.remover.Inpaint.{initialize,inpaintBmpData,upsampleBmpData,releaseNNF}; com.miui.mediaeditor.aigc.remover.InpaintProJni.{nativeInit,nativeInpaint,nativeUpsample,nativeRelease}",
+    "confidence": "confirmed"
+   },
+   "transport": {
+    "input": "src Bitmap + mask Bitmap (painted strokes; RemoverGestureView Curve/Free/StraightLine/Point elements)",
+    "nnf": "RemoverNNFData {width,height,index,count, byte[] nnf} - low-res nearest-neighbour field, Parcelable over MemoryFile",
+    "libraries": "libvis.so + libinpaint.so + libinpaint_jni.so (System.load from com.miui.gallery.editor.photo.app.remover.Inpaint static init)",
+    "confidence": "confirmed"
+   },
+   "preprocess": [
+    "paint strokes are converted to a binary mask bitmap by the remover fragment/gesture view",
+    "InpaintProJni.init(long,long,modelDir1,modelDir2) takes two model directories (external NNF files)",
+    "nativeInit returns an opaque handle used by inpaint/upsample"
+   ],
+   "model_invocation": {
+    "runtime": "Mi 'vis' NNF engine (libvis.so); libinpaint.so only contains NNF glue (setfree_nnfindex, dstnnf, releaseNNF) - no TFLite/MACE symbols",
+    "model": "external .nnf file supplied by the dynamic-feature/download path, not in this APK",
+    "confidence": "confirmed (runtime), unknown (weights)"
+   },
+   "postprocess": [
+    "native inpaint returns an integer status + fills RemoverNNFData",
+    "Inpaint.upsampleBmpData / InpaintProJni.upsample(handle,bitmap,w,h,NNFData) warps the NNF to full resolution and blends the patch",
+    "result bitmap is composited by the remover render fragment into the editor undo stack"
+   ],
+   "output": {
+    "consumer": "RemoverRenderFragment / InPaintProRenderHelper -> editor export",
+    "confidence": "inferred"
+   },
+   "lifecycle": {
+    "init": "Inpaint.initialize() once per process; InpaintProJni.init per model directory",
+    "per_edit": "inpaint -> upsample -> releaseNNF(handle)",
+    "fallback": "Inpaint.isAvailable()==false when libvis/libinpaint/libinpaint_jni fail to load; InpaintAIEngine falls back to the edge-cloud engine (ManagerStatus/ManagerListConfig.FUNC)"
+   },
+   "confidence": "confirmed",
+   "evidence": [
+    "PIPELINE.md section 5.6",
+    "sources/classes/com.miui.gallery.editor.photo.app.remover.Inpaint.java",
+    "sources/classes/com.miui.mediaeditor.aigc.remover.InpaintProJni.java",
+    "sources/classes2/com.miui.mediaeditor.photo.remover.model.RemoverNNFData.java",
+    "sources/classes2/com.miui.mediaeditor.photo.remover_pro.InpaintAIEngine.java",
+    "native/libinpaint.elf.txt"
+   ]
+  }
+ ]
+}

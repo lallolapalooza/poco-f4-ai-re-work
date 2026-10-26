@@ -1,0 +1,27 @@
+# subgraph 4 name='save_for_replace' role=save inputs=[0] outputs=[0] tensors=26 ops=26
+[  0] CALL_ONCE            inputs=[] outputs=[] options={'InitSubgraphIndex': 6}
+[  1] VAR_HANDLE           inputs=[] outputs=['2:dnn_model_1/dense_4/bias3[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f342f62696173'}
+[  2] VAR_HANDLE           inputs=[] outputs=['3:dnn_model_1/dense_4/kernel3[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f342f6b65726e656c'}
+[  3] VAR_HANDLE           inputs=[] outputs=['4:dnn_model_1/dense_5/bias3[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f352f62696173'}
+[  4] VAR_HANDLE           inputs=[] outputs=['5:dnn_model_1/dense_5/kernel3[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f352f6b65726e656c'}
+[  5] VAR_HANDLE           inputs=[] outputs=['6:dnn_model_1/dense_6/bias3[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f362f62696173'}
+[  6] VAR_HANDLE           inputs=[] outputs=['7:dnn_model_1/dense_6/kernel3[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f362f6b65726e656c'}
+[  7] VAR_HANDLE           inputs=[] outputs=['8:dnn_model_1/dense_7/bias3[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f372f62696173'}
+[  8] VAR_HANDLE           inputs=[] outputs=['9:dnn_model_1/dense_7/kernel3[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f372f6b65726e656c'}
+[  9] READ_VARIABLE        inputs=['2:dnn_model_1/dense_4/bias3[]:RESOURCE'] outputs=['10:Read_1/ReadVariableOp1[3]:FLOAT32'] options={}
+[ 10] READ_VARIABLE        inputs=['2:dnn_model_1/dense_4/bias3[]:RESOURCE'] outputs=['11:Read_9/ReadVariableOp1[3]:FLOAT32'] options={}
+[ 11] READ_VARIABLE        inputs=['5:dnn_model_1/dense_5/kernel3[]:RESOURCE'] outputs=['12:Read_10/ReadVariableOp1[3, 128]:FLOAT32'] options={}
+[ 12] READ_VARIABLE        inputs=['5:dnn_model_1/dense_5/kernel3[]:RESOURCE'] outputs=['13:Read_2/ReadVariableOp1[3, 128]:FLOAT32'] options={}
+[ 13] READ_VARIABLE        inputs=['4:dnn_model_1/dense_5/bias3[]:RESOURCE'] outputs=['14:Read_11/ReadVariableOp1[128]:FLOAT32'] options={}
+[ 14] READ_VARIABLE        inputs=['4:dnn_model_1/dense_5/bias3[]:RESOURCE'] outputs=['15:Read_3/ReadVariableOp1[128]:FLOAT32'] options={}
+[ 15] READ_VARIABLE        inputs=['7:dnn_model_1/dense_6/kernel3[]:RESOURCE'] outputs=['16:Read_12/ReadVariableOp1[128, 64]:FLOAT32'] options={}
+[ 16] READ_VARIABLE        inputs=['7:dnn_model_1/dense_6/kernel3[]:RESOURCE'] outputs=['17:Read_4/ReadVariableOp1[128, 64]:FLOAT32'] options={}
+[ 17] READ_VARIABLE        inputs=['6:dnn_model_1/dense_6/bias3[]:RESOURCE'] outputs=['18:Read_13/ReadVariableOp1[64]:FLOAT32'] options={}
+[ 18] READ_VARIABLE        inputs=['6:dnn_model_1/dense_6/bias3[]:RESOURCE'] outputs=['19:Read_5/ReadVariableOp1[64]:FLOAT32'] options={}
+[ 19] READ_VARIABLE        inputs=['9:dnn_model_1/dense_7/kernel3[]:RESOURCE'] outputs=['20:Read_14/ReadVariableOp1[64, 1]:FLOAT32'] options={}
+[ 20] READ_VARIABLE        inputs=['9:dnn_model_1/dense_7/kernel3[]:RESOURCE'] outputs=['21:Read_6/ReadVariableOp1[64, 1]:FLOAT32'] options={}
+[ 21] READ_VARIABLE        inputs=['8:dnn_model_1/dense_7/bias3[]:RESOURCE'] outputs=['22:Read_15/ReadVariableOp1[1]:FLOAT32'] options={}
+[ 22] READ_VARIABLE        inputs=['8:dnn_model_1/dense_7/bias3[]:RESOURCE'] outputs=['23:Read_7/ReadVariableOp1[1]:FLOAT32'] options={}
+[ 23] READ_VARIABLE        inputs=['3:dnn_model_1/dense_4/kernel3[]:RESOURCE'] outputs=['24:Read/ReadVariableOp1[3, 3]:FLOAT32'] options={}
+[ 24] READ_VARIABLE        inputs=['3:dnn_model_1/dense_4/kernel3[]:RESOURCE'] outputs=['25:Read_8/ReadVariableOp1[3, 3]:FLOAT32'] options={}
+[ 25] CUSTOM               inputs=['0:save_for_replace_checkpoint_path:0[]:STRING', '1:save/tensor_names1[16]:STRING', '24:Read/ReadVariableOp1[3, 3]:FLOAT32', '10:Read_1/ReadVariableOp1[3]:FLOAT32', '13:Read_2/ReadVariableOp1[3, 128]:FLOAT32', '15:Read_3/ReadVariableOp1[128]:FLOAT32', '17:Read_4/ReadVariableOp1[128, 64]:FLOAT32', '19:Read_5/ReadVariableOp1[64]:FLOAT32', '21:Read_6/ReadVariableOp1[64, 1]:FLOAT32', '23:Read_7/ReadVariableOp1[1]:FLOAT32', '25:Read_8/ReadVariableOp1[3, 3]:FLOAT32', '11:Read_9/ReadVariableOp1[3]:FLOAT32', '12:Read_10/ReadVariableOp1[3, 128]:FLOAT32', '14:Read_11/ReadVariableOp1[128]:FLOAT32', '16:Read_12/ReadVariableOp1[128, 64]:FLOAT32', '18:Read_13/ReadVariableOp1[64]:FLOAT32', '20:Read_14/ReadVariableOp1[64, 1]:FLOAT32', '22:Read_15/ReadVariableOp1[1]:FLOAT32'] outputs=[] options={}

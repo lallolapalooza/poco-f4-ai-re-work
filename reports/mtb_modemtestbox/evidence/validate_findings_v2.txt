@@ -1,0 +1,2 @@
+findings.json: 1 feature(s), 1 model(s), 1 data pipeline(s)
+VALID (required keys, types, enums, data_pipelines structure)

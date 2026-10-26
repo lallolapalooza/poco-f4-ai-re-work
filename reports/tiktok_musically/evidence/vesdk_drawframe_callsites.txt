@@ -1,0 +1,57 @@
+# libttvesdk.so — PLT call-site scan for the effect frame API
+# lib sha256 e38abe25719145bb5fdf11729003615bce09f374d04c4e3d0e9c400665a6ce74 (identical in musically + trill)
+# method: readelf -rW -> R_AARCH64_JUMP_SLOT slot; PLT1=0x19e4d0 covers slot 0x8c2128, 16 B/stub; linear capstone scan of .text for bl/b to each stub.
+
+## string refs inside the enclosing function (rodata)
+0x5cb5e5  DrawFrame:LoadResource
+0x5cb62f  DrawFrame:bef_effect_algorithm
+0x5cb6b4  [%d] bef_effect_process_texture >>>
+0x5cb68f  [%d] mimo out usage[%d],[w=%d][h=%d]
+
+## call sites
+set_width_height                            0x1cf548 0x411f74 0x412024 0x413f4c 0x554420
+algorithm_multi_texture_with_params         0x1cf740 0x4122c0
+process_textures_with_native_buffers        0x1cf81c
+process_texture                             0x1cf950 0x4b7350
+process_texture_mimo                        0x1cf9bc
+process_texture_with_loading_timeout        0x413228
+
+## disassembly of the camera-preview branch (0x1cf540..0x1cf954)
+0x1cf540: ldp      w1, w2, [x23, #0x14]
+0x1cf544: mov      x0, x21
+0x1cf548: bl       #0x19edb0
+0x1cf54c: ldr      w9, [x23, #0x10]
+0x1cf550: adrp     x8, #0x5c4000
+...
+0x1cf8e0: cmp      x24, x28
+0x1cf8e4: b.ge     #0x1cf958
+0x1cf8e8: bl       #0x539a3c
+0x1cf8ec: ldr      w8, [x23]
+0x1cf8f0: ldp      w4, w5, [x23, #0x14]
+0x1cf8f4: ldr      w3, [x23, #0x40]
+0x1cf8f8: bl       #0x55c4fc
+0x1cf8fc: b.gt     #0x1cf90c
+0x1cf900: mov      w2, #0x797
+0x1cf904: bl       #0x54b06c
+0x1cf908: bl       #0x1c2780
+0x1cf90c: add      x24, x24, #1
+0x1cf910: add      x26, x26, #0x20
+0x1cf914: add      x23, x23, #0x48
+0x1cf918: b        #0x1cf8e0
+0x1cf91c: bl       #0x5319fc
+0x1cf920: ldr      x24, [sp, #0x10]
+0x1cf924: cmp      w8, #3
+0x1cf928: b.gt     #0x1cf944
+0x1cf92c: adrp     x0, #0x689000
+0x1cf930: adrp     x1, #0x5cb000
+0x1cf934: add      x0, x0, #0xd8b
+0x1cf938: add      x1, x1, #0x6b4
+0x1cf93c: mov      w2, #0x7a5
+0x1cf940: bl       #0x1c2780
+0x1cf944: ldr      w1, [x23]
+0x1cf948: ldr      w2, [x22]
+0x1cf94c: bl       #0x55ece8
+0x1cf950: bl       #0x19ee00
+0x1cf954: b        #0x1cf7bc
+0x1cf958: ldr      x8, [sp, #8]
+0x1cf95c: adrp     x23, #0x689000

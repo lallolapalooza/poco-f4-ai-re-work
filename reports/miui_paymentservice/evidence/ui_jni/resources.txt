@@ -1,0 +1,27 @@
+dimen/mibi_camera_frame_rect_width = 0x7f0700af
+    [<ARSCResTableConfig ''=(0, 0, 0, 0, 0, 0, 0, 0, 0)>] '350.000000dip'
+    [<ARSCResTableConfig 'sw600dp'=(0, 0, 0, 0, 0, 0, 39321600, 0, 0)>] '350.000000dip'
+    [<ARSCResTableConfig 'xxxhdpi'=(0, 0, 41943040, 0, 0, 0, 0, 0, 0)>] '318.000000dip'
+dimen/mibi_camera_frame_rect_height = 0x7f0700ae
+    [<ARSCResTableConfig ''=(0, 0, 0, 0, 0, 0, 0, 0, 0)>] '65.000000dip'
+    [<ARSCResTableConfig 'sw600dp'=(0, 0, 0, 0, 0, 0, 39321600, 0, 0)>] '65.000000dip'
+    [<ARSCResTableConfig 'xxxhdpi'=(0, 0, 41943040, 0, 0, 0, 0, 0, 0)>] '59.000000dip'
+string/mibi_scan_prompt_voucher = 0x7f11025d
+    [<ARSCResTableConfig 'zh-rCN'=(0, 1313040506, 0, 0, 0, 0, 0, 0, 0)>] '请扫描米币卡密码'
+string/mibi_voucher_error_password = 0x7f11027d
+    [<ARSCResTableConfig 'zh-rCN'=(0, 1313040506, 0, 0, 0, 0, 0, 0, 0)>] '请输入正确的米币卡密码'
+string/mibi_camera_open_failed = 0x7f110154
+    [<ARSCResTableConfig 'zh-rCN'=(0, 1313040506, 0, 0, 0, 0, 0, 0, 0)>] '相机打开失败'
+layout/mibi_capture = 0x7f0d0048
+
+--- res/layout/mibi_capture.xml ---
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="-1" android:layout_height="-1">
+  <com.mibi.ocr.ui.CameraPreview android:id="@7F0A01F9" android:layout_width="-1" android:layout_height="-1"/>
+  <com.mibi.ocr.ui.PreviewMaskView android:id="@7F0A018B" android:layout_width="-1" android:layout_height="-1"/>
+  <TextView android:textSize="@7F070181" android:textColor="@7F060094" android:gravity="0x00000011" android:layout_gravity="0x00000001" android:id="@7F0A0216" android:layout_width="-2" android:layout_height="-2" android:layout_marginTop="@7F0700B0"/>
+  <LinearLayout android:layout_gravity="0x00000051" android:orientation="0" android:id="@7F0A0093" android:visibility="1" android:layout_width="@7F0700AD" android:layout_height="-2" android:layout_marginBottom="@7F0700B1">
+    <Button android:id="@7F0A0219" android:layout_width="0.000000dip" android:layout_height="-2" android:text="@7F110151" android:layout_weight="1.000000" style="@7F120129"/>
+    <Button android:id="@7F0A00B7" android:layout_width="0.000000dip" android:layout_height="-2" android:text="@7F110149" android:layout_weight="1.000000" android:layout_marginStart="20.000000dip" style="@7F120129"/>
+  </LinearLayout>
+</FrameLayout>
+

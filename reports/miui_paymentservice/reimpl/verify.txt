@@ -1,0 +1,28 @@
+== MiPay digit OCR — JAX reimplementation ==
+An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+jax 0.12.0.1 backend cpu
+model9: sv=(1076, 144) coef=(1076, 9) rho=(45,) nr_class=10 gamma=2.0 kernel=rbf
+model2: sv=(545, 144) coef=(545, 1) rho=(1,) nr_class=2 gamma=0.5 kernel=rbf
+hog: input (28, 28) -> patch (32, 20) -> features (1, 144) sum=16.000 (640 px / 40)
+hog: input (32, 32) -> patch (32, 20) -> features (1, 144) sum=16.000 (640 px / 40)
+decision_values: (1, 45)  (nr_class*(nr_class-1)/2 = 45)
+predict_proba : (1, 10)  sum=1.000000
+  probs: [0.007011 0.106877 0.004045 0.009776 0.765875 0.026553 0.0102   0.024578
+ 0.011571 0.033514]
+  argmax digit: 4
+numpy-libsvm cross-check max|diff| = 8.549e-15 (float32 JAX vs float64 reference)
+classify (vendor 20x32 patches -> digit, conf, candidates, is_digit):
+  patch0: pred=1 conf=99 cands=[(1, 99)] is_digit=False
+  patch1: pred=2 conf=99 cands=[(2, 99)] is_digit=False
+  patch2: pred=3 conf=56 cands=[(3, 56), (5, 38)] is_digit=False
+  patch3: pred=4 conf=98 cands=[(4, 98)] is_digit=False
+recognised string: 1234 (vendor MainOCR gave 1234)
+vendor-vs-jax [bar]: max|dprob| = 4.688e-11
+vendor-vs-jax [blank]: max|dprob| = 4.866e-11
+vendor-vs-jax [random1]: max|dprob| = 4.644e-11
+vendor-vs-jax [random2]: max|dprob| = 4.710e-11
+vendor-vs-jax [sevenish]: max|dprob| = 4.960e-11
+vendor-vs-jax [white]: max|dprob| = 4.866e-11
+vendor cross-checks passed: 6
+OK: shapes and values verified, exit 0
+EXIT=0

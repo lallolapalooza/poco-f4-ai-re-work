@@ -1,0 +1,67 @@
+# subgraph 6 name='NoOp' role=init inputs=[] outputs=[] tensors=54 ops=66
+[  0] VAR_HANDLE           inputs=[] outputs=['21:Adam/iter1[]:RESOURCE'] options={'Container': '', 'SharedName': '4164616d2f69746572'}
+[  1] ASSIGN_VARIABLE      inputs=['21:Adam/iter1[]:RESOURCE', '20:arith.constant20[]:INT64[const]'] outputs=[] options={}
+[  2] VAR_HANDLE           inputs=[] outputs=['22:Adam/dnn_model_1/dense_7/kernel/v1[]:RESOURCE'] options={'Container': '', 'SharedName': '4164616d2f646e6e5f6d6f64656c5f312f64656e73655f372f6b65726e656c2f76'}
+[  3] ASSIGN_VARIABLE      inputs=['22:Adam/dnn_model_1/dense_7/kernel/v1[]:RESOURCE', '19:arith.constant19[64, 1]:FLOAT32[const]'] outputs=[] options={}
+[  4] VAR_HANDLE           inputs=[] outputs=['23:Adam/dnn_model_1/dense_7/kernel/m1[]:RESOURCE'] options={'Container': '', 'SharedName': '4164616d2f646e6e5f6d6f64656c5f312f64656e73655f372f6b65726e656c2f6d'}
+[  5] ASSIGN_VARIABLE      inputs=['23:Adam/dnn_model_1/dense_7/kernel/m1[]:RESOURCE', '19:arith.constant19[64, 1]:FLOAT32[const]'] outputs=[] options={}
+[  6] VAR_HANDLE           inputs=[] outputs=['24:Adam/dnn_model_1/dense_7/bias/v1[]:RESOURCE'] options={'Container': '', 'SharedName': '4164616d2f646e6e5f6d6f64656c5f312f64656e73655f372f626961732f76'}
+[  7] ASSIGN_VARIABLE      inputs=['24:Adam/dnn_model_1/dense_7/bias/v1[]:RESOURCE', '6:arith.constant6[1]:FLOAT32[const]'] outputs=[] options={}
+[  8] VAR_HANDLE           inputs=[] outputs=['25:Adam/dnn_model_1/dense_7/bias/m1[]:RESOURCE'] options={'Container': '', 'SharedName': '4164616d2f646e6e5f6d6f64656c5f312f64656e73655f372f626961732f6d'}
+[  9] ASSIGN_VARIABLE      inputs=['25:Adam/dnn_model_1/dense_7/bias/m1[]:RESOURCE', '6:arith.constant6[1]:FLOAT32[const]'] outputs=[] options={}
+[ 10] VAR_HANDLE           inputs=[] outputs=['26:Adam/dnn_model_1/dense_6/kernel/v1[]:RESOURCE'] options={'Container': '', 'SharedName': '4164616d2f646e6e5f6d6f64656c5f312f64656e73655f362f6b65726e656c2f76'}
+[ 11] ASSIGN_VARIABLE      inputs=['26:Adam/dnn_model_1/dense_6/kernel/v1[]:RESOURCE', '18:arith.constant18[128, 64]:FLOAT32[const]'] outputs=[] options={}
+[ 12] VAR_HANDLE           inputs=[] outputs=['27:Adam/dnn_model_1/dense_6/kernel/m1[]:RESOURCE'] options={'Container': '', 'SharedName': '4164616d2f646e6e5f6d6f64656c5f312f64656e73655f362f6b65726e656c2f6d'}
+[ 13] ASSIGN_VARIABLE      inputs=['27:Adam/dnn_model_1/dense_6/kernel/m1[]:RESOURCE', '18:arith.constant18[128, 64]:FLOAT32[const]'] outputs=[] options={}
+[ 14] VAR_HANDLE           inputs=[] outputs=['28:Adam/dnn_model_1/dense_6/bias/v1[]:RESOURCE'] options={'Container': '', 'SharedName': '4164616d2f646e6e5f6d6f64656c5f312f64656e73655f362f626961732f76'}
+[ 15] ASSIGN_VARIABLE      inputs=['28:Adam/dnn_model_1/dense_6/bias/v1[]:RESOURCE', '4:arith.constant4[64]:FLOAT32[const]'] outputs=[] options={}
+[ 16] VAR_HANDLE           inputs=[] outputs=['29:Adam/dnn_model_1/dense_6/bias/m1[]:RESOURCE'] options={'Container': '', 'SharedName': '4164616d2f646e6e5f6d6f64656c5f312f64656e73655f362f626961732f6d'}
+[ 17] ASSIGN_VARIABLE      inputs=['29:Adam/dnn_model_1/dense_6/bias/m1[]:RESOURCE', '4:arith.constant4[64]:FLOAT32[const]'] outputs=[] options={}
+[ 18] VAR_HANDLE           inputs=[] outputs=['30:Adam/dnn_model_1/dense_5/kernel/v1[]:RESOURCE'] options={'Container': '', 'SharedName': '4164616d2f646e6e5f6d6f64656c5f312f64656e73655f352f6b65726e656c2f76'}
+[ 19] ASSIGN_VARIABLE      inputs=['30:Adam/dnn_model_1/dense_5/kernel/v1[]:RESOURCE', '17:arith.constant17[3, 128]:FLOAT32[const]'] outputs=[] options={}
+[ 20] VAR_HANDLE           inputs=[] outputs=['31:Adam/dnn_model_1/dense_5/kernel/m1[]:RESOURCE'] options={'Container': '', 'SharedName': '4164616d2f646e6e5f6d6f64656c5f312f64656e73655f352f6b65726e656c2f6d'}
+[ 21] ASSIGN_VARIABLE      inputs=['31:Adam/dnn_model_1/dense_5/kernel/m1[]:RESOURCE', '17:arith.constant17[3, 128]:FLOAT32[const]'] outputs=[] options={}
+[ 22] VAR_HANDLE           inputs=[] outputs=['32:Adam/dnn_model_1/dense_5/bias/v1[]:RESOURCE'] options={'Container': '', 'SharedName': '4164616d2f646e6e5f6d6f64656c5f312f64656e73655f352f626961732f76'}
+[ 23] ASSIGN_VARIABLE      inputs=['32:Adam/dnn_model_1/dense_5/bias/v1[]:RESOURCE', '2:arith.constant2[128]:FLOAT32[const]'] outputs=[] options={}
+[ 24] VAR_HANDLE           inputs=[] outputs=['33:Adam/dnn_model_1/dense_5/bias/m1[]:RESOURCE'] options={'Container': '', 'SharedName': '4164616d2f646e6e5f6d6f64656c5f312f64656e73655f352f626961732f6d'}
+[ 25] ASSIGN_VARIABLE      inputs=['33:Adam/dnn_model_1/dense_5/bias/m1[]:RESOURCE', '2:arith.constant2[128]:FLOAT32[const]'] outputs=[] options={}
+[ 26] VAR_HANDLE           inputs=[] outputs=['34:Adam/dnn_model_1/dense_4/kernel/v1[]:RESOURCE'] options={'Container': '', 'SharedName': '4164616d2f646e6e5f6d6f64656c5f312f64656e73655f342f6b65726e656c2f76'}
+[ 27] ASSIGN_VARIABLE      inputs=['34:Adam/dnn_model_1/dense_4/kernel/v1[]:RESOURCE', '16:arith.constant16[3, 3]:FLOAT32[const]'] outputs=[] options={}
+[ 28] VAR_HANDLE           inputs=[] outputs=['35:Adam/dnn_model_1/dense_4/kernel/m1[]:RESOURCE'] options={'Container': '', 'SharedName': '4164616d2f646e6e5f6d6f64656c5f312f64656e73655f342f6b65726e656c2f6d'}
+[ 29] ASSIGN_VARIABLE      inputs=['35:Adam/dnn_model_1/dense_4/kernel/m1[]:RESOURCE', '16:arith.constant16[3, 3]:FLOAT32[const]'] outputs=[] options={}
+[ 30] VAR_HANDLE           inputs=[] outputs=['36:Adam/dnn_model_1/dense_4/bias/v1[]:RESOURCE'] options={'Container': '', 'SharedName': '4164616d2f646e6e5f6d6f64656c5f312f64656e73655f342f626961732f76'}
+[ 31] ASSIGN_VARIABLE      inputs=['36:Adam/dnn_model_1/dense_4/bias/v1[]:RESOURCE', '0:arith.constant[3]:FLOAT32[const]'] outputs=[] options={}
+[ 32] VAR_HANDLE           inputs=[] outputs=['37:Adam/dnn_model_1/dense_4/bias/m1[]:RESOURCE'] options={'Container': '', 'SharedName': '4164616d2f646e6e5f6d6f64656c5f312f64656e73655f342f626961732f6d'}
+[ 33] ASSIGN_VARIABLE      inputs=['37:Adam/dnn_model_1/dense_4/bias/m1[]:RESOURCE', '0:arith.constant[3]:FLOAT32[const]'] outputs=[] options={}
+[ 34] VAR_HANDLE           inputs=[] outputs=['38:dnn_model/dense_3/kernel4[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73655f332f6b65726e656c'}
+[ 35] ASSIGN_VARIABLE      inputs=['38:dnn_model/dense_3/kernel4[]:RESOURCE', '15:arith.constant15[64, 1]:FLOAT32[const]'] outputs=[] options={}
+[ 36] VAR_HANDLE           inputs=[] outputs=['39:dnn_model/dense_3/bias4[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73655f332f62696173'}
+[ 37] ASSIGN_VARIABLE      inputs=['39:dnn_model/dense_3/bias4[]:RESOURCE', '14:arith.constant14[1]:FLOAT32[const]'] outputs=[] options={}
+[ 38] VAR_HANDLE           inputs=[] outputs=['40:dnn_model/dense_2/kernel4[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73655f322f6b65726e656c'}
+[ 39] ASSIGN_VARIABLE      inputs=['40:dnn_model/dense_2/kernel4[]:RESOURCE', '13:arith.constant13[128, 64]:FLOAT32[const]'] outputs=[] options={}
+[ 40] VAR_HANDLE           inputs=[] outputs=['41:dnn_model/dense_2/bias4[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73655f322f62696173'}
+[ 41] ASSIGN_VARIABLE      inputs=['41:dnn_model/dense_2/bias4[]:RESOURCE', '12:arith.constant12[64]:FLOAT32[const]'] outputs=[] options={}
+[ 42] VAR_HANDLE           inputs=[] outputs=['42:dnn_model/dense_1/kernel4[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73655f312f6b65726e656c'}
+[ 43] ASSIGN_VARIABLE      inputs=['42:dnn_model/dense_1/kernel4[]:RESOURCE', '11:arith.constant11[3, 128]:FLOAT32[const]'] outputs=[] options={}
+[ 44] VAR_HANDLE           inputs=[] outputs=['43:dnn_model/dense_1/bias4[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73655f312f62696173'}
+[ 45] ASSIGN_VARIABLE      inputs=['43:dnn_model/dense_1/bias4[]:RESOURCE', '10:arith.constant10[128]:FLOAT32[const]'] outputs=[] options={}
+[ 46] VAR_HANDLE           inputs=[] outputs=['44:dnn_model/dense/kernel4[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73652f6b65726e656c'}
+[ 47] ASSIGN_VARIABLE      inputs=['44:dnn_model/dense/kernel4[]:RESOURCE', '9:arith.constant9[3, 3]:FLOAT32[const]'] outputs=[] options={}
+[ 48] VAR_HANDLE           inputs=[] outputs=['45:dnn_model/dense/bias4[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73652f62696173'}
+[ 49] ASSIGN_VARIABLE      inputs=['45:dnn_model/dense/bias4[]:RESOURCE', '8:arith.constant8[3]:FLOAT32[const]'] outputs=[] options={}
+[ 50] VAR_HANDLE           inputs=[] outputs=['46:dnn_model_1/dense_7/kernel5[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f372f6b65726e656c'}
+[ 51] ASSIGN_VARIABLE      inputs=['46:dnn_model_1/dense_7/kernel5[]:RESOURCE', '7:arith.constant7[64, 1]:FLOAT32[const]'] outputs=[] options={}
+[ 52] VAR_HANDLE           inputs=[] outputs=['47:dnn_model_1/dense_7/bias5[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f372f62696173'}
+[ 53] ASSIGN_VARIABLE      inputs=['47:dnn_model_1/dense_7/bias5[]:RESOURCE', '6:arith.constant6[1]:FLOAT32[const]'] outputs=[] options={}
+[ 54] VAR_HANDLE           inputs=[] outputs=['48:dnn_model_1/dense_6/kernel5[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f362f6b65726e656c'}
+[ 55] ASSIGN_VARIABLE      inputs=['48:dnn_model_1/dense_6/kernel5[]:RESOURCE', '5:arith.constant5[128, 64]:FLOAT32[const]'] outputs=[] options={}
+[ 56] VAR_HANDLE           inputs=[] outputs=['49:dnn_model_1/dense_6/bias5[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f362f62696173'}
+[ 57] ASSIGN_VARIABLE      inputs=['49:dnn_model_1/dense_6/bias5[]:RESOURCE', '4:arith.constant4[64]:FLOAT32[const]'] outputs=[] options={}
+[ 58] VAR_HANDLE           inputs=[] outputs=['50:dnn_model_1/dense_5/kernel5[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f352f6b65726e656c'}
+[ 59] ASSIGN_VARIABLE      inputs=['50:dnn_model_1/dense_5/kernel5[]:RESOURCE', '3:arith.constant3[3, 128]:FLOAT32[const]'] outputs=[] options={}
+[ 60] VAR_HANDLE           inputs=[] outputs=['51:dnn_model_1/dense_5/bias5[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f352f62696173'}
+[ 61] ASSIGN_VARIABLE      inputs=['51:dnn_model_1/dense_5/bias5[]:RESOURCE', '2:arith.constant2[128]:FLOAT32[const]'] outputs=[] options={}
+[ 62] VAR_HANDLE           inputs=[] outputs=['52:dnn_model_1/dense_4/kernel5[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f342f6b65726e656c'}
+[ 63] ASSIGN_VARIABLE      inputs=['52:dnn_model_1/dense_4/kernel5[]:RESOURCE', '1:arith.constant1[3, 3]:FLOAT32[const]'] outputs=[] options={}
+[ 64] VAR_HANDLE           inputs=[] outputs=['53:dnn_model_1/dense_4/bias5[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f342f62696173'}
+[ 65] ASSIGN_VARIABLE      inputs=['53:dnn_model_1/dense_4/bias5[]:RESOURCE', '0:arith.constant[3]:FLOAT32[const]'] outputs=[] options={}

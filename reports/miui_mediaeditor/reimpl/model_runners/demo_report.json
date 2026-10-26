@@ -1,0 +1,6373 @@
+{
+  "by_name": {
+    "model__ai_beauty_type_processor__dense_eb": {
+      "conversion": {
+        "reason": "dynamic RESHAPE shape: RESHAPE target is computed from SHAPE/PACK at run time; tools/tflite2jax.py requires a constant shape (status unsupported_params)",
+        "runner": "litert",
+        "status": "skipped",
+        "unsupported_ops": []
+      },
+      "fallback_reason": "dynamic RESHAPE shape: RESHAPE target is computed from SHAPE/PACK at run time; tools/tflite2jax.py requires a constant shape (status unsupported_params)",
+      "meta": {
+        "bundle": "ai_beauty_type_processor",
+        "conversion": {
+          "reason": "dynamic RESHAPE shape: RESHAPE target is computed from SHAPE/PACK at run time; tools/tflite2jax.py requires a constant shape (status unsupported_params)",
+          "runner": "litert",
+          "status": "skipped"
+        },
+        "family": "landmarks_score",
+        "input_provenance": {
+          "image": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 40x40 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              40,
+              40,
+              1
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "image",
+            "shape": [
+              1,
+              40,
+              40,
+              1
+            ]
+          }
+        ],
+        "name": "model__ai_beauty_type_processor__dense_eb",
+        "note": "40x40x1 crop -> 13 dense eyebrow points + 2-class score",
+        "op_count": 29,
+        "ops": [
+          "ADD",
+          "CONV_2D",
+          "FULLY_CONNECTED",
+          "LOGISTIC",
+          "PACK",
+          "RESHAPE",
+          "SHAPE",
+          "STRIDED_SLICE"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              1,
+              13,
+              2
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_1",
+            "scale": [],
+            "shape": [
+              1,
+              2
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "dense_eb",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_beauty_type_processor__dense_eb.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "Identity",
+          "shape": [
+            1,
+            13,
+            2
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "Identity_1",
+          "shape": [
+            1,
+            2
+          ]
+        }
+      ],
+      "path": "litert",
+      "postprocess": {
+        "family": "landmarks_score",
+        "outputs": {
+          "Identity": {
+            "coord_frame": "pixels in the 40x40 network input",
+            "kind": "landmarks",
+            "n_points": 13,
+            "xy_first5": [
+              [
+                5.190952777862549,
+                22.57853126525879
+              ],
+              [
+                8.324941635131836,
+                18.329273223876953
+              ],
+              [
+                12.441720962524414,
+                15.109278678894043
+              ],
+              [
+                17.46449089050293,
+                13.94497013092041
+              ],
+              [
+                22.816728591918945,
+                14.296126365661621
+              ]
+            ],
+            "xy_mean": [
+              20.411760330200195,
+              18.697248458862305
+            ],
+            "xy_range": [
+              [
+                5.190952777862549,
+                34.82610321044922
+              ],
+              [
+                13.94497013092041,
+                22.57853126525879
+              ]
+            ]
+          },
+          "Identity_1": {
+            "argmax": 1,
+            "confidence": 0.7306077493344489,
+            "kind": "score",
+            "logits": [
+              0.0011458779918029904,
+              0.9988541007041931
+            ],
+            "n_classes": 2,
+            "probs": [
+              0.26939225066555095,
+              0.7306077493344489
+            ]
+          }
+        }
+      },
+      "seconds": 0.01,
+      "status": "litert_fallback",
+      "verification": null
+    },
+    "model__ai_beauty_type_processor__dense_eye_iris": {
+      "conversion": {
+        "reason": "dynamic RESHAPE shape: RESHAPE target is computed from SHAPE/PACK at run time; tools/tflite2jax.py requires a constant shape (status unsupported_params)",
+        "runner": "litert",
+        "status": "skipped",
+        "unsupported_ops": []
+      },
+      "fallback_reason": "dynamic RESHAPE shape: RESHAPE target is computed from SHAPE/PACK at run time; tools/tflite2jax.py requires a constant shape (status unsupported_params)",
+      "meta": {
+        "bundle": "ai_beauty_type_processor",
+        "conversion": {
+          "reason": "dynamic RESHAPE shape: RESHAPE target is computed from SHAPE/PACK at run time; tools/tflite2jax.py requires a constant shape (status unsupported_params)",
+          "runner": "litert",
+          "status": "skipped"
+        },
+        "family": "landmarks_multi",
+        "input_provenance": {
+          "eye_s1": {
+            "dtype": "FLOAT32",
+            "provenance": "8 deterministic points in the unit crop square (placeholder)",
+            "role": "landmarks",
+            "shape": [
+              1,
+              8,
+              2
+            ]
+          },
+          "ht": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 64x64 (heatmap)",
+            "role": "heatmap",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          "image": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 64x64 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "image",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "eye_s1",
+            "shape": [
+              1,
+              8,
+              2
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "ht",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          }
+        ],
+        "name": "model__ai_beauty_type_processor__dense_eye_iris",
+        "note": "eye crop + 8 eye points + heatmap -> 8/25 points + score",
+        "op_count": 47,
+        "ops": [
+          "ADD",
+          "CONCATENATION",
+          "CONV_2D",
+          "FULLY_CONNECTED",
+          "LOGISTIC",
+          "MUL",
+          "PACK",
+          "RESHAPE",
+          "SHAPE",
+          "STRIDED_SLICE"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              1,
+              8,
+              2
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_1",
+            "scale": [],
+            "shape": [
+              1,
+              25,
+              2
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_2",
+            "scale": [],
+            "shape": [
+              1,
+              2
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "dense_eye_iris",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_beauty_type_processor__dense_eye_iris.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "Identity",
+          "shape": [
+            1,
+            8,
+            2
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "Identity_1",
+          "shape": [
+            1,
+            25,
+            2
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "Identity_2",
+          "shape": [
+            1,
+            2
+          ]
+        }
+      ],
+      "path": "litert",
+      "postprocess": {
+        "family": "landmarks_multi",
+        "outputs": {
+          "Identity": {
+            "coord_frame": "network-specific (offsets / heatmap-argmax coords)",
+            "kind": "landmarks",
+            "n_points": 8,
+            "xy_first5": [
+              [
+                -1.344576358795166,
+                4.236286163330078
+              ],
+              [
+                -6.394833564758301,
+                9.489930152893066
+              ],
+              [
+                -9.10529613494873,
+                10.06794261932373
+              ],
+              [
+                -10.246822357177734,
+                -1.578844428062439
+              ],
+              [
+                -6.061037540435791,
+                -13.654279708862305
+              ]
+            ],
+            "xy_mean": [
+              -5.250329971313477,
+              -5.68377685546875
+            ],
+            "xy_range": [
+              [
+                -10.246822357177734,
+                -1.174034595489502
+              ],
+              [
+                -22.03458023071289,
+                10.06794261932373
+              ]
+            ]
+          },
+          "Identity_1": {
+            "coord_frame": "pixels in the 64x64 network input",
+            "kind": "landmarks",
+            "n_points": 25,
+            "xy_first5": [
+              [
+                30.562597274780273,
+                27.65414047241211
+              ],
+              [
+                31.00223731994629,
+                15.539268493652344
+              ],
+              [
+                34.17782974243164,
+                15.815929412841797
+              ],
+              [
+                37.10578536987305,
+                16.890844345092773
+              ],
+              [
+                39.54046630859375,
+                18.71184539794922
+              ]
+            ],
+            "xy_mean": [
+              30.59554672241211,
+              27.585725784301758
+            ],
+            "xy_range": [
+              [
+                18.285837173461914,
+                42.5002555847168
+              ],
+              [
+                15.539268493652344,
+                39.61628723144531
+              ]
+            ]
+          },
+          "Identity_2": {
+            "argmax": 0,
+            "confidence": 0.7310585786300049,
+            "kind": "score",
+            "logits": [
+              1.0,
+              5.958258852657306e-38
+            ],
+            "n_classes": 2,
+            "probs": [
+              0.7310585786300049,
+              0.2689414213699951
+            ]
+          }
+        }
+      },
+      "seconds": 0.0,
+      "status": "litert_fallback",
+      "verification": null
+    },
+    "model__ai_beauty_type_processor__dense_iris": {
+      "conversion": {
+        "jax_dir": "reimpl/model_runners/generated/model__ai_beauty_type_processor__dense_iris",
+        "runner": "generated",
+        "status": "converted"
+      },
+      "meta": {
+        "bundle": "ai_beauty_type_processor",
+        "conversion": {
+          "reason": null,
+          "runner": "generated",
+          "status": "converted"
+        },
+        "family": "landmarks_multi",
+        "input_provenance": {
+          "image": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 64x64 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "image",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          }
+        ],
+        "name": "model__ai_beauty_type_processor__dense_iris",
+        "note": "64x64x1 eye crop -> two 25-point iris meshes",
+        "op_count": 37,
+        "ops": [
+          "ADD",
+          "AVERAGE_POOL_2D",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "RESHAPE",
+          "SOFTMAX"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              25,
+              2
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_1",
+            "scale": [],
+            "shape": [
+              25,
+              2
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "dense_iris",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_beauty_type_processor__dense_iris.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "Identity",
+          "shape": [
+            25,
+            2
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "Identity_1",
+          "shape": [
+            25,
+            2
+          ]
+        }
+      ],
+      "path": "jax",
+      "postprocess": {
+        "family": "landmarks_multi",
+        "outputs": {
+          "Identity": {
+            "coord_frame": "normalized",
+            "kind": "landmarks",
+            "n_points": 25,
+            "pixel_xy_first5": [
+              [
+                4.455772399902344,
+                59.54422378540039
+              ],
+              [
+                4.500996112823486,
+                59.499000549316406
+              ],
+              [
+                2.7172300815582275,
+                61.282772064208984
+              ],
+              [
+                1.9059139490127563,
+                62.09408187866211
+              ],
+              [
+                1.6482925415039062,
+                62.351707458496094
+              ]
+            ],
+            "xy_first5": [
+              [
+                0.06962144374847412,
+                0.9303784966468811
+              ],
+              [
+                0.07032806426286697,
+                0.9296718835830688
+              ],
+              [
+                0.042456720024347305,
+                0.9575433135032654
+              ],
+              [
+                0.029779905453324318,
+                0.9702200293540955
+              ],
+              [
+                0.025754570960998535,
+                0.9742454290390015
+              ]
+            ],
+            "xy_mean": [
+              0.03438584506511688,
+              0.9656140804290771
+            ],
+            "xy_range": [
+              [
+                0.014518254436552525,
+                0.07032806426286697
+              ],
+              [
+                0.9296718835830688,
+                0.9854817390441895
+              ]
+            ]
+          },
+          "Identity_1": {
+            "coord_frame": "pixels in the 64x64 network input",
+            "kind": "landmarks",
+            "n_points": 25,
+            "xy_first5": [
+              [
+                30.98443031311035,
+                30.98664665222168
+              ],
+              [
+                46.97334289550781,
+                30.9891300201416
+              ],
+              [
+                46.42828369140625,
+                35.12788009643555
+              ],
+              [
+                44.82996368408203,
+                38.984710693359375
+              ],
+              [
+                42.288143157958984,
+                42.29621505737305
+              ]
+            ],
+            "xy_mean": [
+              30.9844913482666,
+              30.986631393432617
+            ],
+            "xy_range": [
+              [
+                14.99591064453125,
+                46.97334289550781
+              ],
+              [
+                14.994484901428223,
+                46.97855758666992
+              ]
+            ]
+          }
+        }
+      },
+      "seconds": 1.11,
+      "status": "pass",
+      "verification": {
+        "all_within_tolerance": true,
+        "max_abs": 1.52587890625e-05,
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 1.564621925354004e-07,
+            "name": "Identity",
+            "ok": true,
+            "shape": [
+              25,
+              2
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          },
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 1.52587890625e-05,
+            "name": "Identity_1",
+            "ok": true,
+            "shape": [
+              25,
+              2
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          }
+        ],
+        "status": "pass"
+      }
+    },
+    "model__ai_beauty_type_processor__dense_mouth": {
+      "conversion": {
+        "jax_dir": "reimpl/model_runners/generated/model__ai_beauty_type_processor__dense_mouth",
+        "runner": "generated",
+        "status": "converted"
+      },
+      "meta": {
+        "bundle": "ai_beauty_type_processor",
+        "conversion": {
+          "reason": null,
+          "runner": "generated",
+          "status": "converted"
+        },
+        "family": "landmarks_multi",
+        "input_provenance": {
+          "dense_s1": {
+            "dtype": "FLOAT32",
+            "provenance": "56 deterministic points in the unit crop square (placeholder)",
+            "role": "landmarks",
+            "shape": [
+              1,
+              56,
+              2
+            ]
+          },
+          "ht_dense_s1": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 64x64 (heatmap)",
+            "role": "heatmap",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          "ht_upper_s1": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 64x64 (heatmap)",
+            "role": "heatmap",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          "image": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 64x64 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          "upper_s1": {
+            "dtype": "FLOAT32",
+            "provenance": "18 deterministic points in the unit crop square (placeholder)",
+            "role": "landmarks",
+            "shape": [
+              1,
+              18,
+              2
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "image",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "upper_s1",
+            "shape": [
+              1,
+              18,
+              2
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "dense_s1",
+            "shape": [
+              1,
+              56,
+              2
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "ht_upper_s1",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "ht_dense_s1",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          }
+        ],
+        "name": "model__ai_beauty_type_processor__dense_mouth",
+        "note": "mouth crops -> 56 dense + 18 upper/lower mouth points",
+        "op_count": 41,
+        "ops": [
+          "ADD",
+          "CONCATENATION",
+          "CONV_2D",
+          "FULLY_CONNECTED",
+          "MUL",
+          "RESHAPE"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              56,
+              2
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_1",
+            "scale": [],
+            "shape": [
+              18,
+              2
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "dense_mouth",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_beauty_type_processor__dense_mouth.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "Identity",
+          "shape": [
+            56,
+            2
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "Identity_1",
+          "shape": [
+            18,
+            2
+          ]
+        }
+      ],
+      "path": "jax",
+      "postprocess": {
+        "family": "landmarks_multi",
+        "outputs": {
+          "Identity": {
+            "coord_frame": "network-specific (offsets / heatmap-argmax coords)",
+            "kind": "landmarks",
+            "n_points": 56,
+            "xy_first5": [
+              [
+                -1.8107202053070068,
+                -7.666262149810791
+              ],
+              [
+                -4.30307149887085,
+                -6.964303970336914
+              ],
+              [
+                -6.754245758056641,
+                -6.274195671081543
+              ],
+              [
+                -8.732215881347656,
+                -5.231855869293213
+              ],
+              [
+                -10.470900535583496,
+                -3.064577579498291
+              ]
+            ],
+            "xy_mean": [
+              -8.944987297058105,
+              -6.487910270690918
+            ],
+            "xy_range": [
+              [
+                -16.8493709564209,
+                -1.8107202053070068
+              ],
+              [
+                -22.545766830444336,
+                8.753332138061523
+              ]
+            ]
+          },
+          "Identity_1": {
+            "coord_frame": "network-specific (offsets / heatmap-argmax coords)",
+            "kind": "landmarks",
+            "n_points": 18,
+            "xy_first5": [
+              [
+                -1.8125659227371216,
+                -7.635530948638916
+              ],
+              [
+                -13.493106842041016,
+                -5.365118026733398
+              ],
+              [
+                -12.510541915893555,
+                -1.9722082614898682
+              ],
+              [
+                -10.484516143798828,
+                0.09389662742614746
+              ],
+              [
+                -8.967591285705566,
+                -1.3267912864685059
+              ]
+            ],
+            "xy_mean": [
+              -8.358256340026855,
+              -6.428546905517578
+            ],
+            "xy_range": [
+              [
+                -16.914215087890625,
+                -1.8125659227371216
+              ],
+              [
+                -21.77867889404297,
+                7.7302350997924805
+              ]
+            ]
+          }
+        }
+      },
+      "seconds": 0.44,
+      "status": "pass",
+      "verification": {
+        "all_within_tolerance": true,
+        "max_abs": 1.52587890625e-05,
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 1.52587890625e-05,
+            "name": "Identity",
+            "ok": true,
+            "shape": [
+              56,
+              2
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          },
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 1.430511474609375e-05,
+            "name": "Identity_1",
+            "ok": true,
+            "shape": [
+              18,
+              2
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          }
+        ],
+        "status": "pass"
+      }
+    },
+    "model__ai_beauty_type_processor__face_landmark_lite_210818_360": {
+      "conversion": {
+        "jax_dir": "reimpl/model_runners/generated/model__ai_beauty_type_processor__face_landmark_lite_210818_360",
+        "runner": "generated",
+        "status": "converted"
+      },
+      "meta": {
+        "bundle": "ai_beauty_type_processor",
+        "conversion": {
+          "reason": null,
+          "runner": "generated",
+          "status": "converted"
+        },
+        "family": "landmarks",
+        "input_provenance": {
+          "input": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 64x64 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "input",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          }
+        ],
+        "name": "model__ai_beauty_type_processor__face_landmark_lite_210818_360",
+        "note": "64x64x1 -> 154 values = 77 landmarks",
+        "op_count": 38,
+        "ops": [
+          "ADD",
+          "AVERAGE_POOL_2D",
+          "CONV_2D",
+          "RESHAPE",
+          "SUB"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "add_7",
+            "scale": [],
+            "shape": [
+              1,
+              154
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "face_landmark_lite_210818_360",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_beauty_type_processor__face_landmark_lite_210818_360.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "add_7",
+          "shape": [
+            1,
+            154
+          ]
+        }
+      ],
+      "path": "jax",
+      "postprocess": {
+        "family": "landmarks",
+        "outputs": {
+          "add_7": {
+            "kind": "feature_map",
+            "range": {
+              "max": 35.89828109741211,
+              "mean": 31.566434216189695,
+              "min": 27.384429931640625,
+              "std": 1.7825829010789513
+            },
+            "shape": [
+              1,
+              154
+            ]
+          }
+        }
+      },
+      "seconds": 0.47,
+      "status": "pass",
+      "verification": {
+        "all_within_tolerance": true,
+        "max_abs": 7.82012939453125e-05,
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 7.82012939453125e-05,
+            "name": "add_7",
+            "ok": true,
+            "shape": [
+              1,
+              154
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          }
+        ],
+        "status": "pass"
+      }
+    },
+    "model__ai_beauty_type_processor__model_hair": {
+      "conversion": {
+        "reason": "PRELU: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+        "runner": "litert",
+        "status": "skipped",
+        "unsupported_ops": [
+          "PRELU"
+        ]
+      },
+      "fallback_reason": "PRELU: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+      "meta": {
+        "bundle": "ai_beauty_type_processor",
+        "conversion": {
+          "reason": "PRELU: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+          "runner": "litert",
+          "status": "skipped"
+        },
+        "family": "landmarks",
+        "input_provenance": {
+          "inputs": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 96x96 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              96,
+              96,
+              1
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "inputs",
+            "shape": [
+              1,
+              96,
+              96,
+              1
+            ]
+          }
+        ],
+        "name": "model__ai_beauty_type_processor__model_hair",
+        "note": "96x96x1 -> 7 hairline points",
+        "op_count": 66,
+        "ops": [
+          "ADD",
+          "CONCATENATION",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "PRELU",
+          "RESHAPE",
+          "SUB"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              7,
+              2
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "model_hair",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_beauty_type_processor__model_hair.tflite",
+        "unsupported_ops": [
+          "PRELU"
+        ]
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "Identity",
+          "shape": [
+            7,
+            2
+          ]
+        }
+      ],
+      "path": "litert",
+      "postprocess": {
+        "family": "landmarks",
+        "outputs": {
+          "Identity": {
+            "coord_frame": "pixels in the 96x96 network input",
+            "kind": "landmarks",
+            "n_points": 7,
+            "xy_first5": [
+              [
+                20.63381004333496,
+                56.243186950683594
+              ],
+              [
+                22.08204460144043,
+                40.942378997802734
+              ],
+              [
+                31.312166213989258,
+                29.313934326171875
+              ],
+              [
+                46.91237258911133,
+                25.204126358032227
+              ],
+              [
+                63.31464767456055,
+                28.95243263244629
+              ]
+            ],
+            "xy_mean": [
+              47.222145080566406,
+              39.858177185058594
+            ],
+            "xy_range": [
+              [
+                20.63381004333496,
+                73.99344635009766
+              ],
+              [
+                25.204126358032227,
+                57.045196533203125
+              ]
+            ]
+          }
+        }
+      },
+      "seconds": 0.0,
+      "status": "litert_fallback",
+      "verification": null
+    },
+    "model__ai_beauty_type_processor__mouth_checker_14": {
+      "conversion": {
+        "jax_dir": "reimpl/model_runners/generated/model__ai_beauty_type_processor__mouth_checker_14",
+        "runner": "generated",
+        "status": "converted"
+      },
+      "meta": {
+        "bundle": "ai_beauty_type_processor",
+        "conversion": {
+          "reason": null,
+          "runner": "generated",
+          "status": "converted"
+        },
+        "family": "binary_class",
+        "input_provenance": {
+          "input": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 40x40 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              40,
+              40,
+              3
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "input",
+            "shape": [
+              1,
+              40,
+              40,
+              3
+            ]
+          }
+        ],
+        "name": "model__ai_beauty_type_processor__mouth_checker_14",
+        "note": "40x40x3 RGB -> 2-class mouth-open softmax",
+        "op_count": 13,
+        "ops": [
+          "AVERAGE_POOL_2D",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "MAX_POOL_2D",
+          "RESHAPE",
+          "SOFTMAX"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "softmax",
+            "scale": [],
+            "shape": [
+              1,
+              2
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "mouth_checker_14",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_beauty_type_processor__mouth_checker_14.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "softmax",
+          "shape": [
+            1,
+            2
+          ]
+        }
+      ],
+      "path": "jax",
+      "postprocess": {
+        "family": "binary_class",
+        "outputs": {
+          "softmax": {
+            "argmax": 1,
+            "confidence": 0.5731456279754639,
+            "kind": "class_probs",
+            "positive": true,
+            "probs": [
+              0.4268544018268585,
+              0.5731456279754639
+            ]
+          }
+        }
+      },
+      "seconds": 0.39,
+      "status": "pass",
+      "verification": {
+        "all_within_tolerance": true,
+        "max_abs": 5.960464477539063e-08,
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 5.960464477539063e-08,
+            "name": "softmax",
+            "ok": true,
+            "shape": [
+              1,
+              2
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          }
+        ],
+        "status": "pass"
+      }
+    },
+    "model__ai_beauty_type_processor__n-0.5_416_0.05_4aspect6": {
+      "conversion": {
+        "reason": "SPLIT: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+        "runner": "litert",
+        "status": "skipped",
+        "unsupported_ops": [
+          "SPLIT"
+        ]
+      },
+      "fallback_reason": "SPLIT: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+      "meta": {
+        "bundle": "ai_beauty_type_processor",
+        "conversion": {
+          "reason": "SPLIT: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+          "runner": "litert",
+          "status": "skipped"
+        },
+        "family": "detector_anchor",
+        "input_provenance": {
+          "input_1": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 416x416 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              416,
+              416,
+              3
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "input_1",
+            "shape": [
+              1,
+              416,
+              416,
+              3
+            ]
+          }
+        ],
+        "name": "model__ai_beauty_type_processor__n-0.5_416_0.05_4aspect6",
+        "note": "416x416x3 -> 7098 anchors (score/ltrb/classes)",
+        "op_count": 276,
+        "ops": [
+          "CONCATENATION",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "LOGISTIC",
+          "MAX_POOL_2D",
+          "MUL",
+          "PAD",
+          "RESHAPE",
+          "RESIZE_NEAREST_NEIGHBOR",
+          "SPLIT",
+          "STRIDED_SLICE",
+          "TRANSPOSE"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              1,
+              7098,
+              1
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_1",
+            "scale": [],
+            "shape": [
+              1,
+              7098,
+              4
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_2",
+            "scale": [],
+            "shape": [
+              1,
+              7098,
+              10
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "n-0.5_416_0.05_4aspect6",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_beauty_type_processor__n-0.5_416_0.05_4aspect6.tflite",
+        "unsupported_ops": [
+          "SPLIT"
+        ]
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "Identity",
+          "shape": [
+            1,
+            7098,
+            1
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "Identity_1",
+          "shape": [
+            1,
+            7098,
+            4
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "Identity_2",
+          "shape": [
+            1,
+            7098,
+            10
+          ]
+        }
+      ],
+      "path": "litert",
+      "postprocess": {
+        "family": "detector_anchor",
+        "outputs": {
+          "Identity": {
+            "best_anchor": 5105,
+            "best_score": 0.0004801745235454291,
+            "kind": "anchor_scores",
+            "n_anchors": 7098,
+            "score_stats": {
+              "max": 0.0004801745235454291,
+              "mean": 3.8934092934252025e-06,
+              "min": 4.3350129800938386e-14,
+              "std": 9.3579436832209e-06
+            },
+            "sigmoid_applied": false
+          },
+          "Identity_1": {
+            "kind": "anchor_ltrb",
+            "mean": [
+              0.5474612027679345,
+              0.5346986540764042,
+              0.6023188157673116,
+              0.6038230438573692
+            ],
+            "n_anchors": 7098
+          },
+          "Identity_2": {
+            "kind": "anchor_classes",
+            "n_classes": 10,
+            "shape": [
+              1,
+              7098,
+              10
+            ]
+          },
+          "decode": {
+            "note": "FCOS-style head: box = anchor centre +/- ltrb * stride; the per-level stride table lives in the encrypted bundle config, so only anchor ids are reported"
+          }
+        }
+      },
+      "seconds": 0.08,
+      "status": "litert_fallback",
+      "verification": null
+    },
+    "model__ai_beauty_type_processor__n-small_256_0.05_only_a5": {
+      "conversion": {
+        "reason": "SPLIT: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+        "runner": "litert",
+        "status": "skipped",
+        "unsupported_ops": [
+          "SPLIT"
+        ]
+      },
+      "fallback_reason": "SPLIT: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+      "meta": {
+        "bundle": "ai_beauty_type_processor",
+        "conversion": {
+          "reason": "SPLIT: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+          "runner": "litert",
+          "status": "skipped"
+        },
+        "family": "detector_anchor",
+        "input_provenance": {
+          "input_1": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 256x256 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              256,
+              256,
+              3
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "input_1",
+            "shape": [
+              1,
+              256,
+              256,
+              3
+            ]
+          }
+        ],
+        "name": "model__ai_beauty_type_processor__n-small_256_0.05_only_a5",
+        "note": "256x256x3 -> 3072 anchors (score/ltrb/classes)",
+        "op_count": 103,
+        "ops": [
+          "ADD",
+          "CONCATENATION",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "LOGISTIC",
+          "MAX_POOL_2D",
+          "MUL",
+          "PAD",
+          "RESHAPE",
+          "RESIZE_NEAREST_NEIGHBOR",
+          "SPLIT",
+          "STRIDED_SLICE",
+          "TRANSPOSE"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              1,
+              3072,
+              1
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_1",
+            "scale": [],
+            "shape": [
+              1,
+              3072,
+              4
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_2",
+            "scale": [],
+            "shape": [
+              1,
+              3072,
+              10
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "n-small_256_0.05_only_a5",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_beauty_type_processor__n-small_256_0.05_only_a5.tflite",
+        "unsupported_ops": [
+          "SPLIT"
+        ]
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "Identity",
+          "shape": [
+            1,
+            3072,
+            1
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "Identity_1",
+          "shape": [
+            1,
+            3072,
+            4
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "Identity_2",
+          "shape": [
+            1,
+            3072,
+            10
+          ]
+        }
+      ],
+      "path": "litert",
+      "postprocess": {
+        "family": "detector_anchor",
+        "outputs": {
+          "Identity": {
+            "best_anchor": 94,
+            "best_score": 6.66892301524058e-05,
+            "kind": "anchor_scores",
+            "n_anchors": 3072,
+            "score_stats": {
+              "max": 6.66892301524058e-05,
+              "mean": 1.678597023590615e-06,
+              "min": 5.256640989159678e-08,
+              "std": 3.593968780197898e-06
+            },
+            "sigmoid_applied": false
+          },
+          "Identity_1": {
+            "kind": "anchor_ltrb",
+            "mean": [
+              0.5421939418592956,
+              0.5233496834359054,
+              0.35604858068594086,
+              0.4113345937318324
+            ],
+            "n_anchors": 3072
+          },
+          "Identity_2": {
+            "kind": "anchor_classes",
+            "n_classes": 10,
+            "shape": [
+              1,
+              3072,
+              10
+            ]
+          },
+          "decode": {
+            "note": "FCOS-style head: box = anchor centre +/- ltrb * stride; the per-level stride table lives in the encrypted bundle config, so only anchor ids are reported"
+          }
+        }
+      },
+      "seconds": 0.01,
+      "status": "litert_fallback",
+      "verification": null
+    },
+    "model__ai_beauty_type_processor__s1_112_98": {
+      "conversion": {
+        "jax_dir": "reimpl/model_runners/generated/model__ai_beauty_type_processor__s1_112_98",
+        "runner": "generated",
+        "status": "converted"
+      },
+      "meta": {
+        "bundle": "ai_beauty_type_processor",
+        "conversion": {
+          "reason": null,
+          "runner": "generated",
+          "status": "converted"
+        },
+        "family": "landmarks_score",
+        "input_provenance": {
+          "inputs": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 112x112 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              112,
+              112,
+              1
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "inputs",
+            "shape": [
+              1,
+              112,
+              112,
+              1
+            ]
+          }
+        ],
+        "name": "model__ai_beauty_type_processor__s1_112_98",
+        "note": "112x112x1 -> 98 points + 2-class score",
+        "op_count": 61,
+        "ops": [
+          "ADD",
+          "AVERAGE_POOL_2D",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "RESHAPE",
+          "SOFTMAX"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              2
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_1",
+            "scale": [],
+            "shape": [
+              98,
+              2
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "s1_112_98",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_beauty_type_processor__s1_112_98.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "Identity",
+          "shape": [
+            2
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "Identity_1",
+          "shape": [
+            98,
+            2
+          ]
+        }
+      ],
+      "path": "jax",
+      "postprocess": {
+        "family": "landmarks_score",
+        "outputs": {
+          "Identity": {
+            "argmax": 1,
+            "confidence": 0.7278749227935918,
+            "kind": "score",
+            "logits": [
+              0.008066282607614994,
+              0.9919337034225464
+            ],
+            "n_classes": 2,
+            "probs": [
+              0.2721250772064082,
+              0.7278749227935918
+            ]
+          },
+          "Identity_1": {
+            "coord_frame": "pixels in the 112x112 network input",
+            "kind": "landmarks",
+            "n_points": 98,
+            "xy_first5": [
+              [
+                87.25582885742188,
+                48.905174255371094
+              ],
+              [
+                86.6135025024414,
+                53.330509185791016
+              ],
+              [
+                85.72200775146484,
+                57.7459831237793
+              ],
+              [
+                84.94416809082031,
+                62.09236526489258
+              ],
+              [
+                83.93690490722656,
+                66.73299407958984
+              ]
+            ],
+            "xy_mean": [
+              59.961570739746094,
+              61.10845947265625
+            ],
+            "xy_range": [
+              [
+                24.864559173583984,
+                88.60639953613281
+              ],
+              [
+                15.850923538208008,
+                96.58619689941406
+              ]
+            ]
+          }
+        }
+      },
+      "seconds": 0.68,
+      "status": "pass",
+      "verification": {
+        "all_within_tolerance": true,
+        "max_abs": 5.340576171875e-05,
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 4.284083843231201e-08,
+            "name": "Identity",
+            "ok": true,
+            "shape": [
+              2
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          },
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 5.340576171875e-05,
+            "name": "Identity_1",
+            "ok": true,
+            "shape": [
+              98,
+              2
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          }
+        ],
+        "status": "pass"
+      }
+    },
+    "model__ai_beauty_type_processor__s2": {
+      "conversion": {
+        "reason": "dynamic RESHAPE shape: RESHAPE target is computed from SHAPE/PACK at run time; tools/tflite2jax.py requires a constant shape (status unsupported_params)",
+        "runner": "litert",
+        "status": "skipped",
+        "unsupported_ops": []
+      },
+      "fallback_reason": "dynamic RESHAPE shape: RESHAPE target is computed from SHAPE/PACK at run time; tools/tflite2jax.py requires a constant shape (status unsupported_params)",
+      "meta": {
+        "bundle": "ai_beauty_type_processor",
+        "conversion": {
+          "reason": "dynamic RESHAPE shape: RESHAPE target is computed from SHAPE/PACK at run time; tools/tflite2jax.py requires a constant shape (status unsupported_params)",
+          "runner": "litert",
+          "status": "skipped"
+        },
+        "family": "landmarks",
+        "input_provenance": {
+          "inputs": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 112x112 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              112,
+              112,
+              1
+            ]
+          },
+          "inputs_ht": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 112x112 (heatmap)",
+            "role": "heatmap",
+            "shape": [
+              1,
+              112,
+              112,
+              1
+            ]
+          },
+          "inputs_lms": {
+            "dtype": "FLOAT32",
+            "provenance": "77 deterministic points in the unit crop square (placeholder)",
+            "role": "landmarks",
+            "shape": [
+              1,
+              77,
+              2
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "inputs",
+            "shape": [
+              1,
+              112,
+              112,
+              1
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "inputs_ht",
+            "shape": [
+              1,
+              112,
+              112,
+              1
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "inputs_lms",
+            "shape": [
+              1,
+              77,
+              2
+            ]
+          }
+        ],
+        "name": "model__ai_beauty_type_processor__s2",
+        "note": "112x112 crop + heatmap + 77 points -> 77 refined points",
+        "op_count": 43,
+        "ops": [
+          "ADD",
+          "AVERAGE_POOL_2D",
+          "CONCATENATION",
+          "CONV_2D",
+          "MUL",
+          "PACK",
+          "RESHAPE",
+          "SHAPE",
+          "STRIDED_SLICE"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              1,
+              77,
+              2
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "s2",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_beauty_type_processor__s2.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "Identity",
+          "shape": [
+            1,
+            77,
+            2
+          ]
+        }
+      ],
+      "path": "litert",
+      "postprocess": {
+        "family": "landmarks",
+        "outputs": {
+          "Identity": {
+            "coord_frame": "network-specific (offsets / heatmap-argmax coords)",
+            "kind": "landmarks",
+            "n_points": 77,
+            "xy_first5": [
+              [
+                7.118936061859131,
+                27.569049835205078
+              ],
+              [
+                5.409224510192871,
+                25.731887817382812
+              ],
+              [
+                -0.013843834400177002,
+                23.349014282226562
+              ],
+              [
+                -4.462075233459473,
+                18.796070098876953
+              ],
+              [
+                -5.550406455993652,
+                14.310431480407715
+              ]
+            ],
+            "xy_mean": [
+              -0.5639628767967224,
+              8.827666282653809
+            ],
+            "xy_range": [
+              [
+                -11.521647453308105,
+                20.612186431884766
+              ],
+              [
+                -8.33774185180664,
+                42.17133712768555
+              ]
+            ]
+          }
+        }
+      },
+      "seconds": 0.01,
+      "status": "litert_fallback",
+      "verification": null
+    },
+    "model__ai_beauty_type_processor__s3": {
+      "conversion": {
+        "reason": "dynamic RESHAPE shape: RESHAPE target is computed from SHAPE/PACK at run time; tools/tflite2jax.py requires a constant shape (status unsupported_params)",
+        "runner": "litert",
+        "status": "skipped",
+        "unsupported_ops": []
+      },
+      "fallback_reason": "dynamic RESHAPE shape: RESHAPE target is computed from SHAPE/PACK at run time; tools/tflite2jax.py requires a constant shape (status unsupported_params)",
+      "meta": {
+        "bundle": "ai_beauty_type_processor",
+        "conversion": {
+          "reason": "dynamic RESHAPE shape: RESHAPE target is computed from SHAPE/PACK at run time; tools/tflite2jax.py requires a constant shape (status unsupported_params)",
+          "runner": "litert",
+          "status": "skipped"
+        },
+        "family": "landmarks_multi",
+        "input_provenance": {
+          "ht_le": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 64x64 (heatmap)",
+            "role": "heatmap",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          "ht_leb": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 64x64 (heatmap)",
+            "role": "heatmap",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          "ht_mouth": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 64x64 (heatmap)",
+            "role": "heatmap",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          "ht_re": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 64x64 (heatmap)",
+            "role": "heatmap",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          "ht_reb": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 64x64 (heatmap)",
+            "role": "heatmap",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          "inputs_le": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 64x64 (crop)",
+            "role": "crop",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          "inputs_leb": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 64x64 (crop)",
+            "role": "crop",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          "inputs_mouth": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 64x64 (crop)",
+            "role": "crop",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          "inputs_re": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 64x64 (crop)",
+            "role": "crop",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          "inputs_reb": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 64x64 (crop)",
+            "role": "crop",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          "lm_le": {
+            "dtype": "FLOAT32",
+            "provenance": "8 deterministic points in the unit crop square (placeholder)",
+            "role": "landmarks",
+            "shape": [
+              1,
+              8,
+              2
+            ]
+          },
+          "lm_leb": {
+            "dtype": "FLOAT32",
+            "provenance": "6 deterministic points in the unit crop square (placeholder)",
+            "role": "landmarks",
+            "shape": [
+              1,
+              6,
+              2
+            ]
+          },
+          "lm_mouth": {
+            "dtype": "FLOAT32",
+            "provenance": "18 deterministic points in the unit crop square (placeholder)",
+            "role": "landmarks",
+            "shape": [
+              1,
+              18,
+              2
+            ]
+          },
+          "lm_re": {
+            "dtype": "FLOAT32",
+            "provenance": "8 deterministic points in the unit crop square (placeholder)",
+            "role": "landmarks",
+            "shape": [
+              1,
+              8,
+              2
+            ]
+          },
+          "lm_reb": {
+            "dtype": "FLOAT32",
+            "provenance": "6 deterministic points in the unit crop square (placeholder)",
+            "role": "landmarks",
+            "shape": [
+              1,
+              6,
+              2
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "inputs_le",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "inputs_leb",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "inputs_re",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "inputs_reb",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "inputs_mouth",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "ht_le",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "ht_leb",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "ht_re",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "ht_reb",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "ht_mouth",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "lm_le",
+            "shape": [
+              1,
+              8,
+              2
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "lm_leb",
+            "shape": [
+              1,
+              6,
+              2
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "lm_re",
+            "shape": [
+              1,
+              8,
+              2
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "lm_reb",
+            "shape": [
+              1,
+              6,
+              2
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "lm_mouth",
+            "shape": [
+              1,
+              18,
+              2
+            ]
+          }
+        ],
+        "name": "model__ai_beauty_type_processor__s3",
+        "note": "5 eye/mouth crops + heatmaps + points -> 5 refined point sets",
+        "op_count": 195,
+        "ops": [
+          "ADD",
+          "AVERAGE_POOL_2D",
+          "CONCATENATION",
+          "CONV_2D",
+          "MUL",
+          "PACK",
+          "RESHAPE",
+          "SHAPE",
+          "STRIDED_SLICE"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              1,
+              8,
+              2
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_1",
+            "scale": [],
+            "shape": [
+              1,
+              6,
+              2
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_2",
+            "scale": [],
+            "shape": [
+              1,
+              8,
+              2
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_3",
+            "scale": [],
+            "shape": [
+              1,
+              6,
+              2
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_4",
+            "scale": [],
+            "shape": [
+              1,
+              18,
+              2
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "s3",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_beauty_type_processor__s3.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "Identity",
+          "shape": [
+            1,
+            8,
+            2
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "Identity_1",
+          "shape": [
+            1,
+            6,
+            2
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "Identity_2",
+          "shape": [
+            1,
+            8,
+            2
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "Identity_3",
+          "shape": [
+            1,
+            6,
+            2
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "Identity_4",
+          "shape": [
+            1,
+            18,
+            2
+          ]
+        }
+      ],
+      "path": "litert",
+      "postprocess": {
+        "family": "landmarks_multi",
+        "outputs": {
+          "Identity": {
+            "coord_frame": "network-specific (offsets / heatmap-argmax coords)",
+            "kind": "landmarks",
+            "n_points": 8,
+            "xy_first5": [
+              [
+                -11.361858367919922,
+                -20.41108512878418
+              ],
+              [
+                -5.613298416137695,
+                -28.344846725463867
+              ],
+              [
+                -2.488182783126831,
+                -33.42881393432617
+              ],
+              [
+                0.36452385783195496,
+                -37.39760971069336
+              ],
+              [
+                0.2664627432823181,
+                -35.066001892089844
+              ]
+            ],
+            "xy_mean": [
+              -3.5632753372192383,
+              -24.307552337646484
+            ],
+            "xy_range": [
+              [
+                -11.361858367919922,
+                0.36452385783195496
+              ],
+              [
+                -37.39760971069336,
+                -10.774796485900879
+              ]
+            ]
+          },
+          "Identity_1": {
+            "coord_frame": "network-specific (offsets / heatmap-argmax coords)",
+            "kind": "landmarks",
+            "n_points": 6,
+            "xy_first5": [
+              [
+                10.89500617980957,
+                -13.97469711303711
+              ],
+              [
+                26.658620834350586,
+                -15.230419158935547
+              ],
+              [
+                34.2620849609375,
+                -8.036059379577637
+              ],
+              [
+                23.951257705688477,
+                6.391479969024658
+              ],
+              [
+                24.905668258666992,
+                8.413665771484375
+              ]
+            ],
+            "xy_mean": [
+              22.93039894104004,
+              -3.8670389652252197
+            ],
+            "xy_range": [
+              [
+                10.89500617980957,
+                34.2620849609375
+              ],
+              [
+                -15.230419158935547,
+                8.413665771484375
+              ]
+            ]
+          },
+          "Identity_2": {
+            "coord_frame": "network-specific (offsets / heatmap-argmax coords)",
+            "kind": "landmarks",
+            "n_points": 8,
+            "xy_first5": [
+              [
+                -75.55917358398438,
+                -9.447305679321289
+              ],
+              [
+                -64.93665313720703,
+                22.538246154785156
+              ],
+              [
+                -41.169288635253906,
+                29.9912052154541
+              ],
+              [
+                -23.925504684448242,
+                16.512136459350586
+              ],
+              [
+                -16.307340621948242,
+                -6.622288227081299
+              ]
+            ],
+            "xy_mean": [
+              -46.62599182128906,
+              2.5000877380371094
+            ],
+            "xy_range": [
+              [
+                -75.55917358398438,
+                -16.307340621948242
+              ],
+              [
+                -12.182884216308594,
+                29.9912052154541
+              ]
+            ]
+          },
+          "Identity_3": {
+            "coord_frame": "network-specific (offsets / heatmap-argmax coords)",
+            "kind": "landmarks",
+            "n_points": 6,
+            "xy_first5": [
+              [
+                -20.00821304321289,
+                41.720909118652344
+              ],
+              [
+                -25.38980484008789,
+                64.67086791992188
+              ],
+              [
+                -6.028653144836426,
+                71.10298919677734
+              ],
+              [
+                12.908278465270996,
+                48.55014419555664
+              ],
+              [
+                4.070804595947266,
+                36.67878341674805
+              ]
+            ],
+            "xy_mean": [
+              -6.8864426612854,
+              48.32136154174805
+            ],
+            "xy_range": [
+              [
+                -25.38980484008789,
+                12.908278465270996
+              ],
+              [
+                27.204483032226562,
+                71.10298919677734
+              ]
+            ]
+          },
+          "Identity_4": {
+            "coord_frame": "network-specific (offsets / heatmap-argmax coords)",
+            "kind": "landmarks",
+            "n_points": 18,
+            "xy_first5": [
+              [
+                5.018426895141602,
+                -3.3388266563415527
+              ],
+              [
+                -3.1659388542175293,
+                6.438380718231201
+              ],
+              [
+                0.18734920024871826,
+                4.1185383796691895
+              ],
+              [
+                -0.1402205228805542,
+                7.351472854614258
+              ],
+              [
+                -1.7395081520080566,
+                4.020201683044434
+              ]
+            ],
+            "xy_mean": [
+              -0.3434816002845764,
+              2.6581003665924072
+            ],
+            "xy_range": [
+              [
+                -5.027630805969238,
+                5.020206928253174
+              ],
+              [
+                -13.740084648132324,
+                22.909177780151367
+              ]
+            ]
+          }
+        }
+      },
+      "seconds": 0.01,
+      "status": "litert_fallback",
+      "verification": null
+    },
+    "model__ai_face_beauty_processor__Fprs.0003.Exp007e33_quan1_sm": {
+      "conversion": {
+        "jax_dir": "reimpl/bundles/Fprs.0003.Exp007e33_quan1_sm",
+        "runner": "bundles",
+        "status": "converted"
+      },
+      "meta": {
+        "bundle": "ai_face_beauty_processor",
+        "conversion": {
+          "reason": null,
+          "runner": "bundles",
+          "status": "converted"
+        },
+        "family": "mask_multiclass",
+        "input_provenance": {
+          "serving_default_image:0": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 384x512 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              512,
+              384,
+              3
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "serving_default_image:0",
+            "shape": [
+              1,
+              512,
+              384,
+              3
+            ]
+          }
+        ],
+        "name": "model__ai_face_beauty_processor__Fprs.0003.Exp007e33_quan1_sm",
+        "note": "512x384x3 aligned face -> 15-class parsing softmax",
+        "op_count": 117,
+        "ops": [
+          "ADD",
+          "AVERAGE_POOL_2D",
+          "CONCATENATION",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "DEQUANTIZE",
+          "QUANTIZE",
+          "RESIZE_BILINEAR",
+          "RESIZE_NEAREST_NEIGHBOR",
+          "SOFTMAX"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "StatefulPartitionedCall:0",
+            "scale": [],
+            "shape": [
+              1,
+              512,
+              384,
+              15
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "Fprs.0003.Exp007e33_quan1_sm",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_face_beauty_processor__Fprs.0003.Exp007e33_quan1_sm.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall:0",
+          "shape": [
+            1,
+            512,
+            384,
+            15
+          ]
+        }
+      ],
+      "path": "jax",
+      "postprocess": {
+        "family": "mask_multiclass",
+        "outputs": {
+          "StatefulPartitionedCall:0": {
+            "argmax_class": 0,
+            "cate_mask_order": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              0,
+              0,
+              0,
+              14,
+              0
+            ],
+            "class_fraction": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "kind": "class_mask",
+            "n_classes": 15,
+            "shape": [
+              1,
+              512,
+              384,
+              15
+            ],
+            "ui_class_fraction": [
+              {
+                "channel": 0,
+                "fraction": 1.0,
+                "ui_class": 0
+              },
+              {
+                "channel": 1,
+                "fraction": 0.0,
+                "ui_class": 1
+              },
+              {
+                "channel": 2,
+                "fraction": 0.0,
+                "ui_class": 2
+              },
+              {
+                "channel": 3,
+                "fraction": 0.0,
+                "ui_class": 3
+              },
+              {
+                "channel": 4,
+                "fraction": 0.0,
+                "ui_class": 4
+              },
+              {
+                "channel": 5,
+                "fraction": 0.0,
+                "ui_class": 5
+              },
+              {
+                "channel": 6,
+                "fraction": 0.0,
+                "ui_class": 6
+              },
+              {
+                "channel": 7,
+                "fraction": 0.0,
+                "ui_class": 7
+              },
+              {
+                "channel": 8,
+                "fraction": 0.0,
+                "ui_class": 8
+              },
+              {
+                "channel": 9,
+                "fraction": 0.0,
+                "ui_class": 9
+              },
+              {
+                "channel": 10,
+                "fraction": 0.0,
+                "ui_class": 10
+              },
+              {
+                "channel": 11,
+                "fraction": 0.0,
+                "ui_class": 11
+              },
+              {
+                "channel": 12,
+                "fraction": 0.0,
+                "ui_class": 12
+              },
+              {
+                "channel": 13,
+                "fraction": 0.0,
+                "ui_class": 13
+              },
+              {
+                "channel": 0,
+                "fraction": 1.0,
+                "ui_class": 14
+              },
+              {
+                "channel": 0,
+                "fraction": 1.0,
+                "ui_class": 15
+              },
+              {
+                "channel": 0,
+                "fraction": 1.0,
+                "ui_class": 16
+              },
+              {
+                "channel": 14,
+                "fraction": 0.0,
+                "ui_class": 17
+              },
+              {
+                "channel": 0,
+                "fraction": 1.0,
+                "ui_class": 18
+              }
+            ]
+          }
+        }
+      },
+      "seconds": 2.12,
+      "status": "pass_semantic",
+      "verification": {
+        "all_within_tolerance": false,
+        "max_abs": 0.30859375,
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 0.30859375,
+            "name": "StatefulPartitionedCall:0",
+            "ok": false,
+            "shape": [
+              1,
+              512,
+              384,
+              15
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          }
+        ],
+        "semantic": {
+          "agreement": 1.0,
+          "metric": "argmax_class_agreement"
+        },
+        "status": "pass_semantic"
+      }
+    },
+    "model__ai_face_beauty_processor__FprsTeeth.0001.Exp002pe99_quan1_sm": {
+      "conversion": {
+        "jax_dir": "reimpl/model_runners/generated/model__ai_face_beauty_processor__FprsTeeth.0001.Exp002pe99_quan1_sm",
+        "runner": "generated",
+        "status": "converted"
+      },
+      "meta": {
+        "bundle": "ai_face_beauty_processor",
+        "conversion": {
+          "reason": null,
+          "runner": "generated",
+          "status": "converted"
+        },
+        "family": "mask_multiclass",
+        "input_provenance": {
+          "serving_default_image:0": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 256x192 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              192,
+              256,
+              3
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "serving_default_image:0",
+            "shape": [
+              1,
+              192,
+              256,
+              3
+            ]
+          }
+        ],
+        "name": "model__ai_face_beauty_processor__FprsTeeth.0001.Exp002pe99_quan1_sm",
+        "note": "192x256x3 -> 4-class teeth parsing softmax (channel 3)",
+        "op_count": 117,
+        "ops": [
+          "ADD",
+          "AVERAGE_POOL_2D",
+          "CONCATENATION",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "DEQUANTIZE",
+          "QUANTIZE",
+          "RESIZE_BILINEAR",
+          "RESIZE_NEAREST_NEIGHBOR",
+          "SOFTMAX"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "StatefulPartitionedCall:0",
+            "scale": [],
+            "shape": [
+              1,
+              192,
+              256,
+              4
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "FprsTeeth.0001.Exp002pe99_quan1_sm",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_face_beauty_processor__FprsTeeth.0001.Exp002pe99_quan1_sm.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall:0",
+          "shape": [
+            1,
+            192,
+            256,
+            4
+          ]
+        }
+      ],
+      "path": "jax",
+      "postprocess": {
+        "family": "mask_multiclass",
+        "outputs": {
+          "StatefulPartitionedCall:0": {
+            "argmax_class": 0,
+            "bg_fraction": 1.0,
+            "class_fraction": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "kind": "class_mask",
+            "n_classes": 4,
+            "shape": [
+              1,
+              192,
+              256,
+              4
+            ],
+            "teeth_channel": 3,
+            "teeth_fraction": 0.0
+          }
+        }
+      },
+      "seconds": 1.38,
+      "status": "pass_semantic",
+      "verification": {
+        "all_within_tolerance": false,
+        "max_abs": 0.5546875,
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 0.5546875,
+            "name": "StatefulPartitionedCall:0",
+            "ok": false,
+            "shape": [
+              1,
+              192,
+              256,
+              4
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          }
+        ],
+        "semantic": {
+          "agreement": 1.0,
+          "metric": "argmax_class_agreement"
+        },
+        "status": "pass_semantic"
+      }
+    },
+    "model__ai_face_beauty_processor__hair_1209a_acnenet_crop0.1pos0.1_3x24x24_quat": {
+      "conversion": {
+        "jax_dir": "reimpl/bundles/hair_1209a_acnenet_crop0.1pos0.1_3x24x24_quat",
+        "runner": "bundles",
+        "status": "converted"
+      },
+      "meta": {
+        "bundle": "ai_face_beauty_processor",
+        "conversion": {
+          "reason": null,
+          "runner": "bundles",
+          "status": "converted"
+        },
+        "family": "binary_class",
+        "input_provenance": {
+          "input_1": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 24x24 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              24,
+              24,
+              3
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "input_1",
+            "shape": [
+              1,
+              24,
+              24,
+              3
+            ]
+          }
+        ],
+        "name": "model__ai_face_beauty_processor__hair_1209a_acnenet_crop0.1pos0.1_3x24x24_quat",
+        "note": "24x24x3 del-spot patch -> 2-class (hair/acne) softmax",
+        "op_count": 44,
+        "ops": [
+          "ADD",
+          "AVERAGE_POOL_2D",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "FULLY_CONNECTED",
+          "MAX_POOL_2D",
+          "MUL",
+          "SOFTMAX"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              1,
+              2
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "hair_1209a_acnenet_crop0.1pos0.1_3x24x24_quat",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_face_beauty_processor__hair_1209a_acnenet_crop0.1pos0.1_3x24x24_quat.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "Identity",
+          "shape": [
+            1,
+            2
+          ]
+        }
+      ],
+      "path": "jax",
+      "postprocess": {
+        "family": "binary_class",
+        "outputs": {
+          "Identity": {
+            "argmax": 1,
+            "confidence": 0.9145799875259399,
+            "kind": "class_probs",
+            "positive": true,
+            "probs": [
+              0.08542006462812424,
+              0.9145799875259399
+            ]
+          }
+        }
+      },
+      "seconds": 0.64,
+      "status": "pass",
+      "verification": {
+        "all_within_tolerance": true,
+        "max_abs": 2.2351741790771484e-08,
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 2.2351741790771484e-08,
+            "name": "Identity",
+            "ok": true,
+            "shape": [
+              1,
+              2
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          }
+        ],
+        "status": "pass"
+      }
+    },
+    "model__ai_face_beauty_processor__highlight_1209a_acnenet_crop0.2pos0.1_3x24x24_quat": {
+      "conversion": {
+        "jax_dir": "reimpl/model_runners/generated/model__ai_face_beauty_processor__highlight_1209a_acnenet_crop0.2pos0.1_3x24x24_quat",
+        "runner": "generated",
+        "status": "converted"
+      },
+      "meta": {
+        "bundle": "ai_face_beauty_processor",
+        "conversion": {
+          "reason": null,
+          "runner": "generated",
+          "status": "converted"
+        },
+        "family": "binary_class",
+        "input_provenance": {
+          "input_1": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 24x24 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              24,
+              24,
+              3
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "input_1",
+            "shape": [
+              1,
+              24,
+              24,
+              3
+            ]
+          }
+        ],
+        "name": "model__ai_face_beauty_processor__highlight_1209a_acnenet_crop0.2pos0.1_3x24x24_quat",
+        "note": "24x24x3 del-spot patch -> 2-class (highlight) softmax",
+        "op_count": 44,
+        "ops": [
+          "ADD",
+          "AVERAGE_POOL_2D",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "FULLY_CONNECTED",
+          "MAX_POOL_2D",
+          "MUL",
+          "SOFTMAX"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              1,
+              2
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "highlight_1209a_acnenet_crop0.2pos0.1_3x24x24_quat",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_face_beauty_processor__highlight_1209a_acnenet_crop0.2pos0.1_3x24x24_quat.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "Identity",
+          "shape": [
+            1,
+            2
+          ]
+        }
+      ],
+      "path": "jax",
+      "postprocess": {
+        "family": "binary_class",
+        "outputs": {
+          "Identity": {
+            "argmax": 1,
+            "confidence": 0.9563614726066589,
+            "kind": "class_probs",
+            "positive": true,
+            "probs": [
+              0.04363853111863136,
+              0.9563614726066589
+            ]
+          }
+        }
+      },
+      "seconds": 0.56,
+      "status": "pass",
+      "verification": {
+        "all_within_tolerance": true,
+        "max_abs": 1.6763806343078613e-07,
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 1.6763806343078613e-07,
+            "name": "Identity",
+            "ok": true,
+            "shape": [
+              1,
+              2
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          }
+        ],
+        "status": "pass"
+      }
+    },
+    "model__ai_face_beauty_processor__lines_1209a_acnenet_crop0.1pos0.1_3x24x24_quat": {
+      "conversion": {
+        "jax_dir": "reimpl/model_runners/generated/model__ai_face_beauty_processor__lines_1209a_acnenet_crop0.1pos0.1_3x24x24_quat",
+        "runner": "generated",
+        "status": "converted"
+      },
+      "meta": {
+        "bundle": "ai_face_beauty_processor",
+        "conversion": {
+          "reason": null,
+          "runner": "generated",
+          "status": "converted"
+        },
+        "family": "binary_class",
+        "input_provenance": {
+          "input_1": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 24x24 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              24,
+              24,
+              3
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "input_1",
+            "shape": [
+              1,
+              24,
+              24,
+              3
+            ]
+          }
+        ],
+        "name": "model__ai_face_beauty_processor__lines_1209a_acnenet_crop0.1pos0.1_3x24x24_quat",
+        "note": "24x24x3 del-spot patch -> 2-class (lines/wrinkles) softmax",
+        "op_count": 44,
+        "ops": [
+          "ADD",
+          "AVERAGE_POOL_2D",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "FULLY_CONNECTED",
+          "MAX_POOL_2D",
+          "MUL",
+          "SOFTMAX"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              1,
+              2
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "lines_1209a_acnenet_crop0.1pos0.1_3x24x24_quat",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_face_beauty_processor__lines_1209a_acnenet_crop0.1pos0.1_3x24x24_quat.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "Identity",
+          "shape": [
+            1,
+            2
+          ]
+        }
+      ],
+      "path": "jax",
+      "postprocess": {
+        "family": "binary_class",
+        "outputs": {
+          "Identity": {
+            "argmax": 0,
+            "confidence": 1.0,
+            "kind": "class_probs",
+            "positive": false,
+            "probs": [
+              1.0,
+              1.2298815394926055e-13
+            ]
+          }
+        }
+      },
+      "seconds": 0.63,
+      "status": "pass",
+      "verification": {
+        "all_within_tolerance": true,
+        "max_abs": 2.439454888092385e-19,
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 2.439454888092385e-19,
+            "name": "Identity",
+            "ok": true,
+            "shape": [
+              1,
+              2
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          }
+        ],
+        "status": "pass"
+      }
+    },
+    "model__ai_face_beauty_processor__mobile_spade_256_ch16_from16_40000_ft16_ftsave_yunfu": {
+      "conversion": {
+        "jax_dir": "reimpl/model_runners/generated/model__ai_face_beauty_processor__mobile_spade_256_ch16_from16_40000_ft16_ftsave_yunfu",
+        "runner": "generated",
+        "status": "converted"
+      },
+      "meta": {
+        "bundle": "ai_face_beauty_processor",
+        "conversion": {
+          "reason": null,
+          "runner": "generated",
+          "status": "converted"
+        },
+        "family": "image_tanh",
+        "input_provenance": {
+          "input_tensor": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 256x256 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              256,
+              256,
+              3
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "input_tensor",
+            "shape": [
+              1,
+              256,
+              256,
+              3
+            ]
+          }
+        ],
+        "name": "model__ai_face_beauty_processor__mobile_spade_256_ch16_from16_40000_ft16_ftsave_yunfu",
+        "note": "256x256x3 -> 256x256x3 tanh (even-skin SPADE GAN)",
+        "op_count": 301,
+        "ops": [
+          "ADD",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "DEQUANTIZE",
+          "MUL",
+          "RESIZE_BILINEAR",
+          "TANH"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "generator_1/Tanh",
+            "scale": [],
+            "shape": [
+              1,
+              256,
+              256,
+              3
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "mobile_spade_256_ch16_from16_40000_ft16_ftsave_yunfu",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_face_beauty_processor__mobile_spade_256_ch16_from16_40000_ft16_ftsave_yunfu.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "generator_1/Tanh",
+          "shape": [
+            1,
+            256,
+            256,
+            3
+          ]
+        }
+      ],
+      "path": "jax",
+      "postprocess": {
+        "family": "image_tanh",
+        "outputs": {
+          "generator_1/Tanh": {
+            "image_range": {
+              "max": 0.9960426092147827,
+              "mean": 0.7634230995987915,
+              "min": 0.4505739212036133,
+              "std": 0.13772535783211895
+            },
+            "kind": "image",
+            "note": "Tanh generator output mapped [-1,1] -> [0,1]",
+            "shape": [
+              1,
+              256,
+              256,
+              3
+            ],
+            "tanh_range": {
+              "max": 0.9920852184295654,
+              "mean": 0.5268461990018184,
+              "min": -0.09885215759277344,
+              "std": 0.2754507154825698
+            }
+          }
+        }
+      },
+      "seconds": 3.39,
+      "status": "pass",
+      "verification": {
+        "all_within_tolerance": true,
+        "max_abs": 5.960464477539062e-07,
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 5.960464477539062e-07,
+            "name": "generator_1/Tanh",
+            "ok": true,
+            "shape": [
+              1,
+              256,
+              256,
+              3
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          }
+        ],
+        "status": "pass"
+      }
+    },
+    "model__ai_face_beauty_processor__mobile_spade_256_ch16_from16_ftsevere_lr0.0001_117_16001": {
+      "conversion": {
+        "jax_dir": "reimpl/model_runners/generated/model__ai_face_beauty_processor__mobile_spade_256_ch16_from16_ftsevere_lr0.0001_117_16001",
+        "runner": "generated",
+        "status": "converted"
+      },
+      "meta": {
+        "bundle": "ai_face_beauty_processor",
+        "conversion": {
+          "reason": null,
+          "runner": "generated",
+          "status": "converted"
+        },
+        "family": "image_tanh",
+        "input_provenance": {
+          "input_tensor": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 256x256 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              256,
+              256,
+              3
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "input_tensor",
+            "shape": [
+              1,
+              256,
+              256,
+              3
+            ]
+          }
+        ],
+        "name": "model__ai_face_beauty_processor__mobile_spade_256_ch16_from16_ftsevere_lr0.0001_117_16001",
+        "note": "256x256x3 -> 256x256x3 tanh (flaw remover SPADE GAN)",
+        "op_count": 301,
+        "ops": [
+          "ADD",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "DEQUANTIZE",
+          "MUL",
+          "RESIZE_BILINEAR",
+          "RESIZE_NEAREST_NEIGHBOR",
+          "TANH"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "generator_1/Tanh",
+            "scale": [],
+            "shape": [
+              1,
+              256,
+              256,
+              3
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "mobile_spade_256_ch16_from16_ftsevere_lr0.0001_117_16001",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_face_beauty_processor__mobile_spade_256_ch16_from16_ftsevere_lr0.0001_117_16001.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "generator_1/Tanh",
+          "shape": [
+            1,
+            256,
+            256,
+            3
+          ]
+        }
+      ],
+      "path": "jax",
+      "postprocess": {
+        "family": "image_tanh",
+        "outputs": {
+          "generator_1/Tanh": {
+            "image_range": {
+              "max": 0.9977539777755737,
+              "mean": 0.7648821499636446,
+              "min": 0.2978730797767639,
+              "std": 0.13854425626923922
+            },
+            "kind": "image",
+            "note": "Tanh generator output mapped [-1,1] -> [0,1]",
+            "shape": [
+              1,
+              256,
+              256,
+              3
+            ],
+            "tanh_range": {
+              "max": 0.9955079555511475,
+              "mean": 0.5297642999178276,
+              "min": -0.4042538106441498,
+              "std": 0.277088512537284
+            }
+          }
+        }
+      },
+      "seconds": 3.13,
+      "status": "pass",
+      "verification": {
+        "all_within_tolerance": true,
+        "max_abs": 8.270144462585449e-07,
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 8.270144462585449e-07,
+            "name": "generator_1/Tanh",
+            "ok": true,
+            "shape": [
+              1,
+              256,
+              256,
+              3
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          }
+        ],
+        "status": "pass"
+      }
+    },
+    "model__ai_face_beauty_processor__mole_seg_24x24x3_1206_quat": {
+      "conversion": {
+        "jax_dir": "reimpl/bundles/mole_seg_24x24x3_1206_quat",
+        "runner": "bundles",
+        "status": "converted"
+      },
+      "meta": {
+        "bundle": "ai_face_beauty_processor",
+        "conversion": {
+          "reason": null,
+          "runner": "bundles",
+          "status": "converted"
+        },
+        "family": "mask_binary",
+        "input_provenance": {
+          "input_1": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 24x24 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              24,
+              24,
+              3
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "input_1",
+            "shape": [
+              1,
+              24,
+              24,
+              3
+            ]
+          }
+        ],
+        "name": "model__ai_face_beauty_processor__mole_seg_24x24x3_1206_quat",
+        "note": "24x24x3 -> 24x24x1 mole mask",
+        "op_count": 53,
+        "ops": [
+          "ADD",
+          "CONCATENATION",
+          "CONV_2D",
+          "LOGISTIC",
+          "MAX_POOL_2D",
+          "MUL",
+          "RESIZE_BILINEAR"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              1,
+              24,
+              24,
+              1
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "mole_seg_24x24x3_1206_quat",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_face_beauty_processor__mole_seg_24x24x3_1206_quat.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "Identity",
+          "shape": [
+            1,
+            24,
+            24,
+            1
+          ]
+        }
+      ],
+      "path": "jax",
+      "postprocess": {
+        "family": "mask_binary",
+        "outputs": {
+          "Identity": {
+            "components": 0,
+            "coverage": 0.0,
+            "keep_block_ratio": 0.01,
+            "kept": 0,
+            "kept_ratio": 0.0,
+            "kind": "binary_mask",
+            "prob": {
+              "max": 6.301875691860914e-05,
+              "mean": 1.1051864773414424e-07,
+              "min": 8.851300540020754e-16,
+              "std": 2.623526357828671e-06
+            },
+            "shape": [
+              1,
+              24,
+              24,
+              1
+            ],
+            "threshold": 0.13,
+            "threshold_source": "face_del_spot_prepro.thresh_val"
+          }
+        }
+      },
+      "seconds": 0.88,
+      "status": "pass",
+      "verification": {
+        "all_within_tolerance": true,
+        "max_abs": 4.2928149923682213e-10,
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 4.2928149923682213e-10,
+            "name": "Identity",
+            "ok": true,
+            "shape": [
+              1,
+              24,
+              24,
+              1
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          }
+        ],
+        "semantic": {
+          "agreement": 0.0,
+          "coverage_jax": 0.0,
+          "coverage_ref": 0.0,
+          "metric": "mask_iou_at_0.13"
+        },
+        "status": "pass"
+      }
+    },
+    "model__ai_face_beauty_processor__skin_model_expand_supply_pta18000_quant_resizetrain_seg153": {
+      "conversion": {
+        "reason": "converted module fails numeric parity: fully-int8 graph, JAX emulation returns an all-zero sigmoid (max_abs 0.996 vs LiteRT); see generated/<model>/verify.json",
+        "runner": "litert",
+        "status": "skipped",
+        "unsupported_ops": []
+      },
+      "fallback_reason": "converted module fails numeric parity: fully-int8 graph, JAX emulation returns an all-zero sigmoid (max_abs 0.996 vs LiteRT); see generated/<model>/verify.json",
+      "meta": {
+        "bundle": "ai_face_beauty_processor",
+        "conversion": {
+          "reason": "converted module fails numeric parity: fully-int8 graph, JAX emulation returns an all-zero sigmoid (max_abs 0.996 vs LiteRT); see generated/<model>/verify.json",
+          "runner": "litert",
+          "status": "skipped"
+        },
+        "family": "mask_binary",
+        "input_provenance": {
+          "input_layer": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 320x320 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              320,
+              320,
+              3
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "input_layer",
+            "shape": [
+              1,
+              320,
+              320,
+              3
+            ]
+          }
+        ],
+        "name": "model__ai_face_beauty_processor__skin_model_expand_supply_pta18000_quant_resizetrain_seg153",
+        "note": "320x320x3 -> 320x320x1 skin mask, threshold 0.6, keep_block_radio 0.01",
+        "op_count": 129,
+        "ops": [
+          "ADD",
+          "AVERAGE_POOL_2D",
+          "CONCATENATION",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "DEQUANTIZE",
+          "LOGISTIC",
+          "QUANTIZE",
+          "RESIZE_BILINEAR"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              1,
+              320,
+              320,
+              1
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "skin_model_expand_supply_pta18000_quant_resizetrain_seg153",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_face_beauty_processor__skin_model_expand_supply_pta18000_quant_resizetrain_seg153.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "Identity",
+          "shape": [
+            1,
+            320,
+            320,
+            1
+          ]
+        }
+      ],
+      "path": "litert",
+      "postprocess": {
+        "family": "mask_binary",
+        "outputs": {
+          "Identity": {
+            "components": 1,
+            "coverage": 0.23826171875,
+            "keep_block_ratio": 0.01,
+            "kept": 1,
+            "kept_pixels": 24398,
+            "kept_ratio": 0.23826171875,
+            "kind": "binary_mask",
+            "prob": {
+              "max": 0.99609375,
+              "mean": 0.24907291412353516,
+              "min": 0.0,
+              "std": 0.41356399740983457
+            },
+            "shape": [
+              1,
+              320,
+              320,
+              1
+            ],
+            "threshold": 0.6,
+            "threshold_source": "face_skin_seg.mask_threshold"
+          }
+        }
+      },
+      "seconds": 0.26,
+      "status": "litert_fallback",
+      "verification": null
+    },
+    "model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine1": {
+      "conversion": {
+        "reason": "PRELU: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+        "runner": "litert",
+        "status": "skipped",
+        "unsupported_ops": [
+          "PRELU"
+        ]
+      },
+      "fallback_reason": "PRELU: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+      "meta": {
+        "bundle": "ai_face_processor_detect_landmark",
+        "conversion": {
+          "reason": "PRELU: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+          "runner": "litert",
+          "status": "skipped"
+        },
+        "family": "landmarks_refine",
+        "input_provenance": {
+          "serving_default_inputs_f14:0": {
+            "dtype": "FLOAT32",
+            "provenance": "frame luma resampled to 364x4x48 (placeholder feature map)",
+            "role": "features",
+            "shape": [
+              1,
+              364,
+              4,
+              48
+            ]
+          },
+          "serving_default_inputs_landmark:0": {
+            "dtype": "FLOAT32",
+            "provenance": "91 deterministic points in the unit crop square (placeholder)",
+            "role": "landmarks",
+            "shape": [
+              1,
+              91,
+              2
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "serving_default_inputs_f14:0",
+            "shape": [
+              1,
+              364,
+              4,
+              48
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "serving_default_inputs_landmark:0",
+            "shape": [
+              1,
+              91,
+              2
+            ]
+          }
+        ],
+        "name": "model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine1",
+        "note": "features [1,364,4,48] + 91 points -> refined 91 points",
+        "op_count": 190,
+        "ops": [
+          "ADD",
+          "CONCATENATION",
+          "CONV_2D",
+          "FULLY_CONNECTED",
+          "PRELU",
+          "RESHAPE",
+          "STRIDED_SLICE"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "StatefulPartitionedCall:0",
+            "scale": [],
+            "shape": [
+              1,
+              91,
+              2
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "Fpe.0007.Exp101.ERefine3e70_refine1",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine1.tflite",
+        "unsupported_ops": [
+          "PRELU"
+        ]
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall:0",
+          "shape": [
+            1,
+            91,
+            2
+          ]
+        }
+      ],
+      "path": "litert",
+      "postprocess": {
+        "family": "landmarks_refine",
+        "outputs": {
+          "StatefulPartitionedCall:0": {
+            "coord_frame": "network-specific (offsets / heatmap-argmax coords)",
+            "kind": "landmarks",
+            "n_points": 91,
+            "xy_first5": [
+              [
+                1.0956636667251587,
+                0.7043824195861816
+              ],
+              [
+                1.14447820186615,
+                0.7287096977233887
+              ],
+              [
+                1.1857738494873047,
+                0.7469552755355835
+              ],
+              [
+                1.022018551826477,
+                0.7580822706222534
+              ],
+              [
+                0.8965661525726318,
+                0.7251203656196594
+              ]
+            ],
+            "xy_mean": [
+              0.260438472032547,
+              0.11627287417650223
+            ],
+            "xy_range": [
+              [
+                -1.4067816734313965,
+                1.4649087190628052
+              ],
+              [
+                -4.104533672332764,
+                1.9504235982894897
+              ]
+            ]
+          }
+        }
+      },
+      "seconds": 0.0,
+      "status": "litert_fallback",
+      "verification": null
+    },
+    "model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine2": {
+      "conversion": {
+        "reason": "PRELU: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+        "runner": "litert",
+        "status": "skipped",
+        "unsupported_ops": [
+          "PRELU"
+        ]
+      },
+      "fallback_reason": "PRELU: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+      "meta": {
+        "bundle": "ai_face_processor_detect_landmark",
+        "conversion": {
+          "reason": "PRELU: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+          "runner": "litert",
+          "status": "skipped"
+        },
+        "family": "landmarks_refine",
+        "input_provenance": {
+          "serving_default_inputs_f28:0": {
+            "dtype": "FLOAT32",
+            "provenance": "frame luma resampled to 364x4x32 (placeholder feature map)",
+            "role": "features",
+            "shape": [
+              1,
+              364,
+              4,
+              32
+            ]
+          },
+          "serving_default_inputs_landmark:0": {
+            "dtype": "FLOAT32",
+            "provenance": "91 deterministic points in the unit crop square (placeholder)",
+            "role": "landmarks",
+            "shape": [
+              1,
+              91,
+              2
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "serving_default_inputs_landmark:0",
+            "shape": [
+              1,
+              91,
+              2
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "serving_default_inputs_f28:0",
+            "shape": [
+              1,
+              364,
+              4,
+              32
+            ]
+          }
+        ],
+        "name": "model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine2",
+        "note": "features [1,364,4,32] + 91 points -> refined 91 points",
+        "op_count": 190,
+        "ops": [
+          "ADD",
+          "CONCATENATION",
+          "CONV_2D",
+          "FULLY_CONNECTED",
+          "PRELU",
+          "RESHAPE",
+          "STRIDED_SLICE"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "StatefulPartitionedCall:0",
+            "scale": [],
+            "shape": [
+              1,
+              91,
+              2
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "Fpe.0007.Exp101.ERefine3e70_refine2",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine2.tflite",
+        "unsupported_ops": [
+          "PRELU"
+        ]
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall:0",
+          "shape": [
+            1,
+            91,
+            2
+          ]
+        }
+      ],
+      "path": "litert",
+      "postprocess": {
+        "family": "landmarks_refine",
+        "outputs": {
+          "StatefulPartitionedCall:0": {
+            "coord_frame": "network-specific (offsets / heatmap-argmax coords)",
+            "kind": "landmarks",
+            "n_points": 91,
+            "xy_first5": [
+              [
+                0.6883103251457214,
+                0.22570887207984924
+              ],
+              [
+                0.7423804402351379,
+                0.2261456549167633
+              ],
+              [
+                0.7703440189361572,
+                0.2467111349105835
+              ],
+              [
+                0.6346873044967651,
+                0.22313833236694336
+              ],
+              [
+                0.5320785045623779,
+                0.13998186588287354
+              ]
+            ],
+            "xy_mean": [
+              0.7413871884346008,
+              0.06292960047721863
+            ],
+            "xy_range": [
+              [
+                -0.2101636528968811,
+                1.4878207445144653
+              ],
+              [
+                -0.9167154431343079,
+                0.870949387550354
+              ]
+            ]
+          }
+        }
+      },
+      "seconds": 0.0,
+      "status": "litert_fallback",
+      "verification": null
+    },
+    "model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine3": {
+      "conversion": {
+        "reason": "PRELU: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+        "runner": "litert",
+        "status": "skipped",
+        "unsupported_ops": [
+          "PRELU"
+        ]
+      },
+      "fallback_reason": "PRELU: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+      "meta": {
+        "bundle": "ai_face_processor_detect_landmark",
+        "conversion": {
+          "reason": "PRELU: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+          "runner": "litert",
+          "status": "skipped"
+        },
+        "family": "landmarks_refine",
+        "input_provenance": {
+          "serving_default_inputs_f56:0": {
+            "dtype": "FLOAT32",
+            "provenance": "frame luma resampled to 364x4x24 (placeholder feature map)",
+            "role": "features",
+            "shape": [
+              1,
+              364,
+              4,
+              24
+            ]
+          },
+          "serving_default_inputs_landmark:0": {
+            "dtype": "FLOAT32",
+            "provenance": "91 deterministic points in the unit crop square (placeholder)",
+            "role": "landmarks",
+            "shape": [
+              1,
+              91,
+              2
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "serving_default_inputs_f56:0",
+            "shape": [
+              1,
+              364,
+              4,
+              24
+            ]
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "serving_default_inputs_landmark:0",
+            "shape": [
+              1,
+              91,
+              2
+            ]
+          }
+        ],
+        "name": "model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine3",
+        "note": "features [1,364,4,24] + 91 points -> 5 point sets",
+        "op_count": 270,
+        "ops": [
+          "ADD",
+          "CONCATENATION",
+          "CONV_2D",
+          "DIV",
+          "FULLY_CONNECTED",
+          "GATHER",
+          "MUL",
+          "PRELU",
+          "REDUCE_MAX",
+          "REDUCE_MIN",
+          "RESHAPE",
+          "STRIDED_SLICE",
+          "SUB"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "StatefulPartitionedCall:4",
+            "scale": [],
+            "shape": [
+              13,
+              2
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "StatefulPartitionedCall:0",
+            "scale": [],
+            "shape": [
+              91,
+              2
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "StatefulPartitionedCall:1",
+            "scale": [],
+            "shape": [
+              13,
+              2
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "StatefulPartitionedCall:5",
+            "scale": [],
+            "shape": [
+              16,
+              2
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "StatefulPartitionedCall:2",
+            "scale": [],
+            "shape": [
+              16,
+              2
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "StatefulPartitionedCall:3",
+            "scale": [],
+            "shape": [
+              56,
+              2
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "Fpe.0007.Exp101.ERefine3e70_refine3",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine3.tflite",
+        "unsupported_ops": [
+          "PRELU"
+        ]
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall:4",
+          "shape": [
+            13,
+            2
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall:0",
+          "shape": [
+            91,
+            2
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall:1",
+          "shape": [
+            13,
+            2
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall:5",
+          "shape": [
+            16,
+            2
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall:2",
+          "shape": [
+            16,
+            2
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall:3",
+          "shape": [
+            56,
+            2
+          ]
+        }
+      ],
+      "path": "litert",
+      "postprocess": {
+        "family": "landmarks_refine",
+        "outputs": {
+          "StatefulPartitionedCall:0": {
+            "coord_frame": "network-specific (offsets / heatmap-argmax coords)",
+            "kind": "landmarks",
+            "n_points": 91,
+            "xy_first5": [
+              [
+                0.4806445240974426,
+                0.3585893213748932
+              ],
+              [
+                0.3950769901275635,
+                0.38927164673805237
+              ],
+              [
+                0.35981830954551697,
+                0.38676801323890686
+              ],
+              [
+                0.35489150881767273,
+                0.35059863328933716
+              ],
+              [
+                0.49379780888557434,
+                0.3252444863319397
+              ]
+            ],
+            "xy_mean": [
+              0.3195713758468628,
+              0.18313764035701752
+            ],
+            "xy_range": [
+              [
+                -0.5871769785881042,
+                0.9886453747749329
+              ],
+              [
+                -0.47575539350509644,
+                1.093770146369934
+              ]
+            ]
+          },
+          "StatefulPartitionedCall:1": {
+            "coord_frame": "normalized",
+            "kind": "landmarks",
+            "n_points": 13,
+            "xy_first5": [
+              [
+                0.9701557159423828,
+                0.5313394665718079
+              ],
+              [
+                0.8469282388687134,
+                0.5988270044326782
+              ],
+              [
+                0.773559033870697,
+                0.5457504987716675
+              ],
+              [
+                0.7399492859840393,
+                0.486939013004303
+              ],
+              [
+                0.6225807070732117,
+                0.30494362115859985
+              ]
+            ],
+            "xy_mean": [
+              0.7860554456710815,
+              0.45251739025115967
+            ],
+            "xy_range": [
+              [
+                0.6225807070732117,
+                0.9701557159423828
+              ],
+              [
+                0.1581461876630783,
+                0.6815173625946045
+              ]
+            ]
+          },
+          "StatefulPartitionedCall:2": {
+            "coord_frame": "network-specific (offsets / heatmap-argmax coords)",
+            "kind": "landmarks",
+            "n_points": 16,
+            "xy_first5": [
+              [
+                0.49351996183395386,
+                0.23286792635917664
+              ],
+              [
+                0.7048919796943665,
+                0.11986294388771057
+              ],
+              [
+                0.710889995098114,
+                0.10721483826637268
+              ],
+              [
+                0.6097765564918518,
+                -0.10135288536548615
+              ],
+              [
+                0.6868241429328918,
+                -0.09493343532085419
+              ]
+            ],
+            "xy_mean": [
+              0.6884995698928833,
+              0.007451452314853668
+            ],
+            "xy_range": [
+              [
+                0.49351996183395386,
+                0.8902169466018677
+              ],
+              [
+                -0.2584454417228699,
+                0.23286792635917664
+              ]
+            ]
+          },
+          "StatefulPartitionedCall:3": {
+            "coord_frame": "network-specific (offsets / heatmap-argmax coords)",
+            "kind": "landmarks",
+            "n_points": 56,
+            "xy_first5": [
+              [
+                0.20902693271636963,
+                -0.06363257765769958
+              ],
+              [
+                0.1667950451374054,
+                0.0010179877281188965
+              ],
+              [
+                0.12744739651679993,
+                0.026724040508270264
+              ],
+              [
+                0.08966091275215149,
+                0.028933227062225342
+              ],
+              [
+                0.10108660161495209,
+                0.030896365642547607
+              ]
+            ],
+            "xy_mean": [
+              0.06764120608568192,
+              -0.09633392095565796
+            ],
+            "xy_range": [
+              [
+                -0.09638125449419022,
+                0.22546100616455078
+              ],
+              [
+                -0.48869597911834717,
+                0.17866772413253784
+              ]
+            ]
+          },
+          "StatefulPartitionedCall:4": {
+            "coord_frame": "network-specific (offsets / heatmap-argmax coords)",
+            "kind": "landmarks",
+            "n_points": 13,
+            "xy_first5": [
+              [
+                0.151519775390625,
+                0.7105166912078857
+              ],
+              [
+                0.0853271484375,
+                0.6913564205169678
+              ],
+              [
+                0.05666351318359375,
+                0.6320562362670898
+              ],
+              [
+                -0.02020263671875,
+                0.48416900634765625
+              ],
+              [
+                -0.11885833740234375,
+                0.37757521867752075
+              ]
+            ],
+            "xy_mean": [
+              -0.08103121072053909,
+              0.5741754770278931
+            ],
+            "xy_range": [
+              [
+                -0.25969696044921875,
+                0.151519775390625
+              ],
+              [
+                0.35172128677368164,
+                0.7194933891296387
+              ]
+            ]
+          },
+          "StatefulPartitionedCall:5": {
+            "coord_frame": "network-specific (offsets / heatmap-argmax coords)",
+            "kind": "landmarks",
+            "n_points": 16,
+            "xy_first5": [
+              [
+                -0.07281494140625,
+                0.02068483829498291
+              ],
+              [
+                0.15648651123046875,
+                -0.14955249428749084
+              ],
+              [
+                0.301849365234375,
+                -0.27814754843711853
+              ],
+              [
+                0.1490020751953125,
+                -0.09393899142742157
+              ],
+              [
+                -0.0277252197265625,
+                0.07651886343955994
+              ]
+            ],
+            "xy_mean": [
+              -0.13537979125976562,
+              -0.028091948479413986
+            ],
+            "xy_range": [
+              [
+                -0.58544921875,
+                0.301849365234375
+              ],
+              [
+                -0.27814754843711853,
+                0.2375437617301941
+              ]
+            ]
+          }
+        }
+      },
+      "seconds": 0.0,
+      "status": "litert_fallback",
+      "verification": null
+    },
+    "model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.XScore.s76e150_base": {
+      "conversion": {
+        "reason": "PRELU: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+        "runner": "litert",
+        "status": "skipped",
+        "unsupported_ops": [
+          "PRELU"
+        ]
+      },
+      "fallback_reason": "PRELU: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+      "meta": {
+        "bundle": "ai_face_processor_detect_landmark",
+        "conversion": {
+          "reason": "PRELU: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+          "runner": "litert",
+          "status": "skipped"
+        },
+        "family": "landmarks_refine",
+        "input_provenance": {
+          "serving_default_inputs:0": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 112x112 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              112,
+              112,
+              1
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "serving_default_inputs:0",
+            "shape": [
+              1,
+              112,
+              112,
+              1
+            ]
+          }
+        ],
+        "name": "model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.XScore.s76e150_base",
+        "note": "112x112x1 -> 91 points + 2 scores + 3 feature maps",
+        "op_count": 80,
+        "ops": [
+          "ADD",
+          "CONCATENATION",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "LOGISTIC",
+          "PAD",
+          "PRELU",
+          "RESHAPE",
+          "SOFTMAX"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "StatefulPartitionedCall:1",
+            "scale": [],
+            "shape": [
+              1,
+              28,
+              28,
+              32
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "StatefulPartitionedCall:3",
+            "scale": [],
+            "shape": [
+              1,
+              14,
+              14,
+              48
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "StatefulPartitionedCall:2",
+            "scale": [],
+            "shape": [
+              1,
+              91,
+              2
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "StatefulPartitionedCall:5",
+            "scale": [],
+            "shape": [
+              1,
+              1,
+              1,
+              91
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "StatefulPartitionedCall:4",
+            "scale": [],
+            "shape": [
+              1,
+              1,
+              1,
+              2
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "StatefulPartitionedCall:0",
+            "scale": [],
+            "shape": [
+              1,
+              56,
+              56,
+              24
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "Fpe.0007.Exp101.XScore.s76e150_base",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.XScore.s76e150_base.tflite",
+        "unsupported_ops": [
+          "PRELU"
+        ]
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall:1",
+          "shape": [
+            1,
+            28,
+            28,
+            32
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall:3",
+          "shape": [
+            1,
+            14,
+            14,
+            48
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall:2",
+          "shape": [
+            1,
+            91,
+            2
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall:5",
+          "shape": [
+            1,
+            1,
+            1,
+            91
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall:4",
+          "shape": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall:0",
+          "shape": [
+            1,
+            56,
+            56,
+            24
+          ]
+        }
+      ],
+      "path": "litert",
+      "postprocess": {
+        "family": "landmarks_refine",
+        "outputs": {
+          "StatefulPartitionedCall:0": {
+            "kind": "feature_map",
+            "range": {
+              "max": 2.6022543907165527,
+              "mean": 0.016592435390647194,
+              "min": -3.4672513008117676,
+              "std": 0.3401976778614072
+            },
+            "shape": [
+              1,
+              56,
+              56,
+              24
+            ]
+          },
+          "StatefulPartitionedCall:1": {
+            "kind": "feature_map",
+            "range": {
+              "max": 3.8750617504119873,
+              "mean": 0.1050766586127533,
+              "min": -3.8989944458007812,
+              "std": 0.9495411089229225
+            },
+            "shape": [
+              1,
+              28,
+              28,
+              32
+            ]
+          },
+          "StatefulPartitionedCall:2": {
+            "coord_frame": "network-specific (offsets / heatmap-argmax coords)",
+            "kind": "landmarks",
+            "n_points": 91,
+            "xy_first5": [
+              [
+                91.33235931396484,
+                39.87770080566406
+              ],
+              [
+                90.493408203125,
+                44.82339859008789
+              ],
+              [
+                89.40166473388672,
+                49.75446701049805
+              ],
+              [
+                88.11328887939453,
+                54.649417877197266
+              ],
+              [
+                86.67171478271484,
+                59.475589752197266
+              ]
+            ],
+            "xy_mean": [
+              60.071311950683594,
+              53.27415466308594
+            ],
+            "xy_range": [
+              [
+                25.301864624023438,
+                91.33235931396484
+              ],
+              [
+                19.6888427734375,
+                93.18733215332031
+              ]
+            ]
+          },
+          "StatefulPartitionedCall:3": {
+            "kind": "feature_map",
+            "range": {
+              "max": 2.25688099861145,
+              "mean": 0.028155538259029743,
+              "min": -2.109204053878784,
+              "std": 0.5677115911648899
+            },
+            "shape": [
+              1,
+              14,
+              14,
+              48
+            ]
+          },
+          "StatefulPartitionedCall:4": {
+            "kind": "feature_map",
+            "range": {
+              "max": 0.9999113082885742,
+              "mean": 0.5000000112922862,
+              "min": 8.871429599821568e-05,
+              "std": 0.499911296996288
+            },
+            "shape": [
+              1,
+              1,
+              1,
+              2
+            ]
+          },
+          "StatefulPartitionedCall:5": {
+            "kind": "feature_map",
+            "range": {
+              "max": 0.04151332005858421,
+              "mean": 0.010105376566790945,
+              "min": 0.002264637965708971,
+              "std": 0.009943247126887336
+            },
+            "shape": [
+              1,
+              1,
+              1,
+              91
+            ]
+          }
+        }
+      },
+      "seconds": 0.01,
+      "status": "litert_fallback",
+      "verification": null
+    },
+    "model__ai_face_processor_detect_landmark__face_landmark_mb360_64": {
+      "conversion": {
+        "jax_dir": "reimpl/bundles/face_landmark_mb360_64",
+        "runner": "bundles",
+        "status": "converted"
+      },
+      "meta": {
+        "bundle": "ai_face_processor_detect_landmark",
+        "conversion": {
+          "reason": null,
+          "runner": "bundles",
+          "status": "converted"
+        },
+        "family": "landmarks",
+        "input_provenance": {
+          "input": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 64x64 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "input",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          }
+        ],
+        "name": "model__ai_face_processor_detect_landmark__face_landmark_mb360_64",
+        "note": "64x64x1 -> 154 values = 77 landmarks",
+        "op_count": 44,
+        "ops": [
+          "ADD",
+          "AVERAGE_POOL_2D",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "RESHAPE",
+          "SUB"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "add_7",
+            "scale": [],
+            "shape": [
+              1,
+              154
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "face_landmark_mb360_64",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_face_processor_detect_landmark__face_landmark_mb360_64.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "add_7",
+          "shape": [
+            1,
+            154
+          ]
+        }
+      ],
+      "path": "jax",
+      "postprocess": {
+        "family": "landmarks",
+        "outputs": {
+          "add_7": {
+            "kind": "feature_map",
+            "range": {
+              "max": 34.243927001953125,
+              "mean": 31.755514045814415,
+              "min": 29.585208892822266,
+              "std": 0.8982933517214321
+            },
+            "shape": [
+              1,
+              154
+            ]
+          }
+        }
+      },
+      "seconds": 0.58,
+      "status": "pass",
+      "verification": {
+        "all_within_tolerance": true,
+        "max_abs": 8.0108642578125e-05,
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 8.0108642578125e-05,
+            "name": "add_7",
+            "ok": true,
+            "shape": [
+              1,
+              154
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          }
+        ],
+        "status": "pass"
+      }
+    },
+    "model__ai_face_processor_detect_landmark__facecheck40_dense_2000000_regress": {
+      "conversion": {
+        "jax_dir": "reimpl/bundles/facecheck40_dense_2000000_regress",
+        "runner": "bundles",
+        "status": "converted"
+      },
+      "meta": {
+        "bundle": "ai_face_processor_detect_landmark",
+        "conversion": {
+          "reason": null,
+          "runner": "bundles",
+          "status": "converted"
+        },
+        "family": "binary_score",
+        "input_provenance": {
+          "input": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 40x40 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              40,
+              40,
+              1
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "input",
+            "shape": [
+              1,
+              40,
+              40,
+              1
+            ]
+          }
+        ],
+        "name": "model__ai_face_processor_detect_landmark__facecheck40_dense_2000000_regress",
+        "note": "40x40x1 -> 1 face score",
+        "op_count": 6,
+        "ops": [
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "RESHAPE"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "detect",
+            "scale": [],
+            "shape": [
+              1,
+              1
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "facecheck40_dense_2000000_regress",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_face_processor_detect_landmark__facecheck40_dense_2000000_regress.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "detect",
+          "shape": [
+            1,
+            1
+          ]
+        }
+      ],
+      "path": "jax",
+      "postprocess": {
+        "family": "binary_score",
+        "outputs": {
+          "detect": {
+            "is_face": true,
+            "kind": "face_score",
+            "logit": 3.103357084910385e-05,
+            "sigmoid": 0.5000077583927117
+          }
+        }
+      },
+      "seconds": 0.2,
+      "status": "pass",
+      "verification": {
+        "all_within_tolerance": true,
+        "max_abs": 0.0,
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 0.0,
+            "name": "detect",
+            "ok": true,
+            "shape": [
+              1,
+              1
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          }
+        ],
+        "status": "pass"
+      }
+    },
+    "model__ai_face_processor_detect_landmark__head": {
+      "conversion": {
+        "jax_dir": "reimpl/bundles/head",
+        "runner": "bundles",
+        "status": "converted"
+      },
+      "meta": {
+        "bundle": "ai_face_processor_detect_landmark",
+        "conversion": {
+          "reason": null,
+          "runner": "bundles",
+          "status": "converted"
+        },
+        "family": "vector14",
+        "input_provenance": {
+          "input_1": {
+            "dtype": "FLOAT32",
+            "provenance": "frame luma resampled to 126-vector (placeholder features)",
+            "role": "vector",
+            "shape": [
+              1,
+              126
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "input_1",
+            "shape": [
+              1,
+              126
+            ]
+          }
+        ],
+        "name": "model__ai_face_processor_detect_landmark__head",
+        "note": "[1,126] landmark features -> 14 head-pose/bbox values",
+        "op_count": 1,
+        "ops": [
+          "FULLY_CONNECTED"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              1,
+              14
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "head",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_face_processor_detect_landmark__head.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "Identity",
+          "shape": [
+            1,
+            14
+          ]
+        }
+      ],
+      "path": "jax",
+      "postprocess": {
+        "family": "vector14",
+        "outputs": {
+          "Identity": {
+            "kind": "regression_vector",
+            "max_abs": 0.6366420984268188,
+            "n": 14,
+            "values": [
+              0.6366420984268188,
+              0.5676423907279968,
+              0.5841336250305176,
+              0.5595913529396057,
+              0.36456042528152466,
+              0.46068570017814636,
+              0.3443327844142914,
+              0.37889739871025085,
+              0.5851544737815857,
+              0.6249310374259949,
+              0.4436550736427307,
+              0.37570565938949585,
+              0.5774627923965454,
+              0.40260303020477295
+            ]
+          }
+        }
+      },
+      "seconds": 0.08,
+      "status": "pass",
+      "verification": {
+        "all_within_tolerance": true,
+        "max_abs": 2.086162567138672e-07,
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 2.086162567138672e-07,
+            "name": "Identity",
+            "ok": true,
+            "shape": [
+              1,
+              14
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          }
+        ],
+        "status": "pass"
+      }
+    },
+    "model__ai_face_processor_detect_landmark__n-0.5_416_0.05_4aspect6": {
+      "conversion": {
+        "reason": "SPLIT: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+        "runner": "litert",
+        "status": "skipped",
+        "unsupported_ops": [
+          "SPLIT"
+        ]
+      },
+      "fallback_reason": "SPLIT: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+      "meta": {
+        "bundle": "ai_face_processor_detect_landmark",
+        "conversion": {
+          "reason": "SPLIT: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+          "runner": "litert",
+          "status": "skipped"
+        },
+        "family": "detector_anchor",
+        "input_provenance": {
+          "input_1": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 416x416 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              416,
+              416,
+              3
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "input_1",
+            "shape": [
+              1,
+              416,
+              416,
+              3
+            ]
+          }
+        ],
+        "name": "model__ai_face_processor_detect_landmark__n-0.5_416_0.05_4aspect6",
+        "note": "416x416x3 -> 7098 anchors (score/ltrb/classes)",
+        "op_count": 276,
+        "ops": [
+          "CONCATENATION",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "LOGISTIC",
+          "MAX_POOL_2D",
+          "MUL",
+          "PAD",
+          "RESHAPE",
+          "RESIZE_NEAREST_NEIGHBOR",
+          "SPLIT",
+          "STRIDED_SLICE",
+          "TRANSPOSE"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              1,
+              7098,
+              1
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_1",
+            "scale": [],
+            "shape": [
+              1,
+              7098,
+              4
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_2",
+            "scale": [],
+            "shape": [
+              1,
+              7098,
+              10
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "n-0.5_416_0.05_4aspect6",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_face_processor_detect_landmark__n-0.5_416_0.05_4aspect6.tflite",
+        "unsupported_ops": [
+          "SPLIT"
+        ]
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "Identity",
+          "shape": [
+            1,
+            7098,
+            1
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "Identity_1",
+          "shape": [
+            1,
+            7098,
+            4
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "Identity_2",
+          "shape": [
+            1,
+            7098,
+            10
+          ]
+        }
+      ],
+      "path": "litert",
+      "postprocess": {
+        "family": "detector_anchor",
+        "outputs": {
+          "Identity": {
+            "best_anchor": 5105,
+            "best_score": 0.0004801745235454291,
+            "kind": "anchor_scores",
+            "n_anchors": 7098,
+            "score_stats": {
+              "max": 0.0004801745235454291,
+              "mean": 3.8934092934252025e-06,
+              "min": 4.3350129800938386e-14,
+              "std": 9.3579436832209e-06
+            },
+            "sigmoid_applied": false
+          },
+          "Identity_1": {
+            "kind": "anchor_ltrb",
+            "mean": [
+              0.5474612027679345,
+              0.5346986540764042,
+              0.6023188157673116,
+              0.6038230438573692
+            ],
+            "n_anchors": 7098
+          },
+          "Identity_2": {
+            "kind": "anchor_classes",
+            "n_classes": 10,
+            "shape": [
+              1,
+              7098,
+              10
+            ]
+          },
+          "decode": {
+            "note": "FCOS-style head: box = anchor centre +/- ltrb * stride; the per-level stride table lives in the encrypted bundle config, so only anchor ids are reported"
+          }
+        }
+      },
+      "seconds": 0.06,
+      "status": "litert_fallback",
+      "verification": null
+    },
+    "model__ai_face_processor_detect_landmark__n-small_256_0.05_only_a5": {
+      "conversion": {
+        "reason": "SPLIT: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+        "runner": "litert",
+        "status": "skipped",
+        "unsupported_ops": [
+          "SPLIT"
+        ]
+      },
+      "fallback_reason": "SPLIT: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+      "meta": {
+        "bundle": "ai_face_processor_detect_landmark",
+        "conversion": {
+          "reason": "SPLIT: not lowered by tools/tflite2jax.py (no JAX implementation in this tool)",
+          "runner": "litert",
+          "status": "skipped"
+        },
+        "family": "detector_anchor",
+        "input_provenance": {
+          "input_1": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 256x256 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              256,
+              256,
+              3
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "input_1",
+            "shape": [
+              1,
+              256,
+              256,
+              3
+            ]
+          }
+        ],
+        "name": "model__ai_face_processor_detect_landmark__n-small_256_0.05_only_a5",
+        "note": "256x256x3 -> 3072 anchors (score/ltrb/classes)",
+        "op_count": 103,
+        "ops": [
+          "ADD",
+          "CONCATENATION",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "LOGISTIC",
+          "MAX_POOL_2D",
+          "MUL",
+          "PAD",
+          "RESHAPE",
+          "RESIZE_NEAREST_NEIGHBOR",
+          "SPLIT",
+          "STRIDED_SLICE",
+          "TRANSPOSE"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              1,
+              3072,
+              1
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_1",
+            "scale": [],
+            "shape": [
+              1,
+              3072,
+              4
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_2",
+            "scale": [],
+            "shape": [
+              1,
+              3072,
+              10
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "n-small_256_0.05_only_a5",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_face_processor_detect_landmark__n-small_256_0.05_only_a5.tflite",
+        "unsupported_ops": [
+          "SPLIT"
+        ]
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "Identity",
+          "shape": [
+            1,
+            3072,
+            1
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "Identity_1",
+          "shape": [
+            1,
+            3072,
+            4
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "Identity_2",
+          "shape": [
+            1,
+            3072,
+            10
+          ]
+        }
+      ],
+      "path": "litert",
+      "postprocess": {
+        "family": "detector_anchor",
+        "outputs": {
+          "Identity": {
+            "best_anchor": 94,
+            "best_score": 6.66892301524058e-05,
+            "kind": "anchor_scores",
+            "n_anchors": 3072,
+            "score_stats": {
+              "max": 6.66892301524058e-05,
+              "mean": 1.678597023590615e-06,
+              "min": 5.256640989159678e-08,
+              "std": 3.593968780197898e-06
+            },
+            "sigmoid_applied": false
+          },
+          "Identity_1": {
+            "kind": "anchor_ltrb",
+            "mean": [
+              0.5421939418592956,
+              0.5233496834359054,
+              0.35604858068594086,
+              0.4113345937318324
+            ],
+            "n_anchors": 3072
+          },
+          "Identity_2": {
+            "kind": "anchor_classes",
+            "n_classes": 10,
+            "shape": [
+              1,
+              3072,
+              10
+            ]
+          },
+          "decode": {
+            "note": "FCOS-style head: box = anchor centre +/- ltrb * stride; the per-level stride table lives in the encrypted bundle config, so only anchor ids are reported"
+          }
+        }
+      },
+      "seconds": 0.01,
+      "status": "litert_fallback",
+      "verification": null
+    },
+    "model__ai_face_processor_detect_landmark__s1": {
+      "conversion": {
+        "jax_dir": "reimpl/bundles/s1",
+        "runner": "bundles",
+        "status": "converted"
+      },
+      "meta": {
+        "bundle": "ai_face_processor_detect_landmark",
+        "conversion": {
+          "reason": null,
+          "runner": "bundles",
+          "status": "converted"
+        },
+        "family": "landmarks_score",
+        "input_provenance": {
+          "inputs": {
+            "dtype": "FLOAT32",
+            "provenance": "frame resized to 64x64 (image)",
+            "role": "image",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "inputs",
+            "shape": [
+              1,
+              64,
+              64,
+              1
+            ]
+          }
+        ],
+        "name": "model__ai_face_processor_detect_landmark__s1",
+        "note": "64x64x1 -> 91 points + 2-class score",
+        "op_count": 52,
+        "ops": [
+          "ADD",
+          "AVERAGE_POOL_2D",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "RESHAPE",
+          "SOFTMAX"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              91,
+              2
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_1",
+            "scale": [],
+            "shape": [
+              2
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "s1",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_face_processor_detect_landmark__s1.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "float32",
+          "name": "Identity",
+          "shape": [
+            91,
+            2
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "Identity_1",
+          "shape": [
+            2
+          ]
+        }
+      ],
+      "path": "jax",
+      "postprocess": {
+        "family": "landmarks_score",
+        "outputs": {
+          "Identity": {
+            "coord_frame": "pixels in the 64x64 network input",
+            "kind": "landmarks",
+            "n_points": 91,
+            "xy_first5": [
+              [
+                59.71602249145508,
+                15.52497386932373
+              ],
+              [
+                59.040672302246094,
+                19.51525115966797
+              ],
+              [
+                58.34358596801758,
+                23.410980224609375
+              ],
+              [
+                57.67844772338867,
+                27.138282775878906
+              ],
+              [
+                56.63126754760742,
+                30.414180755615234
+              ]
+            ],
+            "xy_mean": [
+              33.897865295410156,
+              30.691164016723633
+            ],
+            "xy_range": [
+              [
+                7.86409330368042,
+                59.71602249145508
+              ],
+              [
+                13.802567481994629,
+                53.382991790771484
+              ]
+            ]
+          },
+          "Identity_1": {
+            "argmax": 1,
+            "confidence": 0.729244886744443,
+            "kind": "score",
+            "logits": [
+              0.004602563101798296,
+              0.9953973889350891
+            ],
+            "n_classes": 2,
+            "probs": [
+              0.27075511325555707,
+              0.729244886744443
+            ]
+          }
+        }
+      },
+      "seconds": 0.57,
+      "status": "pass",
+      "verification": {
+        "all_within_tolerance": true,
+        "max_abs": 3.814697265625e-05,
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 3.814697265625e-05,
+            "name": "Identity",
+            "ok": true,
+            "shape": [
+              91,
+              2
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          },
+          {
+            "dtype": "FLOAT32",
+            "jax_dtype": "float32",
+            "max_abs": 1.1920928955078125e-07,
+            "name": "Identity_1",
+            "ok": true,
+            "shape": [
+              2
+            ],
+            "shape_ok": true,
+            "tol": 0.0001
+          }
+        ],
+        "status": "pass"
+      }
+    },
+    "model__ai_human_processor_beautybody_mb__FULLBODY_POFH2D_20210302_0001_e1604_q": {
+      "conversion": {
+        "reason": "converted module fails numeric parity: fully-int8 graph, JAX emulation decorrelates (uint8 outputs 0% equal, heatmap dequant max_abs 254.8); see generated/<model>/verify.json",
+        "runner": "litert",
+        "status": "skipped",
+        "unsupported_ops": []
+      },
+      "fallback_reason": "converted module fails numeric parity: fully-int8 graph, JAX emulation decorrelates (uint8 outputs 0% equal, heatmap dequant max_abs 254.8); see generated/<model>/verify.json",
+      "meta": {
+        "bundle": "ai_human_processor_beautybody_mb",
+        "conversion": {
+          "reason": "converted module fails numeric parity: fully-int8 graph, JAX emulation decorrelates (uint8 outputs 0% equal, heatmap dequant max_abs 254.8); see generated/<model>/verify.json",
+          "runner": "litert",
+          "status": "skipped"
+        },
+        "family": "pose_heatmaps",
+        "input_provenance": {
+          "Input_img": {
+            "dtype": "UINT8",
+            "provenance": "frame resized to 192x256 (image_uint8)",
+            "role": "image_uint8",
+            "shape": [
+              1,
+              256,
+              192,
+              3
+            ]
+          }
+        },
+        "inputs": [
+          {
+            "dtype": "UINT8",
+            "name": "Input_img",
+            "shape": [
+              1,
+              256,
+              192,
+              3
+            ]
+          }
+        ],
+        "name": "model__ai_human_processor_beautybody_mb__FULLBODY_POFH2D_20210302_0001_e1604_q",
+        "note": "256x192x3 uint8 -> joint heatmaps 64x48x31 + POFs + bbfs",
+        "op_count": 97,
+        "ops": [
+          "ADD",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "PAD",
+          "RESIZE_BILINEAR"
+        ],
+        "outputs": [
+          {
+            "dtype": "UINT8",
+            "name": "Output_hms",
+            "scale": [
+              1.0401763916015625
+            ],
+            "shape": [
+              1,
+              64,
+              48,
+              31
+            ],
+            "zero_point": [
+              13
+            ]
+          },
+          {
+            "dtype": "UINT8",
+            "name": "Output_pofs",
+            "scale": [
+              0.010003185831010342
+            ],
+            "shape": [
+              1,
+              64,
+              48,
+              78
+            ],
+            "zero_point": [
+              129
+            ]
+          },
+          {
+            "dtype": "UINT8",
+            "name": "Output_bbfs",
+            "scale": [
+              0.3678106963634491
+            ],
+            "shape": [
+              1,
+              8,
+              6,
+              192
+            ],
+            "zero_point": [
+              0
+            ]
+          }
+        ],
+        "short": "FULLBODY_POFH2D_20210302_0001_e1604_q",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_human_processor_beautybody_mb__FULLBODY_POFH2D_20210302_0001_e1604_q.tflite",
+        "unsupported_ops": []
+      },
+      "outputs": [
+        {
+          "dtype": "uint8",
+          "name": "Output_hms",
+          "shape": [
+            1,
+            64,
+            48,
+            31
+          ]
+        },
+        {
+          "dtype": "uint8",
+          "name": "Output_pofs",
+          "shape": [
+            1,
+            64,
+            48,
+            78
+          ]
+        },
+        {
+          "dtype": "uint8",
+          "name": "Output_bbfs",
+          "shape": [
+            1,
+            8,
+            6,
+            192
+          ]
+        }
+      ],
+      "path": "litert",
+      "postprocess": {
+        "family": "pose_heatmaps",
+        "outputs": {
+          "Output_bbfs": {
+            "dtype": "uint8",
+            "kind": "quantized_output",
+            "range": {
+              "max": 57.01065793633461,
+              "mean": 1.1195557350680854,
+              "min": 0.0,
+              "std": 2.548250808153297
+            },
+            "scale": [
+              0.3678106963634491
+            ],
+            "shape": [
+              1,
+              8,
+              6,
+              192
+            ],
+            "zero_point": [
+              0
+            ]
+          },
+          "Output_hms": {
+            "dtype": "uint8",
+            "kind": "quantized_output",
+            "n_joints": 31,
+            "peak_prob": [
+              27.044586181640625,
+              15.602645874023438,
+              9.361587524414062,
+              36.40617370605469,
+              23.924057006835938,
+              7.2812347412109375,
+              68.65164184570312,
+              57.20970153808594
+            ],
+            "peak_xy": [
+              [
+                24,
+                35
+              ],
+              [
+                27,
+                37
+              ],
+              [
+                26,
+                48
+              ],
+              [
+                20,
+                34
+              ],
+              [
+                19,
+                39
+              ],
+              [
+                22,
+                46
+              ],
+              [
+                23,
+                10
+              ],
+              [
+                28,
+                17
+              ]
+            ],
+            "range": {
+              "max": 86.33464050292969,
+              "mean": 2.1922543197870255,
+              "min": -6.241058349609375,
+              "std": 5.271744056581067
+            },
+            "scale": [
+              1.0401763916015625
+            ],
+            "shape": [
+              1,
+              64,
+              48,
+              31
+            ],
+            "zero_point": [
+              13
+            ]
+          },
+          "Output_pofs": {
+            "dtype": "uint8",
+            "kind": "quantized_output",
+            "n_parts": 26,
+            "pof_layout": "26 parts x 3 (dx, dy, score) per pixel",
+            "range": {
+              "max": 0.5401720348745584,
+              "mean": -0.0003278371157640734,
+              "min": -0.4501433623954654,
+              "std": 0.023218333328792723
+            },
+            "scale": [
+              0.010003185831010342
+            ],
+            "shape": [
+              1,
+              64,
+              48,
+              78
+            ],
+            "zero_point": [
+              129
+            ]
+          },
+          "decode": {
+            "note": "joint = argmax over the 64x48 heatmap; POF vectors give the sub-pixel offset consumed by the body-reshape mesh"
+          }
+        }
+      },
+      "seconds": 0.03,
+      "status": "litert_fallback",
+      "verification": null
+    },
+    "model__ai_human_processor_beautybody_mb__human_detector_retinanet_mobilenetv2_1.0_quant": {
+      "conversion": {
+        "reason": "dynamic RESHAPE shape: RESHAPE target is computed from SHAPE/PACK at run time; tools/tflite2jax.py requires a constant shape (status unsupported_params); also not runnable on stock LiteRT: the CONV_2D weights carry per-channel zero_point -127, which LiteRT rejects ('unsupported zero-point value (-127) in channel 130', XNNPACK and reference kernels) although FuAI's vendored runtime accepts it",
+        "runner": "none",
+        "status": "skipped",
+        "unsupported_ops": []
+      },
+      "meta": {
+        "bundle": "ai_human_processor_beautybody_mb",
+        "conversion": {
+          "reason": "dynamic RESHAPE shape: RESHAPE target is computed from SHAPE/PACK at run time; tools/tflite2jax.py requires a constant shape (status unsupported_params); also not runnable on stock LiteRT: the CONV_2D weights carry per-channel zero_point -127, which LiteRT rejects ('unsupported zero-point value (-127) in channel 130', XNNPACK and reference kernels) although FuAI's vendored runtime accepts it",
+          "runner": "litert",
+          "status": "skipped"
+        },
+        "family": "detector_boxes",
+        "inputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "input_1",
+            "shape": [
+              1,
+              320,
+              320,
+              3
+            ]
+          }
+        ],
+        "name": "model__ai_human_processor_beautybody_mb__human_detector_retinanet_mobilenetv2_1.0_quant",
+        "note": "320x320x3 -> 19125 box scores + 4 box regressions",
+        "op_count": 198,
+        "ops": [
+          "ADD",
+          "CONCATENATION",
+          "CONV_2D",
+          "DEPTHWISE_CONV_2D",
+          "DEQUANTIZE",
+          "LOGISTIC",
+          "MUL",
+          "PACK",
+          "PAD",
+          "QUANTIZE",
+          "RESHAPE",
+          "RESIZE_NEAREST_NEIGHBOR",
+          "SHAPE",
+          "STRIDED_SLICE"
+        ],
+        "outputs": [
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity",
+            "scale": [],
+            "shape": [
+              1,
+              19125,
+              1
+            ],
+            "zero_point": []
+          },
+          {
+            "dtype": "FLOAT32",
+            "name": "Identity_1",
+            "scale": [],
+            "shape": [
+              1,
+              19125,
+              4
+            ],
+            "zero_point": []
+          }
+        ],
+        "short": "human_detector_retinanet_mobilenetv2_1.0_quant",
+        "subgraphs": 1,
+        "tflite": "models/tflite/model__ai_human_processor_beautybody_mb__human_detector_retinanet_mobilenetv2_1.0_quant.tflite",
+        "unsupported_ops": []
+      },
+      "path": "none",
+      "seconds": 0.0,
+      "skip_reason": "dynamic RESHAPE shape: RESHAPE target is computed from SHAPE/PACK at run time; tools/tflite2jax.py requires a constant shape (status unsupported_params); also not runnable on stock LiteRT: the CONV_2D weights carry per-channel zero_point -127, which LiteRT rejects ('unsupported zero-point value (-127) in channel 130', XNNPACK and reference kernels) although FuAI's vendored runtime accepts it",
+      "status": "skip"
+    }
+  },
+  "conversion_skipped": [
+    "model__ai_beauty_type_processor__dense_eb",
+    "model__ai_beauty_type_processor__dense_eye_iris",
+    "model__ai_beauty_type_processor__model_hair",
+    "model__ai_beauty_type_processor__n-0.5_416_0.05_4aspect6",
+    "model__ai_beauty_type_processor__n-small_256_0.05_only_a5",
+    "model__ai_beauty_type_processor__s2",
+    "model__ai_beauty_type_processor__s3",
+    "model__ai_face_beauty_processor__skin_model_expand_supply_pta18000_quant_resizetrain_seg153",
+    "model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine1",
+    "model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine2",
+    "model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine3",
+    "model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.XScore.s76e150_base",
+    "model__ai_face_processor_detect_landmark__n-0.5_416_0.05_4aspect6",
+    "model__ai_face_processor_detect_landmark__n-small_256_0.05_only_a5",
+    "model__ai_human_processor_beautybody_mb__FULLBODY_POFH2D_20210302_0001_e1604_q",
+    "model__ai_human_processor_beautybody_mb__human_detector_retinanet_mobilenetv2_1.0_quant"
+  ],
+  "converted": 17,
+  "counts": {
+    "litert_fallback": 15,
+    "pass": 15,
+    "pass_semantic": 2,
+    "skip": 1
+  },
+  "models_total": 33,
+  "normalization_note": "float inputs are scaled x/255; the exact FuAI mean/std is not in the recovered bundle configs (PIPELINE.md \u00a73 step 5 / unknown U3)",
+  "seconds": 19.1,
+  "seed": 0,
+  "synthetic_frame": "256x256 gradient + soft face ellipse (preprocess.synthetic_frame)",
+  "target": "miui_mediaeditor"
+}

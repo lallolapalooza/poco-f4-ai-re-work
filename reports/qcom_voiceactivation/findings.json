@@ -1,0 +1,593 @@
+{
+  "slug": "qcom_voiceactivation",
+  "package": "com.quicinc.voice.activation",
+  "app_name": "Qualcomm Voice Assist",
+  "ai_summary": "System-installed always-on voice activation service (OneVoice / Snapdragon Voice Activation). A 16 kHz PCM16 stream is turned into 80-bin mel features (480-sample 30 ms frames, 160-sample hop, Hann-400 window, 512-point FFT, sparse triangular mel bank), then scored by a 1st-stage keyword network (PDK5_XS / PDK6_XS+MFCN), refined by a 1.5-stage network, and gated by a 2nd-stage speaker-verification model (DNN-UV/VOP/TIVOP over a GMM UBM or an EAI network). A separate eAI DNN VAD (assets/speech_float.eai) segments speech, and Whisper (libwhisper_lib.so + a runtime-downloaded SNPE .dlc encoder) provides ASR. All neural networks are Qualcomm EAI2 blobs; the container formats (.uim and eai2 headers) are decoded here, the EAI2 layer tables are not.",
+  "features": [
+    {
+      "name": "Always-on keyword detection (OneVoice, 1st stage -> 1.5 stage -> 2nd stage UV)",
+      "entrypoints": [
+        "com.quicinc.voice.activation.onevoice.algorithm.OneVoiceAlgorithmTask.compute()",
+        "com.quicinc.voice.activation.algorithm.Algorithm.initAlgorithm()/startAlgorithm()/processAlgorithm()",
+        "Java_com_quicinc_voice_activation_algorithm_Algorithm_init (libqvajni.so @0x1481c)",
+        "com.quicinc.voice.activation.audiorecord.OneVoiceHotwordCapturer (audiorecord.b)",
+        "com.quicinc.voice.activation.engineservice.WakewordToggleService (IWakewordToggleService.enableRecognition)",
+        "E.n.c (SoundTriggerModule.attachModule) -> E.o.z (loadSoundModel + startRecognition)",
+        "E.m.f (SoundTriggerModule.StatusListener.onRecognition) -> p015p.c.e -> p003d.d.d"
+      ],
+      "pipeline": [
+        "AudioRecord(16000 Hz, CHANNEL_IN_MONO, PCM16) or SoundTrigger STHAL partitions",
+        "frame 480 samples / hop 160 -> x*(1/32768) * Hann(400) -> 512-pt real FFT -> 256 magnitudes -> 80 sparse triangular mel filters (no log)",
+        "DNN VAD (speech_float.eai via libdnnvad_jni -> libqvavad -> libeai_floating), threshold 0.85 (Q20 891289), hangover 70 frames",
+        "1st stage keyword net (PdkXSCore, eai2 blobs in *.uim), 5 keyword scores, threshold 26/40 or per-keyword thresholds 55,61,36,35,33",
+        "1.5 stage keyword net (eai2 in 1.5_stage/*.uim), MiddleStageKW.thresholds 50,52,49,37,35",
+        "2nd stage user verification (Stage2UVCore / DNN-UV/TIVOP over general_UV_015|024), SecondStageUV.threshold 13.0/55.0, kwcmd 19.0/45.0",
+        "tolerance window KW.pre/postTolerance 300-400/440 ms, UV.pre/post 200 ms -> RecognitionEvent"
+      ],
+      "models": [
+        "assets/1st_stage/63ff0ae5_en-US_001.uim",
+        "assets/1st_stage/63ff0ae5_en-US_036.uim",
+        "assets/1st_stage/63ff0ae5_en-US_038.uim",
+        "assets/1st_stage/63ff0ae5_en-US_040.uim",
+        "assets/1.5_stage/63ff0ae5_en-US_002.uim",
+        "assets/ubm/general_UV_015.uim",
+        "assets/ubm/general_UV_024.uim",
+        "assets/speech_float.eai"
+      ],
+      "confidence": "confirmed",
+      "notes": "Model choice is SOC-id driven (SocIdModelMapper/KwModelMapper): soc 557,577 -> 1st stage _038 (PDK6_XS MFCN, no 1.5 stage); 519,536 -> _001; 454,472/507,565 -> _040; 506,547,564/530,531,540,591/537,583/568,602 -> _036. general_UV_015 is the keyword-dependent UV UBM, general_UV_024 the platform (TIUV) UBM. Android wiring (patch pass): the trigger is the sound-trigger HAL; the app registers a SoundTriggerModule session from WakewordToggleService, then on each event opens AudioRecord with capture preset 1999 (AUDIO_SOURCE_HOTWORD) to fetch the utterance. Delivery is binder-only (IUtteranceProviderService / IUtteranceReceiverCallback)."
+    },
+    {
+      "name": "Speaker enrollment (user sound model creation)",
+      "entrypoints": [
+        "com.quicinc.voice.activation.engineservice.EnrollmentService",
+        "com.quicinc.voice.activation.soundmodel.SoundModelCodec.createUserModel / verifyUserRecording",
+        "Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_createUserModel (libqvajni.so @0x19ef4)",
+        "com.quicinc.voice.activation.engineservice.EnrollmentService (IEnrollmentService)",
+        "p013n.g (AbstractEnrollmentSession) -> p013n.q (OneVoicePDKEnrollmentSession)"
+      ],
+      "pipeline": [
+        "record 5 utterances (+3 noisy, max 11), Enrollment.threshold 30",
+        "getSizeWhenCreateUserModel -> createUserModel(sm, keyword, user, n, ShortBuffer[], out, ConfidenceData)",
+        "checkRecordingsQuality / verifyUserRecording (impostor + energy checks)",
+        "mergeModel into the BigSoundModel, persisted per user (OneVoiceModelFileManager)"
+      ],
+      "models": [
+        "assets/ubm/general_UV_015.uim",
+        "assets/ubm/general_UV_024.uim"
+      ],
+      "confidence": "confirmed",
+      "notes": "ConfidenceData/opaque Header (CONFIDENCE_LEVELS, TIMESTAMP, KEYWORD_INDICES, PERFORMANCE_MODE) is the enrollment metadata block."
+    },
+    {
+      "name": "DNN voice activity detection",
+      "entrypoints": [
+        "com.qualcomm.qti.vad.DNNVAD.initVAD()/processVAD()",
+        "Java_com_qualcomm_qti_vad_DNNVAD_init (libdnnvad_jni.so @0x233c)",
+        "Vad::init / Vad::process (libdnnvad_jni.so @0x2fd0 / @0x328c) -> dnnvad_capi_wrapper in libqvavad.so"
+      ],
+      "pipeline": [
+        "assets/speech*.eai discovered by prefix scan in assets/ (speech_float.eai)",
+        "config from container Platform_UV/nn_vad: cmd.end.detection.timeout 4000, nnvad.len.future 0, nnvad.len.hangover 70, nnvad.threshold 891289 (=0.85 in Q20), cmd.end.detection.threshold 30",
+        "Vad::init dlopens libqvavad.so, dlsym(CAPI init), copies the model, calls the CAPI wrapper which drives eai_init_ex/eai_apply on libeai_floating.so",
+        "per-frame speech probability -> hangover/lookahead state machine -> end-of-command detection"
+      ],
+      "models": [
+        "assets/speech_float.eai"
+      ],
+      "confidence": "confirmed",
+      "notes": "The eai2 file is a float model; its layer table is not decoded (see unknowns)."
+    },
+    {
+      "name": "Speech recognition / transcription (Whisper)",
+      "entrypoints": [
+        "com.quicinc.voice.activation.asr.WhisperEngine",
+        "com.qualcomm.whisper.WhisperNative._init/_process (libwhisper_lib.so @0x3e730/@0x3ffe4)",
+        "com.quicinc.voice.activation.llm.LLMRecognitionService"
+      ],
+      "pipeline": [
+        "16 kHz PCM -> whisper.cpp/ggml runtime (libwhisper_lib.so, 306 KB, encoder/decoder tensor names .attn.key.weight etc.)",
+        "encoder_model_quantized_cached.dlc + vocab.bin under ASR_binary/Whisper are downloaded at runtime (QESDK VOICEUI_API_START_DOWNLOAD), not shipped",
+        "transcript -> TTS / LLM service"
+      ],
+      "models": [
+        "ASR_binary/Whisper/encoder_model_quantized_cached.dlc (absent, downloaded)",
+        "ASR_binary/Whisper/vocab.bin (absent, downloaded)"
+      ],
+      "confidence": "inferred",
+      "notes": "Model files are absent from the APK; the runtime libs (libSNPE.so, libwhisper_lib.so) are present. Static weights unavailable."
+    },
+    {
+      "name": "On-device end-point detection (EPD)",
+      "entrypoints": [
+        "com.quicinc.voice.activation.onlineepd.EPD.init/process/release/reinit",
+        "EndPointDetection::UpdateFrame (libqvasml.so)"
+      ],
+      "pipeline": [
+        "log10 energy / SNR state machine on 10 ms frames (EPD.minSnrOnset 3.0, forgettingFactorNoise 0.03, numMinFramesInPhrase 15, preEmphasize 1)",
+        "used to bound utterances and to guard training frames (Training.numGuardFrames_for_epd 30/80)"
+      ],
+      "models": [],
+      "confidence": "confirmed",
+      "notes": "No NN; the only log10 call sites in libqvasml are EPD/noise-mixing/GMM code."
+    },
+    {
+      "name": "DSP-side wake-word modules (audio HAL)",
+      "entrypoints": [
+        "libqvapdk.so / libqvapdkxs.so / libqvarnn.so / libqvauv.so -> capi_v2_get_static_properties, capi_v2_init"
+      ],
+      "pipeline": [
+        "CAPI_v2 modules loaded by audioserver; libqvapdkxs.so exposes tunables block_size, num_channels, eer_mode, n_min_req_frame_model_1..3, ignore_detect_model_1..3 (three detect models)"
+      ],
+      "models": [],
+      "confidence": "inferred",
+      "notes": "Module identity from CAPI_v2 exports and libqvapdkxs.so tunables; the same library names are present in libqvajni.so .rodata next to libqvasml.so, so the JNI wrapper can dlopen either the CPU SML or the DSP CAPI_v2 back end. The DSP configuration flow itself is outside the APK."
+    }
+  ],
+  "models": [
+    {
+      "path": "assets/1st_stage/63ff0ae5_en-US_001.uim",
+      "format": "Qualcomm SML big sound model (.uim) v5.0; header decoded; contains PDK5 sub-model header + 4 embedded EAI2 neural nets (56928/6076/132752/8492 B) of which the 132752 B net is byte-identical to the one in _036/_040 [weights present in the file but not extracted: EAI2 layer table undecoded]",
+      "size": 206792,
+      "io": {
+        "stage": "1st-stage keyword",
+        "keywords": 5,
+        "feature": "80-bin mel, 30 ms frame / 10 ms hop"
+      },
+      "ops": [],
+      "weights": "unavailable",
+      "jax_reimpl": "reimpl/pipeline.py::keyword_apply (architecture-only: EAI2 layer table not decoded)",
+      "verification": "container parsed for all 7 uim files (reimpl/uim_container.py, evidence/uim_parse.txt); weights opaque",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "assets/1st_stage/63ff0ae5_en-US_036.uim",
+      "format": "same as _001 (PDK5, 2 eai2 blobs listed at 0x105c8/0x30dc8; the first 132752 B net is identical) [weights present in the file but not extracted: EAI2 layer table undecoded]",
+      "size": 208840,
+      "io": {
+        "stage": "1st-stage keyword",
+        "keywords": 5
+      },
+      "ops": [],
+      "weights": "unavailable",
+      "jax_reimpl": "reimpl/pipeline.py::keyword_apply (architecture-only)",
+      "verification": "container parsed; weights opaque",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "assets/1st_stage/63ff0ae5_en-US_038.uim",
+      "format": ".uim v8.0 'PDK6XS.MFCN'; 4 eai2 blobs (41508/5820/111372/13708 B); PDK6 marker at 0x1c8 / 0xbfc8 [weights present in the file but not extracted: EAI2 layer table undecoded]",
+      "size": 175560,
+      "io": {
+        "stage": "1st-stage keyword (MFCN)",
+        "keywords": 5,
+        "note": "thresholds 55,61,36,35,33"
+      },
+      "ops": [],
+      "weights": "unavailable",
+      "jax_reimpl": "reimpl/pipeline.py::keyword_apply (architecture-only)",
+      "verification": "container parsed; weights opaque",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "assets/1st_stage/63ff0ae5_en-US_040.uim",
+      "format": ".uim v5.0 PDK5XS, 2 eai2 blobs (132752 + 8492 B) [weights present in the file but not extracted: EAI2 layer table undecoded]",
+      "size": 198088,
+      "io": {
+        "stage": "1st-stage keyword",
+        "keywords": 5
+      },
+      "ops": [],
+      "weights": "unavailable",
+      "jax_reimpl": "reimpl/pipeline.py::keyword_apply (architecture-only)",
+      "verification": "container parsed; weights opaque",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "assets/1.5_stage/63ff0ae5_en-US_002.uim",
+      "format": ".uim v5.0 'PDK5XS 1p5'; 2 eai2 blobs (408936 + 41772 B) [weights present in the file but not extracted: EAI2 layer table undecoded]",
+      "size": 452536,
+      "io": {
+        "stage": "1.5 (middle) stage keyword",
+        "keywords": 5,
+        "note": "MiddleStageKW.thresholds 50,52,49,37,35"
+      },
+      "ops": [],
+      "weights": "unavailable",
+      "jax_reimpl": "reimpl/pipeline.py::keyword_apply (architecture-only)",
+      "verification": "container parsed; weights opaque",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "assets/ubm/general_UV_015.uim",
+      "format": ".uim v8.0 'qc_ti_uv' + one 10 572 796 B EAI2 network at 0x807d8 (DNN-UV / TIUV) [weights present in the file but not extracted: EAI2 layer table undecoded]",
+      "size": 11099104,
+      "io": {
+        "stage": "2nd-stage user verification (keyword dependent)",
+        "input": "mel/feature frames of the keyword slice",
+        "output": "1 score per keyword",
+        "threshold": 13.0,
+        "kwcmd_threshold": 19.0
+      },
+      "ops": [],
+      "weights": "unavailable",
+      "jax_reimpl": "not implemented (eai2 layer table undecoded); decision layer present in reimpl/pipeline.py::DEFAULTS",
+      "verification": "container + embedded blob offsets verified",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "assets/ubm/general_UV_024.uim",
+      "format": ".uim v7.0 'qc_ti_uv', no eai2 - float GMM/UBM payload (7303904 B body)",
+      "size": 7304344,
+      "io": {
+        "stage": "2nd-stage user verification (platform/TIUV)",
+        "threshold": 55.0,
+        "kwcmd_threshold": 45.0
+      },
+      "ops": [],
+      "weights": "partial",
+      "jax_reimpl": "not implemented (GMM layout/scale unverified)",
+      "verification": "container verified; payload float region observed, dims unverified",
+      "confidence": "inferred"
+    },
+    {
+      "path": "assets/speech_float.eai",
+      "format": "EAI2 float NN container (magic 'eai2', fmt 2.2 kind 4.3, 36632 B, descriptor area 0..0x868, parameter area 0x868..end) [weights present in the file but not extracted: EAI2 layer table undecoded]",
+      "size": 36632,
+      "io": {
+        "stage": "DNN VAD",
+        "output": "speech probability per 10 ms frame",
+        "threshold": 0.85
+      },
+      "ops": [],
+      "weights": "unavailable",
+      "jax_reimpl": "reimpl/pipeline.py::vad_apply (architecture-only)",
+      "verification": "container header + sizes verified; interpreter is libeai_floating.so (8 exports, internal loader)",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "native/libs/libqvasml.so:.data:udk_hann_window",
+      "format": "float32[480] Hann window, N=400 symmetric, zero padded",
+      "size": 1920,
+      "io": {
+        "use": "front-end window"
+      },
+      "ops": [],
+      "weights": "extracted",
+      "jax_reimpl": "models/frontend/hann_480.npy + reimpl/pipeline.py::logmel",
+      "verification": "numpy vs JAX front-end max abs diff 7.6e-06 on synthetic audio",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "native/libs/libqvasml.so:.data:udk_mel_filter_{start,len,offset,80}",
+      "format": "int32[80] x3 + float32[470] sparse triangular mel filterbank (bins 5..243 of 256)",
+      "size": 2840,
+      "io": {
+        "use": "80-bin mel projection"
+      },
+      "ops": [],
+      "weights": "extracted",
+      "jax_reimpl": "models/frontend/mel_matrix_80x256.npy + reimpl/pipeline.py::logmel",
+      "verification": "reconstructed dense matrix nnz=470; row sums 0.70..7.36",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "native/libs/libqvasml.so:.data:ubm_{means,inverse_variances,weight_gconst}",
+      "format": "int16[2496] means + int16[2496] inverse variances + int32[64] weights (fixed-point UBM defaults)",
+      "size": 10496,
+      "io": {
+        "use": "GMM UBM for classic UV/VOP adaptation",
+        "note": "runtime format is float32 with a 12-byte {dim, num_mix, ?} header (Gmms::init @0x71a8c)"
+      },
+      "ops": [],
+      "weights": "extracted",
+      "jax_reimpl": "not wired (dim/mix split and Q-scale unverified)",
+      "verification": "size symbols ubm_means_size=2496, ivar_size=2496, weight_gconst_size=64 read from .rodata",
+      "confidence": "inferred"
+    }
+  ],
+  "reimplementation": {
+    "path": "reimpl/pipeline.py",
+    "run_command": "python reimpl/pipeline.py",
+    "status": "architecture_only",
+    "limitations": "Front-end is exact (real Hann/mel coefficients extracted from libqvasml.so, 512-pt FFT, 256 magnitudes, 80 sparse triangular filters; numpy vs jax max abs diff 7.6e-06). Decision layer uses the real qvaconfig_v4.xml thresholds (Q20 VAD 0.85, hangover 70, keyword thresholds 26 / 50,52,49,37,35, tolerances). The four neural stages (DNN VAD, 1st stage, 1.5 stage, 2nd stage UV) are ARCHITECTURE_ONLY: the EAI2 blob layer tables are not decoded, so weights are deterministic pseudo-random with the documented shapes (5 keyword outputs for 1st/1.5 stage, 1 logit for VAD). Also provided: reimpl/uim_container.py decodes the .uim header and enumerates embedded EAI2 blobs for all 7 files."
+  },
+  "unknowns": [
+    "EAI2 (eai2) descriptor/layer table: no strings, no self-describing tags. Ghidra recovered the load chain inside libeai_floating.so (eai_init_internal @0x10c654 -> load_network @0x10d754 -> validate_eai_model / initialize_tensor_meta / parse_eai_layers @0x10dcd0 -> load_eai_layers -> initialize_io_tensor), but extract_eai_model_from_buffer, initialize_tensor_meta, calculate_total_layer_size and the per-op eai_op_layer_* loaders were not decompiled, so tensor shapes, op list, weight offsets and quantisation of every DNN (VAD, 1st/1.5-stage keyword, DNN-UV) remain opaque; only blob boundaries and the 16-byte container header are known.",
+    ".uim individual-model descriptors at 0x1A8 (count x 16 B) and the version-specific body tables (keyword ids, threshold seeds, user model tables) are parsed only at the container level; the field semantics beyond 'two nonzero u32 words per descriptor' are not proven.",
+    "UBM blobs: 2496 int16 means / 2496 int16 inverse variances + 64 int32 weights; whether the split is 64 mixtures x 39 dims or 32 x 78 and the fixed-point scale (means range -3279..2935, ivar 0..10122) are unverified.",
+    "Whisper ASR weights (encoder_model_quantized_cached.dlc, vocab.bin) are downloaded at runtime via QESDK; not present in the APK.",
+    "Whether the EAI networks apply log/CMVN internally: the native front-end outputs linear mel magnitudes and no logf call exists on that path; the reimplementation assumes log + per-utterance mean/variance (marked INFERRED).",
+    "DSP path (libqvapdk*, libqvarnn, libqvauv): CAPI_v2 modules configured by audioserver, no configuration visible in the APK.",
+    "Anti-spoof / ID-UV (libVoiceSdk.so, net.idrnd.voicesdk) model data and thresholds: only the switch UV.antiSpoofEnable=false / threshold 0.3 is visible."
+  ],
+  "data_pipelines": [
+    {
+      "id": "always_on_keyword_detection",
+      "name": "Always-on keyword detection (OneVoice): STHAL DSP trigger -> AudioRecord(HOTWORD) capture -> 1.5 stage -> 2nd stage UV -> client binder delivery",
+      "app_slug": "qcom_voiceactivation",
+      "trigger": {
+        "kind": "sound-trigger HAL event (no app-side always-on capture)",
+        "entry_component": "com.quicinc.voice.activation.engineservice.WakewordToggleService (exported, IWakewordToggleService.enableRecognition)",
+        "model_registration": "p015p.f.E -> E.n.c (SoundTriggerModule.attachModule) -> E.o.z (loadSoundModel+startRecognition)",
+        "event_callback": "E.m.f (SoundTriggerModule.StatusListener.onRecognition) -> p015p.c.e -> p003d.d.d -> p013n.z.i",
+        "startup": "VoiceAssistApplication.onCreate -> p003d.g.x (Facade) + System.loadLibrary(\"qvajni\"); BOOT_COMPLETED -> VoiceAssistReceiver -> ReenableWakewordService",
+        "confidence": "confirmed"
+      },
+      "transport": {
+        "sample_rate_hz": 16000,
+        "channels": 1,
+        "encoding": "ENCODING_PCM_16BIT little-endian",
+        "byte_rate": "32000 B/s (Constants.j() == 32 bytes/ms)",
+        "capture_source": "AudioAttributes USAGE_MEDIA(1)/CONTENT_TYPE_SPEECH(1) + setInternalCapturePreset(1999); 1999 == AUDIO_SOURCE_HOTWORD is inferred from the platform constant",
+        "audio_record_buffer_bytes": 64000,
+        "read_chunk_bytes": 3840,
+        "read_chunk_ms": 120,
+        "stream_buffer_bytes": 320000,
+        "stream_buffer_rule": "(HistoryBufferDuration/1000 + 8) * 16000 * 2 = 10 s at the shipped HistoryBufferDuration=2000",
+        "client_audio_fd": "ParcelFileDescriptor.createReliableSocketPair() (p009j.a), fd[0] handed to the client, fd[1] written by the capture task",
+        "index_unit": "10 ms frames; bytes = index * 10 * 32 (p007h.b.f/g)",
+        "confidence": "confirmed"
+      },
+      "threads": [
+        "ForkJoinPool: OneShotAudioRecordAction (RecursiveAction) capture loop",
+        "HandlerThread(\"algorithm\", -16): 1.5-stage and 2nd-stage algorithm runs (p013n.L)",
+        "HandlerThread(\"ThreadManager\", -16): capture start/stop and teardown (p013n.L)",
+        "HandlerThread(\"FsStateCallback\"): first-stage state fan-out (p013n.D)",
+        "ForkJoinPool: OneVoiceAlgorithmTask (RecursiveTask) per-algorithm fan-out",
+        "main Handler: completion callbacks and client unbind",
+        "synchronisation: ReentrantLock + Condition.await(10, SECONDS) in p013n.L; AtomicBoolean single-recognition gate in p013n.z; AudioStreamProvider drops a chunk when the buffer is full (p009j.h.l)"
+      ],
+      "steps": [
+        {
+          "stage": "1. keyphrase event decode",
+          "mechanism": "SoundTrigger.KeyphraseRecognitionEvent -> N.c -> com.quicinc.voice.activation.soundtrigger.RecognitionEvent (captureSession, beginIndex, endIndex, keywordId, confidence, isMultiKW)",
+          "confidence": "confirmed",
+          "evidence": "reports/qcom_voiceactivation/sources/classes/com.quicinc.voice.activation.soundtrigger.RecognitionEvent.java"
+        },
+        {
+          "stage": "2. wake lock + dispatch",
+          "mechanism": "p003d.d.d: PARTIAL_WAKE_LOCK(\"Recognition\") 500 ms, then g.n().i(uuid, event) -> p013n.z.i",
+          "confidence": "confirmed",
+          "evidence": "reports/qcom_voiceactivation/sources/classes/d.d.java:34"
+        },
+        {
+          "stage": "3. utterance capture",
+          "mechanism": "audiorecord.b.w -> AudioStreamProvider(10 s) + OneShotAudioRecordAction -> AudioRecord(HOTWORD) -> 3840 B reads -> client PFD + IAudioStreamSaver",
+          "confidence": "confirmed",
+          "evidence": "reports/qcom_voiceactivation/sources/classes/com.quicinc.voice.activation.audiorecord.b.java"
+        },
+        {
+          "stage": "4. doze grace",
+          "mechanism": "IDeviceIdleController.addPowerSaveTempWhitelistApp(pkg, 300000, 0[,14], \"QVA-HOTWORD\") per capture",
+          "confidence": "confirmed",
+          "evidence": "reports/qcom_voiceactivation/sources/classes/I.b.java, reports/qcom_voiceactivation/sources/classes/L.a.java, reports/qcom_voiceactivation/sources/classes/M.a.java"
+        },
+        {
+          "stage": "5. front-end",
+          "mechanism": "16 kHz PCM -> x*(1/32768) -> Hann(400) in 480 window -> 512-pt real FFT -> 256 magnitudes -> 80 sparse triangular mel filters (no log)",
+          "confidence": "confirmed",
+          "evidence": "reports/qcom_voiceactivation/native/disasm/udk7_feature_{init,process,spectrum,mel}.s; reports/qcom_voiceactivation/models/frontend/"
+        },
+        {
+          "stage": "6. 1.5 stage",
+          "mechanism": "OneVoiceAlgorithmTask.compute -> reader.f() -> Algorithm.process(ShortBuffer,null,Bundle,flag) -> JNI Algorithm_process @0x15230 -> smlProcess",
+          "confidence": "confirmed",
+          "evidence": "reports/qcom_voiceactivation/sources/classes/com.quicinc.voice.activation.onevoice.algorithm.OneVoiceAlgorithmTask.java"
+        },
+        {
+          "stage": "7. 1.5 stage result",
+          "mechanism": "bundle keys 1.5Stage.success/keywordStartIndex/keywordEndIndex/detectedIndex/startTimestamp/finishTimestamp + AudioMetaData.audioSampleBits|audioSampleRate|audioFormat|audioChannels",
+          "confidence": "confirmed",
+          "evidence": "reports/qcom_voiceactivation/sources/classes/n.L.java:143"
+        },
+        {
+          "stage": "8. 2nd stage",
+          "mechanism": "p015p.j.i(uuid, saver, kwStart, kwEnd); UV/TIUV Algorithm over TIUVReader (DNN-VAD bounded) or OneShotReader; threshold SecondStageUV.threshold (55.0/45.0 or 13.0/19.0)",
+          "confidence": "confirmed",
+          "evidence": "reports/qcom_voiceactivation/sources/classes/p.j.java, reports/qcom_voiceactivation/sources/classes/j.g.java"
+        },
+        {
+          "stage": "9. client selection",
+          "mechanism": "ClientGroupManager -> ClientGroup by detectedIndex -> preferred Client -> package installed + RECORD_AUDIO granted",
+          "confidence": "confirmed",
+          "evidence": "reports/qcom_voiceactivation/sources/classes/k.b.java, reports/qcom_voiceactivation/sources/classes/k.c.java, reports/qcom_voiceactivation/sources/classes/n.z.java:151"
+        },
+        {
+          "stage": "10. bind client",
+          "mechanism": "bindService(ComponentName(pkg, serviceClass), 0x100001 = BIND_AUTO_CREATE|BIND_IMPORTANT), extra isOneVoice=true only for the in-package LLM client",
+          "confidence": "confirmed",
+          "evidence": "reports/qcom_voiceactivation/sources/classes/n.z.java:103"
+        },
+        {
+          "stage": "11. deliver",
+          "mechanism": "client calls IUtteranceProviderService -> n.z.k/q -> IUtteranceReceiverCallback.onUtteranceReceived(fd, bundle) / onUtteranceVerificationFailure(fd, bundle)",
+          "confidence": "confirmed",
+          "evidence": "reports/qcom_voiceactivation/sources/classes/com.quicinc.voice.activation.engineservice.UtteranceProviderService.java; n.z.java:228,237"
+        }
+      ],
+      "output_contract": {
+        "result_bundle_keys": [
+          "detected",
+          "detected_index",
+          "confidence_score",
+          "keyword_start_index",
+          "keyword_end_index",
+          "uv_score"
+        ],
+        "delivered_keys": [
+          "1.5Stage.success",
+          "1.5Stage.keywordStartIndex",
+          "1.5Stage.keywordEndIndex",
+          "1.5Stage.detectedIndex",
+          "1.5Stage.startTimestamp",
+          "1.5Stage.finishTimestamp",
+          "SecondStage.startTimestamp",
+          "SecondStage.finishTimestamp",
+          "algorithm.success",
+          "AudioMetaData.startRecordingTimestamp",
+          "AudioMetaData.stopRecordingTimestamp",
+          "AudioMetaData.keywordStartIndex",
+          "AudioMetaData.keywordEndIndex",
+          "AudioMetaData.audioSampleBits",
+          "AudioMetaData.audioSampleRate",
+          "AudioMetaData.audioFormat",
+          "AudioMetaData.audioChannels",
+          "SoundModel.fileName"
+        ],
+        "timestamp_clock": "System.currentTimeMillis() (CLOCK_REALTIME), not an audio clock",
+        "confidence": "confirmed"
+      },
+      "consumer": {
+        "kind": "binder only (no broadcast / no intent)",
+        "client_api": "com.quicinc.voice.activation.aidl.IUtteranceProviderService + IUtteranceReceiverCallback",
+        "audio_payload": "ParcelFileDescriptor of the socket pair = raw 16 kHz mono PCM16 of the utterance window",
+        "known_clients": [
+          "com.qualcomm.qti.voice.assist.client",
+          "com.qualcomm.qti.voice.assist.qvs",
+          "com.qualcomm.qti.voice.assist.test",
+          "in-package llm.LLMRecognitionService"
+        ],
+        "confidence": "confirmed"
+      },
+      "failure_fallback": [
+        "no client group for the detected index -> \"cannot find client group\" -> p() abort, no delivery (confirmed)",
+        "2nd-stage model absent -> \"model unsufficient\" / ALGORITHM_NO_MODEL, 1st stage rolled back (confirmed)",
+        "client package missing or RECORD_AUDIO not granted -> abort + turnOffDetection (confirmed)",
+        "1.5 stage timeout -> Condition.await(10 s), then 1.5Stage.success=false -> abort (confirmed)",
+        "HAL abort/failure -> session RECOGNITION_PAUSED / all sessions ERROR + state cleared (confirmed)",
+        "STHAL service died -> E.n.d detach + re-attach on resources-available (confirmed)",
+        "dump disabled -> DummyAudioStreamSaver unless persist.qva.dump=1 (confirmed)"
+      ],
+      "screen_off_survival": [
+        "detection itself runs in the sound-trigger HAL/DSP; the app only holds a registered SoundTriggerModule session",
+        "AudioRecord uses capture preset 1999 (AUDIO_SOURCE_HOTWORD) allowed for CAPTURE_AUDIO_HOTWORD holders",
+        "addPowerSaveTempWhitelistApp 300 s per capture (tag QVA-HOTWORD) + 500 ms PARTIAL_WAKE_LOCK(\"Recognition\")",
+        "ForegroundService with foregroundServiceType=0x80 (microphone) only on SDK 31/32 and MANUFACTURER in {OnePlus, OPPO, realme, Xiaomi}",
+        "reboot restore via VoiceAssistReceiver -> ReenableWakewordService"
+      ],
+      "permissions": [
+        "RECORD_AUDIO",
+        "CAPTURE_AUDIO_HOTWORD",
+        "FOREGROUND_SERVICE",
+        "FOREGROUND_SERVICE_MICROPHONE",
+        "CHANGE_DEVICE_IDLE_TEMP_WHITELIST",
+        "WAKE_LOCK",
+        "RECEIVE_BOOT_COMPLETED",
+        "MODIFY_AUDIO_SETTINGS",
+        "START_ACTIVITIES_FROM_BACKGROUND"
+      ],
+      "confidence": "confirmed"
+    },
+    {
+      "id": "speaker_enrollment",
+      "name": "Speaker enrollment: per-utterance capture -> verifyUserRecording -> createUserModel -> per-user model file",
+      "app_slug": "qcom_voiceactivation",
+      "trigger": {
+        "kind": "client binder call",
+        "entry_component": "com.quicinc.voice.activation.engineservice.EnrollmentService (exported, IEnrollmentService)",
+        "calls": [
+          "startUserVoiceEnrollment(bundle, pfd)",
+          "startUtteranceTraining(UtteranceInfo.id)",
+          "stopUtteranceTraining",
+          "commitUserVoiceEnrollment",
+          "finishUserVoiceEnrollment",
+          "cancelUtteranceTraining",
+          "cancelUserVoiceEnrollment",
+          "transferRecording",
+          "getUtterancesInfo",
+          "isGeneralUVEnrolled",
+          "removeGeneralUV"
+        ],
+        "session_key": "PackageManager.getNameForUid(Binder.getCallingUid())",
+        "confidence": "confirmed"
+      },
+      "transport": {
+        "sample_rate_hz": 16000,
+        "channels": 1,
+        "encoding": "PCM16 little-endian",
+        "audio_source": "from Enrollment.audiosource (AbstractEnrollmentSession.i(): DEFAULT=0, MIC=1, VOICE_UPLINK=2, VOICE_DOWNLINK=3, VOICE_CALL=4, CAMCORDER=5, VOICE_RECOGNITION=6 default, VOICE_COMMUNICATION=7, REMOTE_SUBMIX=8, UNPROCESSED=9)",
+        "audio_record_buffer_bytes": 64000,
+        "read_chunk_bytes": 1280,
+        "read_chunk_ms": 40,
+        "gate": "EPD (default) or DNNVAD; loop breaks on end-of-phrase",
+        "confidence": "confirmed"
+      },
+      "steps": [
+        {
+          "stage": "1. session create",
+          "mechanism": "EnrollmentType -> n.q (OneVoice PDK) | n.t0 (general UV -> general_UV/uv.udm) | M (legacy PDK)",
+          "confidence": "confirmed",
+          "evidence": "reports/qcom_voiceactivation/sources/classes/com.quicinc.voice.activation.engineservice.EnrollmentService.java:218"
+        },
+        {
+          "stage": "2. base model",
+          "mechanism": "n.g.v(ByteBuffer): loads the base sound model and reads Enrollment.audiosource + Enrollment.trainingPostRollPadding",
+          "confidence": "confirmed",
+          "evidence": "reports/qcom_voiceactivation/sources/classes/n.g.java:365"
+        },
+        {
+          "stage": "3. per-utterance capture",
+          "mechanism": "n.g.y(id, cb) -> timer (n.f Handler, Enrollment.timeout) + TrainingAudioRecorder.r/J -> NormalAudioRecordAction (RecursiveAction)",
+          "confidence": "confirmed",
+          "evidence": "reports/qcom_voiceactivation/sources/classes/n.g.java:381, reports/qcom_voiceactivation/sources/classes/com.quicinc.voice.activation.audiorecord.c.java"
+        },
+        {
+          "stage": "4. per-utterance verify",
+          "mechanism": "n.g.z -> n.q.B -> SoundModelCodec.verifyUserRecording(model, utteranceId, ShortBuffer, postRollPadding, ConfidenceData) (JNI @0x15eb0)",
+          "confidence": "confirmed",
+          "evidence": "reports/qcom_voiceactivation/sources/classes/n.q.java:70, reports/qcom_voiceactivation/evidence/jni_symbols_libqvajni.txt"
+        },
+        {
+          "stage": "5. commit",
+          "mechanism": "EnrollmentService.p -> score = h() -> ParcelFileDescriptor.createReliablePipe -> callback.k(fd, {UVREnrollment.quality_score}) -> n.g.A writes the generated model into the pipe",
+          "confidence": "confirmed",
+          "evidence": "reports/qcom_voiceactivation/sources/classes/com.quicinc.voice.activation.engineservice.EnrollmentService.java:149-167"
+        },
+        {
+          "stage": "6. persist",
+          "mechanism": "u.g writes getFilesDir()/<container>/<clientGroup>/<userId|null>/{information.xml,<AlgorithmType>.binary}; general UV at getFilesDir()/general_UV/uv.udm",
+          "confidence": "confirmed",
+          "evidence": "reports/qcom_voiceactivation/sources/classes/u.g.java:143,176,191; n.p.java:d/e/f"
+        },
+        {
+          "stage": "7. reload",
+          "mechanism": "boot: ReenableWakewordService -> u.g.a(cb)/u.l.a(cb) -> n.Y re-arms the stored models",
+          "confidence": "confirmed",
+          "evidence": "reports/qcom_voiceactivation/sources/classes/com.quicinc.voice.activation.engineservice.ReenableWakewordService.java; n.Y.java"
+        }
+      ],
+      "native_api": [
+        "getSizeWhenCreateUserModel",
+        "createUserModel",
+        "extend",
+        "verifyUserRecording",
+        "verifyUserRecordingEnergyBased",
+        "mergeModel",
+        "getByteBufferSize",
+        "getMergedModelSize",
+        "createFirstStageSM",
+        "query",
+        "getVersion",
+        "setSMLPDKParams",
+        "setSMLTIParams"
+      ],
+      "utterance_budget": {
+        "utterances": 5,
+        "noisy": 3,
+        "max": 11,
+        "accept_threshold": 30,
+        "source": "assets/qvaconfig_v4.xml Enrollment.* keys"
+      },
+      "failure_fallback": [
+        "RECORD_AUDIO not granted to the caller -> \"permissions no granted\" (confirmed)",
+        "unsupported EnrollmentType -> \"only support PDK\" (confirmed)",
+        "missing session id -> \"Session[...] is no found\" (confirmed)",
+        "generate error -> \"Generate error\" when m() returns null (confirmed)",
+        "general model already exists -> logged, general-UV session reused (confirmed)",
+        "verify failure -> ConfidenceData carries the reason back to the client; utterance is not added to the model (inferred)"
+      ],
+      "confidence": "confirmed"
+    }
+  ]
+}

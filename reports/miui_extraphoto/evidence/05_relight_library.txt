@@ -1,0 +1,88 @@
+# librelight_only_extraphoto.so (91,925,616 B) - extracted to /tmp for analysis, NOT copied (size)
+$ readelf-like section table (lief)
+needed: ['libGLESv3.so', 'libEGL.so', 'liblog.so', 'libc++_shared.so', 'libm.so', 'libdl.so', 'libc.so']
+                       off=0x0 addr=0x0 size=0
+.note.android.ident    off=0x200 addr=0x200 size=152
+.note.gnu.build-id     off=0x298 addr=0x298 size=36
+.dynsym                off=0x2c0 addr=0x2c0 size=30384
+.dynstr                off=0x7970 addr=0x7970 size=35748
+.hash                  off=0x10518 addr=0x10518 size=9196
+.gnu.version           off=0x12904 addr=0x12904 size=2532
+.gnu.version_d         off=0x132e8 addr=0x132e8 size=28
+.gnu.version_r         off=0x13304 addr=0x13304 size=96
+.rela.dyn              off=0x13368 addr=0x13368 size=67848
+.rela.plt              off=0x23c70 addr=0x23c70 size=10056
+.plt                   off=0x263b8 addr=0x263b8 size=6736
+.text                  off=0x27e20 addr=0x27e20 size=1580260
+.rodata                off=0x1a9b40 addr=0x1a9b40 size=6493077
+.gcc_except_table      off=0x7daed8 addr=0x7daed8 size=495564
+.eh_frame              off=0x853ea8 addr=0x853ea8 size=124936
+.eh_frame_hdr          off=0x8726b0 addr=0x8726b0 size=29868
+.fini_array            off=0x888590 addr=0x898590 size=8
+.init_array            off=0x888598 addr=0x898598 size=3616
+.data.rel.ro           off=0x8893c0 addr=0x8993c0 size=21536
+.dynamic               off=0x88e7e0 addr=0x89e7e0 size=608
+.got                   off=0x88ea40 addr=0x89ea40 size=2192
+.got.plt               off=0x88f2d0 addr=0x89f2d0 size=3376
+.data                  off=0x890000 addr=0x8a0000 size=82944760
+.bss                   off=0x57aa2f8 addr=0x57ba300 size=646308
+.comment               off=0x57aa2f8 addr=0x0 size=303
+.note.gnu.gold-version off=0x57aa428 addr=0x0 size=28
+.shstrtab              off=0x57aa444 addr=0x0 size=294
+
+exports of interest:
+  AILAB_PLI_GetLightSource
+  AILAB_PLI_Init
+  AILAB_PLI_PreProcess
+  AILAB_PLI_Process
+  AILAB_PLI_SetLightSource
+  AILAB_PLI_Uninit
+
+# Relight algorithm strings (rodata)
+--- mi_gpu_relight_filter.cc @ 0x1caa58
+ight filter Reset now!.RelightEngineImage::Not inited, so need return!.RelightEngineImage::image angle : ./home/zoujun/workspace/code1218/MediaPlayer/ijkmedia/mediaprocess/filters/cpu_filters/relight/mi_gpu_relight_filter.cc.Delete filter smoothed texture failed.
+.Delete light smoothed texture failed.
+.Delete noise light smoothed texture failed.
+.Update the extra_video_filter_id_ var failed..Update the photo_intensity_id_ var failed..Update the have_noise_id_ var failed..Update the need_blur_id_ var failed..Update the color_separation_id_ var failed..Update the vertical_screen_id_ var failed..isMoving.Update the scale location var failed..Update the moveLightPos var failed..Active the texture light data failed.
+.Bind the texture light data failed.
+.bind the low brightness texture failed.
+.AdjustLightPos max_width_offset: . max_height_offset: . light_width_: . light_height: . width_: . height_: . move_light_pos_.x: . move_light_pos_.y:  .Change current video filter: . to new video filter: . GPURelightFilter::Set current light source x: . source y: . original source x: . original source y: . move light pos x: . move_light_pos y: . GPURelightFilter::SetLightSource failed! . GPURelightFilter::get current light source x: . source width: . source height: .input buffer ptr is NULL!. crop_width:. crop_height:.rotate_frame->width():.rotate_frame->height():.main_width_:.main_height_:.Hav
+
+--- mi_portrait_3d_lighting_image.cpp @ 0x1cb4b7
+ess effect_type_:  . pLightParam->i32LightMode: . frameReturned: . The time used to smooth one frame is: ./home/zoujun/workspace/code1218/MediaPlayer/ijkmedia/mediaprocess/filters/cpu_filters/relight/mi_portrait_3d_lighting_image.cpp.AILAB_PLI_Init!.AILAB_PLI_Uninit!.AILAB_PLI_PreProcess!.AILAB_PLI_SetLightSource!.AILAB_PLI_GetLightSource!.AILAB_PLI_Process!.h.......................St12length_error....St11logic_error.St9exception................St12out_of_range.......C./.G...F...C...B...;...7...Gfff?..L=
+..<..hS_p.0!.-?e..=...>..">..sG..u....$}..&....
+.#<.....p}?...<.l.:...Mw..?(knN.....%.>.9.>...>...>..e>..*>40.=Z..=Z...40....*...e..........9...%.....>...>`#I>.B.=.B..`#I.........}=.>..
+>..
+.}=....L?...<M..?M..>H..?..k.33s?..Q8..<...L...L>
+.#....G.......F...>.....Q.....?...8.......B...................?...........?...?...?!...............!...............1.......&.......!........................... ...a.......V.......a.......].......1....... .......1.......#.......1.......*.......................1.......%.......!...............Q.......N.......!...............q.......l.......1.......,.......1.......+.......!...............!...............................1.......'.......!...............1.......$.......!...............1.......!.......a.......Z.......................A.......0.......A.......<.................
+..........
+.......................... !"#$%&'()*+,-./0123456789:;<=>?@ABCDEF
+
+--- GPURelightFilter:: @ 0x1cad7d
+tLightPos max_width_offset: . max_height_offset: . light_width_: . light_height: . width_: . height_: . move_light_pos_.x: . move_light_pos_.y:  .Change current video filter: . to new video filter: . GPURelightFilter::Set current light source x: . source y: . original source x: . original source y: . move light pos x: . move_light_pos y: . GPURelightFilter::SetLightSource failed! . GPURelightFilter::get current light source x: . source width: . source height: .input buffer ptr is NULL!. crop_width:. crop_height:.rotate_frame->width():.rotate_frame->height():.main_width_:.main_height_:.Have not extra filter filename! current effect_type_: .Image data NULL!.Active the texture 4 for rgb data failed.
+.Create the texture m_3DFilterTexture  data failed.
+.Bind the texture m_3DFilterTexture data failed.
+.Active the texture 5 for updating filter frame data.
+.Bind the texture 5 failed for updating Yfilterdata.
+.Active the texture 6 for updating noise frame data.
+.Bind the texture 6 failed for updating noise data.
+.Update the noise data in texture failed..extraVideoFilter.Get the var: extra video filter location failed..haveNoise.Get the var: have noise location failed..needColorSeparation.Get the var: color separation location failed..needBlur.Get the var: need_blur location failed..Update the filter_intensity_id_ var failed..moveLightPos.Get the var: move_light_id_ location failed..Upda
+
+
+# AILAB_PLI_* strings in the JNI shim (libmibrain_relighting_jni.so .rodata)
+AILAB_PLI_GetLightSource
+AILAB_PLI_Init
+AILAB_PLI_PreProcess
+AILAB_PLI_Process
+AILAB_PLI_SetLightSource
+AILAB_PLI_Uninit
+libmibrain_relighting_jni.so
+brain_relighting_jni
+[RELIGHT] initBrainRelightingEffect
+[RELIGHT] degree %d orientation %d
+[RELIGHT] convert src image %ld
+[RELIGHT] AILAB_PLI_PreProcess result %ld
+[RELIGHT] face center: %d x %d, radius %d
+[RELIGHT] AILAB_PLI_SetLightSource %d %d result %d
+[RELIGHT] effect type %d
+[RELIGHT] AILAB_PLI_Process result %d light source %d %d

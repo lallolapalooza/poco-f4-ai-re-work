@@ -1,0 +1,4 @@
+model__ai_face_beauty_processor__skin_model_expand_supply_pta18000_quant_resizetrain_seg153.tflite  subgraph=0 signature=None  FAIL
+  output    shape             dtype    max_abs  tol       result
+  Identity  (1, 320, 320, 1)  FLOAT32  0.90625  1.00e-04  FAIL
+  1 output(s), max_abs=0.90625, status=fail

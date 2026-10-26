@@ -1,0 +1,12 @@
+{
+  "slug": "tiktok_trill",
+  "apk": "3 .model bundles (byte-identical to musically)",
+  "local_files": 44,
+  "bytes": 5100213,
+  "tflite": 0,
+  "bundles": 0,
+  "absent": [
+    "Descriptor schema remains opaque."
+  ],
+  "notes": "Bundles + all record sections extracted (sections are byte-identical to musically). JAX architecture-only."
+}

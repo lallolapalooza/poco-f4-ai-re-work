@@ -1,0 +1,62 @@
+[
+  {
+    "path": "lib/arm64-v8a/libdoc_photo_c++_shared.so",
+    "size": 1055016,
+    "sha256": "9fb28ade1af6a5afde978ee706fac466a5b63d19bbb36e013447ea886199b331"
+  },
+  {
+    "path": "lib/arm64-v8a/libdoc_photo_process.so",
+    "size": 25029048,
+    "sha256": "71a1f3b9806823d8f9e31f56934aab02814ae19c625ea1f6747d75be4f2463cc"
+  },
+  {
+    "path": "assets/common/doc_photo/doc_model/dlc/document_model.dlc",
+    "size": 357758,
+    "sha256": "809a526c27c79cc261ad814837fbef57262c36496fb0295950674ca19588ed6e"
+  },
+  {
+    "path": "assets/spes/doc_photo/doc_model/cache/mace_cl_compiled_program.bin",
+    "size": 603315,
+    "sha256": "a6819a9578c4757c1eeebfe3fc8283471ae108240d7224593d0a3e76af788475"
+  },
+  {
+    "path": "assets/spesn/doc_photo/doc_model/cache/mace_cl_compiled_program.bin",
+    "size": 603315,
+    "sha256": "a6819a9578c4757c1eeebfe3fc8283471ae108240d7224593d0a3e76af788475"
+  },
+  {
+    "path": "assets/xun/doc_photo/doc_model/cache/mace_cl_compiled_program.bin",
+    "size": 577905,
+    "sha256": "d79a2e85fab36ab1da724bf67bd2bd3c5b850fc9100a49b5b911cade0db2ddea"
+  },
+  {
+    "path": "assets/yunluo/doc_photo/doc_model/cache/mace_cl_compiled_program.bin",
+    "size": 534518,
+    "sha256": "278892f7f7fef0652bdebeb71517295ccab42d0bdf4e15f391a68ce16e2e0614"
+  },
+  {
+    "path": "res/color/doc_photo_enhance_icon_color.xml",
+    "size": 464,
+    "sha256": "12f01b361b58869db5b3b261a1e3b20f2be95d9fba52bcb552c4cee05de1ceff"
+  },
+  {
+    "path": "res/color/doc_photo_enhance_text_color.xml",
+    "size": 464,
+    "sha256": "d83a8ac507202e25d43966eb69d0a9cb363c8bf7b96f86581eaa67c854395877"
+  },
+  {
+    "path": "res/color/doc_photo_preview_icon_bg_color.xml",
+    "size": 340,
+    "sha256": "4783913b2da8e7fd809f69aabb34268d87e6f55df744acffe9a4d159d8c80683"
+  },
+  {
+    "path": "res/color/doc_photo_preview_icon_text_color.xml",
+    "size": 588,
+    "sha256": "8410183e4534a5779210cb7901d00abf295af0c4d90687970d9f3bcea0329041"
+  },
+  {
+    "path": "res/color/doc_photo_text_color_selector.xml",
+    "size": 464,
+    "sha256": "d8f8bce7470a0ba39d5bb4f7516a991c491bcd312b993a1af94686fa714af700"
+  }
+]

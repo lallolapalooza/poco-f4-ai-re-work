@@ -1,0 +1,24 @@
+varying vec2 texc;
+varying vec2 texf;
+
+void main() {
+
+  vec4 origin_color = texture2D(tex_origin, texc);
+
+  vec3 outcolor = origin_color.rgb;
+  if (texf.x >= offset.x && texf.x <= offset.x + wh.x && texf.y >= offset.y &&
+      texf.y <= offset.y + wh.y) {
+    vec2 aver_texv = texf - offset;
+    aver_texv.x /= wh.x;
+    aver_texv.y /= wh.y;
+    vec4 noacen_detail_color = texture2D(tex_noacen, aver_texv);
+    vec3 noacen_color = clamp(noacen_detail_color.rgb - 0.5 + origin_color.rgb,0.0,1.0);
+
+    vec4 aver_detail_color = texture2D(tex_aver, aver_texv);
+    vec3 aver_color = clamp(noacen_color + aver_detail_color.rgb - 0.5,0.0,1.0);
+
+    outcolor = mix(origin_color.rgb,aver_color,aver_rate * aver_detail_color.a);
+  }
+
+  gl_FragColor = vec4(outcolor, origin_color.a);
+}

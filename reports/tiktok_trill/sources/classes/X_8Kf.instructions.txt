@@ -1,0 +1,173 @@
+; X/8Kf -- ByteNN evaluator, from classes5.dex (jadx refuses: DONT_GENERATE)
+; Dalvik instruction listing via androguard 4.1.4 (register numbers dropped by the printer)
+
+class LX/8Kf;  super Ljava/lang/Object;  field LIZ Lcom/ss/bytenn/API;
+
+.method <clinit>()V
+   v0, 77412
+   v0, Lcom/bytedance/covode/number/Covode;->recordClassIndex(I)V
+   
+.end method
+
+.method <init>()V
+   v0, Ljava/lang/Object;-><init>()V
+   
+.end method
+
+.method LIZ(Ljava/nio/ByteBuffer; [[F)V
+   v2, "ml#evaluator"
+   v0, v6, LX/8Kf;->LIZ Lcom/ss/bytenn/API;
+   v0, +003h
+   
+   v4, Ljava/util/ArrayList;
+   v4, Ljava/util/ArrayList;-><init>()V
+   v0, v6, LX/8Kf;->LIZ Lcom/ss/bytenn/API;
+   v0, v4, Lcom/ss/bytenn/API;->GetEngineInputConfig(Ljava/util/ArrayList;)LX/8Kg;
+   v1
+   v0, LX/8Kg;->NO_ERROR LX/8Kg;
+   v1, v0, +015h
+   v2, Ljava/lang/RuntimeException;
+   v1, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+   v1
+   v0, "byteNN get engine input failed with code "
+   v0, v1, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+   v0
+   v2, v0, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+   v2, LX/8JY;->LIZ(Ljava/lang/Throwable;)V
+   
+   v3, 0
+   v4, v3, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+   v0
+   v0, Lcom/ss/bytenn/Tensor;
+   v0, v7, Lcom/ss/bytenn/Tensor;->setData(Ljava/nio/ByteBuffer;)V
+   v0, v6, LX/8Kf;->LIZ Lcom/ss/bytenn/API;
+   v0, v4, Lcom/ss/bytenn/API;->SetEngineInputs(Ljava/util/ArrayList;)LX/8Kg;
+   v0, v6, LX/8Kf;->LIZ Lcom/ss/bytenn/API;
+   v0, Lcom/ss/bytenn/API;->Inference()LX/8Kg;
+   v4, Ljava/util/ArrayList;
+   v4, Ljava/util/ArrayList;-><init>()V
+   v0, v6, LX/8Kf;->LIZ Lcom/ss/bytenn/API;
+   v0, v4, Lcom/ss/bytenn/API;->GetEngineOutputs(Ljava/util/ArrayList;)LX/8Kg;
+   v1
+   v0, LX/8Kg;->NO_ERROR LX/8Kg;
+   v1, v0, +015h
+   v2, Ljava/lang/RuntimeException;
+   v1, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+   v1
+   v0, "byteNN inference get output failed with code "
+   v0, v1, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+   v0
+   v2, v0, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+   v2, LX/8JY;->LIZ(Ljava/lang/Throwable;)V
+   
+   v4, v3, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+   v0
+   v0, Lcom/ss/bytenn/Tensor;
+   v0, Lcom/ss/bytenn/Tensor;->getData()Ljava/nio/ByteBuffer;
+   v5
+   Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
+   v0
+   v5, v0, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+   v4, 0
+   v5, Ljava/nio/ByteBuffer;->hasRemaining()Z
+   v0
+   v0, +012h
+   v5, Ljava/nio/ByteBuffer;->getFloat()F
+   v1
+   v0, v8, v3
+   v0, v0
+   v4, v0, +006h
+   v0, v8, v3
+   v1, v0, v4
+   v4, v4, 1
+   -15h
+   v0, LX/8JY;->LIZ Z
+   v0, +027h
+   v0, v8, v3
+   v0, v0
+   v4, v0, +022h
+   v1, Ljava/lang/StringBuilder;
+   v0, "bytenn inference error, outBuffer.size != resultBuffer.size, result.size:"
+   v1, v0, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+   v1, v4, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+   v1
+   v0, " out.size:"
+   v1, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+   v1
+   v0, v8, v3
+   v0, v0
+   v1, v0, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+   v0
+   v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+   v1
+   v0, 0
+   v2, v1, v0, LX/8Jq;->LIZ(Ljava/lang/String; Ljava/lang/String; Ljava/lang/Throwable;)V
+   
+   v1
+   v0, "inference error: "
+   v2, v0, v1, LX/8Jq;->LIZ(Ljava/lang/String; Ljava/lang/String; Ljava/lang/Throwable;)V
+   v1, LX/8JY;->LIZ(Ljava/lang/Throwable;)V
+   
+.end method
+
+.method LIZ(Ljava/nio/MappedByteBuffer; Lcom/ss/android/ml/process/bl/MLConfigModel;)Z
+   v0, Lcom/ss/bytenn/API;
+   v0, Lcom/ss/bytenn/API;-><init>()V
+   v0, v12, LX/8Kf;->LIZ Lcom/ss/bytenn/API;
+   v0, Lcom/ss/bytenn/API;->CreateEngine()LX/8Kg;
+   v1
+   v0, LX/8Kg;->NO_ERROR LX/8Kg;
+   v5, 0
+   v1, v0, +015h
+   v2, Ljava/lang/RuntimeException;
+   v1, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+   v1
+   v0, "byteNN create engine failed with code "
+   v0, v1, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+   v0
+   v2, v0, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+   v2, LX/8JY;->LIZ(Ljava/lang/Throwable;)V
+   v5
+   v6, Lcom/ss/bytenn/ByteNNConfig;
+   v6, Lcom/ss/bytenn/ByteNNConfig;-><init>()V
+   v4, 1
+   v7, LX/8Kh;->CPU LX/8Kh;
+   v1, v14, Lcom/ss/android/ml/process/bl/MLConfigModel;->bytenn_forward_type Ljava/lang/String;
+   v0, "auto"
+   v1, v0, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence; Ljava/lang/CharSequence;)Z
+   v0
+   v0, +004h
+   v7, LX/8Kh;->Auto LX/8Kh;
+   v9, 0
+   v10, ""
+   v11, ""
+   v8, v13
+   v6 ... v11, Lcom/ss/bytenn/ByteNNConfig;->init(LX/8Kh; Ljava/nio/ByteBuffer; [Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)V
+   v1, v14, Lcom/ss/android/ml/process/bl/MLConfigModel;->num_threads I
+   v0, 2
+   v1, v0, +008h
+   v0, v14, Lcom/ss/android/ml/process/bl/MLConfigModel;->num_threads I
+   v6, v0, Lcom/ss/bytenn/ByteNNConfig;->setThreadNum(I)V
+   +9h
+   v6, v4, Lcom/ss/bytenn/ByteNNConfig;->setThreadNum(I)V
+   +5h
+   v0
+   v0, Ljava/lang/Exception;->printStackTrace()V
+   v0, v12, LX/8Kf;->LIZ Lcom/ss/bytenn/API;
+   v0, v6, Lcom/ss/bytenn/API;->InitEngine(Lcom/ss/bytenn/ByteNNConfig;)LX/8Kg;
+   v3
+   v0, LX/8Kg;->NO_ERROR LX/8Kg;
+   v3, v0, +014h
+   v2, Ljava/lang/RuntimeException;
+   v3, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+   v1
+   v0, "byteNN init engine failed with code "
+   v0, v1, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+   v0
+   v2, v0, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+   v2, LX/8JY;->LIZ(Ljava/lang/Throwable;)V
+   v0, LX/8Kg;->NO_ERROR LX/8Kg;
+   v3, v0, +003h
+   v4
+   v5
+.end method

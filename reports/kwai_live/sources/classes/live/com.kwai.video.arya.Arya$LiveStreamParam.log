@@ -1,0 +1,4 @@
+INFO  - loading ...
+WARN  - Input class is inner, parent class will be saved: com.kwai.video.arya.Arya
+INFO  - Saving class 'com.kwai.video.arya.Arya' to file '/run/media/user/00000000-0000-4000-8000-000000000000/re_work/reports/kwai_live/sources/classes/live/com.kwai.video.arya.Arya$LiveStreamParam.java'
+INFO  - done

@@ -1,0 +1,56 @@
+# libcamplat ELF / JNI summary
+class/type/machine: ELF64 DYN AARCH64
+needed: ['libandroid.so', 'libOpenSLES.so', 'libEGL.so', 'libjnigraphics.so', 'libm.so', 'liblog.so', 'libz.so', 'libdl.so', 'libGLESv2.so', 'libc.so']
+android: {'sdk': 21, 'ndk': 'r23b', 'ndk_build': '7779620'}
+statistics: {'exports': 683, 'imports': 417, 'jni_entrypoints': 677, 'sections': 27, 'segments': 9}
+jni classes: ['com.snap.camera.jni.MediaQualityMeasure', 'com.snap.camera.jni.Mp4FastStart', 'com.snap.camera.jni.SnapImageTranscoder', 'com.snap.previewtools.tracking.ManyTargetTracker', 'com.snapchat.catalyst.CatalystNativeWrapper', 'com.snapchat.research.previewcv.PreviewCVInterfaceJNI', 'org.opencv.android.Utils', 'org.opencv.core.Algorithm']
+string category counts: {'tflite': 40, 'model': 20, 'nn_runtime': 239, 'face': 444, 'ocr': 0, 'asr': 35, 'segment': 209, 'model_name': 7}
+
+# Looksey/LS C++ typeinfo names
+N2LS10BaseBinderINS_8JsBinderEEE
+N2LS10CameraInfoE
+N2LS10Experiment18ExperimentProviderE
+N2LS10ObjectPoolINS_2CG7SessionEE4NodeE
+N2LS10ObjectPoolINS_7CandideEE4NodeE
+N2LS10ObjectPoolINS_7CandideEE7DeleterE
+N2LS10RawShape3DE
+N2LS10ThreadPoolE
+N2LS10ThreadSafe5QueueINS_12GLSyncMarkerEEE
+N2LS10ThreadSafe5QueueINS_15RecordingBufferEEE
+N2LS10ThreadSafe5QueueINS_6Common8CallableIFvvEEEEE
+N2LS11AsyncHelperE
+N2LS11FramebufferE
+N2LS11NnRegressorE
+N2LS11NonCopyableE
+N2LS11ShapeFitterE
+N2LS11SLAMTracker10ParametersE
+N2LS11SLAMTrackerE
+N2LS11TextureBaseE
+N2LS11UriDelegateE
+N2LS11VideoStreamE
+N2LS11VideoWriterE
+N2LS12FaceDetectorE
+N2LS12GestureEventE
+N2LS12_GLOBAL__N_118SurfaceTrackerImplE
+
+# ML runtime markers
+6DNNNet
+Blob::Converter::ConvertLibdnnToNNAPI
+Condition hexagon_nn_init(&m_id) != 0 should be false
+ConvertLibdnnToNNAPI
+Error loading libtensorflow-lite shared object.
+file:///%s?hexagon_nn_domains_skel_handle_invoke&_modver=1.0&_dom=%s
+hexagon_nn
+libhexagon_nn_skel.so
+libhexagon_nn_skel_v65.so
+libhexagon_nn_skel_v66.so
+/libtnn.so
+TfLiteInterpreterInvoke
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:129:open /dev/ion failed!
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:134:stat Failed on /dev/ion 
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:172::Error: %x: NULL != (m = malloc(sizeof(*m)))
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:204:rpcmem allocation error: %d: trying ics
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:205::error: %d: AEE_SUCCESS == (nErr = rpcmem_contig_alloc_ics(m, heap_mask, size, &po))
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:222:Error 0x%x: ION mem alloc failed for size 0x%x, heapid %d, flags 0x%x
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:256::error: %d: mfree
+/var/lib/jenkins/workspace/.conancache/hexagon_nn/bdf90e9eaf371a603217bbbc02e55e8dbc3b356e/_/_/source/rpcmem/rpcmem_android.c:303::error: %d: (uintptr_t)remote_register_buf

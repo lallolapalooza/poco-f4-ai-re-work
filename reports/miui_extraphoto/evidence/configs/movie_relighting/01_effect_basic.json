@@ -1,0 +1,10 @@
+{
+  "name": "霓虹",
+  "type": "MOVIE_RELIGHTING",
+  "icon": "icon.png",
+  "relightingType": "0x20",
+  "cameraDefinedType": 9,
+  "startColor": "#74BCEE",
+  "endColor": "#74BCEE",
+  "nameResName": "refocus_movie_niying"
+}

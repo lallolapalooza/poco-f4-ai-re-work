@@ -1,0 +1,36 @@
+{
+ "format": "onevoice_frontend/1",
+ "description": "16 kHz PCM16 -> 80-bin mel magnitude features, as implemented in libqvasml.so udk7_feature_process()",
+ "sample_rate": 16000,
+ "frame_len": 480,
+ "hop": 160,
+ "window": {
+  "type": "hann",
+  "N": 400,
+  "support": "samples 1..399",
+  "storage": "float32[480], zero padded 400..479",
+  "source": "libqvasml.so .data 0x1162a0"
+ },
+ "fft": {
+  "points": 512,
+  "type": "real",
+  "impl": "realfft -> udk7_q_fft (radix-2, sincos twiddles)"
+ },
+ "magnitude": {
+  "bins": 256,
+  "formula": "sqrt(re^2+im^2)",
+  "impl": "udk7_q_complex_vector_mag_f @0x5f6c0"
+ },
+ "mel": {
+  "bands": 80,
+  "bins_used": [
+   5,
+   243
+  ],
+  "taps": 470,
+  "storage": "sparse start[80]/len[80]/offset[80] + taps[470]",
+  "source": "libqvasml.so .data 0x116a20..0x116de0"
+ },
+ "log": false,
+ "frames": "per 10 ms, stored 80 float32/frame"
+}

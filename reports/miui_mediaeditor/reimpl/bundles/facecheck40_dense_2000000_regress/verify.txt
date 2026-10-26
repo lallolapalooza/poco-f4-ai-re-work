@@ -1,0 +1,4 @@
+facecheck40_dense_2000000_regress.tflite  subgraph=0 signature=None  PASS
+  output  shape   dtype    max_abs  tol       result
+  detect  (1, 1)  FLOAT32  0        1.00e-04  PASS
+  1 output(s), max_abs=0, status=pass

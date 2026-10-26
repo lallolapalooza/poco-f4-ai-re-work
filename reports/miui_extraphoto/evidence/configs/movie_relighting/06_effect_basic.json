@@ -1,0 +1,10 @@
+{
+  "name": "炫影",
+  "type": "MOVIE_RELIGHTING",
+  "icon": "icon.png",
+  "relightingType": "0x25",
+  "cameraDefinedType": 14,
+  "startColor": "#74BCEE",
+  "endColor": "#74BCEE",
+  "nameResName": "refocus_movie_xuanying"
+}

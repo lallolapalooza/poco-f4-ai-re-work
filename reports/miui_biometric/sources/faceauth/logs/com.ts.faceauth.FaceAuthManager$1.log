@@ -1,0 +1,4 @@
+INFO  - loading ...
+WARN  - Input class is inner, parent class will be saved: com.ts.faceauth.FaceAuthManager
+INFO  - Saving class 'com.ts.faceauth.FaceAuthManager' to file '/run/media/user/00000000-0000-4000-8000-000000000000/re_work/reports/miui_biometric/sources/faceauth/classes/com.ts.faceauth.FaceAuthManager$1.java'
+INFO  - done

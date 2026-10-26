@@ -1,0 +1,37 @@
+{
+  "slug": "qcom_voiceactivation",
+  "extracted": "7 .uim + 16 EAI2 blobs + front-end tables",
+  "runnable_model_code": 1,
+  "app_pipeline": "partial",
+  "pipeline_scope": "EAI2 container fully decoded; DNN VAD (speech_float.eai) executed end to end on its real weights and verified against Qualcomm's own interpreter (max abs diff 6e-08, softmax bit-identical). 1st/1.5-stage keyword graphs and general_UV_015 are parsed (shapes/ops/weights/IO) but their RNN/framer/conv op semantics are not yet numerically pinned down, so they are not claimed as runnable.",
+  "notes": [
+    "The '.gnu_debugdata' section of libeai_floating.so contains a full 426-symbol .symtab; merging it with objcopy before Ghidra gave real function names for the whole loader chain (eai_init_internal, load_network, validate_eai_model, initialize_eai_model_info, initialize_tensor_meta, relocate_tensor, parse_eai_layers, load_eai_layers, initialize_io_tensor) and for every op loader/forward.",
+    "runnable_model_code 0 -> 1: reimpl/eai_run.py executes speech_float_speech_0.eai (gemm x2, relu x2, no_op x3, lstm, softmax) with the shipped float32 weights; reimpl/run_vad.py is the runnable example (exit 0).",
+    "Native oracle: evidence/harness/eai_host.c mmaps the Android DSO, applies RELR/RELA/JUMP_SLOT relocations itself (dlopen fails: pre-standard DT_RELR tags 0x6fffe000/1/3 + LIBC symbol versions) and drives eai_init_ex/eai_preapply/eai_set_property(0)/eai_apply/eai_execute under qemu-aarch64, dumping every tensor. 12 of 16 blobs load; the other 4 are refused by the library itself and each refusal is predicted from the header (builder 12.2 x2, enpu v4, fixed-point).",
+    "Container layout recovered byte-exactly: header 0x28 bytes, 16-byte section entries {type,size,offset}, 0x50-byte tensor descriptors (dims+flags+dtype+constant/scratch/persistent pool offsets), variable-size layer records {op_id,size,flags,subtype,params} and the u16 layer I/O table; op ids mapped from so_op_intf_load2 (0x00 conv ... 0x46 supermaxpool). Parser agrees field-by-field with the library's own parse on all 16 blobs (5065 checks, 0 failures).",
+    "LSTM gate order re-derived from the native dump: i=sigma(pre[0:H]), o=sigma(pre[H:2H]), f=sigma(pre[2H:3H]), g=tanh(pre[3H:4H]); c=f*c_prev+i*g, h=o*tanh(c), and both bias inputs are added (b_in3+b_in4).",
+    "Verified op set is exactly what the VAD needs: no_op, relu, gemm, softmax, lstm. Everything else is transcribed from the decompiled forward functions and marked unverified in eai_run.py (run() refuses such graphs unless allow_unverified=True)."
+  ],
+  "blockers": [
+    "Keyword stage (1st/1.5 stage): framer + gru semantics not numerically reproduced. framer_forward is a ring buffer driven by layer+0x74/0x7c; gru_forward_vanilla_step is a fused variant (one 3H gemm, sigma over 2H, reset-scaled tanh) whose operand wiring and layer+0x78 mode switch are not resolved - a search over standard GRU families against the native T14 state leaves a 6.7e-02 residual. Next step: decompile gru_load/gru_init and read the gru_forward_vanilla_step call site from assembly (Ghidra shows 10 args for a 14-parameter function).",
+    "general_UV_015 (user verification, 449 tensors / 252 layers) needs conv/batchnorm/globalavgpool/div/reduce semantics - parsed and loadable, not executed.",
+    "4 of 16 blobs cannot run under the shipped floating runtime at all: 001_58312 and 001_968 (builder 12.2 vs runtime 4.3), 038_1224 (target/enpu v4, quantised tensor payloads), 038_43208 (header +0x0c bit2 clear = fixed-point model).",
+    "VAD input semantics: the model takes 1x160 float32 per frame from the libqvavad CAPI_v2 front-end; that 160-dim feature definition is not decoded, so run_vad.py feeds the oracle frame or a documented synthetic one. The 80-bin mel front-end in pipeline.py belongs to libqvasml/udk7 and is a different table set.",
+    "super* fused ops (superconv/supergemm/superadd/supersub/superdeconv) only occur in 038_1224, which the runtime refuses; quantize/squeeze/unsqueeze only in the two builder-12.2 blobs."
+  ],
+  "files": [
+    "reimpl/eai_loader.py",
+    "reimpl/eai_run.py",
+    "reimpl/run_vad.py",
+    "reimpl/verify_eai.py",
+    "reimpl/verify.txt",
+    "reimpl/GAP_CLOSURE.md",
+    "ir/eai_parsed.json",
+    "evidence/harness/eai_host.c",
+    "evidence/harness/run_harness.sh",
+    "evidence/native_dumps",
+    "evidence/ghidra/eai_parse.c",
+    "evidence/ghidra/eai_tensor_ops.c",
+    "evidence/ghidra/eai_rnn.c"
+  ]
+}

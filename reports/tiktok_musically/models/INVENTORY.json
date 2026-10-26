@@ -1,0 +1,12 @@
+{
+  "slug": "tiktok_musically",
+  "apk": "3 .model bundles (tt_face_v10.0, tt_face_extra_v13.0, tt_face_attribute_age_v1.1)",
+  "local_files": 40,
+  "bytes": 5052523,
+  "tflite": 0,
+  "bundles": 0,
+  "absent": [
+    "Descriptor schema is opaque, so weights/tensor shapes cannot be extracted into a standard model format. Section payloads are carved for reimplementation."
+  ],
+  "notes": "Bundles + all record sections extracted; JAX architecture-only."
+}

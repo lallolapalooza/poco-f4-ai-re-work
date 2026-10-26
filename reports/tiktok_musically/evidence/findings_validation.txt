@@ -1,0 +1,5 @@
+top-level required missing: none
+feature/model violations: none
+data_pipelines: [('vesdk_render_to_face_dnn', 8), ('face_attribute_age', 4)]
+features: 6 models: 3 unknowns: 11
+JSON parses: yes

@@ -1,0 +1,19 @@
+# ML Kit langid custom-op options and kernel addresses (liblanguage_id_l2c_jni.so)
+#
+# custom_options of NGramHash, decoded as a flatbuffer flexbuffer map:
+#   raw hex: 6d61785f73706c69747300 6e6772616d5f6c656e6774687300 0401020304
+#            7365656400 766f6361625f73697a6573000004007c157c15c832c832...
+#   decoded: {'max_splits': 128, 'ngram_lengths': [1, 2, 3, 4], 'seed': 10911,
+#             'vocab_sizes': [5500, 5500, 13000, 13000]}
+# custom_options of KmeansEmbeddingLookup: '00000100002401' -> {} (empty map)
+#
+# TfLiteRegistration structs in .data (returned by the registrar stubs):
+#   0xfce08  NGramHash            init 0x3f494  free 0x3fb20  prepare 0x3fb7c  invoke 0x3fc0c
+#   0xfcdb0  KmeansEmbeddingLookup                  prepare 0x3ee44                invoke 0x3f2d0
+# helpers:
+#   0x407c8  MurmurHash64A(data, len, seed)      m=0xc6a4a7935bd1e995, r=47
+#   0x40794  tail accumulator (LE bytes -> u64)
+#   0x48b24  UTF-8 decode (returns byte length, codepoint in *out)
+#   0x48e48  UnicodeSet membership test (letters + combining marks)
+#   0x40294  tokenizer: <=128 tokens, hash loop per n-gram
+#   0x40220  udiv / 0x4022c msub  ->  hash % vocab_size ; 0x40230 add #1

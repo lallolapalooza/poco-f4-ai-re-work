@@ -1,0 +1,19 @@
+# tiktok_trill vs tiktok_musically (both version 24.2.0 / code 240200)
+
+zip member comparison (python zipfile, name+CRC):
+  entries            trill 16170   musically 16171
+  only in trill      (none)
+  only in musically  assets/jsb_whitelist.zip
+  same name, different CRC (26):
+    AndroidManifest.xml, resources.arsc, META-INF/CERT.RSA, META-INF/MANIFEST.MF,
+    classes4.dex, classes5.dex, classes6.dex, classes7.dex, classes8.dex,
+    classes9.dex, classes10.dex, classes11.dex, classes13.dex,
+    assets/api_key.txt, assets/slardar.properties, assets/ss.properties,
+    assets/snapboost_list_newuser_top200.txt, ...top400.txt, ...top600.txt,
+    res/ak/g.xml
+  models/assets/model/** and lib/arm64-v8a/** : identical CRC (see hashes.txt)
+
+Conclusion: the AI subsystem (3 model files, 9 native AI libs incl. libbytenn,
+libbytennwrapper, libeffect, libavmdl*) is byte-identical between the two
+variants; only the app shell (manifest, resources, obfuscated dex payloads,
+signing, api keys) differs.

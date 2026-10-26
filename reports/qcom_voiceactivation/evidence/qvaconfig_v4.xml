@@ -1,0 +1,341 @@
+<!--
+  ~ Copyright (c) 2020 Qualcomm Technologies, Inc.
+  ~ All Rights Reserved.
+  ~ Confidential and Proprietary - Qualcomm Technologies, Inc.
+  -->
+
+<ContainerGroup name="preset">
+
+    <ContainerGroup name="Default">
+        <Container name="PDK_model_default">
+            <Item name="V4.Enrollment.threshold" value="50" type="INTEGER" />
+            <Item name="V5.Enrollment.threshold" value="25" type="INTEGER" />
+            <Item name="V4.Training.bEnableAGA" value="false" type="BOOLEAN" />
+            <Item name="V4.Training.agaTargetEnrollmentRMS" value="-35.0" type="FLOAT" />
+            <Item name="V5.Training.bEnableAGA" value="false" type="BOOLEAN" />
+            <Item name="V5.Training.agaTargetEnrollmentRMS" value="-35.0" type="FLOAT" />
+
+            <Item name="V4.Training.numGuardFrames_for_epd" value="30" type="INTEGER" />
+            <Item name="V5.Training.numGuardFrames_for_epd" value="80" type="INTEGER" />
+
+            <Item name="V4.FirstStageKW.threshold" value="40" type="INTEGER" />
+            <Item name="V4.FirstStageUV.threshold" value="10" type="INTEGER" />
+            <Item name="V4.SecondStageKW.threshold" value="40" type="INTEGER" />
+            <Item name="V4.SecondStageUV.threshold" value="10.0" type="FLOAT" />
+            <Item name="V4.KW.preTolerance" value="300" type="INTEGER" />
+            <Item name="V4.KW.postTolerance" value="440" type="INTEGER" />
+            <Item name="V4.UV.preTolerance" value="200" type="INTEGER" />
+            <Item name="V4.UV.postTolerance" value="200" type="INTEGER" />
+            <Item name="V4.UV.VopAlpha" value="1.0" type="FLOAT" />
+            <Item name="V4.UV.VopBeta" value="0.1" type="FLOAT" />
+            <Item name="V4.UV.VopGamma" value="-2.5" type="FLOAT" />
+            <Item name="V4.UV.VopDelta" value="20.0" type="FLOAT" />
+            <Item name="V4.UV.DnnUvAlpha" value="100.0" type="FLOAT" />
+            <Item name="V4.UV.DnnUvBeta" value="-21.0" type="FLOAT" />
+            <Item name="V4.UV.DnnUvGamma" value="0" type="FLOAT" />
+            <Item name="V4.UV.TivopAlpha" value="1000.0" type="FLOAT" />
+            <Item name="V4.UV72Alpha" value="100.0" type="FLOAT" />
+            <Item name="V4.UV72Beta" value="0.0" type="FLOAT" />
+            <Item name="V4.UV.pldaEnable" value="false" type="BOOLEAN" />
+
+            <Item name="V5.FirstStageKW.threshold" value="30" type="INTEGER" />
+            <Item name="V5.SecondStageKW.threshold" value="40" type="INTEGER" />
+            <Item name="V5.SecondStageUV.threshold" value="10.0" type="FLOAT" />
+            <Item name="V5.KW.preTolerance" value="360" type="INTEGER" />
+            <Item name="V5.KW.postTolerance" value="720" type="INTEGER" />
+            <Item name="V5.UV.preTolerance" value="200" type="INTEGER" />
+            <Item name="V5.UV.postTolerance" value="200" type="INTEGER" />
+            <Item name="V5.UV.VopAlpha" value="1.0" type="FLOAT" />
+            <Item name="V5.UV.VopBeta" value="0.1" type="FLOAT" />
+            <Item name="V5.UV.VopGamma" value="-2.5" type="FLOAT" />
+            <Item name="V5.UV.VopDelta" value="20.0" type="FLOAT" />
+            <Item name="V5.UV.DnnUvAlpha" value="100.0" type="FLOAT" />
+            <Item name="V5.UV.DnnUvBeta" value="-21.0" type="FLOAT" />
+            <Item name="V5.UV.DnnUvGamma" value="0" type="FLOAT" />
+            <Item name="V5.UV.TivopAlpha" value="1000.0" type="FLOAT" />
+            <Item name="V5.UV72Alpha" value="100.0" type="FLOAT" />
+            <Item name="V5.UV72Beta" value="0.0" type="FLOAT" />
+            <Item name="V5.UV.pldaEnable" value="false" type="BOOLEAN" />
+        </Container>
+
+        <Container name="sml_pdk">
+            <Item name="Training.numGuardFrames_for_firstStage_epd" value="30" type="INTEGER" />
+            <Item name="Training.checkClipped" value="false" type="BOOLEAN" />
+            <Item name="Training.nClippingThreshold" value="160" type="INTEGER" />
+            <Item name="Training.clippingRatioThreshold" value="0.004" type="FLOAT" />
+            <Item name="Training.nZerosPaddingFrames" value="180" type="INTEGER" />
+            <Item name="Training.check_chopped" value="false" type="BOOLEAN" />
+            <Item name="Training.chopping_frame_threshold" value="8" type="INTEGER" />
+            <Item name="Training.firstStageEPDEnable" value="false" type="BOOLEAN" />
+            <Item name="Training.num_clean_recordings" value="5" type="INTEGER" />
+            <Item name="Training.snr_threshold_for_noisy_samples" value="6.0" type="FLOAT" />
+            <Item name="Training.pcmNormalization" value="false" type="BOOLEAN" />
+            <Item name="Training.enableZeroProcessingForPdkXS" value="true" type="BOOLEAN" />
+            <Item name="Training.bEnableEPDForUv72" value="true" type="BOOLEAN" />
+
+            <Item name="EPD.minSnrOnset" value="3.0" type="FLOAT" />
+            <Item name="EPD.minSnrLeave" value="3.0" type="FLOAT" />
+            <Item name="EPD.snrFloor" value="-30.0" type="FLOAT" />
+            <Item name="EPD.snrThresholds" value="6.0" type="FLOAT" />
+            <Item name="EPD.forgettingFactorNoise" value="0.03" type="FLOAT" />
+            <Item name="EPD.minEnergyFrameRatio" value="0.05" type="FLOAT" />
+            <Item name="EPD.minNoiseEnergy" value="10.0" type="FLOAT" />
+            <Item name="EPD.numMinFramesInPhrase" value="15" type="INTEGER" />
+            <Item name="EPD.numMinFramesInSpeech" value="0" type="INTEGER" />
+            <Item name="EPD.numMaxFrameInSpeechGap" value="50" type="INTEGER" />
+            <Item name="EPD.numFramesInHead" value="0" type="INTEGER" />
+            <Item name="EPD.numFramesInTail" value="0" type="INTEGER" />
+            <Item name="EPD.preEmphasize" value="1" type="INTEGER" />
+            <Item name="EPD.numMaxFrames" value="10000" type="INTEGER" />
+
+            <Item name="Ada.enable" value="false" type="BOOLEAN" />
+            <Item name="Ada.car_noise" value="12,24" type="STRING" />
+            <Item name="Ada.music_noise" value="12,24" type="STRING" />
+            <Item name="Ada.radio_noise" value="12,24" type="STRING" />
+            <Item name="Ada.party_noise" value="12,24" type="STRING" />
+            <Item name="Ada.numCleanRepetition" value="0" type="INTEGER" />
+            <Item name="Ada.enablePitch" value="false" type="BOOLEAN" />
+            <Item name="Ada.enableTempo" value="false" type="BOOLEAN" />
+            <Item name="Ada.enableLevel" value="false" type="BOOLEAN" />
+            <Item name="Ada.enableReverb" value="false" type="BOOLEAN" />
+            <Item name="Ada.noise_type_vop" value="party" type="STRING" />
+            <Item name="Ada.noise_snr_vop" value="6.0" type="FLOAT" />
+        </Container>
+
+        <Container name="sml_onlineEPD">
+            <Item name="EPD.minSnrOnset" value="3.0" type="FLOAT" />
+            <Item name="EPD.minSnrLeave" value="3.0" type="FLOAT" />
+            <Item name="EPD.snrFloor" value="-30.0" type="FLOAT" />
+            <Item name="EPD.snrThresholds" value="6.0" type="FLOAT" />
+            <Item name="EPD.forgettingFactorNoise" value="0.03" type="FLOAT" />
+            <Item name="EPD.numFrameTransientFrame" value="10" type="INTEGER" />
+            <Item name="EPD.minEnergyFrameRatio" value="0.05" type="FLOAT" />
+            <Item name="EPD.minNoiseEnergy" value="10.0" type="FLOAT" />
+            <Item name="EPD.numMinFramesInPhrase" value="15" type="INTEGER" />
+            <Item name="EPD.numMinFramesInSpeech" value="0" type="INTEGER" />
+            <Item name="EPD.numMaxFrameInSpeechGap" value="30" type="INTEGER" />
+            <Item name="EPD.numFramesInHead" value="0" type="INTEGER" />
+            <Item name="EPD.numFramesInTail" value="0" type="INTEGER" />
+            <Item name="EPD.preEmphasize" value="1" type="INTEGER" />
+            <Item name="EPD.numMaxFrames" value="10000" type="INTEGER" />
+        </Container>
+
+        <Container name="common">
+            <Item name="Enrollment.utterances" value="5" type="INTEGER" />
+            <Item name="Enrollment.noisy.utterances" value="3" type="INTEGER" />
+            <Item name="Enrollment.max.utterances" value="11" type="INTEGER" />
+            <Item name="Enrollment.audiosource" value="VOICE_RECOGNITION" type="STRING" />
+            <Item name="Enrollment.timeout" value="5000" type="INTEGER" />
+            <Item name="Enrollment.trainingPostRollPadding" value="0" type="INTEGER" />
+            <Item name="UV.antiSpoofEnable" value="false" type="BOOLEAN" />
+            <Item name="UV.antiSpoofThreshold" value="0.3" type="FLOAT" />
+            <Item name="HistoryBufferDuration" value="2000" type="INTEGER" />
+            <Item name="PreRollDuration" value="1000" type="INTEGER" />
+            <Item name="SecondStage.bypass" value="false" type="BOOLEAN" />
+        </Container>
+    </ContainerGroup>
+
+    <ContainerGroup name="db4000a1">
+        <Container name="db4000a1_en-US_V4" locale="en-US">
+            <Item name="FirstStageKW.threshold" value="10" type="INTEGER" />
+            <Item name="FirstStageUV.threshold" value="10" type="INTEGER" />
+            <Item name="SecondStageKW.threshold" value="10" type="INTEGER" />
+            <Item name="SecondStageUV.threshold" value="34.0" type="FLOAT" />
+            <Item name="Enrollment.threshold" value="30" type="INTEGER" />
+            <Item name="KW.preTolerance" value="300" type="INTEGER" />
+            <Item name="KW.postTolerance" value="440" type="INTEGER" />
+            <Item name="UV.preTolerance" value="200" type="INTEGER" />
+            <Item name="UV.postTolerance" value="200" type="INTEGER" />
+            <Item name="UV.SvaUvWeight" value="0.1" type="FLOAT" />
+        </Container>
+    </ContainerGroup>
+
+    <ContainerGroup name="a977b1c7">
+        <Container name="a977b1c7_en-US_016" locale="en-US">
+            <Item name="FirstStageKW.threshold" value="40" type="INTEGER" />
+        </Container>
+        <Container name="a977b1c7_en-GB_017" locale="en-GB">
+            <Item name="FirstStageKW.threshold" value="40" type="INTEGER" />
+        </Container>
+        <Container name="a977b1c7_en-IN_018" locale="en-IN">
+            <Item name="FirstStageKW.threshold" value="40" type="INTEGER" />
+        </Container>
+        <Container name="a977b1c7_de-DE_019" locale="de-DE">
+            <Item name="FirstStageKW.threshold" value="40" type="INTEGER" />
+        </Container>
+        <Container name="a977b1c7_es-ES_020" locale="es-ES">
+            <Item name="FirstStageKW.threshold" value="40" type="INTEGER" />
+        </Container>
+        <Container name="a977b1c7_it-IT_021" locale="it-IT">
+            <Item name="FirstStageKW.threshold" value="40" type="INTEGER" />
+        </Container>
+        <Container name="a977b1c7_hi-IN_022" locale="hi-IN">
+            <Item name="FirstStageKW.threshold" value="40" type="INTEGER" />
+        </Container>
+        <Container name="a977b1c7_fr-FR_023" locale="fr-FR">
+            <Item name="FirstStageKW.threshold" value="40" type="INTEGER" />
+        </Container>
+    </ContainerGroup>
+
+    <ContainerGroup name="63ff0ae5">
+        <!--multiple 1st stage models per locale-->
+        <Container name="63ff0ae5_en-US_001" locale="en-US">
+            <Item name="FirstStageKW.threshold" value="26" type="INTEGER" />
+            <Item name="Training.numGuardFrames_for_epd" value="30" type="INTEGER" />
+        </Container>
+
+        <Container name="63ff0ae5_en-US_036" locale="en-US">
+            <Item name="FirstStageKW.threshold" value="26" type="INTEGER" />
+            <Item name="Training.numGuardFrames_for_epd" value="30" type="INTEGER" />
+        </Container>
+
+        <Container name="63ff0ae5_en-US_038" locale="en-US">
+            <Item name="FirstStageKW.thresholds" value="55,61,36,35,33" type="STRING" />
+            <Item name="Training.numGuardFrames_for_epd" value="30" type="INTEGER" />
+        </Container>
+
+        <Container name="63ff0ae5_en-US_040" locale="en-US">
+            <Item name="FirstStageKW.threshold" value="26" type="INTEGER" />
+            <Item name="Training.numGuardFrames_for_epd" value="30" type="INTEGER" />
+        </Container>
+
+        <!--multiple  1.5 stage model per locale-->
+        <Container name="63ff0ae5_en-US_002" locale="en-US">
+            <Item name="KW.preTolerance" value="400" type="INTEGER" />
+            <Item name="KW.postTolerance" value="400" type="INTEGER" />
+            <Item name="MiddleStageKW.thresholds" value="50,52,49,37,35" type="STRING" />
+        </Container>
+
+        <!--multiple 2nd stage PDK models per locale-->
+        <Container name="26468981_en-US_003" locale="en-US">
+            <Item name="SecondStageKW.threshold" value="74" type="INTEGER" />
+            <Item name="KW.preTolerance" value="360" type="INTEGER" />
+            <Item name="KW.postTolerance" value="720" type="INTEGER" />
+        </Container>
+        <Container name="db4000a1_en-US_004" locale="en-US">
+            <Item name="SecondStageKW.threshold" value="56" type="INTEGER" />
+            <Item name="KW.preTolerance" value="360" type="INTEGER" />
+            <Item name="KW.postTolerance" value="720" type="INTEGER" />
+        </Container>
+        <Container name="5baa4906_en-US_005" locale="en-US">
+            <Item name="SecondStageKW.threshold" value="87" type="INTEGER" />
+            <Item name="KW.preTolerance" value="360" type="INTEGER" />
+            <Item name="KW.postTolerance" value="720" type="INTEGER" />
+        </Container>
+        <Container name="4876db05_en-US_006" locale="en-US">
+            <Item name="SecondStageKW.threshold" value="59" type="INTEGER" />
+            <Item name="KW.preTolerance" value="360" type="INTEGER" />
+            <Item name="KW.postTolerance" value="720" type="INTEGER" />
+        </Container>
+        <Container name="196682d4_en-US_007" locale="en-US">
+            <Item name="SecondStageKW.threshold" value="68" type="INTEGER" />
+            <Item name="KW.preTolerance" value="360" type="INTEGER" />
+            <Item name="KW.postTolerance" value="720" type="INTEGER" />
+        </Container>
+        <Container name="db4000a1_en-US_041" locale="en-US">
+            <Item name="SecondStageKW.threshold" value="64" type="INTEGER" />
+            <Item name="KW.preTolerance" value="360" type="INTEGER" />
+            <Item name="KW.postTolerance" value="480" type="INTEGER" />
+        </Container>
+
+        <!--2nd stage UV UBM for keyword dependent UV-->
+        <Container name="general_UV_015">
+            <Item name="Enrollment.threshold" value="30" type="INTEGER" />
+            <Item name="UV.preTolerance" value="200" type="INTEGER" />
+            <Item name="UV.postTolerance" value="200" type="INTEGER" />
+            <Item name="UV.DnnUvAlpha" value="100.0" type="FLOAT" />
+            <Item name="UV.DnnUvBeta" value="-21.0" type="FLOAT" />
+            <Item name="UV.DnnUvGamma" value="0" type="FLOAT" />
+            <Item name="UV.paddingtype" value="0" type="INTEGER" />
+            <Item name="SecondStageUV.threshold.KW.0" value="13.0" type="FLOAT" />
+            <Item name="SecondStageUV.threshold.KW.1" value="13.0" type="FLOAT" />
+            <Item name="SecondStageUV.threshold.KW.2" value="13.0" type="FLOAT" />
+            <Item name="SecondStageUV.threshold.KW.3" value="13.0" type="FLOAT" />
+            <Item name="SecondStageUV.threshold.KW.4" value="13.0" type="FLOAT" />
+            <Item name="Training.bEnableAGA" value="false" type="BOOLEAN" />
+            <Item name="Training.agaTargetEnrollmentRMS" value="-35.0" type="FLOAT" />
+        </Container>
+
+        <Container name="general_UV_024">
+            <Item name="Enrollment.threshold" value="30" type="INTEGER" />
+            <Item name="UV.preTolerance" value="200" type="INTEGER" />
+            <Item name="UV.postTolerance" value="200" type="INTEGER" />
+            <Item name="UV.UV72Alpha" value="100.0" type="FLOAT" />
+            <Item name="UV.UV72Beta" value="0.0" type="FLOAT" />
+            <Item name="SecondStageUV.threshold.KW.0" value="55.0" type="FLOAT" />
+            <Item name="SecondStageUV.threshold.KW.1" value="55.0" type="FLOAT" />
+            <Item name="SecondStageUV.threshold.KW.2" value="55.0" type="FLOAT" />
+            <Item name="SecondStageUV.threshold.KW.3" value="55.0" type="FLOAT" />
+            <Item name="SecondStageUV.threshold.KW.4" value="55.0" type="FLOAT" />
+            <Item name="Training.bEnableAGA" value="false" type="BOOLEAN" />
+            <Item name="Training.agaTargetEnrollmentRMS" value="-35.0" type="FLOAT" />
+        </Container>
+
+        <Container name="common">
+            <Item name="Enrollment.utterances" value="5" type="INTEGER" />
+            <Item name="Enrollment.noisy.utterances" value="3" type="INTEGER" />
+            <Item name="Enrollment.max.utterances" value="11" type="INTEGER" />
+            <Item name="Enrollment.audiosource" value="VOICE_RECOGNITION" type="STRING" />
+            <Item name="Enrollment.timeout" value="5000" type="INTEGER" />
+            <Item name="Enrollment.trainingPostRollPadding" value="0" type="INTEGER" />
+            <Item name="HistoryBufferDuration" value="2000" type="INTEGER" />
+            <Item name="PreRollDuration" value="1000" type="INTEGER" />
+            <Item name="SecondStage.bypass" value="false" type="BOOLEAN" />
+        </Container>
+    </ContainerGroup>
+
+    <!-- platform 2nd stage UV UBM for TIUV-->
+    <ContainerGroup name="Platform_UV">
+        <Container name="general_UV_015">
+            <Item name="SecondStageUV.threshold" value="13.0" type="FLOAT" />
+            <Item name="SecondStageUV.threshold.kwcmd" value="19.0" type="FLOAT" />
+            <Item name="Enrollment.threshold" value="30" type="INTEGER" />
+            <Item name="UV.preTolerance" value="200" type="INTEGER" />
+            <Item name="UV.postTolerance" value="200" type="INTEGER" />
+            <Item name="UV.DnnUvAlpha" value="100.0" type="FLOAT" />
+            <Item name="UV.DnnUvBeta" value="-21.0" type="FLOAT" />
+            <Item name="UV.DnnUvGamma" value="0" type="FLOAT" />
+            <Item name="UV.paddingtype" value="1" type="INTEGER" />
+            <Item name="Training.bEnableAGA" value="false" type="BOOLEAN" />
+            <Item name="Training.agaTargetEnrollmentRMS" value="-35.0" type="FLOAT" />
+        </Container>
+
+        <Container name="general_UV_024">
+            <Item name="SecondStageUV.threshold" value="55.0" type="FLOAT" />
+            <Item name="SecondStageUV.threshold.kwcmd" value="45.0" type="FLOAT" />
+            <Item name="Enrollment.threshold" value="30" type="INTEGER" />
+            <Item name="UV.preTolerance" value="200" type="INTEGER" />
+            <Item name="UV.postTolerance" value="200" type="INTEGER" />
+            <Item name="UV.UV72Alpha" value="100.0" type="FLOAT" />
+            <Item name="UV.UV72Beta" value="0.0" type="FLOAT" />
+            <Item name="Training.bEnableAGA" value="false" type="BOOLEAN" />
+            <Item name="Training.agaTargetEnrollmentRMS" value="-35.0" type="FLOAT" />
+        </Container>
+
+        <Container name="nn_vad">
+            <Item name="cmd.end.detection.timeout" value="4000" type="INTEGER" />
+            <Item name="nnvad.len.future" value="0" type="INTEGER" />
+            <Item name="nnvad.len.hangover" value="70" type="INTEGER" />
+            <Item name="nnvad.threshold" value="891289" type="INTEGER" />
+            <Item name="cmd.end.detection.threshold" value="30" type="INTEGER" />
+        </Container>
+        <Container name="sml_tiuv">
+            <Item name="Training.numGuardFramesForEPD" value="10" type="INTEGER" />
+            <Item name="Training.padding_type" value="0" type="INTEGER" />
+            <Item name="Training.bEnableEPDForUv72" value="false" type="BOOLEAN" />
+            <Item name="EPD.minSnrOnset" value="3.0" type="FLOAT" />
+            <Item name="EPD.minSnrLeave" value="3.0" type="FLOAT" />
+            <Item name="EPD.snrFloor" value="-30.0" type="FLOAT" />
+            <Item name="EPD.snrThresholds" value="6.0" type="FLOAT" />
+            <Item name="EPD.forgettingFactorNoise" value="0.03" type="FLOAT" />
+            <Item name="EPD.numFrameTransientFrame" value="10" type="INTEGER" />
+            <Item name="EPD.minEnergyFrameRatio" value="0.05" type="FLOAT" />
+            <Item name="EPD.numMinFramesInPhrase" value="15" type="INTEGER" />
+            <Item name="EPD.numMaxFrameInSpeechGap" value="50" type="INTEGER" />
+            <Item name="EPD.numFramesInHead" value="0" type="INTEGER" />
+            <Item name="EPD.numFramesInTail" value="0" type="INTEGER" />
+            <Item name="EPD.preEmphasize" value="1" type="INTEGER" />
+        </Container>
+    </ContainerGroup>
+
+</ContainerGroup>

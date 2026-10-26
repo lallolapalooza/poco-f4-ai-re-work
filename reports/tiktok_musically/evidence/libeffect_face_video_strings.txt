@@ -1,0 +1,57 @@
+# libeffect.so face/video strings with file offsets (musically copy, sha256 dad4778a…)
+613:   fdfd bef_effect_get_face_attrs_detect_result
+635:  100f7 bef_effect_use_TT_facedetect
+20978: ca40e9 algorithm_result_face_attrs_st
+20981: ca414b algorithm_result_face_st
+21017: ca4465 handleFaceInfoEvent
+21026: ca453d handleFaceAgeEvent
+21027: ca4550 handleFaceAttributeEvent
+28180: cd9f40 ttfaceattrmodel/tt_face_attribute_v7.2.model
+28368: cdb9a4         "key": "enable_fastmode_faceDetect240",
+32415: d02a24 %s [%s %d] FaceDetectTaskTT: Error!!! No detector !!!!!
+32416: d02a5c FaceDetectTaskTT.cpp
+32417: d02a71 %s [%s %d] FaceDetectTaskTT: Error!!! No result container !!!!!
+32418: d02ab1 %s [%s %d] FaceDetectTaskTT: Not support yuv!
+32419: d02adf %s [%s %d] FaceDetectTaskTT: Not support gray!
+32420: d02b0e ttfacemodel/tt_face_extra_v13.0.model
+32421: d02b34 ttfacemodel/tt_face_extra_fast_v13.0.model
+32518: d0386f %s [%s %d] FaceCatDetectTask: Not support yuv!
+32519: d0389e %s [%s %d] FaceCatDetectTask: Not support gray!
+36178: d23801 %s [%s %d] FaceDetectTaskTT: Image data is null!
+36368: d25007 ttfaceattrmodel/tt_beauty_attr6_v2.0.model
+36369: d25032 FaceAttributesAlgorithm
+36370: d2504a face_attributes
+36371: d2505a %s [%s %d] FaceAttributesTask: Error!!! No detector !!!!!
+36372: d25094 FaceAttributesTask.cpp
+36373: d250ab %s [%s %d] FaceAttributesTask: Error!!! No result container !!!!!
+36374: d250ed %s [%s %d] FaceAttributesTask: Image data is null!
+36375: d25120 %s [%s %d] ExpressionDetectTask: Not support yuv!
+36376: d25152 %s [%s %d] ExpressionDetectTask: Not support gray!
+43905: d60e89 %s [%s %d] --AlgorithmManager: AB value of {enable_fastmode_faceDetect240} is %s
+43907: d60eef %s [%s %d] --AlgorithmManager: AB value of {enable_fastmode_faceDetect240} not exist
+44487: d64cbf enable_fastmode_faceDetect240
+44740: d66161 base120
+44741: d66169 base120det
+44742: d66174 iris
+44743: d66179 eyecls
+44744: d66180 slowimage
+44747: d6619a partface
+44842: d66e11 agenet
+50629: d85571 pout
+52850: d906fc ttfacemodel/tt_face_v10.0.model
+52960: d914a5 ttfaceattrmodel/tt_face_attribute_extra_v3.0.model
+53120: d9283f ttfaceattrmodel/tt_face_attribute_age_v1.1.model
+53122: d9288f ttfaceattrmodel/tt_face_attribute_exp_v1.0.model
+58209: dbe211 30algorithm_result_face_attrs_st
+58210: dbe232 N3BES8NtfEventI30algorithm_result_face_attrs_stEE
+58224: dbe572 24algorithm_result_face_st
+58225: dbe58d N3BES8NtfEventI24algorithm_result_face_stEE
+58681: dc66bb NSt6__ndk114default_deleteIN3BEF16FaceDetectTaskTTEEE
+58682: dc66f1 NSt6__ndk120__shared_ptr_pointerIPN3BEF16FaceDetectTaskTTENS_14default_deleteIS2_EENS_9allocatorIS2_EEEE
+58687: dc6877 N3BEF16FaceDetectTaskTTE
+59810: dde481 NSt6__ndk114default_deleteIN3BEF18FaceAttributesTaskEEE
+59811: dde4b9 NSt6__ndk120__shared_ptr_pointerIPN3BEF18FaceAttributesTaskENS_14default_deleteIS2_EENS_9allocatorIS2_EEEE
+59812: dde524 N3BEF23FaceAttributesAlgorithmE
+59813: dde544 ZN3BEF23FaceAttributesAlgorithm17registerAlgorithmEvE3$_0
+59814: dde57e NSt6__ndk110__function6__funcIZN3BEF23FaceAttributesAlgorithm17registerAlgorithmEvE3$_0NS_9allocatorIS4_EEFPNS2_18AlgorithmInterfaceEvEEE
+59815: dde608 N3BEF18FaceAttributesTaskE

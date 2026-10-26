@@ -1,0 +1,195 @@
+# Document-photo pipeline — command transcript and evidence (patch round)
+# APK: product/priv-app/ExtraPhotoGlobal/ExtraPhotoGlobal.apk
+# Library: lib/arm64-v8a/libdoc_photo_process.so (25,029,048 B)
+#   sha256 71a1f3b9806823d8f9e31f56934aab02814ae19c625ea1f6747d75be4f2463cc
+# Ghidra imagebase 0x100000: Ghidra FUN_0017dxxx == vaddr 0x7dxxx
+
+## 1. JNI exports (20) — tools/disasm_elf.py --list-jni
+0x7d6b8  nativeSupportFeatures
+0x7d8dc  nativeIsAvailable
+0x7d8e4  nativeGetVersion
+0x7d908  nativeGlobalInit
+0x7d9a8  nativeInitAndRun(String,String)
+0x7dad8  nativeInit(String,String) -> long
+0x7dc3c  nativeRelease(long)
+0x7dc54  nativeScanDocumentBitmap(long,Bitmap,int,float[],int) -> int
+0x7e1d0  nativeAlignDocumentBitmap
+0x7e6cc  nativeRotateDocumentYUVScanPoints
+0x7e9c4  nativeScanDocumentYUV
+0x7ec48  nativeCropImageBitmap(long,Bitmap,float[],int) -> Bitmap
+0x7efd0  nativeEnhanceBitmap(long,Bitmap,int,boolean) -> int
+0x7f2c0  nativeCropAndEnhanceBitmap(long,Bitmap,float[],int,int,boolean) -> Bitmap
+0x7f7a4  nativeCropAndEnhanceYUV
+0x7fd4c  nativeNormalizationPoints
+0x80420  nativeDewarpBitmap(long,Bitmap) -> int
+0x80650  nativeFingerRemoveBitmap
+0x808cc  nativeHandwriteRemoveBitmap(long,Bitmap,Bitmap) -> int
+0x80ac0  nativeGetDelegateColor(long,Bitmap,int[]) -> int
+
+Only the first 12 (minus YUV/align/normalization/finger) are declared in this
+APK's com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI dex class; the rest are
+exported for other SDK consumers.
+
+## 2. Bitmap boundary (confirmed by disassembly)
+; tools/disasm_elf.py libdoc_photo_process.so --addr 0x78a00
+AndroidBitmap_getInfo(env, bitmap, &info)
+  info+0x0  width
+  info+0x4  height
+  info+0x8  stride
+  info+0xc  format  -- compared with #1 (ANDROID_BITMAP_FORMAT_RGBA_8888)
+  if format != 1 -> return 0 (JNI treats as failure)
+AndroidBitmap_lockPixels -> src
+dst = new w*h*3 bytes
+convert_RGBA_to_RGB(dst, src, w, h)      ; 0x7884c
+AndroidBitmap_unlockPixels
+return 1
+
+; 0x7884c (fast path, 8 pixels/iteration)
+0x78898: ld4 {v0.8b,v1.8b,v2.8b,v3.8b}, [x3], #32
+0x788a0: st3 {v0.8b,v1.8b,v2.8b},      [x18], #24
+=> output channel order R,G,B (alpha dropped)
+
+; 0x78904 (inverse, RGB -> RGBA)
+movi d3, #0xffffffffffffffff
+st4 {v0.8b,v1.8b,v2.8b,v3.8b}  => alpha byte = 0xFF
+; 0x78afc validates Bitmap format==1 and width/height match before copying
+; 0x78be4: FindClass("android/graphics/Bitmap"); getColorSpace()
+; 0x78ce4: Bitmap.createBitmap(IILandroid/graphics/Bitmap$Config;ZLandroid/graphics/ColorSpace;) with Config.valueOf("ARGB_8888")
+
+## 3. Model descriptors (file offsets in libdoc_photo_process.so)
+$ xxd -s 0x436f00 -l 0x180 libdoc_photo_process.so
+0x436f54 "doEdgeDet forward net time use: "
+0x436f8e "doEdgeDet use: "
+0x436fa4 "doPostProcess"
+0x436fe2 "hed_model"
+0x436fec "hed_input"
+0x436ff6 "img_output"
+0x437000 int64 dims: 1, 0x180(384), 384, 3      ; input
+0x437028 int64 dims: 1, 384, 384, 2             ; output
+0x437048 "ScanModel"
+0x437054 float params: 0.85 0.7 0.15 0.1 -90.0
+
+0x437b61 "enhance_model"
+0x437b70 "img_input"
+0x437b80 int64 dims: 1, 0x200(512), 512, 3      ; EnhanceModel input
+
+0x437e5c "dewarp_coarse_model"
+0x437ea0 "dewarp_fine_model"
+0x437ec0 int64 dims: 1, 0xc1(193), 193, 3
+0x437ee0 int64 dims: 1, 0x181(385), 385, 3
+0x437f00 int64 dims: 1, 385, 385, 2
+
+0x4384c6 "handwrite_model"
+0x438077 "segment_model"
+0x438085 "inpaint_coarse_model"
+0x43810f "inpaint_fine_model"
+0x437fce "demoiring_model"
+
+## 4. Engine creation (confirmed) — 0x8904c..0x89100 (DocScan ctor/init)
+mov w0,#0xb8 ; operator new
+str  "hed_model"  at engine+0x08
+str  "hed_input"  at engine+0x20
+ldp  q1,q0,[0x437008]   ; 1,384,384,3
+bl   0x892f8            ; create/bind input tensor
+str  "img_output" at engine+0x38
+ldp  q1,q0,[0x437028]   ; 1,384,384,2
+bl   0x892f8            ; create/bind output tensor
+
+## 5. Scan entry and preprocessing
+; nativeScanDocumentBitmap (0x7dc54, Ghidra doc_jni_ghidra.c)
+helper 0x78a00 -> RGB buffer + w/h
+handle->vtable[+0x10] = 0x82f54 (ScanDocument) with (rgb,w,h,docType,&vector)
+handle->vtable[+0x58] = 0x85118 (clamp points to [0,w-1]x[0,h-1])
+if vector bytes != 0x20 (8 floats):
+    insert full-image corners (0,0),(w,0),(0,h),(w,h) via std::vector insert 0x814bc
+GetArrayLength(points); SetFloatArrayRegion(points, 0, len, vector.data)
+
+; 0x82f54 (ScanDocument)
+FUN_00180f34(&mat, &w/h, 0x10, rgb, 0)   ; 0x10 = CV_8UC3
+if (mode == 2) { ... Doc2.0 path, points scaled by DAT_005367d0 ... }
+else uVar2 = FUN_0018779c(engine, &mat, &points)   ; doEdgeDet
+FUN_00182a80(engine, &points, w, h)                ; quad postprocess
+
+; 0x8779c (doEdgeDet) — tools/disasm_elf.py --addr 0x8779c --size 0x600
+0x877d4: mov w1,#0x180
+0x877d8: mov w2,#0x180
+0x877e0: bl  0x7e18c                          ; resize/pad setup (called twice)
+0x87914: mov w8,#0x180 ; dup v0.2s,w8         ; 384x384 shape
+0x8795c: bl  0x383520                         ; cv::resize (INTER_LINEAR)
+0x87aec: bl  0x2eea48                         ; MACE Run (input tensor sp+0x700, output sp+0x640)
+0x87b04: ldr d8,[0x436dc0]                    ; 0x406fe00000000000 = 255.0
+0x87b24: bl  0x298d28                         ; convertTo(..., alpha=255.0, beta=0)
+0x87b2c: fmov d0,#0.5
+0x87b34: bl  0x2c0b10
+0x87b44: bl  0x2c0910                         ; mask combine / threshold
+
+## 6. Crop / warp / enhance (confirmed) — 0x83798, 0x83eb4
+CropAndEnhance(rgb,w,h,points, &outPtr,&outW,&outH, docType, saveFlag):
+  if engine not ready: copy input to output, outW=w, outH=h, return 1
+  CV_8UC3 Mat
+  vtable+0x50(30.0f)                       ; polygon validation (0x8493c)
+  aspect = 0x181e80(quad,w,h,docType)      ; cached in this+0xF when saveFlag
+  0x182750(aspect, quad, w, h, &outW,&outH)
+  warpPerspective 0x4710d0 / 0x470b84      ; -> new CV_8UC3 outPtr
+  logs "input:" / ", output:" shapes
+  return 1
+
+Enhance(0x83eb4): runs enhance_model in place on (rgb,outW,outH,enhanceType,...).
+Dewarp: dewarp_coarse_model + dewarp_fine_model; Handwrite: handwrite_model.
+
+## 7. Output bitmap (confirmed)
+nativeCropAndEnhanceBitmap / nativeCropImageBitmap:
+  engine returns outPtr/outW/outH
+  0x78be4(env, srcBitmap)  -> ColorSpace of the source bitmap
+  0x78ce4(env, outW,outH, colorspace) -> Bitmap.createBitmap(w,h,ARGB_8888,true,cs)
+  0x78afc(env, outPtr, outW,outH, &bitmap) -> RGB->RGBA (alpha 0xFF)
+  ReleaseFloatArrayElements / Release<...> and delete buffers
+
+nativeEnhanceBitmap (0x7efd0) is in-place: lockPixels, 0x7884c RGBA->RGB,
+engine->vtable[+0x20](rgb,w,h,enhanceType,rgb,&status,flag), 0x78904 RGB->RGBA,
+unlockPixels, return status (0 success).
+
+## 8. Java call chain (confirmed, decompiled sources)
+DocPhotoActivity.onCheckPermissionSucceed
+  -> Storage.fromIntent(intent) -> new DocPhotoManager(storage,isDocPhoto,false,mDocProcessor)
+  -> parsePhotoAsync() -> ParseTask(AsyncTask.THREAD_POOL_EXECUTOR)
+     -> DocPhotoParser.parseBase  (EXIF + XMP)
+     -> DocPhotoParser.parseExtension (skip fileLen-rawLength, decode delegate, map crop points)
+     -> PhotoParser.parseBase/parseExtension (decode preview, doScan, doCrop)
+  -> preview(): PreviewTask -> renderPreview()
+  -> onSave(): ExportTask -> DocPhotoManager.render() -> DocPhotoExporter/PhotoExporter
+
+DocProcessor.SafeProcessor.init():
+  filesDir/doc_model/dlc   <- assets/common/doc_photo/doc_model/dlc
+  filesDir/doc_model/cache <- assets/<Build.DEVICE>/doc_photo/doc_model/cache (if isNeedUseCache)
+                              else DocumentProcessJNI.nativeInitAndRun(cacheDir, modelDir)
+  mNativeObj = DocumentProcessJNI.nativeInit(cacheDir, modelDir)
+  every doXxx() is synchronized(mLock) and calls the native method with mNativeObj
+
+Consumer: DocPhotoUtils.exportJpegWithExif -> bitmap.compress(JPEG, 97, exifStream)
+  defaultExportExif: MIME 4, Orientation 1, clears focusPoint/depthMapVersion/
+  motionPhoto/mtType/XiaomiComment/UserComment/Xmp, keeps XiaomiMakerNote
+DocPhotoExporter: EXIF docPhoto=0x01, XMP docPhoto{version=1,enhanceType,
+  cropPoints,rawLength,privacyWatermark}, appends original raw JPEG
+-> XStorage.insert/openOutputStreamSafely -> triggerScanFile / updateImageUri
+-> ExportTask.onPostExecute -> DocPhotoActivity.onExport -> setResult(uri, image/jpeg,
+   extra_photo_editor_type=extra_photo_editor_type_doc_photo)
+
+Failure:
+  nativeScanDocumentBitmap returns 1 when bitmap==null or bitmap staging fails
+  nativeCropAndEnhanceBitmap returns null on failure -> parseExtension false
+  DocPhotoActivity onExtractFinish(false) -> doc_photo_not_support toast + exit
+  ExportTask false -> onError -> onExit
+  SafeProcessor.doEnhance sets bitmap=null when nativeEnhanceBitmap != 0
+
+## 9. Decompiled files added this round
+sources/docphoto_flow/classes/
+  com.miui.extraphoto.docphoto.document.DocPhotoActivity.java
+  com.miui.extraphoto.docphoto.document.DocPhotoPostProcessingActivity.java
+  com.miui.extraphoto.docphoto.manager.PhotoManager.java
+  com.miui.extraphoto.docphoto.ExportTask.java
+  com.miui.extraphoto.docphoto.manager.DocPhotoUtils.java
+  com.miui.extraphoto.docphoto.manager.PhotoMetaData.java
+  com.miui.extraphoto.docphoto.manager.DocPhotoMetaData.java
+  com.miui.extraphoto.docphoto.Util.java
+  com.miui.extraphoto.common.utils.{ImageUtils,BigBitmapLoadUtils,InSampleInfo,MatrixUtils}.java

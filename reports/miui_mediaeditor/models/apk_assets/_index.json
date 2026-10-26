@@ -1,0 +1,112 @@
+[
+  {
+    "path": "assets/graphics/image_beauty_basic.bundle",
+    "size": 2915687,
+    "sha256": "2afdc4177a876b7aa6bd1c5f0ffc1cd294976f9ec39555a6be9b12b7753a20cb"
+  },
+  {
+    "path": "assets/graphics/image_beauty_bodyslim.bundle",
+    "size": 18457,
+    "sha256": "c83973b622f6c7f1a7385648efa253ebb1ce032c49eaa4ffc9700e3fd5dc8a0d"
+  },
+  {
+    "path": "assets/graphics/image_beauty_facebeauty.bundle",
+    "size": 4103446,
+    "sha256": "2ca91d2986f0298e22d67c900d0ec7bd7806be984661c55e7fd151060a0483ef"
+  },
+  {
+    "path": "assets/graphics/image_beauty_facewarp.bundle",
+    "size": 340615,
+    "sha256": "42db9ab1af45d507947f844c11a4cdda3539d38c4278cee9e09a3abdc5f4ecad"
+  },
+  {
+    "path": "assets/graphics/image_editor_enhance.bundle",
+    "size": 3994454,
+    "sha256": "79de280f64d8c641cfa227c50835bd63df5875adb3b9e82e214d60560612c953"
+  },
+  {
+    "path": "assets/graphics/image_editor_scenebeauty.bundle",
+    "size": 174160,
+    "sha256": "edda1ea257c3a4c39298ca1f6155237f4ad43b9d84bd727e0f014ed9473fab19"
+  },
+  {
+    "path": "assets/makeup/item_bundle/jingdian.bundle",
+    "size": 374406,
+    "sha256": "a40c5035103ab816e79752c580db715ec2fb8e266271e7f1513669d48f77c800"
+  },
+  {
+    "path": "assets/makeup/item_bundle/jingfu.bundle",
+    "size": 123080,
+    "sha256": "ec9b6dedf2e7f0da5e68dfbc230411200746feb63aba3bd3dcc204e19a5cfc5e"
+  },
+  {
+    "path": "assets/makeup/item_bundle/liti.bundle",
+    "size": 231584,
+    "sha256": "76ce0322518358e37fa80e44c3d941696c3ed3ebfec34ee6b83d2a83f3ad49c5"
+  },
+  {
+    "path": "assets/makeup/item_bundle/nanshi.bundle",
+    "size": 84719,
+    "sha256": "c31a56a5a4d1c30c4a102665a301e9e5bd09a5d9aba8aa032bf22a3d28ad9a13"
+  },
+  {
+    "path": "assets/makeup/item_bundle/oumei.bundle",
+    "size": 385035,
+    "sha256": "8b78305c88d85723d2922c2dd06d70a75648586d4bd0b89aea1e72cd3a6ab72a"
+  },
+  {
+    "path": "assets/makeup/item_bundle/wenrou.bundle",
+    "size": 196743,
+    "sha256": "3f1a1c8548ba1873de8a20d9d7caae3933025f2e330e55fb538fbc0d68d7c7b5"
+  },
+  {
+    "path": "assets/model/ai_beauty_type_processor.bundle",
+    "size": 10299493,
+    "sha256": "ea4b828336db45f1bc92fba8185264cd3f2426c34e4fc5ac1a7fe85b5d74ed4e"
+  },
+  {
+    "path": "assets/model/ai_face_attribute_processor.bundle",
+    "size": 1912131,
+    "sha256": "965070544367c61166b863b0593324f9a21eee28dda9c9e22f2b78b57b0c6f2d"
+  },
+  {
+    "path": "assets/model/ai_face_beauty_processor.bundle",
+    "size": 21870544,
+    "sha256": "3a7f96fc53ec711cfb3809970a3ecfd51318bb896fbffa6bb98ead18799bcd9d"
+  },
+  {
+    "path": "assets/model/ai_face_bindi_seg_processor.bundle",
+    "size": 512057,
+    "sha256": "322b325f7abd6d30fd109d2d2481780a816ed86d396f8bdd5db47c131d13d16a"
+  },
+  {
+    "path": "assets/model/ai_face_processor_detect_landmark.bundle",
+    "size": 6450804,
+    "sha256": "d39ba94cda8adb69b11313b3cb4c7285ce7141da3a3c52cf1b3b34c245d069fa"
+  },
+  {
+    "path": "assets/model/ai_human_processor_beautybody_mb.bundle",
+    "size": 6244199,
+    "sha256": "51e10435466ac60e83b6ca120d024d10f32912e1af4a58d8bbf057b6e639b683"
+  },
+  {
+    "path": "assets/model/ai_photo_editing_processor_scene_recog.bundle",
+    "size": 10741303,
+    "sha256": "9ea07c32764b5e7431c1da95e2cca37f551f380586d0a552c79922c51fcb1f63"
+  },
+  {
+    "path": "assets/graphics/image_editor_autocrop.bundle",
+    "size": 4769,
+    "sha256": "4f199870e7742a5e2778e225b1c917725bce57ac909b19392a9dd4219e33bed9"
+  },
+  {
+    "path": "assets/graphics/image_editor_idphoto.bundle",
+    "size": 6111,
+    "sha256": "9d20e3cb300252d8df1bce4c2c392834ca86d0aa46b9cf07e1fc2c9361065c60"
+  },
+  {
+    "path": "assets/graphics/image_editor_portrait.bundle",
+    "size": 5532,
+    "sha256": "3e95cfbe1ec95507030e3b4311afe257287481dba5345ddd7bb2993669a0b8c6"
+  }
+]

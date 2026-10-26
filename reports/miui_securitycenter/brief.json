@@ -1,0 +1,23 @@
+{
+  "slug": "miui_securitycenter",
+  "apk": "/run/media/user/00000000-0000-4000-8000-000000000000/xiaomi poco f4 system/product/priv-app/MIUISecurityCenterGlobal/MIUISecurityCenterGlobal.apk",
+  "size": 93987501,
+  "models": [
+    {
+      "name": "assets/model",
+      "size": 680154,
+      "magic": "0000000100000000"
+    }
+  ],
+  "libs": [
+    {
+      "name": "lib/arm64-v8a/libtensorflowlite_jni.so",
+      "size": 1700448
+    }
+  ],
+  "dex_markers": {
+    "Lorg/tensorflow/lite": 16,
+    "mibrain": 1
+  },
+  "package": null
+}

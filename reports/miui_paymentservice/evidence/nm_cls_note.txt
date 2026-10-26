@@ -1,0 +1,6 @@
+Cross-check results (python, reimpl/verify.txt):
+  HOG            : exact match (max|diff| = 0.0) on 6 images, 144 features each
+  decision values: max|diff| = 6.7e-08 vs vendor svm_predict_values
+  probabilities  : max|diff| = 4.7e-11 (numpy) / 4.7e-11 (JAX float64) vs vendor
+  full pipeline  : vendor MainOCR on a synthetic "1234" card image -> digit_array 1 2 3 4;
+                   JAX classifier on the vendor's own 20x32 patches -> "1234"

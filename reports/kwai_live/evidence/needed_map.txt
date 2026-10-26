@@ -1,0 +1,17 @@
+# DT_NEEDED of every native library extracted from the APK (14 AI libs)
+# none depends on libtensorflow-lite.so
+
+libFaceMagic.so: libgorgeous.so, libCGE.so, libspine.so, libGLESv2.so, libEGL.so, libjnigraphics.so, libprotobuf-lite.so, liblog.so, libklsf.so, libopencv_world.so, libz.so, libskwai.so, libm.so, libc++_shared.so, libdl.so, libc.so
+libfacedetectcontext.so: libykit.so, libdaenerys.so, libyuv.so, libffmpeg.so, libprotobuf-lite.so, libandroid.so, liblog.so, libEGL.so, libOpenSLES.so, libGLESv2.so, libjnigraphics.so, libz.so, libksaudioprocesslib.so, libturbojpeg.so, libm.so, libc++_shared.so, libdl.so, libc.so
+libfaceless-plugin.so: libykit.so, libwesteros.so, libFaceMagic.so, libprotobuf-lite.so, libCGE.so, libopencv_world.so, liblog.so, libGLESv2.so, libEGL.so, libjnigraphics.so, libm.so, libc++_shared.so, libdl.so, libc.so
+libksvisionengineplugin.so: libandroid.so, liblog.so, libEGL.so, libOpenSLES.so, libjnigraphics.so, libz.so, libm.so, libksvideorendersdkjni.so, libvisionengine.so, libdl.so, libGLESv2.so, libffmpeg.so, libksaudioprocesslib.so, libprotobuf-lite.so, libyuv.so, libturbojpeg.so, libCGE.so, libc++_shared.so, libc.so
+libkwaiaudio.so: libffmpeg.so, libksaudioprocesslib.so, libandroid.so, liblog.so, libEGL.so, libGLESv2.so, libOpenSLES.so, libz.so, libm.so, libc++_shared.so, libdl.so, libc.so
+libkwaiplayer.so: liblog.so, libandroid.so, libm.so, libz.so, libOpenSLES.so, libEGL.so, libGLESv2.so, libjnigraphics.so, libhodor.so, libkwaivpp.so, libffmpeg.so, libyuv.so, libc++_shared.so, libdl.so, libc.so
+libkwaivoip.so: libandroid.so, libyuv.so, libffmpeg.so, libuv.so, libprotobuf-lite.so, libaegon.so, liblog.so, libEGL.so, libGLESv2.so, libm.so, libc++_shared.so, libdl.so, libc.so
+libkwaivpp.so: liblog.so, libGLESv2.so, libm.so, libc++_shared.so, libdl.so, libc.so
+libkwsgmain.so: liblog.so, libandroid.so, libz.so, libm.so, libc++_shared.so, libdl.so, libc.so
+libopencv_world.so: libdl.so, libm.so, liblog.so, libc++_shared.so, libc.so
+libskwai.so: libklsf.so, libopencv_world.so, libc++_shared.so, libz.so, liblog.so, libGLESv2.so, libandroid.so, libjnigraphics.so, libEGL.so, libc.so, libm.so, libdl.so
+libtensorflow-lite.so: libm.so, libdl.so, liblog.so, libc.so
+libvisionengine.so: libopencv_world.so, libffmpeg.so, libandroid.so, liblog.so, libEGL.so, libGLESv2.so, libOpenSLES.so, libjnigraphics.so, libz.so, libm.so, libc++_shared.so, libdl.so, libc.so
+libwebp_kwai.so: libdl.so, libc.so, libm.so

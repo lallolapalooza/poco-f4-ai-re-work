@@ -1,0 +1,139 @@
+DLC protobuf payload decoded with ir/dlc.py
+magic=0x20ad5 version=5 model_version=1
+tensors=100 layers=100
+
+Layer type histogram:
+  type  60 input              1
+  type 211 const              1
+  type  95 elementwise_binary 1
+  type  40 conv2d             49
+  type 150 activation         30
+  type  90 add                10
+  type  70 deconv2d           4
+  type  30 concat             4
+
+Activations: Counter({'relu6': 26, 'relu': 3, 'sigmoid': 1})
+Concat axis: Counter({3: 4})
+Elementwise ops: Counter({"{'binop': 'div'}": 1})
+
+I/O tensors:
+  hed_input:0 [1, 512, 512, 3]
+  truediv/y:0 [1]
+  img_output:0 [1, 512, 512, 1]
+
+Weights (dequantised with x = step*(q+offset)):
+  conv/deconv layers with weights: 53
+  quantised weight bytes: 314289 (uint8 storage, per-tensor encoding)
+
+First 3 weight tensors:
+  hed/mobilenet_v2_skip/block0_0/conv2d/conv2d/Conv2D
+    dims=[3, 3, 3, 3] bytes=81 bitwidth=8 min=-1.292905 max=1.817385 step=0.012197 offset=-106.0
+  hed/mobilenet_v2_skip/block0_1/conv2d/conv2d/Conv2D
+    dims=[3, 3, 3, 6] bytes=162 bitwidth=8 min=-0.671726 max=0.914294 step=0.006220 offset=-108.0
+  hed/mobilenet_v2_skip/block0_2/conv2d/conv2d/Conv2D
+    dims=[3, 3, 6, 12] bytes=648 bitwidth=8 min=-0.586292 max=0.810946 step=0.005479 offset=-107.0
+
+Quantizer consistency check (step*(0+offset)==min, step*(255+offset)==max):
+  ok=107 bad=0
+
+Layer list (index, type, output dims, name):
+    0 input              [1, 512, 512, 3]     hed_input:0
+    1 const              [1]                  truediv/y:0
+    2 elementwise_binary [1, 512, 512, 3]     truediv
+    3 conv2d             [1, 512, 512, 3]     hed/mobilenet_v2_skip/block0_0/conv2d/conv2d/Conv2D
+    4 activation         [1, 512, 512, 3]     hed/mobilenet_v2_skip/block0_0/conv2d/Relu
+    5 conv2d             [1, 512, 512, 6]     hed/mobilenet_v2_skip/block0_1/conv2d/conv2d/Conv2D
+    6 activation         [1, 512, 512, 6]     hed/mobilenet_v2_skip/block0_1/conv2d/Relu
+    7 conv2d             [1, 256, 256, 12]    hed/mobilenet_v2_skip/block0_2/conv2d/conv2d/Conv2D
+    8 activation         [1, 256, 256, 12]    hed/mobilenet_v2_skip/block0_2/conv2d/Relu
+    9 conv2d             [1, 256, 256, 12]    hed/mobilenet_v2_skip/block1_0/expansion_1x1_conv2d/conv2d/Conv2D
+   10 conv2d             [1, 256, 256, 6]     hed/mobilenet_v2_skip/block1_0/1x1_conv2d/conv2d/Conv2D
+   11 activation         [1, 256, 256, 12]    hed/mobilenet_v2_skip/block1_0/expansion_1x1_conv2d/Relu6
+   12 conv2d             [1, 256, 256, 12]    hed/mobilenet_v2_skip/block1_0/depthwise_conv2d/SeparableConv2d/depthwise
+   13 activation         [1, 256, 256, 12]    hed/mobilenet_v2_skip/block1_0/depthwise_conv2d/Relu6
+   14 conv2d             [1, 256, 256, 6]     hed/mobilenet_v2_skip/block1_0/projection_1x1_conv2d/conv2d/Conv2D
+   15 add                [1, 256, 256, 6]     hed/mobilenet_v2_skip/block1_0/add
+   16 conv2d             [1, 256, 256, 36]    hed/mobilenet_v2_skip/block2_0/expansion_1x1_conv2d/conv2d/Conv2D
+   17 activation         [1, 256, 256, 36]    hed/mobilenet_v2_skip/block2_0/expansion_1x1_conv2d/Relu6
+   18 conv2d             [1, 128, 128, 36]    hed/mobilenet_v2_skip/block2_0/depthwise_conv2d/SeparableConv2d/depthwise
+   19 activation         [1, 128, 128, 36]    hed/mobilenet_v2_skip/block2_0/depthwise_conv2d/Relu6
+   20 conv2d             [1, 128, 128, 12]    hed/mobilenet_v2_skip/block2_0/projection_1x1_conv2d/conv2d/Conv2D
+   21 conv2d             [1, 128, 128, 72]    hed/mobilenet_v2_skip/block2_1/expansion_1x1_conv2d/conv2d/Conv2D
+   22 activation         [1, 128, 128, 72]    hed/mobilenet_v2_skip/block2_1/expansion_1x1_conv2d/Relu6
+   23 conv2d             [1, 128, 128, 72]    hed/mobilenet_v2_skip/block2_1/depthwise_conv2d/SeparableConv2d/depthwise
+   24 activation         [1, 128, 128, 72]    hed/mobilenet_v2_skip/block2_1/depthwise_conv2d/Relu6
+   25 conv2d             [1, 128, 128, 12]    hed/mobilenet_v2_skip/block2_1/projection_1x1_conv2d/conv2d/Conv2D
+   26 add                [1, 128, 128, 12]    hed/mobilenet_v2_skip/block2_1/add
+   27 conv2d             [1, 128, 128, 72]    hed/mobilenet_v2_skip/block3_0/expansion_1x1_conv2d/conv2d/Conv2D
+   28 activation         [1, 128, 128, 72]    hed/mobilenet_v2_skip/block3_0/expansion_1x1_conv2d/Relu6
+   29 conv2d             [1, 64, 64, 72]      hed/mobilenet_v2_skip/block3_0/depthwise_conv2d/SeparableConv2d/depthwise
+   30 activation         [1, 64, 64, 72]      hed/mobilenet_v2_skip/block3_0/depthwise_conv2d/Relu6
+   31 conv2d             [1, 64, 64, 24]      hed/mobilenet_v2_skip/block3_0/projection_1x1_conv2d/conv2d/Conv2D
+   32 conv2d             [1, 64, 64, 144]     hed/mobilenet_v2_skip/block3_1/expansion_1x1_conv2d/conv2d/Conv2D
+   33 activation         [1, 64, 64, 144]     hed/mobilenet_v2_skip/block3_1/expansion_1x1_conv2d/Relu6
+   34 conv2d             [1, 64, 64, 144]     hed/mobilenet_v2_skip/block3_1/depthwise_conv2d/SeparableConv2d/depthwise
+   35 activation         [1, 64, 64, 144]     hed/mobilenet_v2_skip/block3_1/depthwise_conv2d/Relu6
+   36 conv2d             [1, 64, 64, 24]      hed/mobilenet_v2_skip/block3_1/projection_1x1_conv2d/conv2d/Conv2D
+   37 add                [1, 64, 64, 24]      hed/mobilenet_v2_skip/block3_1/add
+   38 conv2d             [1, 64, 64, 144]     hed/mobilenet_v2_skip/block3_2/expansion_1x1_conv2d/conv2d/Conv2D
+   39 activation         [1, 64, 64, 144]     hed/mobilenet_v2_skip/block3_2/expansion_1x1_conv2d/Relu6
+   40 conv2d             [1, 64, 64, 144]     hed/mobilenet_v2_skip/block3_2/depthwise_conv2d/SeparableConv2d/depthwise
+   41 activation         [1, 64, 64, 144]     hed/mobilenet_v2_skip/block3_2/depthwise_conv2d/Relu6
+   42 conv2d             [1, 64, 64, 24]      hed/mobilenet_v2_skip/block3_2/projection_1x1_conv2d/conv2d/Conv2D
+   43 add                [1, 64, 64, 24]      hed/mobilenet_v2_skip/block3_2/add
+   44 conv2d             [1, 64, 64, 144]     hed/mobilenet_v2_skip/block4_0/expansion_1x1_conv2d/conv2d/Conv2D
+   45 activation         [1, 64, 64, 144]     hed/mobilenet_v2_skip/block4_0/expansion_1x1_conv2d/Relu6
+   46 conv2d             [1, 32, 32, 144]     hed/mobilenet_v2_skip/block4_0/depthwise_conv2d/SeparableConv2d/depthwise
+   47 activation         [1, 32, 32, 144]     hed/mobilenet_v2_skip/block4_0/depthwise_conv2d/Relu6
+   48 conv2d             [1, 32, 32, 48]      hed/mobilenet_v2_skip/block4_0/projection_1x1_conv2d/conv2d/Conv2D
+   49 conv2d             [1, 32, 32, 288]     hed/mobilenet_v2_skip/block4_1/expansion_1x1_conv2d/conv2d/Conv2D
+   50 activation         [1, 32, 32, 288]     hed/mobilenet_v2_skip/block4_1/expansion_1x1_conv2d/Relu6
+   51 conv2d             [1, 32, 32, 288]     hed/mobilenet_v2_skip/block4_1/depthwise_conv2d/SeparableConv2d/depthwise
+   52 activation         [1, 32, 32, 288]     hed/mobilenet_v2_skip/block4_1/depthwise_conv2d/Relu6
+   53 conv2d             [1, 32, 32, 48]      hed/mobilenet_v2_skip/block4_1/projection_1x1_conv2d/conv2d/Conv2D
+   54 add                [1, 32, 32, 48]      hed/mobilenet_v2_skip/block4_1/add
+   55 conv2d             [1, 32, 32, 288]     hed/mobilenet_v2_skip/block4_2/expansion_1x1_conv2d/conv2d/Conv2D
+   56 activation         [1, 32, 32, 288]     hed/mobilenet_v2_skip/block4_2/expansion_1x1_conv2d/Relu6
+   57 conv2d             [1, 32, 32, 288]     hed/mobilenet_v2_skip/block4_2/depthwise_conv2d/SeparableConv2d/depthwise
+   58 activation         [1, 32, 32, 288]     hed/mobilenet_v2_skip/block4_2/depthwise_conv2d/Relu6
+   59 conv2d             [1, 32, 32, 48]      hed/mobilenet_v2_skip/block4_2/projection_1x1_conv2d/conv2d/Conv2D
+   60 add                [1, 32, 32, 48]      hed/mobilenet_v2_skip/block4_2/add
+   61 conv2d             [1, 32, 32, 288]     hed/mobilenet_v2_skip/block4_3/expansion_1x1_conv2d/conv2d/Conv2D
+   62 activation         [1, 32, 32, 288]     hed/mobilenet_v2_skip/block4_3/expansion_1x1_conv2d/Relu6
+   63 conv2d             [1, 32, 32, 288]     hed/mobilenet_v2_skip/block4_3/depthwise_conv2d/SeparableConv2d/depthwise
+   64 activation         [1, 32, 32, 288]     hed/mobilenet_v2_skip/block4_3/depthwise_conv2d/Relu6
+   65 conv2d             [1, 32, 32, 48]      hed/mobilenet_v2_skip/block4_3/projection_1x1_conv2d/conv2d/Conv2D
+   66 add                [1, 32, 32, 48]      hed/mobilenet_v2_skip/block4_3/add
+   67 conv2d             [1, 32, 32, 64]      hed/mobilenet_v2_skip/block5_0/1x1_conv2d/conv2d/Conv2D
+   68 conv2d             [1, 32, 32, 288]     hed/mobilenet_v2_skip/block5_0/expansion_1x1_conv2d/conv2d/Conv2D
+   69 activation         [1, 32, 32, 288]     hed/mobilenet_v2_skip/block5_0/expansion_1x1_conv2d/Relu6
+   70 conv2d             [1, 32, 32, 288]     hed/mobilenet_v2_skip/block5_0/depthwise_conv2d/SeparableConv2d/depthwise
+   71 activation         [1, 32, 32, 288]     hed/mobilenet_v2_skip/block5_0/depthwise_conv2d/Relu6
+   72 conv2d             [1, 32, 32, 64]      hed/mobilenet_v2_skip/block5_0/projection_1x1_conv2d/conv2d/Conv2D
+   73 add                [1, 32, 32, 64]      hed/mobilenet_v2_skip/block5_0/add
+   74 conv2d             [1, 32, 32, 384]     hed/mobilenet_v2_skip/block5_1/expansion_1x1_conv2d/conv2d/Conv2D
+   75 activation         [1, 32, 32, 384]     hed/mobilenet_v2_skip/block5_1/expansion_1x1_conv2d/Relu6
+   76 conv2d             [1, 32, 32, 384]     hed/mobilenet_v2_skip/block5_1/depthwise_conv2d/SeparableConv2d/depthwise
+   77 activation         [1, 32, 32, 384]     hed/mobilenet_v2_skip/block5_1/depthwise_conv2d/Relu6
+   78 conv2d             [1, 32, 32, 64]      hed/mobilenet_v2_skip/block5_1/projection_1x1_conv2d/conv2d/Conv2D
+   79 add                [1, 32, 32, 64]      hed/mobilenet_v2_skip/block5_1/add
+   80 conv2d             [1, 32, 32, 384]     hed/mobilenet_v2_skip/block5_2/expansion_1x1_conv2d/conv2d/Conv2D
+   81 activation         [1, 32, 32, 384]     hed/mobilenet_v2_skip/block5_2/expansion_1x1_conv2d/Relu6
+   82 conv2d             [1, 32, 32, 384]     hed/mobilenet_v2_skip/block5_2/depthwise_conv2d/SeparableConv2d/depthwise
+   83 activation         [1, 32, 32, 384]     hed/mobilenet_v2_skip/block5_2/depthwise_conv2d/Relu6
+   84 conv2d             [1, 32, 32, 64]      hed/mobilenet_v2_skip/block5_2/projection_1x1_conv2d/conv2d/Conv2D
+   85 add                [1, 32, 32, 64]      hed/mobilenet_v2_skip/block5_2/add
+   86 deconv2d           [1, 64, 64, 24]      hed/mobilenet_v2_skip/conv2d_transpose/conv2d_transpose
+   87 concat             [1, 64, 64, 48]      hed/mobilenet_v2_skip/concat
+   88 conv2d             [1, 64, 64, 24]      hed/mobilenet_v2_skip/conv2d/Conv2D
+   89 deconv2d           [1, 128, 128, 12]    hed/mobilenet_v2_skip/conv2d_transpose_1/conv2d_transpose
+   90 concat             [1, 128, 128, 24]    hed/mobilenet_v2_skip/concat_1
+   91 conv2d             [1, 128, 128, 12]    hed/mobilenet_v2_skip/conv2d_1/Conv2D
+   92 deconv2d           [1, 256, 256, 6]     hed/mobilenet_v2_skip/conv2d_transpose_2/conv2d_transpose
+   93 concat             [1, 256, 256, 12]    hed/mobilenet_v2_skip/concat_2
+   94 conv2d             [1, 256, 256, 6]     hed/mobilenet_v2_skip/conv2d_2/Conv2D
+   95 deconv2d           [1, 512, 512, 3]     hed/mobilenet_v2_skip/conv2d_transpose_3/conv2d_transpose
+   96 concat             [1, 512, 512, 9]     hed/mobilenet_v2_skip/concat_3
+   97 conv2d             [1, 512, 512, 3]     hed/mobilenet_v2_skip/conv2d_3/Conv2D
+   98 conv2d             [1, 512, 512, 1]     hed/mobilenet_v2_skip/conv2d_4/Conv2D
+   99 activation         [1, 512, 512, 1]     Sigmoid

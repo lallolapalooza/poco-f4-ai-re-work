@@ -1,0 +1,13 @@
+{
+  "slug": "miui_securitycenter",
+  "apk": "assets/model (680,154 B custom 5-stage log-linear), assets/dict (3,639,702 B tokenizer), assets/pattern (5,568 B rules)",
+  "local_files": 3,
+  "bytes": 4325424,
+  "tflite": 0,
+  "bundles": 0,
+  "absent": [
+    "Downloaded new-engine TFLite models 1.bin / 2.bin / v.txt (resource.zip from api.sec.intl.miui.com) are not in the APK.",
+    "assets/phish URL list is absent."
+  ],
+  "notes": "The 680 KB asset is not TFLite; it is the legacy SMS log-linear cascade, parsed and JAX-verified."
+}

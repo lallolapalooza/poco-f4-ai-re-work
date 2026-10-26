@@ -1,0 +1,109 @@
+{
+ "path": "models/tt_face_v10.0.model",
+ "size": 905491,
+ "file_id": "12121d17090c17096421e3e9f7f4e9f7",
+ "declared_size": 905491,
+ "model_name": "tt_face_v10.0",
+ "declared_records": 9,
+ "records": [
+  {
+   "name": "detect",
+   "name_offset": 41,
+   "const36": 36,
+   "key1": "653d18b67ea312859d41770862000d56584b1ebb46759993806dfb6936469ee5",
+   "const32": 32,
+   "blob2": "9d59814964120000156ae8a4454fc0bde101ae7442b94aaa6afcbe7ad6306edd",
+   "payload_offset": 123,
+   "payload_end": 19263,
+   "payload_size": 19140
+  },
+  {
+   "name": "base120",
+   "name_offset": 19263,
+   "const36": 36,
+   "key1": "653d18b67ea312859d41770862000d56584b1ebb46759993806dfb6936469ee5",
+   "const32": 32,
+   "blob2": "7267e669141b00002adae90774df031f630f19c110a13f35a1e95c0e23e47eea",
+   "payload_offset": 19346,
+   "payload_end": 383078,
+   "payload_size": 363732
+  },
+  {
+   "name": "base120det",
+   "name_offset": 383078,
+   "const36": 36,
+   "key1": "653d18b67ea312859d41770862000d56584b1ebb46759993806dfb6936469ee5",
+   "const32": 32,
+   "blob2": "bdffb8c51414000071773bc7fc4613b0b42cf2550e4b3320e8edf37c8eaeb2b9",
+   "payload_offset": 383164,
+   "payload_end": 539456,
+   "payload_size": 156292
+  },
+  {
+   "name": "pout",
+   "name_offset": 539456,
+   "const36": 36,
+   "key1": "653d18b67ea312859d41770862000d56584b1ebb46759993806dfb6936469ee5",
+   "const32": 32,
+   "blob2": "d54f3f8ea402000091e815ceeeddb31a97a710c239f3d26ee41fa0d9179d1638",
+   "payload_offset": 539536,
+   "payload_end": 546685,
+   "payload_size": 7149
+  },
+  {
+   "name": "eyecls",
+   "name_offset": 546685,
+   "const36": 36,
+   "key1": "653d18b67ea312859d41770862000d56584b1ebb46759993806dfb6936469ee5",
+   "const32": 32,
+   "blob2": "d8850923a4020000a52f022dde9806b9d2e4cfd6e92ffcad516b21e07c10a30d",
+   "payload_offset": 546767,
+   "payload_end": 553916,
+   "payload_size": 7149
+  },
+  {
+   "name": "partface",
+   "name_offset": 553916,
+   "const36": 36,
+   "key1": "653d18b67ea312859d41770862000d56584b1ebb46759993806dfb6936469ee5",
+   "const32": 32,
+   "blob2": "2c69ecc89413000050b56823ae28d46a08cdb46402ca59bd02686f063c89ddc5",
+   "payload_offset": 554000,
+   "payload_end": 710165,
+   "payload_size": 156165
+  },
+  {
+   "name": "image",
+   "name_offset": 710165,
+   "const36": 36,
+   "key1": "653d18b67ea312859d41770862000d56584b1ebb46759993806dfb6936469ee5",
+   "const32": 32,
+   "blob2": "57210a86f4190000727786134e23c1d7b2105c024a61a643e41fec66b0713221",
+   "payload_offset": 710246,
+   "payload_end": 798754,
+   "payload_size": 88508
+  },
+  {
+   "name": "slowimage",
+   "name_offset": 798754,
+   "const36": 36,
+   "key1": "653d18b67ea312859d41770862000d56584b1ebb46759993806dfb6936469ee5",
+   "const32": 32,
+   "blob2": "2daecfd0041a0000e2ac2c8b13159e0366a0cd5711d98323170fdd4aa512d23c",
+   "payload_offset": 798839,
+   "payload_end": 897779,
+   "payload_size": 98940
+  },
+  {
+   "name": "mean",
+   "name_offset": 897779,
+   "const36": 36,
+   "key1": "653d18b67ea312859d41770862000d56584b1ebb46759993806dfb6936469ee5",
+   "const32": 32,
+   "blob2": "1d00f5ae1400000064f0564f78db455cbf27e5c6d99766ea0100000075084581",
+   "payload_offset": 897859,
+   "payload_end": 905491,
+   "payload_size": 7632
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "kwai_bulldog",
+  "apk": "No model files. YCNN models are downloaded at runtime.",
+  "local_files": 7,
+  "bytes": 34633,
+  "tflite": 0,
+  "bundles": 0,
+  "absent": [
+    "Same as kwai_video: no weights in APK; downloaded YCNN/effect models."
+  ],
+  "notes": "Support assets extracted; JAX architecture-only."
+}

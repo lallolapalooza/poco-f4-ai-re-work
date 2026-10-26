@@ -1,0 +1,14 @@
+varying vec2 texc;
+
+void main()
+{
+     if(texc.x >= offset.x && texc.x <= offset.x + wh.x && texc.y >= offset.y && texc.y <= offset.y + wh.y){
+		vec2 texv = texc - offset;
+		texv.x /= wh.x;
+		texv.y /= wh.y;
+        gl_FragColor = vec4(texture2D(tex_origin,texv).rgb,face_id);
+     }
+     else{
+      gl_FragColor = vec4(0.0,0.0,0.0,0.0); 
+     }
+}

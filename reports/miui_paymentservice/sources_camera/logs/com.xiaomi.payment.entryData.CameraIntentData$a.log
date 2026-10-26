@@ -1,0 +1,4 @@
+INFO  - loading ...
+WARN  - Input class is inner, parent class will be saved: com.xiaomi.payment.entryData.CameraIntentData
+INFO  - Saving class 'com.xiaomi.payment.entryData.CameraIntentData' to file '/run/media/user/00000000-0000-4000-8000-000000000000/re_work/reports/miui_paymentservice/sources_camera/classes/com.xiaomi.payment.entryData.CameraIntentData$a.java'
+INFO  - done

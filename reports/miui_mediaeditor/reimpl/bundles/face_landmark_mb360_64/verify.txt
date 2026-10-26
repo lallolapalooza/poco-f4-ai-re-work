@@ -1,0 +1,4 @@
+face_landmark_mb360_64.tflite  subgraph=0 signature=None  PASS
+  output  shape     dtype    max_abs   tol       result
+  add_7   (1, 154)  FLOAT32  1.53e-05  1.00e-04  PASS
+  1 output(s), max_abs=1.53e-05, status=pass

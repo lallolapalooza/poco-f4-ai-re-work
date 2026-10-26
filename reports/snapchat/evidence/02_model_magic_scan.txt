@@ -1,0 +1,15 @@
+entries scanned: 6869
+TFL3/tflite flatbuffer occurrences: 0
+ONNX-like magic occurrences      : 1
+MACE magic occurrences           : 3
+LZC containers                   : 18
+hits: [('classes.dex', 'mace', 7976672, 9956092), ('classes6.dex', 'mace', 9026274, 9760828), ('lib/arm64-v8a/libcamplat+.production.e6302221764648a97415467f3352d2c06a35bd64.so', 'onnx?', 3051141, 29910024), ('lib/arm64-v8a/libcamplat+.production.e6302221764648a97415467f3352d2c06a35bd64.so', 'mace', 2342118, 29910024)]
+extensions present under assets/:
+{'js': 8, 'composermodule': 145, 'json': 15, 'glsl': 275, 'prof': 1, 'profm': 1, 'html': 1, 'lns': 11, 'mesh': 2, 'scn': 1, 'xml': 1, 'txt': 3, 'bin': 2, 'png': 2, 'webp': 1, 'core': 1, 'telemetry': 1}
+
+NOTE on the four "magic" hits above: they are byte-string coincidences, not model
+files.  classes.dex / classes6.dex hits are the settings names
+"MACE_CACHE_LIMIT_SIZE" and "MACE"; the libcamplat hits are the compiled MACE
+runtime strings and a "\x08\x01\x12\x00" coincidence.  No zip member is a
+model: there is no *.tflite/*.onnx/*.dlc/*.dnn/*.enc/*.mlmodel entry, and the
+APK contains no libtensorflow-lite/libmace/libtnn/libbloops/barhopper library.

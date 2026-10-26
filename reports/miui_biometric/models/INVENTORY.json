@@ -1,0 +1,12 @@
+{
+  "slug": "miui_biometric",
+  "apk": "8 model blobs embedded in libstfaceunlockocl.so (STEF v3, encrypted)",
+  "local_files": 10,
+  "bytes": 16416391,
+  "tflite": 0,
+  "bundles": 0,
+  "absent": [
+    "All 8 CNN payloads are encrypted; keys come from the SenseTime protector license chain at runtime. Extracted as .bin blobs for reimplementation, not decryptable statically."
+  ],
+  "notes": "Blob names, sizes and SHA-256 are in models/manifest.json; JAX pipeline is architecture-only."
+}

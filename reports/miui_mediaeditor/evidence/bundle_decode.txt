@@ -1,0 +1,794 @@
+# bundle container decode + CRC32 verification
+# cmd: python unbundle.py list <bundle>
+
+image_beauty_basic.bundle: xor_key=0xbe file=2915687B entries=23
+  black.png                                                  method=0 csize=      133 usize=      133 off=        0 ENCRYPTED-PREFIX
+  face_makeup/                                               method=0 csize=        0 usize=        0 off=      172 ENCRYPTED-PREFIX
+  face_makeup/script.js                                      method=8 csize=     3421 usize=    16425 off=      214 ENCRYPTED-PREFIX
+  image_block_fs.glsl                                        method=8 csize=      129 usize=      215 off=     3686
+  image_block_vs.glsl                                        method=8 csize=      133 usize=      190 off=     3864
+  image_choose_face_fs.glsl                                  method=8 csize=       96 usize=      102 off=     4046
+  image_combine_mask_for_perpare_data_fs.glsl                method=8 csize=      138 usize=      296 off=     4197
+  image_fs.glsl                                              method=8 csize=      135 usize=      210 off=     4408
+  image_matrix_fs_1.glsl                                     method=0 csize=       79 usize=       79 off=     4586
+  image_matrix_vs_1.glsl                                     method=8 csize=      151 usize=      246 off=     4717
+  image_merge_mask_for_ar_fs.glsl                            method=8 csize=      236 usize=      597 off=     4920
+  image_merge_mask_fs.glsl                                   method=8 csize=      283 usize=     1021 off=     5217
+  image_nv212rgba_fs.glsl                                    method=8 csize=      404 usize=     1136 off=     5554
+  image_rgba2nv21_fs.glsl                                    method=8 csize=      385 usize=     1220 off=     6011
+  image_set_rectface_to_origin_fs.glsl                       method=8 csize=      212 usize=      473 off=     6449
+  image_vs.glsl                                              method=8 csize=      101 usize=      125 off=     6727
+  jili_threed_ar.png                                         method=8 csize=  1824770 usize=  1948068 off=     6871
+  metadata.json                                              method=8 csize=       88 usize=       92 off=  1831689
+  red_mask_ar1.jpg                                           method=8 csize=     3197 usize=     6907 off=  1831820
+  red_mask_ar2.jpg                                           method=8 csize=     2917 usize=     6787 off=  1835063
+  script.js                                                  method=8 csize=     3631 usize=    18112 off=  1838026
+  threed_makeup.png                                          method=8 csize=  1071279 usize=  2431020 off=  1841696
+  white.png                                                  method=0 csize=      157 usize=      157 off=  2913022
+  CRC32 verified entries: 20 ok, 0 bad (3 skipped in encrypted prefix)
+
+image_beauty_bodyslim.bundle: xor_key=0x5f file=18457B entries=9
+  body/                                                      method=0 csize=        0 usize=        0 off=        0 ENCRYPTED-PREFIX
+  body/body_beautify_first.glsl                              method=8 csize=    12610 usize=    75139 off=       35 ENCRYPTED-PREFIX
+  body/body_beautify_ps.glsl                                 method=8 csize=      405 usize=     2904 off=    12704
+  body/body_frag.glsl                                        method=8 csize=      162 usize=      259 off=    13165
+  body/body_fragLine.glsl                                    method=0 csize=       87 usize=       87 off=    13376
+  body/body_vert.glsl                                        method=8 csize=      101 usize=      120 off=    13516
+  body/body_vertLine.glsl                                    method=0 csize=       79 usize=       79 off=    13666
+  metadata.json                                              method=8 csize=       88 usize=       92 off=    13798
+  script.js                                                  method=8 csize=     3455 usize=    17257 off=    13929
+  CRC32 verified entries: 7 ok, 0 bad (2 skipped in encrypted prefix)
+
+image_beauty_facebeauty.bundle: xor_key=0x2b file=4103446B entries=366
+  32ea.glsl                                                  method=8 csize=       87 usize=       89 off=        0 ENCRYPTED-PREFIX
+  auto_rules.json                                            method=8 csize=      737 usize=    13393 off=      126 ENCRYPTED-PREFIX
+  auto_rules_india.json                                      method=8 csize=      416 usize=     6694 off=      908 ENCRYPTED-PREFIX
+  beautify_fs.glsl                                           method=8 csize=      560 usize=     1951 off=     1375
+  blurminusmanual_mask.png                                   method=8 csize=   169142 usize=   195625 off=     1981
+  BrightEyeDarkeyePatternSoftskin_mask.png                   method=8 csize=   141412 usize=   156971 off=   171177
+  brown_curve_mask.jpg                                       method=0 csize=      428 usize=      428 off=   312659
+  clear_blur.glsl                                            method=8 csize=      882 usize=     2730 off=   313137
+  config.json                                                method=8 csize=      143 usize=      219 off=   314064
+  curve1.png                                                 method=0 csize=      188 usize=      188 off=   314248
+  eye_brighten.glsl                                          method=8 csize=      948 usize=     3764 off=   314476
+  eye_curve_mask.jpg                                         method=0 csize=      478 usize=      478 off=   315471
+  f1.glsl                                                    method=8 csize=      148 usize=      518 off=   315997
+  f2.glsl                                                    method=8 csize=      177 usize=      352 off=   316182
+  f3.glsl                                                    method=8 csize=      290 usize=     1014 off=   316396
+  f4.glsl                                                    method=8 csize=      297 usize=     1037 off=   316723
+  f5.glsl                                                    method=8 csize=      289 usize=      630 off=   317057
+  f5_sharp.glsl                                              method=8 csize=      365 usize=     1028 off=   317383
+  f5_sharp_mask.glsl                                         method=8 csize=      276 usize=      604 off=   317791
+  f6.glsl                                                    method=8 csize=      158 usize=      297 off=   318115
+  faceu_nvshen.glsl                                          method=8 csize=      890 usize=     3743 off=   318310
+  faceu_nvshen_cpu.glsl                                      method=8 csize=      107 usize=      171 off=   319247
+  faceu_wanghong.glsl                                        method=8 csize=      976 usize=     4034 off=   319405
+  faceu_wanghong_cpu.glsl                                    method=8 csize=      109 usize=      175 off=   320430
+  faceu_ziran.glsl                                           method=8 csize=      932 usize=     4162 off=   320592
+  faceu_ziran_cpu.glsl                                       method=8 csize=      108 usize=      171 off=   321570
+  face_blur.glsl                                             method=8 csize=     1010 usize=     3014 off=   321728
+  face_blur_denoise.glsl                                     method=8 csize=     1030 usize=     3711 off=   322782
+  face_blur_mix.glsl                                         method=8 csize=      608 usize=     1688 off=   323864
+  face_blur_mix_mask.glsl                                    method=8 csize=      666 usize=     1853 off=   324520
+  face_color.glsl                                            method=8 csize=      403 usize=      925 off=   325239
+  face_color_custom.glsl                                     method=8 csize=      503 usize=     2767 off=   325687
+  face_color_custom_whitten.glsl                             method=8 csize=      517 usize=     3027 off=   326242
+  face_color_red.glsl                                        method=8 csize=      405 usize=      957 off=   326819
+  face_color_whitten.glsl                                    method=8 csize=      408 usize=      989 off=   327273
+  face_makeup/                                               method=0 csize=        0 usize=        0 off=   327734
+  face_makeup/2d_bigtex_desc.json                            method=0 csize=       14 usize=       14 off=   327776
+  face_makeup/2d_desc.json                                   method=8 csize=      213 usize=      427 off=   327851
+  face_makeup/2d_eyes.glsl                                   method=0 csize=       48 usize=       48 off=   328118
+  face_makeup/2d_script.js                                   method=8 csize=     7614 usize=    33249 off=   328220
+  face_makeup/4.png                                          method=8 csize=    13382 usize=    13707 off=   335888
+  face_makeup/ar.glsl                                        method=8 csize=      137 usize=      196 off=   349317
+  face_makeup/armesh.json                                    method=0 csize=       38 usize=       38 off=   349503
+  face_makeup/blur_h_fs.glsl                                 method=8 csize=      281 usize=      642 off=   349594
+  face_makeup/blur_v_fs.glsl                                 method=8 csize=      273 usize=      599 off=   349931
+  face_makeup/brow_makeup.json                               method=8 csize=    14087 usize=    41983 off=   350260
+  face_makeup/brow_makeup_old.json                           method=8 csize=     8966 usize=    21341 off=   364405
+  face_makeup/config.json                                    method=8 csize=      143 usize=      219 off=   373433
+  face_makeup/event_mgr.js                                   method=8 csize=     3865 usize=    17565 off=   373629
+  face_makeup/eye_mask_standard.png                          method=8 csize=    14474 usize=    16436 off=   377548
+  face_makeup/face.glsl                                      method=8 csize=      264 usize=      450 off=   392085
+  face_makeup/face_color.glsl                                method=8 csize=      356 usize=      734 off=   392400
+  face_makeup/face_occu_blur.png                             method=8 csize=     3110 usize=     5043 off=   392813
+  face_makeup/filters.json                                   method=8 csize=      421 usize=     1080 off=   395983
+  face_makeup/f_brow_color.glsl                              method=8 csize=      811 usize=     3058 off=   396458
+  face_makeup/f_brow_color_v2.glsl                           method=8 csize=      990 usize=     3635 off=   397328
+  face_makeup/f_eyepupil.glsl                                method=8 csize=      871 usize=     2893 off=   398380
+  face_makeup/f_eye_brow.glsl                                method=8 csize=      256 usize=      425 off=   399308
+  face_makeup/f_eye_brow_color.glsl                          method=8 csize=      410 usize=     1297 off=   399621
+  face_makeup/f_eye_color.glsl                               method=8 csize=     1236 usize=     6339 off=   400094
+  face_makeup/f_eye_color_v2.glsl                            method=8 csize=     1509 usize=     7258 off=   401388
+  face_makeup/f_eye_mask_shader.glsl                         method=8 csize=       84 usize=       86 off=   402958
+  face_makeup/f_face_color.glsl                              method=8 csize=     2581 usize=    10019 off=   403106
+  face_makeup/f_lip.glsl                                     method=8 csize=      630 usize=     1671 off=   405746
+  face_makeup/f_lip2.glsl                                    method=8 csize=     3269 usize=    14027 off=   406428
+  face_makeup/f_shader.glsl                                  method=8 csize=       98 usize=      125 off=   409750
+  face_makeup/gloss_blur.glsl                                method=8 csize=      471 usize=     2527 off=   409903
+  face_makeup/gloss_v.glsl                                   method=0 csize=       82 usize=       82 off=   410431
+  face_makeup/l1.png                                         method=0 csize=     3457 usize=     3457 off=   410567
+  face_makeup/l2.png                                         method=0 csize=     3461 usize=     3461 off=   414072
+  face_makeup/l3.png                                         method=0 csize=      353 usize=      353 off=   417581
+  face_makeup/l4.png                                         method=8 csize=    18169 usize=    18634 off=   417982
+  face_makeup/lip.json                                       method=0 csize=       43 usize=       43 off=   436199
+  face_makeup/lip_bite_bz_standard.png                       method=8 csize=     7250 usize=     8240 off=   436292
+  face_makeup/lip_bite_zz_standard.png                       method=8 csize=    10339 usize=    11288 off=   443608
+  face_makeup/lip_bz2_standard.png                           method=8 csize=    21227 usize=    22394 off=   454013
+  face_makeup/lip_bz_standard.png                            method=8 csize=     7250 usize=     8240 off=   475302
+  face_makeup/lip_f.glsl                                     method=8 csize=      155 usize=      296 off=   482613
+  face_makeup/lip_f2.glsl                                    method=8 csize=       93 usize=      100 off=   482820
+  face_makeup/lip_highlight_bz_standard.png                  method=8 csize=     8132 usize=     9090 off=   482966
+  face_makeup/lip_highlight_zz_standard.png                  method=8 csize=     9796 usize=    10776 off=   491169
+  face_makeup/lip_hp1.glsl                                   method=0 csize=       60 usize=       60 off=   501036
+  face_makeup/lip_hp2.glsl                                   method=8 csize=      410 usize=      973 off=   501150
+  face_makeup/lip_hp3.glsl                                   method=8 csize=      334 usize=      834 off=   501614
+  face_makeup/lip_level.png                                  method=0 csize=      174 usize=      174 off=   502002
+  face_makeup/lip_mergegloss.glsl                            method=8 csize=      895 usize=     2918 off=   502231
+  face_makeup/lip_new.glsl                                   method=8 csize=     3410 usize=    12901 off=   503187
+  face_makeup/lip_v.glsl                                     method=8 csize=      108 usize=      144 off=   506651
+  face_makeup/lip_zz_standard.png                            method=8 csize=    10339 usize=    11288 off=   506811
+  face_makeup/metadata.json                                  method=8 csize=       92 usize=       97 off=   517211
+  face_makeup/mouth_highlight.png                            method=8 csize=    15692 usize=    16262 off=   517358
+  face_makeup/nature.png                                     method=0 csize=     4607 usize=     4607 off=   533111
+  face_makeup/occu_shader.glsl                               method=8 csize=      475 usize=     1335 off=   537770
+  face_makeup/pupil_f.glsl                                   method=8 csize=     1322 usize=     5033 off=   538303
+  face_makeup/pupil_f2.glsl                                  method=8 csize=     1011 usize=     3771 off=   539679
+  face_makeup/pupil_f3.glsl                                  method=8 csize=     1193 usize=     6094 off=   540745
+  face_makeup/pupil_v.glsl                                   method=8 csize=      141 usize=      182 off=   541993
+  face_makeup/script.js                                      method=8 csize=     3456 usize=    16608 off=   542188
+  face_makeup/shimmer.png                                    method=8 csize=   298833 usize=   325892 off=   545695
+  face_makeup/uv.json                                        method=8 csize=    19420 usize=   114683 off=   844581
+  face_makeup/uv_old.json                                    method=8 csize=    18534 usize=    61667 off=   864050
+  face_makeup/uv_v2.json                                     method=8 csize=    21907 usize=   121576 off=   882637
+  face_makeup/v2.glsl                                        method=8 csize=      141 usize=      182 off=   904596
+  face_makeup/v3.glsl                                        method=8 csize=      150 usize=      196 off=   904786
+  face_makeup/version.json                                   method=8 csize=      191 usize=      312 off=   904985
+  face_makeup/v_eye_mask_shader.glsl                         method=0 csize=       86 usize=       86 off=   905230
+  face_makeup/v_shader2.glsl                                 method=8 csize=       98 usize=      109 off=   905380
+  face_makeup/v_shader3.glsl                                 method=8 csize=       94 usize=      109 off=   905534
+  face_mask.json                                             method=8 csize=     2275 usize=     7721 off=   905684
+  face_mix_nonblur_sharpen.glsl                              method=8 csize=      347 usize=      996 off=   908003
+  f_shader_mask.glsl                                         method=8 csize=      756 usize=     2032 off=   908409
+  f_shader_mask2.glsl                                        method=8 csize=      209 usize=      661 off=   909213
+  generateLandmarskOffset.py                                 method=8 csize=      808 usize=     3067 off=   909471
+  generateRulesJson.lua                                      method=8 csize=      617 usize=     2144 off=   910335
+  guass_fs.glsl                                              method=8 csize=      213 usize=      915 off=   911003
+  guass_vs.glsl                                              method=8 csize=      191 usize=      579 off=   911259
+  heavy_blur_mix.glsl                                        method=8 csize=      787 usize=     1791 off=   911493
+  heavy_blur_v.glsl                                          method=8 csize=      242 usize=      602 off=   912329
+  heavy_face_blur_h.glsl                                     method=8 csize=      233 usize=      601 off=   912618
+  heavy_face_blur_v.glsl                                     method=8 csize=      858 usize=     2298 off=   912903
+  image_ar_fs.glsl                                           method=0 csize=       42 usize=       42 off=   913813
+  image_averblur_combine_warpmask_fs.glsl                    method=8 csize=      130 usize=      193 off=   913901
+  image_averblur_mask_choose_skin_fs.glsl                    method=8 csize=      775 usize=     6154 off=   914100
+  image_avermask_combine_alpha_fs.glsl                       method=8 csize=      165 usize=      307 off=   914944
+  image_aver_fs_normal.glsl                                  method=8 csize=      323 usize=      873 off=   915175
+  image_aver_split_fs.glsl                                   method=8 csize=      297 usize=      799 off=   915553
+  image_blend_fs.glsl                                        method=8 csize=      172 usize=      313 off=   915904
+  image_blend_lighteyeandsharpenbrown_fs.glsl                method=8 csize=     1765 usize=     7387 off=   916125
+  image_blend_liner_light_fs.glsl                            method=8 csize=      474 usize=     1243 off=   917963
+  image_blend_originandresult_fs.glsl                        method=8 csize=      193 usize=      362 off=   918498
+  image_blend_surperposition_fs.glsl                         method=8 csize=     1414 usize=     4852 off=   918756
+  image_blurfacemask_fs.glsl                                 method=8 csize=      269 usize=      510 off=   920234
+  image_blurfacemask_vs.glsl                                 method=8 csize=      110 usize=      146 off=   920559
+  image_blur_fs.glsl                                         method=8 csize=      549 usize=     2053 off=   920725
+  image_blur_split_fs.glsl                                   method=8 csize=      324 usize=      763 off=   921322
+  image_boxfilter_fs.glsl                                    method=8 csize=      356 usize=      958 off=   921700
+  image_boxfilter_vs.glsl                                    method=8 csize=      184 usize=      298 off=   922109
+  image_boxfilter_with_mask_for_pattern_darkeye_fs.glsl      method=8 csize=      612 usize=     2406 off=   922346
+  image_boxfilter_with_mask_fs.glsl                          method=8 csize=      284 usize=      742 off=   923041
+  image_brighteye_choose_eyeball_fs.glsl                     method=8 csize=      140 usize=      227 off=   923388
+  image_brighteye_choose_eyeball_only_fs.glsl                method=8 csize=      354 usize=     1024 off=   923596
+  image_check_face_for_side_face.glsl                        method=8 csize=      216 usize=      444 off=   924023
+  image_choose_alpha_fs.glsl                                 method=0 csize=       85 usize=       85 off=   924304
+  image_choose_face_for_eyebrown_fs.glsl                     method=8 csize=      127 usize=      178 off=   924445
+  image_choose_other_skin_fs.glsl                            method=8 csize=      515 usize=     1392 off=   924640
+  image_choose_whole_white_skin_fs.glsl                      method=8 csize=      892 usize=     4160 off=   925216
+  image_combine_averblur_mask_fs.glsl                        method=8 csize=      171 usize=      463 off=   926175
+  image_combine_aver_mask_fs.glsl                            method=8 csize=      153 usize=      334 off=   926411
+  image_combine_bright_eye_fs.glsl                           method=8 csize=      896 usize=     3812 off=   926625
+  image_combine_glass_frame_fs.glsl                          method=8 csize=      143 usize=      250 off=   927583
+  image_combine_global_blur_mask_for_wrinkle_fs.glsl         method=8 csize=      359 usize=     1253 off=   927789
+  image_combine_global_blur_mask_fs.glsl                     method=8 csize=      366 usize=     1261 off=   928228
+  image_combine_lip_mouth_fs.glsl                            method=8 csize=      148 usize=      280 off=   928662
+  image_combine_mask_pad_fs.glsl                             method=8 csize=      225 usize=      471 off=   928871
+  image_combine_noacen_fs.glsl                               method=8 csize=      685 usize=     2489 off=   929156
+  image_combine_sharpenbrown_fs.glsl                         method=8 csize=      349 usize=      993 off=   929899
+  image_combine_skin_red_fs.glsl                             method=8 csize=      466 usize=     1231 off=   930312
+  image_combine_threedmask_fs.glsl                           method=8 csize=      132 usize=      205 off=   930838
+  image_combine_threemask_and_singlemask_fs.glsl             method=8 csize=      103 usize=      131 off=   931032
+  image_darkeyecircle_decreepattern_block_manual_fs.glsl     method=8 csize=      292 usize=      718 off=   931211
+  image_darkeyecircle_decreepattern_for_manual_fs.glsl       method=8 csize=      269 usize=      658 off=   931587
+  image_darkeyecircle_decreepattern_fs.glsl                  method=8 csize=      579 usize=     2134 off=   931938
+  image_darkeyecircle_decreepattern_intergrate_fs.glsl       method=8 csize=      783 usize=     4300 off=   932588
+  image_darkeyecircle_decreepattern_split_blur_fs.glsl       method=8 csize=      461 usize=     1765 off=   933453
+  image_darkeyecircle_decreepattern_split_fs.glsl            method=8 csize=      412 usize=     1413 off=   933996
+  image_darkeyecircle_intergrate_fs.glsl                     method=8 csize=      667 usize=     2996 off=   934485
+  image_dealthreemask_fs.glsl                                method=8 csize=      416 usize=     1289 off=   935220
+  image_decreepattern_intergrate_fs.glsl                     method=8 csize=      677 usize=     3049 off=   935693
+  image_erode_dilate_fs.glsl                                 method=8 csize=      555 usize=     2219 off=   936438
+  image_erode_dilate_global_fs.glsl                          method=8 csize=      249 usize=      659 off=   937049
+  image_erode_dilate_masked_fs.glsl                          method=8 csize=      826 usize=     3720 off=   937361
+  image_filter_fs.glsl                                       method=8 csize=      549 usize=     2801 off=   938250
+  image_fs_for_manual_one_fs.glsl                            method=8 csize=      132 usize=      193 off=   938849
+  image_gaussian_for_brighteye_result_fs.glsl                method=8 csize=      423 usize=     1126 off=   939042
+  image_gaussian_for_brighteye_result_vs.glsl                method=8 csize=      211 usize=      361 off=   939538
+  image_gaussian_fs.glsl                                     method=8 csize=      665 usize=     2844 off=   939822
+  image_gaussian_jili_fs.glsl                                method=8 csize=      423 usize=     1156 off=   940539
+  image_gaussian_vs.glsl                                     method=8 csize=      201 usize=      368 off=   941019
+  image_gaussian_with_mask_fs.glsl                           method=8 csize=      454 usize=     1278 off=   941272
+  image_gen_aver_diff_fs.glsl                                method=8 csize=      157 usize=      279 off=   941788
+  image_gen_aver_mask_fs.glsl                                method=8 csize=      332 usize=      951 off=   942002
+  image_gen_darkeye_pattern_fs.glsl                          method=8 csize=      511 usize=     1774 off=   942391
+  image_gen_glass_frame_fs.glsl                              method=8 csize=      146 usize=      251 off=   942965
+  image_gen_heavyblur_for_pattern_darkeye_fs.glsl            method=8 csize=      102 usize=      123 off=   943170
+  image_gen_heavyblur_mask_fs.glsl                           method=8 csize=      181 usize=      344 off=   943349
+  image_gen_highlight_mask_fs.glsl                           method=8 csize=      537 usize=     1413 off=   943592
+  image_gen_noacen_aver_mask_fs.glsl                         method=8 csize=      128 usize=      204 off=   944191
+  image_gen_noacen_fs.glsl                                   method=8 csize=      141 usize=      231 off=   944383
+  image_gen_noacen_mask_fs.glsl                              method=8 csize=      162 usize=      281 off=   944578
+  image_gen_slightblur_for_pattern_darkeye_fs.glsl           method=8 csize=      417 usize=     1207 off=   944799
+  image_global_boxfilter_with_mask_for_pattern_darkeye_block_fs.glsl method=8 csize=      281 usize=      923 off=   945294
+  image_global_boxfilter_with_mask_for_pattern_darkeye_fs.glsl method=8 csize=      279 usize=      903 off=   945671
+  image_global_brighteye_choose_eyeball_fs.glsl              method=8 csize=      227 usize=      459 off=   946040
+  image_global_combine_bright_eye_fs.glsl                    method=8 csize=      765 usize=     3117 off=   946342
+  image_global_erode_dilate_for_skin_white1_fs.glsl          method=8 csize=      402 usize=     1828 off=   947176
+  image_global_erode_dilate_for_skin_white_fs.glsl           method=8 csize=      435 usize=     2524 off=   947657
+  image_global_erode_dilate_fs.glsl                          method=8 csize=      283 usize=      773 off=   948170
+  image_global_gaussian_block_fs.glsl                        method=8 csize=      349 usize=     1166 off=   948516
+  image_global_gaussian_for_manual_fs.glsl                   method=8 csize=      311 usize=     1189 off=   948930
+  image_global_gaussian_for_white_fs.glsl                    method=8 csize=      356 usize=     1154 off=   949311
+  image_global_gaussian_for_white_vs.glsl                    method=8 csize=      222 usize=      486 off=   949736
+  image_global_gaussian_fs.glsl                              method=8 csize=      511 usize=     1942 off=   950027
+  image_global_gaussian_vs.glsl                              method=8 csize=      195 usize=      322 off=   950597
+  image_global_gen_highlight_mask_fs.glsl                    method=8 csize=      462 usize=     1064 off=   950851
+  image_global_surface_blur_fs.glsl                          method=8 csize=      488 usize=     1383 off=   951382
+  image_global_surface_blur_vs.glsl                          method=8 csize=      353 usize=      914 off=   951933
+  image_highpass_block_fs.glsl                               method=8 csize=      150 usize=      278 off=   952349
+  image_highpass_fs.glsl                                     method=8 csize=      146 usize=      258 off=   952557
+  image_improvered_fs.glsl                                   method=8 csize=     1069 usize=     3648 off=   952755
+  image_jili_combine_fs.glsl                                 method=8 csize=      133 usize=      226 off=   953878
+  image_lighteye_boxfilter_with_mask_fs.glsl                 method=8 csize=      825 usize=     3449 off=   954067
+  image_lighteye_choose_eye_fs.glsl                          method=8 csize=      363 usize=     1202 off=   954964
+  image_lighteye_erode_dilate_fs.glsl                        method=8 csize=      371 usize=     1008 off=   955390
+  image_lighteye_gaussian_fs.glsl                            method=8 csize=      464 usize=     1579 off=   955826
+  image_lighteye_split_fs.glsl                               method=8 csize=     1002 usize=     6174 off=   956351
+  image_makeup_blend_fs.glsl                                 method=8 csize=      310 usize=      752 off=   957411
+  image_makeup_choose_skin_fs.glsl                           method=8 csize=      336 usize=      647 off=   957777
+  image_makeup_transfer_fs.glsl                              method=8 csize=      262 usize=      628 off=   958175
+  image_manual_blur_fs.glsl                                  method=8 csize=      267 usize=      677 off=   958496
+  image_manual_blur_mask_fs.glsl                             method=8 csize=      142 usize=      201 off=   958818
+  image_manual_choose_circle_fs.glsl                         method=8 csize=      443 usize=     1949 off=   959020
+  image_manual_clear_acen_fs.glsl                            method=8 csize=     1011 usize=     5633 off=   959527
+  image_manual_combine_acen_result_fs.glsl                   method=8 csize=      107 usize=      143 off=   960599
+  image_manual_dilate_minus_fs.glsl                          method=8 csize=      296 usize=      732 off=   960776
+  image_manual_mask_redo_undo_fs.glsl                        method=8 csize=      165 usize=      325 off=   961135
+  image_manual_wrikle_mask_choose_fs.glsl                    method=8 csize=      140 usize=      237 off=   961365
+  image_mask_fs.glsl                                         method=8 csize=      365 usize=      915 off=   961574
+  image_mask_fs_2.glsl                                       method=8 csize=      430 usize=     1354 off=   961987
+  image_mask_fs_2_hair.glsl                                  method=8 csize=      421 usize=     1321 off=   962467
+  image_mask_fs_3.glsl                                       method=8 csize=      444 usize=     1532 off=   962943
+  image_matrix_fs.glsl                                       method=8 csize=      123 usize=      190 off=   963437
+  image_matrix_vs.glsl                                       method=8 csize=      140 usize=      205 off=   963610
+  image_merge_acen_aver_blend_block_fs.glsl                  method=8 csize=      253 usize=      564 off=   963800
+  image_merge_acen_aver_block_fs.glsl                        method=8 csize=      373 usize=     1070 off=   964124
+  image_merge_acen_blur_blend_block_fs.glsl                  method=8 csize=      148 usize=      267 off=   964562
+  image_merge_acen_blur_block_fs.glsl                        method=8 csize=      502 usize=     1554 off=   964781
+  image_merge_aver_block_fs.glsl                             method=8 csize=      289 usize=      794 off=   965348
+  image_merge_mask_block_fs.glsl                             method=8 csize=      579 usize=     3087 off=   965697
+  image_merge_mask_block_split_fs.glsl                       method=8 csize=      224 usize=      612 off=   966336
+  image_merge_mask_dd_block_fs.glsl                          method=8 csize=      426 usize=     1487 off=   966626
+  image_merge_mask_for_label_fs.glsl                         method=8 csize=      189 usize=      382 off=   967115
+  image_mix.glsl                                             method=8 csize=      128 usize=      203 off=   967368
+  image_noacen_aver_blur_eye_brown_fs.glsl                   method=8 csize=     2280 usize=    11861 off=   967540
+  image_noacen_aver_fs.glsl                                  method=8 csize=      621 usize=     3907 off=   969890
+  image_noacen_split_fs.glsl                                 method=8 csize=      272 usize=      671 off=   970566
+  image_red_split_fs.glsl                                    method=8 csize=      806 usize=     2959 off=   970894
+  image_resize_fs.glsl                                       method=8 csize=       85 usize=       88 off=   971753
+  image_restore_fs.glsl                                      method=8 csize=      263 usize=      638 off=   971888
+  image_rgb2hsv_fs.glsl                                      method=8 csize=      371 usize=      726 off=   972202
+  image_set_alpha_fs.glsl                                    method=8 csize=       98 usize=      115 off=   972624
+  image_set_jilihighpass_fs.glsl                             method=8 csize=      302 usize=      804 off=   972775
+  image_set_rectface_to_origin_for_label_fs.glsl             method=8 csize=      190 usize=      361 off=   973137
+  image_set_rectnoacen_to_origin_fs.glsl                     method=8 csize=      173 usize=      349 off=   973403
+  image_sharpenbrown_split_fs.glsl                           method=8 csize=      885 usize=     3498 off=   973644
+  image_skin_white_red_jili_threed_fs.glsl                   method=8 csize=     2223 usize=    12013 off=   974591
+  image_skin_white_red_jili_threed_only_fs.glsl              method=8 csize=     1981 usize=    10168 off=   976884
+  image_small_acen_detail_for_wrinkle_fs.glsl                method=8 csize=      238 usize=      579 off=   978940
+  image_small_acen_detail_fs.glsl                            method=8 csize=      138 usize=      209 off=   979251
+  image_small_acen_detail_with_mole_fs.glsl                  method=8 csize=      156 usize=      256 off=   979450
+  image_small_acen_fs.glsl                                   method=8 csize=      146 usize=      264 off=   979677
+  image_small_acen_pad_fs.glsl                               method=8 csize=      225 usize=      461 off=   979877
+  image_small_aver_detail_fs.glsl                            method=8 csize=      169 usize=      435 off=   980160
+  image_small_aver_fs.glsl                                   method=8 csize=      161 usize=      376 off=   980390
+  image_split_mask_for_perpare_data_fs.glsl                  method=8 csize=      142 usize=      260 off=   980605
+  image_split_noacen_aver.glsl                               method=8 csize=      155 usize=      242 off=   980818
+  image_surface_blur_block_fs.glsl                           method=8 csize=     1567 usize=     5132 off=   981031
+  image_surface_blur_block_vs.glsl                           method=8 csize=      375 usize=      931 off=   982660
+  image_surface_blur_fs.glsl                                 method=8 csize=     1444 usize=     5002 off=   983097
+  image_surface_blur_vs.glsl                                 method=8 csize=      347 usize=      866 off=   984597
+  image_threedjili_split_fs.glsl                             method=8 csize=      674 usize=     2209 off=   985000
+  image_threed_fs.glsl                                       method=8 csize=      698 usize=     2389 off=   985734
+  image_usm_fs.glsl                                          method=8 csize=      150 usize=      270 off=   986482
+  image_usm_sharpen_fs.glsl                                  method=8 csize=      204 usize=      487 off=   986679
+  image_white_split_fs.glsl                                  method=8 csize=      904 usize=     4919 off=   986938
+  image_wrikle_split_fs.glsl                                 method=8 csize=      272 usize=      671 off=   987897
+  image_wrinkle_detail_fs.glsl                               method=8 csize=      363 usize=     1556 off=   988225
+  lip_curve_mask.jpg                                         method=8 csize=      382 usize=      400 off=   988646
+  loadconfig.json                                            method=0 csize=       19 usize=       19 off=   989076
+  lut/                                                       method=0 csize=        0 usize=        0 off=   989140
+  lut/classic.png                                            method=8 csize=   215899 usize=   241931 off=   989174
+  lut/filter1.png                                            method=0 csize=     2328 usize=     2328 off=  1205118
+  lut/filter13.png                                           method=0 csize=     8269 usize=     8269 off=  1207491
+  lut/filter18.png                                           method=0 csize=     7789 usize=     7789 off=  1215806
+  lut/filter2.png                                            method=0 csize=     5589 usize=     5589 off=  1223641
+  lut/filter29.png                                           method=0 csize=     6141 usize=     6141 off=  1229275
+  lut/filter3.png                                            method=0 csize=     6020 usize=     6020 off=  1235462
+  lut/filter40.png                                           method=0 csize=      232 usize=      232 off=  1241527
+  lut/filter41.png                                           method=0 csize=     6650 usize=     6650 off=  1241805
+  lut/filter42.png                                           method=0 csize=     6185 usize=     6185 off=  1248501
+  lut/filter43.png                                           method=0 csize=     6645 usize=     6645 off=  1254732
+  lut/filter44.png                                           method=0 csize=     6602 usize=     6602 off=  1261423
+  lut/filter45.png                                           method=0 csize=     5305 usize=     5305 off=  1268071
+  lut/filter_config.json                                     method=8 csize=      848 usize=     9351 off=  1273422
+  lut/japanese.png                                           method=8 csize=   187752 usize=   203138 off=  1274322
+  lut/jingdian.png                                           method=8 csize=    39567 usize=    48400 off=  1462120
+  lut/light_beauty.png                                       method=8 csize=    41931 usize=    49538 off=  1501733
+  lut/liti.png                                               method=8 csize=    88063 usize=    96625 off=  1543714
+  lut/luozhuang.png                                          method=8 csize=   193874 usize=   202327 off=  1631819
+  lut/mature.png                                             method=8 csize=   169245 usize=   185069 off=  1825740
+  lut/mitao1.png                                             method=8 csize=     7299 usize=     7821 off=  1995029
+  lut/mitao2.png                                             method=8 csize=     6612 usize=     7132 off=  2002372
+  lut/mitao3.png                                             method=8 csize=     7243 usize=     7771 off=  2009028
+  lut/mitao4.png                                             method=8 csize=     7743 usize=     9546 off=  2016315
+  lut/mitao5.png                                             method=8 csize=     8030 usize=     9876 off=  2024102
+  lut/mitao6.png                                             method=8 csize=     7914 usize=     9778 off=  2032176
+  lut/mitao7.png                                             method=8 csize=     7676 usize=     9529 off=  2040134
+  lut/mitao8.png                                             method=8 csize=     6846 usize=     8710 off=  2047854
+  lut/nailiangdelu1.png                                      method=0 csize=     5312 usize=     5312 off=  2054744
+  lut/nan.png                                                method=8 csize=   245268 usize=   253716 off=  2060107
+  lut/nature.png                                             method=8 csize=   234167 usize=   260183 off=  2305416
+  lut/niunai1.png                                            method=0 csize=     6075 usize=     6075 off=  2539627
+  lut/origin.png                                             method=8 csize=     9504 usize=    36374 off=  2545747
+  lut/oumei.png                                              method=8 csize=   271598 usize=   280057 off=  2555295
+  lut/qise.png                                               method=8 csize=   197935 usize=   199412 off=  2826936
+  lut/skin_black.png                                         method=8 csize=    49975 usize=    58374 off=  3024913
+  lut/skin_white.png                                         method=0 csize=   124795 usize=   124795 off=  3074936
+  lut/strong_beauty.png                                      method=8 csize=   187386 usize=   187525 off=  3199779
+  lut/teeth_white.png                                        method=8 csize=   112769 usize=   112979 off=  3387216
+  lut/texture.png                                            method=8 csize=   205421 usize=   230674 off=  3500034
+  lut/zhiganhui1.png                                         method=8 csize=    18579 usize=    35056 off=  3705500
+  lut/zhiganhui2.png                                         method=8 csize=    18558 usize=    35009 off=  3724127
+  lut/zhiganhui3.png                                         method=8 csize=    20557 usize=    37022 off=  3742733
+  lut/zhiganhui4.png                                         method=8 csize=    16129 usize=    32592 off=  3763338
+  lut/zhiganhui5.png                                         method=8 csize=    17483 usize=    33961 off=  3779515
+  lut/zhiganhui6.png                                         method=8 csize=    20405 usize=    36870 off=  3797046
+  lut/zhiganhui7.png                                         method=8 csize=    13913 usize=    15740 off=  3817499
+  lut/zhiganhui8.png                                         method=8 csize=    18499 usize=    34951 off=  3831460
+  lut/zhongxingbai_cold.png                                  method=0 csize=     5815 usize=     5815 off=  3850007
+  lut/zhongxingbai_warm.png                                  method=0 csize=     6740 usize=     6740 off=  3855877
+  lut/ziran02.png                                            method=8 csize=    22292 usize=    24285 off=  3862672
+  lut/ziran03.png                                            method=8 csize=    22030 usize=    24026 off=  3885009
+  lut/ziran04.png                                            method=8 csize=    21849 usize=    23836 off=  3907084
+  lut/ziran05.png                                            method=8 csize=    20323 usize=    22316 off=  3928978
+  lut/ziran06.png                                            method=8 csize=    19897 usize=    21905 off=  3949346
+  lut/ziran07.png                                            method=8 csize=    22715 usize=    24709 off=  3969288
+  lut/ziran1.png                                             method=8 csize=    18754 usize=    35529 off=  3992048
+  lut/ziran2.png                                             method=8 csize=    18205 usize=    20031 off=  4010846
+  lut/ziran8.png                                             method=8 csize=    18734 usize=    35217 off=  4029095
+  lut/ziranqingxin1.png                                      method=0 csize=      672 usize=      672 off=  4047873
+  metadata.json                                              method=8 csize=       88 usize=       92 off=  4048596
+  out.glsl                                                   method=0 csize=       80 usize=       80 off=  4048727
+  red_color.json                                             method=8 csize=      290 usize=     1750 off=  4048845
+  script.js                                                  method=8 csize=     3612 usize=    18044 off=  4049179
+  stroke/                                                    method=0 csize=        0 usize=        0 off=  4052830
+  stroke/fs.glsl                                             method=8 csize=      214 usize=      329 off=  4052867
+  stroke/overlay.fs.glsl                                     method=8 csize=      130 usize=      204 off=  4053125
+  stroke/script.js                                           method=8 csize=     2106 usize=     9802 off=  4053307
+  stroke/vs.glsl                                             method=8 csize=      136 usize=      198 off=  4055459
+  surfaceblur.fs.glsl                                        method=8 csize=      332 usize=      940 off=  4055639
+  surfaceblur.vs.glsl                                        method=8 csize=      263 usize=      535 off=  4056020
+  surfaceblur_merge.fs.glsl                                  method=8 csize=      274 usize=      613 off=  4056332
+  surfaceblur_merge.vs.glsl                                  method=8 csize=      141 usize=      199 off=  4056661
+  surfaceblur_mix_mask.glsl                                  method=8 csize=      804 usize=     2299 off=  4056857
+  surfaceblur_pre_enlighten.fs.glsl                          method=8 csize=      616 usize=     2187 off=  4057716
+  surfaceblur_pre_enlighten.vs.glsl                          method=8 csize=       94 usize=       98 off=  4058395
+  template_landmarks_uv.json                                 method=8 csize=     1896 usize=     9447 off=  4058552
+  threed_curve_mask.jpg                                      method=0 csize=      431 usize=      431 off=  4060504
+  tooth_whiten.glsl                                          method=8 csize=     1154 usize=     3514 off=  4060986
+  v1.glsl                                                    method=8 csize=      188 usize=      530 off=  4062187
+  v2.glsl                                                    method=0 csize=       83 usize=       83 off=  4062412
+  v3.glsl                                                    method=8 csize=      335 usize=     1150 off=  4062532
+  v4.glsl                                                    method=8 csize=      335 usize=     1150 off=  4062904
+  v5.glsl                                                    method=8 csize=      160 usize=      304 off=  4063276
+  v6.glsl                                                    method=0 csize=       83 usize=       83 off=  4063473
+  v_shader_mask.glsl                                         method=8 csize=      275 usize=      833 off=  4063593
+  v_shader_mask2.glsl                                        method=8 csize=       91 usize=       92 off=  4063916
+  CRC32 verified entries: 363 ok, 0 bad (3 skipped in encrypted prefix)
+
+image_beauty_facewarp.bundle: xor_key=0x69 file=340615B entries=80
+  browlocation.png                                           method=8 csize=    10155 usize=   164364 off=        0 ENCRYPTED-PREFIX
+  browspace.png                                              method=8 csize=    10941 usize=   164666 off=    10201
+  browspace_fu.png                                           method=8 csize=     9329 usize=   163363 off=    21185
+  cheekbone.png                                              method=8 csize=     3366 usize=     3926 off=    30560
+  cheekbone_ce.png                                           method=8 csize=     2919 usize=     3531 off=    33969
+  cheekbone_fu.png                                           method=8 csize=     2503 usize=     3044 off=    36934
+  cheekbone_h.png                                            method=8 csize=     2734 usize=     3307 off=    39483
+  chin_template.png                                          method=8 csize=     3314 usize=     3978 off=    42262
+  eye_rot.png                                                method=8 csize=     3290 usize=     3978 off=    45623
+  eye_space.png                                              method=8 csize=     2427 usize=     3110 off=    48954
+  eye_template.png                                           method=8 csize=     9032 usize=     9276 off=    51424
+  face_narrow.png                                            method=8 csize=     6520 usize=     7156 off=    60502
+  face_narrow_kuan.png                                       method=8 csize=     6367 usize=     7037 off=    67067
+  face_narrow_low.png                                        method=8 csize=     5318 usize=     6011 off=    73484
+  face_small4.png                                            method=8 csize=     5021 usize=     5660 off=    78851
+  face_thinning3.png                                         method=8 csize=     9973 usize=    10617 off=    83917
+  face_thinning3_high.png                                    method=8 csize=    12025 usize=    12555 off=    93938
+  face_thinning3_version1.png                                method=8 csize=     6475 usize=     7157 off=   106016
+  face_v.png                                                 method=8 csize=     9123 usize=     9753 off=   112548
+  face_v_high.png                                            method=8 csize=     8249 usize=     8869 off=   121711
+  face_warp.json                                             method=8 csize=    18394 usize=   111979 off=   130005
+  forehead.png                                               method=8 csize=     4378 usize=     4940 off=   148443
+  forehead_ce.png                                            method=8 csize=     4392 usize=     5052 off=   152863
+  forehead_high.png                                          method=8 csize=     2839 usize=     3422 off=   157300
+  hairtop_zf.png                                             method=8 csize=    50936 usize=   281249 off=   160186
+  hairtop_zz.png                                             method=8 csize=    49351 usize=   281090 off=   211166
+  image_brow_location_fs.glsl                                method=8 csize=      441 usize=     1241 off=   260561
+  image_brow_space_fs.glsl                                   method=8 csize=      412 usize=     1165 off=   261059
+  image_brow_warp_fs.glsl                                    method=8 csize=      332 usize=      828 off=   261525
+  image_cheekbone_warp_fs.glsl                               method=8 csize=      374 usize=     1071 off=   261910
+  image_chin_warp_fs.glsl                                    method=8 csize=      395 usize=     1162 off=   262342
+  image_choose_skin_for_warp_fs.glsl                         method=8 csize=      416 usize=     1625 off=   262790
+  image_eye_brown_fs.glsl                                    method=8 csize=     1758 usize=     7522 off=   263270
+  image_eye_rot_fs.glsl                                      method=8 csize=      363 usize=     1119 off=   265081
+  image_eye_space_fs.glsl                                    method=8 csize=      363 usize=     1119 off=   265495
+  image_eye_warp_fs.glsl                                     method=8 csize=      363 usize=     1119 off=   265911
+  image_face_narrow_fs.glsl                                  method=8 csize=      447 usize=     1367 off=   266326
+  image_face_small_fs.glsl                                   method=8 csize=      453 usize=     1378 off=   266828
+  image_face_thinning_fs.glsl                                method=8 csize=      447 usize=     1367 off=   267335
+  image_face_v_fs.glsl                                       method=8 csize=      447 usize=     1367 off=   267839
+  image_forehead_fs.glsl                                     method=8 csize=      812 usize=     3273 off=   268336
+  image_global_gaussian_for_white_fs.glsl                    method=8 csize=      356 usize=     1154 off=   269200
+  image_global_gaussian_for_white_vs.glsl                    method=8 csize=      222 usize=      486 off=   269625
+  image_lowerjaw_warp_fs.glsl                                method=8 csize=      391 usize=     1128 off=   269916
+  image_mask_fs.glsl                                         method=8 csize=      365 usize=      915 off=   270364
+  image_mask_fs_2.glsl                                       method=8 csize=      430 usize=     1354 off=   270777
+  image_mask_fs_2_hair.glsl                                  method=8 csize=      421 usize=     1321 off=   271257
+  image_mask_fs_3.glsl                                       method=8 csize=      444 usize=     1532 off=   271733
+  image_mouth_warp_fs.glsl                                   method=8 csize=      339 usize=      952 off=   272227
+  image_nosetip_warp_fs.glsl                                 method=8 csize=      379 usize=     1081 off=   272620
+  image_nose_long_fs.glsl                                    method=8 csize=      311 usize=      827 off=   273055
+  image_nose_thinning_debug_fs.glsl                          method=8 csize=      333 usize=      852 off=   273419
+  image_nose_thinning_fs.glsl                                method=8 csize=      327 usize=      860 off=   273815
+  image_plump_lip_fs.glsl                                    method=8 csize=      319 usize=      861 off=   274199
+  image_smile_fs.glsl                                        method=8 csize=      340 usize=      953 off=   274571
+  image_temple_warp_fs.glsl                                  method=8 csize=      316 usize=      861 off=   274960
+  landmarks_offset.json                                      method=8 csize=     1064 usize=    22446 off=   275331
+  lowerjaw.png                                               method=8 csize=     3287 usize=     3854 off=   276446
+  lowerjaw_ce.png                                            method=8 csize=     3187 usize=     3844 off=   279775
+  lowerjaw_ce_f.png                                          method=8 csize=     3335 usize=     3915 off=   283007
+  lowerjaw_ce_z.png                                          method=8 csize=     3746 usize=     4363 off=   286389
+  lowerjaw_fu.png                                            method=8 csize=     2913 usize=     3524 off=   290182
+  lowerjaw_h.png                                             method=8 csize=     3809 usize=     4361 off=   293140
+  meimao.png                                                 method=8 csize=     1020 usize=     1749 off=   296993
+  metadata.json                                              method=8 csize=       88 usize=       92 off=   298053
+  mouth_template_gs.png                                      method=8 csize=     1659 usize=     2309 off=   298184
+  nosetip.png                                                method=8 csize=     1285 usize=     1806 off=   299894
+  nosetip_ce.png                                             method=8 csize=     1281 usize=     1764 off=   301220
+  nosetip_f.png                                              method=8 csize=     1387 usize=     1922 off=   302545
+  nosetip_h.png                                              method=8 csize=     1180 usize=     1676 off=   303975
+  nosetip_r.png                                              method=8 csize=     1216 usize=     1713 off=   305198
+  nose_template.png                                          method=8 csize=     1179 usize=     1880 off=   306457
+  nose_thinning.png                                          method=8 csize=     1236 usize=     1921 off=   307683
+  plumplip.png                                               method=8 csize=     8387 usize=   162538 off=   308966
+  script.js                                                  method=8 csize=     3454 usize=    17257 off=   317395
+  smile.png                                                  method=8 csize=     2225 usize=     2888 off=   320888
+  temple.png                                                 method=8 csize=     2542 usize=     3106 off=   323152
+  temple_f.png                                               method=8 csize=     2546 usize=     3116 off=   325734
+  temple_fh.png                                              method=8 csize=     2030 usize=     2654 off=   328322
+  temple_h.png                                               method=8 csize=     1994 usize=     2595 off=   330395
+  CRC32 verified entries: 79 ok, 0 bad (1 skipped in encrypted prefix)
+
+image_editor_autocrop.bundle: xor_key=0x21 file=4769B entries=8
+  image_block_fs.glsl                                        method=8 csize=      141 usize=      291 off=        0 ENCRYPTED-PREFIX
+  image_block_model_vs.glsl                                  method=8 csize=      155 usize=      274 off=      190 ENCRYPTED-PREFIX
+  image_block_screen_fs.glsl                                 method=8 csize=      334 usize=      907 off=      400 ENCRYPTED-PREFIX
+  image_block_vs.glsl                                        method=8 csize=      133 usize=      190 off=      790 ENCRYPTED-PREFIX
+  image_fs.glsl                                              method=8 csize=      199 usize=      558 off=      972 ENCRYPTED-PREFIX
+  image_vs.glsl                                              method=8 csize=      101 usize=      125 off=     1214
+  metadata.json                                              method=8 csize=       88 usize=       92 off=     1358
+  script.js                                                  method=8 csize=     2318 usize=    12895 off=     1489
+  CRC32 verified entries: 3 ok, 0 bad (5 skipped in encrypted prefix)
+
+image_editor_enhance.bundle: xor_key=0x8a file=3994454B entries=67
+  black.jpg                                                  method=8 csize=      465 usize=      679 off=        0 ENCRYPTED-PREFIX
+  dehaze_clarity/                                            method=0 csize=        0 usize=        0 off=      504 ENCRYPTED-PREFIX
+  dehaze_clarity/image_box_blur_fs.glsl                      method=8 csize=      301 usize=      555 off=      549 ENCRYPTED-PREFIX
+  dehaze_clarity/image_covip_fs.glsl                         method=8 csize=      187 usize=      401 off=      917 ENCRYPTED-PREFIX
+  dehaze_clarity/image_darkchannel_1_fs.glsl                 method=8 csize=      204 usize=      413 off=     1168
+  dehaze_clarity/image_darkchannel_2_fs.glsl                 method=8 csize=      207 usize=      392 off=     1444
+  dehaze_clarity/image_dehaze_fs.glsl                        method=8 csize=      134 usize=      267 off=     1723
+  dehaze_clarity/image_guide_step1_fs.glsl                   method=8 csize=      187 usize=      582 off=     1922
+  dehaze_clarity/image_guide_step2_fs.glsl                   method=8 csize=      145 usize=      341 off=     2179
+  dehaze_clarity/image_minus_fs.glsl                         method=8 csize=      131 usize=      194 off=     2394
+  dehaze_clarity/image_min_fs.glsl                           method=8 csize=      297 usize=      890 off=     2589
+  dehaze_clarity/image_mulab_fs.glsl                         method=8 csize=      184 usize=      428 off=     2948
+  dehaze_clarity/image_mul_fs.glsl                           method=8 csize=      132 usize=      219 off=     3196
+  dehaze_clarity/image_mul_fs1.glsl                          method=8 csize=      111 usize=      135 off=     3390
+  dehaze_clarity/image_test_blur_fs.glsl                     method=8 csize=     1028 usize=     3625 off=     3564
+  dehaze_clarity/image_test_blur_merge_fs.glsl               method=8 csize=      121 usize=      157 off=     4660
+  dehaze_clarity/image_test_blur_vs.glsl                     method=8 csize=      228 usize=      469 off=     4855
+  denoise/                                                   method=0 csize=        0 usize=        0 off=     5151
+  denoise/image_denoise1_fs.glsl                             method=8 csize=      312 usize=      624 off=     5189
+  denoise/image_denoise2_fs.glsl                             method=8 csize=      325 usize=      673 off=     5561
+  image_block_fs.glsl                                        method=8 csize=      141 usize=      291 off=     5946
+  image_block_vs.glsl                                        method=8 csize=      133 usize=      190 off=     6136
+  image_color_fs.glsl                                        method=8 csize=      826 usize=     2464 off=     6318
+  image_curve_fs.glsl                                        method=8 csize=      159 usize=      442 off=     7193
+  image_dispers_fs.glsl                                      method=8 csize=     1265 usize=     4952 off=     7401
+  image_effect_fs.glsl                                       method=8 csize=     1701 usize=     7822 off=     8717
+  image_fs.glsl                                              method=8 csize=      199 usize=      558 off=    10468
+  image_gen_grain_fs.glsl                                    method=8 csize=      475 usize=     1040 off=    10710
+  image_gen_noise_fs.glsl                                    method=8 csize=      455 usize=     1050 off=    11238
+  image_global_enhance_fs.glsl                               method=8 csize=     1643 usize=     6697 off=    11746
+  image_global_gaussian_fs.glsl                              method=8 csize=      308 usize=      768 off=    13447
+  image_global_gaussian_vs.glsl                              method=8 csize=      207 usize=      354 off=    13814
+  image_hsl_fs.glsl                                          method=8 csize=     3154 usize=    21347 off=    14080
+  image_noise_fs.glsl                                        method=8 csize=      244 usize=      515 off=    17281
+  image_sharpen_fs.glsl                                      method=8 csize=      209 usize=      556 off=    17574
+  image_show_mask_fs.glsl                                    method=8 csize=      149 usize=      242 off=    17834
+  image_texture_fs.glsl                                      method=8 csize=     1096 usize=     3738 off=    18036
+  image_tintsplit_fs.glsl                                    method=8 csize=      919 usize=     5249 off=    19183
+  image_vs.glsl                                              method=8 csize=      101 usize=      125 off=    20155
+  light_perecption/                                          method=0 csize=        0 usize=        0 off=    20299
+  light_perecption/nlut.png                                  method=8 csize=     1750 usize=     3282 off=    20346
+  light_perecption/plut.png                                  method=8 csize=     1594 usize=     3320 off=    22151
+  local/                                                     method=0 csize=        0 usize=        0 off=    23800
+  local/image_circle_fs.glsl                                 method=8 csize=      311 usize=      677 off=    23836
+  local/image_color_local_fs.glsl                            method=8 csize=      337 usize=      771 off=    24203
+  local/image_line_fs.glsl                                   method=8 csize=      364 usize=      924 off=    24601
+  local/image_luminance_local_fs.glsl                        method=8 csize=      412 usize=      959 off=    25019
+  local/image_sobel_fs.glsl                                  method=8 csize=      313 usize=      558 off=    25496
+  metadata.json                                              method=8 csize=       88 usize=       92 off=    25864
+  noise.png                                                  method=0 csize=  3914038 usize=  3914038 off=    25995
+  script.js                                                  method=8 csize=     2316 usize=    12897 off=  3940072
+  stroke/                                                    method=0 csize=        0 usize=        0 off=  3942427
+  stroke/image_circle_stroke_fs.glsl                         method=8 csize=      155 usize=      230 off=  3942464
+  stroke/image_region_combine_fs.glsl                        method=8 csize=      173 usize=      333 off=  3942683
+  stroke/image_stroke_copy_fs.glsl                           method=8 csize=      170 usize=      348 off=  3942921
+  stroke/image_stroke_fs.glsl                                method=8 csize=      367 usize=      871 off=  3943153
+  stroke/image_stroke_inverse_for_ai_fs.glsl                 method=8 csize=      147 usize=      274 off=  3943577
+  stroke/image_stroke_inverse_fs.glsl                        method=8 csize=      109 usize=      128 off=  3943796
+  stroke/image_stroke_over_fs.glsl                           method=8 csize=      231 usize=      557 off=  3943970
+  stroke/image_stroke_over_only_fs.glsl                      method=8 csize=      313 usize=     1038 off=  3944263
+  stroke/image_stroke_test_for_ai_fs.glsl                    method=8 csize=      128 usize=      200 off=  3944643
+  stroke/image_stroke_undoredo_fs.glsl                       method=8 csize=      184 usize=      452 off=  3944840
+  stroke/image_stroke_vs.glsl                                method=8 csize=      143 usize=      272 off=  3945090
+  stroke/image_update_manual_mask_fs.glsl                    method=8 csize=      134 usize=      229 off=  3945290
+  white.jpg                                                  method=8 csize=      454 usize=      643 off=  3945493
+  white_black/                                               method=0 csize=        0 usize=        0 off=  3945986
+  white_black/white100.jpeg                                  method=8 csize=    40988 usize=    57642 off=  3946028
+  CRC32 verified entries: 63 ok, 0 bad (4 skipped in encrypted prefix)
+
+image_editor_idphoto.bundle: xor_key=0xca file=6111B entries=11
+  Id_photo/                                                  method=0 csize=        0 usize=        0 off=        0 ENCRYPTED-PREFIX
+  Id_photo/image_block_model_mask_fs.glsl                    method=8 csize=      555 usize=     1573 off=       39 ENCRYPTED-PREFIX
+  Id_photo/image_block_model_mask_vs.glsl                    method=8 csize=      172 usize=      351 off=      663 ENCRYPTED-PREFIX
+  Id_photo/image_tile_fs.glsl                                method=8 csize=      485 usize=     1342 off=      904 ENCRYPTED-PREFIX
+  Id_photo/image_tile_vs.glsl                                method=8 csize=      103 usize=      127 off=     1446
+  image_block_fs.glsl                                        method=8 csize=      141 usize=      291 off=     1606
+  image_block_vs.glsl                                        method=8 csize=      133 usize=      190 off=     1796
+  image_fs.glsl                                              method=8 csize=      199 usize=      558 off=     1978
+  image_vs.glsl                                              method=8 csize=      101 usize=      125 off=     2220
+  metadata.json                                              method=8 csize=       88 usize=       92 off=     2364
+  script.js                                                  method=8 csize=     2318 usize=    12895 off=     2495
+  CRC32 verified entries: 7 ok, 0 bad (4 skipped in encrypted prefix)
+
+image_editor_portrait.bundle: xor_key=0xa2 file=5532B entries=10
+  art_photo/                                                 method=0 csize=        0 usize=        0 off=        0 ENCRYPTED-PREFIX
+  art_photo/image_gray_blend_mask_fs.glsl                    method=8 csize=      401 usize=     1011 off=       40 ENCRYPTED-PREFIX
+  image_block_fs.glsl                                        method=8 csize=      141 usize=      291 off=      510 ENCRYPTED-PREFIX
+  image_block_vs.glsl                                        method=8 csize=      133 usize=      190 off=      700 ENCRYPTED-PREFIX
+  image_fs.glsl                                              method=8 csize=      199 usize=      558 off=      882 ENCRYPTED-PREFIX
+  image_global_gaussian_fs.glsl                              method=8 csize=      308 usize=      768 off=     1124
+  image_global_gaussian_vs.glsl                              method=8 csize=      207 usize=      354 off=     1491
+  image_vs.glsl                                              method=8 csize=      101 usize=      125 off=     1757
+  metadata.json                                              method=8 csize=       88 usize=       92 off=     1901
+  script.js                                                  method=8 csize=     2318 usize=    12895 off=     2032
+  CRC32 verified entries: 5 ok, 0 bad (5 skipped in encrypted prefix)
+
+image_editor_scenebeauty.bundle: xor_key=0xc8 file=174160B entries=38
+  image_block_fs.glsl                                        method=8 csize=      141 usize=      291 off=        0 ENCRYPTED-PREFIX
+  image_block_vs.glsl                                        method=8 csize=      133 usize=      190 off=      190 ENCRYPTED-PREFIX
+  image_fs.glsl                                              method=8 csize=      199 usize=      558 off=      372 ENCRYPTED-PREFIX
+  image_vs.glsl                                              method=8 csize=      101 usize=      125 off=      614 ENCRYPTED-PREFIX
+  metadata.json                                              method=8 csize=       88 usize=       92 off=      758 ENCRYPTED-PREFIX
+  scene_beautify/                                            method=0 csize=        0 usize=        0 off=      889 ENCRYPTED-PREFIX
+  scene_beautify/architecture.png                            method=8 csize=     6106 usize=     6331 off=      934 ENCRYPTED-PREFIX
+  scene_beautify/autumn_colors.png                           method=8 csize=     7237 usize=     7463 off=     7101
+  scene_beautify/beach.png                                   method=8 csize=     5679 usize=     5902 off=    14400
+  scene_beautify/blue_sky.png                                method=8 csize=     6079 usize=     6309 off=    20133
+  scene_beautify/buddha_statue_i.png                         method=8 csize=     3013 usize=     3276 off=    26269
+  scene_beautify/candlelight.png                             method=8 csize=     6144 usize=     6371 off=    29346
+  scene_beautify/car.png                                     method=8 csize=     5133 usize=     5365 off=    35550
+  scene_beautify/cat&dog.png                                 method=8 csize=     6244 usize=     6469 off=    40735
+  scene_beautify/city.png                                    method=8 csize=     5950 usize=     6180 off=    47035
+  scene_beautify/cloudy_day.png                              method=8 csize=     5729 usize=     5953 off=    53038
+  scene_beautify/common.png                                  method=8 csize=     5136 usize=     5366 off=    58826
+  scene_beautify/cow_i.png                                   method=8 csize=     3982 usize=     4226 off=    64017
+  scene_beautify/curry_i.png                                 method=8 csize=     5684 usize=     5912 off=    68053
+  scene_beautify/flowers.png                                 method=8 csize=     5994 usize=     6218 off=    73793
+  scene_beautify/food.png                                    method=8 csize=     6154 usize=     6380 off=    79843
+  scene_beautify/grassland.png                               method=8 csize=     5819 usize=     6052 off=    86050
+  scene_beautify/green_plants.png                            method=8 csize=     6118 usize=     6352 off=    91927
+  scene_beautify/image_scene_beautify_fs.glsl                method=8 csize=      386 usize=     1201 off=    98106
+  scene_beautify/jewelry_i.png                               method=8 csize=     2541 usize=     2796 off=    98565
+  scene_beautify/maple_leaf.png                              method=8 csize=     6945 usize=     7162 off=   101164
+  scene_beautify/motorcycle_i.png                            method=8 csize=     1845 usize=     2126 off=   108168
+  scene_beautify/night_view.png                              method=8 csize=     5782 usize=     6014 off=   110074
+  scene_beautify/partly_cloudy.png                           method=8 csize=     6484 usize=     6707 off=   115915
+  scene_beautify/people.png                                  method=8 csize=     6550 usize=     6781 off=   122461
+  scene_beautify/ppt.png                                     method=8 csize=     5538 usize=     5768 off=   129066
+  scene_beautify/scene_document.png                          method=8 csize=     5292 usize=     5533 off=   134656
+  scene_beautify/snow_scene.png                              method=8 csize=     5997 usize=     6224 off=   140011
+  scene_beautify/succulents.png                              method=8 csize=     6673 usize=     6899 off=   146067
+  scene_beautify/sumrise_sunset.png                          method=8 csize=     5116 usize=     5359 off=   152799
+  scene_beautify/temple_i.png                                method=8 csize=     3442 usize=     3689 off=   157978
+  scene_beautify/waterside.png                               method=8 csize=     6042 usize=     6272 off=   161477
+  script.js                                                  method=8 csize=     2318 usize=    12895 off=   167577
+  CRC32 verified entries: 31 ok, 0 bad (7 skipped in encrypted prefix)
+
+jingdian.bundle: xor_key=0x94 file=374406B entries=12
+  brow_mask_2.png                                            method=8 csize=    31358 usize=    33249 off=        0 ENCRYPTED-PREFIX
+  eye113_29.png                                              method=8 csize=    44178 usize=    48522 off=    31403
+  eye13_20.png                                               method=8 csize=    98278 usize=   104841 off=    75624
+  eye23_56.png                                               method=8 csize=    69160 usize=    73325 off=   173944
+  eye33_20.png                                               method=8 csize=    16268 usize=    17491 off=   243146
+  face_sh_2.png                                              method=8 csize=    11572 usize=    16064 off=   259456
+  face_yy.png                                                method=8 csize=    32687 usize=    36475 off=   271071
+  gg1.png                                                    method=8 csize=    33460 usize=    38421 off=   303799
+  makeup_config.json                                         method=8 csize=      460 usize=     2144 off=   337296
+  mask1.png                                                  method=8 csize=     7890 usize=     8831 off=   337804
+  mask2_15.png                                               method=8 csize=    26906 usize=    28773 off=   345733
+  script.js                                                  method=8 csize=      429 usize=     1116 off=   372681
+  CRC32 verified entries: 11 ok, 0 bad (1 skipped in encrypted prefix)
+
+jingfu.bundle: xor_key=0xe6 file=123080B entries=7
+  brow_mask.png                                              method=8 csize=    31358 usize=    33249 off=        0 ENCRYPTED-PREFIX
+  ggpgj.png                                                  method=8 csize=    28737 usize=    33875 off=    31401
+  makeup_config.json                                         method=8 csize=      315 usize=     1093 off=    60177
+  mask1.png                                                  method=8 csize=     7890 usize=     8831 off=    60540
+  mask2.png                                                  method=8 csize=    11246 usize=    12190 off=    68469
+  script.js                                                  method=8 csize=      429 usize=     1116 off=    79754
+  sh.png                                                     method=8 csize=    42045 usize=    46197 off=    80222
+  CRC32 verified entries: 6 ok, 0 bad (1 skipped in encrypted prefix)
+
+liti.bundle: xor_key=0x0d file=231584B entries=11
+  brow_mask_2.png                                            method=8 csize=    53591 usize=    56486 off=        0 ENCRYPTED-PREFIX
+  eye_jiemao_12.png                                          method=8 csize=    57039 usize=    61185 off=    53636
+  eye__4.png                                                 method=8 csize=    25948 usize=    29931 off=   110722
+  eye___2.png                                                method=8 csize=     4999 usize=     7257 off=   136710
+  face_yy.png                                                method=8 csize=    32687 usize=    36475 off=   141750
+  ltgg_3.png                                                 method=8 csize=    31331 usize=    35632 off=   174478
+  makeup_config.json                                         method=8 csize=      440 usize=     1990 off=   205849
+  mask1.png                                                  method=8 csize=     4394 usize=     5574 off=   206337
+  mask2.png                                                  method=8 csize=     5008 usize=     5912 off=   210770
+  script.js                                                  method=8 csize=      429 usize=     1116 off=   215817
+  wr_sh_yqj_2.png                                            method=8 csize=    14088 usize=    18495 off=   216285
+  CRC32 verified entries: 10 ok, 0 bad (1 skipped in encrypted prefix)
+
+nanshi.bundle: xor_key=0xc5 file=84719B entries=4
+  face_yy2_7.png                                             method=8 csize=    51986 usize=    57489 off=        0 ENCRYPTED-PREFIX
+  gg_nan.png                                                 method=8 csize=    31449 usize=    36729 off=    52030
+  makeup_config.json                                         method=8 csize=      175 usize=      471 off=    83519
+  script.js                                                  method=8 csize=      429 usize=     1116 off=    83742
+  CRC32 verified entries: 3 ok, 0 bad (1 skipped in encrypted prefix)
+
+oumei.bundle: xor_key=0x01 file=385035B entries=13
+  eye113_15.png                                              method=8 csize=    69787 usize=    73444 off=        0 ENCRYPTED-PREFIX
+  eye114_7.png                                               method=8 csize=    20954 usize=    25452 off=    69830
+  eye13_29.png                                               method=8 csize=    83534 usize=    91540 off=    90826
+  eye23_2.png                                                method=8 csize=    60209 usize=    63933 off=   174402
+  eye33_3.png                                                method=8 csize=    10714 usize=    12191 off=   234652
+  face_sh_3.png                                              method=8 csize=    19060 usize=    22335 off=   245407
+  face_yy_2.png                                              method=8 csize=    32687 usize=    36475 off=   264510
+  gg1_25.png                                                 method=8 csize=    33460 usize=    38421 off=   297240
+  makeup_config.json                                         method=8 csize=      484 usize=     2275 off=   330740
+  mask1.png                                                  method=8 csize=     4394 usize=     5574 off=   331272
+  mask2.png                                                  method=8 csize=     5008 usize=     5912 off=   335705
+  mm2_8.png                                                  method=8 csize=    42431 usize=    45386 off=   340752
+  script.js                                                  method=8 csize=      429 usize=     1116 off=   383222
+  CRC32 verified entries: 12 ok, 0 bad (1 skipped in encrypted prefix)
+
+wenrou.bundle: xor_key=0x9f file=196743B entries=9
+  brow_mask.png                                              method=8 csize=    35481 usize=    38568 off=        0 ENCRYPTED-PREFIX
+  eye_jiemao_11.png                                          method=8 csize=    50701 usize=    54869 off=    35524
+  eye__7.png                                                 method=8 csize=    56118 usize=    58303 off=    86272
+  makeup_config.json                                         method=8 csize=      448 usize=     1672 off=   142430
+  mask1.png                                                  method=8 csize=     4394 usize=     5574 off=   142926
+  mask2.png                                                  method=8 csize=     5008 usize=     5912 off=   147359
+  script.js                                                  method=8 csize=      429 usize=     1116 off=   152406
+  wrgg.png                                                   method=8 csize=    28697 usize=    33756 off=   152874
+  wr_sh_xpf_3.png                                            method=8 csize=    14113 usize=    18479 off=   181609
+  CRC32 verified entries: 8 ok, 0 bad (1 skipped in encrypted prefix)
+
+ai_beauty_type_processor.bundle: xor_key=0xb9 file=10299493B entries=20
+  config.json                                                method=8 csize=     3631 usize=    21835 off=        0 ENCRYPTED-PREFIX
+  dense_eb.tflite                                            method=8 csize=   400403 usize=   436824 off=     3672
+  dense_eye_iris.tflite                                      method=8 csize=   457264 usize=   504020 off=   404120
+  dense_iris.tflite                                          method=8 csize=   173796 usize=   200152 off=   861435
+  dense_mouth.tflite                                         method=8 csize=   410620 usize=   453380 off=  1035278
+  face_landmark_lite_210818_360.tflite                       method=8 csize=   444912 usize=   484264 off=  1445946
+  model_hair.tflite                                          method=8 csize=  2578445 usize=  2791684 off=  1890924
+  mouth_checker_14.tflite                                    method=8 csize=    28567 usize=    32332 off=  4469416
+  n-0.5_416_0.05_4aspect6.tflite                             method=8 csize=  1617355 usize=  1864936 off=  4498036
+  n-small_256_0.05_only_a5.tflite                            method=8 csize=    64877 usize=   101380 off=  6115451
+  retina_base_anchor_256_small.txt                           method=8 csize=       40 usize=      118 off=  6180389
+  retina_base_anchor_416.txt                                 method=8 csize=       79 usize=      248 off=  6180491
+  s1_112_98.tflite                                           method=8 csize=  1941404 usize=  2106152 off=  6180626
+  s2.tflite                                                  method=8 csize=   540258 usize=   594960 off=  8122076
+  s3.tflite                                                  method=8 csize=   855260 usize=   987788 off=  8662373
+  tex_coords.bin                                             method=8 csize=    13167 usize=    19644 off=  9517672
+  triangles.bin                                              method=8 csize=    18313 usize=    53212 off=  9530883
+  triangles_bind.bin                                         method=8 csize=    18284 usize=    53212 off=  9549239
+  v3_contour_lines.bin                                       method=8 csize=     1304 usize=     2884 off=  9567571
+  v3_db.bin                                                  method=8 csize=   729094 usize=   869110 off=  9568925
+  CRC32 verified entries: 19 ok, 0 bad (1 skipped in encrypted prefix)
+
+ai_face_attribute_processor.bundle: xor_key=0xf0 file=1912131B entries=2
+  age_gender160_0422.tflite                                  method=8 csize=  1910800 usize=  2084496 off=        0 ENCRYPTED-PREFIX
+  config.json                                                method=8 csize=      977 usize=     3982 off=  1910855
+  CRC32 verified entries: 1 ok, 0 bad (1 skipped in encrypted prefix)
+
+ai_face_beauty_processor.bundle: xor_key=0x4a file=21870544B entries=14
+  acne_mole_acnenet_1206_3x24x24_quat.tflite                 method=8 csize=   127084 usize=   190824 off=        0 ENCRYPTED-PREFIX
+  config.json                                                method=8 csize=     4073 usize=    17992 off=   127156
+  face_mask_del_spot_protect_mask_0815A.data                 method=8 csize=    88833 usize=   518412 off=   131270
+  face_mask_mapper_face_mask.json                            method=8 csize=     2363 usize=     7721 off=   220175
+  face_mask_mapper_skin_mask.data                            method=8 csize=    88833 usize=   518412 off=   222599
+  Fprs.0003.Exp007e33_quan1_sm.tflite                        method=8 csize=   550167 usize=  1196952 off=   311493
+  FprsTeeth.0001.Exp002pe99_quan1_sm.tflite                  method=8 csize=   198632 usize=   598456 off=   861725
+  hair_1209a_acnenet_crop0.1pos0.1_3x24x24_quat.tflite       method=8 csize=    91586 usize=   117360 off=  1060428
+  highlight_1209a_acnenet_crop0.2pos0.1_3x24x24_quat.tflite  method=8 csize=    93982 usize=   116640 off=  1152096
+  lines_1209a_acnenet_crop0.1pos0.1_3x24x24_quat.tflite      method=8 csize=    81512 usize=   117360 off=  1246165
+  mobile_spade_256_ch16_from16_40000_ft16_ftsave_yunfu.tflite method=8 csize=  9256289 usize=  9968196 off=  1327760
+  mobile_spade_256_ch16_from16_ftsevere_lr0.0001_117_16001.tflite method=8 csize=  9282064 usize=  9968400 off= 10584138
+  mole_seg_24x24x3_1206_quat.tflite                          method=8 csize=   124907 usize=   144408 off= 19866295
+  skin_model_expand_supply_pta18000_quant_resizetrain_seg153.tflite method=8 csize=  1877795 usize=  2433488 off= 19991265
+  CRC32 verified entries: 13 ok, 0 bad (1 skipped in encrypted prefix)
+
+ai_face_bindi_seg_processor.bundle: xor_key=0xe9 file=512057B entries=2
+  bindi_seg_tiny_2024_0924.tflite                            method=8 csize=   510784 usize=   601624 off=        0 ENCRYPTED-PREFIX
+  config.json                                                method=8 csize=      907 usize=     4577 off=   510845
+  CRC32 verified entries: 1 ok, 0 bad (1 skipped in encrypted prefix)
+
+ai_face_processor_detect_landmark.bundle: xor_key=0x00 file=6450804B entries=13
+  config.json                                                method=8 csize=     2586 usize=    16918 off=        0 ENCRYPTED-PREFIX
+  facecheck40_dense_2000000_regress.tflite                   method=8 csize=   143628 usize=   155144 off=     2627
+  face_landmark_mb360_64.tflite                              method=8 csize=   311280 usize=   346788 off=   146325
+  Fpe.0007.Exp101.ERefine3e70_refine1.tflite                 method=8 csize=  1306041 usize=  1473180 off=   457664
+  Fpe.0007.Exp101.ERefine3e70_refine2.tflite                 method=8 csize=   960313 usize=  1100456 off=  1763777
+  Fpe.0007.Exp101.ERefine3e70_refine3.tflite                 method=8 csize=   812945 usize=   948808 off=  2724162
+  Fpe.0007.Exp101.XScore.s76e150_base.tflite                 method=8 csize=   611504 usize=   735956 off=  3537179
+  head.tflite                                                method=8 csize=     7075 usize=     7804 off=  4148755
+  n-0.5_416_0.05_4aspect6.tflite                             method=8 csize=  1617355 usize=  1864936 off=  4155871
+  n-small_256_0.05_only_a5.tflite                            method=8 csize=    64877 usize=   101380 off=  5773286
+  retina_base_anchor_256_small.txt                           method=8 csize=       40 usize=      118 off=  5838224
+  retina_base_anchor_416.txt                                 method=8 csize=       79 usize=      248 off=  5838326
+  s1.tflite                                                  method=8 csize=   611189 usize=   672836 off=  5838461
+  CRC32 verified entries: 12 ok, 0 bad (1 skipped in encrypted prefix)
+
+ai_human_processor_beautybody_mb.bundle: xor_key=0xd5 file=6244199B entries=5
+  Bdycntr.0406.Exp387c.x3e210_quan1.tflite                   method=8 csize=  3209851 usize=  4387368 off=        0 ENCRYPTED-PREFIX
+  config.json                                                method=8 csize=     1003 usize=     4320 off=  3209921
+  FULLBODY_POFH2D_20210302_0001_e1604_q.tflite               method=8 csize=   974609 usize=  1268024 off=  3210965
+  human_detector_retinanet_mobilenetv2_1.0_quant.tflite      method=8 csize=  2057276 usize=  2674640 off=  4185648
+  retinanet_base_anchor_beautybody.txt                       method=8 csize=      582 usize=     1955 off=  6243007
+  CRC32 verified entries: 4 ok, 0 bad (1 skipped in encrypted prefix)
+
+ai_photo_editing_processor_scene_recog.bundle: xor_key=0xb3 file=10741303B entries=2
+  config.json                                                method=8 csize=      571 usize=     2426 off=        0 ENCRYPTED-PREFIX
+  MOBILEONE_S2_SIZE384_EXP30_DATA7.0.0_FP16.tflite           method=8 csize= 10740332 usize= 11673944 off=      612 ENCRYPTED-PREFIX
+  CRC32 verified entries: 0 ok, 0 bad (2 skipped in encrypted prefix)

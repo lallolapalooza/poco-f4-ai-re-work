@@ -1,0 +1,145 @@
+# Numerical verification - 2026-10-24T04:26:47Z
+
+## tflite2jax vs ai_edge_litert (random + derived inputs)
+$ python tools/verify_tflite_jax.py models/0.3_new_0410_less.tflite --out /tmp/mtb_verify
+0.3_new_0410_less.tflite  subgraph=0 signature=serving_default  PASS
+  output   shape   dtype    max_abs  tol       result
+  dense_1  (1, 2)  FLOAT32  0        1.00e-04  PASS
+  1 output(s), max_abs=0, status=pass
+summary: 1 model(s), 0 failed, 0 error(s), 0 skipped
+exit=0
+
+$ python tools/verify_tflite_jax.py ... --inputs inputs_strong.npz
+0.3_new_0410_less.tflite  subgraph=0 signature=serving_default  PASS
+  output   shape   dtype    max_abs   tol       result
+  dense_1  (1, 2)  FLOAT32  7.39e-13  1.00e-04  PASS
+  1 output(s), max_abs=7.39e-13, status=pass
+summary: 1 model(s), 0 failed, 0 error(s), 0 skipped
+exit=0
+
+$ python tools/verify_tflite_jax.py ... --inputs inputs_degrading.npz
+0.3_new_0410_less.tflite  subgraph=0 signature=serving_default  PASS
+  output   shape   dtype    max_abs   tol       result
+  dense_1  (1, 2)  FLOAT32  1.49e-08  1.00e-04  PASS
+  1 output(s), max_abs=1.49e-08, status=pass
+summary: 1 model(s), 0 failed, 0 error(s), 0 skipped
+exit=0
+
+$ python tools/verify_tflite_jax.py ... --inputs inputs_weak.npz
+0.3_new_0410_less.tflite  subgraph=0 signature=serving_default  PASS
+  output   shape   dtype    max_abs   tol       result
+  dense_1  (1, 2)  FLOAT32  8.73e-09  1.00e-04  PASS
+  1 output(s), max_abs=8.73e-09, status=pass
+summary: 1 model(s), 0 failed, 0 error(s), 0 skipped
+exit=0
+
+$ python tools/verify_tflite_jax.py ... --inputs inputs_improving.npz
+0.3_new_0410_less.tflite  subgraph=0 signature=serving_default  PASS
+  output   shape   dtype    max_abs   tol       result
+  dense_1  (1, 2)  FLOAT32  3.01e-09  1.00e-04  PASS
+  1 output(s), max_abs=3.01e-09, status=pass
+summary: 1 model(s), 0 failed, 0 error(s), 0 skipped
+exit=0
+
+$ python tools/verify_tflite_jax.py ... --inputs inputs_zeros.npz
+0.3_new_0410_less.tflite  subgraph=0 signature=serving_default  PASS
+  output   shape   dtype    max_abs  tol       result
+  dense_1  (1, 2)  FLOAT32  0        1.00e-04  PASS
+  1 output(s), max_abs=0, status=pass
+summary: 1 model(s), 0 failed, 0 error(s), 0 skipped
+exit=0
+
+$ python tools/verify_tflite_jax.py ... --inputs inputs_flat_weak.npz
+0.3_new_0410_less.tflite  subgraph=0 signature=serving_default  PASS
+  output   shape   dtype    max_abs   tol       result
+  dense_1  (1, 2)  FLOAT32  2.74e-09  1.00e-04  PASS
+  1 output(s), max_abs=2.74e-09, status=pass
+summary: 1 model(s), 0 failed, 0 error(s), 0 skipped
+exit=0
+
+## 58-case comparison + Java preprocessing self-check
+$ python reimpl/verify_derived.py
+preprocess self-check: medianFilter(w=5) edge/even/duplicate semantics OK
+
+An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+case                         shape             max_abs                    jax                 litert class
+zeros                        (1, 400, 1)     0.000e+00 [0.00000000,1.00000000] [0.00000000,1.00000000] STRONG 
+random_uniform               (1, 400, 1)     0.000e+00 [0.00000000,1.00000000] [0.00000000,1.00000000] STRONG 
+random_normal                (1, 400, 1)     1.679e-40 [0.00000000,1.00000000] [0.00000000,1.00000000] STRONG 
+constant_weak_dB             (1, 400, 1)     6.985e-10 [0.99950027,0.00049976] [0.99950027,0.00049976] WEAK 
+strong_series_seed0          (1, 400, 1)     1.450e-12 [0.00000038,0.99999964] [0.00000038,0.99999964] STRONG 
+degrading_series_seed0       (1, 400, 1)     1.132e-06 [0.84993088,0.15006906] [0.84992975,0.15007018] WEAK 
+weak_series_seed0            (1, 400, 1)     3.248e-08 [0.99845088,0.00154906] [0.99845088,0.00154909] WEAK 
+improving_series_seed0       (1, 400, 1)     4.802e-10 [0.00016589,0.99983406] [0.00016589,0.99983406] STRONG 
+series_seed0                 (1, 400, 1)     1.450e-12 [0.00000038,0.99999964] [0.00000038,0.99999964] STRONG 
+series_seed1                 (1, 400, 1)     7.749e-07 [0.85018259,0.14981742] [0.85018182,0.14981815] WEAK 
+series_seed2                 (1, 400, 1)     1.788e-07 [0.95240378,0.04759623] [0.95240360,0.04759641] WEAK 
+series_seed3                 (1, 400, 1)     2.095e-09 [0.00015651,0.99984348] [0.00015651,0.99984348] STRONG 
+series_seed4                 (1, 400, 1)     2.956e-12 [0.00000061,0.99999940] [0.00000061,0.99999940] STRONG 
+series_seed5                 (1, 400, 1)     5.960e-07 [0.88949883,0.11050115] [0.88949823,0.11050173] WEAK 
+series_seed6                 (1, 400, 1)     4.948e-09 [0.99925238,0.00074765] [0.99925238,0.00074765] WEAK 
+series_seed7                 (1, 400, 1)     2.765e-10 [0.00015356,0.99984646] [0.00015356,0.99984646] STRONG 
+series_seed8                 (1, 400, 1)     3.268e-12 [0.00000043,0.99999952] [0.00000043,0.99999952] STRONG 
+series_seed9                 (1, 400, 1)     5.960e-08 [0.82263350,0.17736650] [0.82263345,0.17736655] WEAK 
+series_seed10                (1, 400, 1)     1.187e-08 [0.99881351,0.00118652] [0.99881351,0.00118650] WEAK 
+series_seed11                (1, 400, 1)     2.925e-09 [0.00009916,0.99990082] [0.00009916,0.99990082] STRONG 
+series_seed12                (1, 400, 1)     1.819e-11 [0.00000268,0.99999738] [0.00000268,0.99999738] STRONG 
+series_seed13                (1, 400, 1)     1.043e-07 [0.81940413,0.18059590] [0.81940418,0.18059580] WEAK 
+series_seed14                (1, 400, 1)     3.376e-09 [0.99854290,0.00145712] [0.99854290,0.00145712] WEAK 
+series_seed15                (1, 400, 1)     2.285e-09 [0.00023978,0.99976021] [0.00023977,0.99976021] STRONG 
+series_seed16                (1, 400, 1)     8.367e-11 [0.00001088,0.99998915] [0.00001088,0.99998915] STRONG 
+series_seed17                (1, 400, 1)     1.416e-06 [0.87033689,0.12966308] [0.87033552,0.12966450] WEAK 
+series_seed18                (1, 400, 1)     6.519e-08 [0.99372947,0.00627055] [0.99372947,0.00627049] WEAK 
+series_seed19                (1, 400, 1)     3.929e-09 [0.00027372,0.99972624] [0.00027372,0.99972624] STRONG 
+series_seed20                (1, 400, 1)     4.593e-11 [0.00000370,0.99999630] [0.00000370,0.99999630] STRONG 
+series_seed21                (1, 400, 1)     4.768e-07 [0.86324871,0.13675132] [0.86324823,0.13675170] WEAK 
+series_seed22                (1, 400, 1)     5.355e-09 [0.99631602,0.00368401] [0.99631602,0.00368402] WEAK 
+series_seed23                (1, 400, 1)     4.293e-09 [0.00020370,0.99979633] [0.00020371,0.99979633] STRONG 
+series_seed24                (1, 400, 1)     4.547e-13 [0.00000054,0.99999940] [0.00000054,0.99999940] STRONG 
+series_seed25                (1, 400, 1)     6.557e-07 [0.88127583,0.11872417] [0.88127649,0.11872357] WEAK 
+series_seed26                (1, 400, 1)     6.519e-08 [0.98472810,0.01527190] [0.98472810,0.01527196] WEAK 
+series_seed27                (1, 400, 1)     1.106e-09 [0.00028446,0.99971551] [0.00028446,0.99971551] STRONG 
+series_seed28                (1, 400, 1)     4.476e-13 [0.00000008,0.99999988] [0.00000008,0.99999988] STRONG 
+series_seed29                (1, 400, 1)     1.863e-07 [0.89057046,0.10942955] [0.89057064,0.10942937] WEAK 
+series_seed30                (1, 400, 1)     5.588e-09 [0.98836005,0.01163992] [0.98836005,0.01163991] WEAK 
+series_seed31                (1, 400, 1)     7.858e-10 [0.00028292,0.99971706] [0.00028292,0.99971706] STRONG 
+series_seed32                (1, 400, 1)     3.951e-12 [0.00000041,0.99999964] [0.00000041,0.99999964] STRONG 
+series_seed33                (1, 400, 1)     1.639e-07 [0.86401743,0.13598251] [0.86401737,0.13598268] WEAK 
+series_seed34                (1, 400, 1)     1.192e-07 [0.98838288,0.01161708] [0.98838300,0.01161700] WEAK 
+series_seed35                (1, 400, 1)     1.033e-09 [0.00009097,0.99990904] [0.00009097,0.99990904] STRONG 
+series_seed36                (1, 400, 1)     1.546e-11 [0.00000201,0.99999797] [0.00000201,0.99999797] STRONG 
+series_seed37                (1, 400, 1)     7.749e-07 [0.85201263,0.14798740] [0.85201335,0.14798662] WEAK 
+series_seed38                (1, 400, 1)     3.260e-07 [0.98180652,0.01819343] [0.98180628,0.01819376] WEAK 
+series_seed39                (1, 400, 1)     7.676e-10 [0.00004048,0.99995947] [0.00004048,0.99995947] STRONG 
+series_seed40                (1, 400, 1)     1.528e-13 [0.00000002,1.00000000] [0.00000002,1.00000000] STRONG 
+series_seed41                (1, 400, 1)     8.345e-07 [0.81066543,0.18933457] [0.81066459,0.18933541] WEAK 
+series_seed42                (1, 400, 1)     2.934e-08 [0.99559844,0.00440152] [0.99559844,0.00440155] WEAK 
+series_seed43                (1, 400, 1)     4.584e-10 [0.00011910,0.99988091] [0.00011910,0.99988091] STRONG 
+series_seed44                (1, 400, 1)     1.322e-12 [0.00000023,0.99999976] [0.00000023,0.99999976] STRONG 
+series_seed45                (1, 400, 1)     1.937e-07 [0.83392549,0.16607454] [0.83392531,0.16607474] WEAK 
+series_seed46                (1, 400, 1)     2.142e-08 [0.99435061,0.00564947] [0.99435061,0.00564945] WEAK 
+series_seed47                (1, 400, 1)     1.863e-09 [0.00019455,0.99980551] [0.00019456,0.99980551] STRONG 
+series_seed48                (1, 400, 1)     2.359e-12 [0.00000041,0.99999964] [0.00000041,0.99999964] STRONG 
+series_seed49                (1, 400, 1)     4.768e-07 [0.86152244,0.13847749] [0.86152291,0.13847713] WEAK 
+
+cases=58 worst_max_abs=1.416e-06 tol=1.0e-04 failures=0
+exit=0
+
+## End-to-end pipeline
+$ python reimpl/pipeline.py
+backend: jax
+An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+strong     series(100, 4) -> input(1, 400, 1) float32 -> probs=[0.000000, 1.000000] -> STRONG (p_weak=0.000000)
+degrading  series(100, 4) -> input(1, 400, 1) float32 -> probs=[0.849930, 0.150070] -> WEAK (p_weak=0.849930)
+weak       series(100, 4) -> input(1, 400, 1) float32 -> probs=[0.998451, 0.001549] -> WEAK (p_weak=0.998451)
+improving  series(100, 4) -> input(1, 400, 1) float32 -> probs=[0.000166, 0.999834] -> STRONG (p_weak=0.000166)
+exit=0
+$ python reimpl/pipeline.py --reference
+backend: ai_edge_litert
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+strong     series(100, 4) -> input(1, 400, 1) float32 -> probs=[0.000000, 1.000000] -> STRONG (p_weak=0.000000)
+degrading  series(100, 4) -> input(1, 400, 1) float32 -> probs=[0.849931, 0.150069] -> WEAK (p_weak=0.849931)
+weak       series(100, 4) -> input(1, 400, 1) float32 -> probs=[0.998451, 0.001549] -> WEAK (p_weak=0.998451)
+improving  series(100, 4) -> input(1, 400, 1) float32 -> probs=[0.000166, 0.999834] -> STRONG (p_weak=0.000166)
+exit=0

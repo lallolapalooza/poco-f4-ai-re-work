@@ -1,0 +1,4 @@
+head.tflite  subgraph=0 signature=None  PASS
+  output    shape    dtype    max_abs   tol       result
+  Identity  (1, 14)  FLOAT32  2.09e-07  1.00e-04  PASS
+  1 output(s), max_abs=2.09e-07, status=pass

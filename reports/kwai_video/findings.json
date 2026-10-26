@@ -1,0 +1,545 @@
+{
+  "slug": "kwai_video",
+  "package": "com.kwai.video",
+  "app_name": "Kwai",
+  "ai_summary": "Kwai runs its own YCNN inference engine (libykit.so, 3103 exported symbols, 1228 ycnn::/ycnn_net::) for face detect/landmarks/matting/segmentation/scene-class/saliency, feeding a GL renderer (libFaceMagic + libskwai + libgorgeous + libwesteros) that performs AR effects and a fully shader-defined beauty chain (skin smoothing, Hald 3D-LUT, luma unsharp mask). A separate analyzer (libvisionengine.so, KVE) drives smart edit/auto-cut via scene-change, motion, quality and highlight DAGs. TensorFlow Lite 2.4.1 is bundled but used only by libykit_module.so (generative AI edit, .fbm models) and the audio library. The APK ships ZERO model files: all networks are downloaded as Kuaishou resource packs (model_matting_v1, effects_like_motion, voice_detect_mode, /rest/o/production/ycnn/models) into app-private dirs (e.g. /Ycnn/modelA, /.magic_model/magic_model) and passed to native code as filesystem paths.",
+  "features": [
+    {
+      "name": "Camera face detection + landmarks",
+      "entrypoints": [
+        "com.kwai.camerasdk.face.FaceDetectorContext (libfacedetectcontext.so, 26 JNI)",
+        "Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeInit",
+        "Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeDetectFacesFromFrame",
+        "kuaishou::face::YcnnFaceDetector (symbol in libfacedetectcontext.so)",
+        "com.kwai.kscnnrenderlib.KSJNILib.renderModel / updateModelOut (libykit.so)"
+      ],
+      "pipeline": [
+        "VideoFrame NV21 from libwesteros capture pipeline",
+        "FaceDetectorContext.nativeInit -> BaseFaceDetector::Init(modelPath, mode)",
+        "YCNNModelIn{data_0=NV21, width, height, colorType=3, faces=[crop rects]}",
+        "ycnn::YCNNCropDataMatrix (color convert/crop/scale) -> ycnn_net NEON fp16 / OpenCL / MTK APU",
+        "ycnn::YCNNModel::getLandmarks -> KSFaceDetectOut{faces[]: rect, confidence, yaw/pitch/roll, pos[K](x,y,z,valid)}",
+        "callbacks to Westeros plugins (salient / general-recog / face-attribute)"
+      ],
+      "models": [
+        "KSModelDetector (YCNNModelDetector=21)",
+        "KSModelLandmark01..15 (YCNNModelLandmarks=5)"
+      ],
+      "confidence": "confirmed",
+      "notes": "Weights are downloaded; FaceDetectorContext.ModelMissingListener.onModelMissing(int,String) exists precisely for the absent-model case. Network input resolution and landmark count come from the .model header (net_w/net_h) and are NOT recoverable from the APK."
+    },
+    {
+      "name": "Beauty / skin smoothing + LUT grading",
+      "entrypoints": [
+        "libgorgeous.so GSBeautifyGT / GSBeautifyG2 (gorgeous::gsCreateBeautifyEffect)",
+        "libFaceMagic.so FMBeautifyG3Effect / FMBeautifyG3seEffect (JNI, 1802 FaceMagic exports)",
+        "WesterosWrapper / EditorSdk2$WesterosBeautyFilterParam"
+      ],
+      "pipeline": [
+        "YUV -> RGB (GLSL yuv2rgb, BT.601/709/2020 coefficient sets)",
+        "pass-1 fragment shader: 5-tap mean (sum*0.2) + high-frequency energy diff=min(((i-mean)*7)^2,1), alpha=(r+g+b)*0.33",
+        "pass-2: 3x3 box blur (sum*0.1111) of mean and variance",
+        "beautify shader: kMin=(1-meanVar/(meanVar+0.1))*clamp((min(in.r,blur.a)-0.2)*4,0,1)*blurAlpha[*skinMask]; out=mix(in,blur.rgb,kMin)",
+        "Hald 3D-LUT lookup() (8x8 tiles, 512x512, 64 blue levels)",
+        "sharpen(): luma unsharp high=(Yori-Ylow)*(1-base.x^2)*sharpness added back in YUV",
+        "alpha mix back over input"
+      ],
+      "models": [
+        "assets/default_enhance_lut.png (64x64 RGBA8 Hald CLUT, 8x8x8)"
+      ],
+      "confidence": "confirmed",
+      "notes": "All GLSL is plain rodata in libgorgeous.so (offsets 0x12f75d, 0x12fc3d, 0x1312c8, 0x1319be, 0x12fef8 plus the spliced lookUp/sharpen strings). Fully reimplemented in JAX."
+    },
+    {
+      "name": "AR effects / virtual face (stickers, makeup, 3D mesh)",
+      "entrypoints": [
+        "com.kwai.FaceMagic.AE2.* and com.kwai.FaceMagic.nativePort.* (libFaceMagic.so)",
+        "SKwai::VirtualFaceProcessor (libskwai.so)",
+        "com.kwai.video.westeros.* (libwesteros.so, 43 JNI)"
+      ],
+      "pipeline": [
+        "effect pack (index file + assetsDir) from westeros resource manager",
+        "FM.EffectHandler.updateLandmarks3DData / updateSegmentation / updateHairDirData",
+        "Gorgeous makeup (FMGorgeousMakeup), 3D effects (FM3DEffect), bokeh depth (FMBokehDepthEffect), white skin (FMWhiteSKinEffect), hair dyeing/softening",
+        "SKwai GL/Lua scene graph renders result texture"
+      ],
+      "models": [
+        "magic_ycnn_model_* YCNN models referenced through AE2WesterosWrapperCreator$Resource.ycnnModelPath(Map)",
+        "mmuModelPath / dirtyLensProcessorModelPath / face3dResPath (downloaded)"
+      ],
+      "confidence": "confirmed",
+      "notes": "Renderer consumes landmarks/masks from YCNN; no NN inside libskwai.so (0 JNI, pure C++ API) or libFaceMagic.so."
+    },
+    {
+      "name": "Smart edit / auto-cut (KVE analysis)",
+      "entrypoints": [
+        "com.kwai.kve.SmartEditTask.createSmartEditTask (libvisionengine.so, 95 JNI)",
+        "com.kwai.kve.SmartCoverTask.createHighlightAnalyzer",
+        "com.kwai.kve.SmartGalleryTask"
+      ],
+      "pipeline": [
+        "MakeBasicDag / MakeAnalyzingDag",
+        "scene_change_analysis_dag_, motion_analysis_dag, face_score_dag, face_laplacian_dag, focus_center_dag, homo_proc_dag, complexity_dag_",
+        "image_quality_evaluation -> image_quality_score; compute_face_scores",
+        "BatchFindHighlight / FindVideoHighlightFrame -> highlight_clip JSON",
+        "AssetDurationRefiner + cover selection"
+      ],
+      "models": [],
+      "confidence": "inferred",
+      "notes": "No TfLite imports and no ycnn strings in libvisionengine.so; the DAGs appear to be hand-crafted CV metrics plus scene labels supplied from the YcnnPlugin general-recog stream. Scene classification itself is a YCNN model (KSModelGeneralRecog01 / YCNNModelSceneClass=7)."
+    },
+    {
+      "name": "Generative AI edit (segmentation-driven)",
+      "entrypoints": [
+        "com.kwai.aieditlib.AIEditJNILib.* (libykit_module.so, 11 JNI)",
+        "libfaceless-plugin.so AIEditProvider (aiedit.pb / face_magic.pb)"
+      ],
+      "pipeline": [
+        "aiedit.pbs.AIEditParamGan{model_path, model_dir, gan_model_path, landmark_model_path}",
+        "AIEdit_*_0x.fbm models -> TFLite 2.4.1 interpreter (libtensorflow-lite.so)",
+        "renderModel / renderModelPost GL post-process"
+      ],
+      "models": [
+        "AIEdit_FaceSeg_01..04.fbm",
+        "AIEdit_HairSeg_02..09.fbm",
+        "external .tflite via tflite_from_filepath / tflite_from_datastore"
+      ],
+      "confidence": "confirmed",
+      "notes": "Only consumer of libtensorflow-lite.so besides libksaudioprocesslib-dl.so; no .fbm/.tflite payload in the APK."
+    },
+    {
+      "name": "Upload bitrate estimation",
+      "entrypoints": [
+        "com.kwai.kve.SmartUploadAnalyzer.openWithModelTypeNative (libvisionengine.so)"
+      ],
+      "pipeline": [
+        "kveOpenCape -> BitrateModel / SmartUploadBitrateModel",
+        "getHardEncBitrate / getSoftEncEstBitrate / getSoftEncMaxBitrate"
+      ],
+      "models": [],
+      "confidence": "confirmed",
+      "notes": "Called a 'model' in the API but it is a bitrate predictor, not a neural network (no TFLite/YCNN linkage)."
+    }
+  ],
+  "models": [
+    {
+      "path": "(not present in APK) KSModelDetector.model / KSModelLandmark01..15.model",
+      "format": "YCNN v3/v4 container (binary or JSON; keys net_w/net_h; NEON-fp16/OpenCL/MTK-APU kernels)",
+      "size": 0,
+      "io": {
+        "input": "YCNNModelIn{data_0: byte[] NV21/NV12/grey, width:int, height:int, colorType:int=3, rotate:int, flipHor:int, faces: LinkedList<KSRectf>, normOut/normRotate/normFlipHor/normFlipVer:int, frame_time:long}",
+        "output": "KSFaceDetectOut{faces: KSFaceInfo{index:long, left,top,width,height,confidence,yaw,pitch,roll: float, pos: KSPtInfo{xPos,yPos,zPos: float, valid:int}[]}}"
+      },
+      "ops": [],
+      "weights": "unavailable",
+      "jax_reimpl": "reimpl/ycnn_contract.py (ARCHITECTURE_ONLY: contract exact, random weights)",
+      "verification": "contract exercised on a synthetic frame; shapes printed in reimpl/verify.txt",
+      "confidence": "inferred"
+    },
+    {
+      "path": "(not present in APK) magic_ycnn_model_matting / face_seg / head_seg / humanmesh_half / ycnnv3 / heart_estimation",
+      "format": "YCNN v3/v4 container",
+      "size": 0,
+      "io": {
+        "input": "YCNNModelIn (same struct)",
+        "output": "KSMattingOut{mask: KSImage, contours} / KSHeadSegOut{seg: KSImage} / KSInstanceSegOut / KSSceneClassOut{infos: [[{type:int, conf:float}]]}"
+      },
+      "ops": [],
+      "weights": "unavailable",
+      "jax_reimpl": "not reimplemented (weights absent)",
+      "verification": "n/a",
+      "confidence": "inferred"
+    },
+    {
+      "path": "(not present in APK) AIEdit_FaceSeg_01..04.fbm, AIEdit_HairSeg_02..09.fbm",
+      "format": "TFLite (FlatBuffers) consumed by libtensorflow-lite.so 2.4.1",
+      "size": 0,
+      "io": {
+        "input": "JPEG/NV21 frame via AIEditJNILib.renderModel(Object, byte[])",
+        "output": "segmentation masks + GAN output texture via updateModelOut/renderModelPost"
+      },
+      "ops": [],
+      "weights": "unavailable",
+      "jax_reimpl": "not reimplemented (weights absent)",
+      "verification": "n/a",
+      "confidence": "inferred"
+    },
+    {
+      "path": "assets/default_enhance_lut.png -> models/default_enhance_lut.png",
+      "format": "Hald CLUT, 64x64 RGBA8 = 8x8x8 3D LUT (8x8 tile layout matching glamorous lookup() GLSL)",
+      "size": 31432,
+      "io": {
+        "input": "(H,W,3) float32 RGB in [0,1]",
+        "output": "(H,W,3) float32 RGB, trilinear Hald sampling + blue-level mix"
+      },
+      "ops": [
+        "hald3d_lut_sample",
+        "bilinear_texture_sample",
+        "lerp"
+      ],
+      "weights": "extracted",
+      "jax_reimpl": "reimpl/pnglut.py::apply_hald_lut (numpy, called from JAX pipeline)",
+      "verification": "identity-CLUT round trip max_delta=3.209e-07; applied to synthetic frame in reimpl/verify.txt",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "(runtime) lib/arm64-v8a/libtensorflow-lite.so",
+      "format": "TFLite runtime 2.4.1 (not a model)",
+      "size": 3446232,
+      "io": {},
+      "ops": [
+        "CONV_2D",
+        "DEPTHWISE_CONV_2D",
+        "FULLY_CONNECTED",
+        "RESIZE_BILINEAR",
+        "detection_postprocess (custom)",
+        "audio_spectrogram (custom)",
+        "MFCC (custom)",
+        "numeric_verify (custom)"
+      ],
+      "weights": "none",
+      "jax_reimpl": "n/a",
+      "verification": "215 builtin op registrations + 4 custom ops enumerated from exported symbols (ir/tflite_runtime.txt)",
+      "confidence": "confirmed"
+    }
+  ],
+  "reimplementation": {
+    "path": "reports/kwai_video/reimpl/pipeline.py",
+    "run_command": "cd reports/kwai_video/reimpl && python pipeline.py",
+    "status": "architecture_only",
+    "limitations": "Beauty stages (5-tap mean/variance pass, kMin skin smoothing, Hald 3D LUT, luma unsharp mask) and the NV21 preprocessing path are transcribed exactly from libgorgeous GLSL/rodata and numerically verified (JAX vs numpy parity max_abs_err=0; LUT identity delta 3.2e-07; NV21 round trip 36.43 dB PSNR) - these parts are real. Face detection / landmarks / matting are ARCHITECTURE_ONLY: the YCNN .model weights and graphs are not in the APK (downloaded resource packs), so ycnn_contract.py runs a placeholder head with random weights; only the I/O contract (struct layouts, 35 model-type ids, KSLandmarksParam defaults, NV21 crop semantics) is real. TFLite models referenced by the AI-edit plugin are likewise absent."
+  },
+  "unknowns": [
+    "YCNN per-model network resolution (net_w/net_h live in the .model header, absent from the APK).",
+    "Landmark count/output layout per landmark model (KSLandmarksParam selects behaviour, KSFaceInfo.pos is a model-defined LinkedList).",
+    "SKwai Lua-scripted effect semantics: sticker bundles are downloaded per effect.",
+    "Exact CDN host for '/rest/o/production/ycnn/models' (only the API path appears in the binary).",
+    "Whether libvisionengine's image_quality_evaluation is pure hand-crafted CV or calls a downloaded model (0 TfLite imports, no ycnn strings, but its DAG names are data-driven).",
+    "YCNN v3 vs v4 layer-by-layer precision (fp16 vs fp32) per model.",
+    "The skin mask source feeding '* skinMask' in the beautify shader (skin_color_cfg is referenced in libykit but its thresholds are not in rodata).",
+    "VideoFrame.yuv_format {0=I420,1=NV12,2=NV21,3=RGBA} -> YCNN KSY_COLOR_TYPE {0=BGRA,1=RGBA,2=NV12,3=NV21,4=YUV420P,5=Y,6=YUVA444} mapping: performed inside the native AndroidVideoFrame wrapper in libdaenerys.so, not readable from the APK.",
+    "YCNN input normalisation is a single scalar (ykit::NdArray::doNormalize(double)); the scalar and whether any mean is subtracted inside ycnn::YCNNCropDataMatrix are not recoverable without a .model file.",
+    "Frame queue depth and drop thresholds per pipeline stage (EasyFrameDropManager/AbstractFrameDropManager/DropFrameMonitor are class-name-only evidence; not disassembled).",
+    "Whether the preview and the recorded frame share one GL pass per frame or are rendered twice (separate PreviewGlGroup/RecordGlGroup downstream of one processor chain; ordering not traced)."
+  ],
+  "data_pipelines": [
+    {
+      "id": "camera_frame_to_face_detect",
+      "name": "Camera2 frame -> packed YUV -> YCNN face detect / landmarks",
+      "trigger": {
+        "kind": "camera",
+        "detail": "ImageReader.OnImageAvailableListener (Camera2 via Huawei CameraKit) delivers preview frames; legacy fallback to android.hardware.Camera1",
+        "refs": [
+          "com.kwai.camerasdk.videoCapture.cameras.camerakit.d$e.onImageAvailable(ImageReader)",
+          "CameraControllerImpl$b.onVideoFrameCaptured",
+          "cameraApiVersion kAndroidCamera1 fallback (CameraControllerImpl.java:882-886)"
+        ]
+      },
+      "transport": {
+        "format": "packed YUV420 (I420|NV12|NV21) in a direct ByteBuffer, or GL texture (2D/OES) or Bitmap",
+        "yuv_format_codes": "0=I420, 1=NV12, 2=NV21, 3=RGBA32",
+        "video_frame_type": "1=YUV, 2=TEXTURE, 3=RGBA, 4=BITMAP",
+        "size": "1.5*w*h bytes for YUV (ImageFormat.getBitsPerPixel(YUV_420_888)=12), 4*w*h for RGBA",
+        "stride": "de-strided to stride==width by videoCapture.i.f(); mismatched buffer size recreates the FrameBuffer pool",
+        "color_space": "attributes.i(s.kBt601FullRange)",
+        "rotation_mirror": "withTransform(o1.p().f(rotationFromSession).e(mirror).build()); croppedWidth()/croppedHeight() & ~3; transformedWidth/Height swap when rotation%180==90",
+        "timestamp": "long ms (TimeUnit.NANOSECONDS.toMillis), plus raw sensor timestamp in attributes",
+        "thread": "CameraKit handler thread -> publishMediaFrame",
+        "refs": [
+          "sources/classes/com.kwai.camerasdk.video.VideoFrame.java",
+          "sources/classes/com.kwai.camerasdk.videoCapture.i.java",
+          "sources/classes/com.kwai.camerasdk.videoCapture.cameras.camerakit.d.java:170-240",
+          "evidence/07_camera_jni_trace.md"
+        ]
+      },
+      "preprocessing": {
+        "steps": [
+          "de-interleave Image planes (Y + VU / UV / U,V) and de-stride row-wise",
+          "4-byte aligned crop metadata",
+          "face crop by KSLandmarksParam{maxFaceNum=4,minFaceSize=50,detectIntervals=5,detectMode=4,useImageTrack=2}",
+          "engine-side colour convert + crop + resize in ycnn::YCNNCropDataMatrix",
+          "ykit::NdArray::doNormalize(double) single scalar (no per-channel mean)"
+        ],
+        "impl": "com.kwai.camerasdk.videoCapture.i (YUVFrameBufferReader) + ycnn::YCNNCropDataMatrix (libykit.so 0x1fa76c)",
+        "normalisation_constants": "unknown (no mean/std constants in libykit.so rodata; only a scalar doNormalize(double))"
+      },
+      "model_invocation": {
+        "engine": "YCNN (ycnn::YCNNModel / ycnn_net NEON fp16, OpenCL, MTK APU)",
+        "java_entry": "FaceDetectorContext.detectFacesFromFrame(VideoFrame,int) -> nativeDetectFacesFromFrame(JLcom/kwai/camerasdk/video/VideoFrame;I)[[B",
+        "jni": [
+          "Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeDetectFacesFromFrame (libfacedetectcontext.so 0x1a19c)",
+          "Java_com_kwai_video_westeros_Westeros_nativeSetFaceDetectorContext (libwesteros.so 0x3feb0)",
+          "kuaishou::android::VideoRawFrameFromJni (libdaenerys.so 0xece3c)"
+        ],
+        "binding": "kuaishou::VideoRawFrame(MediaDataType, PixelbufferType, shared_ptr<void>, w, h, ts, VideoFrameAttributes&) for CPU frames; VideoRawFrame(MediaDataType, shared_ptr<render::gl::Texture>, w, h, ts, attrs) for textures; YCNNModelIn.data_0 = byte[] (NV21 default, colorType=3)",
+        "model_types": "YCNN model_type 21=Detector, 5=Landmarks",
+        "refs": [
+          "sources/classes/com.kwai.camerasdk.face.FaceDetectorContext.java:146-170",
+          "native/fdc_detectFaces.s",
+          "native/daenerys_videorawframe.s",
+          "native/daenerys_videorawframe.strings.txt"
+        ]
+      },
+      "postprocessing": {
+        "outputs": [
+          "KSFaceDetectOut{faces: KSFaceInfo{index,left,top,width,height,confidence,yaw,pitch,roll,pos:KSPtInfo{xPos,yPos,zPos,valid}[]}}",
+          "KSLandmarksParam-driven landmark points",
+          "KSMattingOut/KSHeadSegOut/KSFaceSegOut masks (KSImage{width,height,channel,ByteBuffer,range})"
+        ],
+        "coordinate_space": "detector returns coordinates in the pre-rotation buffer space; YCNNModelIn.rotate/flipHor and normOut/normRotate/normFlipHor/normFlipVer select the transform applied by the engine; renderer applies the same Transform stored on the frame; points_stabilizer.cpp + estimateRigidTransform provide temporal smoothing (parameters unknown)",
+        "java_view": "byte[][] -> do.g0 (FaceInfo protobuf) via g0.f(byte[])",
+        "refs": [
+          "sources/classes/com.kwai.kscnnrenderlib.YCNNModelInfo.java",
+          "sources/classes/com.kwai.camerasdk.face.FaceDetectorContext.java",
+          "libykit.so rodata 0x8516aa/0x8516c1"
+        ]
+      },
+      "consumer": {
+        "kind": "render + native westeros frame attribute",
+        "detail": "results attached as kuaishou::westeros::VideoFrame::face_data() and consumed by YcnnPlugin providers and the beauty/AR GL processors",
+        "refs": [
+          "_ZN8kuaishou8westeros10VideoFrame9face_dataEv (libykit_core_plugin.so 0x7b32)",
+          "kuaishou.westeros.model.YCNNFace/YCNNFaces/YCNNFaceAttributeResult protobufs"
+        ]
+      },
+      "failure_fallback": {
+        "model_missing": "FaceDetectorContext.ModelMissingListener.onModelMissing(int,String); YlabProvider logs 'Ycnn model missing %s'; libykit emits {\"missing_models\":[...]}",
+        "camera_failure": "CameraKit auth failure -> reopen as kAndroidCamera1; ImageReader exception -> stop() + CameraSession.c.ERROR/CAMERA_2_PREVIEW_EXCEPTION_FAILED; timestamp drift >1000 ms disables the timestamp-sync mode",
+        "stale_frame": "textureNotUsedRunnable + drop when the frame comes from another session"
+      },
+      "threading": {
+        "threads": [
+          "kCameraFrameProcessThread (camera publish)",
+          "kCpuFrameProcessThread (preprocess::CpuThread, YuvLoadProcessor)",
+          "kGpuFrameProcessThread (render thread)",
+          "kEncoderFrameProcessThread (encoder workshop)",
+          "YCNN inference inside the provider; AttachCurrentThreadIfNeeded around every JNI field access"
+        ],
+        "queue_drop": "preprocess::RunloopProcessor(Post/PostAndWait) + utils::EasyFrameDropManager + DropFrameMonitor + preprocess::FrameRateAdapter; CSV keys is_drop/drop_frame_position/drop_time/drop_avg/drop_max",
+        "queue_depth": "unknown"
+      },
+      "confidence": "confirmed",
+      "unknowns": [
+        "per-frame YCNN colorType value (default 3=NV21)",
+        "VideoFrame.yuv_format -> KSY_COLOR_TYPE mapping in AndroidVideoFrame",
+        "queue depth and drop thresholds",
+        "landmark count/layout",
+        "normalisation scalar"
+      ]
+    },
+    {
+      "id": "ycnn_model_binding",
+      "name": "Downloaded YCNN model path -> engine session -> per-frame provider",
+      "trigger": {
+        "kind": "resource-download + plugin init",
+        "detail": "Kuaishou resource pack downloaded (com.yxcorp.gifshow.util.resource.model.a/c) into an app-private dir; only the path crosses JNI",
+        "refs": [
+          "sources/classes/com.yxcorp.gifshow.util.resource.model.a.java",
+          "sources/classes/com.yxcorp.gifshow.util.resource.model.c.java",
+          "_shared_kwai_sdk.md section 5"
+        ]
+      },
+      "transport": {
+        "format": "filesystem path string (model dir or single .model file) + JSON param string",
+        "paths": [
+          "AE2WesterosWrapperCreator$Resource.ycnnModelPath / ycnnModelPathMap / mmuModelPath",
+          "westeros.ResourceManager.nativeSetPath / nativeSetYlabModelPathConfig",
+          "YcnnPlugin.setAttrLocalPath",
+          "aiedit.pbs.AIEditParamGan.{model_path,model_dir,gan_model_path,landmark_model_path}"
+        ]
+      },
+      "preprocessing": {
+        "steps": [
+          "YCNNGetConfig2Model(path) parses the model header into YCNNModelConfig2 (net_w/net_h/net_c live in the model JSON; KSModelParamTaskPoint keys net_w,net_h,net_c,heatmap,valid_threshold sit at libykit.so 0x85154a-0x851574)"
+        ],
+        "impl": "ycnn::YCNNGetConfig2Model(const string&, YCNNModelConfig2*)"
+      },
+      "model_invocation": {
+        "engine": "YCNN v3/v4 (binary or JSON container)",
+        "session_creation": "KSRenderObj.createCPUModel() -> KSJNILib.createModel(Object) -> ycnn::YCNNModel::createModel2(config); GPU/post: createModelPost(Object) -> YCNNModelPost::createModelPost2(config)",
+        "params": "YcnnPlugin.nativeSetParamInfo(String json, long plugin) (libykit_core_plugin.so 0x16640) -> YlabProvider::CreateModel -> YCNNModelPost::setParamInfo",
+        "keys": "magic_ycnn_model_{landmark,matting,face_seg,head_seg,human_parsing,human_mesh,inpainting,general_recog,face_attributes,depth,gesture,hair,...} -> YCNNResourceConfig{ycnn_model_path,mmu_model_path,resource_path}",
+        "binding": "byte[] data_0 for the CPU model; texID (YCNNModelPostIn) for the GL post model",
+        "refs": [
+          "sources/classes/com.kwai.kscnnrenderlib.KSRenderObj.java:59-95,343-356",
+          "sources/classes/com.kwai.kscnnrenderlib.KSJNILib.java",
+          "sources/classes/com.kwai.video.westeros.v2.ycnn.YcnnPlugin.java",
+          "native/ylab_createmodel.s",
+          "evidence/08_daenerys_westeros_strings.txt"
+        ]
+      },
+      "postprocessing": {
+        "outputs": [
+          "YCNNModelOut sub-structs (KSLandmarksParam/KSFaceDetectOut/KSMattingOut/KSHeadSegOut/KSGeneralRecogOut{out_json})",
+          "status JSON {\"finish_load_models\":[...]} / {\"missing_models\":[...]}"
+        ],
+        "transforms": "KSRenderObj field-by-field copy into the Java output objects; YcnnPluginUtils.nativeGetFaceData (0x15910) marshals faces back to Java"
+      },
+      "consumer": {
+        "kind": "per-frame provider + renderer",
+        "detail": "YcnnPlugin callbacks (OnSalientDataListender, OnYcnnFaceAttributeDetectionListener, OnYcnnGeneralRecogDetectionListener, OnYcnnModelLoadFinishListener) and native westeros face_data"
+      },
+      "failure_fallback": {
+        "missing_model": "[YlabProvider] Ycnn model missing %s; YCNNErrorType callback registered in YlabProvider::initConfig; ModelMissingListener on the camera SDK side",
+        "reload": "[YlabPostProvider] - checkflag changed, reload ycnn model",
+        "download_failure": "multi-CDN retry + MD5 validation on the Java resource side (MagicModel resource type 4)"
+      },
+      "threading": {
+        "threads": [
+          "model create on the caller/JNI thread with mutex/runloop handoff",
+          "per-frame inference on the provider thread (pthread_create in libykit_core_plugin.so)"
+        ],
+        "download_during_use": "reload in place on flag change (string evidence); atomicity unknown"
+      },
+      "confidence": "confirmed",
+      "unknowns": [
+        "net_w/net_h per model (header of a file that is not in the APK)",
+        "normalisation scalar/mean",
+        "per-layer precision (fp16 vs fp32)",
+        "exact reload atomicity"
+      ]
+    },
+    {
+      "id": "beauty_render_encode",
+      "name": "Beauty / effect GL chain -> preview and encoded frame",
+      "trigger": {
+        "kind": "render",
+        "detail": "per frame on the GL/render thread: FaceMagicController (a WesterosGlProcessor) registered via FacelessPlugin + Westeros.applyPlugin",
+        "refs": [
+          "sources/classes/com.kwai.video.westeros.v2.faceless.FacelessPlugin.java",
+          "sources/classes/com.kwai.video.westeros.Westeros.java:163-172",
+          "sources/classes/com.kwai.video.westeros.v2.WesterosGlProcessor.java"
+        ]
+      },
+      "transport": {
+        "format": "GL texture 2D/OES in, FBO texture out (WesterosFBO{texture_id, framebuffer_id, BindTexture(tex,w,h)})",
+        "dimensions": "VideoFrame.width/height + transform; cropped* & ~3",
+        "thread": "render/GL thread (kGpuFrameProcessThread); GlPreProcessor.onDraw(VideoFrame,int) / onRenderThreadDestroy() callbacks",
+        "refs": [
+          "libwesteros.so symbols kuaishou::westeros::WesterosFBO, kuaishou::preprocess::GlProcessor, kuaishou::westeros::internal::CreateGlPublishable",
+          "sources/classes/com.kwai.camerasdk.preprocess.GlPreProcessor.java"
+        ]
+      },
+      "preprocessing": {
+        "steps": [
+          "texture upload of the packed YUV frame (YuvLoadProcessor) or direct camera OES texture",
+          "YUV->RGB in shader",
+          "beauty passes: 5-tap mean+variance, 3x3 blur, kMin composite, Hald 3D LUT (512x512, 8x8 tiles), luma unsharp"
+        ],
+        "impl": "libgorgeous.so GLSL rodata (see report section 4); reimpl/gorgeous_beauty.py + reimpl/pnglut.py reproduce it exactly"
+      },
+      "model_invocation": {
+        "engine": "none at this stage for beauty (analytic shaders); YCNN masks/landmarks come from pipeline camera_frame_to_face_detect",
+        "binding": "landmark/mask textures uploaded by the FM.* JNI (updateLandmarks3DData, updateSegmentation, FMBeautifyG3Effect, FMGorgeousMakeup, FMBokehDepthEffect, FMWhiteSKinEffect)",
+        "refs": [
+          "sources/classes/com.kwai.video.westeros.v2.faceless.FaceMagicController.java (native declarations)",
+          "evidence/04_jni_map.txt libFaceMagic.so"
+        ]
+      },
+      "postprocessing": {
+        "outputs": [
+          "rendered RGBA texture",
+          "optional I420 callback (I420CallbackSink) for YUV consumers",
+          "status/effect callbacks (EffectDescription, EffectHint, ExpressionChanged, DepthFinish)"
+        ]
+      },
+      "consumer": {
+        "kind": "display + encoder + still capture",
+        "detail": "Daenerys pipeline groups PreviewGlGroup / RecordGlGroup / EncoderGroup / LayoutGlGroup / CaptureImageGlGroup / AudioGroup; VideoEncoderWorkshop -> MediaCodecVideoEncoder; preview drawn by NativeRenderThread/NativeRenderThread2 into a display surface",
+        "preview_vs_record": "separate groups downstream of one shared processor chain: preview quad vs encoder surface; record also feeds I420CallbackSink; CaptureImageGlGroup is the photo branch",
+        "refs": [
+          "libdaenerys.so rodata 0x1f84d9-0x1f8525 (group names)",
+          "[MediaCodecVideoEncoder] prepare with width %d, height %d",
+          "[VideoEncoderWorkshop] Prepare width = %d, height = %d",
+          "Java_com_kwai_camerasdk_render_NativeRenderThread_nativeDrawFrame"
+        ]
+      },
+      "failure_fallback": {
+        "effect_load": "FaceMagicLoadEffectFailedListener.onLoadFileError(String,int) / FaceMagicListener.onSetEffectFailed(EffectResource,EffectSlot,EffectError)",
+        "environment": "FaceMagicEnvironmentUnsafeListener.onFaceMagicEnvironmentUnsafe(int)",
+        "model_missing": "beauty falls back to the analytic chain (no NN needed); Bokeh/Depth effects degrade via FaceMagicDepthFinishListener"
+      },
+      "threading": {
+        "threads": [
+          "WesterosMainThread",
+          "GpuThreadPool (GlThreadAttacher per worker)",
+          "WesterosThreadPool",
+          "render thread from the Daenerys pipeline"
+        ],
+        "handoff": "WesterosThread::Post / PostAndWait; GLLocker::Sync/AddFence for GPU fences"
+      },
+      "confidence": "confirmed",
+      "unknowns": [
+        "exact ordering of the beauty processors inside the group",
+        "whether preview and record share one GL pass per frame",
+        "per-effect Lua/script semantics in libskwai"
+      ]
+    },
+    {
+      "id": "frame_threading_lifecycle",
+      "name": "Frame threading, drop policy and model-missing lifecycle",
+      "trigger": {
+        "kind": "lifecycle",
+        "detail": "Daenerys pipeline init/start/stop and Westeros plugin attach/detach",
+        "refs": [
+          "kuaishou::multipipeline::Pipeline::InitThreadAndRunloop",
+          "Westeros.nativeApplyPlugin/nativeRemovePlugin"
+        ]
+      },
+      "transport": {
+        "format": "shared_ptr<kuaishou::VideoRawFrame> through MediaWorkshop/MediaSinkInterface chains",
+        "threads": [
+          "camera",
+          "cpu",
+          "gpu/render",
+          "encoder"
+        ],
+        "refs": [
+          "do.o0 FrameProcessThread enum {kUnuseFrameProcessThread=0,kCameraFrameProcessThread=1,kCpuFrameProcessThread=2,kGpuFrameProcessThread=3,kEncoderFrameProcessThread=4}",
+          "sources/classes/do.o0.java",
+          "CameraProcessor.*/CpuProcessor.*/GpuProcessor.*/EncodeProcessor.* stats keys (libdaenerys rodata 0x1f622f-0x1f63bf)"
+        ]
+      },
+      "preprocessing": {
+        "steps": [
+          "RunloopProcessor::Post / PostAndWait handoff between stages",
+          "FrameRateAdapter adapts capture fps to target fps"
+        ],
+        "impl": "kuaishou::preprocess::RunloopProcessor<shared_ptr<VideoRawFrame>>, FrameRateAdapter"
+      },
+      "model_invocation": {
+        "engine": "n/a",
+        "detail": "inference rides on the provider thread(s); AttachCurrentThreadIfNeeded/Detach around JNI access"
+      },
+      "postprocessing": {
+        "outputs": [
+          "FrameMonitor per-frame timing CSV (receive/publish/process per stage, is_drop, drop_frame_position, drop_time)"
+        ]
+      },
+      "consumer": {
+        "kind": "telemetry + lifecycle",
+        "detail": "FrameMonitor CSV (/sdcard/monitor/), StatsHolder, WesterosStatsListener"
+      },
+      "failure_fallback": {
+        "drop": "EasyFrameDropManager/AbstractFrameDropManager + DropFrameMonitor; VideoFrame.canDrop() = !attributes.e()",
+        "model_missing": "see ycnn_model_binding",
+        "teardown": "FaceDetectorContext.dispose -> nativeDestroy; Westeros.dispose -> nativeUnsetDaenerys + nativeDestroyWesteros; FaceMagicController.release -> nativeDestroyController"
+      },
+      "threading": {
+        "threads": [
+          "WesterosMainThread",
+          "GpuThreadPool",
+          "WesterosThreadPool",
+          "Daenerys pipeline threads"
+        ],
+        "queue_depth": "unknown"
+      },
+      "confidence": "confirmed",
+      "unknowns": [
+        "queue depth per stage",
+        "drop threshold constants (EasyFrameDropManager not disassembled)",
+        "whether inference has its own dedicated thread or shares the provider thread"
+      ]
+    }
+  ]
+}

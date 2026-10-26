@@ -1,0 +1,4 @@
+$ python3 validate_findings.py SCHEMA.json reports/kwai_video/findings.json
+VALID (all required keys, enum values and container types OK)
+checks: features=6 models=5 unknowns=7 status=architecture_only
+RESULT: PASS

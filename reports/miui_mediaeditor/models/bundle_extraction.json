@@ -1,0 +1,178 @@
+[
+  {
+    "bundle": "assets/graphics/image_beauty_basic.bundle",
+    "entries": 20,
+    "tflite": 0,
+    "rc": 0,
+    "log": "models/bundle_entries/graphics__image_beauty_basic/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/graphics/image_beauty_bodyslim.bundle",
+    "entries": 7,
+    "tflite": 0,
+    "rc": 0,
+    "log": "models/bundle_entries/graphics__image_beauty_bodyslim/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/graphics/image_beauty_facebeauty.bundle",
+    "entries": 32,
+    "tflite": 0,
+    "rc": 1,
+    "log": "models/bundle_entries/graphics__image_beauty_facebeauty/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/graphics/image_beauty_facewarp.bundle",
+    "entries": 79,
+    "tflite": 0,
+    "rc": 0,
+    "log": "models/bundle_entries/graphics__image_beauty_facewarp/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/graphics/image_editor_autocrop.bundle",
+    "entries": 3,
+    "tflite": 0,
+    "rc": 0,
+    "log": "models/bundle_entries/graphics__image_editor_autocrop/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/graphics/image_editor_enhance.bundle",
+    "entries": 13,
+    "tflite": 0,
+    "rc": 1,
+    "log": "models/bundle_entries/graphics__image_editor_enhance/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/graphics/image_editor_idphoto.bundle",
+    "entries": 7,
+    "tflite": 0,
+    "rc": 0,
+    "log": "models/bundle_entries/graphics__image_editor_idphoto/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/graphics/image_editor_portrait.bundle",
+    "entries": 5,
+    "tflite": 0,
+    "rc": 0,
+    "log": "models/bundle_entries/graphics__image_editor_portrait/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/graphics/image_editor_scenebeauty.bundle",
+    "entries": 31,
+    "tflite": 0,
+    "rc": 0,
+    "log": "models/bundle_entries/graphics__image_editor_scenebeauty/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/makeup/item_bundle/jingdian.bundle",
+    "entries": 11,
+    "tflite": 0,
+    "rc": 0,
+    "log": "models/bundle_entries/makeup__item_bundle__jingdian/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/makeup/item_bundle/jingfu.bundle",
+    "entries": 6,
+    "tflite": 0,
+    "rc": 0,
+    "log": "models/bundle_entries/makeup__item_bundle__jingfu/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/makeup/item_bundle/liti.bundle",
+    "entries": 10,
+    "tflite": 0,
+    "rc": 0,
+    "log": "models/bundle_entries/makeup__item_bundle__liti/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/makeup/item_bundle/nanshi.bundle",
+    "entries": 3,
+    "tflite": 0,
+    "rc": 0,
+    "log": "models/bundle_entries/makeup__item_bundle__nanshi/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/makeup/item_bundle/oumei.bundle",
+    "entries": 12,
+    "tflite": 0,
+    "rc": 0,
+    "log": "models/bundle_entries/makeup__item_bundle__oumei/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/makeup/item_bundle/wenrou.bundle",
+    "entries": 8,
+    "tflite": 0,
+    "rc": 0,
+    "log": "models/bundle_entries/makeup__item_bundle__wenrou/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/model/ai_beauty_type_processor.bundle",
+    "entries": 19,
+    "tflite": 12,
+    "rc": 0,
+    "log": "models/bundle_entries/model__ai_beauty_type_processor/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/model/ai_face_attribute_processor.bundle",
+    "entries": 1,
+    "tflite": 0,
+    "rc": 0,
+    "log": "models/bundle_entries/model__ai_face_attribute_processor/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/model/ai_face_beauty_processor.bundle",
+    "entries": 13,
+    "tflite": 9,
+    "rc": 0,
+    "log": "models/bundle_entries/model__ai_face_beauty_processor/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/model/ai_face_bindi_seg_processor.bundle",
+    "entries": 1,
+    "tflite": 0,
+    "rc": 0,
+    "log": "models/bundle_entries/model__ai_face_bindi_seg_processor/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/model/ai_face_processor_detect_landmark.bundle",
+    "entries": 12,
+    "tflite": 10,
+    "rc": 0,
+    "log": "models/bundle_entries/model__ai_face_processor_detect_landmark/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/model/ai_human_processor_beautybody_mb.bundle",
+    "entries": 4,
+    "tflite": 2,
+    "rc": 0,
+    "log": "models/bundle_entries/model__ai_human_processor_beautybody_mb/_unbundle.log",
+    "skip": true
+  },
+  {
+    "bundle": "assets/model/ai_photo_editing_processor_scene_recog.bundle",
+    "entries": 0,
+    "tflite": 0,
+    "rc": 0,
+    "log": "models/bundle_entries/model__ai_photo_editing_processor_scene_recog/_unbundle.log",
+    "skip": true
+  }
+]

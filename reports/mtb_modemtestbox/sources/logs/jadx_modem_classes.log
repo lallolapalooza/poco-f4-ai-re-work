@@ -1,0 +1,13 @@
+== sources/classes/.com.xiaomi.modem.ModemUtils.log
+INFO  - loading ...
+INFO  - Saving class 'com.xiaomi.modem.ModemUtils' to file '/run/media/user/00000000-0000-4000-8000-000000000000/re_work/reports/mtb_modemtestbox/sources/classes/com.xiaomi.modem.ModemUtils.java'
+INFO  - done
+== sources/classes/.com.xiaomi.modem.OemHookAgent$QcRilHookCbMethodProxy.log
+INFO  - loading ...
+WARN  - Input class is inner, parent class will be saved: com.xiaomi.modem.OemHookAgent
+INFO  - Saving class 'com.xiaomi.modem.OemHookAgent' to file '/run/media/user/00000000-0000-4000-8000-000000000000/re_work/reports/mtb_modemtestbox/sources/classes/com.xiaomi.modem.OemHookAgent$QcRilHookCbMethodProxy.java'
+INFO  - done
+== sources/classes/.com.xiaomi.modem.OemHookAgent.log
+INFO  - loading ...
+INFO  - Saving class 'com.xiaomi.modem.OemHookAgent' to file '/run/media/user/00000000-0000-4000-8000-000000000000/re_work/reports/mtb_modemtestbox/sources/classes/com.xiaomi.modem.OemHookAgent.java'
+INFO  - done

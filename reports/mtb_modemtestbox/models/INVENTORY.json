@@ -1,0 +1,10 @@
+{
+  "slug": "mtb_modemtestbox",
+  "apk": "assets/0.3_new_0410_less.tflite (112,544 B)",
+  "local_files": 1,
+  "bytes": 112544,
+  "tflite": 1,
+  "bundles": 0,
+  "absent": [],
+  "notes": "TFLite parsed and JAX verified."
+}

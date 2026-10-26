@@ -1,0 +1,144 @@
+# External / deferred boundaries — transcript and excerpts
+# Date: 2026-10-24.
+
+## Command
+$ $PY - <<'PY'   # AXMLPrinter on AndroidManifest.xml (extract only)
+...
+PY
+$ readelf --dyn-syms -W native/libs/libclient.so | grep ...
+$ strings -t x native/libs/libclient.so | grep -E 'downloadModel|getRemoteModelStatus|voiceml|learned_search'
+
+## 1. ML Kit / GmsCore
+
+AndroidManifest.xml meta-data:
+  <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="barcode"/>
+  <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="face,barcode"/>
+  <meta-data android:name="com.google.mlkit.vision.DEPENDENCIES" android:value="barcode"/>
+  <service android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService" ...>
+  <meta-data android:name="com.google.firebase.components:com.google.mlkit.vision.barcode.internal.BarcodeRegistrar"
+             android:value="com.google.firebase.components.ComponentRegistrar"/>
+
+App-side classes (classes2.dex):
+  com.google.mlkit.vision.barcode.internal.BarcodeScannerImpl
+    extends MobileVisionBase<List<...>>; ctor takes options + executor + telemetry;
+    registers ON_DEVICE_BARCODE_CREATE.
+  com.google.mlkit.vision.common.internal.MobileVisionBase
+    lifecycle only (ref-counted detector, executor); no model code.
+  com.google.mlkit.vision.barcode.internal.BarcodeRegistrar
+    DI registration only.
+  com.google.android.gms.vision.face.internal.client.FaceParcel
+    @UsedByNative("wrapper.cc"); Parcelable fields:
+      id, type, centerX, centerY, width, height, eulerY, eulerZ,
+      LandmarkParcel[] landmarks, isSmiling, isLeftEyeOpen, isRightEyeOpen.
+  com.google.android.gms.vision.face.internal.client.LandmarkParcel (same AIDL parcel family).
+
+No ML Kit native library or model asset is packaged:
+  inventory.json: model_assets=0, native_libs = 14 (none named *mlkit*),
+  evidence/02_model_magic_scan.txt: no TFLite/DNN blobs.
+=> the detector implementation/models/executors live in Google Play services (GmsCore),
+   invoked from this process over the ML Kit/GMS binder contract.
+
+## 2. Snap AI Factory / Cameo / Bloops
+
+Manifest meta-data (all under the downloaded native component):
+  aiinternals:native_library           = bloops
+  face2face:native_library             = bloops
+  facedetectiontensorflow:native_library = bloops
+  faceidentitymatcher:native_library   = bloops
+  faceneutrality:native_library        = bloops
+  facesegmentation:native_library      = bloops
+  genderclassification:native_library  = bloops
+  landmarksextractor:native_library    = bloops
+  scenariossearch:native_library       = bloops
+  modelcrypto:native_library           = bloops
+  tnn_shared_lib                       = libtnn.so
+  hexagon_library_name_v60/v65/v66     = libhexagon_nn_skel*.so
+  facesegmentation:model_path_face    = /face_segmentation_dnn/FaceSegmentation_02.07.2019_smaller_8bit/FaceSegmentation_02.07.2019_smaller_8bit.dnn.enc
+  facesegmentation:model_path_eyes    = /face_segmentation_dnn/EyesSegmentation_06.06.2019_ver2_8bit/EyesSegmentation_06.06.2019_ver2_8bit.dnn.enc
+  faceneutrality:model_path_neutralization = /face_neutrality_model_dnn/FaceNeutralityModel_16.04.2019_small_model_8bit_new_format/FaceNeutralityModel_16.04.2019_small_model_8bit_new_format.dnn.enc
+  faceneutrality:model_path_classification = /face_neutrality_model_dnn/FaceNeutralityClassifier_24.05.2019_classifier_8bit_new_format/FaceNeutralityClassifier_24.05.2019_classifier_8bit_new_format.dnn.enc
+  landmarksextractor:model_path_aligner = /landmarks_model_dnn/LandmarksAlignerModel_v11/cnn_aligner_v113_best_inference_fused_8bit.dnn.enc
+  landmarksextractor:model_path_refiner = /landmarks_model_dnn/LandmarksRefinerModel_v11/cnn_refiner_v118_best_inference_fused_8bit.dnn.enc
+
+None of these .dnn.enc files, libtnn.so, hexagon skels, or the bloops component
+is inside the APK (inventory.json / zip member census).
+
+App-side contracts:
+  app.aifactory.ai.modelcrypto.ModelCrypto
+    meta-data key modelcrypto:native_library; internalInit() is native;
+    decrypt(byte[]) = AES/Cipher with keyBytes/ivBytes/algorithm from native;
+    returns null on failure.
+  app.aifactory.ai.faceneutrality.FaceNeutrality
+    requires model path to end in ".enc"; ModelCrypto.decrypt(...) then
+    native internalInitInterpreter(plaintext, MODEL_TYPE.type, backend)
+    with backend literal "MACE"; input Bitmap + float[] landmarks;
+    output FaceNeutralityResult[].
+  app.aifactory.ai.facesegmentation.FSFaceSegmentation
+    segmentImage(Bitmap, float[] landmarks[, byte[]]) -> FSTargetSegmentationResult;
+    native setEnableNNApi(boolean), setTfliteNumThreads(int), setPerformanceMode(...);
+    interpreter created from decrypted bytes.
+  app.aifactory.ai.landmarksextractor.LandmarksExtractor
+    getLandmarks(Bitmap, RectF face, int) -> float[];
+    getLandmarksFast(...), getLandmarksRefined(Bitmap, float[]);
+    convert98LandmarksTo78Landmarks(float[]) -> float[];
+    model types ALIGNER/REFINER from manifest paths.
+
+Download trigger:
+  com.snap.bloops.data.DownloadBloopsAiModelsDurableJob
+    @DurableJobIdentifier(identifier="DOWNLOAD_BLOOPS_AI_MODELS", metadataType=...)
+  com.snap.bloops.net.BloopsHttpInterface (network layer)
+  libclient.so URLs / hosts: https://lens-storage.storage.googleapis.com,
+    https://perception.sc-cdn.net, https://bolt-gcdn.sc-cdn.net, *.sc-cdn.net
+
+What crosses the boundary (inferred from these contracts):
+  - Snap servers -> device: encrypted model bytes (*.dnn.enc) and bloops/TNN
+    native component; model URL/version metadata.
+  - Device -> server: model download requests (model id/version); no user image
+    is passed to ModelCrypto/FaceNeutrality APIs.
+  - Decryption happens on device with a key/IV supplied by the bloops native
+    library; plaintext model bytes are fed to the on-device interpreter.
+  - Inference itself is local (MACE/TNN/NNAPI/TFLite backend in bloops).
+
+## 3. libclient: learned search / voice ML (deferred model bytes)
+
+libclient.so JNI exports (readelf/strings):
+  Java_com_snapchat_client_learned_1search_ModelCoordinator_modelCoordinatorInstance
+  Java_com_snapchat_client_learned_1search_ModelCoordinator_00024CppProxy_native_1getModel
+  Java_com_snapchat_client_learned_1search_ModelCoordinator_00024CppProxy_native_1updateLocalModel
+  Java_com_snapchat_client_learned_1search_ModelFileBuffer_modelFileBufferInstanceWithPath
+  Java_com_snapchat_client_learned_1search_ModelFileBuffer_00024CppProxy_native_1getAddress
+  Java_com_snapchat_client_learned_1search_ModelFileBuffer_00024CppProxy_native_1getSize
+  Java_com_snapchat_client_learned_1search_ModelFileBuffer_00024CppProxy_native_1stateIsValid
+  Java_com_snapchat_client_voiceml_IVoiceMLSDK_create / asrTranscribe / textToSpeech /
+    startStreamingSessionAsrVoiceCommands / streamingSessionAddBufferToSend
+
+Java contracts:
+  ModelCoordinator.modelCoordinatorInstance(ModelCacheExecutor, ModelUpdateExecutor)
+    getModel(String) -> ModelFileBuffer
+    updateLocalModel(String) -> boolean
+  ModelMetaData { String mModelUrl; Integer mModelVersion; StatusEnums mStatusCode; }
+  StatusEnums { SUCCESS, FAILEDGENERIC, FAILEDDISK, FAILEDNETWORK }
+  ModelFileBuffer { long getAddress(); long getSize(); boolean stateIsValid();
+                    static modelFileBufferInstanceWithPath(String); }
+  IVoiceMLSDK.asrTranscribe(String, ASRConfig, ByteBuffer) -> TranscribeResult
+  ASRConfig carries model names + audio channel count + language/context.
+
+What crosses: model URL/version + downloaded model bytes; audio PCM ByteBuffer
+for voice ML. Model files are mmap'd by path and exposed as native address+size,
+so inference is local after download.
+
+## 4. Memories face clustering (cloud)
+
+  com.snap.memories.lib.faceclustering.job.FaceClusteringJob
+    @DurableJobIdentifier(identifier="MEMORIES_FACE_CLUSTERING_JOB", metadataType=...)
+  com.snap.composer.memories.FaceClusteringProgress (UI progress)
+No local face-embedding/clustering model or native lib is packaged; no .tflite/
+.dnn asset exists. Inferred: clustering/embeddings are computed server-side and
+the durable job syncs progress/results.
+
+## 5. Explicit DNN absence
+
+  inventory.json: model_assets=[], libs=[], counts.model_assets=0
+  evidence/02_model_magic_scan.txt: TFL3 occurrences 0 across 6869 entries;
+  extension census contains only glsl/composermodule/json/js/lns/xml/bin/txt/images.
+  The two assets/**/*.bin are the 16 KB ORB vocabulary trees.

@@ -1,0 +1,77 @@
+[
+  {
+    "path": "assets/lenses/bundled/43675310939.lns",
+    "size": 38789,
+    "sha256": "20517f536e229d4f00a1fe713aa498bc7bd7875bf30aab9e9b70f3599a77a88b"
+  },
+  {
+    "path": "assets/lenses/bundled/57685370875.lns",
+    "size": 39228,
+    "sha256": "e3ae55b331f8575ce20a9c040cdf0d1a1c9cda32c15dc2fd78fa18799e77c3c7"
+  },
+  {
+    "path": "assets/lenses/bundled/57716950937.lns",
+    "size": 8407,
+    "sha256": "0490a49554bf186213f8d66f03d2fc10eeddcc79b047e4f9699929c1401aeaa8"
+  },
+  {
+    "path": "assets/lenses/bundled/57900991061.lns",
+    "size": 31574,
+    "sha256": "716da7accb86a010206674a265f0e0fb84e26f6f39d31958bf579256e4c9dcff"
+  },
+  {
+    "path": "assets/lenses/bundled/57931600888.lns",
+    "size": 38366,
+    "sha256": "425abc487e88d5c449c49007e76b16998bf3b9a27ad48ee20c350647aafdcae4"
+  },
+  {
+    "path": "assets/lenses/bundled_filters/greyscale.lns",
+    "size": 6654,
+    "sha256": "db53cb1ebd1411c38c3e8b3de8abf746a6f3fb0bbf741a122f0a19c6bf221802"
+  },
+  {
+    "path": "assets/lenses/bundled_filters/instasnap.lns",
+    "size": 7628,
+    "sha256": "ba77e3d7e56f304d3e889147f19ddf538829c69d266d3c9b956b08c2d396df8e"
+  },
+  {
+    "path": "assets/lenses/bundled_filters/miss_etikate.lns",
+    "size": 8479,
+    "sha256": "16ce81b3ca848eaea7cf07b6aa451ac110bd48fffade4bdd4d29c04288463540"
+  },
+  {
+    "path": "assets/lenses/bundled_filters/smoothing.lns",
+    "size": 5304,
+    "sha256": "c6788e5e2b01bada762fc060fb1830b275825152dccaaabf9bcbbb870fb43988"
+  },
+  {
+    "path": "assets/looksery/core/HaarCascades/haarcascade_frontalface_alt2.xml",
+    "size": 837462,
+    "sha256": "f14cf5e321f9d9b6186e81e307f309fbe8efc03598ddbf0ca4070f0794ffc30a"
+  },
+  {
+    "path": "assets/looksery/core/Landmarks/triangulation.txt",
+    "size": 1038,
+    "sha256": "2f581d50c8c42fb4295111170e3ba9d38da76b48bcac30b751824779fcfc86e0"
+  },
+  {
+    "path": "assets/looksery/core/LiteTrackingData_ert.lns",
+    "size": 302357,
+    "sha256": "da0220813a5ac53562fd4fa055783d5ca1b73a64e7ea1a07842443b3924c653f"
+  },
+  {
+    "path": "assets/looksery/core/NaturalFeatureTracker/SystemData/tree-ORB-sharp-b-20-d-2-r-10-numSig-195777265.bin",
+    "size": 16019,
+    "sha256": "17fd82fc6a8db3090ed627c11b9996c850c66f6f5667fd14607a41c7d8226ba2"
+  },
+  {
+    "path": "assets/looksery/core/NaturalFeatureTracker/SystemData/tree-b-20-d-2-r-10-numSig-168673445.bin",
+    "size": 16019,
+    "sha256": "bd95d0abad16162806a341584649888d98e74d1939050218884d1a4473175ac1"
+  },
+  {
+    "path": "assets/looksery/core/Overlay.lns",
+    "size": 2923,
+    "sha256": "1b767c2cac6b0c5c1ede6c614d721bf196131b47d9da231968d87bd3a7a5a69f"
+  }
+]

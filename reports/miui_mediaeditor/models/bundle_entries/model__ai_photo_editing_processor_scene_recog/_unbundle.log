@@ -1,0 +1,6 @@
+ai_photo_editing_processor_scene_recog.bundle: xor_key=0xb3 file=10741303B entries=2
+  config.json                                                method=8 csize=      571 usize=     2426 off=        0 ENCRYPTED-PREFIX
+  MOBILEONE_S2_SIZE384_EXP30_DATA7.0.0_FP16.tflite           method=8 csize= 10740332 usize= 11673944 off=      612 ENCRYPTED-PREFIX
+  CRC32 verified entries: 0 ok, 0 bad (2 skipped in encrypted prefix)
+  SKIP (encrypted prefix): config.json
+  SKIP (encrypted prefix): MOBILEONE_S2_SIZE384_EXP30_DATA7.0.0_FP16.tflite

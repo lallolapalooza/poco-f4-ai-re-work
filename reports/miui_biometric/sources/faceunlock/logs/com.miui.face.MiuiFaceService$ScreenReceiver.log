@@ -1,0 +1,4 @@
+INFO  - loading ...
+WARN  - Input class is inner, parent class will be saved: com.miui.face.MiuiFaceService
+INFO  - Saving class 'com.miui.face.MiuiFaceService' to file '/run/media/user/00000000-0000-4000-8000-000000000000/re_work/reports/miui_biometric/sources/faceunlock/classes/com.miui.face.MiuiFaceService$ScreenReceiver.java'
+INFO  - done

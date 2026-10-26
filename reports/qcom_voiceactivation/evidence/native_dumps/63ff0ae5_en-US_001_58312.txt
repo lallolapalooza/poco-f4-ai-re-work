@@ -1,0 +1,8 @@
+[android_log] eai_init_ex() - params: 0x7f4387815650, 0x4d9000, 6076, 0x0
+
+[android_log] Model with eai_builder version 2.12 is not supported on runtime 3.4
+[android_log] fail to validate eai model
+
+[android_log] load_layer_call_table failed: 9
+
+init rc=0 handle=(nil)

@@ -1,0 +1,44 @@
+{
+  "slug": "miui_mediaeditor",
+  "extracted": "33 TFLite + 22 bundles (5 encrypted TFLite + 3 encrypted configs)",
+  "runnable_model_code": 9,
+  "app_pipeline": "partial",
+  "pipeline_scope": "photo beauty path (decode -> landmarks -> face parsing -> skin seg -> masked whitening); video path not implemented",
+  "notes": [
+    "runnable_model_code 8 -> 9: the new pipeline executes skin_model_expand_supply_pta18000_quant_resizetrain_seg153.tflite (previously IR-only). face_landmark_mb360_64 and Fprs.0003.Exp007e33_quan1_sm were already counted through reimpl/bundles/*; they are now also executed end-to-end via LiteRT with their app normalisation.",
+    "Inference uses the shipped .tflite flatbuffers through ai_edge_litert (the kernels FuAI vendors), not the JAX conversions: the Fprs JAX bundle drifts 1.76e-01 vs LiteRT. JAX bundles remain as model-level reimplementations.",
+    "Input normalisation is derived from each graph's first op (mb360 SUB 127.5 -> gray 0..255; Fprs QUANTIZE scale 1.0 zp -128 -> RGB 0..255; skin seg QUANTIZE scale 1/128 zp -1 -> RGB 0..1). PIPELINE.md §3.5 listed this as unknown.",
+    "Parsing channel semantics recovered from image_choose_whole_white_skin_fs.glsl (skin=1, hair=13, neck=14 via cate_mask_order)."
+  ],
+  "blockers": [
+    "DNN detector nets (n-small_256 / n-0.5_416) present but their YOLO head/anchor decoding is not recovered; the pipeline uses a YCbCr skin-chroma quad as a stand-in",
+    "engine mask->image mapping uses the 80-vertex face_mask_mapper UV mesh and FUAI_MaskTransform warps (native); the pipeline uses a bilinear rect resample",
+    "mb360 77-point output has no recoverable correspondence to the 75-point mean_shape; only bbox correspondence is used",
+    "tex_face_rate_mask and the mask-combine GL passes are not in the APK; the landmark quad stands in for the face-rate texture",
+    "GL effect stack beyond whitening not executed (even-skin/flaw SPADE, del-spot, teeth, makeup, reshape mesh)",
+    "video path (XmsContext.setupBeauty / movit.filter.face.beauty) not implemented",
+    "encrypted bundle prologue still unreadable: acne_mole_acnenet_1206_3x24x24_quat, age_gender160_0422, Bdycntr.0406~~quan1, bindi_seg_tiny_2024_0924, MOBILEONE_S2_SIZE384_EXP30_DATA7.0.0_FP16 + 3 configs (no key); none used",
+    "synthetic cartoon portrait is out of domain for the FuAI nets: parsing labels only the eye/nose band and the skin net is noisy; this is input quality, not a wrapper limitation"
+  ],
+  "files": [
+    "reimpl/photo_pipeline.py",
+    "reimpl/GAP_CLOSURE.md",
+    "reimpl/coverage_fragment.json",
+    "evidence/photo_pipeline/verify.txt",
+    "evidence/photo_pipeline/stats.json",
+    "evidence/photo_pipeline/source_exif.png",
+    "evidence/photo_pipeline/decoded_upright.png",
+    "evidence/photo_pipeline/face_crop_landmark64.png",
+    "evidence/photo_pipeline/landmarks.png",
+    "evidence/photo_pipeline/parsing_crop_384x512.png",
+    "evidence/photo_pipeline/parsing_labels.png",
+    "evidence/photo_pipeline/mask_skin.png",
+    "evidence/photo_pipeline/rendered.png",
+    "evidence/photo_pipeline/rendered_mask_overlay.png"
+  ],
+  "verify": {
+    "command": "$PY reports/miui_mediaeditor/reimpl/photo_pipeline.py",
+    "exit_code": 0,
+    "result": "PASS: 512x512 PNG with eXIf orientation 6 decoded and rotated; mb360 [1,64,64,1]->[1,154] 77 pts; Fprs [1,512,384,3]->[1,512,384,15] softmax; skin seg [1,320,320,3]->[1,320,320,1] thr 0.6 (26.6% coverage); skin_white LUT 8x8x64 alpha blend over 58,520 px (mean alpha 0.560), mean luma 0.5737 -> 0.6125 (+0.0388); rendered.png written"
+  }
+}

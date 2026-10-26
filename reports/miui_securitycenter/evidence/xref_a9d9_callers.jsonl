@@ -1,0 +1,15 @@
+{"dex": "classes2.dex", "callee_class": "La9/b;", "callee_method": "<init>", "caller_class": "Ld9/a;", "caller_method": "<init>"}
+{"dex": "classes2.dex", "callee_class": "La9/c;", "callee_method": "<init>", "caller_class": "Ld9/a;", "caller_method": "<init>"}
+{"dex": "classes2.dex", "callee_class": "La9/a;", "callee_method": "<init>", "caller_class": "Ld9/a;", "caller_method": "<init>"}
+{"dex": "classes2.dex", "callee_class": "Ld9/a;", "callee_method": "<init>", "caller_class": "Ld9/a;", "caller_method": "b"}
+{"dex": "classes2.dex", "callee_class": "La9/b;", "callee_method": "a", "caller_class": "Ld9/a;", "caller_method": "c"}
+{"dex": "classes2.dex", "callee_class": "La9/a;", "callee_method": "a", "caller_class": "Ld9/a;", "caller_method": "c"}
+{"dex": "classes2.dex", "callee_class": "La9/b;", "callee_method": "a", "caller_class": "Ld9/a;", "caller_method": "d"}
+{"dex": "classes2.dex", "callee_class": "La9/a;", "callee_method": "a", "caller_class": "Ld9/a;", "caller_method": "d"}
+{"dex": "classes2.dex", "callee_class": "La9/c;", "callee_method": "a", "caller_class": "Ld9/a;", "caller_method": "d"}
+{"dex": "classes2.dex", "callee_class": "Ld9/a;", "callee_method": "a", "caller_class": "Lj2/a$a;", "caller_method": "run"}
+{"dex": "classes2.dex", "callee_class": "Ld9/a;", "callee_method": "b", "caller_class": "Lj2/a$a;", "caller_method": "run"}
+{"dex": "classes2.dex", "callee_class": "Ld9/a;", "callee_method": "b", "caller_class": "Lj2/a;", "caller_method": "h"}
+{"dex": "classes2.dex", "callee_class": "Ld9/a;", "callee_method": "a", "caller_class": "Lj2/a;", "caller_method": "h"}
+{"dex": "classes2.dex", "callee_class": "Ld9/a;", "callee_method": "c", "caller_class": "Lj2/a;", "caller_method": "h"}
+{"dex": "classes2.dex", "callee_class": "Ld9/a;", "callee_method": "d", "caller_class": "Lj2/a;", "caller_method": "h"}

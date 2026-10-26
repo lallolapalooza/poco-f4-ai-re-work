@@ -1,0 +1,12 @@
+{
+  "slug": "qcom_voiceactivation",
+  "apk": "7 .uim sound models + 16 EAI2 blobs + audio front-end tables",
+  "local_files": 31,
+  "bytes": 31454115,
+  "tflite": 0,
+  "bundles": 0,
+  "absent": [
+    "EAI2 layer tables/tensor shapes are not decoded; blobs are extracted but opaque. ASR Whisper/DLC model is downloaded at runtime."
+  ],
+  "notes": "All .uim containers and embedded EAI2 blobs extracted; front-end mel/Hann tables extracted; JAX architecture-only."
+}

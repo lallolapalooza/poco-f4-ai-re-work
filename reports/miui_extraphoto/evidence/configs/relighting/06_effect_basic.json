@@ -1,0 +1,10 @@
+{
+  "name": "波点光",
+  "type": "RELIGHTING",
+  "icon": "icon.png",
+  "startColor": "#C9B2FF",
+  "endColor": "#CDA3FF",
+  "relightingType": "0x12",
+  "cameraDefinedType": 6,
+  "nameResName": "refocus_relighting_bodian"
+}

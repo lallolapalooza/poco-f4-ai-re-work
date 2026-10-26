@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-26",
+  "slug": "tiktok_trill",
+  "variant_of": "tiktok_musically",
+  "applies_to_both": true,
+  "model_packages": 3,
+  "records_total": 12,
+  "records_descriptor_decoded": 11,
+  "records_with_real_weights_executed": 6,
+  "records_weight_buffer_exact": 4,
+  "runnable_model_code_before": 0,
+  "runnable_model_code_after": 4,
+  "app_pipeline": "none",
+  "container": "ModelPackage: version_len/version, num_model, {name_len,name,key_len,key,checksum_a,config_len,config,checksum_b,weight_len,weight}",
+  "crypto": {
+    "cipher": "AES-256-ECB",
+    "key": "auth_code[0:32]",
+    "auth_code_len": 48,
+    "field_layout": "[ciphertext: len-4 bytes, multiple of 16][u32 plaintext_len]",
+    "config_key": "AES-256-ECB-decrypt(key_field, key=auth_code[0:32]) -> 32-byte net key"
+  },
+  "auth_codes": {
+    "tt_face_v10.0": "vVwfzV4dKMAdxYEcLJ15Bb5tm0b4I7HhozHgk1z9vYW5GIov",
+    "v13.0": "WaPdHZfZiMCQM2Ds6xMz9Rpva068vCyFMHPryDt0dhfUONtS"
+  },
+  "descriptor_format": "line-oriented text graph parsed by IESNN::parseNet (libbytenn.so ELF 0x140788)",
+  "weight_layout": "per weight-bearing layer: int8|int16 weights (ints[9] = 1|2) then int32 bias (num_out * 4)",
+  "records": [
+    {"model": "tt_face_v10.0.model", "record": "detect",     "layers": 54,  "weight_bytes": 14448,  "weight_exact": true,  "executed": true,  "output": "1x12x4x4"},
+    {"model": "tt_face_v10.0.model", "record": "base120",    "layers": 79,  "weight_bytes": 356816, "weight_exact": false, "executed": false, "blocker": "Slice/Split multi-top lines"},
+    {"model": "tt_face_v10.0.model", "record": "base120det", "layers": 58,  "weight_bytes": 151168, "weight_exact": true,  "executed": true,  "output": "1x1x1x1"},
+    {"model": "tt_face_v10.0.model", "record": "pout",       "layers": 11,  "weight_bytes": 6489,   "weight_exact": false, "executed": true,  "output": "1x2x1x1 softmax", "residue": 385},
+    {"model": "tt_face_v10.0.model", "record": "eyecls",     "layers": 11,  "weight_bytes": 6489,   "weight_exact": false, "executed": true,  "output": "1x2x1x1 softmax", "residue": 385},
+    {"model": "tt_face_v10.0.model", "record": "partface",  "layers": 58,  "weight_bytes": 151169, "weight_exact": false, "executed": false, "blocker": "Slice/Split multi-top lines"},
+    {"model": "tt_face_v10.0.model", "record": "image",      "layers": 75,  "weight_bytes": 81880,  "weight_exact": true,  "executed": true,  "output": "1x12x5x5"},
+    {"model": "tt_face_v10.0.model", "record": "slowimage",  "layers": 75,  "weight_bytes": 92296,  "weight_exact": true,  "executed": true,  "output": "1x16x6x6"},
+    {"model": "tt_face_v10.0.model", "record": "mean",       "layers": 0,   "weight_bytes": 7620,   "weight_exact": true,  "executed": true,  "output": "1905 float32 prior table"},
+    {"model": "tt_face_extra_v13.0.model", "record": "iris",  "layers": 42,  "weight_bytes": 22324,  "weight_exact": false, "executed": false, "blocker": "Slice/Split multi-top lines"},
+    {"model": "tt_face_extra_v13.0.model", "record": "extra", "layers": 141, "weight_bytes": 536580, "weight_exact": false, "executed": false, "blocker": "Slice layer"},
+    {"model": "tt_face_attribute_age_v1.1.model", "record": "agenet", "layers": null, "weight_bytes": 188648, "weight_exact": false, "executed": false, "blocker": "auth_code not recovered"}
+  ],
+  "blockers": [
+    "agenet auth_code not recovered (1 of 12 records): not any 48-char alnum literal in libeffect.so, not any of 24 decoded inline codes, not 1-edit away from the 5 partial scans. Next: decompile the FaceAttributesTask loader at libeffect xref 0xafdd54 (string 0xd9283f).",
+    "weight fixed-point dequantisation scale not recovered: int8/int16 weights + int32 bias verified by exact buffer closure, but no float32 scale anywhere in the buffer. --wscale applies 2**-n; outputs are therefore not claimed bit-exact.",
+    "Slice/Split/Crop multi-top layer lines are not modelled, so base120/partface/iris/extra parse but do not close their weight buffers."
+  ],
+  "artifacts": [
+    "reimpl/descriptor.py",
+    "reimpl/run_record.py",
+    "reimpl/verify.py",
+    "reimpl/verify.txt",
+    "reimpl/GAP_CLOSURE.md",
+    "native/bytenn_parseNet_decompiled.c",
+    "native/libeffect_loader_decompiled.c",
+    "native/libeffect_modelpkg_decompiled.c"
+  ]
+}

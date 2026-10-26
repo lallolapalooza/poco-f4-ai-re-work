@@ -1,0 +1,16 @@
+== tt_face_v10.0.model  905491 B  version='tt_face_v10.0'  records=9
+   detect       off=0x000029 payload=0x00007b len=  19140 B4= 4708 H(sec)=7.95 H(rest)=5.64 fp32%=0.62
+   base120      off=0x004b3f payload=0x004b92 len= 363732 B4= 6932 H(sec)=7.97 H(rest)=5.77 fp32%=0.56
+   base120det   off=0x05d866 payload=0x05d8bc len= 156292 B4= 5140 H(sec)=7.95 H(rest)=4.89 fp32%=0.81
+   pout         off=0x083b40 payload=0x083b90 len=   7149 B4=  676 H(sec)=7.71 H(rest)=5.69 fp32%=0.81
+   eyecls       off=0x08577d payload=0x0857cf len=   7149 B4=  676 H(sec)=7.67 H(rest)=5.69 fp32%=0.50
+   partface     off=0x0873bc payload=0x087410 len= 156165 B4= 5012 H(sec)=7.96 H(rest)=5.08 fp32%=0.81
+   image        off=0x0ad615 payload=0x0ad666 len=  88508 B4= 6644 H(sec)=7.96 H(rest)=5.39 fp32%=0.56
+   slowimage    off=0x0c3022 payload=0x0c3077 len=  98940 B4= 6660 H(sec)=7.96 H(rest)=5.43 fp32%=0.56
+   mean         off=0x0db2f3 payload=0x0db343 len=   7632 B4=   20 H(sec)=3.78 H(rest)=3.78 fp32%=1.00
+   mean: 1905 float32 values, nbytes=7620, first=[30.031999588012695, 73.78240203857422, 30.06879997253418, 86.6895980834961], trailer=0000000000000000
+== tt_face_extra_v13.0.model  573858 B  version='v13.0'  records=2
+   iris         off=0x000021 payload=0x000071 len=  25864 B4= 3556 H(sec)=7.93 H(rest)=5.33 fp32%=0.62
+   extra        off=0x006579 payload=0x0065ca len= 547800 B4=11236 H(sec)=7.98 H(rest)=5.70 fp32%=0.56
+== tt_face_attribute_age_v1.1.model  203028 B  version='tt_face_attribute_age_v1.1'  records=1
+   agenet       off=0x000036 payload=0x000088 len= 202892 B4=14260 H(sec)=7.98 H(rest)=5.43 fp32%=0.56

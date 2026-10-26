@@ -1,0 +1,484 @@
+{
+ "signature": {
+  "inputs": [
+   {
+    "name": "input_1",
+    "tensor_index": 0
+   }
+  ],
+  "key": "serving_default",
+  "outputs": [
+   {
+    "name": "dense_1",
+    "tensor_index": 35
+   }
+  ],
+  "subgraph_index": 0
+ },
+ "inputs": [
+  {
+   "buffer_bytes": 0,
+   "buffer_index": 1,
+   "dtype": "FLOAT32",
+   "index": 0,
+   "is_constant": false,
+   "is_variable": false,
+   "name": "serving_default_input_1:0",
+   "quantization": {
+    "max": [],
+    "min": [],
+    "quantized_dimension": 0,
+    "scale": [],
+    "scheme": "none",
+    "zero_point": []
+   },
+   "shape": [
+    1,
+    400,
+    1
+   ],
+   "shape_signature": [
+    -1,
+    400,
+    1
+   ]
+  }
+ ],
+ "outputs": [
+  {
+   "buffer_bytes": 0,
+   "buffer_index": 36,
+   "dtype": "FLOAT32",
+   "index": 35,
+   "is_constant": false,
+   "is_variable": false,
+   "name": "StatefulPartitionedCall:0",
+   "quantization": {
+    "max": [],
+    "min": [],
+    "quantized_dimension": 0,
+    "scale": [],
+    "scheme": "none",
+    "zero_point": []
+   },
+   "shape": [
+    1,
+    2
+   ],
+   "shape_signature": [
+    -1,
+    2
+   ]
+  }
+ ],
+ "ops": [
+  {
+   "index": 0,
+   "op": "EXPAND_DIMS",
+   "version": 1,
+   "inputs": [
+    0,
+    8
+   ],
+   "outputs": [
+    18
+   ],
+   "options": {}
+  },
+  {
+   "index": 1,
+   "op": "DEQUANTIZE",
+   "version": 2,
+   "inputs": [
+    11
+   ],
+   "outputs": [
+    40
+   ],
+   "options": {}
+  },
+  {
+   "index": 2,
+   "op": "DEQUANTIZE",
+   "version": 2,
+   "inputs": [
+    5
+   ],
+   "outputs": [
+    43
+   ],
+   "options": {}
+  },
+  {
+   "index": 3,
+   "op": "CONV_2D",
+   "version": 1,
+   "inputs": [
+    18,
+    40,
+    43
+   ],
+   "outputs": [
+    19
+   ],
+   "options": {
+    "DilationHFactor": 1,
+    "DilationWFactor": 1,
+    "FusedActivationFunction": "RELU",
+    "Padding": "SAME",
+    "QuantizedBiasType": 0,
+    "StrideH": 1,
+    "StrideW": 1
+   }
+  },
+  {
+   "index": 4,
+   "op": "RESHAPE",
+   "version": 1,
+   "inputs": [
+    19,
+    14
+   ],
+   "outputs": [
+    20
+   ],
+   "options": {}
+  },
+  {
+   "index": 5,
+   "op": "EXPAND_DIMS",
+   "version": 1,
+   "inputs": [
+    20,
+    6
+   ],
+   "outputs": [
+    21
+   ],
+   "options": {}
+  },
+  {
+   "index": 6,
+   "op": "MAX_POOL_2D",
+   "version": 1,
+   "inputs": [
+    21
+   ],
+   "outputs": [
+    22
+   ],
+   "options": {
+    "FilterHeight": 3,
+    "FilterWidth": 1,
+    "FusedActivationFunction": "NONE",
+    "Padding": "SAME",
+    "StrideH": 2,
+    "StrideW": 1
+   }
+  },
+  {
+   "index": 7,
+   "op": "RESHAPE",
+   "version": 1,
+   "inputs": [
+    22,
+    15
+   ],
+   "outputs": [
+    23
+   ],
+   "options": {}
+  },
+  {
+   "index": 8,
+   "op": "EXPAND_DIMS",
+   "version": 1,
+   "inputs": [
+    23,
+    8
+   ],
+   "outputs": [
+    24
+   ],
+   "options": {}
+  },
+  {
+   "index": 9,
+   "op": "DEQUANTIZE",
+   "version": 2,
+   "inputs": [
+    12
+   ],
+   "outputs": [
+    36
+   ],
+   "options": {}
+  },
+  {
+   "index": 10,
+   "op": "DEQUANTIZE",
+   "version": 2,
+   "inputs": [
+    4
+   ],
+   "outputs": [
+    37
+   ],
+   "options": {}
+  },
+  {
+   "index": 11,
+   "op": "CONV_2D",
+   "version": 1,
+   "inputs": [
+    24,
+    36,
+    37
+   ],
+   "outputs": [
+    25
+   ],
+   "options": {
+    "DilationHFactor": 1,
+    "DilationWFactor": 1,
+    "FusedActivationFunction": "RELU",
+    "Padding": "SAME",
+    "QuantizedBiasType": 0,
+    "StrideH": 1,
+    "StrideW": 1
+   }
+  },
+  {
+   "index": 12,
+   "op": "RESHAPE",
+   "version": 1,
+   "inputs": [
+    25,
+    16
+   ],
+   "outputs": [
+    26
+   ],
+   "options": {}
+  },
+  {
+   "index": 13,
+   "op": "EXPAND_DIMS",
+   "version": 1,
+   "inputs": [
+    26,
+    6
+   ],
+   "outputs": [
+    27
+   ],
+   "options": {}
+  },
+  {
+   "index": 14,
+   "op": "MAX_POOL_2D",
+   "version": 1,
+   "inputs": [
+    27
+   ],
+   "outputs": [
+    28
+   ],
+   "options": {
+    "FilterHeight": 3,
+    "FilterWidth": 1,
+    "FusedActivationFunction": "NONE",
+    "Padding": "SAME",
+    "StrideH": 2,
+    "StrideW": 1
+   }
+  },
+  {
+   "index": 15,
+   "op": "RESHAPE",
+   "version": 1,
+   "inputs": [
+    28,
+    17
+   ],
+   "outputs": [
+    29
+   ],
+   "options": {}
+  },
+  {
+   "index": 16,
+   "op": "EXPAND_DIMS",
+   "version": 1,
+   "inputs": [
+    29,
+    8
+   ],
+   "outputs": [
+    30
+   ],
+   "options": {}
+  },
+  {
+   "index": 17,
+   "op": "DEQUANTIZE",
+   "version": 2,
+   "inputs": [
+    13
+   ],
+   "outputs": [
+    38
+   ],
+   "options": {}
+  },
+  {
+   "index": 18,
+   "op": "DEQUANTIZE",
+   "version": 2,
+   "inputs": [
+    3
+   ],
+   "outputs": [
+    44
+   ],
+   "options": {}
+  },
+  {
+   "index": 19,
+   "op": "CONV_2D",
+   "version": 1,
+   "inputs": [
+    30,
+    38,
+    44
+   ],
+   "outputs": [
+    31
+   ],
+   "options": {
+    "DilationHFactor": 1,
+    "DilationWFactor": 1,
+    "FusedActivationFunction": "RELU",
+    "Padding": "SAME",
+    "QuantizedBiasType": 0,
+    "StrideH": 1,
+    "StrideW": 1
+   }
+  },
+  {
+   "index": 20,
+   "op": "RESHAPE",
+   "version": 1,
+   "inputs": [
+    31,
+    7
+   ],
+   "outputs": [
+    32
+   ],
+   "options": {}
+  },
+  {
+   "index": 21,
+   "op": "DEQUANTIZE",
+   "version": 2,
+   "inputs": [
+    2
+   ],
+   "outputs": [
+    42
+   ],
+   "options": {}
+  },
+  {
+   "index": 22,
+   "op": "DEQUANTIZE",
+   "version": 2,
+   "inputs": [
+    9
+   ],
+   "outputs": [
+    45
+   ],
+   "options": {}
+  },
+  {
+   "index": 23,
+   "op": "FULLY_CONNECTED",
+   "version": 1,
+   "inputs": [
+    32,
+    45,
+    42
+   ],
+   "outputs": [
+    33
+   ],
+   "options": {
+    "AsymmetricQuantizeInputs": false,
+    "FusedActivationFunction": "RELU",
+    "KeepNumDims": false,
+    "QuantizedBiasType": 0,
+    "WeightsFormat": "DEFAULT"
+   }
+  },
+  {
+   "index": 24,
+   "op": "DEQUANTIZE",
+   "version": 2,
+   "inputs": [
+    10
+   ],
+   "outputs": [
+    39
+   ],
+   "options": {}
+  },
+  {
+   "index": 25,
+   "op": "DEQUANTIZE",
+   "version": 2,
+   "inputs": [
+    1
+   ],
+   "outputs": [
+    41
+   ],
+   "options": {}
+  },
+  {
+   "index": 26,
+   "op": "FULLY_CONNECTED",
+   "version": 1,
+   "inputs": [
+    33,
+    39,
+    41
+   ],
+   "outputs": [
+    34
+   ],
+   "options": {
+    "AsymmetricQuantizeInputs": false,
+    "FusedActivationFunction": "NONE",
+    "KeepNumDims": false,
+    "QuantizedBiasType": 0,
+    "WeightsFormat": "DEFAULT"
+   }
+  },
+  {
+   "index": 27,
+   "op": "SOFTMAX",
+   "version": 1,
+   "inputs": [
+    34
+   ],
+   "outputs": [
+    35
+   ],
+   "options": {
+    "Beta": 1.0
+   }
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "舞台光",
+  "type": "RELIGHTING",
+  "icon": "icon.png",
+  "startColor": "#D5A8FF",
+  "endColor": "#DF99FF",
+  "relightingType": "0x16",
+  "cameraDefinedType": 2,
+  "nameResName": "refocus_relighting_wutai"
+}

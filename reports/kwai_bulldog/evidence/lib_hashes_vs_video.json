@@ -1,0 +1,402 @@
+{
+ "lib/arm64-v8a/libCGE.so": {
+  "bulldog": "f6e8ba0b659c228ae0e77c32177b2f61a4718cfa574095d7c9edd8acf6ba9bc5",
+  "video": "f6e8ba0b659c228ae0e77c32177b2f61a4718cfa574095d7c9edd8acf6ba9bc5",
+  "same": true
+ },
+ "lib/arm64-v8a/libFaceMagic.so": {
+  "bulldog": "6ef763ecb8a947a943707e2685c7025c2814868e930f3a505712964c228821bb",
+  "video": "6ef763ecb8a947a943707e2685c7025c2814868e930f3a505712964c228821bb",
+  "same": true
+ },
+ "lib/arm64-v8a/libPNG.so": {
+  "bulldog": "539d9ab22b65ec6d40fa4740f2345cb1d4788bfd292b87be722300e42a67cea8",
+  "video": "539d9ab22b65ec6d40fa4740f2345cb1d4788bfd292b87be722300e42a67cea8",
+  "same": true
+ },
+ "lib/arm64-v8a/libaegon.so": {
+  "bulldog": "16b1abdc51ac34469fc847152bb7d85369592e6c668aec9d78c8c35f3798434b",
+  "video": "16b1abdc51ac34469fc847152bb7d85369592e6c668aec9d78c8c35f3798434b",
+  "same": true
+ },
+ "lib/arm64-v8a/libaudioplugin.so": {
+  "bulldog": "330f6a91e059ba268ac8066eec02335cdae27a2d75ec5ff28cda0942faa27f96",
+  "video": "330f6a91e059ba268ac8066eec02335cdae27a2d75ec5ff28cda0942faa27f96",
+  "same": true
+ },
+ "lib/arm64-v8a/libc++_shared.so": {
+  "bulldog": "9bb2227fd5bf39cef1bc697bbeef40cdc32d9567ac2fb285e8e96ed013e3d463",
+  "video": "9bb2227fd5bf39cef1bc697bbeef40cdc32d9567ac2fb285e8e96ed013e3d463",
+  "same": true
+ },
+ "lib/arm64-v8a/libconnectionbase.so": {
+  "bulldog": "64cb4950c9b4293f25edc14df7ff0467cabf568d125c115ed153b4bbf78cd0b8",
+  "video": "64cb4950c9b4293f25edc14df7ff0467cabf568d125c115ed153b4bbf78cd0b8",
+  "same": true
+ },
+ "lib/arm64-v8a/libcore.so": {
+  "bulldog": "6dffc5fe4bc5ccd425d3a9dd95c6618ddd3f30e85de9006a0396e3912bcfc4d7",
+  "video": "80d33ae28e166205eb902c87376002bfdecb18a214c526e50b765004175dc1e0",
+  "same": false
+ },
+ "lib/arm64-v8a/libcpu-info.so": {
+  "bulldog": "e46daeedbc3ee83e3ad43796631fbdaf97a685687654fe3c8c83c739cd9f4521",
+  "video": "e46daeedbc3ee83e3ad43796631fbdaf97a685687654fe3c8c83c739cd9f4521",
+  "same": true
+ },
+ "lib/arm64-v8a/libcrash_dump.so": {
+  "bulldog": "7913db63c2e75194f2b428b8def6b888f6b88902dd0a6f21a6652ea71c6ce465",
+  "video": "7913db63c2e75194f2b428b8def6b888f6b88902dd0a6f21a6652ea71c6ce465",
+  "same": true
+ },
+ "lib/arm64-v8a/libcustomplugin.so": {
+  "bulldog": "869ac324d2a47475bdf64ac95f5ce47465f9d85255d70a128317353e9508d02c",
+  "video": "869ac324d2a47475bdf64ac95f5ce47465f9d85255d70a128317353e9508d02c",
+  "same": true
+ },
+ "lib/arm64-v8a/libdaenerys.so": {
+  "bulldog": "3b0758bf5b7343f38e5ba7b3746896f13dbb3821e2b5bdd8752738f733b146ee",
+  "video": "3b0758bf5b7343f38e5ba7b3746896f13dbb3821e2b5bdd8752738f733b146ee",
+  "same": true
+ },
+ "lib/arm64-v8a/libdevicepersonasdkjni.so": {
+  "bulldog": "807ab74cd078df8d3cf97a414443640bcc7b1465c56bb6e7de57246f9c2c3057",
+  "video": "807ab74cd078df8d3cf97a414443640bcc7b1465c56bb6e7de57246f9c2c3057",
+  "same": true
+ },
+ "lib/arm64-v8a/libexception-handler.so": {
+  "bulldog": "86be224c49208afafcb164e63a771dd1a3c556e700e663941bafcc9aa007d63a",
+  "video": "86be224c49208afafcb164e63a771dd1a3c556e700e663941bafcc9aa007d63a",
+  "same": true
+ },
+ "lib/arm64-v8a/libfacedetectcontext.so": {
+  "bulldog": "6238b6122fb3b7520b7f6f36a106553677f814b7162fe5fb4d0124a51675bda0",
+  "video": "6238b6122fb3b7520b7f6f36a106553677f814b7162fe5fb4d0124a51675bda0",
+  "same": true
+ },
+ "lib/arm64-v8a/libfaceless-plugin.so": {
+  "bulldog": "727d44695b971ae7add4bb931b480b149159316587096fc557a3c3241b9f204c",
+  "video": "727d44695b971ae7add4bb931b480b149159316587096fc557a3c3241b9f204c",
+  "same": true
+ },
+ "lib/arm64-v8a/libffmpeg.so": {
+  "bulldog": "639759d25af1c564cc90a5fcbed650f3d7adc0fe878f74d2c4246e69598b7f7a",
+  "video": "639759d25af1c564cc90a5fcbed650f3d7adc0fe878f74d2c4246e69598b7f7a",
+  "same": true
+ },
+ "lib/arm64-v8a/libgifimage.so": {
+  "bulldog": "bc458e120c678b61734f3dc4442cf172ee10bcd9668c959b37d5d4dd395d731e",
+  "video": "bc458e120c678b61734f3dc4442cf172ee10bcd9668c959b37d5d4dd395d731e",
+  "same": true
+ },
+ "lib/arm64-v8a/libgodzilla.so": {
+  "bulldog": "7babe4ef36297d0fb4d1ef644137b9065780621e4afe77f2fc3d21eb99fb0b17",
+  "video": "7babe4ef36297d0fb4d1ef644137b9065780621e4afe77f2fc3d21eb99fb0b17",
+  "same": true
+ },
+ "lib/arm64-v8a/libgorgeous.so": {
+  "bulldog": "9efd425f05cabb8774ce94cd7118fbf96b1a7d2643ffcafe481ef7cc81f7fb45",
+  "video": "9efd425f05cabb8774ce94cd7118fbf96b1a7d2643ffcafe481ef7cc81f7fb45",
+  "same": true
+ },
+ "lib/arm64-v8a/libhodor.so": {
+  "bulldog": "8a13b69c629415082a9c6584a5d3b8de7324f92226b15817b873582a28b949f9",
+  "video": "8a13b69c629415082a9c6584a5d3b8de7324f92226b15817b873582a28b949f9",
+  "same": true
+ },
+ "lib/arm64-v8a/libimagepipeline.so": {
+  "bulldog": "285931ad019bbeceeb25af5fcd6c4181a2fee870da5a17ecb9093f142c6e69f1",
+  "video": "285931ad019bbeceeb25af5fcd6c4181a2fee870da5a17ecb9093f142c6e69f1",
+  "same": true
+ },
+ "lib/arm64-v8a/libkdiff.so": {
+  "bulldog": "4b312b9713a7d172c8f4819b312962fa4be1ecef86c8a872ca95ffe293748cc2",
+  "video": "4b312b9713a7d172c8f4819b312962fa4be1ecef86c8a872ca95ffe293748cc2",
+  "same": true
+ },
+ "lib/arm64-v8a/libklink.so": {
+  "bulldog": "6a40d14bcd46804d60af30b92975c995004019416495e12cc537b6379c712937",
+  "video": "6a40d14bcd46804d60af30b92975c995004019416495e12cc537b6379c712937",
+  "same": true
+ },
+ "lib/arm64-v8a/libklp_pull_client_shared.so": {
+  "bulldog": "638979a9003ba8c776ec78289bd6f91f64f1a8c89dd226cb015100003d8f0675",
+  "video": "638979a9003ba8c776ec78289bd6f91f64f1a8c89dd226cb015100003d8f0675",
+  "same": true
+ },
+ "lib/arm64-v8a/libklsf.so": {
+  "bulldog": "2da2b31f4c5ccc54c9f36638d05032fdb5c88d8e28acc5de10df5e7d2568a642",
+  "video": "2da2b31f4c5ccc54c9f36638d05032fdb5c88d8e28acc5de10df5e7d2568a642",
+  "same": true
+ },
+ "lib/arm64-v8a/libkmalloc.so": {
+  "bulldog": "d0c950cba72776bc493a0abcde7a4e15f07b7d074253ce40f88813b20d8f63e8",
+  "video": "d0c950cba72776bc493a0abcde7a4e15f07b7d074253ce40f88813b20d8f63e8",
+  "same": true
+ },
+ "lib/arm64-v8a/libknsc.so": {
+  "bulldog": "384083f33c21681ed5fbc92dc4267a0ae394031e14b9d95d56c4ad97ac2e23bd",
+  "video": "384083f33c21681ed5fbc92dc4267a0ae394031e14b9d95d56c4ad97ac2e23bd",
+  "same": true
+ },
+ "lib/arm64-v8a/libkoom-java.so": {
+  "bulldog": "00f3adf78612e7615602822e37d084812e2135e8094611f9af913faeb1af7543",
+  "video": "00f3adf78612e7615602822e37d084812e2135e8094611f9af913faeb1af7543",
+  "same": true
+ },
+ "lib/arm64-v8a/libkoom-jemalloc.so": {
+  "bulldog": "106a04c2609c7af9b953270e2672c7869d06df51e92044b17cc6c241c1848d56",
+  "video": "106a04c2609c7af9b953270e2672c7869d06df51e92044b17cc6c241c1848d56",
+  "same": true
+ },
+ "lib/arm64-v8a/libkpg.so": {
+  "bulldog": "afbe8e374311610908d03213bf36494feb82800bc8b4a23d3efad61822656ecf",
+  "video": "afbe8e374311610908d03213bf36494feb82800bc8b4a23d3efad61822656ecf",
+  "same": true
+ },
+ "lib/arm64-v8a/libksaudioprocesslib-dl.so": {
+  "bulldog": "785a359751d29d5675cabfcaed65260188f6f6d1e733357476df5dda0a7082ac",
+  "video": "785a359751d29d5675cabfcaed65260188f6f6d1e733357476df5dda0a7082ac",
+  "same": true
+ },
+ "lib/arm64-v8a/libksaudioprocesslib.so": {
+  "bulldog": "530b358972b712edc484246b2e03e6a4cde5c0945e7a069e9a4fcf9b183bd975",
+  "video": "530b358972b712edc484246b2e03e6a4cde5c0945e7a069e9a4fcf9b183bd975",
+  "same": true
+ },
+ "lib/arm64-v8a/libksaudioprocessorplugin.so": {
+  "bulldog": "36074fa915a2d1ec9ced53b85b6a20c264d9b5e307285cb6b8a28d71cb48a632",
+  "video": "36074fa915a2d1ec9ced53b85b6a20c264d9b5e307285cb6b8a28d71cb48a632",
+  "same": true
+ },
+ "lib/arm64-v8a/libkscapekitjni.so": {
+  "bulldog": "1ec86a0abe2f20987a85b86bd284d42815b054616a596f53a9b07c5832c491f3",
+  "video": "1ec86a0abe2f20987a85b86bd284d42815b054616a596f53a9b07c5832c491f3",
+  "same": true
+ },
+ "lib/arm64-v8a/libksimage.so": {
+  "bulldog": "2d2584b09ab1929b5172cd168bf2b31392df7bd7c581db7bc1c08f18fe876aac",
+  "video": "2d2584b09ab1929b5172cd168bf2b31392df7bd7c581db7bc1c08f18fe876aac",
+  "same": true
+ },
+ "lib/arm64-v8a/libksrtckit.so": {
+  "bulldog": "6c4aa8f1a6034be5cae3c81ce31bc3f5e52b51884baeaf895130e65b3cc601b8",
+  "video": "6c4aa8f1a6034be5cae3c81ce31bc3f5e52b51884baeaf895130e65b3cc601b8",
+  "same": true
+ },
+ "lib/arm64-v8a/libksuploaderjni.so": {
+  "bulldog": "faf64ca77383dafac310d05d0f3a89bef35467731b4a10ab3bbbbf8ad949ee15",
+  "video": "faf64ca77383dafac310d05d0f3a89bef35467731b4a10ab3bbbbf8ad949ee15",
+  "same": true
+ },
+ "lib/arm64-v8a/libksvideorendersdkjni.so": {
+  "bulldog": "aeb95ed4811dab4d45eaba65c5ca950a0de85f21f120cb52b45bf8c454472dbf",
+  "video": "aeb95ed4811dab4d45eaba65c5ca950a0de85f21f120cb52b45bf8c454472dbf",
+  "same": true
+ },
+ "lib/arm64-v8a/libksvisionengineplugin.so": {
+  "bulldog": "39644f5eead40131febc35042bba29d9cff48c56d7b6246d663a29e04a1b14ab",
+  "video": "39644f5eead40131febc35042bba29d9cff48c56d7b6246d663a29e04a1b14ab",
+  "same": true
+ },
+ "lib/arm64-v8a/libktrace.so": {
+  "bulldog": "62467b4b65c6a803e4915a6155c6ffcac2db9e99b4c01568766801744112a258",
+  "video": "62467b4b65c6a803e4915a6155c6ffcac2db9e99b4c01568766801744112a258",
+  "same": true
+ },
+ "lib/arm64-v8a/libkwaiaudio.so": {
+  "bulldog": "01419e63fbb254921a67320f4ca183a0cc50589315c465143c9cc1c2d8f65a98",
+  "video": "01419e63fbb254921a67320f4ca183a0cc50589315c465143c9cc1c2d8f65a98",
+  "same": true
+ },
+ "lib/arm64-v8a/libkwaiplayer.so": {
+  "bulldog": "ae7fca37f2e6bd8242e24c00bb835bd3a8786a0b128d03a1303f8c67ae964deb",
+  "video": "ae7fca37f2e6bd8242e24c00bb835bd3a8786a0b128d03a1303f8c67ae964deb",
+  "same": true
+ },
+ "lib/arm64-v8a/libkwaivoip.so": {
+  "bulldog": "ff52e7e1653953052afc4d7c46e38dd009f3fa00ea3997f2e593d61a1b36ad7e",
+  "video": "ff52e7e1653953052afc4d7c46e38dd009f3fa00ea3997f2e593d61a1b36ad7e",
+  "same": true
+ },
+ "lib/arm64-v8a/libkwaivpp.so": {
+  "bulldog": "3a1b0ad3aba13dab6272e60610f498b6883a7383d178d8cb787c1a8224ea9851",
+  "video": "3a1b0ad3aba13dab6272e60610f498b6883a7383d178d8cb787c1a8224ea9851",
+  "same": true
+ },
+ "lib/arm64-v8a/libkwsgmain.so": {
+  "bulldog": "48aae030c926bbabc3d2183298db7f7ffbebc339fe693b39f56e89554d6a8fce",
+  "video": "48aae030c926bbabc3d2183298db7f7ffbebc339fe693b39f56e89554d6a8fce",
+  "same": true
+ },
+ "lib/arm64-v8a/liblinkconnection.so": {
+  "bulldog": "1513f00e95342ddab5ab5dafa69f79ef706b2a56d8efe40f737a6a1f0d631749",
+  "video": "1513f00e95342ddab5ab5dafa69f79ef706b2a56d8efe40f737a6a1f0d631749",
+  "same": true
+ },
+ "lib/arm64-v8a/liblonginus.so": {
+  "bulldog": "b68ad5b705ca110eb1a66447e5baf9c12034eefb49f9844cf17fd785d68a7c71",
+  "video": "b68ad5b705ca110eb1a66447e5baf9c12034eefb49f9844cf17fd785d68a7c71",
+  "same": true
+ },
+ "lib/arm64-v8a/libmmkv.so": {
+  "bulldog": "232843068fc696b974ffcaa0773c51797f22ad2b1225dc202194bc663c729ccc",
+  "video": "232843068fc696b974ffcaa0773c51797f22ad2b1225dc202194bc663c729ccc",
+  "same": true
+ },
+ "lib/arm64-v8a/libmultipipelineprocessorplugin.so": {
+  "bulldog": "94245d24583a6b2fd2d3b8babaea77e71ca3964f9033b85f049bfec519cc3aaf",
+  "video": "94245d24583a6b2fd2d3b8babaea77e71ca3964f9033b85f049bfec519cc3aaf",
+  "same": true
+ },
+ "lib/arm64-v8a/libnative-filters.so": {
+  "bulldog": "2624f478d0d7af21fc4e048e806bbd647e97140078f32af1b7d06596cb0be658",
+  "video": "2624f478d0d7af21fc4e048e806bbd647e97140078f32af1b7d06596cb0be658",
+  "same": true
+ },
+ "lib/arm64-v8a/libnative-imagetranscoder.so": {
+  "bulldog": "736549ed919159021053349c9c136adcb1f54ff4001152a00b8cef771a5fa7ff",
+  "video": "736549ed919159021053349c9c136adcb1f54ff4001152a00b8cef771a5fa7ff",
+  "same": true
+ },
+ "lib/arm64-v8a/libobiwan-jni.so": {
+  "bulldog": "0aa17e16a3003be7bf81304a7bb9b6dbaeb6519a49c46a72a3a43fce523da75b",
+  "video": "0aa17e16a3003be7bf81304a7bb9b6dbaeb6519a49c46a72a3a43fce523da75b",
+  "same": true
+ },
+ "lib/arm64-v8a/libopencv_world.so": {
+  "bulldog": "67c11c7e8bbff1f02193246b465078bd50f7ee8bf87aeffe2aa7f396e220bd3d",
+  "video": "67c11c7e8bbff1f02193246b465078bd50f7ee8bf87aeffe2aa7f396e220bd3d",
+  "same": true
+ },
+ "lib/arm64-v8a/libplt-base.so": {
+  "bulldog": "265e984cc07b131b8bea5a6ff388323172818aa03ec1760070745d0e8c24ea61",
+  "video": "265e984cc07b131b8bea5a6ff388323172818aa03ec1760070745d0e8c24ea61",
+  "same": true
+ },
+ "lib/arm64-v8a/libplt-hack.so": {
+  "bulldog": "7d49d2253dd337529e1b6ed6ea72545dbbde16150e09318a3c49482e3ad15276",
+  "video": "7d49d2253dd337529e1b6ed6ea72545dbbde16150e09318a3c49482e3ad15276",
+  "same": true
+ },
+ "lib/arm64-v8a/libplt-unwind.so": {
+  "bulldog": "5df0b6ddf02d6bc068adc3f1f87fd581467616a19765cf96750e72a7b91fd838",
+  "video": "5df0b6ddf02d6bc068adc3f1f87fd581467616a19765cf96750e72a7b91fd838",
+  "same": true
+ },
+ "lib/arm64-v8a/libprotobuf-lite.so": {
+  "bulldog": "77ea4651717efb954bbab33e614da62c4bf6954247c74726390a3375e37236b2",
+  "video": "77ea4651717efb954bbab33e614da62c4bf6954247c74726390a3375e37236b2",
+  "same": true
+ },
+ "lib/arm64-v8a/libruntime_hack.so": {
+  "bulldog": "4a40e3a7ca295f3d27040d9b5c6ab036418f4ee608164bcef322a4613c4d5761",
+  "video": "4a40e3a7ca295f3d27040d9b5c6ab036418f4ee608164bcef322a4613c4d5761",
+  "same": true
+ },
+ "lib/arm64-v8a/libskwai.so": {
+  "bulldog": "468b928d18313c85cca82c4929ff2cf1c2a5182e88abfb92a6c9dda8f85fbdd9",
+  "video": "468b928d18313c85cca82c4929ff2cf1c2a5182e88abfb92a6c9dda8f85fbdd9",
+  "same": true
+ },
+ "lib/arm64-v8a/libspine.so": {
+  "bulldog": "af0630cf9f833f8afa7585c597b846c8992a51bd8568be4e6f93b75a6e2965cc",
+  "video": "af0630cf9f833f8afa7585c597b846c8992a51bd8568be4e6f93b75a6e2965cc",
+  "same": true
+ },
+ "lib/arm64-v8a/libstatic-webp.so": {
+  "bulldog": "3a9af3bab2359d13b4cd255478be6103bd4de4731c27503c81a901134f7a7885",
+  "video": "3a9af3bab2359d13b4cd255478be6103bd4de4731c27503c81a901134f7a7885",
+  "same": true
+ },
+ "lib/arm64-v8a/libstentorplugin.so": {
+  "bulldog": "5c9462dc8963161c9db9417a75380f9fd6654c45223d05a5b36bc6559c846b94",
+  "video": "5c9462dc8963161c9db9417a75380f9fd6654c45223d05a5b36bc6559c846b94",
+  "same": true
+ },
+ "lib/arm64-v8a/libtensorflow-lite.so": {
+  "bulldog": "6ef8898d73f366db4ccf2d94738b916a67fba685f5d3941134a79b1f7911167f",
+  "video": "6ef8898d73f366db4ccf2d94738b916a67fba685f5d3941134a79b1f7911167f",
+  "same": true
+ },
+ "lib/arm64-v8a/libturbojpeg.so": {
+  "bulldog": "091b73d09ae14fd757256e9d41c9de3d5aa06e0cad1ea8d28b1bbc4ac5622dee",
+  "video": "091b73d09ae14fd757256e9d41c9de3d5aa06e0cad1ea8d28b1bbc4ac5622dee",
+  "same": true
+ },
+ "lib/arm64-v8a/libuv.so": {
+  "bulldog": "dae003d2a264b55640762e5cf312a0706d3217a0e291e8c66d78d48633012129",
+  "video": "dae003d2a264b55640762e5cf312a0706d3217a0e291e8c66d78d48633012129",
+  "same": true
+ },
+ "lib/arm64-v8a/libveplugin.so": {
+  "bulldog": "fba973e642dfc0ef148e607ad3782da01f950d584d496e281a2135290628f548",
+  "video": "fba973e642dfc0ef148e607ad3782da01f950d584d496e281a2135290628f548",
+  "same": true
+ },
+ "lib/arm64-v8a/libvideoprocessor.so": {
+  "bulldog": "415b00e34d3c4264251372b66a0d9a789ea07d094d93a3d35bd6cb021e63f705",
+  "video": "415b00e34d3c4264251372b66a0d9a789ea07d094d93a3d35bd6cb021e63f705",
+  "same": true
+ },
+ "lib/arm64-v8a/libvisionengine.so": {
+  "bulldog": "d18be8987e734bb2448cb7ef9c94bb4c797bf8a293b14dff43879b97d6c6e734",
+  "video": "d18be8987e734bb2448cb7ef9c94bb4c797bf8a293b14dff43879b97d6c6e734",
+  "same": true
+ },
+ "lib/arm64-v8a/libw330.so": {
+  "bulldog": "b6300c3b5fe3eb03d6181758691933c3239801f3eae0f39c528181f04eaaaa80",
+  "video": "b6300c3b5fe3eb03d6181758691933c3239801f3eae0f39c528181f04eaaaa80",
+  "same": true
+ },
+ "lib/arm64-v8a/libwebp_jni.so": {
+  "bulldog": "8247efbb4e1c530d0846538355011b0fee14dc14795f6ed94e7d9a78abafca54",
+  "video": "8247efbb4e1c530d0846538355011b0fee14dc14795f6ed94e7d9a78abafca54",
+  "same": true
+ },
+ "lib/arm64-v8a/libwebp_kwai.so": {
+  "bulldog": "f072c2e8121554a9e44e134b07ec7e9976da4ed16af5ec0218bf93924851cff5",
+  "video": "f072c2e8121554a9e44e134b07ec7e9976da4ed16af5ec0218bf93924851cff5",
+  "same": true
+ },
+ "lib/arm64-v8a/libwesteros.so": {
+  "bulldog": "add716bd946fb63c46cd6e087028113e0dc5441cd8467f264fa1ae3f1372d305",
+  "video": "add716bd946fb63c46cd6e087028113e0dc5441cd8467f264fa1ae3f1372d305",
+  "same": true
+ },
+ "lib/arm64-v8a/libxhook_lib.so": {
+  "bulldog": "4fac8b0dcb71bfc49bfc20cd0675f8cd7d2c72c1ee381c5fdf39492fff115dcc",
+  "video": "4fac8b0dcb71bfc49bfc20cd0675f8cd7d2c72c1ee381c5fdf39492fff115dcc",
+  "same": true
+ },
+ "lib/arm64-v8a/libykit.so": {
+  "bulldog": "f0723a105fa946512501e048f08d6dbed1584231f6a6c399989a59174d558b69",
+  "video": "f0723a105fa946512501e048f08d6dbed1584231f6a6c399989a59174d558b69",
+  "same": true
+ },
+ "lib/arm64-v8a/libykit_core_plugin.so": {
+  "bulldog": "41693ab1572190d6dbafd92dbf451052664739986d528020544f55c2e11584ee",
+  "video": "41693ab1572190d6dbafd92dbf451052664739986d528020544f55c2e11584ee",
+  "same": true
+ },
+ "lib/arm64-v8a/libykit_module.so": {
+  "bulldog": "dac55d66099e5bdc9eea1e441f2d0e4a14486947349988d88a26d6a123c524df",
+  "video": "dac55d66099e5bdc9eea1e441f2d0e4a14486947349988d88a26d6a123c524df",
+  "same": true
+ },
+ "lib/arm64-v8a/libykit_module_plugin.so": {
+  "bulldog": "5f7c512e12123fd5c35abce86572075297734e52a05ac87463207ba6ec9c7639",
+  "video": "5f7c512e12123fd5c35abce86572075297734e52a05ac87463207ba6ec9c7639",
+  "same": true
+ },
+ "lib/arm64-v8a/libykit_plugin.so": {
+  "bulldog": "b0a6ffecfcc156fe24cf36c7f5c6c9d9db7f2b60be715e3f2ff48c1db8ea75b3",
+  "video": "b0a6ffecfcc156fe24cf36c7f5c6c9d9db7f2b60be715e3f2ff48c1db8ea75b3",
+  "same": true
+ },
+ "lib/arm64-v8a/libyuv.so": {
+  "bulldog": "28208ef0d2ae42b6f9ca14d4a0f9008f7f115e1d153b9b041f3e5e088de1ce77",
+  "video": "28208ef0d2ae42b6f9ca14d4a0f9008f7f115e1d153b9b041f3e5e088de1ce77",
+  "same": true
+ }
+}

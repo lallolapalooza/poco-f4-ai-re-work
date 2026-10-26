@@ -1,0 +1,1 @@
+uniform sampler2D inputImageTexture; uniform float enlargeRatio; varying vec2 textureCoordinate; void main() { vec2 center = vec2(0.5); vec2 enlargedCoord = (textureCoordinate - center) / enlargeRatio + center; gl_FragColor = texture2D(inputImageTexture,enlargedCoord); }

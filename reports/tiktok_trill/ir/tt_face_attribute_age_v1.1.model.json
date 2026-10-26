@@ -1,0 +1,21 @@
+{
+ "path": "models/tt_face_attribute_age_v1.1.model",
+ "size": 203028,
+ "file_id": "0d1c0c010f0f1b1a6916f4fff1f1e5e6",
+ "declared_size": 203028,
+ "model_name": "tt_face_attribute_age_v1.1",
+ "declared_records": 1,
+ "records": [
+  {
+   "name": "agenet",
+   "name_offset": 54,
+   "const36": 36,
+   "key1": "356279e6f5697745d017e28cb8c31020d3f4fa4ce497cc2a57c4953be389aefd",
+   "const32": 32,
+   "blob2": "27f5da41b4370000166f15f0f73b121163f0ebb772d0846e2fa8b71e378ac1ac",
+   "payload_offset": 136,
+   "payload_end": 203028,
+   "payload_size": 202892
+  }
+ ]
+}

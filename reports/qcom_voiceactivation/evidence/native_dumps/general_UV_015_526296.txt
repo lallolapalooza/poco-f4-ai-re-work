@@ -1,0 +1,1168 @@
+[android_log] eai_init_ex() - params: 0x7f1afa372660, 0x7f1af911d000, 10572796, 0x0
+
+init rc=0 handle=0x4a8860
+model=../../models/eai/general_UV_015_526296.eai size=10572796 hdr=10572796 sections=5 ver=2.2 scratch_req=13584392 persist_req=0
+section[0] type=4 size=7120 off=128
+section[1] type=1 size=35952 off=7248
+section[2] type=5 size=4120 off=43200
+section[3] type=0 size=512 off=47328
+section[4] type=2 size=10524956 off=47840
+preapply rc=0
+set_property(0) rc=0 scratch=13588488
+apply rc=0 flags=0xa0000000
+io n_in=1 n_out=1
+tensors=449
+T00 ndim=1 dims=[1] bytes=4 dtype=0x8014 off=0 flags=0x00000001 magic=0x43210
+T01 ndim=1 dims=[1] bytes=4 dtype=0x8014 off=8 flags=0x00000001 magic=0x43210
+T02 ndim=4 dims=[22,1,3,3] bytes=792 dtype=0x8014 off=16 flags=0x00000001 magic=0x23410
+T03 ndim=1 dims=[22] bytes=88 dtype=0x8014 off=808 flags=0x00000001 magic=0x43210
+T04 ndim=4 dims=[22,22,3,3] bytes=17424 dtype=0x8014 off=896 flags=0x00000001 magic=0x23410
+T05 ndim=1 dims=[22] bytes=88 dtype=0x8014 off=18320 flags=0x00000001 magic=0x43210
+T06 ndim=1 dims=[22] bytes=88 dtype=0x8014 off=18408 flags=0x00000001 magic=0x43210
+T07 ndim=4 dims=[22,22,3,3] bytes=17424 dtype=0x8014 off=18496 flags=0x00000001 magic=0x23410
+T08 ndim=1 dims=[22] bytes=88 dtype=0x8014 off=35920 flags=0x00000001 magic=0x43210
+T09 ndim=2 dims=[2,22] bytes=176 dtype=0x8014 off=36008 flags=0x00000001 magic=0x43210
+T10 ndim=1 dims=[2] bytes=8 dtype=0x8014 off=36184 flags=0x00000001 magic=0x43210
+T11 ndim=2 dims=[22,2] bytes=176 dtype=0x8014 off=36192 flags=0x00000001 magic=0x43210
+T12 ndim=1 dims=[22] bytes=88 dtype=0x8014 off=36368 flags=0x00000001 magic=0x43210
+T13 ndim=4 dims=[22,22,3,3] bytes=17424 dtype=0x8014 off=36456 flags=0x00000001 magic=0x23410
+T14 ndim=1 dims=[22] bytes=88 dtype=0x8014 off=53880 flags=0x00000001 magic=0x43210
+T15 ndim=1 dims=[22] bytes=88 dtype=0x8014 off=53968 flags=0x00000001 magic=0x43210
+T16 ndim=4 dims=[22,22,3,3] bytes=17424 dtype=0x8014 off=54056 flags=0x00000001 magic=0x23410
+T17 ndim=1 dims=[22] bytes=88 dtype=0x8014 off=71480 flags=0x00000001 magic=0x43210
+T18 ndim=2 dims=[2,22] bytes=176 dtype=0x8014 off=71568 flags=0x00000001 magic=0x43210
+T19 ndim=1 dims=[2] bytes=8 dtype=0x8014 off=71744 flags=0x00000001 magic=0x43210
+T20 ndim=2 dims=[22,2] bytes=176 dtype=0x8014 off=71752 flags=0x00000001 magic=0x43210
+T21 ndim=1 dims=[22] bytes=88 dtype=0x8014 off=71928 flags=0x00000001 magic=0x43210
+T22 ndim=4 dims=[22,22,3,3] bytes=17424 dtype=0x8014 off=72016 flags=0x00000001 magic=0x23410
+T23 ndim=1 dims=[22] bytes=88 dtype=0x8014 off=89440 flags=0x00000001 magic=0x43210
+T24 ndim=1 dims=[22] bytes=88 dtype=0x8014 off=89528 flags=0x00000001 magic=0x43210
+T25 ndim=4 dims=[22,22,3,3] bytes=17424 dtype=0x8014 off=89616 flags=0x00000001 magic=0x23410
+T26 ndim=1 dims=[22] bytes=88 dtype=0x8014 off=107040 flags=0x00000001 magic=0x43210
+T27 ndim=2 dims=[2,22] bytes=176 dtype=0x8014 off=107128 flags=0x00000001 magic=0x43210
+T28 ndim=1 dims=[2] bytes=8 dtype=0x8014 off=107304 flags=0x00000001 magic=0x43210
+T29 ndim=2 dims=[22,2] bytes=176 dtype=0x8014 off=107312 flags=0x00000001 magic=0x43210
+T30 ndim=1 dims=[22] bytes=88 dtype=0x8014 off=107488 flags=0x00000001 magic=0x43210
+T31 ndim=4 dims=[44,22,3,3] bytes=34848 dtype=0x8014 off=107576 flags=0x00000001 magic=0x23410
+T32 ndim=1 dims=[44] bytes=176 dtype=0x8014 off=142424 flags=0x00000001 magic=0x43210
+T33 ndim=1 dims=[44] bytes=176 dtype=0x8014 off=142600 flags=0x00000001 magic=0x43210
+T34 ndim=4 dims=[44,44,3,3] bytes=69696 dtype=0x8014 off=142776 flags=0x00000001 magic=0x23410
+T35 ndim=1 dims=[44] bytes=176 dtype=0x8014 off=212472 flags=0x00000001 magic=0x43210
+T36 ndim=2 dims=[5,44] bytes=880 dtype=0x8014 off=212648 flags=0x00000001 magic=0x43210
+T37 ndim=1 dims=[5] bytes=20 dtype=0x8014 off=213528 flags=0x00000001 magic=0x43210
+T38 ndim=2 dims=[44,5] bytes=880 dtype=0x8014 off=213552 flags=0x00000001 magic=0x43210
+T39 ndim=1 dims=[44] bytes=176 dtype=0x8014 off=214432 flags=0x00000001 magic=0x43210
+T40 ndim=4 dims=[44,22,1,1] bytes=3872 dtype=0x8014 off=214608 flags=0x00000001 magic=0x23410
+T41 ndim=1 dims=[44] bytes=176 dtype=0x8014 off=218480 flags=0x00000001 magic=0x43210
+T42 ndim=4 dims=[44,44,3,3] bytes=69696 dtype=0x8014 off=218656 flags=0x00000001 magic=0x23410
+T43 ndim=1 dims=[44] bytes=176 dtype=0x8014 off=288352 flags=0x00000001 magic=0x43210
+T44 ndim=1 dims=[44] bytes=176 dtype=0x8014 off=288528 flags=0x00000001 magic=0x43210
+T45 ndim=4 dims=[44,44,3,3] bytes=69696 dtype=0x8014 off=288704 flags=0x00000001 magic=0x23410
+T46 ndim=1 dims=[44] bytes=176 dtype=0x8014 off=358400 flags=0x00000001 magic=0x43210
+T47 ndim=2 dims=[5,44] bytes=880 dtype=0x8014 off=358576 flags=0x00000001 magic=0x43210
+T48 ndim=1 dims=[5] bytes=20 dtype=0x8014 off=359456 flags=0x00000001 magic=0x43210
+T49 ndim=2 dims=[44,5] bytes=880 dtype=0x8014 off=359480 flags=0x00000001 magic=0x43210
+T50 ndim=1 dims=[44] bytes=176 dtype=0x8014 off=360360 flags=0x00000001 magic=0x43210
+T51 ndim=4 dims=[44,44,3,3] bytes=69696 dtype=0x8014 off=360536 flags=0x00000001 magic=0x23410
+T52 ndim=1 dims=[44] bytes=176 dtype=0x8014 off=430232 flags=0x00000001 magic=0x43210
+T53 ndim=1 dims=[44] bytes=176 dtype=0x8014 off=430408 flags=0x00000001 magic=0x43210
+T54 ndim=4 dims=[44,44,3,3] bytes=69696 dtype=0x8014 off=430584 flags=0x00000001 magic=0x23410
+T55 ndim=1 dims=[44] bytes=176 dtype=0x8014 off=500280 flags=0x00000001 magic=0x43210
+T56 ndim=2 dims=[5,44] bytes=880 dtype=0x8014 off=500456 flags=0x00000001 magic=0x43210
+T57 ndim=1 dims=[5] bytes=20 dtype=0x8014 off=501336 flags=0x00000001 magic=0x43210
+T58 ndim=2 dims=[44,5] bytes=880 dtype=0x8014 off=501360 flags=0x00000001 magic=0x43210
+T59 ndim=1 dims=[44] bytes=176 dtype=0x8014 off=502240 flags=0x00000001 magic=0x43210
+T60 ndim=4 dims=[44,44,3,3] bytes=69696 dtype=0x8014 off=502416 flags=0x00000001 magic=0x23410
+T61 ndim=1 dims=[44] bytes=176 dtype=0x8014 off=572112 flags=0x00000001 magic=0x43210
+T62 ndim=1 dims=[44] bytes=176 dtype=0x8014 off=572288 flags=0x00000001 magic=0x43210
+T63 ndim=4 dims=[44,44,3,3] bytes=69696 dtype=0x8014 off=572464 flags=0x00000001 magic=0x23410
+T64 ndim=1 dims=[44] bytes=176 dtype=0x8014 off=642160 flags=0x00000001 magic=0x43210
+T65 ndim=2 dims=[5,44] bytes=880 dtype=0x8014 off=642336 flags=0x00000001 magic=0x43210
+T66 ndim=1 dims=[5] bytes=20 dtype=0x8014 off=643216 flags=0x00000001 magic=0x43210
+T67 ndim=2 dims=[44,5] bytes=880 dtype=0x8014 off=643240 flags=0x00000001 magic=0x43210
+T68 ndim=1 dims=[44] bytes=176 dtype=0x8014 off=644120 flags=0x00000001 magic=0x43210
+T69 ndim=4 dims=[88,44,3,3] bytes=139392 dtype=0x8014 off=644296 flags=0x00000001 magic=0x23410
+T70 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=783688 flags=0x00000001 magic=0x43210
+T71 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=784040 flags=0x00000001 magic=0x43210
+T72 ndim=4 dims=[88,88,3,3] bytes=278784 dtype=0x8014 off=784392 flags=0x00000001 magic=0x23410
+T73 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=1063176 flags=0x00000001 magic=0x43210
+T74 ndim=2 dims=[11,88] bytes=3872 dtype=0x8014 off=1063528 flags=0x00000001 magic=0x43210
+T75 ndim=1 dims=[11] bytes=44 dtype=0x8014 off=1067400 flags=0x00000001 magic=0x43210
+T76 ndim=2 dims=[88,11] bytes=3872 dtype=0x8014 off=1067448 flags=0x00000001 magic=0x43210
+T77 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=1071320 flags=0x00000001 magic=0x43210
+T78 ndim=4 dims=[88,44,1,1] bytes=15488 dtype=0x8014 off=1071672 flags=0x00000001 magic=0x23410
+T79 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=1087160 flags=0x00000001 magic=0x43210
+T80 ndim=4 dims=[88,88,3,3] bytes=278784 dtype=0x8014 off=1087512 flags=0x00000001 magic=0x23410
+T81 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=1366296 flags=0x00000001 magic=0x43210
+T82 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=1366648 flags=0x00000001 magic=0x43210
+T83 ndim=4 dims=[88,88,3,3] bytes=278784 dtype=0x8014 off=1367000 flags=0x00000001 magic=0x23410
+T84 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=1645784 flags=0x00000001 magic=0x43210
+T85 ndim=2 dims=[11,88] bytes=3872 dtype=0x8014 off=1646136 flags=0x00000001 magic=0x43210
+T86 ndim=1 dims=[11] bytes=44 dtype=0x8014 off=1650008 flags=0x00000001 magic=0x43210
+T87 ndim=2 dims=[88,11] bytes=3872 dtype=0x8014 off=1650056 flags=0x00000001 magic=0x43210
+T88 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=1653928 flags=0x00000001 magic=0x43210
+T89 ndim=4 dims=[88,88,3,3] bytes=278784 dtype=0x8014 off=1654280 flags=0x00000001 magic=0x23410
+T90 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=1933064 flags=0x00000001 magic=0x43210
+T91 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=1933416 flags=0x00000001 magic=0x43210
+T92 ndim=4 dims=[88,88,3,3] bytes=278784 dtype=0x8014 off=1933768 flags=0x00000001 magic=0x23410
+T93 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=2212552 flags=0x00000001 magic=0x43210
+T94 ndim=2 dims=[11,88] bytes=3872 dtype=0x8014 off=2212904 flags=0x00000001 magic=0x43210
+T95 ndim=1 dims=[11] bytes=44 dtype=0x8014 off=2216776 flags=0x00000001 magic=0x43210
+T96 ndim=2 dims=[88,11] bytes=3872 dtype=0x8014 off=2216824 flags=0x00000001 magic=0x43210
+T97 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=2220696 flags=0x00000001 magic=0x43210
+T98 ndim=4 dims=[88,88,3,3] bytes=278784 dtype=0x8014 off=2221048 flags=0x00000001 magic=0x23410
+T99 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=2499832 flags=0x00000001 magic=0x43210
+T100 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=2500184 flags=0x00000001 magic=0x43210
+T101 ndim=4 dims=[88,88,3,3] bytes=278784 dtype=0x8014 off=2500536 flags=0x00000001 magic=0x23410
+T102 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=2779320 flags=0x00000001 magic=0x43210
+T103 ndim=2 dims=[11,88] bytes=3872 dtype=0x8014 off=2779672 flags=0x00000001 magic=0x43210
+T104 ndim=1 dims=[11] bytes=44 dtype=0x8014 off=2783544 flags=0x00000001 magic=0x43210
+T105 ndim=2 dims=[88,11] bytes=3872 dtype=0x8014 off=2783592 flags=0x00000001 magic=0x43210
+T106 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=2787464 flags=0x00000001 magic=0x43210
+T107 ndim=4 dims=[88,88,3,3] bytes=278784 dtype=0x8014 off=2787816 flags=0x00000001 magic=0x23410
+T108 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=3066600 flags=0x00000001 magic=0x43210
+T109 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=3066952 flags=0x00000001 magic=0x43210
+T110 ndim=4 dims=[88,88,3,3] bytes=278784 dtype=0x8014 off=3067304 flags=0x00000001 magic=0x23410
+T111 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=3346088 flags=0x00000001 magic=0x43210
+T112 ndim=2 dims=[11,88] bytes=3872 dtype=0x8014 off=3346440 flags=0x00000001 magic=0x43210
+T113 ndim=1 dims=[11] bytes=44 dtype=0x8014 off=3350312 flags=0x00000001 magic=0x43210
+T114 ndim=2 dims=[88,11] bytes=3872 dtype=0x8014 off=3350360 flags=0x00000001 magic=0x43210
+T115 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=3354232 flags=0x00000001 magic=0x43210
+T116 ndim=4 dims=[88,88,3,3] bytes=278784 dtype=0x8014 off=3354584 flags=0x00000001 magic=0x23410
+T117 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=3633368 flags=0x00000001 magic=0x43210
+T118 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=3633720 flags=0x00000001 magic=0x43210
+T119 ndim=4 dims=[88,88,3,3] bytes=278784 dtype=0x8014 off=3634072 flags=0x00000001 magic=0x23410
+T120 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=3912856 flags=0x00000001 magic=0x43210
+T121 ndim=2 dims=[11,88] bytes=3872 dtype=0x8014 off=3913208 flags=0x00000001 magic=0x43210
+T122 ndim=1 dims=[11] bytes=44 dtype=0x8014 off=3917080 flags=0x00000001 magic=0x43210
+T123 ndim=2 dims=[88,11] bytes=3872 dtype=0x8014 off=3917128 flags=0x00000001 magic=0x43210
+T124 ndim=1 dims=[88] bytes=352 dtype=0x8014 off=3921000 flags=0x00000001 magic=0x43210
+T125 ndim=4 dims=[176,88,3,3] bytes=557568 dtype=0x8014 off=3921352 flags=0x00000001 magic=0x23410
+T126 ndim=1 dims=[176] bytes=704 dtype=0x8014 off=4478920 flags=0x00000001 magic=0x43210
+T127 ndim=1 dims=[176] bytes=704 dtype=0x8014 off=4479624 flags=0x00000001 magic=0x43210
+T128 ndim=4 dims=[176,176,3,3] bytes=1115136 dtype=0x8014 off=4480328 flags=0x00000001 magic=0x23410
+T129 ndim=1 dims=[176] bytes=704 dtype=0x8014 off=5595464 flags=0x00000001 magic=0x43210
+T130 ndim=2 dims=[22,176] bytes=15488 dtype=0x8014 off=5596168 flags=0x00000001 magic=0x43210
+T131 ndim=1 dims=[22] bytes=88 dtype=0x8014 off=5611656 flags=0x00000001 magic=0x43210
+T132 ndim=2 dims=[176,22] bytes=15488 dtype=0x8014 off=5611744 flags=0x00000001 magic=0x43210
+T133 ndim=1 dims=[176] bytes=704 dtype=0x8014 off=5627232 flags=0x00000001 magic=0x43210
+T134 ndim=4 dims=[176,88,1,1] bytes=61952 dtype=0x8014 off=5627936 flags=0x00000001 magic=0x23410
+T135 ndim=1 dims=[176] bytes=704 dtype=0x8014 off=5689888 flags=0x00000001 magic=0x43210
+T136 ndim=4 dims=[176,176,3,3] bytes=1115136 dtype=0x8014 off=5690592 flags=0x00000001 magic=0x23410
+T137 ndim=1 dims=[176] bytes=704 dtype=0x8014 off=6805728 flags=0x00000001 magic=0x43210
+T138 ndim=1 dims=[176] bytes=704 dtype=0x8014 off=6806432 flags=0x00000001 magic=0x43210
+T139 ndim=4 dims=[176,176,3,3] bytes=1115136 dtype=0x8014 off=6807136 flags=0x00000001 magic=0x23410
+T140 ndim=1 dims=[176] bytes=704 dtype=0x8014 off=7922272 flags=0x00000001 magic=0x43210
+T141 ndim=2 dims=[22,176] bytes=15488 dtype=0x8014 off=7922976 flags=0x00000001 magic=0x43210
+T142 ndim=1 dims=[22] bytes=88 dtype=0x8014 off=7938464 flags=0x00000001 magic=0x43210
+T143 ndim=2 dims=[176,22] bytes=15488 dtype=0x8014 off=7938552 flags=0x00000001 magic=0x43210
+T144 ndim=1 dims=[176] bytes=704 dtype=0x8014 off=7954040 flags=0x00000001 magic=0x43210
+T145 ndim=4 dims=[176,176,3,3] bytes=1115136 dtype=0x8014 off=7954744 flags=0x00000001 magic=0x23410
+T146 ndim=1 dims=[176] bytes=704 dtype=0x8014 off=9069880 flags=0x00000001 magic=0x43210
+T147 ndim=1 dims=[176] bytes=704 dtype=0x8014 off=9070584 flags=0x00000001 magic=0x43210
+T148 ndim=4 dims=[176,176,3,3] bytes=1115136 dtype=0x8014 off=9071288 flags=0x00000001 magic=0x23410
+T149 ndim=1 dims=[176] bytes=704 dtype=0x8014 off=10186424 flags=0x00000001 magic=0x43210
+T150 ndim=2 dims=[22,176] bytes=15488 dtype=0x8014 off=10187128 flags=0x00000001 magic=0x43210
+T151 ndim=1 dims=[22] bytes=88 dtype=0x8014 off=10202616 flags=0x00000001 magic=0x43210
+T152 ndim=2 dims=[176,22] bytes=15488 dtype=0x8014 off=10202704 flags=0x00000001 magic=0x43210
+T153 ndim=1 dims=[176] bytes=704 dtype=0x8014 off=10218192 flags=0x00000001 magic=0x43210
+T154 ndim=2 dims=[176,176] bytes=123904 dtype=0x8014 off=10218896 flags=0x00000001 magic=0x34210
+T155 ndim=1 dims=[176] bytes=704 dtype=0x8014 off=10342800 flags=0x00000001 magic=0x43210
+T156 ndim=2 dims=[176,1] bytes=704 dtype=0x8014 off=10343504 flags=0x00000001 magic=0x34210
+T157 ndim=2 dims=[128,352] bytes=180224 dtype=0x8014 off=10344208 flags=0x00000001 magic=0x43210
+T158 ndim=1 dims=[128] bytes=512 dtype=0x8014 off=10524432 flags=0x00000001 magic=0x43210
+T159 ndim=1 dims=[1] bytes=4 dtype=0x8014 off=10524944 flags=0x00000001 magic=0x43210
+T160 ndim=3 dims=[1,64,201] bytes=51456 dtype=0x8014 off=13532928 flags=0x40000004 magic=0x43210 IN0
+T161 ndim=3 dims=[1,64,201] bytes=51456 dtype=0x8014 off=13481472 flags=0x00000004 magic=0x43210
+T162 ndim=3 dims=[1,64,201] bytes=51456 dtype=0x8014 off=13430016 flags=0x00000004 magic=0x43210
+T163 ndim=3 dims=[1,64,1] bytes=256 dtype=0x8014 off=13429760 flags=0x00000004 magic=0x43210
+T164 ndim=3 dims=[1,64,201] bytes=51456 dtype=0x8014 off=13378304 flags=0x00000004 magic=0x43210
+T165 ndim=3 dims=[1,64,201] bytes=51456 dtype=0x8014 off=13326848 flags=0x00000004 magic=0x43210
+T166 ndim=3 dims=[1,64,201] bytes=51456 dtype=0x8014 off=13275392 flags=0x00000004 magic=0x43210
+T167 ndim=3 dims=[1,64,1] bytes=256 dtype=0x8014 off=13275136 flags=0x00000004 magic=0x43210
+T168 ndim=3 dims=[1,64,201] bytes=51456 dtype=0x8014 off=13223680 flags=0x00000004 magic=0x43210
+T169 ndim=3 dims=[1,64,1] bytes=256 dtype=0x8014 off=13223424 flags=0x00000004 magic=0x43210
+T170 ndim=3 dims=[1,64,1] bytes=256 dtype=0x8014 off=13223168 flags=0x00000004 magic=0x43210
+T171 ndim=3 dims=[1,64,201] bytes=51456 dtype=0x8014 off=13171712 flags=0x00000004 magic=0x43210
+T172 ndim=4 dims=[1,1,64,201] bytes=51456 dtype=0x8014 off=13171712 flags=0x00000004 magic=0x43210
+T173 ndim=4 dims=[1,1,64,201] bytes=51456 dtype=0x8014 off=13120256 flags=0x00000004 magic=0x23410
+T174 ndim=4 dims=[1,22,64,201] bytes=1132032 dtype=0x8014 off=0 flags=0x02400004 magic=0x23410
+T175 ndim=2 dims=[9,12864] bytes=463104 dtype=0x8014 off=12657152 flags=0x02000004 magic=0x34210
+T176 ndim=4 dims=[1,22,64,201] bytes=1132032 dtype=0x8014 off=12452352 flags=0x02000004 magic=0x23410
+T177 ndim=2 dims=[198,12864] bytes=10188288 dtype=0x8014 off=2264064 flags=0x02000004 magic=0x34210
+T178 ndim=4 dims=[1,22,64,201] bytes=1132032 dtype=0x8014 off=12452352 flags=0x00000004 magic=0x23410
+T179 ndim=4 dims=[1,22,64,201] bytes=1132032 dtype=0x8014 off=11320320 flags=0x02000004 magic=0x23410
+T180 ndim=2 dims=[198,12864] bytes=10188288 dtype=0x8014 off=1132032 flags=0x02000004 magic=0x34210
+T181 ndim=4 dims=[1,22,1,1] bytes=88 dtype=0x8014 off=11320232 flags=0x00000004 magic=0x23410
+T182 ndim=2 dims=[1,22] bytes=88 dtype=0x8014 off=11320232 flags=0x00000004 magic=0x43210
+T183 ndim=2 dims=[1,2] bytes=8 dtype=0x8014 off=11320224 flags=0x00000004 magic=0x43210
+T184 ndim=2 dims=[1,2] bytes=8 dtype=0x8014 off=11320224 flags=0x00000004 magic=0x43210
+T185 ndim=2 dims=[1,22] bytes=88 dtype=0x8014 off=11320136 flags=0x00000004 magic=0x43210
+T186 ndim=2 dims=[1,22] bytes=88 dtype=0x8014 off=11320048 flags=0x00000004 magic=0x43210
+T187 ndim=4 dims=[1,22,1,1] bytes=88 dtype=0x8014 off=11320048 flags=0x00000004 magic=0x23410
+T188 ndim=4 dims=[1,22,64,201] bytes=1132032 dtype=0x8014 off=10188016 flags=0x00000004 magic=0x23410
+T189 ndim=4 dims=[1,22,64,201] bytes=1132032 dtype=0x8014 off=1132032 flags=0x00400004 magic=0x23410
+T190 ndim=4 dims=[1,22,64,201] bytes=1132032 dtype=0x8014 off=1132032 flags=0x00000004 magic=0x23410
+T191 ndim=4 dims=[1,22,64,201] bytes=1132032 dtype=0x8014 off=0 flags=0x02000004 magic=0x23410
+T192 ndim=2 dims=[198,12864] bytes=10188288 dtype=0x8014 off=3396096 flags=0x02000004 magic=0x34210
+T193 ndim=4 dims=[1,22,64,201] bytes=1132032 dtype=0x8014 off=0 flags=0x00000004 magic=0x23410
+T194 ndim=4 dims=[1,22,64,201] bytes=1132032 dtype=0x8014 off=12452352 flags=0x02000004 magic=0x23410
+T195 ndim=2 dims=[198,12864] bytes=10188288 dtype=0x8014 off=2264064 flags=0x02000004 magic=0x34210
+T196 ndim=4 dims=[1,22,1,1] bytes=88 dtype=0x8014 off=1131944 flags=0x00000004 magic=0x23410
+T197 ndim=2 dims=[1,22] bytes=88 dtype=0x8014 off=1131944 flags=0x00000004 magic=0x43210
+T198 ndim=2 dims=[1,2] bytes=8 dtype=0x8014 off=1131936 flags=0x00000004 magic=0x43210
+T199 ndim=2 dims=[1,2] bytes=8 dtype=0x8014 off=1131936 flags=0x00000004 magic=0x43210
+T200 ndim=2 dims=[1,22] bytes=88 dtype=0x8014 off=1131848 flags=0x00000004 magic=0x43210
+T201 ndim=2 dims=[1,22] bytes=88 dtype=0x8014 off=1131760 flags=0x00000004 magic=0x43210
+T202 ndim=4 dims=[1,22,1,1] bytes=88 dtype=0x8014 off=1131760 flags=0x00000004 magic=0x23410
+T203 ndim=4 dims=[1,22,64,201] bytes=1132032 dtype=0x8014 off=11320320 flags=0x00000004 magic=0x23410
+T204 ndim=4 dims=[1,22,64,201] bytes=1132032 dtype=0x8014 off=0 flags=0x00000004 magic=0x23410
+T205 ndim=4 dims=[1,22,64,201] bytes=1132032 dtype=0x8014 off=0 flags=0x00000004 magic=0x23410
+T206 ndim=4 dims=[1,22,64,201] bytes=1132032 dtype=0x8014 off=12452352 flags=0x02000004 magic=0x23410
+T207 ndim=2 dims=[198,12864] bytes=10188288 dtype=0x8014 off=2264064 flags=0x02000004 magic=0x34210
+T208 ndim=4 dims=[1,22,64,201] bytes=1132032 dtype=0x8014 off=12452352 flags=0x00000004 magic=0x23410
+T209 ndim=4 dims=[1,22,64,201] bytes=1132032 dtype=0x8014 off=11320320 flags=0x02000004 magic=0x23410
+T210 ndim=2 dims=[198,12864] bytes=10188288 dtype=0x8014 off=1132032 flags=0x02000004 magic=0x34210
+T211 ndim=4 dims=[1,22,1,1] bytes=88 dtype=0x8014 off=11320232 flags=0x00000004 magic=0x23410
+T212 ndim=2 dims=[1,22] bytes=88 dtype=0x8014 off=11320232 flags=0x00000004 magic=0x43210
+T213 ndim=2 dims=[1,2] bytes=8 dtype=0x8014 off=11320224 flags=0x00000004 magic=0x43210
+T214 ndim=2 dims=[1,2] bytes=8 dtype=0x8014 off=11320224 flags=0x00000004 magic=0x43210
+T215 ndim=2 dims=[1,22] bytes=88 dtype=0x8014 off=11320136 flags=0x00000004 magic=0x43210
+T216 ndim=2 dims=[1,22] bytes=88 dtype=0x8014 off=11320048 flags=0x00000004 magic=0x43210
+T217 ndim=4 dims=[1,22,1,1] bytes=88 dtype=0x8014 off=11320048 flags=0x00000004 magic=0x23410
+T218 ndim=4 dims=[1,22,64,201] bytes=1132032 dtype=0x8014 off=10188016 flags=0x00000004 magic=0x23410
+T219 ndim=4 dims=[1,22,64,201] bytes=1132032 dtype=0x8014 off=9055984 flags=0x00000004 magic=0x23410
+T220 ndim=4 dims=[1,22,64,201] bytes=1132032 dtype=0x8014 off=9055984 flags=0x00000004 magic=0x23410
+T221 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=8487152 flags=0x02000004 magic=0x23410
+T222 ndim=2 dims=[198,3232] bytes=2559744 dtype=0x8014 off=5927408 flags=0x02000004 magic=0x34210
+T223 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=8487152 flags=0x00000004 magic=0x23410
+T224 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=7918320 flags=0x02000004 magic=0x23410
+T225 ndim=2 dims=[396,3232] bytes=5119488 dtype=0x8014 off=2798832 flags=0x02000004 magic=0x34210
+T226 ndim=4 dims=[1,44,1,1] bytes=176 dtype=0x8014 off=7918144 flags=0x00000004 magic=0x23410
+T227 ndim=2 dims=[1,44] bytes=176 dtype=0x8014 off=7918144 flags=0x00000004 magic=0x43210
+T228 ndim=2 dims=[1,5] bytes=20 dtype=0x8014 off=7918120 flags=0x00000004 magic=0x43210
+T229 ndim=2 dims=[1,5] bytes=20 dtype=0x8014 off=7918120 flags=0x00000004 magic=0x43210
+T230 ndim=2 dims=[1,44] bytes=176 dtype=0x8014 off=7917944 flags=0x00000004 magic=0x43210
+T231 ndim=2 dims=[1,44] bytes=176 dtype=0x8014 off=7917768 flags=0x00000004 magic=0x43210
+T232 ndim=4 dims=[1,44,1,1] bytes=176 dtype=0x8014 off=7917768 flags=0x00000004 magic=0x23410
+T233 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=7348936 flags=0x00000004 magic=0x23410
+T234 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=6780104 flags=0x02000004 magic=0x23410
+T235 ndim=2 dims=[22,3232] bytes=284416 dtype=0x8014 off=6495688 flags=0x02000004 magic=0x34210
+T236 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=6211272 flags=0x00000004 magic=0x23410
+T237 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=6211272 flags=0x00000004 magic=0x23410
+T238 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=5642440 flags=0x02000004 magic=0x23410
+T239 ndim=2 dims=[396,3232] bytes=5119488 dtype=0x8014 off=522952 flags=0x02000004 magic=0x34210
+T240 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=5642440 flags=0x00000004 magic=0x23410
+T241 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=5073608 flags=0x02000004 magic=0x23410
+T242 ndim=2 dims=[396,3232] bytes=5119488 dtype=0x8014 off=8464896 flags=0x02000004 magic=0x34210
+T243 ndim=4 dims=[1,44,1,1] bytes=176 dtype=0x8014 off=5073432 flags=0x00000004 magic=0x23410
+T244 ndim=2 dims=[1,44] bytes=176 dtype=0x8014 off=5073432 flags=0x00000004 magic=0x43210
+T245 ndim=2 dims=[1,5] bytes=20 dtype=0x8014 off=5073408 flags=0x00000004 magic=0x43210
+T246 ndim=2 dims=[1,5] bytes=20 dtype=0x8014 off=5073408 flags=0x00000004 magic=0x43210
+T247 ndim=2 dims=[1,44] bytes=176 dtype=0x8014 off=5073232 flags=0x00000004 magic=0x43210
+T248 ndim=2 dims=[1,44] bytes=176 dtype=0x8014 off=5073056 flags=0x00000004 magic=0x43210
+T249 ndim=4 dims=[1,44,1,1] bytes=176 dtype=0x8014 off=5073056 flags=0x00000004 magic=0x23410
+T250 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=4504224 flags=0x00000004 magic=0x23410
+T251 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=3935392 flags=0x00000004 magic=0x23410
+T252 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=3935392 flags=0x00000004 magic=0x23410
+T253 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=3366560 flags=0x02000004 magic=0x23410
+T254 ndim=2 dims=[396,3232] bytes=5119488 dtype=0x8014 off=8464896 flags=0x02000004 magic=0x34210
+T255 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=3366560 flags=0x00000004 magic=0x23410
+T256 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=2797728 flags=0x02000004 magic=0x23410
+T257 ndim=2 dims=[396,3232] bytes=5119488 dtype=0x8014 off=8464896 flags=0x02000004 magic=0x34210
+T258 ndim=4 dims=[1,44,1,1] bytes=176 dtype=0x8014 off=2797552 flags=0x00000004 magic=0x23410
+T259 ndim=2 dims=[1,44] bytes=176 dtype=0x8014 off=2797552 flags=0x00000004 magic=0x43210
+T260 ndim=2 dims=[1,5] bytes=20 dtype=0x8014 off=2797528 flags=0x00000004 magic=0x43210
+T261 ndim=2 dims=[1,5] bytes=20 dtype=0x8014 off=2797528 flags=0x00000004 magic=0x43210
+T262 ndim=2 dims=[1,44] bytes=176 dtype=0x8014 off=2797352 flags=0x00000004 magic=0x43210
+T263 ndim=2 dims=[1,44] bytes=176 dtype=0x8014 off=2797176 flags=0x00000004 magic=0x43210
+T264 ndim=4 dims=[1,44,1,1] bytes=176 dtype=0x8014 off=2797176 flags=0x00000004 magic=0x23410
+T265 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=2228344 flags=0x00000004 magic=0x23410
+T266 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=1659512 flags=0x00000004 magic=0x23410
+T267 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=1659512 flags=0x00000004 magic=0x23410
+T268 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=1090680 flags=0x02000004 magic=0x23410
+T269 ndim=2 dims=[396,3232] bytes=5119488 dtype=0x8014 off=8464896 flags=0x02000004 magic=0x34210
+T270 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=1090680 flags=0x00000004 magic=0x23410
+T271 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=521848 flags=0x02000004 magic=0x23410
+T272 ndim=2 dims=[396,3232] bytes=5119488 dtype=0x8014 off=8464896 flags=0x02000004 magic=0x34210
+T273 ndim=4 dims=[1,44,1,1] bytes=176 dtype=0x8014 off=521672 flags=0x00000004 magic=0x23410
+T274 ndim=2 dims=[1,44] bytes=176 dtype=0x8014 off=521672 flags=0x00000004 magic=0x43210
+T275 ndim=2 dims=[1,5] bytes=20 dtype=0x8014 off=521648 flags=0x00000004 magic=0x43210
+T276 ndim=2 dims=[1,5] bytes=20 dtype=0x8014 off=521648 flags=0x00000004 magic=0x43210
+T277 ndim=2 dims=[1,44] bytes=176 dtype=0x8014 off=521472 flags=0x00000004 magic=0x43210
+T278 ndim=2 dims=[1,44] bytes=176 dtype=0x8014 off=521296 flags=0x00000004 magic=0x43210
+T279 ndim=4 dims=[1,44,1,1] bytes=176 dtype=0x8014 off=521296 flags=0x00000004 magic=0x23410
+T280 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=1090680 flags=0x00000004 magic=0x23410
+T281 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=521848 flags=0x00000004 magic=0x23410
+T282 ndim=4 dims=[1,44,32,101] bytes=568832 dtype=0x8014 off=521848 flags=0x00000004 magic=0x23410
+T283 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=234616 flags=0x02000004 magic=0x23410
+T284 ndim=2 dims=[396,816] bytes=1292544 dtype=0x8014 off=12291840 flags=0x02000004 magic=0x34210
+T285 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=234616 flags=0x00000004 magic=0x23410
+T286 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=13297152 flags=0x02000004 magic=0x23410
+T287 ndim=2 dims=[792,816] bytes=2585088 dtype=0x8014 off=10712064 flags=0x02000004 magic=0x34210
+T288 ndim=4 dims=[1,88,1,1] bytes=352 dtype=0x8014 off=521496 flags=0x00000004 magic=0x23410
+T289 ndim=2 dims=[1,88] bytes=352 dtype=0x8014 off=521496 flags=0x00000004 magic=0x43210
+T290 ndim=2 dims=[1,11] bytes=44 dtype=0x8014 off=521448 flags=0x00000004 magic=0x43210
+T291 ndim=2 dims=[1,11] bytes=44 dtype=0x8014 off=521448 flags=0x00000004 magic=0x43210
+T292 ndim=2 dims=[1,88] bytes=352 dtype=0x8014 off=521096 flags=0x00000004 magic=0x43210
+T293 ndim=2 dims=[1,88] bytes=352 dtype=0x8014 off=520744 flags=0x00000004 magic=0x43210
+T294 ndim=4 dims=[1,88,1,1] bytes=352 dtype=0x8014 off=520744 flags=0x00000004 magic=0x23410
+T295 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=233512 flags=0x00000004 magic=0x23410
+T296 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=13297152 flags=0x02000004 magic=0x23410
+T297 ndim=2 dims=[44,816] bytes=143616 dtype=0x8014 off=89896 flags=0x02000004 magic=0x34210
+T298 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=13009920 flags=0x00000004 magic=0x23410
+T299 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=13009920 flags=0x00000004 magic=0x23410
+T300 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=12722688 flags=0x02000004 magic=0x23410
+T301 ndim=2 dims=[792,816] bytes=2585088 dtype=0x8014 off=10137600 flags=0x02000004 magic=0x34210
+T302 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=12722688 flags=0x00000004 magic=0x23410
+T303 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=12435456 flags=0x02000004 magic=0x23410
+T304 ndim=2 dims=[792,816] bytes=2585088 dtype=0x8014 off=9850368 flags=0x02000004 magic=0x34210
+T305 ndim=4 dims=[1,88,1,1] bytes=352 dtype=0x8014 off=12435104 flags=0x00000004 magic=0x23410
+T306 ndim=2 dims=[1,88] bytes=352 dtype=0x8014 off=12435104 flags=0x00000004 magic=0x43210
+T307 ndim=2 dims=[1,11] bytes=44 dtype=0x8014 off=12435056 flags=0x00000004 magic=0x43210
+T308 ndim=2 dims=[1,11] bytes=44 dtype=0x8014 off=12435056 flags=0x00000004 magic=0x43210
+T309 ndim=2 dims=[1,88] bytes=352 dtype=0x8014 off=12434704 flags=0x00000004 magic=0x43210
+T310 ndim=2 dims=[1,88] bytes=352 dtype=0x8014 off=12434352 flags=0x00000004 magic=0x43210
+T311 ndim=4 dims=[1,88,1,1] bytes=352 dtype=0x8014 off=12434352 flags=0x00000004 magic=0x23410
+T312 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=12147120 flags=0x00000004 magic=0x23410
+T313 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=11859888 flags=0x00000004 magic=0x23410
+T314 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=11859888 flags=0x00000004 magic=0x23410
+T315 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=11572656 flags=0x02000004 magic=0x23410
+T316 ndim=2 dims=[792,816] bytes=2585088 dtype=0x8014 off=8987568 flags=0x02000004 magic=0x34210
+T317 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=11572656 flags=0x00000004 magic=0x23410
+T318 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=11285424 flags=0x02000004 magic=0x23410
+T319 ndim=2 dims=[792,816] bytes=2585088 dtype=0x8014 off=8700336 flags=0x02000004 magic=0x34210
+T320 ndim=4 dims=[1,88,1,1] bytes=352 dtype=0x8014 off=11285072 flags=0x00000004 magic=0x23410
+T321 ndim=2 dims=[1,88] bytes=352 dtype=0x8014 off=11285072 flags=0x00000004 magic=0x43210
+T322 ndim=2 dims=[1,11] bytes=44 dtype=0x8014 off=11285024 flags=0x00000004 magic=0x43210
+T323 ndim=2 dims=[1,11] bytes=44 dtype=0x8014 off=11285024 flags=0x00000004 magic=0x43210
+T324 ndim=2 dims=[1,88] bytes=352 dtype=0x8014 off=11284672 flags=0x00000004 magic=0x43210
+T325 ndim=2 dims=[1,88] bytes=352 dtype=0x8014 off=11284320 flags=0x00000004 magic=0x43210
+T326 ndim=4 dims=[1,88,1,1] bytes=352 dtype=0x8014 off=11284320 flags=0x00000004 magic=0x23410
+T327 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=10997088 flags=0x00000004 magic=0x23410
+T328 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=10709856 flags=0x00000004 magic=0x23410
+T329 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=10709856 flags=0x00000004 magic=0x23410
+T330 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=10422624 flags=0x02000004 magic=0x23410
+T331 ndim=2 dims=[792,816] bytes=2585088 dtype=0x8014 off=7837536 flags=0x02000004 magic=0x34210
+T332 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=10422624 flags=0x00000004 magic=0x23410
+T333 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=10135392 flags=0x02000004 magic=0x23410
+T334 ndim=2 dims=[792,816] bytes=2585088 dtype=0x8014 off=7550304 flags=0x02000004 magic=0x34210
+T335 ndim=4 dims=[1,88,1,1] bytes=352 dtype=0x8014 off=10135040 flags=0x00000004 magic=0x23410
+T336 ndim=2 dims=[1,88] bytes=352 dtype=0x8014 off=10135040 flags=0x00000004 magic=0x43210
+T337 ndim=2 dims=[1,11] bytes=44 dtype=0x8014 off=10134992 flags=0x00000004 magic=0x43210
+T338 ndim=2 dims=[1,11] bytes=44 dtype=0x8014 off=10134992 flags=0x00000004 magic=0x43210
+T339 ndim=2 dims=[1,88] bytes=352 dtype=0x8014 off=10134640 flags=0x00000004 magic=0x43210
+T340 ndim=2 dims=[1,88] bytes=352 dtype=0x8014 off=10134288 flags=0x00000004 magic=0x43210
+T341 ndim=4 dims=[1,88,1,1] bytes=352 dtype=0x8014 off=10134288 flags=0x00000004 magic=0x23410
+T342 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=9847056 flags=0x00000004 magic=0x23410
+T343 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=9559824 flags=0x00000004 magic=0x23410
+T344 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=9559824 flags=0x00000004 magic=0x23410
+T345 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=9272592 flags=0x02000004 magic=0x23410
+T346 ndim=2 dims=[792,816] bytes=2585088 dtype=0x8014 off=6687504 flags=0x02000004 magic=0x34210
+T347 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=9272592 flags=0x00000004 magic=0x23410
+T348 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=8985360 flags=0x02000004 magic=0x23410
+T349 ndim=2 dims=[792,816] bytes=2585088 dtype=0x8014 off=6400272 flags=0x02000004 magic=0x34210
+T350 ndim=4 dims=[1,88,1,1] bytes=352 dtype=0x8014 off=8985008 flags=0x00000004 magic=0x23410
+T351 ndim=2 dims=[1,88] bytes=352 dtype=0x8014 off=8985008 flags=0x00000004 magic=0x43210
+T352 ndim=2 dims=[1,11] bytes=44 dtype=0x8014 off=8984960 flags=0x00000004 magic=0x43210
+T353 ndim=2 dims=[1,11] bytes=44 dtype=0x8014 off=8984960 flags=0x00000004 magic=0x43210
+T354 ndim=2 dims=[1,88] bytes=352 dtype=0x8014 off=8984608 flags=0x00000004 magic=0x43210
+T355 ndim=2 dims=[1,88] bytes=352 dtype=0x8014 off=8984256 flags=0x00000004 magic=0x43210
+T356 ndim=4 dims=[1,88,1,1] bytes=352 dtype=0x8014 off=8984256 flags=0x00000004 magic=0x23410
+T357 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=8697024 flags=0x00000004 magic=0x23410
+T358 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=8409792 flags=0x00000004 magic=0x23410
+T359 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=8409792 flags=0x00000004 magic=0x23410
+T360 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=8122560 flags=0x02000004 magic=0x23410
+T361 ndim=2 dims=[792,816] bytes=2585088 dtype=0x8014 off=5537472 flags=0x02000004 magic=0x34210
+T362 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=8122560 flags=0x00000004 magic=0x23410
+T363 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=7835328 flags=0x02000004 magic=0x23410
+T364 ndim=2 dims=[792,816] bytes=2585088 dtype=0x8014 off=5250240 flags=0x02000004 magic=0x34210
+T365 ndim=4 dims=[1,88,1,1] bytes=352 dtype=0x8014 off=7834976 flags=0x00000004 magic=0x23410
+T366 ndim=2 dims=[1,88] bytes=352 dtype=0x8014 off=7834976 flags=0x00000004 magic=0x43210
+T367 ndim=2 dims=[1,11] bytes=44 dtype=0x8014 off=7834928 flags=0x00000004 magic=0x43210
+T368 ndim=2 dims=[1,11] bytes=44 dtype=0x8014 off=7834928 flags=0x00000004 magic=0x43210
+T369 ndim=2 dims=[1,88] bytes=352 dtype=0x8014 off=7834576 flags=0x00000004 magic=0x43210
+T370 ndim=2 dims=[1,88] bytes=352 dtype=0x8014 off=7834224 flags=0x00000004 magic=0x43210
+T371 ndim=4 dims=[1,88,1,1] bytes=352 dtype=0x8014 off=7834224 flags=0x00000004 magic=0x23410
+T372 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=7546992 flags=0x00000004 magic=0x23410
+T373 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=7259760 flags=0x00000004 magic=0x23410
+T374 ndim=4 dims=[1,88,16,51] bytes=287232 dtype=0x8014 off=7259760 flags=0x00000004 magic=0x23410
+T375 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=7113328 flags=0x02000004 magic=0x23410
+T376 ndim=2 dims=[792,208] bytes=658944 dtype=0x8014 off=6454384 flags=0x02000004 magic=0x34210
+T377 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=7113328 flags=0x00000004 magic=0x23410
+T378 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=6966896 flags=0x02000004 magic=0x23410
+T379 ndim=2 dims=[1584,208] bytes=1317888 dtype=0x8014 off=5649008 flags=0x02000004 magic=0x34210
+T380 ndim=4 dims=[1,176,1,1] bytes=704 dtype=0x8014 off=6966192 flags=0x00000004 magic=0x23410
+T381 ndim=2 dims=[1,176] bytes=704 dtype=0x8014 off=6966192 flags=0x00000004 magic=0x43210
+T382 ndim=2 dims=[1,22] bytes=88 dtype=0x8014 off=6966104 flags=0x00000004 magic=0x43210
+T383 ndim=2 dims=[1,22] bytes=88 dtype=0x8014 off=6966104 flags=0x00000004 magic=0x43210
+T384 ndim=2 dims=[1,176] bytes=704 dtype=0x8014 off=6965400 flags=0x00000004 magic=0x43210
+T385 ndim=2 dims=[1,176] bytes=704 dtype=0x8014 off=6964696 flags=0x00000004 magic=0x43210
+T386 ndim=4 dims=[1,176,1,1] bytes=704 dtype=0x8014 off=6964696 flags=0x00000004 magic=0x23410
+T387 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=6818264 flags=0x00000004 magic=0x23410
+T388 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=6671832 flags=0x02000004 magic=0x23410
+T389 ndim=2 dims=[88,208] bytes=73216 dtype=0x8014 off=6598616 flags=0x02000004 magic=0x34210
+T390 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=6525400 flags=0x00000004 magic=0x23410
+T391 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=6525400 flags=0x00000004 magic=0x23410
+T392 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=6378968 flags=0x02000004 magic=0x23410
+T393 ndim=2 dims=[1584,208] bytes=1317888 dtype=0x8014 off=5061080 flags=0x02000004 magic=0x34210
+T394 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=6378968 flags=0x00000004 magic=0x23410
+T395 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=6232536 flags=0x02000004 magic=0x23410
+T396 ndim=2 dims=[1584,208] bytes=1317888 dtype=0x8014 off=4914648 flags=0x02000004 magic=0x34210
+T397 ndim=4 dims=[1,176,1,1] bytes=704 dtype=0x8014 off=6231832 flags=0x00000004 magic=0x23410
+T398 ndim=2 dims=[1,176] bytes=704 dtype=0x8014 off=6231832 flags=0x00000004 magic=0x43210
+T399 ndim=2 dims=[1,22] bytes=88 dtype=0x8014 off=6231744 flags=0x00000004 magic=0x43210
+T400 ndim=2 dims=[1,22] bytes=88 dtype=0x8014 off=6231744 flags=0x00000004 magic=0x43210
+T401 ndim=2 dims=[1,176] bytes=704 dtype=0x8014 off=6231040 flags=0x00000004 magic=0x43210
+T402 ndim=2 dims=[1,176] bytes=704 dtype=0x8014 off=6230336 flags=0x00000004 magic=0x43210
+T403 ndim=4 dims=[1,176,1,1] bytes=704 dtype=0x8014 off=6230336 flags=0x00000004 magic=0x23410
+T404 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=6083904 flags=0x00000004 magic=0x23410
+T405 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=5937472 flags=0x00000004 magic=0x23410
+T406 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=5937472 flags=0x00000004 magic=0x23410
+T407 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=5791040 flags=0x02000004 magic=0x23410
+T408 ndim=2 dims=[1584,208] bytes=1317888 dtype=0x8014 off=4473152 flags=0x02000004 magic=0x34210
+T409 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=5791040 flags=0x00000004 magic=0x23410
+T410 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=5644608 flags=0x02000004 magic=0x23410
+T411 ndim=2 dims=[1584,208] bytes=1317888 dtype=0x8014 off=4326720 flags=0x02000004 magic=0x34210
+T412 ndim=4 dims=[1,176,1,1] bytes=704 dtype=0x8014 off=5643904 flags=0x00000004 magic=0x23410
+T413 ndim=2 dims=[1,176] bytes=704 dtype=0x8014 off=5643904 flags=0x00000004 magic=0x43210
+T414 ndim=2 dims=[1,22] bytes=88 dtype=0x8014 off=5643816 flags=0x00000004 magic=0x43210
+T415 ndim=2 dims=[1,22] bytes=88 dtype=0x8014 off=5643816 flags=0x00000004 magic=0x43210
+T416 ndim=2 dims=[1,176] bytes=704 dtype=0x8014 off=5643112 flags=0x00000004 magic=0x43210
+T417 ndim=2 dims=[1,176] bytes=704 dtype=0x8014 off=5642408 flags=0x00000004 magic=0x43210
+T418 ndim=4 dims=[1,176,1,1] bytes=704 dtype=0x8014 off=5642408 flags=0x00000004 magic=0x23410
+T419 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=5495976 flags=0x00000004 magic=0x23410
+T420 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=5349544 flags=0x00000004 magic=0x23410
+T421 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=5203112 flags=0x00000004 magic=0x43210
+T422 ndim=4 dims=[1,176,8,26] bytes=146432 dtype=0x8014 off=5203112 flags=0x00000004 magic=0x43210
+T423 ndim=4 dims=[1,176,1,26] bytes=18304 dtype=0x8014 off=5184808 flags=0x00000004 magic=0x43210
+T424 ndim=4 dims=[1,26,176,1] bytes=18304 dtype=0x8014 off=5166504 flags=0x00000004 magic=0x43210
+T425 ndim=3 dims=[1,26,176] bytes=18304 dtype=0x8014 off=5166504 flags=0x00000004 magic=0x43210
+T426 ndim=3 dims=[1,26,176] bytes=18304 dtype=0x8014 off=5148200 flags=0x00000004 magic=0x43210
+T427 ndim=3 dims=[1,26,176] bytes=18304 dtype=0x8014 off=5129896 flags=0x00000004 magic=0x43210
+T428 ndim=3 dims=[1,26,1] bytes=104 dtype=0x8014 off=5129792 flags=0x00000004 magic=0x43210
+T429 ndim=2 dims=[1,26] bytes=104 dtype=0x8014 off=5129792 flags=0x00000004 magic=0x43210
+T430 ndim=2 dims=[1,26] bytes=104 dtype=0x8014 off=5129688 flags=0x00000004 magic=0x43210
+T431 ndim=3 dims=[1,26,1] bytes=104 dtype=0x8014 off=5129688 flags=0x00000004 magic=0x43210
+T432 ndim=3 dims=[1,26,176] bytes=18304 dtype=0x8014 off=5111384 flags=0x00000004 magic=0x43210
+T433 ndim=2 dims=[1,176] bytes=704 dtype=0x8014 off=5110680 flags=0x00000004 magic=0x43210
+T434 ndim=3 dims=[1,26,176] bytes=18304 dtype=0x8014 off=5092376 flags=0x00000004 magic=0x43210
+T435 ndim=3 dims=[1,26,176] bytes=18304 dtype=0x8014 off=5074072 flags=0x00000004 magic=0x43210
+T436 ndim=2 dims=[1,176] bytes=704 dtype=0x8014 off=5073368 flags=0x00000004 magic=0x43210
+T437 ndim=2 dims=[1,176] bytes=704 dtype=0x8014 off=5072664 flags=0x00000004 magic=0x43210
+T438 ndim=2 dims=[1,176] bytes=704 dtype=0x8014 off=5071960 flags=0x00000004 magic=0x43210
+T439 ndim=2 dims=[1,176] bytes=704 dtype=0x8014 off=5071960 flags=0x00000004 magic=0x43210
+T440 ndim=2 dims=[1,176] bytes=704 dtype=0x8014 off=5071256 flags=0x00000004 magic=0x43210
+T441 ndim=2 dims=[1,352] bytes=1408 dtype=0x8014 off=5069848 flags=0x00000004 magic=0x43210
+T442 ndim=2 dims=[1,128] bytes=512 dtype=0x8014 off=5069336 flags=0x00000004 magic=0x43210
+T443 ndim=2 dims=[1,128] bytes=512 dtype=0x8014 off=5068824 flags=0x00000004 magic=0x43210
+T444 ndim=2 dims=[1,1] bytes=4 dtype=0x8014 off=5068816 flags=0x00000004 magic=0x43210
+T445 ndim=2 dims=[1,1] bytes=4 dtype=0x8014 off=5068808 flags=0x00000004 magic=0x43210
+T446 ndim=2 dims=[1,1] bytes=4 dtype=0x8014 off=5068808 flags=0x00000004 magic=0x43210
+T447 ndim=2 dims=[1,128] bytes=512 dtype=0x8014 off=5068296 flags=0x00000004 magic=0x43210
+T448 ndim=2 dims=[1,128] bytes=512 dtype=0x8014 off=5067784 flags=0x80000004 magic=0x43210 OUT0
+layers=252
+L00 type=16 flags=0x00080000 in=2 out=1 in_ids=160,0, out_ids=161,
+L01 type=42 flags=0x00080800 in=1 out=1 in_ids=161, out_ids=162,
+L02 type=21 flags=0x00080800 in=1 out=1 in_ids=162, out_ids=163,
+L03 type=36 flags=0x00083000 in=2 out=1 in_ids=162,163, out_ids=164,
+L04 type=36 flags=0x00082000 in=2 out=1 in_ids=162,163, out_ids=165,
+L05 type=28 flags=0x00082000 in=2 out=1 in_ids=164,165, out_ids=166,
+L06 type=21 flags=0x00081000 in=1 out=1 in_ids=166, out_ids=167,
+L07 type=36 flags=0x00083000 in=2 out=1 in_ids=162,163, out_ids=168,
+L08 type=16 flags=0x00080000 in=2 out=1 in_ids=167,1, out_ids=169,
+L09 type=43 flags=0x00080000 in=1 out=1 in_ids=169, out_ids=170,
+L10 type=18 flags=0x00082000 in=2 out=1 in_ids=168,170, out_ids=171,
+L11 type=20 flags=0x00080100 in=1 out=1 in_ids=171, out_ids=172,
+L12 type=12 flags=0x00080000 in=1 out=1 in_ids=172, out_ids=173,
+L13 type=0 flags=0x00080800 in=4 out=1 in_ids=173,2,3,175, out_ids=174,
+L14 type=0 flags=0x00080000 in=4 out=1 in_ids=174,4,-1,177, out_ids=176,
+L15 type=14 flags=0x00080100 in=3 out=1 in_ids=176,5,6, out_ids=178,
+L16 type=0 flags=0x00080800 in=4 out=1 in_ids=178,7,8,180, out_ids=179,
+L17 type=52 flags=0x00080000 in=1 out=1 in_ids=179, out_ids=181,
+L18 type=20 flags=0x00080100 in=1 out=1 in_ids=181, out_ids=182,
+L19 type=50 flags=0x00080000 in=3 out=1 in_ids=182,9,10, out_ids=183,
+L20 type=2 flags=0x00080100 in=1 out=1 in_ids=183, out_ids=184,
+L21 type=50 flags=0x00080000 in=3 out=1 in_ids=184,11,12, out_ids=185,
+L22 type=39 flags=0x00080000 in=1 out=1 in_ids=185, out_ids=186,
+L23 type=20 flags=0x00080100 in=1 out=1 in_ids=186, out_ids=187,
+L24 type=28 flags=0x00082000 in=2 out=1 in_ids=179,187, out_ids=188,
+L25 type=16 flags=0x00082000 in=2 out=1 in_ids=188,174, out_ids=189,
+L26 type=2 flags=0x00080900 in=1 out=1 in_ids=189, out_ids=190,
+L27 type=0 flags=0x00080000 in=4 out=1 in_ids=190,13,-1,192, out_ids=191,
+L28 type=14 flags=0x00080100 in=3 out=1 in_ids=191,14,15, out_ids=193,
+L29 type=0 flags=0x00080800 in=4 out=1 in_ids=193,16,17,195, out_ids=194,
+L30 type=52 flags=0x00080000 in=1 out=1 in_ids=194, out_ids=196,
+L31 type=20 flags=0x00080100 in=1 out=1 in_ids=196, out_ids=197,
+L32 type=50 flags=0x00080000 in=3 out=1 in_ids=197,18,19, out_ids=198,
+L33 type=2 flags=0x00080100 in=1 out=1 in_ids=198, out_ids=199,
+L34 type=50 flags=0x00080000 in=3 out=1 in_ids=199,20,21, out_ids=200,
+L35 type=39 flags=0x00080000 in=1 out=1 in_ids=200, out_ids=201,
+L36 type=20 flags=0x00080100 in=1 out=1 in_ids=201, out_ids=202,
+L37 type=28 flags=0x00082000 in=2 out=1 in_ids=194,202, out_ids=203,
+L38 type=16 flags=0x00082000 in=2 out=1 in_ids=203,190, out_ids=204,
+L39 type=2 flags=0x00080900 in=1 out=1 in_ids=204, out_ids=205,
+L40 type=0 flags=0x00080000 in=4 out=1 in_ids=205,22,-1,207, out_ids=206,
+L41 type=14 flags=0x00080100 in=3 out=1 in_ids=206,23,24, out_ids=208,
+L42 type=0 flags=0x00080800 in=4 out=1 in_ids=208,25,26,210, out_ids=209,
+L43 type=52 flags=0x00080000 in=1 out=1 in_ids=209, out_ids=211,
+L44 type=20 flags=0x00080100 in=1 out=1 in_ids=211, out_ids=212,
+L45 type=50 flags=0x00080000 in=3 out=1 in_ids=212,27,28, out_ids=213,
+L46 type=2 flags=0x00080100 in=1 out=1 in_ids=213, out_ids=214,
+L47 type=50 flags=0x00080000 in=3 out=1 in_ids=214,29,30, out_ids=215,
+L48 type=39 flags=0x00080000 in=1 out=1 in_ids=215, out_ids=216,
+L49 type=20 flags=0x00080100 in=1 out=1 in_ids=216, out_ids=217,
+L50 type=28 flags=0x00082000 in=2 out=1 in_ids=209,217, out_ids=218,
+L51 type=16 flags=0x00082000 in=2 out=1 in_ids=218,205, out_ids=219,
+L52 type=2 flags=0x00080900 in=1 out=1 in_ids=219, out_ids=220,
+L53 type=0 flags=0x00080000 in=4 out=1 in_ids=220,31,-1,222, out_ids=221,
+L54 type=14 flags=0x00080100 in=3 out=1 in_ids=221,32,33, out_ids=223,
+L55 type=0 flags=0x00080800 in=4 out=1 in_ids=223,34,35,225, out_ids=224,
+L56 type=52 flags=0x00080000 in=1 out=1 in_ids=224, out_ids=226,
+L57 type=20 flags=0x00080100 in=1 out=1 in_ids=226, out_ids=227,
+L58 type=50 flags=0x00080000 in=3 out=1 in_ids=227,36,37, out_ids=228,
+L59 type=2 flags=0x00080100 in=1 out=1 in_ids=228, out_ids=229,
+L60 type=50 flags=0x00080000 in=3 out=1 in_ids=229,38,39, out_ids=230,
+L61 type=39 flags=0x00080000 in=1 out=1 in_ids=230, out_ids=231,
+L62 type=20 flags=0x00080100 in=1 out=1 in_ids=231, out_ids=232,
+L63 type=28 flags=0x00083000 in=2 out=1 in_ids=224,232, out_ids=233,
+L64 type=0 flags=0x00080000 in=4 out=1 in_ids=220,40,41,235, out_ids=234,
+L65 type=16 flags=0x00082000 in=2 out=1 in_ids=233,234, out_ids=236,
+L66 type=2 flags=0x00080900 in=1 out=1 in_ids=236, out_ids=237,
+L67 type=0 flags=0x00080000 in=4 out=1 in_ids=237,42,-1,239, out_ids=238,
+L68 type=14 flags=0x00080100 in=3 out=1 in_ids=238,43,44, out_ids=240,
+L69 type=0 flags=0x00080800 in=4 out=1 in_ids=240,45,46,242, out_ids=241,
+L70 type=52 flags=0x00080000 in=1 out=1 in_ids=241, out_ids=243,
+L71 type=20 flags=0x00080100 in=1 out=1 in_ids=243, out_ids=244,
+L72 type=50 flags=0x00080000 in=3 out=1 in_ids=244,47,48, out_ids=245,
+L73 type=2 flags=0x00080100 in=1 out=1 in_ids=245, out_ids=246,
+L74 type=50 flags=0x00080000 in=3 out=1 in_ids=246,49,50, out_ids=247,
+L75 type=39 flags=0x00080000 in=1 out=1 in_ids=247, out_ids=248,
+L76 type=20 flags=0x00080100 in=1 out=1 in_ids=248, out_ids=249,
+L77 type=28 flags=0x00082000 in=2 out=1 in_ids=241,249, out_ids=250,
+L78 type=16 flags=0x00082000 in=2 out=1 in_ids=250,237, out_ids=251,
+L79 type=2 flags=0x00080900 in=1 out=1 in_ids=251, out_ids=252,
+L80 type=0 flags=0x00080000 in=4 out=1 in_ids=252,51,-1,254, out_ids=253,
+L81 type=14 flags=0x00080100 in=3 out=1 in_ids=253,52,53, out_ids=255,
+L82 type=0 flags=0x00080800 in=4 out=1 in_ids=255,54,55,257, out_ids=256,
+L83 type=52 flags=0x00080000 in=1 out=1 in_ids=256, out_ids=258,
+L84 type=20 flags=0x00080100 in=1 out=1 in_ids=258, out_ids=259,
+L85 type=50 flags=0x00080000 in=3 out=1 in_ids=259,56,57, out_ids=260,
+L86 type=2 flags=0x00080100 in=1 out=1 in_ids=260, out_ids=261,
+L87 type=50 flags=0x00080000 in=3 out=1 in_ids=261,58,59, out_ids=262,
+L88 type=39 flags=0x00080000 in=1 out=1 in_ids=262, out_ids=263,
+L89 type=20 flags=0x00080100 in=1 out=1 in_ids=263, out_ids=264,
+L90 type=28 flags=0x00082000 in=2 out=1 in_ids=256,264, out_ids=265,
+L91 type=16 flags=0x00082000 in=2 out=1 in_ids=265,252, out_ids=266,
+L92 type=2 flags=0x00080900 in=1 out=1 in_ids=266, out_ids=267,
+L93 type=0 flags=0x00080000 in=4 out=1 in_ids=267,60,-1,269, out_ids=268,
+L94 type=14 flags=0x00080100 in=3 out=1 in_ids=268,61,62, out_ids=270,
+L95 type=0 flags=0x00080800 in=4 out=1 in_ids=270,63,64,272, out_ids=271,
+L96 type=52 flags=0x00080000 in=1 out=1 in_ids=271, out_ids=273,
+L97 type=20 flags=0x00080100 in=1 out=1 in_ids=273, out_ids=274,
+L98 type=50 flags=0x00080000 in=3 out=1 in_ids=274,65,66, out_ids=275,
+L99 type=2 flags=0x00080100 in=1 out=1 in_ids=275, out_ids=276,
+L100 type=50 flags=0x00080000 in=3 out=1 in_ids=276,67,68, out_ids=277,
+L101 type=39 flags=0x00080000 in=1 out=1 in_ids=277, out_ids=278,
+L102 type=20 flags=0x00080100 in=1 out=1 in_ids=278, out_ids=279,
+L103 type=28 flags=0x00082000 in=2 out=1 in_ids=271,279, out_ids=280,
+L104 type=16 flags=0x00082000 in=2 out=1 in_ids=280,267, out_ids=281,
+L105 type=2 flags=0x00080900 in=1 out=1 in_ids=281, out_ids=282,
+L106 type=0 flags=0x00080000 in=4 out=1 in_ids=282,69,-1,284, out_ids=283,
+L107 type=14 flags=0x00080100 in=3 out=1 in_ids=283,70,71, out_ids=285,
+L108 type=0 flags=0x00080800 in=4 out=1 in_ids=285,72,73,287, out_ids=286,
+L109 type=52 flags=0x00080000 in=1 out=1 in_ids=286, out_ids=288,
+L110 type=20 flags=0x00080100 in=1 out=1 in_ids=288, out_ids=289,
+L111 type=50 flags=0x00080000 in=3 out=1 in_ids=289,74,75, out_ids=290,
+L112 type=2 flags=0x00080100 in=1 out=1 in_ids=290, out_ids=291,
+L113 type=50 flags=0x00080000 in=3 out=1 in_ids=291,76,77, out_ids=292,
+L114 type=39 flags=0x00080000 in=1 out=1 in_ids=292, out_ids=293,
+L115 type=20 flags=0x00080100 in=1 out=1 in_ids=293, out_ids=294,
+L116 type=28 flags=0x00083000 in=2 out=1 in_ids=286,294, out_ids=295,
+L117 type=0 flags=0x00080000 in=4 out=1 in_ids=282,78,79,297, out_ids=296,
+L118 type=16 flags=0x00082000 in=2 out=1 in_ids=295,296, out_ids=298,
+L119 type=2 flags=0x00080900 in=1 out=1 in_ids=298, out_ids=299,
+L120 type=0 flags=0x00080000 in=4 out=1 in_ids=299,80,-1,301, out_ids=300,
+L121 type=14 flags=0x00080100 in=3 out=1 in_ids=300,81,82, out_ids=302,
+L122 type=0 flags=0x00080800 in=4 out=1 in_ids=302,83,84,304, out_ids=303,
+L123 type=52 flags=0x00080000 in=1 out=1 in_ids=303, out_ids=305,
+L124 type=20 flags=0x00080100 in=1 out=1 in_ids=305, out_ids=306,
+L125 type=50 flags=0x00080000 in=3 out=1 in_ids=306,85,86, out_ids=307,
+L126 type=2 flags=0x00080100 in=1 out=1 in_ids=307, out_ids=308,
+L127 type=50 flags=0x00080000 in=3 out=1 in_ids=308,87,88, out_ids=309,
+L128 type=39 flags=0x00080000 in=1 out=1 in_ids=309, out_ids=310,
+L129 type=20 flags=0x00080100 in=1 out=1 in_ids=310, out_ids=311,
+L130 type=28 flags=0x00082000 in=2 out=1 in_ids=303,311, out_ids=312,
+L131 type=16 flags=0x00082000 in=2 out=1 in_ids=312,299, out_ids=313,
+L132 type=2 flags=0x00080900 in=1 out=1 in_ids=313, out_ids=314,
+L133 type=0 flags=0x00080000 in=4 out=1 in_ids=314,89,-1,316, out_ids=315,
+L134 type=14 flags=0x00080100 in=3 out=1 in_ids=315,90,91, out_ids=317,
+L135 type=0 flags=0x00080800 in=4 out=1 in_ids=317,92,93,319, out_ids=318,
+L136 type=52 flags=0x00080000 in=1 out=1 in_ids=318, out_ids=320,
+L137 type=20 flags=0x00080100 in=1 out=1 in_ids=320, out_ids=321,
+L138 type=50 flags=0x00080000 in=3 out=1 in_ids=321,94,95, out_ids=322,
+L139 type=2 flags=0x00080100 in=1 out=1 in_ids=322, out_ids=323,
+L140 type=50 flags=0x00080000 in=3 out=1 in_ids=323,96,97, out_ids=324,
+L141 type=39 flags=0x00080000 in=1 out=1 in_ids=324, out_ids=325,
+L142 type=20 flags=0x00080100 in=1 out=1 in_ids=325, out_ids=326,
+L143 type=28 flags=0x00082000 in=2 out=1 in_ids=318,326, out_ids=327,
+L144 type=16 flags=0x00082000 in=2 out=1 in_ids=327,314, out_ids=328,
+L145 type=2 flags=0x00080900 in=1 out=1 in_ids=328, out_ids=329,
+L146 type=0 flags=0x00080000 in=4 out=1 in_ids=329,98,-1,331, out_ids=330,
+L147 type=14 flags=0x00080100 in=3 out=1 in_ids=330,99,100, out_ids=332,
+L148 type=0 flags=0x00080800 in=4 out=1 in_ids=332,101,102,334, out_ids=333,
+L149 type=52 flags=0x00080000 in=1 out=1 in_ids=333, out_ids=335,
+L150 type=20 flags=0x00080100 in=1 out=1 in_ids=335, out_ids=336,
+L151 type=50 flags=0x00080000 in=3 out=1 in_ids=336,103,104, out_ids=337,
+L152 type=2 flags=0x00080100 in=1 out=1 in_ids=337, out_ids=338,
+L153 type=50 flags=0x00080000 in=3 out=1 in_ids=338,105,106, out_ids=339,
+L154 type=39 flags=0x00080000 in=1 out=1 in_ids=339, out_ids=340,
+L155 type=20 flags=0x00080100 in=1 out=1 in_ids=340, out_ids=341,
+L156 type=28 flags=0x00082000 in=2 out=1 in_ids=333,341, out_ids=342,
+L157 type=16 flags=0x00082000 in=2 out=1 in_ids=342,329, out_ids=343,
+L158 type=2 flags=0x00080900 in=1 out=1 in_ids=343, out_ids=344,
+L159 type=0 flags=0x00080000 in=4 out=1 in_ids=344,107,-1,346, out_ids=345,
+L160 type=14 flags=0x00080100 in=3 out=1 in_ids=345,108,109, out_ids=347,
+L161 type=0 flags=0x00080800 in=4 out=1 in_ids=347,110,111,349, out_ids=348,
+L162 type=52 flags=0x00080000 in=1 out=1 in_ids=348, out_ids=350,
+L163 type=20 flags=0x00080100 in=1 out=1 in_ids=350, out_ids=351,
+L164 type=50 flags=0x00080000 in=3 out=1 in_ids=351,112,113, out_ids=352,
+L165 type=2 flags=0x00080100 in=1 out=1 in_ids=352, out_ids=353,
+L166 type=50 flags=0x00080000 in=3 out=1 in_ids=353,114,115, out_ids=354,
+L167 type=39 flags=0x00080000 in=1 out=1 in_ids=354, out_ids=355,
+L168 type=20 flags=0x00080100 in=1 out=1 in_ids=355, out_ids=356,
+L169 type=28 flags=0x00082000 in=2 out=1 in_ids=348,356, out_ids=357,
+L170 type=16 flags=0x00082000 in=2 out=1 in_ids=357,344, out_ids=358,
+L171 type=2 flags=0x00080900 in=1 out=1 in_ids=358, out_ids=359,
+L172 type=0 flags=0x00080000 in=4 out=1 in_ids=359,116,-1,361, out_ids=360,
+L173 type=14 flags=0x00080100 in=3 out=1 in_ids=360,117,118, out_ids=362,
+L174 type=0 flags=0x00080800 in=4 out=1 in_ids=362,119,120,364, out_ids=363,
+L175 type=52 flags=0x00080000 in=1 out=1 in_ids=363, out_ids=365,
+L176 type=20 flags=0x00080100 in=1 out=1 in_ids=365, out_ids=366,
+L177 type=50 flags=0x00080000 in=3 out=1 in_ids=366,121,122, out_ids=367,
+L178 type=2 flags=0x00080100 in=1 out=1 in_ids=367, out_ids=368,
+L179 type=50 flags=0x00080000 in=3 out=1 in_ids=368,123,124, out_ids=369,
+L180 type=39 flags=0x00080000 in=1 out=1 in_ids=369, out_ids=370,
+L181 type=20 flags=0x00080100 in=1 out=1 in_ids=370, out_ids=371,
+L182 type=28 flags=0x00082000 in=2 out=1 in_ids=363,371, out_ids=372,
+L183 type=16 flags=0x00082000 in=2 out=1 in_ids=372,359, out_ids=373,
+L184 type=2 flags=0x00080900 in=1 out=1 in_ids=373, out_ids=374,
+L185 type=0 flags=0x00080000 in=4 out=1 in_ids=374,125,-1,376, out_ids=375,
+L186 type=14 flags=0x00080100 in=3 out=1 in_ids=375,126,127, out_ids=377,
+L187 type=0 flags=0x00080800 in=4 out=1 in_ids=377,128,129,379, out_ids=378,
+L188 type=52 flags=0x00080000 in=1 out=1 in_ids=378, out_ids=380,
+L189 type=20 flags=0x00080100 in=1 out=1 in_ids=380, out_ids=381,
+L190 type=50 flags=0x00080000 in=3 out=1 in_ids=381,130,131, out_ids=382,
+L191 type=2 flags=0x00080100 in=1 out=1 in_ids=382, out_ids=383,
+L192 type=50 flags=0x00080000 in=3 out=1 in_ids=383,132,133, out_ids=384,
+L193 type=39 flags=0x00080000 in=1 out=1 in_ids=384, out_ids=385,
+L194 type=20 flags=0x00080100 in=1 out=1 in_ids=385, out_ids=386,
+L195 type=28 flags=0x00083000 in=2 out=1 in_ids=378,386, out_ids=387,
+L196 type=0 flags=0x00080000 in=4 out=1 in_ids=374,134,135,389, out_ids=388,
+L197 type=16 flags=0x00082000 in=2 out=1 in_ids=387,388, out_ids=390,
+L198 type=2 flags=0x00080900 in=1 out=1 in_ids=390, out_ids=391,
+L199 type=0 flags=0x00080000 in=4 out=1 in_ids=391,136,-1,393, out_ids=392,
+L200 type=14 flags=0x00080100 in=3 out=1 in_ids=392,137,138, out_ids=394,
+L201 type=0 flags=0x00080800 in=4 out=1 in_ids=394,139,140,396, out_ids=395,
+L202 type=52 flags=0x00080000 in=1 out=1 in_ids=395, out_ids=397,
+L203 type=20 flags=0x00080100 in=1 out=1 in_ids=397, out_ids=398,
+L204 type=50 flags=0x00080000 in=3 out=1 in_ids=398,141,142, out_ids=399,
+L205 type=2 flags=0x00080100 in=1 out=1 in_ids=399, out_ids=400,
+L206 type=50 flags=0x00080000 in=3 out=1 in_ids=400,143,144, out_ids=401,
+L207 type=39 flags=0x00080000 in=1 out=1 in_ids=401, out_ids=402,
+L208 type=20 flags=0x00080100 in=1 out=1 in_ids=402, out_ids=403,
+L209 type=28 flags=0x00082000 in=2 out=1 in_ids=395,403, out_ids=404,
+L210 type=16 flags=0x00082000 in=2 out=1 in_ids=404,391, out_ids=405,
+L211 type=2 flags=0x00080900 in=1 out=1 in_ids=405, out_ids=406,
+L212 type=0 flags=0x00080000 in=4 out=1 in_ids=406,145,-1,408, out_ids=407,
+L213 type=14 flags=0x00080100 in=3 out=1 in_ids=407,146,147, out_ids=409,
+L214 type=0 flags=0x00080800 in=4 out=1 in_ids=409,148,149,411, out_ids=410,
+L215 type=52 flags=0x00080000 in=1 out=1 in_ids=410, out_ids=412,
+L216 type=20 flags=0x00080100 in=1 out=1 in_ids=412, out_ids=413,
+L217 type=50 flags=0x00080000 in=3 out=1 in_ids=413,150,151, out_ids=414,
+L218 type=2 flags=0x00080100 in=1 out=1 in_ids=414, out_ids=415,
+L219 type=50 flags=0x00080000 in=3 out=1 in_ids=415,152,153, out_ids=416,
+L220 type=39 flags=0x00080000 in=1 out=1 in_ids=416, out_ids=417,
+L221 type=20 flags=0x00080100 in=1 out=1 in_ids=417, out_ids=418,
+L222 type=28 flags=0x00082000 in=2 out=1 in_ids=410,418, out_ids=419,
+L223 type=16 flags=0x00082000 in=2 out=1 in_ids=419,406, out_ids=420,
+L224 type=12 flags=0x00080000 in=1 out=1 in_ids=420, out_ids=421,
+L225 type=2 flags=0x00080100 in=1 out=1 in_ids=421, out_ids=422,
+L226 type=21 flags=0x00080000 in=1 out=1 in_ids=422, out_ids=423,
+L227 type=12 flags=0x00080000 in=1 out=1 in_ids=423, out_ids=424,
+L228 type=20 flags=0x00080900 in=1 out=1 in_ids=424, out_ids=425,
+L229 type=17 flags=0x00080004 in=3 out=1 in_ids=425,154,155, out_ids=426,
+L230 type=33 flags=0x00080000 in=1 out=1 in_ids=426, out_ids=427,
+L231 type=17 flags=0x00080004 in=2 out=1 in_ids=427,156, out_ids=428,
+L232 type=20 flags=0x00080100 in=1 out=1 in_ids=428, out_ids=429,
+L233 type=32 flags=0x00080000 in=1 out=1 in_ids=429, out_ids=430,
+L234 type=20 flags=0x00080900 in=1 out=1 in_ids=430, out_ids=431,
+L235 type=28 flags=0x00082000 in=2 out=1 in_ids=425,431, out_ids=432,
+L236 type=34 flags=0x00081800 in=1 out=1 in_ids=432, out_ids=433,
+L237 type=28 flags=0x00080000 in=2 out=1 in_ids=425,425, out_ids=434,
+L238 type=28 flags=0x00082000 in=2 out=1 in_ids=434,431, out_ids=435,
+L239 type=34 flags=0x00081000 in=1 out=1 in_ids=435, out_ids=436,
+L240 type=28 flags=0x00080000 in=2 out=1 in_ids=433,433, out_ids=437,
+L241 type=36 flags=0x00082000 in=2 out=1 in_ids=436,437, out_ids=438,
+L242 type=38 flags=0x00080100 in=1 out=1 in_ids=438, out_ids=439,
+L243 type=43 flags=0x00080000 in=1 out=1 in_ids=439, out_ids=440,
+L244 type=30 flags=0x00082000 in=2 out=1 in_ids=433,440, out_ids=441,
+L245 type=50 flags=0x00080800 in=3 out=1 in_ids=441,157,158, out_ids=442,
+L246 type=28 flags=0x00080000 in=2 out=1 in_ids=442,442, out_ids=443,
+L247 type=34 flags=0x00080000 in=1 out=1 in_ids=443, out_ids=444,
+L248 type=43 flags=0x00080000 in=1 out=1 in_ids=444, out_ids=445,
+L249 type=38 flags=0x00080100 in=1 out=1 in_ids=445, out_ids=446,
+L250 type=18 flags=0x00082000 in=2 out=1 in_ids=442,446, out_ids=447,
+L251 type=28 flags=0x00080000 in=2 out=1 in_ids=447,159, out_ids=448,
+input[0] elems=12864 head=0,0.0152993,0.0305941
+execute rc=0
+T00 first8: 9.9999997e-06
+T01 first8: 9.9999997e-06
+T02 first8: -0.00039899678 4.7121193e-05 -0.00039150758 -0.00023997204 -0.00010280745 -2.7231319e-05 -0.0005494444 -0.00011039381
+T03 first8: -0.016036965 -0.7528463 0.82472008 -0.018107682 -0.12768851 0.8243323 1.4675529 1.1201034
+T04 first8: -0.0015588099 0.20040902 0.12418794 0.00050561305 0.071199022 -0.037100561 0.22004247 0.00090999907
+T05 first8: 0.44265926 0.78492832 1.0803722 2.6143861 0.80046552 7.7095222 0.34065789 0.60356432
+T06 first8: -0.89132774 -0.445553 -0.55908239 0.16719782 -0.89114416 0.60874766 -2.8497112 0.73456752
+T07 first8: 0.03409107 0.01481792 -0.014112731 0.033588208 -9.8415054e-05 -0.00014056948 0.044096243 -0.00717268
+T08 first8: 1.1400132 0.087968446 0.21315575 -0.64203566 -0.22216491 0.2028757 0.22698306 -0.13889548
+T09 first8: 0.18574394 0.2649332 -0.034275714 -0.013910799 0.54221898 0.05044223 -0.096357115 0.36286563
+T10 first8: 0.70921165 -0.0062317257
+T11 first8: 0.14693476 0.0023167604 -0.38741639 -0.0028181442 -0.13212156 0.014611722 -0.43224049 0.01431103
+T12 first8: 1.1322745 1.3766261 0.6337502 1.2958053 0.74912947 1.1240064 -0.64709103 0.22965509
+T13 first8: 0.11013386 0.093217745 -0.0025097225 -0.03486646 -0.34474185 -0.077137418 -0.19611372 -0.34799615
+T14 first8: 0.96887445 0.55074894 0.42826635 0.39559472 0.29299086 0.4462283 0.70099676 0.51262653
+T15 first8: -0.51576251 -0.42681739 -0.25818962 -0.3424204 -1.6578159 -0.82408595 0.32260939 -3.4773545
+T16 first8: 0.048377603 -0.0086504631 0.12721948 0.031484678 -0.13012564 0.091006577 0.040402852 0.022146972
+T17 first8: 0.86979544 1.6564651 0.13694462 -1.7085297 1.7441945 0.8520565 0.39887521 1.4791069
+T18 first8: 0.0019834498 0.0021556467 -0.0032821661 -0.0037907276 0.0015574318 -0.002676076 0.0027265814 -0.0014317961
+T19 first8: -0.0051892595 0.56218463
+T20 first8: 0.0087596281 0.16522673 0.015237384 0.46648738 -0.017630266 -0.019056598 -0.0024753648 0.69707614
+T21 first8: 1.2296598 0.26361942 0.21086493 0.80433112 0.67112839 1.0842683 -0.64173675 0.43301228
+T22 first8: -0.0004826432 0.0024900537 -0.0023447073 -0.0031279083 -0.0050888578 -0.0031392942 -0.0064959493 -0.0066353544
+T23 first8: 13.977779 0.34042066 0.65173262 6.0890856 7.4304495 7.8373108 0.40876672 0.48505917
+T24 first8: -0.0092057157 -1.0357419 -0.87836528 -0.37290901 0.03488167 0.025616843 -0.73627883 -0.59113485
+T25 first8: -0.0001657345 0.025332117 0.082749508 0.0070361402 -0.00033708158 0.00047960211 0.013878182 0.01526282
+T26 first8: 1.349821 -0.57279623 -0.17120123 0.59375256 2.4372821 1.225585 -0.80874479 -0.10565063
+T27 first8: -0.014035616 0.13832657 -0.77520299 1.126829 -0.2131294 -0.59681958 -0.70058894 0.11866465
+T28 first8: 0.21174005 0.47647321
+T29 first8: 0.59977168 0.18254212 -0.26865229 -0.70150453 0.41858232 0.13808866 -0.24192102 0.21670631
+T30 first8: 1.091098 0.4406004 0.81569541 1.0755355 0.58568335 0.078272365 0.494055 0.51322436
+T31 first8: 0.19110504 -0.18042481 0.14681199 -0.06377092 0.058319405 0.13720624 -0.55182856 -0.22056793
+T32 first8: 0.22920784 0.20487916 0.36964905 0.17942087 0.42034453 7.3299847 0.22646122 0.22767302
+T33 first8: -3.4257755 -1.1952813 -1.1581055 -2.5826299 -0.52737319 0.1353409 -0.53988397 -1.0553727
+T34 first8: -0.055274073 0.04742498 0.029514944 -0.011604143 -0.009978408 0.00031623177 0.013795823 0.028144944
+T35 first8: 0.93973148 1.4597911 -0.43663007 -0.9401359 0.22874768 1.032704 0.67305505 0.90773344
+T36 first8: -0.032747485 0.80206436 0.25758114 0.39104164 0.27583507 0.20200458 -0.051037766 0.10530506
+T37 first8: 0.16223414 -0.035783235 0.6168887 -0.0059504635 0.11243939
+T38 first8: 0.064658299 -0.68375915 0.34201631 0.0050846981 0.015834948 -0.32516244 -0.064596049 -0.43681657
+T39 first8: 0.29010892 0.75453413 -0.087699138 0.3103027 0.81244433 -0.085654028 0.89054483 -0.61172932
+T40 first8: -0.043398619 0.026776388 0.089483187 -0.01005664 0.055854641 0.054522436 0.073061101 0.032872461
+T41 first8: 1.4096335 -0.052939132 0.44068065 1.5803989 -0.02756682 -0.73862416 1.0172584 -0.19844982
+T42 first8: 0.20334303 -0.051054049 -0.082088701 -0.052488588 0.24532996 0.12544116 -0.020212634 0.44059286
+T43 first8: 0.84386522 2.4813967 7.363194 0.70985925 0.45662582 0.51971495 0.95507145 7.8726645
+T44 first8: -0.41405648 -0.26385194 -0.029979235 -0.092952669 -0.1565018 -0.57237554 -0.41964516 -0.00049373391
+T45 first8: 0.004299826 0.038095847 -2.8721726e-05 0.015553609 -0.054305993 -0.011414638 -0.044474345 5.8391441e-05
+T46 first8: 0.36453956 1.3750912 -0.14455076 -0.40504912 1.2811369 -1.1163522 -0.19578007 1.6113776
+T47 first8: -0.18832025 0.16288266 0.12669604 0.12060043 -1.4422889 0.14913316 0.48608243 0.27113003
+T48 first8: -0.52267206 0.15286691 0.41439202 0.44358143 0.87299722
+T49 first8: 0.29051092 1.2746102 0.24453253 0.13391556 -0.36134878 -0.063000664 -0.23951931 -0.017841708
+T50 first8: -1.83029 0.89787161 0.54758406 0.26196989 -0.23132336 -0.95713472 -0.92873967 0.86887437
+T51 first8: -0.62289369 -0.053922735 -0.16363575 -0.051748831 0.057664234 0.13225915 0.020407189 -0.2888267
+T52 first8: 0.37582785 0.59238756 0.99184704 0.31764951 0.32563242 0.51562887 0.5413543 0.29165551
+T53 first8: -0.98693925 -0.48783767 -0.093840107 -1.3918512 -0.27714437 -0.48537993 -0.38126475 -3.4262469
+T54 first8: 0.031260662 -0.020858366 -0.022989055 -0.041700833 -0.061934028 0.02933694 -0.019092774 0.071839929
+T55 first8: 0.35190752 -0.026409872 0.59905457 -0.14393929 0.71728516 -0.092769757 0.15963882 0.61595249
+T56 first8: 0.10155653 0.21113792 -0.56844318 0.28675917 -0.26295015 0.21346465 -0.3376025 0.25794262
+T57 first8: -0.3582674 0.37904832 0.097937763 0.39638805 0.75364935
+T58 first8: -0.1932137 -0.43342376 0.82892925 -1.4753253 0.69410443 0.12700781 -0.10152384 0.058230929
+T59 first8: -1.0746335 0.8132956 0.44001427 0.82663971 0.81915689 0.632972 -1.6025878 0.44164315
+T60 first8: -0.00071260589 0.00059366319 0.0010319077 -0.0037773971 0.0013771025 -0.0026661542 -0.0017888225 0.0021503575
+T61 first8: 6.906868 1.5145729 0.33923092 0.60544664 0.4220826 0.27944368 0.36811498 0.48980966
+T62 first8: -0.016367175 -0.004567489 -0.42675525 -0.082839444 0.3596167 -4.4060755 0.41594493 0.11903119
+T63 first8: 0.00075349427 -0.0022714487 0.019764762 0.046211056 -0.02368365 0.037677553 0.017410403 -0.01021199
+T64 first8: 0.90466022 1.0344059 -0.40011871 0.56355309 0.66315025 -1.9756932 1.1578288 0.40488094
+T65 first8: -0.00017373775 0.0025187505 0.0022395391 0.0021098577 -0.0033903925 -0.0035983394 -0.0013989176 0.0014580049
+T66 first8: -0.0034735017 -0.011788169 -0.0042050523 -0.0079415841 0.21940567
+T67 first8: -0.0083906269 0.47547737 0.0091222497 -0.0059656287 -0.43528289 -0.0018709481 0.52405518 0.00044373918
+T68 first8: 0.0063845837 0.52284145 0.40356475 0.70636588 0.40808508 1.1768634 -0.12058783 -0.014483896
+T69 first8: 0.15583487 -0.14817567 0.04447481 -0.086699791 -0.25390199 0.062447917 0.046168871 -0.093564861
+T70 first8: 0.22950085 0.16251688 0.18210542 0.20247504 0.20029558 0.12964201 0.20555665 0.13752225
+T71 first8: -0.37491226 -0.60771281 -0.44036579 -0.60072958 -0.68745327 -3.4788907 -0.26669756 -3.6561375
+T72 first8: 0.0065177144 0.013654555 0.011183387 -0.0035061061 0.047257815 -0.0036727439 0.0007253869 -0.023792533
+T73 first8: -0.013761535 0.13795458 0.3575215 1.1452733 0.31769031 -0.59956461 -0.2385437 0.42779982
+T74 first8: -0.060400393 -0.1942907 0.18134663 0.1817553 0.31619799 0.18038379 0.01250294 -0.093529604
+T75 first8: 0.10859049 0.44831705 -0.12989412 -0.12165155 0.020234291 0.13320738 0.23499608 0.098025374
+T76 first8: 0.10367808 0.19645679 -0.26619846 -0.24551637 -0.3278414 0.49786747 0.04069737 -0.25703526
+T77 first8: 0.32217467 -0.15033026 0.17554127 -0.4895905 -0.020706324 0.030011743 0.13564725 0.89093232
+T78 first8: 0.013651522 -0.0062155416 -0.0047355075 -0.0016761387 0.0059737684 -0.0037919458 -0.0062173093 0.006950594
+T79 first8: 0.2259915 -0.35766846 0.44415978 -1.5093298 0.11697 0.90735304 -0.098323077 0.066470981
+T80 first8: 0.085091732 -0.072562516 -0.029821176 0.065051638 0.052911289 -0.10514755 -0.0054321415 -0.014862591
+T81 first8: 1.065576 0.93677235 1.1248748 1.1356809 0.82646966 2.6028192 0.69522923 1.0018152
+T82 first8: -0.69732463 -0.080104142 -0.53374922 -0.099857196 -0.46232834 -0.09465345 -0.51901329 -0.39624536
+T83 first8: -0.029762339 -0.013839669 0.0057431692 0.018919846 0.0023292277 -0.016242448 0.0012860749 -0.015151273
+T84 first8: 0.26267296 0.68256462 0.14071766 0.98674226 -0.054015264 0.18938771 -0.06958738 0.15977076
+T85 first8: -0.093823098 -0.10968468 0.0028129774 0.073310621 0.12241391 -0.16893981 0.094358094 -0.12085649
+T86 first8: 0.11838302 0.044965524 -0.0039645266 0.65339202 0.028481256 0.15114495 -0.18984571 0.29239261
+T87 first8: 0.040783435 -0.057939749 0.00046471288 0.16415632 0.2226053 0.209622 0.20105012 -0.14498258
+T88 first8: 0.19901194 0.32888168 0.22474416 0.69091356 -0.47105253 0.38944033 -0.80920666 0.19848941
+T89 first8: -0.01785833 -0.074065253 -0.21814321 0.012520583 0.26287773 0.065057009 0.13055879 0.22085826
+T90 first8: 0.64465684 1.7024378 1.7179354 0.81375694 1.0729805 1.1244045 0.75921893 8.5827122
+T91 first8: -0.61703283 -0.080484003 -0.32266444 -0.065373361 -0.23670875 -0.37018424 -0.16108514 0.060550135
+T92 first8: -0.023547649 -0.024465183 -0.0086322837 -0.022345226 -0.059376404 0.0052254316 -0.024293343 -0.00033270018
+T93 first8: 0.21725562 0.37599578 -0.059104681 0.34885007 0.44408911 -0.011562087 0.16795219 -0.54567969
+T94 first8: -0.012757053 0.19403698 0.017294982 -0.38260254 -0.064247541 0.036897365 0.24199267 -0.17060833
+T95 first8: -0.092688031 -0.52579176 0.64834785 0.76770067 0.36462992 0.30768803 -0.10552981 -1.0296359
+T96 first8: 0.079570137 0.11089292 -0.17552115 -0.14261165 0.72337568 -0.058734696 0.025291992 -0.12710916
+T97 first8: 0.053705759 0.14818463 0.40718353 0.12934786 0.45764384 -0.16028236 0.3580814 1.0501955
+T98 first8: 0.063630939 0.20604011 0.25219598 0.24015632 -0.1087521 0.020796873 -0.24358621 0.034176581
+T99 first8: 0.54167604 0.94617081 1.912918 0.65098143 0.91234368 0.80485469 1.2878654 1.3582982
+T100 first8: -0.36171919 -0.14587241 0.0080388933 0.018589877 -0.24267003 -0.16764048 -0.15617001 -0.019625828
+T101 first8: 0.011326232 0.034010708 0.0011650346 -0.0063368441 0.035363521 0.010371512 0.032217551 -0.006427967
+T102 first8: -0.23407222 0.2807368 0.22592522 0.32804483 0.003708601 0.16333157 0.44239551 0.0089663267
+T103 first8: 0.29246664 0.049713209 -0.0049010771 -0.03464501 -0.66111183 0.038423743 0.11224759 -0.0077442811
+T104 first8: 0.43749574 0.43042079 0.0021808085 -0.0032018269 -0.0046451772 0.20781893 0.23024784 0.081210546
+T105 first8: 0.045249928 0.11815908 0.0094893482 -0.0070818756 -0.0045377174 0.020834493 -0.15334804 0.16447166
+T106 first8: 0.04211881 0.011830304 -0.27194324 0.029095042 0.15910581 -0.024981862 0.30551285 0.19153637
+T107 first8: 0.0047503673 0.229771 0.062681377 0.066334516 0.023439275 0.33542636 -0.025511011 -0.0029820662
+T108 first8: 0.23027273 0.89520204 0.65079403 0.58189762 0.22554061 0.58337599 0.3500911 0.58764178
+T109 first8: -2.7647872 0.25940728 -0.35149124 -0.84768367 -2.053829 -0.29408503 -0.47536436 -0.029826775
+T110 first8: -0.094204254 -0.027834339 -0.049318515 -0.02870691 0.05356805 0.03424637 0.032105666 0.032296084
+T111 first8: 0.75379241 0.13332362 0.049554974 0.010435537 -0.45804122 -0.045642897 0.59615946 0.48901403
+T112 first8: -0.046411216 0.12011331 0.17720295 0.37219581 -0.044157639 0.032936696 0.18571505 -0.10715008
+T113 first8: 0.26376528 0.05133491 0.76388741 0.30497783 0.40926737 0.39804891 -0.0055550872 -0.0049901791
+T114 first8: 0.12832765 -0.16161558 0.23639403 0.11754535 -0.25699764 0.16009521 0.0012435365 0.0017290525
+T115 first8: -0.18979102 0.080393247 0.068963997 -0.11156565 0.44715378 0.08852718 -0.57135737 0.27206618
+T116 first8: 0.22944307 -0.10307166 -0.040471889 0.11678351 0.12823661 -0.040568121 0.098457843 0.092950232
+T117 first8: 0.38345921 0.40599599 0.23700376 0.10742569 0.39072588 0.58041167 0.26956692 0.45928618
+T118 first8: -0.23763749 -0.21864457 -0.39704943 -1.5133935 -0.082226768 0.37331533 -0.53545862 0.21619193
+T119 first8: -0.058765039 -0.092769295 0.028229028 0.051142868 0.051006712 -0.02590578 -0.085305512 -0.077556789
+T120 first8: 0.47756213 -0.19355172 0.0083426386 0.67582846 -0.16485056 0.29573819 -0.032269701 0.23280026
+T121 first8: 0.041820858 0.11356995 -0.35711452 -0.24568768 0.17316997 0.18129122 0.035587661 0.296698
+T122 first8: 0.43994749 0.16699687 -0.0025402533 0.47474909 0.50498569 0.26780641 0.0091742789 0.60103536
+T123 first8: -0.12626 -0.13373598 0.00206546 0.22212651 0.23927195 0.13401458 0.0038094264 0.2746768
+T124 first8: 0.17265584 0.6717748 0.22289364 0.077027872 0.12394802 -0.034687374 0.34290484 0.43656108
+T125 first8: -0.00027069132 -0.0013960826 0.00054151332 0.0010638252 -0.0015506832 -0.00016841808 -0.0010635662 -0.0014824796
+T126 first8: 6.7791805 0.24497847 0.17033546 0.23281069 0.4017694 0.29957336 0.26519966 0.31425732
+T127 first8: -0.0039111231 -0.54285312 -1.4110045 -0.39529365 0.10806073 -0.40890378 -0.50836784 -0.52840608
+T128 first8: 9.8975608e-05 0.016316196 0.0032899205 0.0080917245 -0.014180949 -0.013701336 -0.0066926996 0.011740759
+T129 first8: 0.20306906 0.27224955 0.17023319 0.24933672 0.12145279 0.28418401 0.23377708 0.27681109
+T130 first8: -0.00014347036 -0.008404946 0.18049403 0.11738122 0.087576076 -0.040805917 -0.04453088 -0.18355891
+T131 first8: 0.048953898 -0.084813908 -0.64094526 0.080626234 0.3523359 0.38048634 -0.26931754 0.13528544
+T132 first8: -0.069935046 0.026557628 0.68594688 0.32558733 0.2051838 0.015400806 0.28429818 -0.40131572
+T133 first8: 0.062017933 -0.56193835 0.018009072 0.15552928 -0.24612938 -0.11924554 0.71444821 0.18883981
+T134 first8: -0.0061746067 -0.0093104271 -0.030207003 -0.0038885754 0.0015322554 -0.01574209 -0.030393738 -0.010370123
+T135 first8: 0.068407744 0.068079874 0.1171457 -0.2210032 -0.22247747 0.14820868 0.43385845 -0.5994795
+T136 first8: -0.11226403 -0.091803834 0.20619562 0.0011384023 0.069946542 0.22220337 -0.086362541 0.13182676
+T137 first8: 1.2617158 7.5565138 1.1323923 1.1173352 0.97445583 7.2147312 1.2400908 1.1610016
+T138 first8: 0.0066595078 -0.021635439 -0.13525739 -0.33902991 -0.35074028 -0.025538424 -0.24425071 -0.040618643
+T139 first8: 0.017947614 6.2937688e-05 -0.0028694966 0.065289274 0.012431023 -0.00014514866 0.023957541 -0.015668912
+T140 first8: -0.36904287 -0.14767368 -0.042859774 0.27997571 -0.30440843 -0.17116189 0.083855532 -0.34226865
+T141 first8: -0.4988662 0.43895084 -0.07815551 -0.18807344 -0.54542708 -0.36525097 -0.056286994 -0.081308097
+T142 first8: 0.32383722 0.51890826 0.30259717 0.14211512 -0.043563344 0.29755861 -0.16339247 0.55896878
+T143 first8: 0.041808419 -0.17097068 0.2432469 -0.65218168 0.32506183 0.18981969 -0.46745563 -0.038103662
+T144 first8: 0.16465172 0.42053598 0.27981564 0.078867018 -0.064456284 0.71253008 0.14148496 0.044289991
+T145 first8: -0.040075298 0.01336156 -0.20200741 0.036248054 0.17659155 -0.011719889 -0.2234389 -0.092419401
+T146 first8: 0.54466718 0.61818409 1.0720558 0.31952155 1.1538957 0.49491081 0.33314246 1.8673052
+T147 first8: -0.16374639 -0.066999689 -0.27414712 -0.37867093 -0.24418162 0.065072432 -0.19925976 -0.23729195
+T148 first8: -0.008214022 0.022578049 -0.027362593 -0.025329784 -0.0023285374 0.0026470027 0.037075482 0.00042214064
+T149 first8: 0.014822453 -0.33506098 -0.49717158 -0.50828713 0.15458429 -0.74719965 -0.49787244 -0.8399775
+T150 first8: -0.052640166 0.059549622 -0.076346315 0.055327315 -0.48084855 0.29431534 0.054491073 -0.095600769
+T151 first8: 0.045836382 -0.076201767 0.036065418 -0.015726885 0.11392615 -0.026342612 0.17007056 -0.022406312
+T152 first8: 0.1384716 0.3735798 -0.012839589 0.1714256 -0.23237309 -0.13124068 0.10131707 0.19765991
+T153 first8: 0.079738788 -0.024503984 0.15973835 0.040142786 0.21870077 0.49322304 0.44651845 0.2340243
+T154 first8: -0.046805076 -0.035621013 -0.054061938 -0.041607708 -0.028488195 -0.036849596 -0.00706298 0.017745249
+T155 first8: -0.045205161 0.034935448 0.061339069 0.26167664 0.23146567 0.052331448 -0.064774632 -0.030979449
+T156 first8: -0.0022334633 0.015059461 0.018194916 -0.51595688 0.2257441 -0.14774543 -0.16904351 0.086095445
+T157 first8: -0.38806379 -0.098390952 0.12040006 -0.11234453 0.098446935 0.091443069 0.20037383 0.39397675
+T158 first8: 0.019064978 0.0086882021 0.069791764 0.018059367 -0.10452244 0.039627045 -0.037948791 -0.024942363
+T159 first8: 10
+T160 first8: nan nan nan nan nan nan nan nan
+T161 first8: nan nan nan nan nan nan nan nan
+T162 first8: nan nan nan nan nan nan nan nan
+T163 first8: nan nan nan nan nan nan nan nan
+T164 first8: nan nan nan nan nan nan nan nan
+T165 first8: nan nan nan nan nan nan nan nan
+T166 first8: nan nan nan nan nan nan nan nan
+T167 first8: nan nan nan nan nan nan nan nan
+T168 first8: nan nan nan nan nan nan nan nan
+T169 first8: nan nan nan nan nan nan nan nan
+T170 first8: nan nan nan nan nan nan nan nan
+T171 first8: nan nan nan nan nan nan nan nan
+T172 first8: nan nan nan nan nan nan nan nan
+T173 first8: nan nan nan nan nan nan nan nan
+T174 first8: nan nan nan nan nan nan nan nan
+T175 first8: nan nan nan nan nan nan nan nan
+T176 first8: nan nan nan nan nan nan nan nan
+T177 first8: nan nan nan nan nan nan nan nan
+T178 first8: nan nan nan nan nan nan nan nan
+T179 first8: nan nan nan nan nan nan nan nan
+T180 first8: nan nan nan nan nan nan nan nan
+T181 first8: nan nan nan nan nan nan nan nan
+T182 first8: nan nan nan nan nan nan nan nan
+T183 first8: nan nan
+T184 first8: nan nan
+T185 first8: nan nan nan nan nan nan nan nan
+T186 first8: nan nan nan nan nan nan nan nan
+T187 first8: nan nan nan nan nan nan nan nan
+T188 first8: nan nan nan nan nan nan nan nan
+T189 first8: nan nan nan nan nan nan nan nan
+T190 first8: nan nan nan nan nan nan nan nan
+T191 first8: nan nan nan nan nan nan nan nan
+T192 first8: nan nan nan nan nan nan nan nan
+T193 first8: nan nan nan nan nan nan nan nan
+T194 first8: nan nan nan nan nan nan nan nan
+T195 first8: nan nan nan nan nan nan nan nan
+T196 first8: nan nan nan nan nan nan nan nan
+T197 first8: nan nan nan nan nan nan nan nan
+T198 first8: nan nan
+T199 first8: nan nan
+T200 first8: nan nan nan nan nan nan nan nan
+T201 first8: nan nan nan nan nan nan nan nan
+T202 first8: nan nan nan nan nan nan nan nan
+T203 first8: nan nan nan nan nan nan nan nan
+T204 first8: nan nan nan nan nan nan nan nan
+T205 first8: nan nan nan nan nan nan nan nan
+T206 first8: nan nan nan nan nan nan nan nan
+T207 first8: nan nan nan nan nan nan nan nan
+T208 first8: nan nan nan nan nan nan nan nan
+T209 first8: nan nan nan nan nan nan nan nan
+T210 first8: nan nan nan nan nan nan nan nan
+T211 first8: nan nan nan nan nan nan nan nan
+T212 first8: nan nan nan nan nan nan nan nan
+T213 first8: nan nan
+T214 first8: nan nan
+T215 first8: nan nan nan nan nan nan nan nan
+T216 first8: nan nan nan nan nan nan nan nan
+T217 first8: nan nan nan nan nan nan nan nan
+T218 first8: nan nan nan nan nan nan nan nan
+T219 first8: nan nan nan nan nan nan nan nan
+T220 first8: nan nan nan nan nan nan nan nan
+T221 first8: nan nan nan nan nan nan nan nan
+T222 first8: nan nan nan nan nan nan nan nan
+T223 first8: nan nan nan nan nan nan nan nan
+T224 first8: nan nan nan nan nan nan nan nan
+T225 first8: nan nan nan nan nan nan nan nan
+T226 first8: nan nan nan nan nan nan nan nan
+T227 first8: nan nan nan nan nan nan nan nan
+T228 first8: nan nan nan nan nan
+T229 first8: nan nan nan nan nan
+T230 first8: nan nan nan nan nan nan nan nan
+T231 first8: nan nan nan nan nan nan nan nan
+T232 first8: nan nan nan nan nan nan nan nan
+T233 first8: nan nan nan nan nan nan nan nan
+T234 first8: nan nan nan nan nan nan nan nan
+T235 first8: nan nan nan nan nan nan nan nan
+T236 first8: nan nan nan nan nan nan nan nan
+T237 first8: nan nan nan nan nan nan nan nan
+T238 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T239 first8: nan nan nan nan nan nan nan nan
+T240 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T241 first8: nan nan nan nan nan nan nan nan
+T242 first8: nan nan nan nan nan nan nan nan
+T243 first8: nan nan nan nan nan nan nan nan
+T244 first8: nan nan nan nan nan nan nan nan
+T245 first8: nan nan nan nan nan
+T246 first8: nan nan nan nan nan
+T247 first8: nan nan nan nan nan nan nan nan
+T248 first8: nan nan nan nan nan nan nan nan
+T249 first8: nan nan nan nan nan nan nan nan
+T250 first8: nan nan nan nan nan nan nan nan
+T251 first8: nan nan nan nan nan nan nan nan
+T252 first8: nan nan nan nan nan nan nan nan
+T253 first8: nan nan nan nan nan nan nan nan
+T254 first8: nan nan nan nan nan nan nan nan
+T255 first8: nan nan nan nan nan nan nan nan
+T256 first8: nan nan nan nan nan nan nan nan
+T257 first8: nan nan nan nan nan nan nan nan
+T258 first8: nan nan nan nan nan nan nan nan
+T259 first8: nan nan nan nan nan nan nan nan
+T260 first8: nan nan nan nan nan
+T261 first8: nan nan nan nan nan
+T262 first8: nan nan nan nan nan nan nan nan
+T263 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T264 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T265 first8: nan nan nan nan nan nan nan nan
+T266 first8: nan nan nan nan nan nan nan nan
+T267 first8: nan nan nan nan nan nan nan nan
+T268 first8: nan nan nan nan nan nan nan nan
+T269 first8: nan nan nan nan nan nan nan nan
+T270 first8: nan nan nan nan nan nan nan nan
+T271 first8: nan nan nan nan nan nan nan nan
+T272 first8: nan nan nan nan nan nan nan nan
+T273 first8: nan nan nan nan nan nan nan nan
+T274 first8: nan nan nan nan nan nan nan nan
+T275 first8: nan nan nan nan nan
+T276 first8: nan nan nan nan nan
+T277 first8: nan nan nan nan nan nan nan nan
+T278 first8: nan nan nan nan nan nan nan nan
+T279 first8: nan nan nan nan nan nan nan nan
+T280 first8: nan nan nan nan nan nan nan nan
+T281 first8: nan nan nan nan nan nan nan nan
+T282 first8: nan nan nan nan nan nan nan nan
+T283 first8: nan nan nan nan nan nan nan nan
+T284 first8: nan nan nan nan nan nan nan nan
+T285 first8: nan nan nan nan nan nan nan nan
+T286 first8: nan nan nan nan nan nan nan nan
+T287 first8: nan nan nan nan nan nan nan nan
+T288 first8: nan nan nan nan nan nan nan nan
+T289 first8: nan nan nan nan nan nan nan nan
+T290 first8: nan nan nan nan nan nan nan nan
+T291 first8: nan nan nan nan nan nan nan nan
+T292 first8: nan nan nan nan nan nan nan nan
+T293 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T294 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T295 first8: nan nan nan nan nan nan nan nan
+T296 first8: nan nan nan nan nan nan nan nan
+T297 first8: nan nan nan nan nan nan nan nan
+T298 first8: nan nan nan nan nan nan nan nan
+T299 first8: nan nan nan nan nan nan nan nan
+T300 first8: nan nan nan nan nan nan nan nan
+T301 first8: nan nan nan nan nan nan nan nan
+T302 first8: nan nan nan nan nan nan nan nan
+T303 first8: nan nan nan nan nan nan nan nan
+T304 first8: nan nan nan nan nan nan nan nan
+T305 first8: nan nan nan nan nan nan nan nan
+T306 first8: nan nan nan nan nan nan nan nan
+T307 first8: nan nan nan nan nan nan nan nan
+T308 first8: nan nan nan nan nan nan nan nan
+T309 first8: nan nan nan nan nan nan nan nan
+T310 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T311 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T312 first8: nan nan nan nan nan nan nan nan
+T313 first8: nan nan nan nan nan nan nan nan
+T314 first8: nan nan nan nan nan nan nan nan
+T315 first8: nan nan nan nan nan nan nan nan
+T316 first8: nan nan nan nan nan nan nan nan
+T317 first8: nan nan nan nan nan nan nan nan
+T318 first8: nan nan nan nan nan nan nan nan
+T319 first8: nan nan nan nan nan nan nan nan
+T320 first8: nan nan nan nan nan nan nan nan
+T321 first8: nan nan nan nan nan nan nan nan
+T322 first8: nan nan nan nan nan nan nan nan
+T323 first8: nan nan nan nan nan nan nan nan
+T324 first8: nan nan nan nan nan nan nan nan
+T325 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T326 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T327 first8: nan nan nan nan nan nan nan nan
+T328 first8: nan nan nan nan nan nan nan nan
+T329 first8: nan nan nan nan nan nan nan nan
+T330 first8: nan nan nan nan nan nan nan nan
+T331 first8: nan nan nan nan nan nan nan nan
+T332 first8: nan nan nan nan nan nan nan nan
+T333 first8: nan nan nan nan nan nan nan nan
+T334 first8: nan nan nan nan nan nan nan nan
+T335 first8: nan nan nan nan nan nan nan nan
+T336 first8: nan nan nan nan nan nan nan nan
+T337 first8: nan nan nan nan nan nan nan nan
+T338 first8: nan nan nan nan nan nan nan nan
+T339 first8: nan nan nan nan nan nan nan nan
+T340 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T341 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T342 first8: nan nan nan nan nan nan nan nan
+T343 first8: nan nan nan nan nan nan nan nan
+T344 first8: nan nan nan nan nan nan nan nan
+T345 first8: nan nan nan nan nan nan nan nan
+T346 first8: nan nan nan nan nan nan nan nan
+T347 first8: nan nan nan nan nan nan nan nan
+T348 first8: nan nan nan nan nan nan nan nan
+T349 first8: nan nan nan nan nan nan nan nan
+T350 first8: nan nan nan nan nan nan nan nan
+T351 first8: nan nan nan nan nan nan nan nan
+T352 first8: nan nan nan nan nan nan nan nan
+T353 first8: nan nan nan nan nan nan nan nan
+T354 first8: nan nan nan nan nan nan nan nan
+T355 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T356 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T357 first8: nan nan nan nan nan nan nan nan
+T358 first8: nan nan nan nan nan nan nan nan
+T359 first8: nan nan nan nan nan nan nan nan
+T360 first8: nan nan nan nan nan nan nan nan
+T361 first8: nan nan nan nan nan nan nan nan
+T362 first8: nan nan nan nan nan nan nan nan
+T363 first8: nan nan nan nan nan nan nan nan
+T364 first8: nan nan nan nan nan nan nan nan
+T365 first8: nan nan nan nan nan nan nan nan
+T366 first8: nan nan nan nan nan nan nan nan
+T367 first8: nan nan nan nan nan nan nan nan
+T368 first8: nan nan nan nan nan nan nan nan
+T369 first8: nan nan nan nan nan nan nan nan
+T370 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T371 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T372 first8: nan nan nan nan nan nan nan nan
+T373 first8: nan nan nan nan nan nan nan nan
+T374 first8: nan nan nan nan nan nan nan nan
+T375 first8: nan nan nan nan nan nan nan nan
+T376 first8: nan nan nan nan nan nan nan nan
+T377 first8: nan nan nan nan nan nan nan nan
+T378 first8: nan nan nan nan nan nan nan nan
+T379 first8: nan nan nan nan nan nan nan nan
+T380 first8: nan nan nan nan nan nan nan nan
+T381 first8: nan nan nan nan nan nan nan nan
+T382 first8: nan nan nan nan nan nan nan nan
+T383 first8: nan nan nan nan nan nan nan nan
+T384 first8: nan nan nan nan nan nan nan nan
+T385 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T386 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T387 first8: nan nan nan nan nan nan nan nan
+T388 first8: nan nan nan nan nan nan nan nan
+T389 first8: nan nan nan nan nan nan nan nan
+T390 first8: nan nan nan nan nan nan nan nan
+T391 first8: nan nan nan nan nan nan nan nan
+T392 first8: nan nan nan nan nan nan nan nan
+T393 first8: nan nan nan nan nan nan nan nan
+T394 first8: nan nan nan nan nan nan nan nan
+T395 first8: nan nan nan nan nan nan nan nan
+T396 first8: nan nan nan nan nan nan nan nan
+T397 first8: nan nan nan nan nan nan nan nan
+T398 first8: nan nan nan nan nan nan nan nan
+T399 first8: nan nan nan nan nan nan nan nan
+T400 first8: nan nan nan nan nan nan nan nan
+T401 first8: nan nan nan nan nan nan nan nan
+T402 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T403 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T404 first8: nan nan nan nan nan nan nan nan
+T405 first8: nan nan nan nan nan nan nan nan
+T406 first8: nan nan nan nan nan nan nan nan
+T407 first8: nan nan nan nan nan nan nan nan
+T408 first8: nan nan nan nan nan nan nan nan
+T409 first8: nan nan nan nan nan nan nan nan
+T410 first8: nan nan nan nan nan nan nan nan
+T411 first8: 0 0 0 0 0 0 0 0
+T412 first8: nan nan nan nan nan nan nan nan
+T413 first8: nan nan nan nan nan nan nan nan
+T414 first8: nan nan nan nan nan nan nan nan
+T415 first8: nan nan nan nan nan nan nan nan
+T416 first8: nan nan nan nan nan nan nan nan
+T417 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T418 first8: -nan -nan -nan -nan -nan -nan -nan -nan
+T419 first8: nan nan nan nan nan nan nan nan
+T420 first8: nan nan nan nan nan nan nan nan
+T421 first8: nan nan nan nan nan nan nan nan
+T422 first8: nan nan nan nan nan nan nan nan
+T423 first8: nan nan nan nan nan nan nan nan
+T424 first8: nan nan nan nan nan nan nan nan
+T425 first8: nan nan nan nan nan nan nan nan
+T426 first8: nan nan nan nan nan nan nan nan
+T427 first8: nan nan nan nan nan nan nan nan
+T428 first8: nan nan nan nan nan nan nan nan
+T429 first8: nan nan nan nan nan nan nan nan
+T430 first8: nan nan nan nan nan nan nan nan
+T431 first8: nan nan nan nan nan nan nan nan
+T432 first8: nan nan nan nan nan nan nan nan
+T433 first8: nan nan nan nan nan nan nan nan
+T434 first8: nan nan nan nan nan nan nan nan
+T435 first8: nan nan nan nan nan nan nan nan
+T436 first8: nan nan nan nan nan nan nan nan
+T437 first8: nan nan nan nan nan nan nan nan
+T438 first8: 9.9999997e-06 9.9999997e-06 9.9999997e-06 9.9999997e-06 9.9999997e-06 9.9999997e-06 9.9999997e-06 9.9999997e-06
+T439 first8: 9.9999997e-06 9.9999997e-06 9.9999997e-06 9.9999997e-06 9.9999997e-06 9.9999997e-06 9.9999997e-06 9.9999997e-06
+T440 first8: 0.0031622776 0.0031622776 0.0031622776 0.0031622776 0.0031622776 0.0031622776 0.0031622776 0.0031622776
+T441 first8: nan nan nan nan nan nan nan nan
+T442 first8: nan nan nan nan nan nan nan nan
+T443 first8: nan nan nan nan nan nan nan nan
+T444 first8: nan
+T445 first8: 1e-10
+T446 first8: 1e-10
+T447 first8: nan nan nan nan nan nan nan nan
+T448 first8: nan nan nan nan nan nan nan nan
+done

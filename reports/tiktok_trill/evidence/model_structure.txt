@@ -1,0 +1,24 @@
+# Container structure of the three tt_face .model files (trill), produced by reimpl/model.py
+# A per-file 32-byte key occurs exactly N times; the reader anchors records on it.
+
+models/tt_face_v10.0.model                 size=905491 declared_size=905491 name='tt_face_v10.0' records=9
+   file_id(16B)=12121d17090c17096421e3e9f7f4e9f7   key1=653d18b67ea312859d41770862000d56584b1ebb46759993806dfb6936469ee5
+     detect       name@0x000029 payload=0x00007b..0x004b3f (19140 B) c36=36 c32=32 blob2=9d59814964120000156ae8a4454fc0bde101ae7442b94aaa6afcbe7ad6306edd
+     base120      name@0x004b3f payload=0x004b92..0x05d866 (363732 B) c36=36 c32=32 blob2=7267e669141b00002adae90774df031f630f19c110a13f35a1e95c0e23e47eea
+     base120det   name@0x05d866 payload=0x05d8bc..0x083b40 (156292 B) c36=36 c32=32 blob2=bdffb8c51414000071773bc7fc4613b0b42cf2550e4b3320e8edf37c8eaeb2b9
+     pout         name@0x083b40 payload=0x083b90..0x08577d (7149 B) c36=36 c32=32 blob2=d54f3f8ea402000091e815ceeeddb31a97a710c239f3d26ee41fa0d9179d1638
+     eyecls       name@0x08577d payload=0x0857cf..0x0873bc (7149 B) c36=36 c32=32 blob2=d8850923a4020000a52f022dde9806b9d2e4cfd6e92ffcad516b21e07c10a30d
+     partface     name@0x0873bc payload=0x087410..0x0ad615 (156165 B) c36=36 c32=32 blob2=2c69ecc89413000050b56823ae28d46a08cdb46402ca59bd02686f063c89ddc5
+     image        name@0x0ad615 payload=0x0ad666..0x0c3022 (88508 B) c36=36 c32=32 blob2=57210a86f4190000727786134e23c1d7b2105c024a61a643e41fec66b0713221
+     slowimage    name@0x0c3022 payload=0x0c3077..0x0db2f3 (98940 B) c36=36 c32=32 blob2=2daecfd0041a0000e2ac2c8b13159e0366a0cd5711d98323170fdd4aa512d23c
+     mean         name@0x0db2f3 payload=0x0db343..0x0dd113 (7632 B) c36=36 c32=32 blob2=1d00f5ae1400000064f0564f78db455cbf27e5c6d99766ea0100000075084581
+
+models/tt_face_extra_v13.0.model           size=573858 declared_size=573858 name='v13.0' records=2
+   file_id(16B)=02040d0317070b01742ef3fde9f9f5ff   key1=03c60fe32c99e7f4b92095a86a02b96f25c676c8820dd360a5710d6453aa72da
+     iris         name@0x000021 payload=0x000071..0x006579 (25864 B) c36=36 c32=32 blob2=09162416e40d0000d1802b788b4eb4385ab29b92cf35eff29f693a773aed200b
+     extra        name@0x006579 payload=0x0065ca..0x08c1a2 (547800 B) c36=36 c32=32 blob2=e2c5fe88e42b00009c90f12d1aa78e1fa1e2ef9952035cc550fba74b52050927
+
+models/tt_face_attribute_age_v1.1.model    size=203028 declared_size=203028 name='tt_face_attribute_age_v1.1' records=1
+   file_id(16B)=0d1c0c010f0f1b1a6916f4fff1f1e5e6   key1=356279e6f5697745d017e28cb8c31020d3f4fa4ce497cc2a57c4953be389aefd
+     agenet       name@0x000036 payload=0x000088..0x031914 (202892 B) c36=36 c32=32 blob2=27f5da41b4370000166f15f0f73b121163f0ebb772d0846e2fa8b71e378ac1ac
+

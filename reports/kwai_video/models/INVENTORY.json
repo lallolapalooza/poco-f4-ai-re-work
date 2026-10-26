@@ -1,0 +1,12 @@
+{
+  "slug": "kwai_video",
+  "apk": "No model files. YCNN models are downloaded at runtime.",
+  "local_files": 2,
+  "bytes": 50750,
+  "tflite": 0,
+  "bundles": 0,
+  "absent": [
+    "YCNN/face/beauty/matting models are downloaded to /Ycnn/modelA or .magic_model; no weights in APK. TFLite runtime is bundled but no model."
+  ],
+  "notes": "Support assets (LUT, face mask, beauty/deform config) extracted; SDK contract/JAX pipeline architecture-only."
+}

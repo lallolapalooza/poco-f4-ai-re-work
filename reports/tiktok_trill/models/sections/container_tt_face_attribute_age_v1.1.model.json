@@ -1,0 +1,41 @@
+{
+ "path": "tt_face_attribute_age_v1.1.model",
+ "file_size": 203028,
+ "sha256": "8efeb7f2ff05fac0cbe1e6cace981c011e7c68b957fd03ecb583c038a485c731",
+ "file_id_16": "0d1c0c010f0f1b1a6916f4fff1f1e5e6",
+ "version": "tt_face_attribute_age_v1.1",
+ "record_count": 1,
+ "key_a_hex": "356279e6f5697745d017e28cb8c31020d3f4fa4ce497cc2a57c4953be389aefd",
+ "key_a_repeats": 1,
+ "records": [
+  {
+   "name": "agenet",
+   "name_offset": 54,
+   "record_offset": 54,
+   "key_a_sha256": "a4f33c6451a5667aa9a5c765e30969b20eb84a535becc8881412515579b479f9",
+   "blob_b_hex": "27f5da41b4370000166f15f0f73b121163f0ebb772d0846e2fa8b71e378ac1ac",
+   "b_size_field": 14260,
+   "b_size_minus4_mod16": 0,
+   "payload_offset": 136,
+   "payload_len": 202892,
+   "payload_sha256": "e693c47c2d14473d0f19f11ee7733dd8aa742df1630baad384e66aa9d50f1de0",
+   "section_entropy": 7.977,
+   "rest_entropy": 5.432,
+   "rest_mod4_float_plausible": 0.562,
+   "rest_fp16_plausible": 0.688,
+   "rest_int8_zero_fraction": 0.078,
+   "descriptor_tail_small_u16_ratio": 0.19,
+   "descriptor_internal_offsets": [
+    14253
+   ]
+  }
+ ],
+ "invariants": {
+  "declared_size_matches": true,
+  "all_const36": true,
+  "all_const32": true,
+  "key_a_repeats_equal_count": true,
+  "all_b_size_4_mod16": true,
+  "records_contiguous": true
+ }
+}

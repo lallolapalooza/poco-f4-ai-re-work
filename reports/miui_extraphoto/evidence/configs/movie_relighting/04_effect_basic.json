@@ -1,0 +1,10 @@
+{
+  "name": "彩虹",
+  "type": "MOVIE_RELIGHTING",
+  "icon": "icon.png",
+  "relightingType": "0x23",
+  "cameraDefinedType": 12,
+  "startColor": "#74BCEE",
+  "endColor": "#74BCEE",
+  "nameResName": "refocus_movie_caihong"
+}

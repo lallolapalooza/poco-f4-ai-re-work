@@ -1,0 +1,22 @@
+# strings in lib/arm64-v8a/libcamplat+...so that reference the packaged assets
+/HaarCascades/haarcascade_frontalface_alt2.xml
+/LiteTrackingData_ert.lns
+/NaturalFeatureTracker/SystemData
+tree-ORB-sharp-b-20-d-2-r-10-numSig-195777265.bin
+triangulation.txt
+triangulation_with_mouth.txt
+Overlay.lns
+/Watermark.lns
+N2LS8Tracking21NaturalFeatureTrackerE
+N2LS12FaceDetectorE
+N2LS17FaceDetectorStageE
+N2LS8Tracking4Face26HybridAccuracyFaceDetectorE
+CoreManager::processFrame
+CoreManager::processFrameToTexture
+nativeProcessFrame
+nativeProcessFrameToTexture
+nativeSetTrackingResourcesPath
+weight must be real number. (stage %d, tree %d, node %d, rect %d)   # OpenCV cascade parser message
+Candide-3 has been loaded successfully
+Failed to download NN face detector model.
+CIMSkyDetection_DNN_Module / DNNNet / Blob::Converter::ConvertLibdnnToNNAPI

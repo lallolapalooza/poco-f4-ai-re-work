@@ -1,0 +1,4 @@
+INFO  - loading ...
+WARN  - Input class is inner, parent class will be saved: com.miui.antispam.policy.a
+INFO  - Saving class 'com.miui.antispam.policy.a' to file '/run/media/user/00000000-0000-4000-8000-000000000000/re_work/reports/miui_securitycenter/sources2/classes/com.miui.antispam.policy.a$a.java'
+INFO  - done

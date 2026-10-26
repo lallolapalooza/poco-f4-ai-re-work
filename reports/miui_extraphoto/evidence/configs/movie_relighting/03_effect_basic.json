@@ -1,0 +1,12 @@
+{
+  "name": "怀旧",
+  "type": "MOVIE_RELIGHTING",
+  "icon": "icon.png",
+  "startColor": "#E4A7FF",
+  "endColor": "#F0A3FF",
+  "relightingType": "0x22",
+  "cameraDefinedType": 11,
+  "startColor": "#74BCEE",
+  "endColor": "#74BCEE",
+  "nameResName": "refocus_movie_huaijiu"
+}

@@ -1,0 +1,4 @@
+model__ai_face_beauty_processor__mobile_spade_256_ch16_from16_40000_ft16_ftsave_yunfu.tflite  subgraph=0 signature=None  PASS
+  output            shape             dtype    max_abs   tol       result
+  generator_1/Tanh  (1, 256, 256, 3)  FLOAT32  6.58e-07  1.00e-04  PASS
+  1 output(s), max_abs=6.58e-07, status=pass

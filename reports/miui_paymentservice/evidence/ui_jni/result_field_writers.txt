@@ -1,0 +1,16 @@
+ 0xaf8 digits_count 0x29b28 MainOCR::MainOCR()                            str wzr, [x19, #0xaf8]
+ 0xaf8 digits_count 0x2ade4 MainOCR::estimateBestResult()                 str w0, [x19, #0xaf8]
+ 0xe1c conf1        0x29b24 MainOCR::MainOCR()                            str wzr, [x19, #0xe1c]
+ 0xe1c conf1        0x2adfc MainOCR::estimateBestResult()                 str w2, [x19, #0xe1c]
+ 0xe20 mean_conf    0x29b18 MainOCR::MainOCR()                            str wzr, [x19, #0xe20]
+ 0xe20 mean_conf    0x2ae08 MainOCR::estimateBestResult()                 str w2, [x19, #0xe20]
+ 0xe24 conf3        0x29b10 MainOCR::MainOCR()                            str wzr, [x19, #0xe24]
+ 0xe24 conf3        0x2ae10 MainOCR::estimateBestResult()                 str w2, [x19, #0xe24]
+ 0xe38 range_min    0x29a9c MainOCR::setDigitNumberRange(int, int)        str w1, [x0, #0xe38]
+ 0xe38 range_min    0x29b3c MainOCR::MainOCR()                            str wzr, [x19, #0xe38]
+ 0xe3c range_max    0x29aa0 MainOCR::setDigitNumberRange(int, int)        str w2, [x0, #0xe3c]
+ 0xe3c range_max    0x29b34 MainOCR::MainOCR()                            str wzr, [x19, #0xe3c]
+ 0xe40 camera_mode  0x29b44 MainOCR::MainOCR()                            str wzr, [x19, #0xe40]
+ 0xe40 camera_mode  0x29ed0 MainOCR::setCameraMode(int)                   str w1, [x0, #0xe40]
+
+estimateBestResult call: 0x2c8dc MainOCR::process_OneImg(unsigned char*, int, int, int) bl #0x2ad38

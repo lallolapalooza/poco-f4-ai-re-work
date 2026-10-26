@@ -1,0 +1,23 @@
+
+{
+    "blend_type_tex_shadow": 0,
+    "makeup_shadow_color": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "tex_shadow": "face_yy2_7.png",
+    "makeup_intensity_shadow": 0.6,
+    "makeup_name": "Group_1_13",
+    "blend_type_tex_highlight": 2,
+    "makeup_highlight_color": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "tex_highlight": "gg_nan.png",
+    "makeup_intensity_highlight": 0.3,
+    "use_eye_v2": 0
+}
