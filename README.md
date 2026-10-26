@@ -1,4 +1,4 @@
-# Android AI/DNN reverse-engineering workspace
+# Android AI/DNN reverse-engineering workspace for the Xiaomi Poco F4
 
 Single working directory for the APK AI survey and the per-APK reverse-engineering
 reports. Generated 2026-10-24; consolidated 2026-10-25. All target APKs were analysed statically; no APK or
