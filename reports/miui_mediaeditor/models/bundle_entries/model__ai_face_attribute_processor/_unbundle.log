@@ -1,0 +1,6 @@
+ai_face_attribute_processor.bundle: xor_key=0xf0 file=1912131B entries=2
+  age_gender160_0422.tflite                                  method=8 csize=  1910800 usize=  2084496 off=        0 ENCRYPTED-PREFIX
+  config.json                                                method=8 csize=      977 usize=     3982 off=  1910855
+  CRC32 verified entries: 1 ok, 0 bad (1 skipped in encrypted prefix)
+  SKIP (encrypted prefix): age_gender160_0422.tflite
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_attribute_processor/config.json (3982 bytes)

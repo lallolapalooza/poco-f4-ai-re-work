@@ -1,0 +1,55 @@
+# libtensorflow-lite.so runtime facts
+
+sha256: 6ef8898d73f366db4ccf2d94738b916a67fba685f5d3941134a79b1f7911167f  size: 3446232
+
+## version string
+38017:2.4.1
+
+## custom ops registered (from exported symbols)
+custom-op symbol fragments: ['13Register_MFCCEv', '14numeric_verify4EvalILNS0_7builtin10dequantize10KernelTypeE0EEE12TfLiteStatusP13TfLiteContextP10TfLiteNode', '14numeric_verify4EvalILNS0_7builtin10dequantize10KernelTypeE1EEE12TfLiteStatusP13TfLiteContextP10TfLiteNode', '14numeric_verify4FreeEP13TfLiteContextPv', '14numeric_verify4InitEP13TfLiteContextPKcm', '14numeric_verify7PrepareEP13TfLiteContextP10TfLiteNode', '17audio_spectrogram4EvalILNS2_10KernelTypeE0EEE12TfLiteStatusP13TfLiteContextP10TfLiteNode', '17audio_spectrogram4FreeEP13TfLiteContextPv', '17audio_spectrogram4InitEP13TfLiteContextPKcm', '17audio_spectrogram7PrepareEP13TfLiteContextP10TfLiteNode', '21detection_postprocess13ValidateBoxesEPK12TfLiteTensori', '21detection_postprocess14SetTensorSizesEP13TfLiteContextP12TfLiteTensorSt16initializer_listIiE', '21detection_postprocess21DecodeCenterSizeBoxesEP13TfLiteContextP10TfLiteNodePNS2_6OpDataE', '21detection_postprocess22DequantizeBoxEncodingsEPK12TfLiteTensoriffiPNS2_18CenterSizeEncodingE', '21detection_postprocess24DecreasingPartialArgSortEPKfiiPi', '21detection_postprocess26DequantizeClassPredictionsEPK12TfLiteTensoriiPS3_', '21detection_postprocess27NonMaxSuppressionMultiClassEP13TfLiteContextP10TfLiteNodePNS2_6OpDataE', '21detection_postprocess28ComputeIntersectionOverUnionEPK12TfLiteTensorii', '21detection_postprocess34NonMaxSuppressionSingleClassHelperEP13TfLiteContextP10TfLiteNodePNS2_6OpDataERKNSt6__ndk16vectorIfNS9_9allocatorIfEEEEPNSA_IiNSB_IiEEEEi', '21detection_postprocess35SelectDetectionsAboveScoreThresholdERKNSt6__ndk16vectorIfNS3_9allocatorIfEEEEfPS7_PNS4_IiNS5_IiEEEE', '21detection_postprocess37NonMaxSuppressionMultiClassFastHelperEP13TfLiteContextP10TfLiteNodePNS2_6OpDataEPKf', '21detection_postprocess40NonMaxSuppressionMultiClassRegularHelperEP13TfLiteContextP10TfLiteNodePNS2_6OpDataEPKf', '21detection_postprocess4EvalEP13TfLiteContextP10TfLiteNode', '21detection_postprocess4FreeEP13TfLiteContextPv', '21detection_postprocess4InitEP13TfLiteContextPKcm', '21detection_postprocess7PrepareEP13TfLiteContextP10TfLiteNode', '23Register_NUMERIC_VERIFYEv', '26Register_AUDIO_SPECTROGRAMEv', '27Register_NUMERIC_VERIFY_OPTEv', '27Register_NUMERIC_VERIFY_REFEv', '30Register_DETECTION_POSTPROCESSEv', '4mfcc4EvalILNS2_10KernelTypeE0EEE12TfLiteStatusP13TfLiteContextP10TfLiteNode', '4mfcc4FreeEP13TfLiteContextPv', '4mfcc4InitEP13TfLiteContextPKcm', '4mfcc7PrepareEP13TfLiteContextP10TfLiteNode']
+delegates: ['NNAPI', 'XNNPACK']
+total exports: 2612
+
+## consumers (DT_NEEDED libtensorflow-lite.so)
+  libksaudioprocesslib-dl.so
+  libtensorflow-lite.so
+  libykit_module.so
+
+## TFLite C++ API symbols referenced by libykit_module.so (undefined imports)
+   _ZN6tflite11Interpreter15AllocateTensorsEv
+   _ZN6tflite11Interpreter17ResizeInputTensorEiRKNSt6__ndk16vectorIiNS1_9allocatorIiEEEE
+   _ZN6tflite11Interpreter6InvokeEv
+   _ZN6tflite11InterpreterD1Ev
+   _ZN6tflite15FlatBufferModel13BuildFromFileEPKcPNS_13ErrorReporterE
+   _ZN6tflite15FlatBufferModel15BuildFromBufferEPKcmPNS_13ErrorReporterE
+   _ZN6tflite15FlatBufferModelD1Ev
+   _ZN6tflite18InterpreterBuilderC1ERKNS_15FlatBufferModelERKNS_10OpResolverE
+   _ZN6tflite18InterpreterBuilderD1Ev
+   _ZN6tflite18InterpreterBuilderclEPNSt6__ndk110unique_ptrINS_11InterpreterENS1_14default_deleteIS3_EEEEi
+   _ZN6tflite20DefaultErrorReporterEv
+   _ZN6tflite3ops7builtin17BuiltinOpResolverC1Ev
+   _ZTVN6tflite17MutableOpResolverE
+
+## and by libksaudioprocesslib-dl.so
+   _ZN6tflite11Interpreter13SetNumThreadsEi
+   _ZN6tflite11Interpreter15AllocateTensorsEv
+   _ZN6tflite11Interpreter6InvokeEv
+   _ZN6tflite11InterpreterD1Ev
+   _ZN6tflite15FlatBufferModel13BuildFromFileEPKcPNS_13ErrorReporterE
+   _ZN6tflite15FlatBufferModel15BuildFromBufferEPKcmPNS_13ErrorReporterE
+   _ZN6tflite15FlatBufferModelD1Ev
+   _ZN6tflite18InterpreterBuilderC1ERKNS_15FlatBufferModelERKNS_10OpResolverE
+   _ZN6tflite18InterpreterBuilderD1Ev
+   _ZN6tflite18InterpreterBuilderclEPNSt6__ndk110unique_ptrINS_11InterpreterENS1_14default_deleteIS3_EEEE
+   _ZN6tflite20DefaultErrorReporterEv
+   _ZN6tflite3ops7builtin17BuiltinOpResolverC1Ev
+   _ZTVN6tflite17MutableOpResolverE
+
+## recovered invocation chain
+  ykit::IModel::createModel(DiskDataStore, name)
+    -> tflite_from_filepath(path) : tflite::FlatBufferModel::BuildFromFile(path, err)
+       (or) tflite_from_datastore(store,name) : FlatBufferModel::BuildFromBuffer(buf,len)
+    -> tflite::ops::builtin::BuiltinOpResolver -> InterpreterBuilder(model,resolver)(&interp, threads)
+    -> Interpreter::AllocateTensors(); Interpreter::ResizeInputTensor(i, dims)
+    -> Interpreter::Invoke()  -> read output tensor via TfLiteTensor
+  Guard rail string: "TFLITE model must have postfix .tflite"

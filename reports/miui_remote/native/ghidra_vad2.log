@@ -1,0 +1,310 @@
+[ghidra_decompile] jdk: /usr/lib/jvm/java-21-openjdk (openjdk version "21.0.12.1" 2026-08-18)
+[ghidra_decompile] input : inventory/libs/lib/arm64-v8a/libmibrainvad2.so (1509480 bytes)
+[ghidra_decompile] output: native/ghidra_vad2.c
+[ghidra_decompile] regex : Java_.*|CornLoadModelBin|SoilInit|SoilCompute|SoilBinnToJson|ComponentLoad|ComponentConvolutionLoad|ComponentGruLoad|ComponentLstmLoad|ComponentAffineLoad|ComponentNormalizeLoad|CornSpectProcessPack|CornMfccCompute|CornCmvnCompute|CornDecode|CornDetectVoice|CornSmoothPosterior|CornMelBankInitial|CornFeatureInitialize|CornEngineProcess
+[ghidra_decompile] heap  : 3G, timeout: 1200s, max funcs: 48
+openjdk version "21.0.12.1" 2026-08-18
+OpenJDK Runtime Environment (build 21.0.12.1+1)
+OpenJDK 64-Bit Server VM (build 21.0.12.1+1, mixed mode)
+INFO  Using log config file: jar:file:/opt/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: /home/asdf/.config/ghidra/ghidra_12.1.2_DEV/application.log (LoggingInitialization)  
+INFO  Loading user preferences: /home/asdf/.config/ghidra/ghidra_12.1.2_DEV/preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (3108 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: NativePRNGNonBlocking (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (10120 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 60 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    /opt/ghidra/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /opt/ghidra/Ghidra/Processors/JVM/ghidra_scripts
+    /opt/ghidra/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/VersionTracking/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/PyGhidra/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/SwiftDemangler/ghidra_scripts
+    /opt/ghidra/Ghidra/Processors/Atmel/ghidra_scripts
+    /opt/ghidra/Ghidra/Debug/Debugger/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/Decompiler/ghidra_scripts
+    /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/FunctionID/ghidra_scripts
+    /opt/ghidra/Ghidra/Processors/PIC/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/BSim/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/BytePatterns/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/WildcardAssembler/ghidra_scripts
+    /opt/ghidra/Ghidra/Processors/DATA/ghidra_scripts
+    /home/asdf/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/Base/ghidra_scripts
+    /home/asdf/.config/ghidra/ghidra_12.1.2_DEV/Extensions/MachineLearning/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/PDB/ghidra_scripts
+    /opt/ghidra/Ghidra/Processors/8051/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/FileFormats/ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Creating project: /tmp/ghidra_decomp.oHCUUK/proj (HeadlessAnalyzer)  
+INFO  Creating project: /tmp/ghidra_decomp.oHCUUK/proj (DefaultProject)  
+INFO  REPORT: Processing input files:  (HeadlessAnalyzer)  
+INFO       project: /tmp/ghidra_decomp.oHCUUK/proj (HeadlessAnalyzer)  
+INFO  IMPORTING: file:///run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_remote/inventory/libs/lib/arm64-v8a/libmibrainvad2.so (HeadlessAnalyzer)  
+INFO  Using Loader: Executable and Linking Format (ELF) (ProgramLoader)  
+INFO  Using Language/Compiler: AARCH64:LE:64:v8A:default (ProgramLoader)  
+INFO  Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64] (ProgramLoader)  
+INFO  Additional info:
+Loading file:///run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_remote/inventory/libs/lib/arm64-v8a/libmibrainvad2.so?MD5=5c23d2979b6bf6884c7fcf0776b67122...
+Setting block .init_array to read-only
+Setting block .fini_array to read-only
+Setting block .data.rel.ro to read-only
+Setting block .dynamic to read-only
+------------------------------------------------
+
+Linking the External Programs of 'libmibrainvad2.so' to imported libraries...
+  [libstdc++.so] -> not found in project
+  [libm.so] -> not found in project
+  [libc.so] -> not found in project
+  [libdl.so] -> not found in project
+------------------------------------------------
+
+Resolving External Symbols of [/libmibrainvad2.so] - 75 unresolved symbols, no external libraries configured - skipping
+ (ProgramLoader)  
+INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
+INFO  ANALYZING all memory and code: file:///run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_remote/inventory/libs/lib/arm64-v8a/libmibrainvad2.so (HeadlessAnalyzer)  
+INFO  DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=fa8892b576a173d03000f7f3295141596e6f4084, objectType=DEBUGINFO, extra=null] (ExternalDebugFileSectionProvider)  
+INFO  Unable to find DWARF information, skipping DWARF analysis (DWARFAnalyzer)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Function body does not fully contain the call site area (LSDACallSiteTable)  
+ERROR Function body does not contain the landing pad (LSDACallSiteTable)  
+ERROR Failed to disassemble at 0020dd80 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0020dd64 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0020dd88 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0020ddc4 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0020dd9c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0020dd64 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002366b4 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002366b4 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002366dc (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00236700 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002366e0 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002366b4 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0023671c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0023671c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0023673c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0023675c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00236744 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0023671c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00236c68 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00236bb4 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002370ec (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00236e78 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237124 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237128 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237154 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0023717c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0023718c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002370f0 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002371a4 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0023717c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002371e8 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002371f0 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002371f4 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002371f8 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237214 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002371e0 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0023761c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237690 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237684 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002376a4 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237698 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002375b0 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0023769c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237690 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002376a0 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002375b0 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002376ec (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0023776c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237710 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0023775c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237764 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002376a8 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237768 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0023776c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237770 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002376a8 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002377d0 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237854 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237838 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237848 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237844 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237854 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237850 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237774 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002378b8 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237934 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002378dc (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237924 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0023792c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0023785c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237930 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237934 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237938 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0023785c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237c40 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237c4c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237c54 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237c14 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237c94 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237cd0 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237cd8 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00237c5c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00238098 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00238040 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002380f8 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0023813c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00238104 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00238040 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00238138 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0023813c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00238174 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 002381b4 (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 0023819c (GccExceptionAnalyzer)  
+ERROR Failed to disassemble at 00238040 (GccExceptionAnalyzer)  
+ERROR Invalid PNG data at 0014cd10 (PngDataType)  
+INFO  Packed database cache: /var/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/asdf-ghidra/packed-db-cache (PackedDatabaseCache)  
+INFO  Applied data type archive: generic_clib_64 (ApplyDataArchiveAnalyzer)  
+INFO  -----------------------------------------------------
+    AARCH64 ELF PLT Thunks                     0.979 secs
+    ASCII Strings                              1.266 secs
+    Apply Data Archives                      121.296 secs
+    Basic Constant Reference Analyzer          8.552 secs
+    Call Convention ID                         1.475 secs
+    Call-Fixup Installer                       0.035 secs
+    Create Address Tables                      0.210 secs
+    Create Address Tables - One Time           0.098 secs
+    Create Function                            0.000 secs
+    DWARF                                      0.027 secs
+    Data Reference                             0.225 secs
+    Decompiler Switch Analysis                 7.128 secs
+    Demangler GNU                              0.998 secs
+    Disassemble                                0.002 secs
+    Disassemble Entry Points                   6.139 secs
+    Embedded Media                             0.078 secs
+    External Entry References                  0.014 secs
+    Function ID                                0.169 secs
+    Function Start Search                      0.247 secs
+    Function Start Search After Code           0.122 secs
+    Function Start Search After Data           0.084 secs
+    Function Start Search delayed - One Time   0.002 secs
+    GCC Exception Handlers                     1.580 secs
+    Non-Returning Functions - Discovered       0.266 secs
+    Non-Returning Functions - Known            0.024 secs
+    Reference                                  0.620 secs
+    Shared Return Calls                        0.358 secs
+    Stack                                      6.933 secs
+    Subroutine References                      0.141 secs
+-----------------------------------------------------
+     Total Time   159 secs
+-----------------------------------------------------
+ (AutoAnalysisManager)  
+INFO  REPORT: Analysis succeeded for file: file:///run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_remote/inventory/libs/lib/arm64-v8a/libmibrainvad2.so (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: DecompileSelected.java 'native/ghidra_vad2.c' 'Java_.*|CornLoadModelBin|SoilInit|SoilCompute|SoilBinnToJson|ComponentLoad|ComponentConvolutionLoad|ComponentGruLoad|ComponentLstmLoad|ComponentAffineLoad|ComponentNormalizeLoad|CornSpectProcessPack|CornMfccCompute|CornCmvnCompute|CornDecode|CornDetectVoice|CornSmoothPosterior|CornMelBankInitial|CornFeatureInitialize|CornEngineProcess' '48' '60'  (HeadlessAnalyzer)  
+INFO  SCRIPT: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/ghidra_scripts/DecompileSelected.java (HeadlessAnalyzer)  
+INFO  DecompileSelected.java> SUMMARY matched=48 attempted=48 decompiled=48 failed=0 timedout=0 truncated=false output=/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_remote/native/ghidra_vad2.c (GhidraScript)  
+INFO  ANALYZING changes made by post scripts: file:///run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_remote/inventory/libs/lib/arm64-v8a/libmibrainvad2.so (HeadlessAnalyzer)  
+INFO  REPORT: Post-analysis succeeded for file: file:///run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_remote/inventory/libs/lib/arm64-v8a/libmibrainvad2.so (HeadlessAnalyzer)  
+INFO  /libmibrainvad2.so: file created (asdf) (LocalFileSystem)  
+INFO  REPORT: Save succeeded for: /libmibrainvad2.so (proj:/libmibrainvad2.so) (HeadlessAnalyzer)  
+INFO  REPORT: Import succeeded (HeadlessAnalyzer)  
+[ghidra_decompile] functions in output: 48 (188s, 162879 bytes)

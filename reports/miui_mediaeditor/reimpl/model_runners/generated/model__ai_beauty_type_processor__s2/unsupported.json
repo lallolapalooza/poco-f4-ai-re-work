@@ -1,0 +1,47 @@
+{
+  "build_errors": [
+    {
+      "index": 41,
+      "op": "RESHAPE",
+      "reason": "RESHAPE requires a constant new shape (input 1, tensor 103) but it is dynamic"
+    },
+    {
+      "index": 42,
+      "op": "ADD",
+      "reason": "tensor 104 (model_1/lm_logits_s211/Reshape) is read before it is produced"
+    }
+  ],
+  "hint": "An op requires a compile-time constant (shape/axes/slice bounds) that is computed dynamically in this graph.",
+  "model": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/tflite/model__ai_beauty_type_processor__s2.tflite",
+  "model_conversion": {
+    "reason": "subgraph 0 'main' needs dynamic parameters: op 41 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 103) but it is dynamic; op 42 (ADD): tensor 104 (model_1/lm_logits_s211/Reshape) is read before it is produced",
+    "signature_key": null,
+    "status": "unsupported",
+    "subgraph_index": 0
+  },
+  "reason": "subgraph 0 'main' needs dynamic parameters: op 41 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 103) but it is dynamic; op 42 (ADD): tensor 104 (model_1/lm_logits_s211/Reshape) is read before it is produced",
+  "signature_key": null,
+  "stateful": false,
+  "status": "unsupported_params",
+  "subgraph_index": 0,
+  "subgraph_name": "main",
+  "subgraph_role": "inference",
+  "subgraphs": [
+    {
+      "index": 0,
+      "inputs": [
+        "inputs",
+        "inputs_ht",
+        "inputs_lms"
+      ],
+      "name": "main",
+      "outputs": [
+        "Identity"
+      ],
+      "role": "inference",
+      "stateful": false,
+      "unsupported_ops": []
+    }
+  ],
+  "unsupported_ops": []
+}

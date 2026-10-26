@@ -1,0 +1,4 @@
+No native libraries in ModemTestBox.apk (inventory: native_libs=0, ABIs=[]).
+The TFLite runtime is supplied by the platform / another APK as
+org.tensorflow.lite.* (20 DEX references); no AI .so is shipped here.
+Therefore no ELF analysis, JNI dump, or Ghidra run is applicable.

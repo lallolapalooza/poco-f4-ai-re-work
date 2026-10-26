@@ -1,0 +1,53 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/qcom_voiceactivation/inventory/libs/lib/arm64-v8a/libeai_floating.so
+==============================================================================
+size        : 190616 bytes (0.18 MiB)
+sha256      : ab95cefef665aaaa91744e5ae2cffc06522392fa20c97a8f075d121dbe826491
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x0   imagebase: 0x0
+build id    : 605186c25af4cdec206c9516cf80c9e4
+soname      : libeai_floating.so
+needed      : libstdc++.so, liblog.so, libm.so, libc.so, libdl.so
+parser      : lief
+counts      : 8 exports, 13 imports, 0 JNI, 26 sections, 12 segments
+symtab/dynsym: 0 / 22
+
+Sections (26)
+  name                   type             flags  address      size       offset
+  .note.android.ident    NOTE             A      0x2e0        24         0x2e0
+  .note.gnu.build-id     NOTE             A      0x2f8        32         0x2f8
+  .note.gnu.property     NOTE             A      0x318        32         0x318
+  .dynsym                DYNSYM           A      0x338        528        0x338
+  .gnu.version           GNU_VERSYM       A      0x548        44         0x548
+  .gnu.version_r         GNU_VERNEED      A      0x574        64         0x574
+  .gnu.hash              GNU_HASH         A      0x5b8        72         0x5b8
+  .hash                  HASH             A      0x600        184        0x600
+  .dynstr                STRTAB           A      0x6b8        297        0x6b8
+  .relr.dyn              ANDROID_RELR     A      0x7e8        88         0x7e8
+  .rela.plt              RELA             AI     0x840        312        0x840
+  .rodata                PROGBITS         AMS    0x980        7428       0x980
+  .eh_frame_hdr          PROGBITS         A      0x2684       3468       0x2684
+  .eh_frame              PROGBITS         A      0x3410       23740      0x3410
+  .text                  PROGBITS         AX     0xa000       138256     0xa000
+  .plt                   PROGBITS         AX     0x2bc10      344        0x2bc10
+  .data.rel.ro           PROGBITS         WA     0x2c000      2424       0x2c000
+  .fini_array            FINI_ARRAY       WA     0x2c978      16         0x2c978
+  .dynamic               DYNAMIC          WA     0x2c988      448        0x2c988
+  .got                   PROGBITS         WA     0x2cb48      232        0x2cb48
+  .got.plt               PROGBITS         WA     0x2cc30      128        0x2cc30
+  .data                  PROGBITS         WA     0x2dcb0      848        0x2ccb0
+  .bss                   NOBITS           WA     0x2e000      8          0x2d000
+  .shstrtab              STRTAB           -      0x0          255        0x2d000
+  .gnu_debugdata         PROGBITS         -      0x0          4372       0x2d0ff
+
+AI-relevant strings (40409 bytes scanned in allocated data sections)
+  [model] 5 unique (first 5)
+    0x00000e8e .rodata    convtranspose_init: weights dims form is not supported for sw.
+    0x00000f42 .rodata    convtranspose_load2: Null pointer (input: %p / weight: %p).
+    0x00001976 .rodata    convtranspose_load: input or weight is null
+    0x00001bad .rodata    convtranspose_init: weights dims form is not supported for hw.
+    0x00001fbc .rodata    convtranspose_init: input or weight or col is null
+  [face] 1 unique (first 1)
+    0x000018a4 .rodata    Model buffer %p is not %u aligned
+
+JSON written to reports/qcom_voiceactivation/native/elfinfo/libeai_floating.so.json

@@ -1,0 +1,143 @@
+{
+ "container": {
+  "am_offset": 31,
+  "am_length": 1131400,
+  "cmvn_values": 82
+ },
+ "conf": {
+  "pre_conf": {
+   "--decoder-type": "nnet2"
+  },
+  "online_conf": {
+   "--feature-type": "mfcc",
+   "--num-pdf": 2,
+   "--smooth-win-width": 5,
+   "--sep-id": 0,
+   "--min-voice-length": 50,
+   "--min-sil-length": 60,
+   "--left-context": 10,
+   "--right-context": 10
+  },
+  "mfcc_conf": {
+   "--use-energy": "false",
+   "--sample-frequency": 16000,
+   "--num-mel-bins": 40,
+   "--num-ceps": 40,
+   "--low-freq": 40,
+   "--high-freq": -200
+  },
+  "cmvn_conf": {},
+  "version_conf": {
+   "--model-version": "vad_2.1.0_0"
+  }
+ },
+ "components": [
+  {
+   "id": 0,
+   "type": "input",
+   "deps": []
+  },
+  {
+   "id": 1,
+   "type": "affine",
+   "in": 840,
+   "out": 300,
+   "deps": [
+    0
+   ],
+   "W_shape": [
+    252000
+   ],
+   "W_mean": -0.14826075732707977,
+   "W_std": 35.300697326660156,
+   "b_shape": [
+    300
+   ]
+  },
+  {
+   "id": 2,
+   "type": "pnorm",
+   "out_size": 100,
+   "deps": [
+    1
+   ]
+  },
+  {
+   "id": 3,
+   "type": "affine",
+   "in": 100,
+   "out": 300,
+   "deps": [
+    2
+   ],
+   "W_shape": [
+    30000
+   ],
+   "W_mean": -0.00014832153101451695,
+   "W_std": 1.0049903392791748,
+   "b_shape": [
+    300
+   ]
+  },
+  {
+   "id": 4,
+   "type": "pnorm",
+   "out_size": 100,
+   "deps": [
+    3
+   ]
+  },
+  {
+   "id": 5,
+   "type": "normalize",
+   "size": 100,
+   "need_divide": 1,
+   "need_minus": 0,
+   "need_reverse": 0,
+   "target_rms": 1.0,
+   "vector_source": 0,
+   "deps": [
+    4
+   ]
+  },
+  {
+   "id": 6,
+   "type": "normalize",
+   "size": 100,
+   "need_divide": 1,
+   "need_minus": 0,
+   "need_reverse": 0,
+   "target_rms": 1.0,
+   "vector_source": 0,
+   "deps": [
+    5
+   ]
+  },
+  {
+   "id": 7,
+   "type": "affine",
+   "in": 100,
+   "out": 2,
+   "deps": [
+    6
+   ],
+   "W_shape": [
+    200
+   ],
+   "W_mean": 1.4038086192158516e-05,
+   "W_std": 30.239168167114258,
+   "b_shape": [
+    2
+   ]
+  },
+  {
+   "id": 8,
+   "type": "softmax",
+   "axis": 0,
+   "flag": 0,
+   "deps": [
+    7
+   ]
+  }
+ ]
+}

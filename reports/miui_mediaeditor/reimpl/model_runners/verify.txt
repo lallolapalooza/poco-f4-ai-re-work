@@ -1,0 +1,372 @@
+model_runners verification transcript
+======================================================================
+python: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python
+cwd   : /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/reimpl/model_runners
+
+$ python run_model.py --list
+model__ai_beauty_type_processor__dense_eb                                                       litert    landmarks_score
+model__ai_beauty_type_processor__dense_eye_iris                                                 litert    landmarks_multi
+model__ai_beauty_type_processor__dense_iris                                                     generated landmarks_multi
+model__ai_beauty_type_processor__dense_mouth                                                    generated landmarks_multi
+model__ai_beauty_type_processor__face_landmark_lite_210818_360                                  generated landmarks
+model__ai_beauty_type_processor__model_hair                                                     litert    landmarks
+model__ai_beauty_type_processor__mouth_checker_14                                               generated binary_class
+model__ai_beauty_type_processor__n-0.5_416_0.05_4aspect6                                        litert    detector_anchor
+model__ai_beauty_type_processor__n-small_256_0.05_only_a5                                       litert    detector_anchor
+model__ai_beauty_type_processor__s1_112_98                                                      generated landmarks_score
+model__ai_beauty_type_processor__s2                                                             litert    landmarks
+model__ai_beauty_type_processor__s3                                                             litert    landmarks_multi
+model__ai_face_beauty_processor__Fprs.0003.Exp007e33_quan1_sm                                   bundles   mask_multiclass
+model__ai_face_beauty_processor__FprsTeeth.0001.Exp002pe99_quan1_sm                             generated mask_multiclass
+model__ai_face_beauty_processor__hair_1209a_acnenet_crop0.1pos0.1_3x24x24_quat                  bundles   binary_class
+model__ai_face_beauty_processor__highlight_1209a_acnenet_crop0.2pos0.1_3x24x24_quat             generated binary_class
+model__ai_face_beauty_processor__lines_1209a_acnenet_crop0.1pos0.1_3x24x24_quat                 generated binary_class
+model__ai_face_beauty_processor__mobile_spade_256_ch16_from16_40000_ft16_ftsave_yunfu           generated image_tanh
+model__ai_face_beauty_processor__mobile_spade_256_ch16_from16_ftsevere_lr0.0001_117_16001       generated image_tanh
+model__ai_face_beauty_processor__mole_seg_24x24x3_1206_quat                                     bundles   mask_binary
+model__ai_face_beauty_processor__skin_model_expand_supply_pta18000_quant_resizetrain_seg153     litert    mask_binary
+model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine1                   litert    landmarks_refine
+model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine2                   litert    landmarks_refine
+model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine3                   litert    landmarks_refine
+model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.XScore.s76e150_base                   litert    landmarks_refine
+model__ai_face_processor_detect_landmark__face_landmark_mb360_64                                bundles   landmarks
+model__ai_face_processor_detect_landmark__facecheck40_dense_2000000_regress                     bundles   binary_score
+model__ai_face_processor_detect_landmark__head                                                  bundles   vector14
+model__ai_face_processor_detect_landmark__n-0.5_416_0.05_4aspect6                               litert    detector_anchor
+model__ai_face_processor_detect_landmark__n-small_256_0.05_only_a5                              litert    detector_anchor
+model__ai_face_processor_detect_landmark__s1                                                    bundles   landmarks_score
+model__ai_human_processor_beautybody_mb__FULLBODY_POFH2D_20210302_0001_e1604_q                  litert    pose_heatmaps
+model__ai_human_processor_beautybody_mb__human_detector_retinanet_mobilenetv2_1.0_quant         skip      detector_boxes
+exit=0
+
+$ python run_model.py --model head
+model      : model__ai_face_processor_detect_landmark__head
+bundle     : ai_face_processor_detect_landmark   family: vector14
+tflite     : models/tflite/model__ai_face_processor_detect_landmark__head.tflite
+ops        : 1 (FULLY_CONNECTED)
+input      : input_1 [1, 126] FLOAT32
+             input_1: vector <- frame luma resampled to 126-vector (placeholder features)
+runner     : jax
+status     : pass
+output     : Identity [1, 14] float32
+verify     : pass  max_abs=2.09e-07
+postprocess:
+{
+  "family": "vector14",
+  "outputs": {
+    "Identity": {
+      "kind": "regression_vector",
+      "max_abs": 0.6366420984268188,
+      "n": 14,
+      "values": [
+        0.6366420984268188,
+        0.5676423907279968,
+        0.5841336250305176,
+        0.5595913529396057,
+        0.36456042528152466,
+        0.46068570017814636,
+        0.3443327844142914,
+        0.37889739871025085,
+        0.5851544737815857,
+        0.6249310374259949,
+        0.4436550736427307,
+        0.37570565938949585,
+        0.5774627923965454,
+        0.40260303020477295
+      ]
+    }
+  }
+}
+seconds    : 0.48
+An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+exit=0
+
+$ python run_model.py --model mouth_checker_14 --image test_frame.ppm
+model      : model__ai_beauty_type_processor__mouth_checker_14
+bundle     : ai_beauty_type_processor   family: binary_class
+tflite     : models/tflite/model__ai_beauty_type_processor__mouth_checker_14.tflite
+ops        : 13 (AVERAGE_POOL_2D, CONV_2D, DEPTHWISE_CONV_2D, MAX_POOL_2D, RESHAPE, SOFTMAX)
+input      : input [1, 40, 40, 3] FLOAT32
+             input: image <- frame resized to 40x40 (image)
+runner     : jax
+status     : pass
+output     : softmax [1, 2] float32
+verify     : pass  max_abs=1.19e-07
+postprocess:
+{
+  "family": "binary_class",
+  "outputs": {
+    "softmax": {
+      "argmax": 1,
+      "confidence": 0.5728391408920288,
+      "kind": "class_probs",
+      "positive": true,
+      "probs": [
+        0.4271608591079712,
+        0.5728391408920288
+      ]
+    }
+  }
+}
+seconds    : 0.86
+An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+exit=0
+
+$ python run_model.py --model face_landmark_mb360_64
+model      : model__ai_face_processor_detect_landmark__face_landmark_mb360_64
+bundle     : ai_face_processor_detect_landmark   family: landmarks
+tflite     : models/tflite/model__ai_face_processor_detect_landmark__face_landmark_mb360_64.tflite
+ops        : 44 (ADD, AVERAGE_POOL_2D, CONV_2D, DEPTHWISE_CONV_2D, RESHAPE, SUB)
+input      : input [1, 64, 64, 1] FLOAT32
+             input: image <- frame resized to 64x64 (image)
+runner     : jax
+status     : pass
+output     : add_7 [1, 154] float32
+verify     : pass  max_abs=8.01e-05
+postprocess:
+{
+  "family": "landmarks",
+  "outputs": {
+    "add_7": {
+      "kind": "feature_map",
+      "range": {
+        "max": 34.243927001953125,
+        "mean": 31.755514045814415,
+        "min": 29.585208892822266,
+        "std": 0.8982933517214321
+      },
+      "shape": [
+        1,
+        154
+      ]
+    }
+  }
+}
+seconds    : 1.14
+An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+exit=0
+
+$ python run_model.py --model model_hair
+model      : model__ai_beauty_type_processor__model_hair
+bundle     : ai_beauty_type_processor   family: landmarks
+tflite     : models/tflite/model__ai_beauty_type_processor__model_hair.tflite
+ops        : 66 (ADD, CONCATENATION, CONV_2D, DEPTHWISE_CONV_2D, PRELU, RESHAPE, SUB)
+input      : inputs [1, 96, 96, 1] FLOAT32
+             inputs: image <- frame resized to 96x96 (image)
+runner     : litert
+status     : litert_fallback
+conversion : skipped (PRELU: not lowered by tools/tflite2jax.py (no JAX implementation in this tool))
+output     : Identity [7, 2] float32
+postprocess:
+{
+  "family": "landmarks",
+  "outputs": {
+    "Identity": {
+      "coord_frame": "pixels in the 96x96 network input",
+      "kind": "landmarks",
+      "n_points": 7,
+      "xy_first5": [
+        [
+          20.63381004333496,
+          56.243186950683594
+        ],
+        [
+          22.08204460144043,
+          40.942378997802734
+        ],
+        [
+          31.312166213989258,
+          29.313934326171875
+        ],
+        [
+          46.91237258911133,
+          25.204126358032227
+        ],
+        [
+          63.31464767456055,
+          28.95243263244629
+        ]
+      ],
+      "xy_mean": [
+        47.222145080566406,
+        39.858177185058594
+      ],
+      "xy_range": [
+        [
+          20.63381004333496,
+          73.99344635009766
+        ],
+        [
+          25.204126358032227,
+          57.045196533203125
+        ]
+      ]
+    }
+  }
+}
+seconds    : 0.01
+exit=0
+
+$ python run_model.py --model human_detector
+model      : model__ai_human_processor_beautybody_mb__human_detector_retinanet_mobilenetv2_1.0_quant
+bundle     : ai_human_processor_beautybody_mb   family: detector_boxes
+tflite     : models/tflite/model__ai_human_processor_beautybody_mb__human_detector_retinanet_mobilenetv2_1.0_quant.tflite
+ops        : 198 (ADD, CONCATENATION, CONV_2D, DEPTHWISE_CONV_2D, DEQUANTIZE, LOGISTIC, MUL, PACK, PAD, QUANTIZE, RESHAPE, RESIZE_NEAREST_NEIGHBOR, SHAPE, STRIDED_SLICE)
+input      : input_1 [1, 320, 320, 3] FLOAT32
+runner     : none
+status     : skip
+skip       : dynamic RESHAPE shape: RESHAPE target is computed from SHAPE/PACK at run time; tools/tflite2jax.py requires a constant shape (status unsupported_params); also not runnable on stock LiteRT: the CONV_2D weights carry per-channel zero_point -127, which LiteRT rejects ('unsupported zero-point value (-127) in channel 130', XNNPACK and reference kernels) although FuAI's vendored runtime accepts it
+postprocess:
+{}
+seconds    : 0.0
+exit=0
+
+$ python demo_all.py
+litert_fallback litert  dense_eb                                        [0.01s]
+litert_fallback litert  dense_eye_iris                                  [0.0s]
+pass            jax     dense_iris                                     max_abs=1.53e-05  [1.13s]
+pass            jax     dense_mouth                                    max_abs=1.53e-05  [0.43s]
+pass            jax     face_landmark_lite_210818_360                  max_abs=7.82e-05  [0.46s]
+litert_fallback litert  model_hair                                      [0.0s]
+pass            jax     mouth_checker_14                               max_abs=5.96e-08  [0.38s]
+litert_fallback litert  n-0.5_416_0.05_4aspect6                         [0.08s]
+litert_fallback litert  n-small_256_0.05_only_a5                        [0.01s]
+pass            jax     s1_112_98                                      max_abs=5.34e-05  [0.68s]
+litert_fallback litert  s2                                              [0.01s]
+litert_fallback litert  s3                                              [0.01s]
+pass_semantic   jax     Fprs.0003.Exp007e33_quan1_sm                   max_abs=0.309 argmax_class_agreement=1.0000  [2.11s]
+pass_semantic   jax     FprsTeeth.0001.Exp002pe99_quan1_sm             max_abs=0.555 argmax_class_agreement=1.0000  [1.39s]
+pass            jax     hair_1209a_acnenet_crop0.1pos0.1_3x24x24_quat  max_abs=2.24e-08  [0.64s]
+pass            jax     highlight_1209a_acnenet_crop0.2pos0.1_3x24x24_ max_abs=1.68e-07  [0.5s]
+pass            jax     lines_1209a_acnenet_crop0.1pos0.1_3x24x24_quat max_abs=2.44e-19  [0.61s]
+pass            jax     mobile_spade_256_ch16_from16_40000_ft16_ftsave max_abs=5.96e-07  [3.36s]
+pass            jax     mobile_spade_256_ch16_from16_ftsevere_lr0.0001 max_abs=8.27e-07  [3.11s]
+pass            jax     mole_seg_24x24x3_1206_quat                     max_abs=4.29e-10  [0.87s]
+litert_fallback litert  skin_model_expand_supply_pta18000_quant_resize  [0.26s]
+litert_fallback litert  Fpe.0007.Exp101.ERefine3e70_refine1             [0.0s]
+litert_fallback litert  Fpe.0007.Exp101.ERefine3e70_refine2             [0.0s]
+litert_fallback litert  Fpe.0007.Exp101.ERefine3e70_refine3             [0.0s]
+litert_fallback litert  Fpe.0007.Exp101.XScore.s76e150_base             [0.01s]
+pass            jax     face_landmark_mb360_64                         max_abs=8.01e-05  [0.56s]
+pass            jax     facecheck40_dense_2000000_regress              max_abs=0  [0.18s]
+pass            jax     head                                           max_abs=2.09e-07  [0.08s]
+litert_fallback litert  n-0.5_416_0.05_4aspect6                         [0.05s]
+litert_fallback litert  n-small_256_0.05_only_a5                        [0.01s]
+pass            jax     s1                                             max_abs=3.81e-05  [0.5s]
+litert_fallback litert  FULLBODY_POFH2D_20210302_0001_e1604_q           [0.03s]
+skip            none    human_detector_retinanet_mobilenetv2_1.0_quant  [0.0s]
+
+33 model(s): {'litert_fallback': 15, 'pass': 15, 'pass_semantic': 2, 'skip': 1}
+converted to JAX: 17, conversion skipped (LiteRT fallback): 16
+report: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/reimpl/model_runners/demo_report.json (18.9s)
+An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+exit=0
+
+per-model status (from demo_report.json)
+----------------------------------------------------------------------
+model                                                                path    status          verify
+model__ai_beauty_type_processor__dense_eb                            litert  litert_fallback 
+    in : image[1, 40, 40, 1]
+    out: Identity[1, 13, 2];Identity_1[1, 2]
+model__ai_beauty_type_processor__dense_eye_iris                      litert  litert_fallback 
+    in : image[1, 64, 64, 1];eye_s1[1, 8, 2];ht[1, 64, 64, 1]
+    out: Identity[1, 8, 2];Identity_1[1, 25, 2];Identity_2[1, 2]
+model__ai_beauty_type_processor__dense_iris                          jax     pass            max_abs=1.53e-05
+    in : image[1, 64, 64, 1]
+    out: Identity[25, 2];Identity_1[25, 2]
+model__ai_beauty_type_processor__dense_mouth                         jax     pass            max_abs=1.53e-05
+    in : image[1, 64, 64, 1];upper_s1[1, 18, 2];dense_s1[1, 56, 2];ht_upper_s1[1, 64, 64, 1];ht_dense_s1[1, 64, 64, 1]
+    out: Identity[56, 2];Identity_1[18, 2]
+model__ai_beauty_type_processor__face_landmark_lite_210818_360       jax     pass            max_abs=7.82e-05
+    in : input[1, 64, 64, 1]
+    out: add_7[1, 154]
+model__ai_beauty_type_processor__model_hair                          litert  litert_fallback 
+    in : inputs[1, 96, 96, 1]
+    out: Identity[7, 2]
+model__ai_beauty_type_processor__mouth_checker_14                    jax     pass            max_abs=5.96e-08
+    in : input[1, 40, 40, 3]
+    out: softmax[1, 2]
+model__ai_beauty_type_processor__n-0.5_416_0.05_4aspect6             litert  litert_fallback 
+    in : input_1[1, 416, 416, 3]
+    out: Identity[1, 7098, 1];Identity_1[1, 7098, 4];Identity_2[1, 7098, 10]
+model__ai_beauty_type_processor__n-small_256_0.05_only_a5            litert  litert_fallback 
+    in : input_1[1, 256, 256, 3]
+    out: Identity[1, 3072, 1];Identity_1[1, 3072, 4];Identity_2[1, 3072, 10]
+model__ai_beauty_type_processor__s1_112_98                           jax     pass            max_abs=5.34e-05
+    in : inputs[1, 112, 112, 1]
+    out: Identity[2];Identity_1[98, 2]
+model__ai_beauty_type_processor__s2                                  litert  litert_fallback 
+    in : inputs[1, 112, 112, 1];inputs_ht[1, 112, 112, 1];inputs_lms[1, 77, 2]
+    out: Identity[1, 77, 2]
+model__ai_beauty_type_processor__s3                                  litert  litert_fallback 
+    in : inputs_le[1, 64, 64, 1];inputs_leb[1, 64, 64, 1];inputs_re[1, 64, 64, 1];inputs_reb[1, 64, 64, 1];inputs_mouth[1, 64, 64, 1];ht_le[1, 64, 64, 1];ht_leb[1, 64, 64, 1];ht_re[1, 64, 64, 1];ht_reb[1, 64, 64, 1];ht_mouth[1, 64, 64, 1];lm_le[1, 8, 2];lm_leb[1, 6, 2];lm_re[1, 8, 2];lm_reb[1, 6, 2];lm_mouth[1, 18, 2]
+    out: Identity[1, 8, 2];Identity_1[1, 6, 2];Identity_2[1, 8, 2];Identity_3[1, 6, 2];Identity_4[1, 18, 2]
+model__ai_face_beauty_processor__Fprs.0003.Exp007e33_quan1_sm        jax     pass_semantic   max_abs=0.309 argmax_class_agreement=1.0000
+    in : serving_default_image:0[1, 512, 384, 3]
+    out: StatefulPartitionedCall:0[1, 512, 384, 15]
+model__ai_face_beauty_processor__FprsTeeth.0001.Exp002pe99_quan1_sm  jax     pass_semantic   max_abs=0.555 argmax_class_agreement=1.0000
+    in : serving_default_image:0[1, 192, 256, 3]
+    out: StatefulPartitionedCall:0[1, 192, 256, 4]
+model__ai_face_beauty_processor__hair_1209a_acnenet_crop0.1pos0.1_3x24x24_quat jax     pass            max_abs=2.24e-08
+    in : input_1[1, 24, 24, 3]
+    out: Identity[1, 2]
+model__ai_face_beauty_processor__highlight_1209a_acnenet_crop0.2pos0.1_3x24x24_quat jax     pass            max_abs=1.68e-07
+    in : input_1[1, 24, 24, 3]
+    out: Identity[1, 2]
+model__ai_face_beauty_processor__lines_1209a_acnenet_crop0.1pos0.1_3x24x24_quat jax     pass            max_abs=2.44e-19
+    in : input_1[1, 24, 24, 3]
+    out: Identity[1, 2]
+model__ai_face_beauty_processor__mobile_spade_256_ch16_from16_40000_ft16_ftsave_yunfu jax     pass            max_abs=5.96e-07
+    in : input_tensor[1, 256, 256, 3]
+    out: generator_1/Tanh[1, 256, 256, 3]
+model__ai_face_beauty_processor__mobile_spade_256_ch16_from16_ftsevere_lr0.0001_117_16001 jax     pass            max_abs=8.27e-07
+    in : input_tensor[1, 256, 256, 3]
+    out: generator_1/Tanh[1, 256, 256, 3]
+model__ai_face_beauty_processor__mole_seg_24x24x3_1206_quat          jax     pass            max_abs=4.29e-10
+    in : input_1[1, 24, 24, 3]
+    out: Identity[1, 24, 24, 1]
+model__ai_face_beauty_processor__skin_model_expand_supply_pta18000_quant_resizetrain_seg153 litert  litert_fallback 
+    in : input_layer[1, 320, 320, 3]
+    out: Identity[1, 320, 320, 1]
+model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine1 litert  litert_fallback 
+    in : serving_default_inputs_f14:0[1, 364, 4, 48];serving_default_inputs_landmark:0[1, 91, 2]
+    out: StatefulPartitionedCall:0[1, 91, 2]
+model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine2 litert  litert_fallback 
+    in : serving_default_inputs_landmark:0[1, 91, 2];serving_default_inputs_f28:0[1, 364, 4, 32]
+    out: StatefulPartitionedCall:0[1, 91, 2]
+model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine3 litert  litert_fallback 
+    in : serving_default_inputs_f56:0[1, 364, 4, 24];serving_default_inputs_landmark:0[1, 91, 2]
+    out: StatefulPartitionedCall:4[13, 2];StatefulPartitionedCall:0[91, 2];StatefulPartitionedCall:1[13, 2];StatefulPartitionedCall:5[16, 2];StatefulPartitionedCall:2[16, 2];StatefulPartitionedCall:3[56, 2]
+model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.XScore.s76e150_base litert  litert_fallback 
+    in : serving_default_inputs:0[1, 112, 112, 1]
+    out: StatefulPartitionedCall:1[1, 28, 28, 32];StatefulPartitionedCall:3[1, 14, 14, 48];StatefulPartitionedCall:2[1, 91, 2];StatefulPartitionedCall:5[1, 1, 1, 91];StatefulPartitionedCall:4[1, 1, 1, 2];StatefulPartitionedCall:0[1, 56, 56, 24]
+model__ai_face_processor_detect_landmark__face_landmark_mb360_64     jax     pass            max_abs=8.01e-05
+    in : input[1, 64, 64, 1]
+    out: add_7[1, 154]
+model__ai_face_processor_detect_landmark__facecheck40_dense_2000000_regress jax     pass            max_abs=0
+    in : input[1, 40, 40, 1]
+    out: detect[1, 1]
+model__ai_face_processor_detect_landmark__head                       jax     pass            max_abs=2.09e-07
+    in : input_1[1, 126]
+    out: Identity[1, 14]
+model__ai_face_processor_detect_landmark__n-0.5_416_0.05_4aspect6    litert  litert_fallback 
+    in : input_1[1, 416, 416, 3]
+    out: Identity[1, 7098, 1];Identity_1[1, 7098, 4];Identity_2[1, 7098, 10]
+model__ai_face_processor_detect_landmark__n-small_256_0.05_only_a5   litert  litert_fallback 
+    in : input_1[1, 256, 256, 3]
+    out: Identity[1, 3072, 1];Identity_1[1, 3072, 4];Identity_2[1, 3072, 10]
+model__ai_face_processor_detect_landmark__s1                         jax     pass            max_abs=3.81e-05
+    in : inputs[1, 64, 64, 1]
+    out: Identity[91, 2];Identity_1[2]
+model__ai_human_processor_beautybody_mb__FULLBODY_POFH2D_20210302_0001_e1604_q litert  litert_fallback 
+    in : Input_img[1, 256, 192, 3]
+    out: Output_hms[1, 64, 48, 31];Output_pofs[1, 64, 48, 78];Output_bbfs[1, 8, 6, 192]
+model__ai_human_processor_beautybody_mb__human_detector_retinanet_mobilenetv2_1.0_quant none    skip            
+    in : input_1[1, 320, 320, 3]
+    out: -
+
+counts: {"litert_fallback": 15, "pass": 15, "pass_semantic": 2, "skip": 1}
+converted to JAX: 17; conversion skipped: 16
+conversion skipped (LiteRT fallback): model__ai_beauty_type_processor__dense_eb, model__ai_beauty_type_processor__dense_eye_iris, model__ai_beauty_type_processor__model_hair, model__ai_beauty_type_processor__n-0.5_416_0.05_4aspect6, model__ai_beauty_type_processor__n-small_256_0.05_only_a5, model__ai_beauty_type_processor__s2, model__ai_beauty_type_processor__s3, model__ai_face_beauty_processor__skin_model_expand_supply_pta18000_quant_resizetrain_seg153, model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine1, model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine2, model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.ERefine3e70_refine3, model__ai_face_processor_detect_landmark__Fpe.0007.Exp101.XScore.s76e150_base, model__ai_face_processor_detect_landmark__n-0.5_416_0.05_4aspect6, model__ai_face_processor_detect_landmark__n-small_256_0.05_only_a5, model__ai_human_processor_beautybody_mb__FULLBODY_POFH2D_20210302_0001_e1604_q, model__ai_human_processor_beautybody_mb__human_detector_retinanet_mobilenetv2_1.0_quant
+
+RESULT: PASS

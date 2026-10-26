@@ -1,0 +1,365 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/Biometric/Biometric.apk",
+  "regex": "com\\.ts\\.faceauth",
+  "packages": [],
+  "max": 30,
+  "timeout": 240.0,
+  "jadx": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/jadx/bin/jadx",
+  "classes_scanned": 141,
+  "candidates": [
+    {
+      "class": "com.ts.faceauth.FaceAuthManager",
+      "dex": "classes.dex",
+      "method_count": 37,
+      "access": 1,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1037,
+      "rank": 1,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.FaceAuthManager.java",
+      "seconds": 6.36
+    },
+    {
+      "class": "com.ts.faceauth.FaceAuthNative",
+      "dex": "classes.dex",
+      "method_count": 29,
+      "access": 1,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1029,
+      "rank": 2,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.FaceAuthNative.java",
+      "seconds": 3.15
+    },
+    {
+      "class": "com.ts.faceauth.util.FileUtil",
+      "dex": "classes.dex",
+      "method_count": 12,
+      "access": 1,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1012,
+      "rank": 3,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.util.FileUtil.java",
+      "seconds": 4.1
+    },
+    {
+      "class": "com.ts.faceauth.util.LogUtil",
+      "dex": "classes.dex",
+      "method_count": 6,
+      "access": 1,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1006,
+      "rank": 4,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.util.LogUtil.java",
+      "seconds": 4.25
+    },
+    {
+      "class": "com.ts.faceauth.bean.EnrollResult",
+      "dex": "classes.dex",
+      "method_count": 6,
+      "access": 1,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1006,
+      "rank": 5,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.bean.EnrollResult.java",
+      "seconds": 3.75
+    },
+    {
+      "class": "com.ts.faceauth.bean.AuthenticationResult",
+      "dex": "classes.dex",
+      "method_count": 6,
+      "access": 1,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1006,
+      "rank": 6,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.bean.AuthenticationResult.java",
+      "seconds": 3.37
+    },
+    {
+      "class": "com.ts.faceauth.data.CvPixelFormat",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 16401,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1005,
+      "rank": 7,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.data.CvPixelFormat.java",
+      "seconds": 2.35
+    },
+    {
+      "class": "com.ts.faceauth.data.StFaceAuthMode",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 16401,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1005,
+      "rank": 8,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.data.StFaceAuthMode.java",
+      "seconds": 2.27
+    },
+    {
+      "class": "com.ts.faceauth.data.StFaceLogLevel",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 16401,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1005,
+      "rank": 9,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.data.StFaceLogLevel.java",
+      "seconds": 2.12
+    },
+    {
+      "class": "com.ts.faceauth.data.FaceOrientation",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 16401,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1005,
+      "rank": 10,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.data.FaceOrientation.java",
+      "seconds": 2.67
+    },
+    {
+      "class": "com.ts.faceauth.data.FaceDetectedInfo",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 1,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1005,
+      "rank": 11,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.data.FaceDetectedInfo.java",
+      "seconds": 3.3
+    },
+    {
+      "class": "com.ts.faceauth.data.StFaceGpuPriority",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 16401,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1005,
+      "rank": 12,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.data.StFaceGpuPriority.java",
+      "seconds": 2.98
+    },
+    {
+      "class": "com.ts.faceauth.data.STImage",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 1,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1003,
+      "rank": 13,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.data.STImage.java",
+      "seconds": 2.6
+    },
+    {
+      "class": "com.ts.faceauth.data.FaceIDInfo",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 1,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1003,
+      "rank": 14,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.data.FaceIDInfo.java",
+      "seconds": 2.08
+    },
+    {
+      "class": "com.ts.faceauth.bean.AreaInfo",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 1,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1002,
+      "rank": 15,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.bean.AreaInfo.java",
+      "seconds": 1.52
+    },
+    {
+      "class": "com.ts.faceauth.BuildConfig",
+      "dex": "classes.dex",
+      "method_count": 1,
+      "access": 17,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1001,
+      "rank": 16,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.BuildConfig.java",
+      "seconds": 1.4
+    },
+    {
+      "class": "com.ts.faceauthapi.BuildConfig",
+      "dex": "classes.dex",
+      "method_count": 1,
+      "access": 17,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1001,
+      "rank": 17,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauthapi.BuildConfig.java",
+      "seconds": 1.41
+    },
+    {
+      "class": "com.ts.faceauth.FaceAuthManager$1",
+      "dex": "classes.dex",
+      "method_count": 1,
+      "access": 4096,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1001,
+      "rank": 18,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.FaceAuthManager$1.java",
+      "seconds": 1.74
+    },
+    {
+      "class": "com.ts.faceauth.FaceDetectedCallback",
+      "dex": "classes.dex",
+      "method_count": 1,
+      "access": 1537,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1001,
+      "rank": 19,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.FaceDetectedCallback.java",
+      "seconds": 1.41
+    },
+    {
+      "class": "com.ts.faceauth.FaceAuthResult",
+      "dex": "classes.dex",
+      "method_count": 0,
+      "access": 1537,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1000,
+      "rank": 20,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.FaceAuthResult.java",
+      "seconds": 1.38
+    },
+    {
+      "class": "com.ts.faceauth.data.StFaceAuthStatus",
+      "dex": "classes.dex",
+      "method_count": 0,
+      "access": 1537,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1000,
+      "rank": 21,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.data.StFaceAuthStatus.java",
+      "seconds": 1.38
+    },
+    {
+      "class": "com.ts.faceauth.data.StFaceFunctionConfig",
+      "dex": "classes.dex",
+      "method_count": 0,
+      "access": 1537,
+      "matched": [
+        "com.ts.faceauth"
+      ],
+      "score": 1000,
+      "rank": 22,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.data.StFaceFunctionConfig.java",
+      "seconds": 1.42
+    }
+  ],
+  "decompiled": 22,
+  "elapsed_sec": 57.02
+}

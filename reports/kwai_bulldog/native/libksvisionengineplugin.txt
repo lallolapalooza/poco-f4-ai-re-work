@@ -1,0 +1,91 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_bulldog/native/libs/libksvisionengineplugin.so
+==============================================================================
+size        : 38984 bytes (0.04 MiB)
+sha256      : 39644f5eead40131febc35042bba29d9cff48c56d7b6246d663a29e04a1b14ab
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x2760   imagebase: 0x0
+build id    : 28116dbf38d49325cfe4b5303738b1895bd91472
+android     : SDK 21, NDK r20, build 5594570
+soname      : libksvisionengineplugin.so
+needed      : libandroid.so, liblog.so, libEGL.so, libOpenSLES.so, libjnigraphics.so, libz.so, libm.so, libksvideorendersdkjni.so, libvisionengine.so, libdl.so, libGLESv2.so, libffmpeg.so, libksaudioprocesslib.so, libprotobuf-lite.so, libyuv.so, libturbojpeg.so, libCGE.so, libc++_shared.so, libc.so
+parser      : lief
+counts      : 22 exports, 58 imports, 21 JNI, 25 sections, 8 segments
+symtab/dynsym: 0 / 90
+
+Sections (25)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        636        0x228
+  .gnu.hash              GNU_HASH         A      0x4a8        188        0x4a8
+  .dynsym                DYNSYM           A      0x568        2160       0x568
+  .dynstr                STRTAB           A      0xdd8        3841       0xdd8
+  .gnu.version           GNU_VERSYM       A      0x1cda       180        0x1cda
+  .gnu.version_r         GNU_VERNEED      A      0x1d90       32         0x1d90
+  .rela.dyn              RELA             A      0x1db0       288        0x1db0
+  .rela.plt              RELA             AI     0x1ed0       1296       0x1ed0
+  .plt                   PROGBITS         AX     0x23e0       896        0x23e0
+  .text                  PROGBITS         AX     0x2760       20384      0x2760
+  .rodata                PROGBITS         A      0x7700       714        0x7700
+  .eh_frame_hdr          PROGBITS         A      0x79cc       356        0x79cc
+  .eh_frame              PROGBITS         A      0x7b30       1728       0x7b30
+  .gcc_except_table      PROGBITS         A      0x81f0       1460       0x81f0
+  .note.android.ident    NOTE             A      0x87a4       152        0x87a4
+  .init_array            INIT_ARRAY       WA     0x18ae0      16         0x8ae0
+  .fini_array            FINI_ARRAY       WA     0x18af0      16         0x8af0
+  .dynamic               DYNAMIC          WA     0x18b00      768        0x8b00
+  .got                   PROGBITS         WA     0x18e00      512        0x8e00
+  .data                  PROGBITS         WA     0x19000      16         0x9000
+  .bss                   NOBITS           WA     0x19010      992        0x9010
+  .comment               PROGBITS         MS     0x0          264        0x9010
+  .shstrtab              STRTAB           -      0x0          238        0x9118
+
+JNI entry points (21)
+  0x3108         180        com.kwai.video.editorsdk2.kve.EditorKveEnhanceTask.newNativeTask
+      Java_com_kwai_video_editorsdk2_kve_EditorKveEnhanceTask_newNativeTask
+  0x31bc         48         com.kwai.video.editorsdk2.kve.EditorKveEnhanceTask.deleteNativeTask
+      Java_com_kwai_video_editorsdk2_kve_EditorKveEnhanceTask_deleteNativeTask
+  0x31ec         1104       com.kwai.video.editorsdk2.kve.EditorKveEnhanceTask.startNativeTaskNative
+      Java_com_kwai_video_editorsdk2_kve_EditorKveEnhanceTask_startNativeTaskNative
+  0x39dc         48         com.kwai.video.editorsdk2.kve.EditorKveEnhanceTask.cancelNativeTask
+      Java_com_kwai_video_editorsdk2_kve_EditorKveEnhanceTask_cancelNativeTask
+  0x3a0c         8          com.kwai.video.editorsdk2.kve.EditorKveEnhanceTask.getEnhanceLevelNative
+      Java_com_kwai_video_editorsdk2_kve_EditorKveEnhanceTask_getEnhanceLevelNative
+  0x3a14         8          com.kwai.video.editorsdk2.kve.EditorKveEnhanceTask.getWithDehazeNative
+      Java_com_kwai_video_editorsdk2_kve_EditorKveEnhanceTask_getWithDehazeNative
+  0x3a1c         180        com.kwai.video.editorsdk2.kve.EditorKveAnalyzeTask.newNativeTask
+      Java_com_kwai_video_editorsdk2_kve_EditorKveAnalyzeTask_newNativeTask
+  0x3ad0         48         com.kwai.video.editorsdk2.kve.EditorKveAnalyzeTask.deleteNativeTask
+      Java_com_kwai_video_editorsdk2_kve_EditorKveAnalyzeTask_deleteNativeTask
+  0x3b00         1104       com.kwai.video.editorsdk2.kve.EditorKveAnalyzeTask.startNativeTaskNative
+      Java_com_kwai_video_editorsdk2_kve_EditorKveAnalyzeTask_startNativeTaskNative
+  0x3f50         48         com.kwai.video.editorsdk2.kve.EditorKveAnalyzeTask.cancelNativeTask
+      Java_com_kwai_video_editorsdk2_kve_EditorKveAnalyzeTask_cancelNativeTask
+  0x3f80         8          com.kwai.video.editorsdk2.kve.EditorKveAnalyzeTask.getEnhanceLevelNative
+      Java_com_kwai_video_editorsdk2_kve_EditorKveAnalyzeTask_getEnhanceLevelNative
+  0x3f88         8          com.kwai.video.editorsdk2.kve.EditorKveAnalyzeTask.getWithDehazeNative
+      Java_com_kwai_video_editorsdk2_kve_EditorKveAnalyzeTask_getWithDehazeNative
+  0x3f90         1376       com.kwai.video.editorsdk2.kve.EditorKveAnalyzeTask.startNativeAnalyzeTaskNative
+      Java_com_kwai_video_editorsdk2_kve_EditorKveAnalyzeTask_startNativeAnalyzeTaskNative
+  0x60e8         164        com.kwai.video.editorsdk2.kve.EditorKveStabilizationTask.newNativeTask
+      Java_com_kwai_video_editorsdk2_kve_EditorKveStabilizationTask_newNativeTask
+  0x618c         64         com.kwai.video.editorsdk2.kve.EditorKveStabilizationTask.deleteNativeTask
+      Java_com_kwai_video_editorsdk2_kve_EditorKveStabilizationTask_deleteNativeTask
+  0x61cc         1148       com.kwai.video.editorsdk2.kve.EditorKveStabilizationTask.startNativeTaskNative
+      Java_com_kwai_video_editorsdk2_kve_EditorKveStabilizationTask_startNativeTaskNative
+  0x70a8         48         com.kwai.video.editorsdk2.kve.EditorKveStabilizationTask.cancelNativeTask
+      Java_com_kwai_video_editorsdk2_kve_EditorKveStabilizationTask_cancelNativeTask
+  0x70d8         8          com.kwai.video.editorsdk2.kve.EditorKveStabilizationTask.getHomoHCropNative
+      Java_com_kwai_video_editorsdk2_kve_EditorKveStabilizationTask_getHomoHCropNative
+  0x70e0         8          com.kwai.video.editorsdk2.kve.EditorKveStabilizationTask.getHomoHLengthNative
+      Java_com_kwai_video_editorsdk2_kve_EditorKveStabilizationTask_getHomoHLengthNative
+  0x70e8         8          com.kwai.video.editorsdk2.kve.EditorKveStabilizationTask.getHomoTotalDataSizeNative
+      Java_com_kwai_video_editorsdk2_kve_EditorKveStabilizationTask_getHomoTotalDataSizeNative
+  0x70f0         336        com.kwai.video.editorsdk2.kve.EditorKveStabilizationTask.getHomoDataResultPathNative
+      Java_com_kwai_video_editorsdk2_kve_EditorKveStabilizationTask_getHomoDataResultPathNative
+
+AI-relevant strings (14395 bytes scanned in allocated data sections)
+  [face] 1 unique (first 1)
+    0x000014e5 .dynstr    _ZN8kuaishou10editorsdk25model4face27_FaceRect_default_instance_E
+
+JSON written to native/libksvisionengineplugin.so.json

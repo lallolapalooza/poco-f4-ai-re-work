@@ -1,0 +1,835 @@
+{
+  "buffer_count": 19,
+  "conversion": {
+    "inputs": [
+      {
+        "dtype": "FLOAT32",
+        "name": "input",
+        "quantization": {
+          "max": [
+            255.0
+          ],
+          "min": [
+            0.0
+          ],
+          "quantized_dimension": 0,
+          "scale": [],
+          "scheme": "none",
+          "zero_point": []
+        },
+        "shape": [
+          1,
+          40,
+          40,
+          1
+        ],
+        "tensor_index": 17
+      }
+    ],
+    "model": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/work/bundles/ai_face_processor_detect_landmark/facecheck40_dense_2000000_regress.tflite",
+    "model_file": "model.py",
+    "outputs": [
+      {
+        "dtype": "FLOAT32",
+        "name": "detect",
+        "quantization": {
+          "max": [],
+          "min": [],
+          "quantized_dimension": 0,
+          "scale": [],
+          "scheme": "none",
+          "zero_point": []
+        },
+        "shape": [
+          1,
+          1
+        ],
+        "tensor_index": 15
+      }
+    ],
+    "params_file": "params.npz",
+    "selection_reason": "subgraph 0 (model has no signature defs)",
+    "signature_key": null,
+    "status": "ok",
+    "subgraph_index": 0,
+    "subgraph_name": null,
+    "subgraph_role": "inference"
+  },
+  "description": "TOCO Converted.",
+  "file_size": 155144,
+  "format": "tflite_ir/1",
+  "model_version": 3,
+  "operator_codes": [
+    {
+      "builtin_code": 3,
+      "builtin_name": "CONV_2D",
+      "custom_code": null,
+      "index": 0,
+      "version": 1
+    },
+    {
+      "builtin_code": 4,
+      "builtin_name": "DEPTHWISE_CONV_2D",
+      "custom_code": null,
+      "index": 1,
+      "version": 1
+    },
+    {
+      "builtin_code": 22,
+      "builtin_name": "RESHAPE",
+      "custom_code": null,
+      "index": 2,
+      "version": 1
+    }
+  ],
+  "path": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/work/bundles/ai_face_processor_detect_landmark/facecheck40_dense_2000000_regress.tflite",
+  "signatures": [],
+  "subgraphs": [
+    {
+      "index": 0,
+      "inputs": [
+        17
+      ],
+      "name": null,
+      "operators": [
+        {
+          "builtin_code": 4,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 0,
+          "inputs": [
+            17,
+            2,
+            0
+          ],
+          "intermediates": [],
+          "op": "DEPTHWISE_CONV_2D",
+          "opcode_index": 1,
+          "opcode_version": 1,
+          "options": {
+            "DepthMultiplier": 10,
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU",
+            "Padding": "VALID",
+            "StrideH": 2,
+            "StrideW": 2
+          },
+          "options_type": "DepthwiseConv2DOptions",
+          "outputs": [
+            1
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 1,
+          "inputs": [
+            1,
+            5,
+            3
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 2,
+            "StrideW": 2
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            4
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 2,
+          "inputs": [
+            4,
+            8,
+            6
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            7
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 3,
+          "inputs": [
+            7,
+            11,
+            9
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            10
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 4,
+          "inputs": [
+            10,
+            14,
+            13
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "SAME",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            12
+          ]
+        },
+        {
+          "builtin_code": 22,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 5,
+          "inputs": [
+            12,
+            16
+          ],
+          "intermediates": [],
+          "op": "RESHAPE",
+          "opcode_index": 2,
+          "opcode_version": 1,
+          "options": {
+            "NewShape": [
+              1,
+              1
+            ]
+          },
+          "options_type": "ReshapeOptions",
+          "outputs": [
+            15
+          ]
+        }
+      ],
+      "outputs": [
+        15
+      ],
+      "role": "inference",
+      "stateful": false,
+      "tensors": [
+        {
+          "buffer_bytes": 40,
+          "buffer_index": 9,
+          "dtype": "FLOAT32",
+          "index": 0,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "Conv0/Conv2D_bias",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            10
+          ],
+          "shape_signature": [
+            10
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 14,
+          "dtype": "FLOAT32",
+          "index": 1,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "Conv0/Relu",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            17,
+            17,
+            10
+          ],
+          "shape_signature": [
+            1,
+            17,
+            17,
+            10
+          ]
+        },
+        {
+          "buffer_bytes": 1960,
+          "buffer_index": 10,
+          "dtype": "FLOAT32",
+          "index": 2,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "Conv0/weights",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            7,
+            7,
+            10
+          ],
+          "shape_signature": [
+            1,
+            7,
+            7,
+            10
+          ]
+        },
+        {
+          "buffer_bytes": 80,
+          "buffer_index": 6,
+          "dtype": "FLOAT32",
+          "index": 3,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "Conv1/Conv2D_bias",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            20
+          ],
+          "shape_signature": [
+            20
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 13,
+          "dtype": "FLOAT32",
+          "index": 4,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "Conv1/Relu",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            6,
+            6,
+            20
+          ],
+          "shape_signature": [
+            1,
+            6,
+            6,
+            20
+          ]
+        },
+        {
+          "buffer_bytes": 28800,
+          "buffer_index": 7,
+          "dtype": "FLOAT32",
+          "index": 5,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "Conv1/weights",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            20,
+            6,
+            6,
+            10
+          ],
+          "shape_signature": [
+            20,
+            6,
+            6,
+            10
+          ]
+        },
+        {
+          "buffer_bytes": 160,
+          "buffer_index": 3,
+          "dtype": "FLOAT32",
+          "index": 6,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "Conv2/Conv2D_bias",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            40
+          ],
+          "shape_signature": [
+            40
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 12,
+          "dtype": "FLOAT32",
+          "index": 7,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "Conv2/Relu",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            1,
+            1,
+            40
+          ],
+          "shape_signature": [
+            1,
+            1,
+            1,
+            40
+          ]
+        },
+        {
+          "buffer_bytes": 115200,
+          "buffer_index": 5,
+          "dtype": "FLOAT32",
+          "index": 8,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "Conv2/weights",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            40,
+            6,
+            6,
+            20
+          ],
+          "shape_signature": [
+            40,
+            6,
+            6,
+            20
+          ]
+        },
+        {
+          "buffer_bytes": 160,
+          "buffer_index": 2,
+          "dtype": "FLOAT32",
+          "index": 9,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "Conv3/Conv2D_bias",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            40
+          ],
+          "shape_signature": [
+            40
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 17,
+          "dtype": "FLOAT32",
+          "index": 10,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "Conv3/Relu",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            1,
+            1,
+            40
+          ],
+          "shape_signature": [
+            1,
+            1,
+            1,
+            40
+          ]
+        },
+        {
+          "buffer_bytes": 6400,
+          "buffer_index": 15,
+          "dtype": "FLOAT32",
+          "index": 11,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "Conv3/weights",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            40,
+            1,
+            1,
+            40
+          ],
+          "shape_signature": [
+            40,
+            1,
+            1,
+            40
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 18,
+          "dtype": "FLOAT32",
+          "index": 12,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "det/BiasAdd",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "shape_signature": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "buffer_bytes": 4,
+          "buffer_index": 4,
+          "dtype": "FLOAT32",
+          "index": 13,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "det/Conv2D_bias",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1
+          ],
+          "shape_signature": [
+            1
+          ]
+        },
+        {
+          "buffer_bytes": 160,
+          "buffer_index": 1,
+          "dtype": "FLOAT32",
+          "index": 14,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "det/weights",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            1,
+            1,
+            40
+          ],
+          "shape_signature": [
+            1,
+            1,
+            1,
+            40
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 11,
+          "dtype": "FLOAT32",
+          "index": 15,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "detect",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            1
+          ],
+          "shape_signature": [
+            1,
+            1
+          ]
+        },
+        {
+          "buffer_bytes": 8,
+          "buffer_index": 8,
+          "dtype": "INT32",
+          "index": 16,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "detect_shape",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            2
+          ],
+          "shape_signature": [
+            2
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 16,
+          "dtype": "FLOAT32",
+          "index": 17,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "input",
+          "quantization": {
+            "max": [
+              255.0
+            ],
+            "min": [
+              0.0
+            ],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            40,
+            40,
+            1
+          ],
+          "shape_signature": [
+            1,
+            40,
+            40,
+            1
+          ]
+        }
+      ],
+      "unsupported_ops": []
+    }
+  ],
+  "supported_ops": [
+    "ABS",
+    "ADD",
+    "ARG_MAX",
+    "ARG_MIN",
+    "AVERAGE_POOL_2D",
+    "BATCH_MATMUL",
+    "CAST",
+    "CONCATENATION",
+    "CONV_2D",
+    "COS",
+    "DEPTHWISE_CONV_2D",
+    "DEPTH_TO_SPACE",
+    "DEQUANTIZE",
+    "DIV",
+    "ELU",
+    "EQUAL",
+    "EXP",
+    "EXPAND_DIMS",
+    "FILL",
+    "FLOOR",
+    "FLOOR_DIV",
+    "FULLY_CONNECTED",
+    "GATHER",
+    "GATHER_ND",
+    "GREATER",
+    "GREATER_EQUAL",
+    "HARD_SWISH",
+    "LEAKY_RELU",
+    "LESS",
+    "LESS_EQUAL",
+    "LOG",
+    "LOGICAL_AND",
+    "LOGICAL_NOT",
+    "LOGICAL_OR",
+    "LOGISTIC",
+    "MAXIMUM",
+    "MAX_POOL_2D",
+    "MEAN",
+    "MINIMUM",
+    "MUL",
+    "NEG",
+    "NOT_EQUAL",
+    "ONE_HOT",
+    "PACK",
+    "PAD",
+    "PADV2",
+    "POW",
+    "QUANTIZE",
+    "REDUCE_MAX",
+    "REDUCE_MIN",
+    "REDUCE_PROD",
+    "RELU",
+    "RELU6",
+    "RELU_N1_TO_1",
+    "RESHAPE",
+    "RESIZE_BILINEAR",
+    "RESIZE_NEAREST_NEIGHBOR",
+    "RSQRT",
+    "SELECT",
+    "SHAPE",
+    "SIN",
+    "SLICE",
+    "SOFTMAX",
+    "SPACE_TO_DEPTH",
+    "SQRT",
+    "SQUARE",
+    "SQUARED_DIFFERENCE",
+    "SQUEEZE",
+    "STRIDED_SLICE",
+    "SUB",
+    "SUM",
+    "TANH",
+    "TILE",
+    "TOPK_V2",
+    "TRANSPOSE",
+    "UNPACK",
+    "ZEROS_LIKE"
+  ]
+}

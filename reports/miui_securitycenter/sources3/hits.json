@@ -1,0 +1,93 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/MIUISecurityCenterGlobal/MIUISecurityCenterGlobal.apk",
+  "regex": "^(d2\\.b|d2\\.a|m2\\.a|j2\\.f|j2\\.d)$",
+  "packages": [],
+  "max": 5,
+  "timeout": 200.0,
+  "jadx": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/jadx/bin/jadx",
+  "classes_scanned": 39564,
+  "candidates": [
+    {
+      "class": "d2.b",
+      "dex": "classes2.dex",
+      "method_count": 13,
+      "access": 1,
+      "matched": [
+        "d2.b"
+      ],
+      "score": 1013,
+      "rank": 1,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/d2.b.java",
+      "seconds": 41.74
+    },
+    {
+      "class": "j2.f",
+      "dex": "classes2.dex",
+      "method_count": 8,
+      "access": 1,
+      "matched": [
+        "j2.f"
+      ],
+      "score": 1008,
+      "rank": 2,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/j2.f.java",
+      "seconds": 20.58
+    },
+    {
+      "class": "m2.a",
+      "dex": "classes2.dex",
+      "method_count": 5,
+      "access": 1,
+      "matched": [
+        "m2.a"
+      ],
+      "score": 1005,
+      "rank": 3,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/m2.a.java",
+      "seconds": 15.77
+    },
+    {
+      "class": "j2.d",
+      "dex": "classes2.dex",
+      "method_count": 4,
+      "access": 16401,
+      "matched": [
+        "j2.d"
+      ],
+      "score": 1004,
+      "rank": 4,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/j2.d.java",
+      "seconds": 12.7
+    },
+    {
+      "class": "d2.a",
+      "dex": "classes2.dex",
+      "method_count": 1,
+      "access": 1,
+      "matched": [
+        "d2.a"
+      ],
+      "score": 1001,
+      "rank": 5,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/d2.a.java",
+      "seconds": 12.49
+    }
+  ],
+  "decompiled": 5,
+  "elapsed_sec": 107.02
+}

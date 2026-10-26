@@ -1,0 +1,60 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/qcom_voiceactivation/inventory/libs/lib/arm64-v8a/libdnnvad_jni.so
+==============================================================================
+size        : 19296 bytes (0.02 MiB)
+sha256      : 9134985fc688f51b98d3acac4da33705459a0335b7333ac4363cc6b4938b7e63
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x0   imagebase: 0x0
+build id    : 605c36d9b0c42dd6ceef9c625eaae8ca
+soname      : libdnnvad_jni.so
+needed      : libqvavad.so, libeai_floating.so, libstdc++.so, liblog.so, libc.so, libm.so, libdl.so
+parser      : lief
+counts      : 16 exports, 17 imports, 4 JNI, 24 sections, 12 segments
+symtab/dynsym: 0 / 34
+
+Sections (24)
+  name                   type             flags  address      size       offset
+  .note.android.ident    NOTE             A      0x2e0        24         0x2e0
+  .note.gnu.build-id     NOTE             A      0x2f8        32         0x2f8
+  .note.gnu.property     NOTE             A      0x318        32         0x318
+  .dynsym                DYNSYM           A      0x338        816        0x338
+  .gnu.version           GNU_VERSYM       A      0x668        68         0x668
+  .gnu.version_r         GNU_VERNEED      A      0x6ac        96         0x6ac
+  .gnu.hash              GNU_HASH         A      0x710        128        0x710
+  .hash                  HASH             A      0x790        280        0x790
+  .dynstr                STRTAB           A      0x8a8        731        0x8a8
+  .relr.dyn              ANDROID_RELR     A      0xb88        16         0xb88
+  .rela.plt              RELA             AI     0xb98        624        0xb98
+  .rodata                PROGBITS         AMS    0xe08        2497       0xe08
+  .eh_frame_hdr          PROGBITS         A      0x17cc       188        0x17cc
+  .eh_frame              PROGBITS         A      0x1888       1212       0x1888
+  .text                  PROGBITS         AX     0x2000       5864       0x2000
+  .plt                   PROGBITS         AX     0x36f0       656        0x36f0
+  .data.rel.ro           PROGBITS         WA     0x4000       8          0x4000
+  .fini_array            FINI_ARRAY       WA     0x4008       16         0x4008
+  .dynamic               DYNAMIC          WA     0x4018       480        0x4018
+  .got.plt               PROGBITS         WA     0x41f8       232        0x41f8
+  .bss                   NOBITS           WA     0x52e0       8          0x42e0
+  .shstrtab              STRTAB           -      0x0          244        0x42e0
+  .gnu_debugdata         PROGBITS         -      0x0          392        0x43d4
+
+JNI entry points (4)
+  0x233c         1076       com.qualcomm.qti.vad.DNNVAD.init
+      Java_com_qualcomm_qti_vad_DNNVAD_init
+  0x2c84         392        com.qualcomm.qti.vad.DNNVAD.process
+      Java_com_qualcomm_qti_vad_DNNVAD_process
+  0x2e0c         88         com.qualcomm.qti.vad.DNNVAD.reset
+      Java_com_qualcomm_qti_vad_DNNVAD_reset
+  0x2e64         204        com.qualcomm.qti.vad.DNNVAD.deinit
+      Java_com_qualcomm_qti_vad_DNNVAD_deinit
+
+AI-relevant strings (7480 bytes scanned in allocated data sections)
+  [asr] 6 unique (first 6)
+    0x00000e5b .rodata    VAD.nnvad_len_hangover
+    0x000011d3 .rodata    VAD.cmd_end_detection_threshold
+    0x00001478 .rodata    VAD_init: ERROR VAD Params NULL ptr
+    0x000014a1 .rodata    QVA-Engine-vad
+    0x00001627 .rodata    VAD.nnvad_threshold
+    0x000016f6 .rodata    VAD.nnvad_len_future
+
+JSON written to reports/qcom_voiceactivation/native/elfinfo/libdnnvad_jni.so.json

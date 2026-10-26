@@ -1,0 +1,275 @@
+{
+  "slug": "tiktok_musically",
+  "package": "com.zhiliaoapp.musically",
+  "app_name": "TikTok",
+  "ai_summary": "Three ByteDance 'smash-face' model bundles (face detection base, extra/eye refinement, age attribute) plus the ByteNN/espresso runtime. The bundle container is decoded (header, per-record names, 32-byte per-file key, per-record blob with a descriptor-block size, descriptor block + raw weight data). The binary graph-descriptor schema inside the descriptor block is not recovered, so only the 'mean' data record (1905 float32 anchor geometry) is fully decoded; the four networks are reimplemented as ARCHITECTURE_ONLY in JAX.",
+  "features": [
+    {
+      "name": "TT face detection (smash-face base)",
+      "entrypoints": [
+        "com.bef.effectsdk.ModelsList.<clinit>",
+        "com.bef.effectsdk.EffectSDKUtils.copyAssets/needUpdate",
+        "libeffect.so FaceDetectTaskTT / bef_fs_createHandler / FS_CreateHandlerFromBuf",
+        "libeffect.so AlgorithmFace::doLoadModel (log @0xd918dd, thunk 0x962dc0)"
+      ],
+      "pipeline": [
+        "ModelsList lists model/ttfacemodel/tt_face_v10.0.model (the only Java reference)",
+        "EffectSDKUtils copies assets to the app model dir",
+        "libeffect smash-face loader searches record names inside the bundle (string @0xd65e80)",
+        "espresso::Thrustor::CreateNet/SetInput/Inference/Extract per sub-model",
+        "detect + base120 (+image/slowimage/mean) -> pout objectness / box regression"
+      ],
+      "models": [
+        "tt_face_v10.0.model"
+      ],
+      "confidence": "inferred",
+      "notes": "Loading path and record names confirmed; mapping of each sub-model to a detection stage is inferred from names/SDK layer strings."
+    },
+    {
+      "name": "Extra face landmarks / eye refinement",
+      "entrypoints": [
+        "libeffect.so FS_AddExtraModelFromBuf",
+        "libeffect.so FaceFitting_InitModelFromBuf2",
+        "libeffect.so strings 'AlgorithmFace add extra model fail'"
+      ],
+      "pipeline": [
+        "extra bundle loaded into the face detector (iris/eyecls/partface records)",
+        "espresso Extract(name) for each sub-model",
+        "landmark/eye/part-face outputs consumed by reshape/beauty"
+      ],
+      "models": [
+        "tt_face_extra_v13.0.model"
+      ],
+      "confidence": "inferred"
+    },
+    {
+      "name": "Face age attribute",
+      "entrypoints": [
+        "libeffect.so FaceAttributesTask / FaceAttributesAlgorithm",
+        "AEAlgorithmFaceAttr FS_DoAttrPredict",
+        "string ttfaceattrmodel/tt_face_attribute_age_v1.1.model"
+      ],
+      "pipeline": [
+        "FaceAttributesTask loads tt_face_attribute_age_v1.1.model",
+        "single sub-model agenet",
+        "age result stored in algorithm_result_face_attrs_st / VEFaceAttributeInfo"
+      ],
+      "models": [
+        "tt_face_attribute_age_v1.1.model"
+      ],
+      "confidence": "inferred",
+      "notes": "Bundle loading confirmed by path string; age output layout unknown (regression vs class logits)."
+    },
+    {
+      "name": "Face reshape / beauty (landmark consumer)",
+      "entrypoints": [
+        "libeffect.so BEF::FaceReshapeFeature",
+        "bef_effect_update_reshape_face / setIntensityByType"
+      ],
+      "pipeline": [
+        "landmarks from face detection/extra models drive warp/reshape",
+        "effect assets ttlive_FaceReshape_V2.zip, ttlive_reshape_composer.zip, ttlive_beauty_composer.zip"
+      ],
+      "models": [
+        "tt_face_v10.0.model",
+        "tt_face_extra_v13.0.model"
+      ],
+      "confidence": "inferred"
+    },
+    {
+      "name": "Generic ByteNN inference SDK",
+      "entrypoints": [
+        "com.ss.bytenn.API (9 native methods)",
+        "com.ss.bytenn.ByteNNConfig.init",
+        "libbytennwrapper.so Java_com_ss_bytenn_API_nativeInitEngine",
+        "libbytenn.so BYTENN::ByteNNEngineImpl::Init"
+      ],
+      "pipeline": [
+        "ByteBuffer model -> ByteNNConfig -> nativeInitEngine",
+        "BM model header required ('B','M', u32@4==size, version byte)",
+        "ByteNN/espresso inference (CPU/OpenCL)"
+      ],
+      "models": [],
+      "confidence": "confirmed",
+      "notes": "Used for generic app ML models; not the path of the three shipped face bundles (which are parsed by libeffect.so)."
+    },
+    {
+      "name": "Video frame -> face DNN (VESDK render path)",
+      "entrypoints": [
+        "libttvesdk.so render loop (logs 'DrawFrame:LoadResource'@0x5cb5e5, 'DrawFrame:bef_effect_algorithm'@0x5cb62f); frame calls 0x1cf548/0x1cf950/0x1cf740/0x1cf81c/0x1cf9bc",
+        "com.bef.effectsdk.BEFEffectNative.nativeProcessFrame(JIIIID) @libeffect.so 0x2eac68 (Java SDK binding; no in-app caller)",
+        "nativeSetFrameOrientation @0x2ead50, nativeSetCameraPosition @0x2ead0c"
+      ],
+      "pipeline": [
+        "frame descriptor stride 0x48: [+0x00] texture id, [+0x14] width, [+0x18] height, [+0x20] double timestamp",
+        "bef_effect_set_width_height(handle,width,height)",
+        "bef_effect_process_texture(handle,texId,arg2,timestamp) @0x3097f0 -> bef_effect_process_texture_with_loading_timeout @0x3097f8",
+        "GL_TEXTURE_2D / RGBA8888 input (glTexImage2D 0xde1/0x1908/0x1401, libttvesdk 0x4b7314)",
+        "effect graph FaceDetectTaskTT -> BES::NtfEvent<algorithm_result_face_st> -> VEFaceDetectInfo (106 points)"
+      ],
+      "models": [
+        "tt_face_v10.0.model",
+        "tt_face_extra_v13.0.model",
+        "tt_face_attribute_age_v1.1.model"
+      ],
+      "confidence": "confirmed",
+      "notes": "Transport/format/setters confirmed from disassembly. Java arg2 (3rd int) is forwarded to bef_effect_process_texture but its meaning is unknown. Same binaries as trill; only Java obfuscation names differ."
+    }
+  ],
+  "models": [
+    {
+      "path": "assets/model/ttfacemodel/tt_face_v10.0.model",
+      "format": "ByteDance smash-face bundle: header + 9 named records (detect, base120, base120det, pout, eyecls, partface, image, slowimage, mean); per-record 32B blob with descriptor-block length at B+4; descriptor block (dense binary graph, schema unknown) followed by raw weight bytes",
+      "size": 905491,
+      "io": {
+        "container": "confirmed: 16B file id, u32 size, u32 version_len+version, u32 record_count, [name,36,A32,32,B32,payload]*N",
+        "input": "inferred: BGR face/image crop, base120 implies 120x120; (x-127.5)/128",
+        "outputs": "inferred: pout objectness map + box regression (30x30)",
+        "confidence": "inferred"
+      },
+      "ops": [],
+      "weights": "partial",
+      "jax_reimpl": "reimpl/pipeline.py:face_detector (ARCHITECTURE_ONLY); reimpl/model_container.py parses/carves the bundle",
+      "verification": "container parse verified (all invariants) and synthetic JAX run exit 0; no numerical reference available",
+      "confidence": "inferred"
+    },
+    {
+      "path": "assets/model/ttfacemodel/tt_face_extra_v13.0.model",
+      "format": "ByteDance smash-face bundle: 2 records (iris, extra), same record/blob/payload layout",
+      "size": 573858,
+      "io": {
+        "container": "confirmed",
+        "input": "inferred: aligned face crop ~120x120",
+        "outputs": "inferred: iris offsets, eyecls 2-class logits, partface 5-class part segmentation",
+        "confidence": "inferred"
+      },
+      "ops": [],
+      "weights": "partial",
+      "jax_reimpl": "reimpl/pipeline.py:extra_model (ARCHITECTURE_ONLY)",
+      "verification": "container parse verified; synthetic JAX run exit 0",
+      "confidence": "inferred"
+    },
+    {
+      "path": "assets/model/ttfaceattrmodel/tt_face_attribute_age_v1.1.model",
+      "format": "ByteDance smash-face bundle: 1 record (agenet), same record/blob/payload layout",
+      "size": 203028,
+      "io": {
+        "container": "confirmed",
+        "input": "inferred: aligned face crop, libeffect asserts bgr448 CV_8UC3 (448x448)",
+        "outputs": "unknown: agenet age value (regression) or age-bin logits",
+        "confidence": "inferred"
+      },
+      "ops": [],
+      "weights": "partial",
+      "jax_reimpl": "reimpl/pipeline.py:age_model (ARCHITECTURE_ONLY)",
+      "verification": "container parse verified; synthetic JAX run exit 0",
+      "confidence": "inferred"
+    }
+  ],
+  "reimplementation": {
+    "path": "reports/tiktok_musically/reimpl",
+    "run_command": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python reimpl/model_container.py --carve && /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python reimpl/pipeline.py --verify",
+    "status": "architecture_only",
+    "limitations": "Bundle container is parsed for real and the mean record (1905 float32 anchor-geometry values) is decoded, but the per-record binary graph-descriptor schema and per-tensor weight slicing are unknown; network topologies and I/O shapes in pipeline.py are inferred placeholders, not the shipped graphs. No numerical reference runtime available."
+  },
+  "unknowns": [
+    "Smash-face payload descriptor schema (op codes, tensor descriptors, offsets, quantisation tables) — blocks weight slicing and exact topology",
+    "Per-record dtype/quantisation (int8 vs fp16 vs fp32; weight regions show both long fp32 runs and dense int8/int16-like bytes)",
+    "Exact input resolution, layout (NCHW/NHWC) and colour order per sub-model",
+    "Age-head output layout (regression vs class logits) and class boundaries",
+    "Whether the extra bundle is always loaded or only for landmark/eye effects; AB flags that enable the TT detector",
+    "Consumer/semantics of the decoded 'mean' record (anchor geometry) in the detector graph",
+    "Function inside libeffect.so that fills the map<string,model*> consumed by ExtractModel (0x696900); only the stripped binary documents the descriptor schema",
+    "Meaning of the 3rd int of BEFEffectNative.processFrame (forwarded to bef_effect_process_texture, not read by its wrapper)",
+    "Clock origin of the per-frame double timestamp (frame PTS seconds assumed; getter not identified)",
+    "Detector NMS/thresholds, landmark coordinate transform back to source space, and temporal smoothing in the native tracker",
+    "Java consumer classes of VEFaceDetectInfo.covert() (only classes8.dex and classes10.dex reference it; class names obfuscated)"
+  ],
+  "data_pipelines": [
+    {
+      "id": "vesdk_render_to_face_dnn",
+      "name": "VESDK render frame -> face detection/attribute DNN",
+      "variant_equivalence": "libeffect.so dad4778a…e76c35 and libttvesdk.so e38abe25…a6ce74 are byte-identical to trill; the three model bundles are identical too",
+      "stages": [
+        {
+          "stage": "1. trigger",
+          "detail": "VESDK render loop per frame (libttvesdk.so DrawFrame); effect handle and resource finder created once per session",
+          "evidence": "evidence/vesdk_drawframe_callsites.txt; evidence/libeffect_face_video_strings.txt",
+          "confidence": "confirmed"
+        },
+        {
+          "stage": "2. transport",
+          "detail": "GL_TEXTURE_2D RGBA8888 texture + width/height ints + double timestamp; rotation and camera facing via separate setters; YUV/GRAY rejected by every DNN task",
+          "evidence": "native/libeffect_musically_nativeProcessFrame.s; libttvesdk 0x4b7314-0x4b7330 (glTexImage2D 0xde1/0x1908/0x1401)",
+          "confidence": "confirmed"
+        },
+        {
+          "stage": "3. call chain",
+          "detail": "bef_effect_set_width_height(handle,w,h) then bef_effect_process_texture(handle,texId,arg2,ts) -> bef_effect_process_texture_with_loading_timeout(handle,…,loadingTimeout=0,ts)",
+          "evidence": "libeffect 0x2eac68-0x2eaca4; 0x3097f0; 0x3097f8; call sites 0x1cf548/0x1cf950",
+          "confidence": "confirmed"
+        },
+        {
+          "stage": "4. preprocessing",
+          "detail": "crop/resize inside BEF::FaceDetectTaskTT from the texture; base120 suggests 120x120; exact scale/bias unknown; the 'mean' record is anchor geometry, not image means",
+          "evidence": "strings d66161 base120, d66e11 agenet, d85571 pout; report §4.1",
+          "confidence": "inferred"
+        },
+        {
+          "stage": "5. model invocation",
+          "detail": "espresso::Thrustor (libbytenn.so) per sub-model record; bundle paths assets/model/ttfacemodel/*.model, assets/model/ttfaceattrmodel/tt_face_attribute_age_v1.1.model",
+          "evidence": "report §5; native/elf_info_libeffect.txt imports",
+          "confidence": "confirmed for loading; tensor shapes unknown"
+        },
+        {
+          "stage": "6. output",
+          "detail": "algorithm_result_face_st / algorithm_result_face_attrs_st events -> VEFaceDetectInfo (rect, score, PointF[106], float[106] visibility, yaw/pitch/roll, eyeDistance, faceID, action, trackCount, ext iris/eye/lip/eyebrow) or VEFaceAttributeInfo (age first)",
+          "evidence": "sources/video/com.ss.android.vesdk.faceinfo.VEFaceDetectInfo.java; sources/video/X.C64698PZc.java; strings ca414b, ca40e9, dbe58d, dbe232",
+          "confidence": "confirmed"
+        },
+        {
+          "stage": "7. consumer",
+          "detail": "effect nodes (face reshape/beauty/makeup), Java face-info API referenced from classes8/10.dex, preview surface and encoder through the VESDK filter chain (vesdk::pub::Filters::set_bef_effect @0x2eb830)",
+          "evidence": "report §3; strings ca4550/ca453d/ca4465",
+          "confidence": "confirmed for effect nodes/events; encoder node inferred"
+        },
+        {
+          "stage": "8. failure",
+          "detail": "missing model -> 'FaceDetectTaskTT: Error!!! No detector' (no fallback); null handle -> -5; missing config -> -6; AB gate enable_fastmode_faceDetect240",
+          "evidence": "strings d02a24, d02a71, d2505a; 0x309894/0x30989c",
+          "confidence": "confirmed"
+        }
+      ]
+    },
+    {
+      "id": "face_attribute_age",
+      "name": "Face attribute (age) DNN",
+      "stages": [
+        {
+          "stage": "1. trigger",
+          "detail": "FaceAttributesTask inside the same effect graph, after face detection",
+          "evidence": "strings d25094 FaceAttributesTask.cpp, dde608 N3BEF18FaceAttributesTaskE",
+          "confidence": "confirmed"
+        },
+        {
+          "stage": "2. transport",
+          "detail": "texture-derived aligned face crop (task rejects YUV/GRAY); crop size unknown; the bgr448 assert claimed in report §6 does not exist in libeffect.so",
+          "evidence": "strings d250ed, d25120; grep 'bgr448|448' -> no hit",
+          "confidence": "unknown for crop size"
+        },
+        {
+          "stage": "3. model",
+          "detail": "tt_face_attribute_age_v1.1.model, single record 'agenet'; other attribute models named by the SDK (tt_beauty_attr6_v2.0, tt_face_attribute_v7.2, tt_face_attribute_extra_v3.0, tt_face_attribute_exp_v1.0) are not shipped",
+          "evidence": "strings d9283f, d25007, cd9f40, d914a5, d9288f",
+          "confidence": "confirmed for file/record; output layout unknown"
+        },
+        {
+          "stage": "4. output",
+          "detail": "VEFaceAttributeInfo/VEFaceAttribute: age, boyProb, attractive, happyScore, expType, expProbs[7], realFaceProb, quality, arousal, valence, sadScore, angryScore, surpriseScore, maskProb, wearHatProb, mustacheProb, lipstickProb, wearGlassProb, wearSunglassProb, blurScore, illumination; only age has a shipped model",
+          "evidence": "sources/video/com.ss.android.vesdk.faceinfo.VEFaceAttribute.java",
+          "confidence": "confirmed"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# APK identity
+path   : /run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.snapchat.android_200/partner-com.snapchat.android_200.apk
+sha256 : 70147a34fd974522a43a142ad1a5c81a0698b74663a3933e88bde30846a50238
+size   : 92250637
+package: com.snapchat.android 11.70.0.36 (84582)

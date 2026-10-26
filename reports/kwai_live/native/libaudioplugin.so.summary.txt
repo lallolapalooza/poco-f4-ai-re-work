@@ -1,0 +1,52 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/live_scan/libs/libaudioplugin.so
+==============================================================================
+size        : 43160 bytes (0.04 MiB)
+sha256      : 330f6a91e059ba268ac8066eec02335cdae27a2d75ec5ff28cda0942faa27f96
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x3860   imagebase: 0x0
+build id    : 8451da65e0b0999f42bb86a6084859738b5392c8
+android     : SDK 21, NDK r20b, build 5948944
+soname      : libaudioplugin.so
+needed      : libwesteros.so, libksaudioprocesslib.so, libprotobuf-lite.so, libdaenerys.so, libandroid.so, liblog.so, libEGL.so, libjnigraphics.so, libOpenSLES.so, libGLESv2.so, libffmpeg.so, libz.so, libm.so, libc++_shared.so, libdl.so, libc.so
+parser      : lief
+counts      : 33 exports, 46 imports, 2 JNI, 26 sections, 8 segments
+symtab/dynsym: 0 / 89
+
+Sections (26)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        632        0x228
+  .gnu.hash              GNU_HASH         A      0x4a0        248        0x4a0
+  .dynsym                DYNSYM           A      0x598        2136       0x598
+  .dynstr                STRTAB           A      0xdf0        4399       0xdf0
+  .gnu.version           GNU_VERSYM       A      0x1f20       178        0x1f20
+  .gnu.version_r         GNU_VERNEED      A      0x1fd8       64         0x1fd8
+  .rela.dyn              RELA             A      0x2018       4416       0x2018
+  .rela.plt              RELA             AI     0x3158       1056       0x3158
+  .plt                   PROGBITS         AX     0x3580       736        0x3580
+  .text                  PROGBITS         AX     0x3860       14840      0x3860
+  .rodata                PROGBITS         A      0x7260       2266       0x7260
+  .eh_frame_hdr          PROGBITS         A      0x7b3c       852        0x7b3c
+  .eh_frame              PROGBITS         A      0x7e90       3280       0x7e90
+  .gcc_except_table      PROGBITS         A      0x8b60       672        0x8b60
+  .note.android.ident    NOTE             A      0x8e00       152        0x8e00
+  .init_array            INIT_ARRAY       WA     0x19528      32         0x9528
+  .fini_array            FINI_ARRAY       WA     0x19548      16         0x9548
+  .data.rel.ro           PROGBITS         WA     0x19558      1568       0x9558
+  .dynamic               DYNAMIC          WA     0x19b78      720        0x9b78
+  .got                   PROGBITS         WA     0x19e48      440        0x9e48
+  .data                  PROGBITS         WA     0x1a000      16         0xa000
+  .bss                   NOBITS           WA     0x1a010      504        0xa010
+  .comment               PROGBITS         MS     0x0          264        0xa010
+  .shstrtab              STRTAB           -      0x0          251        0xa118
+
+JNI entry points (2)
+  0x4bb8         124        com.kwai.video.westeros.audioplugin.AudioPlugin.nativeCreateAudioPlugin
+      Java_com_kwai_video_westeros_audioplugin_AudioPlugin_nativeCreateAudioPlugin
+  0x4c34         112        com.kwai.video.westeros.audioplugin.AudioPlugin.nativeDestroyAudioPlugin
+      Java_com_kwai_video_westeros_audioplugin_AudioPlugin_nativeDestroyAudioPlugin
+
+AI-relevant strings (23179 bytes scanned in allocated data sections)
+
+JSON written to reports/kwai_live/native/libaudioplugin.so.json

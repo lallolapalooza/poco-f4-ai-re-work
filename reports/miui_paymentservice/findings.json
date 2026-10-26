@@ -1,0 +1,235 @@
+{
+  "slug": "miui_paymentservice",
+  "package": "com.xiaomi.payment",
+  "app_name": "Mi Coin (PaymentService_Global 1.12.13-global)",
+  "ai_summary": "Camera digit OCR for card/bank numbers. Classical CV pipeline: NV21 frame -> ARGB -> rotate/crop in Java, then libdigit_ocr.so: rgbToGray -> adaptive threshold -> connected-component digit segmentation (1:3.5 aspect, slant correction) -> 20x32 grayscale patch -> 144-dim HOG (binarise >80, 4x4 cells x 9 orientation bins, counts/40) -> LIBSVM RBF C-SVC (10-class digit model gamma=2.0, plus a 2-class gate model gamma=0.5) -> digit string with per-digit confidence and top-3 candidates. Both model assets are plain LIBSVM text files, fully parsed; the reimplementation uses the real weights and matches the shipped library numerically.",
+  "features": [
+    {
+      "name": "Digit OCR (card/bank number capture)",
+      "entrypoints": [
+        "com.mibi.ocr.entry.DigitOcrEntry (assets/manifest/ocr/plugin.xml provider mibi.ocr)",
+        "com.mibi.ocr.ui.CaptureActivity",
+        "com.mibi.ocr.ui.CaptureFragment",
+        "a.b.a.c (DigitOCRManager)",
+        "a.b.a.f (RecognizeController)",
+        "a.b.a.d (DigitOCRRecognizer)",
+        "com.xiaomi.payment.camera.XiaoMIDigitOCR.nativeBeginProcess/nativeSetImage/nativeRecogDigit",
+        "libdigit_ocr.so: MainOCR::process_OneImg"
+      ],
+      "pipeline": [
+        "a.b.a.b Camera1 preview delivers NV21 byte[] frames on a HandlerThread",
+        "a.b.a.d: Y plane -> ARGB int[] via (Y&0xff)*0x10101|0xFF000000, Bitmap ARGB_8888",
+        "rotate by cameraMode, crop to the mask rectangle mapped into preview coordinates",
+        "copyPixelsToBuffer -> RGBA_8888 direct ByteBuffer -> nativeSetImage(j,bb,w,h,4)",
+        "MainOCR::process_OneImg -> DigitSegment::SegDigitInGrayImg: rgbToGray(fmt) -> adaptiveThreshold",
+        "SegDigitInBinaryImg: FindDigitConnectedReigon -> FindDigitTargetRect(aspect 1.0..3.5) -> RANSAC line / CorrectBiasAngle -> SetDigitMatVector",
+        "each segmented glyph normalised to a 20x32 grayscale patch",
+        "CFEATURE_HOG::ExtractGradientOrientation(patch,20,32): binarise>80, gx/gy backward differences, atan2 orientation, 4x4 cells x 9 bins of 40deg, counts/40 -> 144 float32",
+        "CDigitalOCR::Predict: svm_predict_probability(Digital_OCR_svm_9.model) -> argmax digit, confidence=int(prob*100), plus 2nd/3rd candidate when prob>0.1 (OCR_STR{digit,conf})",
+        "CDigitalOCR::PredictNegPos: svm_predict_probability(Digital_OCR_svm_2.model) -> binary gate used by MainOCR::trimBadDigit",
+        "MainOCR assembles the digit string, applies the digit-count range (default 15..19) and frame-result/confidence logic; Java reads it via nativegetDigitResultString"
+      ],
+      "models": [
+        "assets/Digital_OCR_svm_9.model",
+        "assets/Digital_OCR_svm_2.model"
+      ],
+      "confidence": "confirmed",
+      "notes": "Whole chain decompiled (sources/) and the native classifier stage verified numerically against the shipped arm64 library under qemu-aarch64: HOG exact, decision values 6.7e-8, probabilities 4.7e-11, full pipeline recognised a synthetic '1234' card image and the JAX reimplementation reproduced the same string from the vendor's own 20x32 patches."
+    }
+  ],
+  "models": [
+    {
+      "path": "assets/Digital_OCR_svm_9.model",
+      "format": "LIBSVM text model (svm_save_model), c_svc + rbf, CRLF",
+      "size": 568611,
+      "io": {
+        "input": "144 float32 HOG features (libsvm indices 1..144; only 1..142 active in the support vectors)",
+        "output": "10 class probabilities (labels 0..9), argmax digit, confidence = int(prob*100)"
+      },
+      "ops": [
+        "binarise patch (>80 -> 255)",
+        "gx/gy backward differences",
+        "atan2 orientation, 40-degree bins",
+        "4x4 cell histogram (/=40)",
+        "rbf kernel exp(-2.0*||x-sv||^2) against 1076 support vectors",
+        "one-vs-one decision values (45 pairs, rho offsets)",
+        "sigmoid(probA,probB) + pairwise coupling (Wu/Lin/Weng)",
+        "argmax + top-3 (prob>0.1)"
+      ],
+      "weights": "extracted",
+      "jax_reimpl": "reimpl/jax_model.py + reimpl/pipeline.py",
+      "verification": "vendor-qemu: HOG exact; decision values max|diff| 6.7e-08; probabilities max|diff| 4.7e-11 for 6 vectors; JAX reproduces '1234' from the vendor's own normalised patches; reimpl/verify.txt exit 0",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "assets/Digital_OCR_svm_2.model",
+      "format": "LIBSVM text model (svm_save_model), c_svc + rbf, CRLF",
+      "size": 258588,
+      "io": {
+        "input": "144 float32 HOG features of a 20x32 candidate glyph",
+        "output": "2 class probabilities (labels 0,1); PredictNegPos returns (prob[0] > 0.5)"
+      },
+      "ops": [
+        "rbf kernel exp(-0.5*||x-sv||^2) against 545 support vectors",
+        "single one-vs-one decision value (rho)",
+        "sigmoid + pairwise coupling for nr_class=2"
+      ],
+      "weights": "extracted",
+      "jax_reimpl": "reimpl/jax_model.py (is_digit branch of classify_digit)",
+      "verification": "vendor-qemu probabilities max|diff| 4.7e-11 on 6 feature vectors; reimpl/verify.txt exit 0",
+      "confidence": "confirmed"
+    }
+  ],
+  "reimplementation": {
+    "path": "reimpl/",
+    "run_command": "python reimpl/pipeline.py",
+    "status": "verified",
+    "limitations": "Classifier stage only (HOG + LIBSVM with the real shipped weights), which is where all learned parameters live. The upstream segmentation stage (rgbToGray formats, adaptiveThreshold window/offset, FindDigitTargetRect/HOG-cell geometry constants, DP split points) is documented but not reimplemented; inputs are 20x32 grayscale glyph patches (28x28/32x32 accepted via nearest-neighbour resampling). Polarity of the binary gate model (label 0 vs 1 meaning) is not provable from the binary."
+  },
+  "unknowns": [
+    "adaptiveThreshold implementation (window size, offset C, mean vs Gaussian) is a local, non-exported function; only its (gray,&bin,w,h) call signature is recovered.",
+    "rgbToGray coefficients per image format (1..4) are not recovered; the Java path always passes format 4 (RGBA_8888).",
+    "DigitSegment geometric constants beyond the (1.0, 3.5) aspect bounds, and the exact DP/projection-histogram split logic in FindSegPointFromHistogram / FindSegPointDP.",
+    "svm_load_cvt_model's internal pre-conversion is not decoded (verified numerically identical to svm_load_model).",
+    "Semantics of the binary model's label 0/1 in PredictNegPos (which side means 'is a digit') cannot be determined from the binary alone.",
+    "The library writes a debug dump to a hard-coded path 'D:\\\\123.txt' while loading models (leftover from the vendor build); harmless on Android."
+  ],
+  "data_pipelines": [
+    {
+      "id": "ocr_digit_capture",
+      "name": "Voucher/card code digit OCR (camera -> NV21 -> mask crop -> libdigit_ocr HOG+SVM -> UI)",
+      "document": "PIPELINE.md",
+      "confidence": "confirmed",
+      "trigger": {
+        "ui": "com.xiaomi.payment.channel.VoucherFragment.j0() (camera button R.id.camera_btn on the voucher / 'Mi Coin card password' screen)",
+        "request": "CameraIntentData(R.id.voucher_edit=2131362538, prompt=mibi_scan_prompt_voucher, allowedLengths={o.l.m..o.l.n}) into bundle key IEntry.f3559b='arguments'",
+        "entry_id": "com.xiaomi.payment.l.f.Y1 = 'mibi.ocr'",
+        "dispatch": "com.xiaomi.payment.entry.a.a(String, Fragment, Bundle, 31) -> provider lookup -> com.mibi.ocr.entry.DigitOcrEntry.a(IEntry.a, bundle, 31) -> Intent(CaptureActivity) + extra 'payment_fragment_arguments'",
+        "request_code": 31,
+        "lifecycle": "a.b.a.c (DigitOCRManager) states NULL/INIT/PREVIEWING/PAUSED; camera opened in h(), released in i(); native MainOCR created per recognizer in a.b.a.d.a(Context) and never destroyed",
+        "evidence": [
+          "sources/consumer/com.xiaomi.payment.channel.VoucherFragment.java",
+          "sources/consumer/com.xiaomi.payment.entry.a.java",
+          "sources/consumer/com.xiaomi.payment.l.f.java:115",
+          "assets/manifest/ocr/plugin.xml",
+          "sources/classes/com.mibi.ocr.entry.DigitOcrEntry.java"
+        ]
+      },
+      "transport": {
+        "camera_api": "android.hardware.Camera (Camera1), opened on the UI thread",
+        "callback": "setOneShotPreviewCallback -> Camera.PreviewCallback.onPreviewFrame(byte[], Camera)",
+        "format": "NV21 (default; setPreviewFormat is never called); only the first w*h bytes (Y plane) are read",
+        "frame_size": "selected preview size: exact (long,short) match to the screen if available, else the size minimising |int(long/short) - screenLong/screenShort| (sizes sorted by area desc, first best cached) - note int division truncates the candidate aspect",
+        "display": "SurfaceView (com.mibi.ocr.ui.CameraPreview) + Camera.setDisplayOrientation(cameraMode)",
+        "camera_mode": "(450 - displayRotationDegrees) mod 360 (portrait=90, ROTATION_90=0, ROTATION_180=270, ROTATION_270=180); tablets may override with (physicalOrientation+90) mod 360 via OrientationEventListener",
+        "threads": "frames arrive on the main thread; RecognizeController owns HandlerThread 'decode'",
+        "queue": "depth 1 - one frame in flight (processing flag + hasMessages(1)); a frame arriving while busy is dropped and a new one is requested",
+        "cadence": "one frame per request; re-arm 300 ms; auto-focus mode retries autoFocus every 300 ms and captures immediately on success",
+        "evidence": [
+          "sources/classes_abac/a.b.a.b.java",
+          "sources/classes_abac/a.b.a.f.java",
+          "sources/classes_abac/a.b.a.c.java:160-176"
+        ],
+        "ownership": "framework-allocated byte[] per one-shot callback, passed by reference through Message.obj (no copy), read-only"
+      },
+      "mask_and_coordinates": {
+        "mask_rect": "centred 350dp x 65dp window (318dp x 59dp @xxxhdpi), width falls back to 95% of the screen width if narrower; PreviewMaskView is a pure overlay (DST_OUT scrim + animated scan line)",
+        "portrait_mapping": "left'=left*previewH/screenW; right'=right*previewH/screenW; top'=top*previewW/screenH; bottom'=bottom*previewW/screenH (integer division, no clamping)",
+        "landscape_mapping": "left'=left*previewW/screenW; right'=right*previewW/screenW; top'=top*previewH/screenH; bottom'=bottom*previewH/screenH",
+        "crop_space": "mask rect is mapped into preview coordinates and applied AFTER rotating the full frame bitmap by cameraMode, so the rotated frame is previewH x previewW in portrait",
+        "example": "1080x2400 screen + 1920x1080 preview + 3x density -> crop x=1050 px wide, y=156 px high",
+        "evidence": [
+          "sources/classes/com.mibi.ocr.ui.PreviewMaskView.java:99-122",
+          "sources/classes_abac/a.b.a.c.java:203-232",
+          "evidence/ui_jni/resources.txt"
+        ]
+      },
+      "preprocessing": [
+        "Y plane -> ARGB int[]: dst = ((src & 0xFF) * 0x10101) | 0xFF000000 (grey replicated to R,G,B)",
+        "Bitmap.createBitmap(w,h,ARGB_8888) + setPixels",
+        "rotate by cameraMode via Matrix.setRotate(cameraMode, w/2f, h/2f), filtered",
+        "crop at mapped Point(rect.left, rect.top) with size (rect.width, rect.height)",
+        "copyPixelsToBuffer into ByteBuffer.allocateDirect(w*h*4) (RGBA byte order), flip()",
+        "nativeSetImage(handle, buffer, w, h, 4) -> MainOCR::setImage stores the borrowed pointer",
+        "native: rgbToGray(fmt=4) -> adaptiveThreshold -> connected components -> FindDigitTargetRect(1.0,3.5) -> RANSAC/CleanBiasAngle -> 20x32 grey patches",
+        "CFEATURE_HOG::ExtractGradientOrientation: binarise >80, backward gx/gy, atan2, 4x4 cells x 9 bins (40 deg), /40 -> 144 float32"
+      ],
+      "model_invocation": {
+        "runtime": "custom C++ (libdigit_ocr.so), no TFLite/SNPE/NNAPI",
+        "models": [
+          "assets/Digital_OCR_svm_9.model (10-class digit SVM, gamma 2.0, 1076 SVs)",
+          "assets/Digital_OCR_svm_2.model (binary gate, gamma 0.5, 545 SVs)"
+        ],
+        "model_loading": "XiaoMIDigitOCR copies both assets into filesDir and calls nativeBeginProcess(handle, svm9Path, svm2Path) -> CDigitalOCR::LoadModel -> svm_load_model x2",
+        "jni": {
+          "nativeCreateObject": "()J @0x14b98, operator_new(0xe48) + MainOCR ctor (default digit range 15..19)",
+          "nativeBeginProcess": "(JLjava/lang/String;Ljava/lang/String;)Z @0x14840, GetStringUTFChars -> beginProcess -> ReleaseStringUTFChars, returns true unconditionally",
+          "nativeSetImage": "(JLjava/nio/ByteBuffer;III)Z @0x148f0, GetDirectBufferAddress -> MainOCR::setImage (stores borrowed pointer, no copy/global ref); false if fmt not in 1..4 or pointer NULL",
+          "nativeRecogDigit": "(J[I)I @0x1497c, recogdigitOCR -> process_OneImg; GetIntArrayElements copy of count digits from +0x7d8, Release(0); returns count",
+          "nativegetDigitResultString": "(J)Ljava/lang/String; @0x14ac4, getBestFrameResultStr (+0xe30) -> NewStringUTF",
+          "nativegetmeanConfidence": "(J)I @0x14c08, ldr w0,[x0,#0xe20]",
+          "nativegetwordConfidences": "(J)[I @0x14c10, NewIntArray(count) only - never filled (returns zeros)",
+          "nativegetDigitBoundingBoxes": "(J)[Landroid/graphics/Rect; @0x14c44",
+          "nativesetDigitRange": "(JII)V @0x14f80 -> +0xe38/+0xe3c",
+          "nativeSetCameraMode": "(JI)V @0x14f6c -> +0xe40 (unused by this UI)",
+          "nativeclearResultQueue": "(J)V @0x14f78",
+          "nativeEndProcess": "not exported for com.xiaomi.payment.camera.XiaoMIDigitOCR (only legacy Java_com_xiaomicode_digitocr_DigitOCR_nativeEndProcess @0x14948) - dead code, native object leaks"
+        },
+        "buffer_ownership": "Java allocates a direct ByteBuffer per frame; native stores the raw pointer without pinning/copying and reads it in the same synchronous setImage/recogDigit sequence on the 'decode' thread",
+        "threading": "all JNI calls on the single HandlerThread 'decode'; MainOCR is thread-confined",
+        "cancellation": "RecognizeController.d() removeMessages(1); DigitOCRManager.i() -> f.d() + camera.release(); no native abort for an in-flight frame",
+        "evidence": [
+          "evidence/ui_jni/jni_disasm.txt",
+          "native/ghidra_digitocr.c",
+          "sources/classes/com.xiaomi.payment.camera.XiaoMIDigitOCR.java"
+        ]
+      },
+      "postprocessing": {
+        "per_digit": "svm_predict_probability(svm_9) -> argmax digit, confidence=int(prob*100), top-3 candidates with prob>0.1",
+        "gate": "CDigitalOCR::PredictNegPos(svm_2) used by MainOCR::trimBadDigit(...,60,...) as a keep/drop tie-breaker",
+        "string": "sprintf(\"%d\") over digits[0..count) in MainOCR::getRecognitionResultString",
+        "acceptance": "XiaoMIDigitOCR.c(): nativegetmeanConfidence() > 80 (set via b(80)) AND digit count in the caller-supplied whitelist; a.b.a.d returns nativegetDigitResultString() when the gate passes, otherwise ''",
+        "pan_lengths": "native default 15..19 (MainOCR ctor), overridden by nativesetDigitRange(min,max) from CameraIntentData.h (voucher code window m..n)",
+        "evidence": [
+          "sources/classes/com.xiaomi.payment.camera.XiaoMIDigitOCR.java",
+          "native/ghidra_digitocr.c:929-1235"
+        ]
+      },
+      "consumer": {
+        "path": "decode thread -> RecognizeController callback -> DigitOCRManager.b -> CaptureFragment$e.a(String) -> UI Handler -> CaptureFragment.h(str): R.id.result TextView, buttons visible, preview paused",
+        "empty_result": "request next frame (j.a()), UI keeps scanning",
+        "confirm": "CaptureFragment$b: bundle[key=Integer.toString(R.id.voucher_edit)='2131362538'] = TextView text -> fragment result (-1) -> VoucherFragment.a(31,-1,intent) -> FormattableEditText.setText (setMaxLength(n))",
+        "validation": "VoucherFragment$c: trim -> if empty or len<m or len>n -> Toast mibi_voucher_error_password; else presenter.a(code) (redemption submission)",
+        "privacy": "no frame or digit persistence in this path; only writes are the two SVM models copied to app-private filesDir and the vendor's impossible debug dump D:\\123.txt; native logs only 'ocrdebug len=%d'",
+        "evidence": [
+          "sources/classes/com.mibi.ocr.ui.CaptureFragment.java",
+          "sources/classes_abac/a.b.a.d.java",
+          "sources/consumer/com.xiaomi.payment.channel.VoucherFragment.java"
+        ]
+      },
+      "failure_paths": [
+        "camera feature missing or incognito mode -> DigitOcrEntry.a(Context) false -> camera button hidden",
+        "CAMERA permission denied -> BaseFragment i0() -> H() (close)",
+        "Camera.open() failure -> Toast mibi_camera_open_failed ('相机打开失败') -> H()",
+        "model assets missing/copy failure -> IllegalStateException('Digital_OCR_svm*.models are not provided rightly') on the decode thread",
+        "native model load failure -> logged ('model load fail') but JNI returns true, so Java proceeds",
+        "no digits / mean confidence <= 80 / count outside whitelist -> empty result, keep scanning",
+        "mapped crop outside the rotated frame -> Bitmap.createBitmap throws on the decode thread (no fallback) [inferred]",
+        "orientation change while previewing (tablet) -> cameraMode updated but not re-applied until the next camera open [confirmed code]"
+      ],
+      "open_questions": [
+        "adaptiveThreshold window/offset and rgbToGray coefficients (segmentation stage) remain unrecovered",
+        "whether +0xe20 is an average or minimum confidence (field name says mean; estimateFrameMinConf/AvgConf both write neighbouring fields)",
+        "semantics of the binary gate model labels",
+        "exact on-device preview size / density combination (formulas are exact, the concrete numbers depend on the device)"
+      ],
+      "evidence": [
+        "PIPELINE.md",
+        "report.md#9",
+        "evidence/ui_jni/",
+        "sources/consumer/",
+        "native/README.md"
+      ]
+    }
+  ]
+}

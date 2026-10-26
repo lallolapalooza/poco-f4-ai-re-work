@@ -1,0 +1,65 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_bulldog/native/libs/libykit_plugin.so
+==============================================================================
+size        : 260216 bytes (0.25 MiB)
+sha256      : b0a6ffecfcc156fe24cf36c7f5c6c9d9db7f2b60be715e3f2ff48c1db8ea75b3
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0xa3f0   imagebase: 0x0
+build id    : 62eca8c48dbd13f43a30cf9272dbfeea3c2ef339
+android     : SDK 21, NDK r21e, build 7075529
+soname      : libykit_plugin.so
+needed      : libykit.so, libprotobuf-lite.so, libwesteros.so, libjnigraphics.so, libm.so, libc++_shared.so, libdl.so, libc.so
+parser      : lief
+counts      : 58 exports, 172 imports, 5 JNI, 26 sections, 8 segments
+symtab/dynsym: 0 / 240
+
+Sections (26)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        1756       0x228
+  .gnu.hash              GNU_HASH         A      0x908        460        0x908
+  .dynsym                DYNSYM           A      0xad8        5760       0xad8
+  .dynstr                STRTAB           A      0x2158       11326      0x2158
+  .gnu.version           GNU_VERSYM       A      0x4d96       480        0x4d96
+  .gnu.version_r         GNU_VERNEED      A      0x4f78       64         0x4f78
+  .rela.dyn              RELA             A      0x4fb8       15408      0x4fb8
+  .rela.plt              RELA             AI     0x8be8       3672       0x8be8
+  .plt                   PROGBITS         AX     0x9a40       2480       0x9a40
+  .text                  PROGBITS         AX     0xa3f0       156440     0xa3f0
+  .rodata                PROGBITS         A      0x30710      12989      0x30710
+  .eh_frame_hdr          PROGBITS         A      0x339d0      4412       0x339d0
+  .eh_frame              PROGBITS         A      0x34b10      20680      0x34b10
+  .gcc_except_table      PROGBITS         A      0x39bd8      10412      0x39bd8
+  .note.android.ident    NOTE             A      0x3c484      152        0x3c484
+  .init_array            INIT_ARRAY       WA     0x3e270      48         0x3d270
+  .fini_array            FINI_ARRAY       WA     0x3e2a0      16         0x3d2a0
+  .data.rel.ro           PROGBITS         WA     0x3e2b0      5432       0x3d2b0
+  .dynamic               DYNAMIC          WA     0x3f7e8      592        0x3e7e8
+  .got                   PROGBITS         WA     0x3fa38      1480       0x3ea38
+  .data                  PROGBITS         WA     0x40000      32         0x3f000
+  .bss                   NOBITS           WA     0x40020      1184       0x3f020
+  .comment               PROGBITS         MS     0x0          220        0x3f020
+  .shstrtab              STRTAB           -      0x0          251        0x3f0fc
+
+JNI entry points (5)
+  0xab3c         124        com.kwai.video.westeros.v2.ykitplugin.YKitPlugin.nativeCreateYKitPlugin
+      Java_com_kwai_video_westeros_v2_ykitplugin_YKitPlugin_nativeCreateYKitPlugin
+  0xabb8         96         com.kwai.video.westeros.v2.ykitplugin.YKitPlugin.nativeDestroyYKitPlugin
+      Java_com_kwai_video_westeros_v2_ykitplugin_YKitPlugin_nativeDestroyYKitPlugin
+  0xac18         432        com.kwai.video.westeros.v2.ykitplugin.YKitPlugin.nativeSetOnYKitModelLoadFinish
+      Java_com_kwai_video_westeros_v2_ykitplugin_YKitPlugin_nativeSetOnYKitModelLoadFinish
+  0xadc8         568        com.kwai.video.westeros.v2.ykitplugin.YKitPlugin.nativeSetUploadStatsCallBack
+      Java_com_kwai_video_westeros_v2_ykitplugin_YKitPlugin_nativeSetUploadStatsCallBack
+  0xb000         212        com.kwai.video.westeros.v2.ykitplugin.YKitPlugin.nativeSetParamInfo
+      Java_com_kwai_video_westeros_v2_ykitplugin_YKitPlugin_nativeSetParamInfo
+
+AI-relevant strings (95207 bytes scanned in allocated data sections)
+  [nn_runtime] 1 unique (first 1)
+    0x0003304e .rodata    ykit gpu runner init error!
+  [face] 2 unique (first 2)
+    0x000028e7 .dynstr    _ZN6google8protobuf5Arena15AllocateAlignedEPKSt9type_infom
+    0x00033520 .rodata    ykit_face_attribute
+  [model_name] 1 unique (first 1)
+    0x000337f0 .rodata    device_model
+
+JSON written to native/libykit_plugin.so.json

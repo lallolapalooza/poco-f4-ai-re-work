@@ -1,0 +1,21 @@
+Kwai Live (com.kwai.kuaishou.video.live 6.0.20.524207) - reimpl verification
+python  : 3.12.12 (Linux-7.2.9-arch1-1-x86_64-with-glibc2.44)
+jax     : 0.12.0.1  devices=[CpuDevice(id=0)]
+numpy   : 2.5.4
+command : python verify.py  (cwd=/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/reimpl)
+params  : 5 beauty presets from assets/beauty_list; 29 liquify ops from assets/BodySlimming/Filter40p
+
+check                                      result detail
+----------------------------------------------------------------------------------------------------
+params loaded                              PASS   5 beauty presets, 7 body groups, 29 warp ops
+apply shapes                               PASS   (64, 48, 4) float32
+JAX vs NumPy G3 blend                      PASS   max_abs_err=7.451e-08
+blend identity at zero intensity           PASS   max_abs_delta=0.000e+00
+beautify strength monotonic                PASS   delta(0.2)=0.0005 delta(0.8)=0.0020
+body-slim identity at zero intensity       PASS   max_abs_delta=1.851e-06 (f32 resample)
+body-slim deterministic                    PASS   max_abs_delta=0.000e+00
+body-slim non-identity                     PASS   mean_abs_delta=0.1559
+warp displacement bounded                  PASS   max_uv_displacement=0.0507
+multi-resolution run                       PASS   32x32->(32, 32, 4), 128x96->(128, 96, 4), 256x144->(256, 144, 4)
+
+RESULT: 10/10 checks passed

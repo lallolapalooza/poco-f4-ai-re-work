@@ -1,0 +1,33 @@
+# verify.txt — Kwai (com.kwai.video) vision/beauty JAX reimplementation
+# host Linux 7.2.9-arch1-1
+# python: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python (3.12.12)
+# jax: 0.12.0.1
+
+$ cd reports/kwai_video/reimpl && python pipeline.py
+
+==============================================================================
+Kwai vision/beauty pipeline reimplementation (JAX 0.12.0.1)
+==============================================================================
+[0] synthetic frame            rgb=(270, 480, 3) float32 [0,1]
+An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+[1] NV21 encode/decode         nv21=(194400,) uint8  rgb=(270, 480, 3)  roundtrip_psnr=36.43 dB
+[2] crop(144.0, 27.0, 336.0, 216.0) -> net input    x=(128, 128, 3) (YCNNCropDataMatrix contract, ARCHITECTURE_ONLY size)
+    YCNN contract: model_types=35 detector_type=21 landmarks_type=5 colorType=3
+    KSLandmarksParam defaults: {'maxFaceNum': 4, 'minFaceSize': 50, 'detectIntervals': 5, 'detectMode': 4, 'detectSync': 0, 'useImageTrack': 2, 'useSmoothMode': 0, 'stickFaceCropRect': True, 'stickTrackRect': True}
+[3] detector head (RANDOM W)   score=(1, 32, 32, 1) min=0.5000 max=0.5005  landmarks=(1, 32, 32, 212)
+    decoded: face_center=(0.375, 0.375) lmk_offsets=(106, 2)  [placeholder weights]
+[4] beauty mean/var pass       mean=(270, 480, 3) var=(270, 480) kMax=0.182
+    composite                  out=(270, 480, 3)
+[5] Hald LUT (REAL weights)    lut=(64, 64, 3) from assets/default_enhance_lut.png
+    graded mean=0.1799 mean|delta| vs ungraded=0.2681
+[6] luma unsharp mask          out=(270, 480, 3) sharpness=0.35
+[7] jit gorgeous_beauty        out=(270, 480, 3) range=[0.027,0.988]
+------------------------------------------------------------------------------
+[V1] JAX vs numpy parity (composite)  max_abs_err=0.000e+00  psnr=inf dB
+[V2] fraction of pixels modified      84.5%  (smoothing active)
+[V3] LUT identity check               max_delta=3.209e-07
+[V4] artifacts written to /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_video/reimpl/out
+------------------------------------------------------------------------------
+RESULT: PASS
+
+exit_status=0

@@ -1,0 +1,13 @@
+{
+  "slug": "miui_extraphoto",
+  "apk": "document_model.dlc (357,758 B SNPE), 4 x MACE compiled caches (per SoC), libdoc_photo_process.so (25,029,048 B, model payload embedded in .rodata)",
+  "local_files": 10,
+  "bytes": 24251976,
+  "tflite": 0,
+  "bundles": 0,
+  "absent": [
+    "MACE doc models (hed_model, enhance_model, dewarp_*, segment, inpaint, handwrite) are embedded in libdoc_photo_process.so and are not standalone files; the .rodata payload (19.5 MB) was extracted but model boundaries are not separable.",
+    "Megvii/ArcSoft/relighting weights are embedded/opaque; libmotion_photo_mace.so mmaps a model file that is not shipped."
+  ],
+  "notes": "document_model.dlc graph and weights decoded; 4 MACE CL caches extracted; libdoc_photo_process.so + .rodata extracted for reimplementation."
+}

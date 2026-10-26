@@ -1,0 +1,92 @@
+# NUL-terminated strings in libeffect.so mentioning face/model names (file offset, vaddr == offset for .rodata)
+0x00ca0f79  FaceAttributes
+0x00ca1013  %s [%s %d] Parser: requirement parse: needFaceDetect %d, needMatting %d, needHairColor %d, needSlam %d, needFaceTrack: %d,needCatFaceDetect:%d, need3DfaceDetect: %d,needExpressionDetect :%d, needSkySegDetect:%d, needSkeletonCHRYDetect:%d needARPlane:%d, needActionDetectStatic:%d, needActionDetectSequence:%d ,needGenderDetect:%d needAvatarDrive: %d needARScan: %d, needCarSegmentation: %d, needFaceAttributes: %d, needHdrnet: %d, needMicrophoneAttention: %d, needLicensePlateDetect: %d, needCarDetect: %d, needVideoMatting: %d, needSceneNormal: %d, needAvatar3D: %d, needFoot: %d, needBeautyGan: %d, needInteractiveMatting: %d
+0x00ca4550  handleFaceAttributeEvent
+0x00cc3d73  faceDetectExtParam
+0x00cc47f9  bef_algorithm_array_ext_param_st::faceDetectExtParam
+0x00cc484a  bef_algorithm_array_ext_param_faceDetectExtParam_set
+0x00cc487f  bef_algorithm_array_ext_param_faceDetectExtParam_get
+0x00cc52e4  bef_algorithm_ext_param_st::faceDetectExtParam
+0x00cc5313  bef_algorithm_ext_param_faceDetectExtParam_set
+0x00cc5342  bef_algorithm_ext_param_faceDetectExtParam_get
+0x00ccefd4  BefAlgorithmArrayExtParam::faceDetectExtParam
+0x00ccf002  BefAlgorithmArrayExtParam_faceDetectExtParam_set
+0x00ccf033  BefAlgorithmArrayExtParam_faceDetectExtParam_get
+0x00cd9f40  ttfaceattrmodel/tt_face_attribute_v7.2.model
+0x00cdb832          "description": "Controls whether to run fs-new faceDetect in the new algorithm system, true for the fs-new FaceDetect, false for the old faceDetect."
+0x00cdb9a4          "key": "enable_fastmode_faceDetect240",
+0x00d028e3  %s [%s %d] --faceDetectAlgorithm: fail %d
+0x00d0290d  %s [%s %d] createFinder init FS_AddExtraModelFromBuf Face fail %d %p
+0x00d02952  %s [%s %d] --faceDetectAlgorithm: use fast-mode faceDetect240
+0x00d02990  %s [%s %d] creteFinder init FS_AddExtraModelFromBuf Face fail %d %p
+0x00d029d4  %s [%s %d] --faceDetectAlgorithm: do not use fast-mode faceDetect240
+0x00d02b0e  ttfacemodel/tt_face_extra_v13.0.model
+0x00d02b34  ttfacemodel/tt_face_extra_fast_v13.0.model
+0x00d0806f          float irisWidth         = distance(realP74,realP77);
+0x00d080ac          float standardLength    = irisWidth;
+0x00d25007  ttfaceattrmodel/tt_beauty_attr6_v2.0.model
+0x00d25032  FaceAttributesAlgorithm
+0x00d2505a  %s [%s %d] FaceAttributesTask: Error!!! No detector !!!!!
+0x00d25094  FaceAttributesTask.cpp
+0x00d250ab  %s [%s %d] FaceAttributesTask: Error!!! No result container !!!!!
+0x00d250ed  %s [%s %d] FaceAttributesTask: Image data is null!
+0x00d28af3  faceDetect240
+0x00d28b01  faceDetect280
+0x00d28b20  faceDetectDu
+0x00d60e89  %s [%s %d] --AlgorithmManager: AB value of {enable_fastmode_faceDetect240} is %s
+0x00d60eef  %s [%s %d] --AlgorithmManager: AB value of {enable_fastmode_faceDetect240} not exist
+0x00d61760  faceDetect
+0x00d64cbf  enable_fastmode_faceDetect240
+0x00d65d93  smash face base model version;: %s
+0x00d65db7  tt_face_v10.0.model
+0x00d65dcb  tt_face_v7.0
+0x00d65dd8  tt_face_extra_v9.0
+0x00d65deb  smash face extra model version;: %s
+0x00d65e10  tt_face_extra_v13.0.model
+0x00d65e2a  Loading smash face fast extra model version;: %s
+0x00d65e5c  tt_face_extra_fast_v13.0.model
+0x00d65e80  Extract model name: slowimage fail
+0x00d65ea4  Extract model name: imagedetect fail.
+0x00d66161  base120
+0x00d66169  base120det
+0x00d66174  iris
+0x00d66179  eyecls
+0x00d66180  slowimage
+0x00d6619a  partface
+0x00d66daf  tt_face_attribute_v3.2
+0x00d66e11  agenet
+0x00d7fa12  iris_count
+0x00d7fa50  left_iris
+0x00d7fa5a  right_iris
+0x00d7fb79  FaceAttributeInterface
+0x00d7fb90  AmazingEngine::FaceAttributeInterface
+0x00d8214d  getFaceAttributeCount
+0x00d82163  getFaceAttributeInfo
+0x00d85571  pout
+0x00d906fc  ttfacemodel/tt_face_v10.0.model
+0x00d9073e  facebeautifymodel/tt_facebeautify_v2.0.model
+0x00d914a5  ttfaceattrmodel/tt_face_attribute_extra_v3.0.model
+0x00d917d2  face_iris_smooth_level
+0x00d9271f  tt_facefitting845_v2.1.model
+0x00d9273c  tt_facefitting1220_v2.0.model
+0x00d9275a  tt_facefitting1256_v2.0.model
+0x00d92778  facefitting/tt_facefitting845_v2.1.model
+0x00d927a1  facefitting/tt_facefitting1220_v2.0.model
+0x00d927cb  facefitting/tt_facefitting1256_v2.0.model
+0x00d9283f  ttfaceattrmodel/tt_face_attribute_age_v1.1.model
+0x00d9288f  ttfaceattrmodel/tt_face_attribute_exp_v1.0.model
+0x00d94257  tt_face_mask
+0x00d94c58  faceganmodel/tt_facegan_class_v4.0.model
+0x00d9579a  facepartbeautymodel/tt_facepartbeauty_v2.0.model
+0x00d9702c  facenewlandmarkmodel/tt_face_new_landmark_v2.0.model
+0x00d99251  tt_facepartbeauty_v2.0
+0x00d9d2ae  tt_facebeautify_v2.0
+0x00db9a33  N4Bach13FaceAttributeE
+0x00db9bfe  N4Bach19FaceAttributeBufferE
+0x00dbec0f  N3BES8NtfEventINS_18FaceAttributeEventEEE
+0x00dde481  NSt6__ndk114default_deleteIN3BEF18FaceAttributesTaskEEE
+0x00dde4b9  NSt6__ndk120__shared_ptr_pointerIPN3BEF18FaceAttributesTaskENS_14default_deleteIS2_EENS_9allocatorIS2_EEEE
+0x00dde524  N3BEF23FaceAttributesAlgorithmE
+0x00dde544  ZN3BEF23FaceAttributesAlgorithm17registerAlgorithmEvE3$_0
+0x00dde57e  NSt6__ndk110__function6__funcIZN3BEF23FaceAttributesAlgorithm17registerAlgorithmEvE3$_0NS_9allocatorIS4_EEFPNS2_18AlgorithmInterfaceEvEEE
+0x00dde608  N3BEF18FaceAttributesTaskE

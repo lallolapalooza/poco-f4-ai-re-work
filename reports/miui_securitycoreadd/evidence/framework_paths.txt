@@ -1,0 +1,211 @@
+Framework-side evidence for miui_securitycoreadd
+================================================
+Collected from the same device system image the APK was pulled from.
+Nothing here was produced by the APK; it is the other half of the AI
+auto-brightness loop.
+
+ROOT="/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system"
+
+1. Where the AIDL types live
+---------------------------
+$ strings -a "$ROOT/system_ext/framework/miui-framework.jar" >/dev/null   # (zip)
+$ unzip -l "$ROOT/system_ext/framework/miui-framework.jar"
+     5532772  classes.dex
+$ unzip -j "$ROOT/system_ext/framework/miui-framework.jar" classes.dex \
+        -d reports/miui_securitycoreadd/sources/framework/   # -> miui-framework.dex
+
+$ strings -a sources/framework/miui-framework.dex | grep -i aiautobrt
+  Lcom/xiaomi/aiautobrt/IIndividualBrightnessService;
+  Lcom/xiaomi/aiautobrt/IIndividualBrightnessService$Stub$Proxy;
+  Lcom/xiaomi/aiautobrt/IIndividualCallback;
+  Lcom/xiaomi/aiautobrt/IndividualModelEvent$Builder;
+  Lcom/xiaomi/aiautobrt/IndividualTrainEvent;
+  Lcom/xiaomi/aiautobrt/InterfaceVersionHelper;
+
+$ unzip -j "$ROOT/system_ext/framework/miui-services.jar" classes.dex \
+        -d sources/framework/   # -> miui-services.dex
+$ strings -a sources/framework/miui-services.dex | grep -i aiautobrt
+  Lcom/android/server/display/aiautobrt/IndividualBrightnessEngine;      (+$1, $ModelBindRecord)
+  Lcom/android/server/display/aiautobrt/IndividualEventNormalizer;
+  Lcom/android/server/display/aiautobrt/AppClassifier;                  (+-IA)
+  Lcom/android/server/display/aiautobrt/CustomBrightnessModeController; (+$CbmHandler, $SettingsObserver)
+  Lcom/android/server/display/aiautobrt/CustomPersistentDataStore;
+  Lcom/android/server/display/aiautobrt/CbmStateTracker;
+  Lcom/android/server/display/aiautobrt/UserBrightnessStatsJob;
+  Lcom/android/server/display/aiautobrt/config/{AppCategory,AppCategoryConfig,PackageInfo,XmlParser};
+  Lcom/xiaomi/aiautobrt/IIndividualBrightnessService$Stub;
+  Lcom/xiaomi/aiautobrt/IIndividualCallback$Stub;
+  Lcom/android/server/display/statistics/BrightnessDataProcessor;   (grep without the aiautobrt filter)
+
+$ unzip -l "$ROOT/system/framework/services.jar"    # classes.dex, classes2.dex, classes3.dex
+$ unzip -j ... classes*.dex -d sources/framework/services/
+  com.android.server.display.AutomaticBrightnessController  -> services/classes.dex
+
+2. Decompilation (jadx 1.5.6, single-class, --show-bad-code --no-res)
+---------------------------------------------------------------------
+J=$WS/tools/jadx/bin/jadx
+for c in com.xiaomi.aiautobrt.IIndividualBrightnessService \
+         com.xiaomi.aiautobrt.IIndividualCallback \
+         com.xiaomi.aiautobrt.IndividualModelEvent \
+         com.xiaomi.aiautobrt.IndividualTrainEvent \
+         com.xiaomi.aiautobrt.InterfaceVersionHelper ; do
+  $J --single-class $c --single-class-output sources/framework/classes/$(basename $c).java \
+     --show-bad-code --no-res sources/framework/miui-framework.dex
+done
+
+for c in com.android.server.display.aiautobrt.IndividualBrightnessEngine \
+         com.android.server.display.aiautobrt.IndividualEventNormalizer \
+         com.android.server.display.aiautobrt.AppClassifier \
+         com.android.server.display.aiautobrt.CustomBrightnessModeController \
+         com.android.server.display.aiautobrt.CustomPersistentDataStore \
+         com.android.server.display.aiautobrt.CbmStateTracker \
+         com.android.server.display.aiautobrt.UserBrightnessStatsJob \
+         com.android.server.display.statistics.BrightnessDataProcessor \
+         com.android.server.display.DisplayPowerControllerImpl \
+         com.android.server.display.AutomaticBrightnessControllerImpl \
+         com.android.server.wm.MiuiMultiWindowRecommendController ; do
+  $J --single-class $c --single-class-output sources/framework/classes/$(basename $c).java \
+     --show-bad-code --no-res sources/framework/miui-services.dex
+done
+
+$J --single-class com.android.server.display.AutomaticBrightnessController \
+   --single-class-output sources/framework/classes/AutomaticBrightnessController.java \
+   --show-bad-code --no-res sources/framework/services/classes.dex
+
+3. AIDL transactions (IIndividualBrightnessService.Stub, :51-55, :99-133)
+------------------------------------------------------------------------
+1 onEventChanged(IndividualModelEvent)          writeTypedObject(event, 0)   oneway
+2 predictBrightness(IndividualModelEvent)       writeTypedObject(event, 0)   oneway
+3 attach(IIndividualCallback)                   writeStrongInterface         oneway
+4 detach()                                      -                            oneway
+5 provideInterfaceVersion(int)                  writeInt                     oneway
+(Proxy.* all call transact(code, data, null, 1) -> FLAG_ONEWAY, no reply parcel.)
+
+IIndividualCallback.Stub (:51-55): 1 onTrainFinished, 2 onPredictFinished(lux, appId, brt),
+3 onUpdateExperiment, 4 onTrainIndicatorsFinished(IndividualTrainEvent),
+5 onAbTestExperimentUpdated. All oneway.
+InterfaceVersionHelper: RELEASED_INTERFACE_VERSION = 2,
+  getInterfaceVersion("onTrainIndicatorsFinished") = 1,
+  getInterfaceVersion("onAbTestExperimentUpdated") = 2.
+
+4. Binding (IndividualBrightnessEngine, :104-133)
+-------------------------------------------------
+Intent(action="com.miui.aiautobrt.service.AiService"); setComponent(mModelComponent);
+bindServiceAsUser(intent, record, 67108865, UserHandle(ActivityManager.getCurrentUser()))
+  67108865 = 0x04000001 = BIND_AUTO_CREATE(0x1) | BIND_FOREGROUND_SERVICE(0x04000000)  [flag names inferred]
+onServiceConnected -> attach(binder):
+  Stub.asInterface -> linkToDeath -> attach(mIndividualCallback) -> provideInterfaceVersion(2)
+binderDied (:266) -> detach (:136-150): unlinkToDeath, detach(), unbindService, null.
+
+5. Event construction (BrightnessDataProcessor)
+----------------------------------------------
+createModelEvent(lux, categoryId, newBrightness, orientation, sceneState)  [:502-511]
+  currentBrightness       = getNitsFromBacklight(newBrightness)     nits
+  currentBrightnessSpan   = getBrightnessSpanByNit(newBrightness)   bucket 0..44
+  ambientLux              = lux                                     physical lux
+  ambientLuxSpan          = getAmbientLuxSpanIndex(lux)             bucket 0..44
+  defaultConfigBrightness = getConfigBrightness(lux, sceneState)    nits, NaN if no spline
+  appCategoryId           = AppClassifier.getAppCategoryId(pkg)     0..9
+  orientation             = rotation
+  mixedOrientationApp     = IndividualEventNormalizer.getMixedOrientApp(cat, rot)  {0,1,2}
+  timestamp               = System.currentTimeMillis()
+
+getAmbientLuxSpanIndex ([:722-746]): lux<30 -> lux/5 ; <900 -> lux/100+6 ;
+  <3500 -> (lux-900)/200+15 ; <10000 -> (lux-3500)/500+28 ; then 41, 42, 43, 44, 44.
+getBrightnessSpanByNit ([:749-780]): breakpoints 3.5 / 8 / 50 / 80 / 500 / 1000 nits,
+  steps 7 / 10 / 20 / 50, index cap MAX_SPAN_INDEX = 44.
+getConfigBrightness ([:515-534]): scene splines (-1 orientation, 0 default, 1 brighten,
+  2 darken) -> nits; NaN when the spline is absent.
+AppClassifier categories (AppClassifier.java:33-43): 0 undefined, 1 game, 2 video,
+  3 music/read, 4 finance/learn, 5 news, 6 shopping, 7 photo, 8 travel, 9 social.
+Config files: /system_ext/etc/displayconfig/{app_brightness_category.xml,
+  cloud_app_brightness_category.xml}.
+
+IndividualEventNormalizer ctor is built with (BrightnessDataProcessor ctor, :278):
+  brightnessMin = getNitsFromBacklight(min), normalBrightnessMax = getNitsFromBacklight(normalMax),
+  luxMin = 0.0f, luxMax = hbmMinLux - 1.0f, brightnessSpanMin = 0.0f,
+  brightnessSpanMax = getBrightnessSpanByNit(normalMax), luxSpanMin = 0.0f,
+  luxSpanMax = getAmbientLuxSpanIndex(hbmMinLux - 1.0f),
+  appId 0..9, mixedOrientationApp 0..2.
+  (0.0f is MiuiMultiWindowRecommendController.MULTI_WINDOW_RECOMMEND_SHADOW_V2_OFFSET_X,
+   confirmed = 0.0f at MiuiMultiWindowRecommendController.java:55.)
+  normalizeLux/normalizeNit/normalizeAppId are NOT called on the model path - only
+  getMixedOrientApp is (grep over all decompiled framework classes).
+
+6. Sampling cadence
+-------------------
+BrightnessDataProcessor light sensor: getDefaultSensor(5) [:303],
+  registerListener(l, mLightSensor, 3, mBackgroundHandler) [:2057]  (3 us, max rate)
+AutomaticBrightnessController: adjustLightSensorRate -> registerListener(..., rate*1000, h)
+  [:606-613] (rate in ms), ring buffer pruned at mAmbientLightHorizonLong [:591-601],
+  lux = duration-weighted mean via calculateAmbientLux [:643-690].
+Event emission: notifyBrightnessEventIfNeeded [:339] -> BrightnessChangeHandler msg 1
+  -> handleBrightnessChangeEvent -> debounceBrightnessEvent(3000) [:393-399]
+  -> msg 3 -> readyToReportEvent [:449-457] -> reportIndividualModelEvent [:483]
+  (types 1 = auto, 2 = auto + user-initiated only; 3000 ms debounce, 0 ms when
+   forceReportTrainData is enabled).
+Unknown: mAmbientLightHorizonLong / mAmbientLightHorizonShort / lightSensorRate values
+  (framework-res integers, not extractable with the available tooling).
+
+7. Prediction use, postprocessing, activation (CustomBrightnessModeController)
+-----------------------------------------------------------------------------
+onPredictFinished(lux, appId, brightness) [:463-474]
+  brightness NaN or < 0.0f -> log + drop
+  dbv = DisplayDeviceConfig.getBrightnessFromNit(brightness)
+  mCbmStateTracker.noteIndividualResult(lux, appId, dbv)
+  mCbmStateTracker.noteStopPredictTracking(...); updateAutoBrightness(dbv)
+  (removes CbmHandler msg 1 = 200 ms prediction timeout, :779-785)
+validateModelMonotonicity [:477-487] -> uploadValidatedEventToModel [:562-573]
+  event = createModelEvent(lux, category, 0.0f, 0, -1); preparePredictBrightness(event);
+  postDelayed(mNotifyModelVerificationRunnable, 200)
+onValidatedBrightness [:488-538]: fills mBrightnessValidationMapper[category][luxIndex];
+  after the last point of categories 0,1,2 -> isMonotonicModel()
+isMonotonicModel [:575-604] / smoothCurve [:606-637] / permissibleRatio [:639-641]
+  LUX_GRAD_SMOOTHING = 0.25f, MIN_PERMISSIBLE_INCREASE = 0.004f
+  min slope = 100.0f / (hbmMinLux - 1.0f); points above hbmMinLux-1 -> mDefaultNitsLevels
+  per-category Spline built at lambda$isMonotonicModel$5 [:645-655] and persisted via
+  mDataStore.storeIndividualSpline(key, nits)
+pass -> lambda$onValidatedBrightness$4 [:531-537]: setModelValid(true, "train_finished")
+Timeout runnable [:127-140]: "Model cannot complete verification due to predict time out."
+
+8. Live consumer
+----------------
+AutomaticBrightnessController.updateAutoBrightness [:830-861]:
+  value = mAutomaticBrightnessControllerImpl.getCustomBrightness(
+             mAmbientLux, mForegroundAppPackageName, mForegroundAppCategory,
+             mScreenAutoBrightness,
+             mCurrentBrightnessMapper.getBrightness(lux, pkg, cat), isManuallySet)
+  -> clampScreenBrightness [:863-867] -> mScreenAutoBrightness -> mCallbacks.updateBrightness()
+CustomBrightnessModeController.getCustomBrightness [:250-280]:
+  isIndividualAllowed() -> getIndividualBrightness [:656-669]
+      spline by category (1 game, 2 video, else default) -> interpolate(lux) nits
+      -> getBrightnessFromNit
+  else isCustomAllowed() -> mBrightnessMapper.getBrightness(...)
+  else newAuto (stock/config curve)
+isIndividualAllowed [:303-305] = support && component && !userDisabled && isModelValid()
+  && !cloudDisabled && experimentEnabled && all three splines != null
+Model state reasons (IndividualBrightnessEngine.setModelValid :282-309):
+  default / forced_operate / train_finished / user_operate / best_indicator / backup
+
+9. Persistence
+--------------
+CustomPersistentDataStore.getFile [:260]:
+  new File(Environment.buildPath(Environment.getDataSystemDirectory(), "displayconfig"),
+           "custom_brightness_backup.xml")   -> /data/system/displayconfig/...
+  root <custom-config>: <custom_curve enabled>, <individual_model enabled>,
+  <individual_{default,game,video}_spline> with <point nit="..."/> per lux level.
+  loadFromXml -> setIndividualModelEnabledFromXml + buildConfigurationFromXml(cat, nits)
+  (only if isMonotonic) -> splines restored at boot without the APK/model.
+User selection: Settings.Secure "custom_brightness_mode" via
+  getIntForUser(..., -2): 0 off, 1 custom curve, 2 individual model
+  (updateCustomBrightnessEnabled :203-220).
+App-side: filesDir/checkpoint prefix (TF checkpoint), AiBrightnessModel.db
+  (brightness_model_event). No model version field; AIDL version 2 + Room v1 only.
+
+10. Training plumbing (cross-checked against the APK side)
+---------------------------------------------------------
+IndividualModelService.onCreate [:172-186]: getPendingJob(93197);
+  new JobInfo.Builder(93197, TrainJobService.class).setRequiresDeviceIdle(true)
+     .setPeriodic(TimeUnit.HOURS.toMillis(24)); cancel+reschedule if a different pending job exists.
+UserBrightnessStatsJob.scheduleJob (onBootCompleted path): requiresDeviceIdle,
+  periodic 24 h (DEBUG_INTERVAL when debug) - stats upload only, not training.

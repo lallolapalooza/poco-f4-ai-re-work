@@ -1,0 +1,145 @@
+{
+  "slug": "miui_mediaeditor",
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/data-app/MIMediaEditorGlobal/MIMediaEditorGlobal.apk",
+  "size": 216457464,
+  "models": [
+    {
+      "name": "assets/graphics/image_beauty_basic.bundle",
+      "size": 2915687,
+      "magic": "f35b06127ba36687"
+    },
+    {
+      "name": "assets/graphics/image_beauty_bodyslim.bundle",
+      "size": 18457,
+      "magic": "f35b0612b09877cd"
+    },
+    {
+      "name": "assets/graphics/image_beauty_facebeauty.bundle",
+      "size": 4103446,
+      "magic": "f35b0612a9971535"
+    },
+    {
+      "name": "assets/graphics/image_beauty_facewarp.bundle",
+      "size": 340615,
+      "magic": "f35b0612f30b9139"
+    },
+    {
+      "name": "assets/graphics/image_editor_enhance.bundle",
+      "size": 3994454,
+      "magic": "f35b0612ca4000f9"
+    },
+    {
+      "name": "assets/graphics/image_editor_scenebeauty.bundle",
+      "size": 174160,
+      "magic": "f35b0612c2a7ad68"
+    },
+    {
+      "name": "assets/makeup/item_bundle/jingdian.bundle",
+      "size": 374406,
+      "magic": "f35b06120fcb503b"
+    },
+    {
+      "name": "assets/makeup/item_bundle/jingfu.bundle",
+      "size": 123080,
+      "magic": "f35b06123f8851c1"
+    },
+    {
+      "name": "assets/makeup/item_bundle/liti.bundle",
+      "size": 231584,
+      "magic": "f35b06128da32364"
+    },
+    {
+      "name": "assets/makeup/item_bundle/nanshi.bundle",
+      "size": 84719,
+      "magic": "f35b06120b7ab4ad"
+    },
+    {
+      "name": "assets/makeup/item_bundle/oumei.bundle",
+      "size": 385035,
+      "magic": "f35b0612f1b84844"
+    },
+    {
+      "name": "assets/makeup/item_bundle/wenrou.bundle",
+      "size": 196743,
+      "magic": "f35b06121aba3fd6"
+    },
+    {
+      "name": "assets/model/ai_beauty_type_processor.bundle",
+      "size": 10299493,
+      "magic": null
+    },
+    {
+      "name": "assets/model/ai_face_attribute_processor.bundle",
+      "size": 1912131,
+      "magic": "f35b0612b3135059"
+    },
+    {
+      "name": "assets/model/ai_face_beauty_processor.bundle",
+      "size": 21870544,
+      "magic": null
+    },
+    {
+      "name": "assets/model/ai_face_bindi_seg_processor.bundle",
+      "size": 512057,
+      "magic": "f35b0612524bf0ac"
+    },
+    {
+      "name": "assets/model/ai_face_processor_detect_landmark.bundle",
+      "size": 6450804,
+      "magic": "f35b0612785c244f"
+    },
+    {
+      "name": "assets/model/ai_human_processor_beautybody_mb.bundle",
+      "size": 6244199,
+      "magic": "f35b061242e17606"
+    },
+    {
+      "name": "assets/model/ai_photo_editing_processor_scene_recog.bundle",
+      "size": 10741303,
+      "magic": null
+    },
+    {
+      "name": "assets/graphics/image_editor_autocrop.bundle",
+      "size": 4769,
+      "magic": "f35b0612ab7cf654"
+    },
+    {
+      "name": "assets/graphics/image_editor_idphoto.bundle",
+      "size": 6111,
+      "magic": "f35b0612bae1911e"
+    },
+    {
+      "name": "assets/graphics/image_editor_portrait.bundle",
+      "size": 5532,
+      "magic": "f35b061288f5dfe3"
+    }
+  ],
+  "libs": [
+    {
+      "name": "lib/arm64-v8a/libaiedit.so",
+      "size": 34640
+    },
+    {
+      "name": "lib/arm64-v8a/libfuai.so",
+      "size": 7654224
+    },
+    {
+      "name": "lib/arm64-v8a/libinpaint.so",
+      "size": 75824
+    },
+    {
+      "name": "lib/arm64-v8a/libinpaint_jni.so",
+      "size": 10008
+    },
+    {
+      "name": "lib/arm64-v8a/libmotion_photo_mace.so",
+      "size": 3504680
+    }
+  ],
+  "dex_markers": {
+    "Lcom/google/mlkit": 36,
+    "tflite": 5,
+    "Lcom/xiaomi/aicr": 44
+  },
+  "package": null
+}

@@ -1,0 +1,64 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_remote/inventory/libs/lib/arm64-v8a/libairkanopus-jni.so
+==============================================================================
+size        : 395096 bytes (0.38 MiB)
+sha256      : 0d23a18ee9a568b922c979a273eaf04692a97e56587b40d53fa165db97c31488
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x81b0   imagebase: 0x0
+build id    : 03fbbc37aca8471b3a558df5fef1f3188c754425
+android     : SDK 21, NDK r16b, build 4479499
+soname      : libairkanopus-jni.so
+needed      : libm.so, liblog.so, libc.so, libstdc++.so, libdl.so
+parser      : lief
+counts      : 342 exports, 14 imports, 6 JNI, 24 sections, 8 segments
+symtab/dynsym: 0 / 366
+
+Sections (24)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        2524       0x228
+  .dynsym                DYNSYM           A      0xc08        8784       0xc08
+  .dynstr                STRTAB           A      0x2e58       7362       0x2e58
+  .gnu.version           GNU_VERSYM       A      0x4b1a       732        0x4b1a
+  .gnu.version_r         GNU_VERNEED      A      0x4df8       64         0x4df8
+  .rela.dyn              RELA             A      0x4e38       3576       0x4e38
+  .rela.plt              RELA             AI     0x5c30       5736       0x5c30
+  .plt                   PROGBITS         AX     0x72a0       3856       0x72a0
+  .text                  PROGBITS         AX     0x81b0       310936     0x81b0
+  .rodata                PROGBITS         A      0x54050      28334      0x54050
+  .eh_frame_hdr          PROGBITS         A      0x5af00      2476       0x5af00
+  .eh_frame              PROGBITS         A      0x5b8b0      11336      0x5b8b0
+  .note.android.ident    NOTE             A      0x5e4f8      152        0x5e4f8
+  .init_array            INIT_ARRAY       WA     0x6f070      8          0x5f070
+  .fini_array            FINI_ARRAY       WA     0x6f078      16         0x5f078
+  .data.rel.ro           PROGBITS         WA     0x6f088      904        0x5f088
+  .dynamic               DYNAMIC          WA     0x6f410      528        0x5f410
+  .got                   PROGBITS         WA     0x6f620      2528       0x5f620
+  .data                  PROGBITS         WA     0x70000      8          0x60000
+  .bss                   NOBITS           WA     0x70008      16         0x60008
+  .comment               PROGBITS         MS     0x0          100        0x60008
+  .shstrtab              STRTAB           -      0x0          229        0x6006c
+
+JNI entry points (6)
+  0x53b5c        144        com.mitv.airkan.opus.Opus.test
+      Java_com_mitv_airkan_opus_Opus_test
+  0x53bec        200        com.mitv.airkan.opus.Opus.nativeInitEncoder
+      Java_com_mitv_airkan_opus_Opus_nativeInitEncoder
+  0x53cb4        156        com.mitv.airkan.opus.Opus.nativeInitDecoder
+      Java_com_mitv_airkan_opus_Opus_nativeInitDecoder
+  0x53d50        368        com.mitv.airkan.opus.Opus.nativeDecodeBytes
+      Java_com_mitv_airkan_opus_Opus_nativeDecodeBytes
+  0x53ec0        296        com.mitv.airkan.opus.Opus.nativeEncodeBytes
+      Java_com_mitv_airkan_opus_Opus_nativeEncodeBytes
+  0x53fe8        96         com.mitv.airkan.opus.Opus.nativeRelease
+      Java_com_mitv_airkan_opus_Opus_nativeRelease
+
+AI-relevant strings (75104 bytes scanned in allocated data sections)
+  [face] 3 unique (first 3)
+    0x00003e07 .dynstr    silk_inner_prod_aligned_scale
+    0x000040c8 .dynstr    silk_inner_prod_aligned
+    0x00004282 .dynstr    silk_inner_prod16_aligned_64_c
+  [asr] 1 unique (first 1)
+    0x0005ae15 .rodata    3r?Opus
+
+JSON written to native/elf/libairkanopus-jni.json

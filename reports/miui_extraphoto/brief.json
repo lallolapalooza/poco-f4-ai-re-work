@@ -1,0 +1,46 @@
+{
+  "slug": "miui_extraphoto",
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/ExtraPhotoGlobal/ExtraPhotoGlobal.apk",
+  "size": 228682351,
+  "models": [
+    {
+      "name": "assets/common/doc_photo/doc_model/dlc/document_model.dlc",
+      "size": 357758,
+      "magic": "zip"
+    }
+  ],
+  "libs": [
+    {
+      "name": "lib/arm64-v8a/libgallery_arcsoft_dualcam_refocus.so",
+      "size": 3583192
+    },
+    {
+      "name": "lib/arm64-v8a/libgallery_arcsoft_portrait_lighting.so",
+      "size": 15656088
+    },
+    {
+      "name": "lib/arm64-v8a/libgallery_arcsoft_portrait_lighting_c.so",
+      "size": 11704192
+    },
+    {
+      "name": "lib/arm64-v8a/libmegvii_bokeh_jni.so",
+      "size": 260048
+    },
+    {
+      "name": "lib/arm64-v8a/libmialgo_portrait.so",
+      "size": 784608
+    },
+    {
+      "name": "lib/arm64-v8a/libmibrain_relighting_jni.so",
+      "size": 211088
+    },
+    {
+      "name": "lib/arm64-v8a/libmotion_photo_mace.so",
+      "size": 3504680
+    }
+  ],
+  "dex_markers": {
+    "mibrain": 1
+  },
+  "package": null
+}

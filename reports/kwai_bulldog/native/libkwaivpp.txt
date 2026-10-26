@@ -1,0 +1,39 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_bulldog/native/libs/libkwaivpp.so
+==============================================================================
+size        : 5760 bytes (0.01 MiB)
+sha256      : 3a1b0ad3aba13dab6272e60610f498b6883a7383d178d8cb787c1a8224ea9851
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x520   imagebase: 0x0
+build id    : 5fc6323e1ba338d3e9e844c3d8327a87fdca36e3
+android     : SDK 21, NDK r20, build 5594570
+soname      : libkwaivpp.so
+needed      : liblog.so, libGLESv2.so, libm.so, libc++_shared.so, libdl.so, libc.so
+parser      : lief
+counts      : 0 exports, 2 imports, 0 JNI, 19 sections, 7 segments
+symtab/dynsym: 0 / 12
+
+Sections (19)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x1c8        36         0x1c8
+  .hash                  HASH             A      0x1f0        68         0x1f0
+  .gnu.hash              GNU_HASH         A      0x238        28         0x238
+  .dynsym                DYNSYM           A      0x258        288        0x258
+  .dynstr                STRTAB           A      0x378        171        0x378
+  .gnu.version           GNU_VERSYM       A      0x424        24         0x424
+  .gnu.version_r         GNU_VERNEED      A      0x440        32         0x440
+  .rela.dyn              RELA             A      0x460        72         0x460
+  .rela.plt              RELA             AI     0x4a8        48         0x4a8
+  .plt                   PROGBITS         AX     0x4e0        64         0x4e0
+  .text                  PROGBITS         AX     0x520        60         0x520
+  .note.android.ident    NOTE             A      0x55c        152        0x55c
+  .fini_array            FINI_ARRAY       WA     0x10da0      16         0xda0
+  .dynamic               DYNAMIC          WA     0x10db0      544        0xdb0
+  .got                   PROGBITS         WA     0x10fd0      48         0xfd0
+  .data                  PROGBITS         WA     0x11000      8          0x1000
+  .comment               PROGBITS         MS     0x0          264        0x1008
+  .shstrtab              STRTAB           -      0x0          171        0x1110
+
+AI-relevant strings (1535 bytes scanned in allocated data sections)
+
+JSON written to native/libkwaivpp.so.json

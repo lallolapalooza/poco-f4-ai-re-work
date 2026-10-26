@@ -1,0 +1,4 @@
+Fprs.0003.Exp007e33_quan1_sm.tflite  subgraph=0 signature=serving_default  FAIL
+  output   shape              dtype    max_abs   tol       result
+  softmax  (1, 512, 384, 15)  FLOAT32  0.175781  1.00e-04  FAIL
+  1 output(s), max_abs=0.175781, status=fail

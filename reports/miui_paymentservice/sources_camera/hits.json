@@ -1,0 +1,45 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/PaymentService_Global/PaymentService_Global.apk",
+  "regex": "com\\.xiaomi\\.payment\\.entryData\\.CameraIntentData",
+  "packages": [],
+  "max": 3,
+  "timeout": 180.0,
+  "jadx": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/jadx/bin/jadx",
+  "classes_scanned": 10002,
+  "candidates": [
+    {
+      "class": "com.xiaomi.payment.entryData.CameraIntentData",
+      "dex": "classes2.dex",
+      "method_count": 5,
+      "access": 1,
+      "matched": [
+        "com.xiaomi.payment.entrydata.cameraintentdata"
+      ],
+      "score": 1005,
+      "rank": 1,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.xiaomi.payment.entryData.CameraIntentData.java",
+      "seconds": 15.39
+    },
+    {
+      "class": "com.xiaomi.payment.entryData.CameraIntentData$a",
+      "dex": "classes2.dex",
+      "method_count": 5,
+      "access": 0,
+      "matched": [
+        "com.xiaomi.payment.entrydata.cameraintentdata"
+      ],
+      "score": 1005,
+      "rank": 2,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.xiaomi.payment.entryData.CameraIntentData$a.java",
+      "seconds": 27.29
+    }
+  ],
+  "decompiled": 2,
+  "elapsed_sec": 43.49
+}

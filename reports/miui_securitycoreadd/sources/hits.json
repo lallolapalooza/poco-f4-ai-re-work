@@ -1,0 +1,255 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/SecurityCoreAdd/SecurityCoreAdd.apk",
+  "regex": "aiautobrt|Brightness|tensorflow",
+  "packages": [],
+  "max": 14,
+  "timeout": 180.0,
+  "jadx": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/jadx/bin/jadx",
+  "classes_scanned": 4143,
+  "candidates": [
+    {
+      "class": "com.miui.aiautobrt.database.BrightnessModelDatabase_Impl",
+      "dex": "classes.dex",
+      "method_count": 7,
+      "access": 17,
+      "matched": [
+        "aiautobrt",
+        "brightness"
+      ],
+      "score": 2007,
+      "rank": 1,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.aiautobrt.database.BrightnessModelDatabase_Impl.java",
+      "seconds": 5.47
+    },
+    {
+      "class": "com.miui.aiautobrt.database.BrightnessModelDatabase",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 1025,
+      "matched": [
+        "aiautobrt",
+        "brightness"
+      ],
+      "score": 2003,
+      "rank": 2,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.aiautobrt.database.BrightnessModelDatabase.java",
+      "seconds": 6.42
+    },
+    {
+      "class": "com.miui.aiautobrt.database.BrightnessModelDatabase_Impl$a",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 17,
+      "matched": [
+        "aiautobrt",
+        "brightness"
+      ],
+      "score": 2002,
+      "rank": 3,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.aiautobrt.database.BrightnessModelDatabase_Impl$a.java",
+      "seconds": 9.2
+    },
+    {
+      "class": "org.tensorflow.lite.TensorImpl",
+      "dex": "classes.dex",
+      "method_count": 32,
+      "access": 16,
+      "matched": [
+        "tensorflow"
+      ],
+      "score": 1032,
+      "rank": 4,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/org.tensorflow.lite.TensorImpl.java",
+      "seconds": 8.62
+    },
+    {
+      "class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "dex": "classes.dex",
+      "method_count": 20,
+      "access": 0,
+      "matched": [
+        "tensorflow"
+      ],
+      "score": 1020,
+      "rank": 5,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/org.tensorflow.lite.NativeInterpreterWrapper.java",
+      "seconds": 7.04
+    },
+    {
+      "class": "org.tensorflow.lite.NativeSignatureRunnerWrapper",
+      "dex": "classes.dex",
+      "method_count": 14,
+      "access": 16,
+      "matched": [
+        "tensorflow"
+      ],
+      "score": 1014,
+      "rank": 6,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/org.tensorflow.lite.NativeSignatureRunnerWrapper.java",
+      "seconds": 6.68
+    },
+    {
+      "class": "org.tensorflow.lite.flex.FlexDelegate",
+      "dex": "classes.dex",
+      "method_count": 6,
+      "access": 1,
+      "matched": [
+        "tensorflow"
+      ],
+      "score": 1006,
+      "rank": 7,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/org.tensorflow.lite.flex.FlexDelegate.java",
+      "seconds": 6.9
+    },
+    {
+      "class": "com.miui.aiautobrt.service.IndividualModelService$a",
+      "dex": "classes.dex",
+      "method_count": 6,
+      "access": 17,
+      "matched": [
+        "aiautobrt"
+      ],
+      "score": 1006,
+      "rank": 8,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.aiautobrt.service.IndividualModelService$a.java",
+      "seconds": 7.7
+    },
+    {
+      "class": "com.miui.aiautobrt.service.TrainJobService",
+      "dex": "classes.dex",
+      "method_count": 4,
+      "access": 1,
+      "matched": [
+        "aiautobrt"
+      ],
+      "score": 1004,
+      "rank": 9,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.aiautobrt.service.TrainJobService.java",
+      "seconds": 6.47
+    },
+    {
+      "class": "com.miui.aiautobrt.service.IndividualModelService",
+      "dex": "classes.dex",
+      "method_count": 4,
+      "access": 1,
+      "matched": [
+        "aiautobrt"
+      ],
+      "score": 1004,
+      "rank": 10,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.aiautobrt.service.IndividualModelService.java",
+      "seconds": 6.68
+    },
+    {
+      "class": "org.tensorflow.lite.b",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 1,
+      "matched": [
+        "tensorflow"
+      ],
+      "score": 1003,
+      "rank": 11,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/org.tensorflow.lite.b.java",
+      "seconds": 6.64
+    },
+    {
+      "class": "org.tensorflow.lite.TensorFlowLite",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 17,
+      "matched": [
+        "tensorflow"
+      ],
+      "score": 1003,
+      "rank": 12,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/org.tensorflow.lite.TensorFlowLite.java",
+      "seconds": 7.55
+    },
+    {
+      "class": "org.tensorflow.lite.a",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 17,
+      "matched": [
+        "tensorflow"
+      ],
+      "score": 1002,
+      "rank": 13,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/org.tensorflow.lite.a.java",
+      "seconds": 8.06
+    },
+    {
+      "class": "org.tensorflow.lite.NativeInterpreterWrapperExperimental",
+      "dex": "classes.dex",
+      "method_count": 1,
+      "access": 16,
+      "matched": [
+        "tensorflow"
+      ],
+      "score": 1001,
+      "rank": 14,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/org.tensorflow.lite.NativeInterpreterWrapperExperimental.java",
+      "seconds": 7.42
+    },
+    {
+      "class": "org.tensorflow.lite.annotations.UsedByReflection",
+      "dex": "classes.dex",
+      "method_count": 0,
+      "access": 9729,
+      "matched": [
+        "tensorflow"
+      ],
+      "score": 1000,
+      "rank": 15,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    }
+  ],
+  "decompiled": 14,
+  "elapsed_sec": 100.95
+}

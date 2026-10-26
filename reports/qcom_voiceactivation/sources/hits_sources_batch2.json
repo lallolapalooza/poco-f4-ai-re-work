@@ -1,0 +1,280 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/system_ext/priv-app/QualcommVoiceActivation/QualcommVoiceActivation.apk",
+  "regex": "com\\.quicinc\\.voice\\.activation\\.(configuration\\.|engineservice\\.OneVoiceModelFileManager|engineservice\\.EnrollmentService|asr\\.WhisperEngine|onlineepd|soundmodel\\.opaque)",
+  "packages": [],
+  "max": 12,
+  "timeout": 240.0,
+  "jadx": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/work/jadx2.sh",
+  "classes_scanned": 695,
+  "candidates": [
+    {
+      "class": "com.quicinc.voice.activation.engineservice.EnrollmentService",
+      "dex": "classes.dex",
+      "method_count": 31,
+      "access": 17,
+      "matched": [
+        "com.quicinc.voice.activation.engineservice.enrollmentservice"
+      ],
+      "score": 1031,
+      "rank": 1,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.engineservice.EnrollmentService.java",
+      "seconds": 3.32
+    },
+    {
+      "class": "com.quicinc.voice.activation.configuration.onevoice.d",
+      "dex": "classes.dex",
+      "method_count": 19,
+      "access": 17,
+      "matched": [
+        "com.quicinc.voice.activation.configuration."
+      ],
+      "score": 1019,
+      "rank": 2,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.configuration.onevoice.d.java",
+      "seconds": 3.38
+    },
+    {
+      "class": "com.quicinc.voice.activation.configuration.onevoice.e",
+      "dex": "classes.dex",
+      "method_count": 14,
+      "access": 1,
+      "matched": [
+        "com.quicinc.voice.activation.configuration."
+      ],
+      "score": 1014,
+      "rank": 3,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.configuration.onevoice.e.java",
+      "seconds": 2.88
+    },
+    {
+      "class": "com.quicinc.voice.activation.configuration.onevoice.KwGroupEnum",
+      "dex": "classes.dex",
+      "method_count": 13,
+      "access": 16400,
+      "matched": [
+        "com.quicinc.voice.activation.configuration."
+      ],
+      "score": 1013,
+      "rank": 4,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.configuration.onevoice.KwGroupEnum.java",
+      "seconds": 2.9
+    },
+    {
+      "class": "com.quicinc.voice.activation.onlineepd.EPD",
+      "dex": "classes.dex",
+      "method_count": 12,
+      "access": 1,
+      "matched": [
+        "com.quicinc.voice.activation.onlineepd"
+      ],
+      "score": 1012,
+      "rank": 5,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.onlineepd.EPD.java",
+      "seconds": 2.82
+    },
+    {
+      "class": "com.quicinc.voice.activation.configuration.onevoice.a",
+      "dex": "classes.dex",
+      "method_count": 11,
+      "access": 17,
+      "matched": [
+        "com.quicinc.voice.activation.configuration."
+      ],
+      "score": 1011,
+      "rank": 6,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.configuration.onevoice.a.java",
+      "seconds": 2.24
+    },
+    {
+      "class": "com.quicinc.voice.activation.configuration.onevoice.c",
+      "dex": "classes.dex",
+      "method_count": 9,
+      "access": 17,
+      "matched": [
+        "com.quicinc.voice.activation.configuration."
+      ],
+      "score": 1009,
+      "rank": 7,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.configuration.onevoice.c.java",
+      "seconds": 2.2
+    },
+    {
+      "class": "com.quicinc.voice.activation.configuration.v4.ModelConfigurationKey",
+      "dex": "classes.dex",
+      "method_count": 8,
+      "access": 16401,
+      "matched": [
+        "com.quicinc.voice.activation.configuration."
+      ],
+      "score": 1008,
+      "rank": 8,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.configuration.v4.ModelConfigurationKey.java",
+      "seconds": 2.14
+    },
+    {
+      "class": "com.quicinc.voice.activation.soundmodel.opaque.data.Header$Key",
+      "dex": "classes.dex",
+      "method_count": 7,
+      "access": 16401,
+      "matched": [
+        "com.quicinc.voice.activation.soundmodel.opaque"
+      ],
+      "score": 1007,
+      "rank": 9,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.soundmodel.opaque.data.Header$Key.java",
+      "seconds": 3.8
+    },
+    {
+      "class": "com.quicinc.voice.activation.configuration.v4.EPDConfigurationKey",
+      "dex": "classes.dex",
+      "method_count": 7,
+      "access": 16401,
+      "matched": [
+        "com.quicinc.voice.activation.configuration."
+      ],
+      "score": 1007,
+      "rank": 10,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.configuration.v4.EPDConfigurationKey.java",
+      "seconds": 3.67
+    },
+    {
+      "class": "com.quicinc.voice.activation.configuration.v4.SmlConfigurationKey",
+      "dex": "classes.dex",
+      "method_count": 7,
+      "access": 16401,
+      "matched": [
+        "com.quicinc.voice.activation.configuration."
+      ],
+      "score": 1007,
+      "rank": 11,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.configuration.v4.SmlConfigurationKey.java",
+      "seconds": 4.35
+    },
+    {
+      "class": "com.quicinc.voice.activation.configuration.v4.DeviceConfigurationKey",
+      "dex": "classes.dex",
+      "method_count": 7,
+      "access": 16401,
+      "matched": [
+        "com.quicinc.voice.activation.configuration."
+      ],
+      "score": 1007,
+      "rank": 12,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.configuration.v4.DeviceConfigurationKey.java",
+      "seconds": 3.93
+    },
+    {
+      "class": "com.quicinc.voice.activation.soundmodel.opaque.data.level.ConfidenceLevel$ModelId",
+      "dex": "classes.dex",
+      "method_count": 7,
+      "access": 16401,
+      "matched": [
+        "com.quicinc.voice.activation.soundmodel.opaque"
+      ],
+      "score": 1007,
+      "rank": 13,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.quicinc.voice.activation.asr.WhisperEngine$State",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 16401,
+      "matched": [
+        "com.quicinc.voice.activation.asr.whisperengine"
+      ],
+      "score": 1005,
+      "rank": 14,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.quicinc.voice.activation.configuration.onevoice.b",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 17,
+      "matched": [
+        "com.quicinc.voice.activation.configuration."
+      ],
+      "score": 1005,
+      "rank": 15,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.quicinc.voice.activation.configuration.ModelSelector$Priority",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 16401,
+      "matched": [
+        "com.quicinc.voice.activation.configuration."
+      ],
+      "score": 1005,
+      "rank": 16,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.quicinc.voice.activation.engineservice.OneVoiceModelFileManager$ModelType",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 16401,
+      "matched": [
+        "com.quicinc.voice.activation.engineservice.onevoicemodelfilemanager"
+      ],
+      "score": 1005,
+      "rank": 17,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    }
+  ],
+  "decompiled": 12,
+  "elapsed_sec": 37.66
+}

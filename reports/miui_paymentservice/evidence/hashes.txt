@@ -1,0 +1,3 @@
+a88dd75181fb843017ec3dc910353b756d69e8a22e29fd7127c6d57a4425a172  models/Digital_OCR_svm_2.model
+e972116e76108b2df57c0e4a31e99b96d832a4c82c6c333e76893b2511d238bb  models/Digital_OCR_svm_9.model
+f374c84e71a692822fc344caa13734d9aa26ad9d8729ff478aabe97661507f2a  inventory/libs/lib/arm64-v8a/libdigit_ocr.so

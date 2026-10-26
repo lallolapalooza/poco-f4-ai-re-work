@@ -1,0 +1,27 @@
+{
+  "slug": "miui_securitycenter",
+  "extracted": "1 legacy log-linear cascade (5 stages) + assets/dict word-segmentation dictionary + assets/pattern rule set",
+  "runnable_model_code": 1,
+  "app_pipeline": "complete",
+  "blockers": [
+    "dh.c.i numeric-structure classifier: jadx 'code duplicated' region collapsed the non-separator length chain to -1, so unseparated digit runs (mobile/card numbers) get no rule type; BankCard is unreachable in the decompiled chain",
+    "assets/phish is not shipped in the APK, so the phishing bit (ah.d.d) and verdict 1 are unreachable",
+    "o2.f.p / o2.f.I sender normalisation (miui.telephony PhoneNumber + country-code rule) is not reimplemented; the raw sender is used after the ah.b '+86' strip",
+    "false-positive guard ah.f.a needs the SMS/call history DB and is treated as inactive",
+    "new-engine TFLite 1.bin/2.bin/v.txt are downloaded at runtime, not in the APK"
+  ],
+  "files": [
+    "reimpl/pipeline_sms.py",
+    "reimpl/model.py",
+    "ir/parse_dict.py",
+    "ir/parse_model.py",
+    "reimpl/GAP_CLOSURE.md",
+    "reimpl/verify.txt"
+  ],
+  "verify": {
+    "command": "$PY reimpl/pipeline_sms.py --selftest && $PY reimpl/pipeline_sms.py --demo",
+    "exit_code": 0,
+    "result": "PASS: 45/45 self-checks (dict parses to EOF, 348982 words sha256 f9908624..., 4 char-class tables, segmentation partitions, rule stages, ch.d bit accounting, UTF-16 length, 4 messages cross-checked against model.classify_numpy <1e-6); --demo verdicts [2, 2, 0, 0] (2 spam blocked with block_type 4, 2 ham allowed)"
+  },
+  "notes": "P1 only: raw SMS body + sender -> ah.h.c normaliser -> dh.j/dh.b/dh.c rule stages -> bh.a.c DAG segmentation over assets/dict -> per-stage masks -> 5-stage cascade -> ah.a.a verdict -> j2.a.h shouldFilter -> SmartSmsFilterPolicy block type 4/8. P2/P3/P4 (new engine, resource download, cloud URL check) untouched."
+}

@@ -1,0 +1,50 @@
+# subgraph 2 name='restore' role=restore inputs=[0] outputs=[40, 33, 39, 38, 36, 37, 45, 42, 47, 44, 46, 35, 48, 41, 34, 43] tensors=49 ops=49
+[  0] CALL_ONCE            inputs=[] outputs=[] options={'InitSubgraphIndex': 6}
+[  1] VAR_HANDLE           inputs=[] outputs=['17:dnn_model/dense/bias1[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73652f62696173'}
+[  2] VAR_HANDLE           inputs=[] outputs=['18:dnn_model/dense/kernel1[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73652f6b65726e656c'}
+[  3] VAR_HANDLE           inputs=[] outputs=['19:dnn_model/dense_1/bias1[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73655f312f62696173'}
+[  4] VAR_HANDLE           inputs=[] outputs=['20:dnn_model/dense_1/kernel1[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73655f312f6b65726e656c'}
+[  5] VAR_HANDLE           inputs=[] outputs=['21:dnn_model/dense_2/bias1[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73655f322f62696173'}
+[  6] VAR_HANDLE           inputs=[] outputs=['22:dnn_model/dense_2/kernel1[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73655f322f6b65726e656c'}
+[  7] VAR_HANDLE           inputs=[] outputs=['23:dnn_model/dense_3/bias1[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73655f332f62696173'}
+[  8] VAR_HANDLE           inputs=[] outputs=['24:dnn_model/dense_3/kernel1[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73655f332f6b65726e656c'}
+[  9] VAR_HANDLE           inputs=[] outputs=['25:dnn_model_1/dense_4/bias1[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f342f62696173'}
+[ 10] VAR_HANDLE           inputs=[] outputs=['26:dnn_model_1/dense_4/kernel1[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f342f6b65726e656c'}
+[ 11] VAR_HANDLE           inputs=[] outputs=['27:dnn_model_1/dense_5/bias1[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f352f62696173'}
+[ 12] VAR_HANDLE           inputs=[] outputs=['28:dnn_model_1/dense_5/kernel1[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f352f6b65726e656c'}
+[ 13] VAR_HANDLE           inputs=[] outputs=['29:dnn_model_1/dense_6/bias1[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f362f62696173'}
+[ 14] VAR_HANDLE           inputs=[] outputs=['30:dnn_model_1/dense_6/kernel1[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f362f6b65726e656c'}
+[ 15] VAR_HANDLE           inputs=[] outputs=['31:dnn_model_1/dense_7/bias1[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f372f62696173'}
+[ 16] VAR_HANDLE           inputs=[] outputs=['32:dnn_model_1/dense_7/kernel1[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f372f6b65726e656c'}
+[ 17] CUSTOM               inputs=['0:restore_checkpoint_path:0[]:STRING', '16:restore/tensor_name[]:STRING'] outputs=['33:StatefulPartitionedCall_2:1[3, 3]:FLOAT32'] options={}
+[ 18] ASSIGN_VARIABLE      inputs=['18:dnn_model/dense/kernel1[]:RESOURCE', '33:StatefulPartitionedCall_2:1[3, 3]:FLOAT32'] outputs=[] options={}
+[ 19] CUSTOM               inputs=['0:restore_checkpoint_path:0[]:STRING', '15:restore_1/tensor_name[]:STRING'] outputs=['34:StatefulPartitionedCall_2:0[3]:FLOAT32'] options={}
+[ 20] ASSIGN_VARIABLE      inputs=['17:dnn_model/dense/bias1[]:RESOURCE', '34:StatefulPartitionedCall_2:0[3]:FLOAT32'] outputs=[] options={}
+[ 21] CUSTOM               inputs=['0:restore_checkpoint_path:0[]:STRING', '8:restore_2/tensor_name[]:STRING'] outputs=['35:StatefulPartitionedCall_2:3[3, 128]:FLOAT32'] options={}
+[ 22] ASSIGN_VARIABLE      inputs=['20:dnn_model/dense_1/kernel1[]:RESOURCE', '35:StatefulPartitionedCall_2:3[3, 128]:FLOAT32'] outputs=[] options={}
+[ 23] CUSTOM               inputs=['0:restore_checkpoint_path:0[]:STRING', '7:restore_3/tensor_name[]:STRING'] outputs=['36:StatefulPartitionedCall_2:2[128]:FLOAT32'] options={}
+[ 24] ASSIGN_VARIABLE      inputs=['19:dnn_model/dense_1/bias1[]:RESOURCE', '36:StatefulPartitionedCall_2:2[128]:FLOAT32'] outputs=[] options={}
+[ 25] CUSTOM               inputs=['0:restore_checkpoint_path:0[]:STRING', '6:restore_4/tensor_name[]:STRING'] outputs=['37:StatefulPartitionedCall_2:5[128, 64]:FLOAT32'] options={}
+[ 26] ASSIGN_VARIABLE      inputs=['22:dnn_model/dense_2/kernel1[]:RESOURCE', '37:StatefulPartitionedCall_2:5[128, 64]:FLOAT32'] outputs=[] options={}
+[ 27] CUSTOM               inputs=['0:restore_checkpoint_path:0[]:STRING', '5:restore_5/tensor_name[]:STRING'] outputs=['38:StatefulPartitionedCall_2:4[64]:FLOAT32'] options={}
+[ 28] ASSIGN_VARIABLE      inputs=['21:dnn_model/dense_2/bias1[]:RESOURCE', '38:StatefulPartitionedCall_2:4[64]:FLOAT32'] outputs=[] options={}
+[ 29] CUSTOM               inputs=['0:restore_checkpoint_path:0[]:STRING', '4:restore_6/tensor_name[]:STRING'] outputs=['39:StatefulPartitionedCall_2:7[64, 1]:FLOAT32'] options={}
+[ 30] ASSIGN_VARIABLE      inputs=['24:dnn_model/dense_3/kernel1[]:RESOURCE', '39:StatefulPartitionedCall_2:7[64, 1]:FLOAT32'] outputs=[] options={}
+[ 31] CUSTOM               inputs=['0:restore_checkpoint_path:0[]:STRING', '3:restore_7/tensor_name[]:STRING'] outputs=['40:StatefulPartitionedCall_2:6[1]:FLOAT32'] options={}
+[ 32] ASSIGN_VARIABLE      inputs=['23:dnn_model/dense_3/bias1[]:RESOURCE', '40:StatefulPartitionedCall_2:6[1]:FLOAT32'] outputs=[] options={}
+[ 33] CUSTOM               inputs=['0:restore_checkpoint_path:0[]:STRING', '2:restore_8/tensor_name[]:STRING'] outputs=['41:StatefulPartitionedCall_2:9[3, 3]:FLOAT32'] options={}
+[ 34] ASSIGN_VARIABLE      inputs=['26:dnn_model_1/dense_4/kernel1[]:RESOURCE', '41:StatefulPartitionedCall_2:9[3, 3]:FLOAT32'] outputs=[] options={}
+[ 35] CUSTOM               inputs=['0:restore_checkpoint_path:0[]:STRING', '1:restore_9/tensor_name[]:STRING'] outputs=['42:StatefulPartitionedCall_2:8[3]:FLOAT32'] options={}
+[ 36] ASSIGN_VARIABLE      inputs=['25:dnn_model_1/dense_4/bias1[]:RESOURCE', '42:StatefulPartitionedCall_2:8[3]:FLOAT32'] outputs=[] options={}
+[ 37] CUSTOM               inputs=['0:restore_checkpoint_path:0[]:STRING', '14:restore_10/tensor_name[]:STRING'] outputs=['43:StatefulPartitionedCall_2:11[3, 128]:FLOAT32'] options={}
+[ 38] ASSIGN_VARIABLE      inputs=['28:dnn_model_1/dense_5/kernel1[]:RESOURCE', '43:StatefulPartitionedCall_2:11[3, 128]:FLOAT32'] outputs=[] options={}
+[ 39] CUSTOM               inputs=['0:restore_checkpoint_path:0[]:STRING', '13:restore_11/tensor_name[]:STRING'] outputs=['44:StatefulPartitionedCall_2:10[128]:FLOAT32'] options={}
+[ 40] ASSIGN_VARIABLE      inputs=['27:dnn_model_1/dense_5/bias1[]:RESOURCE', '44:StatefulPartitionedCall_2:10[128]:FLOAT32'] outputs=[] options={}
+[ 41] CUSTOM               inputs=['0:restore_checkpoint_path:0[]:STRING', '12:restore_12/tensor_name[]:STRING'] outputs=['45:StatefulPartitionedCall_2:13[128, 64]:FLOAT32'] options={}
+[ 42] ASSIGN_VARIABLE      inputs=['30:dnn_model_1/dense_6/kernel1[]:RESOURCE', '45:StatefulPartitionedCall_2:13[128, 64]:FLOAT32'] outputs=[] options={}
+[ 43] CUSTOM               inputs=['0:restore_checkpoint_path:0[]:STRING', '11:restore_13/tensor_name[]:STRING'] outputs=['46:StatefulPartitionedCall_2:12[64]:FLOAT32'] options={}
+[ 44] ASSIGN_VARIABLE      inputs=['29:dnn_model_1/dense_6/bias1[]:RESOURCE', '46:StatefulPartitionedCall_2:12[64]:FLOAT32'] outputs=[] options={}
+[ 45] CUSTOM               inputs=['0:restore_checkpoint_path:0[]:STRING', '10:restore_14/tensor_name[]:STRING'] outputs=['47:StatefulPartitionedCall_2:15[64, 1]:FLOAT32'] options={}
+[ 46] ASSIGN_VARIABLE      inputs=['32:dnn_model_1/dense_7/kernel1[]:RESOURCE', '47:StatefulPartitionedCall_2:15[64, 1]:FLOAT32'] outputs=[] options={}
+[ 47] CUSTOM               inputs=['0:restore_checkpoint_path:0[]:STRING', '9:restore_15/tensor_name[]:STRING'] outputs=['48:StatefulPartitionedCall_2:14[1]:FLOAT32'] options={}
+[ 48] ASSIGN_VARIABLE      inputs=['31:dnn_model_1/dense_7/bias1[]:RESOURCE', '48:StatefulPartitionedCall_2:14[1]:FLOAT32'] outputs=[] options={}

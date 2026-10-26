@@ -1,0 +1,12 @@
+{
+  "slug": "snapchat",
+  "apk": "No DNN model. Haar cascade XML, ERT LiteTrackingData, 2 ORB vocabulary trees, 5 bundled lenses, 4 bundled filters, Overlay.lns, triangulation.txt",
+  "local_files": 34,
+  "bytes": 2966279,
+  "tflite": 0,
+  "bundles": 0,
+  "absent": [
+    "AI Factory .dnn.enc models are downloaded inside a bloops component, not in the APK. ML Kit barcode/face runs through GmsCore. Memories clustering is server-side."
+  ],
+  "notes": "All bundled CV/lens assets extracted to models/apk_assets/; classical Haar/ERT/ORB JAX verified."
+}

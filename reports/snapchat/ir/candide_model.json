@@ -1,0 +1,17 @@
+{
+ "candide3reduce": {
+  "size": 18436,
+  "entropy": 7.04,
+  "common_prefix_with_other": 5612,
+  "head": "caf8b53ca9b0b283ee7f9870f8c6ae53",
+  "tail": "a1973aa5adf1d76d1513648ad8e8c357"
+ },
+ "candide3reduce14AU": {
+  "size": 20200,
+  "entropy": 7.05,
+  "common_prefix_with_other": 5612,
+  "head": "caf8b53ca9b0b283ee7f9870f8c6ae53",
+  "tail": "bcf2df6d1513658ad8e9c67df6e4eeed"
+ },
+ "interpretation": "high-entropy payloads sharing a 5612-byte prefix; no recognisable float/int structure -> encrypted or obfuscated Candide-3 shape/action-unit model (inferred)"
+}

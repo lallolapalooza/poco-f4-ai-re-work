@@ -1,0 +1,77 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/ExtraPhotoGlobal/ExtraPhotoGlobal.apk",
+  "regex": "RefocusAccessUtils|DocumentProcess\\$|DocumentProcess$",
+  "packages": [],
+  "max": 4,
+  "timeout": 200.0,
+  "jadx": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/jadx/bin/jadx",
+  "classes_scanned": 4785,
+  "candidates": [
+    {
+      "class": "com.miui.extraphoto.refocus.RefocusAccessUtils$SupportDevice",
+      "dex": "classes.dex",
+      "method_count": 13,
+      "access": 16401,
+      "matched": [
+        "refocusaccessutils"
+      ],
+      "score": 1013,
+      "rank": 1,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.extraphoto.refocus.RefocusAccessUtils$SupportDevice.java",
+      "seconds": 10.27
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.RefocusAccessUtils",
+      "dex": "classes.dex",
+      "method_count": 11,
+      "access": 17,
+      "matched": [
+        "refocusaccessutils"
+      ],
+      "score": 1011,
+      "rank": 2,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.extraphoto.refocus.RefocusAccessUtils.java",
+      "seconds": 9.41
+    },
+    {
+      "class": "com.xiaomi.ocr.sdk.imgprocess.DocumentProcess$EnhanceType",
+      "dex": "classes.dex",
+      "method_count": 4,
+      "access": 16401,
+      "matched": [
+        "documentprocess$"
+      ],
+      "score": 1004,
+      "rank": 3,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.xiaomi.ocr.sdk.imgprocess.DocumentProcess$EnhanceType.java",
+      "seconds": 10.19
+    },
+    {
+      "class": "com.xiaomi.ocr.sdk.imgprocess.DocumentProcess$DocumentType",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 16401,
+      "matched": [
+        "documentprocess$"
+      ],
+      "score": 1002,
+      "rank": 4,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.xiaomi.ocr.sdk.imgprocess.DocumentProcess$DocumentType.java",
+      "seconds": 9.36
+    }
+  ],
+  "decompiled": 4,
+  "elapsed_sec": 39.65
+}

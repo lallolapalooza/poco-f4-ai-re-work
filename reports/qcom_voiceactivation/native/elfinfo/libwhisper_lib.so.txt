@@ -1,0 +1,92 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/qcom_voiceactivation/inventory/libs/lib/arm64-v8a/libwhisper_lib.so
+==============================================================================
+size        : 306232 bytes (0.29 MiB)
+sha256      : a38db693835121ea3be92731d64f822c8648f37e4b88ca7dd9d5a7a9a4bbea9c
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x0   imagebase: 0x0
+build id    : 3ecdd4ee44df35d851585587fa9183b1
+soname      : libwhisper_lib.so
+needed      : libSNPE.so, libSnpeHtpV75Stub.so, libc++_shared.so, liblog.so, libm.so, libandroid.so, libEGL.so, libGLESv2.so, libc.so, libdl.so
+parser      : lief
+counts      : 16 exports, 149 imports, 6 JNI, 29 sections, 12 segments
+symtab/dynsym: 0 / 166
+
+Sections (29)
+  name                   type             flags  address      size       offset
+  .note.android.ident    NOTE             A      0x2e0        24         0x2e0
+  .note.gnu.build-id     NOTE             A      0x2f8        32         0x2f8
+  .note.gnu.property     NOTE             A      0x318        32         0x318
+  .dynsym                DYNSYM           A      0x338        3984       0x338
+  .gnu.version           GNU_VERSYM       A      0x12c8       332        0x12c8
+  .gnu.version_r         GNU_VERNEED      A      0x1414       96         0x1414
+  .gnu.hash              GNU_HASH         A      0x1478       128        0x1478
+  .hash                  HASH             A      0x14f8       1336       0x14f8
+  .dynstr                STRTAB           A      0x1a30       4532       0x1a30
+  .rela.dyn              ANDROID_RELA     A      0x2be8       302        0x2be8
+  .relr.dyn              ANDROID_RELR     A      0x2d18       72         0x2d18
+  .rela.plt              RELA             AI     0x2d60       3096       0x2d60
+  .rodata                PROGBITS         AMS    0x3980       23058      0x3980
+  .gcc_except_table      PROGBITS         A      0x9394       3740       0x9394
+  .eh_frame_hdr          PROGBITS         A      0xa230       2172       0xa230
+  .eh_frame              PROGBITS         A      0xaab0       15252      0xaab0
+  .text                  PROGBITS         AX     0xf000       229016     0xf000
+  .plt                   PROGBITS         AX     0x46ea0      3128       0x46ea0
+  .data.rel.ro           PROGBITS         WA     0x48000      2664       0x48000
+  .fini_array            FINI_ARRAY       WA     0x48a68      16         0x48a68
+  .init_array            INIT_ARRAY       WA     0x48a78      8          0x48a78
+  .dynamic               DYNAMIC          WA     0x48a80      608        0x48a80
+  .got                   PROGBITS         WA     0x48ce0      96         0x48ce0
+  .got.plt               PROGBITS         WA     0x48d40      1056       0x48d40
+  .data                  PROGBITS         WA     0x4a160      40         0x49160
+  .bss                   NOBITS           WA     0x4a188      549536     0x49188
+  .shstrtab              STRTAB           -      0x0          295        0x49188
+  .gnu_debugdata         PROGBITS         -      0x0          4680       0x492af
+
+JNI entry points (6)
+  0x3e730        6136       com.qualcomm.whisper.WhisperNative
+      Java_com_qualcomm_whisper_WhisperNative__1init
+  0x3ffa8        60         com.qualcomm.whisper.WhisperNative
+      Java_com_qualcomm_whisper_WhisperNative__1free
+  0x3ffe4        10928      com.qualcomm.whisper.WhisperNative
+      Java_com_qualcomm_whisper_WhisperNative__1process
+  0x42a94        28         com.qualcomm.whisper.WhisperNative
+      Java_com_qualcomm_whisper_WhisperNative__1setTask
+  0x42ab0        316        com.qualcomm.whisper.WhisperNative
+      Java_com_qualcomm_whisper_WhisperNative__1setLanguage
+  0x42bec        32         com.qualcomm.whisper.WhisperNative
+      Java_com_qualcomm_whisper_WhisperNative__1getDetectedLanguage
+
+AI-relevant strings (62676 bytes scanned in allocated data sections)
+  [model] 13 unique (first 13)
+    0x00003faf .rodata    .cross_attn.query.weight
+    0x000040c4 .rodata    .mlp_ln.weight
+    0x00004262 .rodata    .attn_ln.weight
+    0x00004d6f .rodata    .mlp.0.weight
+    0x00004d8e .rodata    .cross_attn_ln.weight
+    0x000050f8 .rodata    .attn.key.weight
+    0x00005384 .rodata    decoder.ln.weight
+    0x0000542b .rodata    .attn.out.weight
+    0x00005717 .rodata    decoder.token_embedding.weight
+    0x00005736 .rodata    .attn.value.weight
+    0x000057e0 .rodata    .cross_attn.out.weight
+    0x00005bb3 .rodata    .mlp.2.weight
+    0x00005d5d .rodata    .attn.query.weight
+  [nn_runtime] 2 unique (first 2)
+    0x00005448 .rodata    DSP runtime available
+    0x00005acd .rodata    DSP runtime not available
+  [face] 8 unique (first 8)
+    0x00001ab7 .dynstr    posix_memalign
+    0x00002003 .dynstr    _ZNKSt6__ndk16locale9use_facetERNS0_2idE
+    0x000022ff .dynstr    _ZNKSt6__ndk16locale9has_facetERNS0_2idE
+    0x00003f02 .rodata    ((uintptr_t) (result))%GGML_MEM_ALIGN == 0
+    0x00004774 .rodata    invalid alignment value
+    0x000057a1 .rodata    ggml_aligned_malloc
+    0x00005828 .rodata    ((uintptr_t) (ctx->mem_buffer))%GGML_MEM_ALIGN == 0
+    0x00005b29 .rodata    DW_EH_PE_aligned pointer encoding not supported
+  [asr] 3 unique (first 3)
+    0x0000497a .rodata    vendor/qcom/proprietary/commonsys/qva-noship/engine/native/whisper/algo/whisper_lib/src/ggml.c
+    0x00004b1a .rodata    vendor/qcom/proprietary/commonsys/qva-noship/engine/native/whisper/algo/whisper_lib/src/whisper_ggml.cpp
+    0x00005bc7 .rodata    Whisper
+
+JSON written to reports/qcom_voiceactivation/native/elfinfo/libwhisper_lib.so.json

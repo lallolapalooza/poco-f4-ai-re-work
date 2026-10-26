@@ -1,0 +1,269 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/Biometric/Biometric.apk",
+  "regex": "com\\.miui\\.face\\.util\\.(DeviceUtils|ClientMonitor|SharedPrefUtil|MiSightCompat)|com\\.android\\.keyguard\\.faceunlock\\.(IPreviewCallback|FaceUnlockCallback|BaseFaceEnrollHelper)|com\\.ts\\.faceauth\\.data\\.(FaceDetectedCallback|StFaceFunctionConfig|StFaceAuthMode)|com\\.ts\\.faceauth\\.FaceDetectedCallback|com\\.miui\\.image\\.Yuv",
+  "packages": [],
+  "max": 20,
+  "timeout": 180.0,
+  "jadx": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/jadx/bin/jadx",
+  "classes_scanned": 141,
+  "candidates": [
+    {
+      "class": "com.miui.face.util.ClientMonitor",
+      "dex": "classes.dex",
+      "method_count": 28,
+      "access": 1,
+      "matched": [
+        "com.miui.face.util.clientmonitor"
+      ],
+      "score": 1028,
+      "rank": 1,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.face.util.ClientMonitor.java",
+      "seconds": 1.45
+    },
+    {
+      "class": "com.miui.image.Yuv",
+      "dex": "classes.dex",
+      "method_count": 10,
+      "access": 1,
+      "matched": [
+        "com.miui.image.yuv"
+      ],
+      "score": 1010,
+      "rank": 2,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.image.Yuv.java",
+      "seconds": 1.34
+    },
+    {
+      "class": "com.miui.face.util.SharedPrefUtil",
+      "dex": "classes.dex",
+      "method_count": 8,
+      "access": 1,
+      "matched": [
+        "com.miui.face.util.sharedprefutil"
+      ],
+      "score": 1008,
+      "rank": 3,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.face.util.SharedPrefUtil.java",
+      "seconds": 1.4
+    },
+    {
+      "class": "com.miui.face.util.DeviceUtils",
+      "dex": "classes.dex",
+      "method_count": 6,
+      "access": 1,
+      "matched": [
+        "com.miui.face.util.deviceutils"
+      ],
+      "score": 1006,
+      "rank": 4,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.face.util.DeviceUtils.java",
+      "seconds": 1.5
+    },
+    {
+      "class": "com.ts.faceauth.data.StFaceAuthMode",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 16401,
+      "matched": [
+        "com.ts.faceauth.data.stfaceauthmode"
+      ],
+      "score": 1005,
+      "rank": 5,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.data.StFaceAuthMode.java",
+      "seconds": 1.39
+    },
+    {
+      "class": "com.android.keyguard.faceunlock.BaseFaceEnrollHelper",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 1,
+      "matched": [
+        "com.android.keyguard.faceunlock.basefaceenrollhelper"
+      ],
+      "score": 1005,
+      "rank": 6,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.android.keyguard.faceunlock.BaseFaceEnrollHelper.java",
+      "seconds": 1.41
+    },
+    {
+      "class": "com.miui.image.Yuv$PlaneWrapper",
+      "dex": "classes.dex",
+      "method_count": 4,
+      "access": 1,
+      "matched": [
+        "com.miui.image.yuv"
+      ],
+      "score": 1004,
+      "rank": 7,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.image.Yuv$PlaneWrapper.java",
+      "seconds": 1.37
+    },
+    {
+      "class": "com.android.keyguard.faceunlock.FaceUnlockCallback",
+      "dex": "classes.dex",
+      "method_count": 4,
+      "access": 1537,
+      "matched": [
+        "com.android.keyguard.faceunlock.faceunlockcallback"
+      ],
+      "score": 1004,
+      "rank": 8,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.android.keyguard.faceunlock.FaceUnlockCallback.java",
+      "seconds": 1.23
+    },
+    {
+      "class": "com.miui.face.util.MiSightCompat",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 1,
+      "matched": [
+        "com.miui.face.util.misightcompat"
+      ],
+      "score": 1003,
+      "rank": 9,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.face.util.MiSightCompat.java",
+      "seconds": 1.39
+    },
+    {
+      "class": "com.miui.image.Yuv$$ExternalSyntheticLambda0",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 4113,
+      "matched": [
+        "com.miui.image.yuv"
+      ],
+      "score": 1002,
+      "rank": 10,
+      "selected": true,
+      "status": "failed",
+      "error": "jadx exit 1",
+      "file": null,
+      "seconds": 1.2
+    },
+    {
+      "class": "com.miui.image.Yuv$$ExternalSyntheticLambda1",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 4113,
+      "matched": [
+        "com.miui.image.yuv"
+      ],
+      "score": 1002,
+      "rank": 11,
+      "selected": true,
+      "status": "failed",
+      "error": "jadx exit 1",
+      "file": null,
+      "seconds": 1.28
+    },
+    {
+      "class": "com.miui.image.Yuv$$ExternalSyntheticLambda2",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 4113,
+      "matched": [
+        "com.miui.image.yuv"
+      ],
+      "score": 1002,
+      "rank": 12,
+      "selected": true,
+      "status": "failed",
+      "error": "jadx exit 1",
+      "file": null,
+      "seconds": 1.28
+    },
+    {
+      "class": "com.android.keyguard.faceunlock.IPreviewCallback",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 1537,
+      "matched": [
+        "com.android.keyguard.faceunlock.ipreviewcallback"
+      ],
+      "score": 1002,
+      "rank": 13,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.android.keyguard.faceunlock.IPreviewCallback.java",
+      "seconds": 1.24
+    },
+    {
+      "class": "com.ts.faceauth.FaceDetectedCallback",
+      "dex": "classes.dex",
+      "method_count": 1,
+      "access": 1537,
+      "matched": [
+        "com.ts.faceauth.facedetectedcallback"
+      ],
+      "score": 1001,
+      "rank": 14,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.FaceDetectedCallback.java",
+      "seconds": 1.35
+    },
+    {
+      "class": "com.miui.image.Yuv$PlaneWrapper-IA",
+      "dex": "classes.dex",
+      "method_count": 0,
+      "access": 4113,
+      "matched": [
+        "com.miui.image.yuv"
+      ],
+      "score": 1000,
+      "rank": 15,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.image.Yuv$PlaneWrapper-IA.java",
+      "seconds": 1.38
+    },
+    {
+      "class": "com.ts.faceauth.data.StFaceFunctionConfig",
+      "dex": "classes.dex",
+      "method_count": 0,
+      "access": 1537,
+      "matched": [
+        "com.ts.faceauth.data.stfacefunctionconfig"
+      ],
+      "score": 1000,
+      "rank": 16,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.ts.faceauth.data.StFaceFunctionConfig.java",
+      "seconds": 1.26
+    }
+  ],
+  "decompiled": 13,
+  "elapsed_sec": 21.49
+}

@@ -1,0 +1,126 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_bulldog/native/libs/libykit_module_plugin.so
+==============================================================================
+size        : 592008 bytes (0.56 MiB)
+sha256      : 5f7c512e12123fd5c35abce86572075297734e52a05ac87463207ba6ec9c7639
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x13260   imagebase: 0x0
+build id    : d87e57dc1ab0a2a7a6b839d9a8ca19abecf13846
+android     : SDK 21, NDK r21e, build 7075529
+soname      : libykit_module_plugin.so
+needed      : libykit_module.so, libprotobuf-lite.so, libwesteros.so, libjnigraphics.so, libm.so, libc++_shared.so, libdl.so, libc.so
+parser      : lief
+counts      : 53 exports, 243 imports, 14 JNI, 26 sections, 8 segments
+symtab/dynsym: 0 / 306
+
+Sections (26)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        2284       0x228
+  .gnu.hash              GNU_HASH         A      0xb18        440        0xb18
+  .dynsym                DYNSYM           A      0xcd0        7344       0xcd0
+  .dynstr                STRTAB           A      0x2980       15889      0x2980
+  .gnu.version           GNU_VERSYM       A      0x6792       612        0x6792
+  .gnu.version_r         GNU_VERNEED      A      0x69f8       64         0x69f8
+  .rela.dyn              RELA             A      0x6a38       42240      0x6a38
+  .rela.plt              RELA             AI     0x10f38      5376       0x10f38
+  .plt                   PROGBITS         AX     0x12440      3616       0x12440
+  .text                  PROGBITS         AX     0x13260      373780     0x13260
+  .rodata                PROGBITS         A      0x6e680      31181      0x6e680
+  .eh_frame_hdr          PROGBITS         A      0x76050      10796      0x76050
+  .eh_frame              PROGBITS         A      0x78a80      47664      0x78a80
+  .gcc_except_table      PROGBITS         A      0x844b0      27820      0x844b0
+  .note.android.ident    NOTE             A      0x8b15c      152        0x8b15c
+  .init_array            INIT_ARRAY       WA     0x8c9d0      112        0x8b9d0
+  .fini_array            FINI_ARRAY       WA     0x8ca40      16         0x8ba40
+  .data.rel.ro           PROGBITS         WA     0x8ca50      15168      0x8ba50
+  .dynamic               DYNAMIC          WA     0x90590      592        0x8f590
+  .got                   PROGBITS         WA     0x907e0      2080       0x8f7e0
+  .data                  PROGBITS         WA     0x91000      48         0x90000
+  .bss                   NOBITS           WA     0x91030      2784       0x90030
+  .comment               PROGBITS         MS     0x0          220        0x90030
+  .shstrtab              STRTAB           -      0x0          251        0x9010c
+
+JNI entry points (14)
+  0x14f50        124        com.kwai.video.westeros.aiedit.AIEditPlugin.nativeCreateAIEditPlugin
+      Java_com_kwai_video_westeros_aiedit_AIEditPlugin_nativeCreateAIEditPlugin
+  0x14fcc        96         com.kwai.video.westeros.aiedit.AIEditPlugin.nativeDestroyAIEditPlugin
+      Java_com_kwai_video_westeros_aiedit_AIEditPlugin_nativeDestroyAIEditPlugin
+  0x1502c        4          com.kwai.video.westeros.aiedit.AIEditPlugin.nativeStartProvideSalientData
+      Java_com_kwai_video_westeros_aiedit_AIEditPlugin_nativeStartProvideSalientData
+  0x15030        4          com.kwai.video.westeros.aiedit.AIEditPlugin.nativeStopProvideSalientData
+      Java_com_kwai_video_westeros_aiedit_AIEditPlugin_nativeStopProvideSalientData
+  0x15034        212        com.kwai.video.westeros.aiedit.AIEditPlugin.nativeSetCustomPara
+      Java_com_kwai_video_westeros_aiedit_AIEditPlugin_nativeSetCustomPara
+  0x15108        756        com.kwai.video.westeros.aiedit.AIEditPlugin.nativeSetUploadStatsCallBack
+      Java_com_kwai_video_westeros_aiedit_AIEditPlugin_nativeSetUploadStatsCallBack
+  0x15e58        640        com.kwai.video.westeros.mmuplugin.MmuPlugin.nativeCreateMmuPlugin
+      Java_com_kwai_video_westeros_mmuplugin_MmuPlugin_nativeCreateMmuPlugin
+  0x160d8        96         com.kwai.video.westeros.mmuplugin.MmuPlugin.nativeDestroyMmuPlugin
+      Java_com_kwai_video_westeros_mmuplugin_MmuPlugin_nativeDestroyMmuPlugin
+  0x16138        696        com.kwai.video.westeros.mmuplugin.MmuPlugin.nativeSetFeatureEnabled
+      Java_com_kwai_video_westeros_mmuplugin_MmuPlugin_nativeSetFeatureEnabled
+  0x163f0        756        com.kwai.video.westeros.mmuplugin.MmuPlugin.nativeSetUploadStatsCallBack
+      Java_com_kwai_video_westeros_mmuplugin_MmuPlugin_nativeSetUploadStatsCallBack
+  0x166e4        1228       com.kwai.video.westeros.mmuplugin.MmuPlugin.nativeGetFaceReplacedBitmap
+      Java_com_kwai_video_westeros_mmuplugin_MmuPlugin_nativeGetFaceReplacedBitmap
+  0x18f8c        124        com.kwai.video.westeros.v2.yar.YarPlugin.nativeCreateYarPlugin
+      Java_com_kwai_video_westeros_v2_yar_YarPlugin_nativeCreateYarPlugin
+  0x19008        96         com.kwai.video.westeros.v2.yar.YarPlugin.nativeDestroyYarPlugin
+      Java_com_kwai_video_westeros_v2_yar_YarPlugin_nativeDestroyYarPlugin
+  0x19068        580        com.kwai.video.westeros.v2.yar.YarPlugin.nativeSetUploadStatsCallBack
+      Java_com_kwai_video_westeros_v2_yar_YarPlugin_nativeSetUploadStatsCallBack
+
+AI-relevant strings (209914 bytes scanned in allocated data sections)
+  [model] 21 unique (first 20)
+    0x0006ffd4 .rodata    ldmk01.model
+    0x0007005a .rodata    KSModelARPlane02.model
+    0x00074df5 .rodata    kuaishou.westeros.model.MemojiConfig.face_prop_script_path
+    0x00074e30 .rodata    kuaishou.westeros.model.MemojiConfig.animoji_script_path
+    0x00074e69 .rodata    kuaishou.westeros.model.MemojiConfig.styles_json_path
+    0x00074e9f .rodata    kuaishou.westeros.model.MemojiConfig
+    0x00074ec4 .rodata    kuaishou.westeros.model.MmuFacePropConfig
+    0x00074eee .rodata    kuaishou.westeros.model.MmuFeatureParams
+    0x00074f17 .rodata    kuaishou.westeros.model.MemojiResultSingleFace.result_json
+    0x00074f52 .rodata    kuaishou.westeros.model.MemojiResultSingleFace
+    0x00074f81 .rodata    kuaishou.westeros.model.MemojiResult
+    0x00074fa6 .rodata    kuaishou.westeros.model.MmuFacePropSingleFace
+    0x00074fd4 .rodata    kuaishou.westeros.model.MmuFacePropResult
+    0x00074ffe .rodata    kuaishou.westeros.model.MmuResourceConfig.ycnn_model_path
+    0x00075038 .rodata    kuaishou.westeros.model.MmuResourceConfig.mmu_model_path
+    0x00075071 .rodata    kuaishou.westeros.model.MmuResourceConfig.resource_path
+    0x000750a9 .rodata    kuaishou.westeros.model.MmuResourceConfig
+    0x000750d3 .rodata    kuaishou.westeros.model.MmuPoint
+    0x000750f4 .rodata    kuaishou.westeros.model.MmuRect
+    0x00075114 .rodata    kuaishou.westeros.model.MmuFace
+    ... 1 more
+  [face] 22 unique (first 20)
+    0x00004398 .dynstr    _ZNKSt6__ndk16locale9use_facetERNS0_2idE
+    0x00004768 .dynstr    _ZN6google8protobuf5Arena15AllocateAlignedEPKSt9type_infom
+    0x000051c4 .dynstr    _ZNK8kuaishou8westeros3Any4CastINS0_16Landmark3DConfigEEERKT_v
+    0x0006f455 .rodata    yar_LandmarkAR
+    0x00071147 .rodata    faceanchorlua_path
+    0x0007115a .rodata    faceproplua_path
+    0x00071b68 .rodata    YAnimalLandmarks
+    0x00071bbd .rodata    model_path_faceblend
+    0x00071bf5 .rodata    faceBlend
+    0x00072697 .rodata    $face3d_light
+    0x00073be2 .rodata    Landmarks3D
+    0x00073c36 .rodata    FaceProp
+    0x00073c9f .rodata    [Westeros ksu-log] Warning: KsFaceArith Landmark3d jsonSetting can not be parsed: "%s"...
+    0x00073d5a .rodata    faceLivePhoto
+    0x00073d68 .rodata    landmarks
+    0x00073e14 .rodata    magic_mmu_model_faceblend
+    0x00073e2e .rodata    magic_mmu_model_faceprop
+    0x00073e47 .rodata    model_path_faceprop
+    0x00073e9d .rodata    earLandmark
+    0x000748d6 .rodata    NSt6__ndk120__shared_ptr_emplaceIN8kuaishou8westeros15Landmarks3DDataENS_9allocatorIS3_EEEE
+    ... 2 more
+  [segment] 2 unique (first 2)
+    0x0006feb0 .rodata    portrait
+    0x0006ffe1 .rodata    yarkit: requireSkySegmentation: %d
+  [model_name] 2 unique (first 2)
+    0x0006ffd4 .rodata    ldmk01.model
+    0x0007005a .rodata    KSModelARPlane02.model
+
+JSON written to native/libykit_module_plugin.so.json

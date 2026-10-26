@@ -1,0 +1,79 @@
+Workspace: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work
+APK_ROOT: /run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system
+APK: $APK_ROOT/system_ext/app/ModemTestBox/ModemTestBox.apk
+PY: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python
+R: $WS/reports/mtb_modemtestbox
+
+# Inventory (manifest, components, models)
+$PY tools/apk_inventory.py "$APK" --out $R/inventory
+
+# Class / string discovery
+$PY tools/dex_find.py "$APK" --regex '.*' --classes-only --out $R/evidence/all_classes.jsonl
+$PY tools/dex_find.py "$APK" --regex 'mtb|tflite|TFLite|ModemTest|audio|voice|mfcc|spectrum' \
+    --classes-only --out $R/evidence/dex_classes.jsonl
+$PY tools/strings_dex.py "$APK" --regex '' --format plain --min-len 6 --unique \
+    --out $R/evidence/all_strings.txt
+$PY tools/strings_dex.py "$APK" \
+    --regex 'tflite|input_1|dense|conv1d|audio|wav|PCM|sample|voice|noise|label|predict|infer|0\.3_new' \
+    --format plain --min-len 3 --out $R/evidence/relevant_strings.txt
+
+# Decompilation (jadx --single-class via wrapper)
+$PY tools/decompile_classes.py "$APK" \
+    --regex 'MtbTFLite|MtbModemSceneRecognition|MtbHydraDataManager|MtbApp|Mtb.*Audio|Audio.*Mtb' \
+    --packages com.xiaomi.mtb --out $R/sources --max 40 --timeout 180
+$PY tools/decompile_classes.py "$APK" \
+    --regex 'MtbModemAutoCheckTool|MtbBaseActivity|AiWeakSignal|MtbSarTestActivity' \
+    --packages com.xiaomi.mtb --out $R/sources2 --max 10 --timeout 180
+$PY tools/decompile_classes.py "$APK" \
+    --regex 'MtbBroadcastReceiver|ModemTestBoxMainInit|MtbService' \
+    --packages com.xiaomi.mtb --out $R/sources3 --max 10 --timeout 180
+
+# Model IR
+$PY tools/tflite_ir.py $R/models/0.3_new_0410_less.tflite --out $R/ir/ir.json
+
+# JAX conversion + verification
+$PY tools/tflite2jax.py $R/models/0.3_new_0410_less.tflite --out $R/reimpl --no-verify
+$PY tools/verify_tflite_jax.py $R/models/0.3_new_0410_less.tflite --out $R/reimpl
+$PY tools/verify_tflite_jax.py $R/models/0.3_new_0410_less.tflite --out $R/reimpl \
+    --inputs $R/reimpl/inputs_degrading.npz
+$PY reimpl/verify_derived.py
+
+# End-to-end demo
+$PY reimpl/pipeline.py
+$PY reimpl/pipeline.py --reference
+
+# TFLite runtime wrapper classes (merged into sources/classes/)
+$PY tools/decompile_classes.py "$APK" \
+    --regex 'org\.tensorflow\.lite\.(e|g)$|^h\.(g|e)$' \
+    --packages 'org.tensorflow.lite,h' --out $R/sources4 --max 6 --timeout 180
+
+# ---- pipeline patch (entry / measurement / output / lifecycle) ----
+JADX=$WS/tools/jadx/bin/jadx
+JAR="$APK_ROOT/system_ext/framework/mirilhook.jar"
+
+# Manifest (binary AXML decoded; androguard, no aapt in the image)
+$PY $R/evidence/manifest_dump.py "$APK" > $R/evidence/manifest.xml
+
+# Measurement source: in-APK hook wrapper + property constants
+TMPDIR=$R/sources/.tmp timeout 300 $JADX --single-class com.xiaomi.modem.OemHookAgent \
+    --single-class-output $R/sources/classes/com.xiaomi.modem.OemHookAgent.java \
+    --show-bad-code --no-res "$APK"
+TMPDIR=$R/sources/.tmp timeout 300 $JADX --single-class 'com.xiaomi.modem.OemHookAgent$QcRilHookCbMethodProxy' \
+    --single-class-output "$R/sources/classes/com.xiaomi.modem.OemHookAgent\$QcRilHookCbMethodProxy.java" \
+    --show-bad-code --no-res "$APK"
+TMPDIR=$R/sources/.tmp timeout 300 $JADX --single-class com.xiaomi.modem.ModemUtils \
+    --single-class-output $R/sources/classes/com.xiaomi.modem.ModemUtils.java \
+    --show-bad-code --no-res "$APK"
+
+# Hydra indirection behind getLteMeasInfo/getNr5gMeasInfo (framework jar, not in the APK)
+TMPDIR=$R/sources/.tmp timeout 300 $JADX --single-class com.xiaomi.mirilhook.MiRilHook \
+    --single-class-output $R/sources/framework/com.xiaomi.mirilhook.MiRilHook.java \
+    --show-bad-code --no-res "$JAR"
+unzip -l "$JAR"   # classes.dex + META-INF only (Android bytecode in a jar)
+
+# findings.json structural check (jsonschema unavailable, no network)
+$PY $R/evidence/validate_findings.py $R $WS/SCHEMA.json | tee $R/evidence/validate_findings_v2.txt
+
+# Cross-checks used for the report tables
+grep -n 'PROP_SAR_LOG_SWITCH_OPEN\|PROP_SAR_LOG_SWITCH_CLOSE' $R/sources/classes/com.xiaomi.modem.ModemUtils.java
+grep -n 'getHook()' $R/sources/classes/com.xiaomi.modem.OemHookAgent.java

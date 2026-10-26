@@ -1,0 +1,46 @@
+associating NNAPI execution input with a memory object
+associating NNAPI execution output to a memory object
+associating NNAPI execution state output to a memory object
+Attempted to call ANeuralNetworksCompilation_create from NNAPI delegate that is constructed from a support library
+completing NNAPI compilation
+configuring NNAPI caching
+Could not find the specified NNAPI accelerator: %s. Must be one of: {%s}.
+Created TensorFlow Lite delegate for NNAPI.
+Created TensorFlow Lite XNNPACK delegate for CPU.
+creating NNAPI burst
+creating NNAPI compilation
+creating NNAPI execution
+creating NNAPI model
+creating NNAPI model for given devices
+failed to create XNNPACK runtime
+failed to create XNNPACK subgraph
+failed to create XNNPACK Value for tensor %d
+failed to invoke XNNPACK runtime
+Failed to load XNNPACK delegate from current runtime. Have you added the necessary dependencies?
+failed to setup XNNPACK runtime
+getting number of NNAPI devices
+Java_org_tensorflow_lite_NativeInterpreterWrapper_createXNNPACKDelegate
+Java_org_tensorflow_lite_NativeInterpreterWrapper_hasUnresolvedFlexOp
+mismatching number of quantization parameters %d and outer dimension %d for INT8 tensor %d in XNNPACK delegate
+mismatching number of scale (%d) and zero point (%d) quantization parameters for INT32 tensor %d in XNNPACK delegate
+mismatching number of scale (%d) and zero point (%d) quantization parameters for INT8 tensor %d in XNNPACK delegate
+missing scale quantization parameters for INT32 tensor %d in XNNPACK delegate
+missing scale quantization parameters for INT8 tensor %d in XNNPACK delegate
+missing scale quantization parameters for UINT8 tensor %d in XNNPACK delegate
+missing zero point quantization parameters for INT32 tensor %d in XNNPACK delegate
+missing zero point quantization parameters for INT8 tensor %d in XNNPACK delegate
+missing zero point quantization parameters for UINT8 tensor %d in XNNPACK delegate
+NNAPI delegate requested but no accelerators available.
+Select TensorFlow op(s), included in the given model, is(are) not supported by this interpreter. Make sure you apply/link the Flex delegate before inference. For the Android, it can be resolved by adding "org.tensorflow:tensorflow-lite-select-tf-ops" dependency. See instructions: https://www.tensorflow.org/lite/guide/ops_select
+Unknown NNAPI error code: 
+unsupported datatype (%s) of tensor %d in XNNPACK delegate
+unsupported number (%d) of scale quantization parameters for UINT8 tensor %d in XNNPACK delegate
+unsupported number (%d) of zero point quantization parameters for UINT8 tensor %d in XNNPACK delegate
+unsupported quantization type %d for INT32 tensor %d in XNNPACK delegate
+unsupported quantization type %d for INT8 tensor %d in XNNPACK delegate
+unsupported quantization type %d for UINT8 tensor %d in XNNPACK delegate
+unsupported quantized dimension %d for INT32 tensor %d in XNNPACK delegate
+unsupported zero-point value %d for INT32 tensor %d in XNNPACK delegate
+unsupported zero-point value %d in channel %d of INT32 tensor %d in XNNPACK delegate
+unsupported zero-point value %d in channel %d of INT8 tensor %d in XNNPACK delegate
+WARNING: Missing necessary XNNPACK delegate dependencies to apply it by default.

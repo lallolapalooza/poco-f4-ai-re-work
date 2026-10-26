@@ -1,0 +1,63 @@
+[android_log] eai_init_ex() - params: 0x7f982ecf4650, 0x4d9000, 8492, 0x0
+
+[android_log] GRU requantization scale cannot be zero, layer ID: 1.
+
+init rc=0 handle=0x4a8860
+model=../../models/eai/63ff0ae5_en-US_001_198088.eai size=8492 hdr=8492 sections=5 ver=2.2 scratch_req=656 persist_req=10312
+section[0] type=4 size=184 off=128
+section[1] type=1 size=1392 off=320
+section[2] type=5 size=136 off=1712
+section[3] type=0 size=24 off=1856
+section[4] type=2 size=6612 off=1880
+preapply rc=0
+set_property(0) rc=0 scratch=4752
+[android_log] Persistent buffer created: 0x4dd3e0, 10312
+
+apply rc=0 flags=0xa0000000
+io n_in=1 n_out=1
+tensors=17
+T00 ndim=1 dims=[1] bytes=8 dtype=0x8078 off=0 flags=0x00000001 magic=0x43210
+T01 ndim=3 dims=[1,48,16] bytes=3072 dtype=0x8014 off=8 flags=0x00000001 magic=0x43210
+T02 ndim=2 dims=[1,48] bytes=192 dtype=0x8014 off=3080 flags=0x00000001 magic=0x43210
+T03 ndim=3 dims=[1,48,16] bytes=3072 dtype=0x8014 off=3272 flags=0x00000001 magic=0x43210
+T04 ndim=2 dims=[1,48] bytes=192 dtype=0x8014 off=6344 flags=0x00000001 magic=0x43210
+T05 ndim=2 dims=[16,1] bytes=64 dtype=0x8014 off=6536 flags=0x00000001 magic=0x34210
+T06 ndim=1 dims=[1] bytes=4 dtype=0x8014 off=6600 flags=0x00000001 magic=0x43210
+T07 ndim=4 dims=[1,1,1,16] bytes=64 dtype=0x8014 off=584 flags=0x40000004 magic=0x43210 IN0
+T08 ndim=3 dims=[1,1,16] bytes=64 dtype=0x8014 off=520 flags=0x00000004 magic=0x43210
+T09 ndim=2 dims=[1,48] bytes=192 dtype=0x10014 off=320 flags=0x00000004 magic=0x43210
+T10 ndim=2 dims=[1,48] bytes=192 dtype=0x10014 off=128 flags=0x00000004 magic=0x43210
+T11 ndim=3 dims=[1,160,1] bytes=640 dtype=0x8014 off=8 flags=0x00000004 magic=0x43210
+T12 ndim=3 dims=[1,1,160] bytes=640 dtype=0x8014 off=8 flags=0x00000004 magic=0x43210
+T13 ndim=2 dims=[1,1] bytes=8 dtype=0x8078 off=0 flags=0x80000004 magic=0x43210 OUT0
+T14 ndim=4 dims=[1,1,1,16] bytes=64 dtype=0x8014 off=0 flags=0x00000084 magic=0x43210
+T15 ndim=3 dims=[1,1,16] bytes=64 dtype=0x8014 off=0 flags=0x00000084 magic=0x43210
+T16 ndim=3 dims=[1,160,16] bytes=10240 dtype=0x8014 off=64 flags=0x00000084 magic=0x43210
+layers=7
+L00 type=41 flags=0x00080000 in=2 out=1 in_ids=7,0, out_ids=8,
+L01 type=10 flags=0x00080000 in=9 out=1 in_ids=8,1,2,3,4,-1,9,10,-1, out_ids=14,
+L02 type=20 flags=0x00080100 in=1 out=1 in_ids=14, out_ids=15,
+L03 type=23 flags=0x00080000 in=1 out=1 in_ids=15, out_ids=16,
+L04 type=17 flags=0x00080004 in=3 out=1 in_ids=16,5,6, out_ids=11,
+L05 type=20 flags=0x00080100 in=1 out=1 in_ids=11, out_ids=12,
+L06 type=54 flags=0x00080000 in=1 out=1 in_ids=12, out_ids=13,
+input[0] elems=16 head=0,0.0152993,0.0305941
+execute rc=2
+T00 first8: 0 0
+T01 first8: -0.47760791 -0.22664584 -0.15125436 -0.33432347 0.24096982 -0.12041881 -0.11901265 0.79433
+T02 first8: 0.19772413 0.16044953 -0.17936341 0.33942497 0.47679415 0.094115674 0.12621555 -0.010444181
+T03 first8: -0.19632199 0.65325737 -0.38620001 0.16786385 -0.79020488 0.88354725 -0.8546924 -0.16460879
+T04 first8: 0.19772413 0.16044953 -0.17936341 0.33942497 0.47679415 0.094115674 0.12621555 -0.010444181
+T05 first8: -1.7755179 1.5448506 -2.1168425 4.7436676 -1.9340264 0.78704816 -0.86334407 2.435806
+T06 first8: 0.0012405217
+T07 first8: 0 0.015299263 0.030594105 0.045880105 0.061152846 0.076407917 0.091640905 0.10684741
+T08 first8: 0 0.015299263 0.030594105 0.045880105 0.061152846 0.076407917 0.091640905 0.10684741
+T09 first8: 0.53739119 0.57651472 0.34381536 0.66400188 0.64493799 0.45649159 0.53728092 0.45547268
+T10 first8: 0.19772413 0.16044953 -0.17936341 0.33942497 0.47679415 0.094115674 0.12621555 -0.010444181
+T11 first8: 0 0 0 0 0 0 0 0
+T12 first8: 0 0 0 0 0 0 0 0
+T13 first8: 0 0.015299263
+T14 first8: -0.10856806 -0.087209858 -0.041324165 -0.044136517 -0.018737271 -0.066741914 0.10876125 -0.071274132
+T15 first8: -0.10856806 -0.087209858 -0.041324165 -0.044136517 -0.018737271 -0.066741914 0.10876125 -0.071274132
+T16 first8: -0.10856806 -0.087209858 -0.041324165 -0.044136517 -0.018737271 -0.066741914 0.10876125 -0.071274132
+done

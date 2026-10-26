@@ -1,0 +1,622 @@
+# disasm_elf.py transcripts for the Java->JNI edge of libdigit_ocr.so (arm64-v8a)
+# lib: reports/miui_paymentservice/inventory/libs/lib/arm64-v8a/libdigit_ocr.so
+# symbol addresses from native/elf_info_arm64.json (ghidra imagebase 0x100000 is added in native/ghidra_digitocr.c addresses)
+
+#### nativeBeginProcess  start=0x14840 size=0xb0
+0x00014840: ff 03 01 d1              sub      sp, sp, #0x40
+0x00014844: e1 03 03 aa              mov      x1, x3
+0x00014848: f7 7b 02 a9              stp      x23, x30, [sp, #0x20]
+0x0001484c: f3 53 00 a9              stp      x19, x20, [sp]
+0x00014850: f5 5b 01 a9              stp      x21, x22, [sp, #0x10]
+0x00014854: f5 03 04 aa              mov      x21, x4
+0x00014858: f3 03 00 aa              mov      x19, x0
+0x0001485c: 04 00 40 f9              ldr      x4, [x0]
+0x00014860: f7 03 02 aa              mov      x23, x2
+0x00014864: 02 00 80 d2              mov      x2, #0
+0x00014868: e3 1f 00 f9              str      x3, [sp, #0x38]
+0x0001486c: 84 a4 42 f9              ldr      x4, [x4, #0x548]
+0x00014870: 80 00 3f d6              blr      x4
+0x00014874: f6 03 00 aa              mov      x22, x0
+0x00014878: 64 02 40 f9              ldr      x4, [x19]
+0x0001487c: e1 03 15 aa              mov      x1, x21
+0x00014880: e0 03 13 aa              mov      x0, x19
+0x00014884: 02 00 80 d2              mov      x2, #0
+0x00014888: 84 a4 42 f9              ldr      x4, [x4, #0x548]
+0x0001488c: 80 00 3f d6              blr      x4
+0x00014890: f4 03 00 aa              mov      x20, x0
+0x00014894: e1 03 16 aa              mov      x1, x22
+0x00014898: e2 03 14 aa              mov      x2, x20
+0x0001489c: e0 03 17 aa              mov      x0, x23
+0x000148a0: a6 51 00 94              bl       #0x28f38                   ; -> _ZN7MainOCR12beginProcessEPKcS1_
+0x000148a4: 64 02 40 f9              ldr      x4, [x19]
+0x000148a8: e0 03 13 aa              mov      x0, x19
+0x000148ac: e3 1f 40 f9              ldr      x3, [sp, #0x38]
+0x000148b0: e2 03 16 aa              mov      x2, x22
+0x000148b4: e1 03 03 aa              mov      x1, x3
+0x000148b8: 83 a8 42 f9              ldr      x3, [x4, #0x550]
+0x000148bc: 60 00 3f d6              blr      x3
+0x000148c0: 63 02 40 f9              ldr      x3, [x19]
+0x000148c4: e0 03 13 aa              mov      x0, x19
+0x000148c8: e1 03 15 aa              mov      x1, x21
+0x000148cc: e2 03 14 aa              mov      x2, x20
+0x000148d0: 63 a8 42 f9              ldr      x3, [x3, #0x550]
+0x000148d4: 60 00 3f d6              blr      x3
+0x000148d8: 20 00 80 52              mov      w0, #1
+0x000148dc: f3 53 40 a9              ldp      x19, x20, [sp]
+0x000148e0: f5 5b 41 a9              ldp      x21, x22, [sp, #0x10]
+0x000148e4: f7 7b 42 a9              ldp      x23, x30, [sp, #0x20]
+0x000148e8: ff 03 01 91              add      sp, sp, #0x40
+0x000148ec: c0 03 5f d6              ret      
+
+#### nativeSetImage  start=0x148f0 size=0x58
+0x000148f0: ff c3 00 d1              sub      sp, sp, #0x30
+0x000148f4: e1 03 03 aa              mov      x1, x3
+0x000148f8: fe 03 00 f9              str      x30, [sp]
+0x000148fc: e2 17 00 f9              str      x2, [sp, #0x28]
+0x00014900: 07 00 40 f9              ldr      x7, [x0]
+0x00014904: e4 13 00 f9              str      x4, [sp, #0x20]
+0x00014908: e5 0f 00 f9              str      x5, [sp, #0x18]
+0x0001490c: e3 98 43 f9              ldr      x3, [x7, #0x730]
+0x00014910: e6 0b 00 f9              str      x6, [sp, #0x10]
+0x00014914: 60 00 3f d6              blr      x3
+0x00014918: e1 03 00 aa              mov      x1, x0
+0x0001491c: e2 17 40 f9              ldr      x2, [sp, #0x28]
+0x00014920: e4 13 40 f9              ldr      x4, [sp, #0x20]
+0x00014924: e5 0f 40 f9              ldr      x5, [sp, #0x18]
+0x00014928: e0 03 02 aa              mov      x0, x2
+0x0001492c: e6 0b 40 f9              ldr      x6, [sp, #0x10]
+0x00014930: e2 03 04 2a              mov      w2, w4
+0x00014934: fe 03 40 f9              ldr      x30, [sp]
+0x00014938: e3 03 05 2a              mov      w3, w5
+0x0001493c: e4 03 06 2a              mov      w4, w6
+0x00014940: ff c3 00 91              add      sp, sp, #0x30
+0x00014944: fc 51 00 14              b        #0x29134                   ; -> _ZN7MainOCR8setImageEPhiii
+
+#### nativeRecogDigit  start=0x1497c size=0x148
+0x0001497c: ff c3 00 d1              sub      sp, sp, #0x30
+0x00014980: f5 5b 01 a9              stp      x21, x22, [sp, #0x10]
+0x00014984: f5 03 00 aa              mov      x21, x0
+0x00014988: e0 03 02 aa              mov      x0, x2
+0x0001498c: f6 03 03 aa              mov      x22, x3
+0x00014990: fe 13 00 f9              str      x30, [sp, #0x20]
+0x00014994: f3 53 00 a9              stp      x19, x20, [sp]
+0x00014998: f4 03 02 aa              mov      x20, x2
+0x0001499c: 3e 60 00 94              bl       #0x2ca94                   ; -> _ZN7MainOCR13recogdigitOCREv
+0x000149a0: e0 03 14 aa              mov      x0, x20
+0x000149a4: 02 52 00 94              bl       #0x291ac                   ; -> _ZN7MainOCR17getDigitResultNumEv
+0x000149a8: f3 03 00 2a              mov      w19, w0
+0x000149ac: e0 03 14 aa              mov      x0, x20
+0x000149b0: 01 52 00 94              bl       #0x291b4                   ; -> _ZN7MainOCR20getRecognitionResultEv
+0x000149b4: f4 03 00 aa              mov      x20, x0
+0x000149b8: a3 02 40 f9              ldr      x3, [x21]
+0x000149bc: 02 00 80 d2              mov      x2, #0
+0x000149c0: e0 03 15 aa              mov      x0, x21
+0x000149c4: e1 03 16 aa              mov      x1, x22
+0x000149c8: 63 ec 42 f9              ldr      x3, [x3, #0x5d8]
+0x000149cc: 60 00 3f d6              blr      x3
+0x000149d0: e2 03 00 aa              mov      x2, x0
+0x000149d4: 7f 02 1f 6b              cmp      w19, wzr
+0x000149d8: 0d 05 00 54              b.le     #0x14a78
+0x000149dc: 80 42 00 91              add      x0, x20, #0x10
+0x000149e0: 41 40 00 91              add      x1, x2, #0x10
+0x000149e4: 5f 00 00 eb              cmp      x2, x0
+0x000149e8: e3 37 9f 1a              cset     w3, hs
+0x000149ec: 9f 02 01 eb              cmp      x20, x1
+0x000149f0: e0 37 9f 1a              cset     w0, hs
+0x000149f4: 60 00 00 2a              orr      w0, w3, w0
+0x000149f8: 80 05 00 34              cbz      w0, #0x14aa8
+0x000149fc: 7f 22 00 71              cmp      w19, #8
+0x00014a00: 49 05 00 54              b.ls     #0x14aa8
+0x00014a04: 64 12 00 51              sub      w4, w19, #4
+0x00014a08: e3 03 14 aa              mov      x3, x20
+0x00014a0c: 84 7c 02 53              lsr      w4, w4, #2
+0x00014a10: e1 03 02 aa              mov      x1, x2
+0x00014a14: 84 04 00 11              add      w4, w4, #1
+0x00014a18: 00 00 80 52              mov      w0, #0
+0x00014a1c: 85 74 1e 53              lsl      w5, w4, #2
+0x00014a20: 60 04 c1 3c              ldr      q0, [x3], #0x10
+0x00014a24: 00 04 00 11              add      w0, w0, #1
+0x00014a28: 1f 00 04 6b              cmp      w0, w4
+0x00014a2c: 20 04 81 3c              str      q0, [x1], #0x10
+0x00014a30: 83 ff ff 54              b.lo     #0x14a20
+0x00014a34: 7f 02 05 6b              cmp      w19, w5
+0x00014a38: 00 02 00 54              b.eq     #0x14a78
+0x00014a3c: a0 7c 7e 93              sbfiz    x0, x5, #2, #0x20
+0x00014a40: a1 04 00 11              add      w1, w5, #1
+0x00014a44: 7f 02 01 6b              cmp      w19, w1
+0x00014a48: 81 6a 60 b8              ldr      w1, [x20, x0]
+0x00014a4c: 41 68 20 b8              str      w1, [x2, x0]
+0x00014a50: 4d 01 00 54              b.le     #0x14a78
+0x00014a54: 01 10 00 91              add      x1, x0, #4
+0x00014a58: a5 08 00 11              add      w5, w5, #2
+0x00014a5c: 7f 02 05 6b              cmp      w19, w5
+0x00014a60: 83 6a 61 b8              ldr      w3, [x20, x1]
+0x00014a64: 43 68 21 b8              str      w3, [x2, x1]
+0x00014a68: 8d 00 00 54              b.le     #0x14a78
+0x00014a6c: 00 20 00 91              add      x0, x0, #8
+0x00014a70: 81 6a 60 b8              ldr      w1, [x20, x0]
+0x00014a74: 41 68 20 b8              str      w1, [x2, x0]
+0x00014a78: a4 02 40 f9              ldr      x4, [x21]
+0x00014a7c: e0 03 15 aa              mov      x0, x21
+0x00014a80: e1 03 16 aa              mov      x1, x22
+0x00014a84: 03 00 80 52              mov      w3, #0
+0x00014a88: 84 0c 43 f9              ldr      x4, [x4, #0x618]
+0x00014a8c: 80 00 3f d6              blr      x4
+0x00014a90: e0 03 13 2a              mov      w0, w19
+0x00014a94: fe 13 40 f9              ldr      x30, [sp, #0x20]
+0x00014a98: f3 53 40 a9              ldp      x19, x20, [sp]
+0x00014a9c: f5 5b 41 a9              ldp      x21, x22, [sp, #0x10]
+0x00014aa0: ff c3 00 91              add      sp, sp, #0x30
+0x00014aa4: c0 03 5f d6              ret      
+0x00014aa8: 04 00 80 d2              mov      x4, #0
+0x00014aac: 80 7a 64 b8              ldr      w0, [x20, x4, lsl #2]
+0x00014ab0: 40 78 24 b8              str      w0, [x2, x4, lsl #2]
+0x00014ab4: 84 04 00 91              add      x4, x4, #1
+0x00014ab8: 7f 02 04 6b              cmp      w19, w4
+0x00014abc: 8c ff ff 54              b.gt     #0x14aac
+0x00014ac0: ee ff ff 17              b        #0x14a78                   ; -> Java_com_xiaomi_payment_camera_XiaoMIDigitOCR_nativeRecogDigit+0xfc
+
+#### nativegetDigitResultString  start=0x14ac4 size=0x84
+0x00014ac4: ff 83 00 d1              sub      sp, sp, #0x20
+0x00014ac8: e8 63 00 91              add      x8, sp, #0x18
+0x00014acc: f3 7b 00 a9              stp      x19, x30, [sp]
+0x00014ad0: f3 03 00 aa              mov      x19, x0
+0x00014ad4: e0 03 02 aa              mov      x0, x2
+0x00014ad8: bd 51 00 94              bl       #0x291cc                   ; -> _ZN7MainOCR21getBestFrameResultStrEv
+0x00014adc: 62 02 40 f9              ldr      x2, [x19]
+0x00014ae0: e0 03 13 aa              mov      x0, x19
+0x00014ae4: e1 0f 40 f9              ldr      x1, [sp, #0x18]
+0x00014ae8: 42 9c 42 f9              ldr      x2, [x2, #0x538]
+0x00014aec: 40 00 3f d6              blr      x2
+0x00014af0: a1 05 00 d0              adrp     x1, #0xca000
+0x00014af4: e2 0f 40 f9              ldr      x2, [sp, #0x18]
+0x00014af8: f3 03 00 aa              mov      x19, x0
+0x00014afc: 43 60 00 d1              sub      x3, x2, #0x18
+0x00014b00: 21 18 47 f9              ldr      x1, [x1, #0xe30]
+0x00014b04: 7f 00 01 eb              cmp      x3, x1
+0x00014b08: a1 00 00 54              b.ne     #0x14b1c
+0x00014b0c: e0 03 13 aa              mov      x0, x19
+0x00014b10: f3 7b 40 a9              ldp      x19, x30, [sp]
+0x00014b14: ff 83 00 91              add      sp, sp, #0x20
+0x00014b18: c0 03 5f d6              ret      
+0x00014b1c: 42 20 00 d1              sub      x2, x2, #8
+0x00014b20: 40 fc 5f 88              ldaxr    w0, [x2]
+0x00014b24: 01 04 00 51              sub      w1, w0, #1
+0x00014b28: 41 fc 04 88              stlxr    w4, w1, [x2]
+0x00014b2c: a4 ff ff 35              cbnz     w4, #0x14b20
+0x00014b30: 1f 00 1f 6b              cmp      w0, wzr
+0x00014b34: cc fe ff 54              b.gt     #0x14b0c
+0x00014b38: e0 03 03 aa              mov      x0, x3
+0x00014b3c: e1 43 00 91              add      x1, sp, #0x10
+0x00014b40: 26 55 01 94              bl       #0x69fd8
+0x00014b44: f2 ff ff 17              b        #0x14b0c                   ; -> Java_com_xiaomi_payment_camera_XiaoMIDigitOCR_nativegetDigitResultString+0x48
+
+#### nativeCreateObject  start=0x14b98 size=0x5c
+0x00014b98: ff 83 00 d1              sub      sp, sp, #0x20
+0x00014b9c: c2 03 00 f0              adrp     x2, #0x8f000
+0x00014ba0: 42 80 1e 91              add      x2, x2, #0x7a0
+0x00014ba4: 60 00 80 52              mov      w0, #3
+0x00014ba8: f3 53 00 a9              stp      x19, x20, [sp]
+0x00014bac: d3 03 00 f0              adrp     x19, #0x8f000
+0x00014bb0: fe 0b 00 f9              str      x30, [sp, #0x10]
+0x00014bb4: 61 42 1e 91              add      x1, x19, #0x790
+0x00014bb8: fe fc ff 97              bl       #0x13fb0                   ; -> __android_log_print@plt
+0x00014bbc: 00 c9 81 d2              mov      x0, #0xe48
+0x00014bc0: bd 6c 00 94              bl       #0x2feb4                   ; -> _Znwm
+0x00014bc4: f4 03 00 aa              mov      x20, x0
+0x00014bc8: b8 53 00 94              bl       #0x29aa8                   ; -> _ZN7MainOCRC2Ev
+0x00014bcc: c2 03 00 f0              adrp     x2, #0x8f000
+0x00014bd0: 61 42 1e 91              add      x1, x19, #0x790
+0x00014bd4: 42 20 1f 91              add      x2, x2, #0x7c8
+0x00014bd8: 60 00 80 52              mov      w0, #3
+0x00014bdc: f5 fc ff 97              bl       #0x13fb0                   ; -> __android_log_print@plt
+0x00014be0: e0 03 14 aa              mov      x0, x20
+0x00014be4: fe 0b 40 f9              ldr      x30, [sp, #0x10]
+0x00014be8: f3 53 40 a9              ldp      x19, x20, [sp]
+0x00014bec: ff 83 00 91              add      sp, sp, #0x20
+0x00014bf0: c0 03 5f d6              ret      
+
+#### nativegetmeanConfidence  start=0x14c08 size=0x8
+0x00014c08: e0 03 02 aa              mov      x0, x2
+0x00014c0c: 6e 51 00 14              b        #0x291c4                   ; -> _ZN7MainOCR17getAllWordMinConfEv
+
+#### nativegetwordConfidences  start=0x14c10 size=0x34
+0x00014c10: ff 43 00 d1              sub      sp, sp, #0x10
+0x00014c14: f3 7b 00 a9              stp      x19, x30, [sp]
+0x00014c18: f3 03 00 aa              mov      x19, x0
+0x00014c1c: e0 03 02 aa              mov      x0, x2
+0x00014c20: 63 51 00 94              bl       #0x291ac                   ; -> _ZN7MainOCR17getDigitResultNumEv
+0x00014c24: e1 03 00 2a              mov      w1, w0
+0x00014c28: 62 02 40 f9              ldr      x2, [x19]
+0x00014c2c: e0 03 13 aa              mov      x0, x19
+0x00014c30: 42 cc 42 f9              ldr      x2, [x2, #0x598]
+0x00014c34: 40 00 3f d6              blr      x2
+0x00014c38: f3 7b 40 a9              ldp      x19, x30, [sp]
+0x00014c3c: ff 43 00 91              add      sp, sp, #0x10
+0x00014c40: c0 03 5f d6              ret      
+
+#### nativeSetCameraMode  start=0x14f6c size=0xc
+0x00014f6c: e0 03 02 aa              mov      x0, x2
+0x00014f70: e1 03 03 2a              mov      w1, w3
+0x00014f74: d7 53 00 14              b        #0x29ed0                   ; -> _ZN7MainOCR13setCameraModeEi
+
+#### nativeclearResultQueue  start=0x14f78 size=0x8
+0x00014f78: e0 03 02 aa              mov      x0, x2
+0x00014f7c: 19 54 00 14              b        #0x29fe0                   ; -> _ZN7MainOCR16clearResultQueueEv
+
+#### nativesetDigitRange  start=0x14f80 size=0x10
+0x00014f80: e0 03 02 aa              mov      x0, x2
+0x00014f84: e1 03 03 2a              mov      w1, w3
+0x00014f88: e2 03 04 2a              mov      w2, w4
+0x00014f8c: c4 52 00 14              b        #0x29a9c                   ; -> _ZN7MainOCR19setDigitNumberRangeEii
+
+#### MainOCR_getAllWordMinConf  start=0x291c4 size=0x10
+0x000291c4: 00 20 4e b9              ldr      w0, [x0, #0xe20]
+0x000291c8: c0 03 5f d6              ret      
+0x000291cc: ff 83 00 d1              sub      sp, sp, #0x20
+0x000291d0: 01 c0 38 91              add      x1, x0, #0xe30
+
+#### MainOCR_getBestFrameResultStr  start=0x291cc size=0x10
+0x000291cc: ff 83 00 d1              sub      sp, sp, #0x20
+0x000291d0: 01 c0 38 91              add      x1, x0, #0xe30
+0x000291d4: e0 03 08 aa              mov      x0, x8
+0x000291d8: fe 03 00 f9              str      x30, [sp]
+
+#### MainOCR_setAllWordAverageConf  start=0x291f8 size=0xd0
+0x000291f8: 03 64 47 b9              ldr      w3, [x0, #0x764]
+0x000291fc: 7f 00 1f 6b              cmp      w3, wzr
+0x00029200: 4d 06 00 54              b.le     #0x292c8
+0x00029204: 62 04 00 51              sub      w2, w3, #1
+0x00029208: 61 10 00 51              sub      w1, w3, #4
+0x0002920c: 5f 0c 00 71              cmp      w2, #3
+0x00029210: 21 7c 02 53              lsr      w1, w1, #2
+0x00029214: 21 04 00 11              add      w1, w1, #1
+0x00029218: 22 74 1e 53              lsl      w2, w1, #2
+0x0002921c: 09 05 00 54              b.ls     #0x292bc
+0x00029220: 80 04 03 4f              movi     v0.4s, #0x64
+0x00029224: 05 00 11 91              add      x5, x0, #0x440
+0x00029228: 04 00 80 52              mov      w4, #0
+0x0002922c: a1 04 c1 3c              ldr      q1, [x5], #0x10
+0x00029230: 84 04 00 11              add      w4, w4, #1
+0x00029234: 3f 00 04 6b              cmp      w1, w4
+0x00029238: 00 6c a1 4e              smin     v0.4s, v0.4s, v1.4s
+0x0002923c: 88 ff ff 54              b.hi     #0x2922c
+0x00029240: 00 a8 b1 4e              sminv    s0, v0.4s
+0x00029244: 7f 00 02 6b              cmp      w3, w2
+0x00029248: 01 3c 04 0e              mov      w1, v0.s[0]
+0x0002924c: 40 03 00 54              b.eq     #0x292b4
+0x00029250: 04 c8 22 8b              add      x4, x0, w2, sxtw #2
+0x00029254: 85 40 44 b9              ldr      w5, [x4, #0x440]
+0x00029258: 44 04 00 11              add      w4, w2, #1
+0x0002925c: 3f 00 05 6b              cmp      w1, w5
+0x00029260: 21 d0 85 1a              csel     w1, w1, w5, le
+0x00029264: 9f 00 03 6b              cmp      w4, w3
+0x00029268: 6a 02 00 54              b.ge     #0x292b4
+0x0002926c: 04 c8 24 8b              add      x4, x0, w4, sxtw #2
+0x00029270: 85 40 44 b9              ldr      w5, [x4, #0x440]
+0x00029274: 44 08 00 11              add      w4, w2, #2
+0x00029278: 3f 00 05 6b              cmp      w1, w5
+0x0002927c: 21 d0 85 1a              csel     w1, w1, w5, le
+0x00029280: 7f 00 04 6b              cmp      w3, w4
+0x00029284: 8d 01 00 54              b.le     #0x292b4
+0x00029288: 04 c8 24 8b              add      x4, x0, w4, sxtw #2
+0x0002928c: 84 40 44 b9              ldr      w4, [x4, #0x440]
+0x00029290: 42 0c 00 11              add      w2, w2, #3
+0x00029294: 3f 00 04 6b              cmp      w1, w4
+0x00029298: 21 d0 84 1a              csel     w1, w1, w4, le
+0x0002929c: 7f 00 02 6b              cmp      w3, w2
+0x000292a0: ad 00 00 54              b.le     #0x292b4
+0x000292a4: 02 c8 22 8b              add      x2, x0, w2, sxtw #2
+0x000292a8: 42 40 44 b9              ldr      w2, [x2, #0x440]
+0x000292ac: 3f 00 02 6b              cmp      w1, w2
+0x000292b0: 21 d0 82 1a              csel     w1, w1, w2, le
+0x000292b4: 01 60 07 b9              str      w1, [x0, #0x760]
+0x000292b8: c0 03 5f d6              ret      
+0x000292bc: 02 00 80 52              mov      w2, #0
+0x000292c0: 81 0c 80 52              mov      w1, #0x64
+0x000292c4: e3 ff ff 17              b        #0x29250                   ; -> _ZN7MainOCR21setAllWordAverageConfEv+0x58
+
+#### MainOCR_setDigitNumberRange  start=0x29a9c size=0x10
+0x00029a9c: 01 38 0e b9              str      w1, [x0, #0xe38]
+0x00029aa0: 02 3c 0e b9              str      w2, [x0, #0xe3c]
+0x00029aa4: c0 03 5f d6              ret      
+0x00029aa8: ff 03 01 d1              sub      sp, sp, #0x40
+
+#### MainOCR_setCameraMode  start=0x29ed0 size=0x8
+0x00029ed0: 01 40 0e b9              str      w1, [x0, #0xe40]
+0x00029ed4: c0 03 5f d6              ret      
+
+#### MainOCR_getRecognitionResultString  start=0x29ed8 size=0x50
+0x00029ed8: ff c3 01 d1              sub      sp, sp, #0x70
+0x00029edc: 21 03 00 f0              adrp     x1, #0x90000
+0x00029ee0: 21 80 13 91              add      x1, x1, #0x4e0
+0x00029ee4: f9 6b 03 a9              stp      x25, x26, [sp, #0x30]
+0x00029ee8: 19 05 00 b0              adrp     x25, #0xca000
+0x00029eec: fe 23 00 f9              str      x30, [sp, #0x40]
+0x00029ef0: f5 5b 01 a9              stp      x21, x22, [sp, #0x10]
+0x00029ef4: f7 63 02 a9              stp      x23, x24, [sp, #0x20]
+0x00029ef8: 23 af 46 f9              ldr      x3, [x25, #0xd58]          ; -> __stack_chk_guard@got
+0x00029efc: fa 43 01 91              add      x26, sp, #0x50
+0x00029f00: f3 53 00 a9              stp      x19, x20, [sp]
+0x00029f04: f7 03 00 aa              mov      x23, x0
+0x00029f08: e2 03 1a aa              mov      x2, x26
+0x00029f0c: 63 00 40 f9              ldr      x3, [x3]
+0x00029f10: e0 03 08 aa              mov      x0, x8
+0x00029f14: f6 03 08 aa              mov      x22, x8
+0x00029f18: e3 37 00 f9              str      x3, [sp, #0x68]
+0x00029f1c: e2 07 01 94              bl       #0x6bea4
+0x00029f20: e0 fa 4a b9              ldr      w0, [x23, #0xaf8]
+0x00029f24: 1f 00 1f 6b              cmp      w0, wzr
+
+#### MainOCR_recogdigitOCR  start=0x2ca94 size=0x64
+0x0002ca94: ff 83 00 d1              sub      sp, sp, #0x20
+0x0002ca98: 22 03 00 90              adrp     x2, #0x90000
+0x0002ca9c: 42 60 18 91              add      x2, x2, #0x618
+0x0002caa0: f3 53 00 a9              stp      x19, x20, [sp]
+0x0002caa4: 13 03 00 f0              adrp     x19, #0x8f000
+0x0002caa8: f4 03 00 aa              mov      x20, x0
+0x0002caac: 73 42 1e 91              add      x19, x19, #0x790
+0x0002cab0: 60 00 80 52              mov      w0, #3
+0x0002cab4: e1 03 13 aa              mov      x1, x19
+0x0002cab8: fe 0b 00 f9              str      x30, [sp, #0x10]
+0x0002cabc: 3d 9d ff 97              bl       #0x13fb0                   ; -> __android_log_print@plt
+0x0002cac0: 81 d6 43 f9              ldr      x1, [x20, #0x7a8]
+0x0002cac4: e0 03 14 aa              mov      x0, x20
+0x0002cac8: 82 b2 47 b9              ldr      w2, [x20, #0x7b0]
+0x0002cacc: 83 b6 47 b9              ldr      w3, [x20, #0x7b4]
+0x0002cad0: 84 ba 47 b9              ldr      w4, [x20, #0x7b8]
+0x0002cad4: 64 fe ff 97              bl       #0x2c464                   ; -> _ZN7MainOCR14process_OneImgEPhiii
+0x0002cad8: e1 03 13 aa              mov      x1, x19
+0x0002cadc: fe 0b 40 f9              ldr      x30, [sp, #0x10]
+0x0002cae0: f3 53 40 a9              ldp      x19, x20, [sp]
+0x0002cae4: 22 03 00 90              adrp     x2, #0x90000
+0x0002cae8: 60 00 80 52              mov      w0, #3
+0x0002caec: 42 e0 18 91              add      x2, x2, #0x638
+0x0002caf0: ff 83 00 91              add      sp, sp, #0x20
+0x0002caf4: 2f 9d ff 17              b        #0x13fb0                   ; -> __android_log_print@plt
+
+#### MainOCR_estimate*Conf  start=0x2a968 size=0x3d0
+0x0002a968: ff 83 01 d1              sub      sp, sp, #0x60
+0x0002a96c: f3 53 00 a9              stp      x19, x20, [sp]
+0x0002a970: f5 5b 01 a9              stp      x21, x22, [sp, #0x10]
+0x0002a974: f7 63 02 a9              stp      x23, x24, [sp, #0x20]
+0x0002a978: fe 1b 00 f9              str      x30, [sp, #0x30]
+0x0002a97c: 74 5f 9f d2              mov      x20, #0xfafb
+0x0002a980: 54 5f bf f2              movk     x20, #0xfafa, lsl #16
+0x0002a984: ff 27 00 f9              str      xzr, [sp, #0x48]
+0x0002a988: 01 e4 43 f9              ldr      x1, [x0, #0x7c8]
+0x0002a98c: 54 5f df f2              movk     x20, #0xfafa, lsl #32
+0x0002a990: 02 e0 43 f9              ldr      x2, [x0, #0x7c0]
+0x0002a994: 54 5f ff f2              movk     x20, #0xfafa, lsl #48
+0x0002a998: ff 2b 00 f9              str      xzr, [sp, #0x50]
+0x0002a99c: 23 00 02 cb              sub      x3, x1, x2
+0x0002a9a0: ff 2f 00 f9              str      xzr, [sp, #0x58]
+0x0002a9a4: 61 fc 45 93              asr      x1, x3, #5
+0x0002a9a8: 34 7c 14 9b              mul      x20, x1, x20
+0x0002a9ac: 9f 02 1f 6b              cmp      w20, wzr
+0x0002a9b0: 2d 0a 00 54              b.le     #0x2aaf4
+0x0002a9b4: 97 06 00 51              sub      w23, w20, #1
+0x0002a9b8: 15 00 80 d2              mov      x21, #0
+0x0002a9bc: f4 03 17 aa              mov      x20, x23
+0x0002a9c0: f7 06 00 91              add      x23, x23, #1
+0x0002a9c4: f8 03 00 aa              mov      x24, x0
+0x0002a9c8: e3 03 15 aa              mov      x3, x21
+0x0002a9cc: f7 06 17 8b              add      x23, x23, x23, lsl #1
+0x0002a9d0: e1 03 15 aa              mov      x1, x21
+0x0002a9d4: f6 23 01 91              add      x22, sp, #0x48
+0x0002a9d8: f7 12 17 8b              add      x23, x23, x23, lsl #4
+0x0002a9dc: f7 ea 7b d3              lsl      x23, x23, #5
+0x0002a9e0: 0d 00 00 14              b        #0x2aa14                   ; -> _ZN7MainOCR20estimateFrameMinConfEv+0xac
+0x0002a9e4: 61 00 00 b4              cbz      x1, #0x2a9f0
+0x0002a9e8: 42 48 46 b9              ldr      w2, [x2, #0x648]
+0x0002a9ec: 22 00 00 b9              str      w2, [x1]
+0x0002a9f0: b5 82 19 91              add      x21, x21, #0x660
+0x0002a9f4: 21 10 00 91              add      x1, x1, #4
+0x0002a9f8: bf 02 17 eb              cmp      x21, x23
+0x0002a9fc: c1 06 00 f9              str      x1, [x22, #8]
+0x0002aa00: f3 03 01 aa              mov      x19, x1
+0x0002aa04: c0 01 00 54              b.eq     #0x2aa3c
+0x0002aa08: 02 e3 43 f9              ldr      x2, [x24, #0x7c0]
+0x0002aa0c: e1 03 13 aa              mov      x1, x19
+0x0002aa10: c3 0a 40 f9              ldr      x3, [x22, #0x10]
+0x0002aa14: 3f 00 03 eb              cmp      x1, x3
+0x0002aa18: 42 00 15 8b              add      x2, x2, x21
+0x0002aa1c: 41 fe ff 54              b.ne     #0x2a9e4
+0x0002aa20: e0 03 16 aa              mov      x0, x22
+0x0002aa24: 42 20 19 91              add      x2, x2, #0x648
+0x0002aa28: 81 bc ff 97              bl       #0x19c2c                   ; -> _ZNSt6vectorIiSaIiEE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPiS1_EERKi
+0x0002aa2c: b5 82 19 91              add      x21, x21, #0x660
+0x0002aa30: f3 2b 40 f9              ldr      x19, [sp, #0x50]
+0x0002aa34: bf 02 17 eb              cmp      x21, x23
+0x0002aa38: 81 fe ff 54              b.ne     #0x2aa08
+0x0002aa3c: f5 27 40 f9              ldr      x21, [sp, #0x48]
+0x0002aa40: bf 02 13 eb              cmp      x21, x19
+0x0002aa44: 40 07 00 54              b.eq     #0x2ab2c
+0x0002aa48: 63 02 15 cb              sub      x3, x19, x21
+0x0002aa4c: e0 03 15 aa              mov      x0, x21
+0x0002aa50: 62 fc 42 93              asr      x2, x3, #2
+0x0002aa54: e1 03 13 aa              mov      x1, x19
+0x0002aa58: 43 10 c0 da              clz      x3, x2
+0x0002aa5c: e2 07 80 d2              mov      x2, #0x3f
+0x0002aa60: 42 00 03 cb              sub      x2, x2, x3
+0x0002aa64: 42 f8 7f d3              lsl      x2, x2, #1
+0x0002aa68: 65 f8 ff 97              bl       #0x28bfc
+0x0002aa6c: e0 03 15 aa              mov      x0, x21
+0x0002aa70: e1 03 13 aa              mov      x1, x19
+0x0002aa74: f9 f7 ff 97              bl       #0x28a58
+0x0002aa78: e0 27 40 f9              ldr      x0, [sp, #0x48]
+0x0002aa7c: e8 03 14 2a              mov      w8, w20
+0x0002aa80: 02 e3 43 f9              ldr      x2, [x24, #0x7c0]
+0x0002aa84: 08 05 00 91              add      x8, x8, #1
+0x0002aa88: 69 00 80 92              mov      x9, #-4
+0x0002aa8c: 06 00 80 d2              mov      x6, #0
+0x0002aa90: 29 49 34 8b              add      x9, x9, w20, uxtw #2
+0x0002aa94: 08 05 08 8b              add      x8, x8, x8, lsl #1
+0x0002aa98: 09 00 09 8b              add      x9, x0, x9
+0x0002aa9c: 0a c8 34 8b              add      x10, x0, w20, sxtw #2
+0x0002aaa0: 08 11 08 8b              add      x8, x8, x8, lsl #4
+0x0002aaa4: 08 e9 7b d3              lsl      x8, x8, #5
+0x0002aaa8: 47 00 06 8b              add      x7, x2, x6
+0x0002aaac: 41 01 40 b9              ldr      w1, [x10]
+0x0002aab0: e5 48 46 b9              ldr      w5, [x7, #0x648]
+0x0002aab4: bf 00 01 6b              cmp      w5, w1
+0x0002aab8: a0 02 00 54              b.eq     #0x2ab0c
+0x0002aabc: e3 03 09 aa              mov      x3, x9
+0x0002aac0: e1 03 14 2a              mov      w1, w20
+0x0002aac4: 04 00 00 14              b        #0x2aad4                   ; -> _ZN7MainOCR20estimateFrameMinConfEv+0x16c
+0x0002aac8: 64 c4 5f b8              ldr      w4, [x3], #0xfffffffffffffffc
+0x0002aacc: 9f 00 05 6b              cmp      w4, w5
+0x0002aad0: 00 02 00 54              b.eq     #0x2ab10
+0x0002aad4: 21 04 00 51              sub      w1, w1, #1
+0x0002aad8: 3f 04 00 31              cmn      w1, #1
+0x0002aadc: 61 ff ff 54              b.ne     #0x2aac8
+0x0002aae0: c6 80 19 91              add      x6, x6, #0x660
+0x0002aae4: df 00 08 eb              cmp      x6, x8
+0x0002aae8: 01 fe ff 54              b.ne     #0x2aaa8
+0x0002aaec: 40 00 00 b4              cbz      x0, #0x2aaf4
+0x0002aaf0: 4e 11 00 94              bl       #0x2f028                   ; -> _ZdlPv
+0x0002aaf4: f3 53 40 a9              ldp      x19, x20, [sp]
+0x0002aaf8: f5 5b 41 a9              ldp      x21, x22, [sp, #0x10]
+0x0002aafc: f7 63 42 a9              ldp      x23, x24, [sp, #0x20]
+0x0002ab00: fe 1b 40 f9              ldr      x30, [sp, #0x30]
+0x0002ab04: ff 83 01 91              add      sp, sp, #0x60
+0x0002ab08: c0 03 5f d6              ret      
+0x0002ab0c: e1 03 14 2a              mov      w1, w20
+0x0002ab10: e3 4c 46 b9              ldr      w3, [x7, #0x64c]
+0x0002ab14: c6 80 19 91              add      x6, x6, #0x660
+0x0002ab18: df 00 08 eb              cmp      x6, x8
+0x0002ab1c: 61 00 01 0b              add      w1, w3, w1
+0x0002ab20: e1 4c 06 b9              str      w1, [x7, #0x64c]
+0x0002ab24: 21 fc ff 54              b.ne     #0x2aaa8
+0x0002ab28: f1 ff ff 17              b        #0x2aaec                   ; -> _ZN7MainOCR20estimateFrameMinConfEv+0x184
+0x0002ab2c: e0 03 13 aa              mov      x0, x19
+0x0002ab30: d3 ff ff 17              b        #0x2aa7c                   ; -> _ZN7MainOCR20estimateFrameMinConfEv+0x114
+0x0002ab34: e1 27 40 f9              ldr      x1, [sp, #0x48]
+0x0002ab38: f3 03 00 aa              mov      x19, x0
+0x0002ab3c: 61 00 00 b4              cbz      x1, #0x2ab48
+0x0002ab40: e0 03 01 aa              mov      x0, x1
+0x0002ab44: 39 11 00 94              bl       #0x2f028                   ; -> _ZdlPv
+0x0002ab48: e0 03 13 aa              mov      x0, x19
+0x0002ab4c: 41 8c 01 94              bl       #0x8dc50                   ; -> _Unwind_Resume
+0x0002ab50: ff 83 01 d1              sub      sp, sp, #0x60
+0x0002ab54: f3 53 00 a9              stp      x19, x20, [sp]
+0x0002ab58: f5 5b 01 a9              stp      x21, x22, [sp, #0x10]
+0x0002ab5c: f7 63 02 a9              stp      x23, x24, [sp, #0x20]
+0x0002ab60: fe 1b 00 f9              str      x30, [sp, #0x30]
+0x0002ab64: 74 5f 9f d2              mov      x20, #0xfafb
+0x0002ab68: 54 5f bf f2              movk     x20, #0xfafa, lsl #16
+0x0002ab6c: ff 27 00 f9              str      xzr, [sp, #0x48]
+0x0002ab70: 01 e4 43 f9              ldr      x1, [x0, #0x7c8]
+0x0002ab74: 54 5f df f2              movk     x20, #0xfafa, lsl #32
+0x0002ab78: 02 e0 43 f9              ldr      x2, [x0, #0x7c0]
+0x0002ab7c: 54 5f ff f2              movk     x20, #0xfafa, lsl #48
+0x0002ab80: ff 2b 00 f9              str      xzr, [sp, #0x50]
+0x0002ab84: 23 00 02 cb              sub      x3, x1, x2
+0x0002ab88: ff 2f 00 f9              str      xzr, [sp, #0x58]
+0x0002ab8c: 61 fc 45 93              asr      x1, x3, #5
+0x0002ab90: 34 7c 14 9b              mul      x20, x1, x20
+0x0002ab94: 9f 02 1f 6b              cmp      w20, wzr
+0x0002ab98: 2d 0a 00 54              b.le     #0x2acdc
+0x0002ab9c: 97 06 00 51              sub      w23, w20, #1
+0x0002aba0: 15 00 80 d2              mov      x21, #0
+0x0002aba4: f4 03 17 aa              mov      x20, x23
+0x0002aba8: f7 06 00 91              add      x23, x23, #1
+0x0002abac: f8 03 00 aa              mov      x24, x0
+0x0002abb0: e3 03 15 aa              mov      x3, x21
+0x0002abb4: f7 06 17 8b              add      x23, x23, x23, lsl #1
+0x0002abb8: e1 03 15 aa              mov      x1, x21
+0x0002abbc: f6 23 01 91              add      x22, sp, #0x48
+0x0002abc0: f7 12 17 8b              add      x23, x23, x23, lsl #4
+0x0002abc4: f7 ea 7b d3              lsl      x23, x23, #5
+0x0002abc8: 0d 00 00 14              b        #0x2abfc                   ; -> _ZN7MainOCR20estimateFrameAvgConfEv+0xac
+0x0002abcc: 61 00 00 b4              cbz      x1, #0x2abd8
+0x0002abd0: 42 44 46 b9              ldr      w2, [x2, #0x644]
+0x0002abd4: 22 00 00 b9              str      w2, [x1]
+0x0002abd8: b5 82 19 91              add      x21, x21, #0x660
+0x0002abdc: 21 10 00 91              add      x1, x1, #4
+0x0002abe0: bf 02 17 eb              cmp      x21, x23
+0x0002abe4: c1 06 00 f9              str      x1, [x22, #8]
+0x0002abe8: f3 03 01 aa              mov      x19, x1
+0x0002abec: c0 01 00 54              b.eq     #0x2ac24
+0x0002abf0: 02 e3 43 f9              ldr      x2, [x24, #0x7c0]
+0x0002abf4: e1 03 13 aa              mov      x1, x19
+0x0002abf8: c3 0a 40 f9              ldr      x3, [x22, #0x10]
+0x0002abfc: 3f 00 03 eb              cmp      x1, x3
+0x0002ac00: 42 00 15 8b              add      x2, x2, x21
+0x0002ac04: 41 fe ff 54              b.ne     #0x2abcc
+0x0002ac08: e0 03 16 aa              mov      x0, x22
+0x0002ac0c: 42 10 19 91              add      x2, x2, #0x644
+0x0002ac10: 07 bc ff 97              bl       #0x19c2c                   ; -> _ZNSt6vectorIiSaIiEE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPiS1_EERKi
+0x0002ac14: b5 82 19 91              add      x21, x21, #0x660
+0x0002ac18: f3 2b 40 f9              ldr      x19, [sp, #0x50]
+0x0002ac1c: bf 02 17 eb              cmp      x21, x23
+0x0002ac20: 81 fe ff 54              b.ne     #0x2abf0
+0x0002ac24: f5 27 40 f9              ldr      x21, [sp, #0x48]
+0x0002ac28: bf 02 13 eb              cmp      x21, x19
+0x0002ac2c: 40 07 00 54              b.eq     #0x2ad14
+0x0002ac30: 63 02 15 cb              sub      x3, x19, x21
+0x0002ac34: e0 03 15 aa              mov      x0, x21
+0x0002ac38: 62 fc 42 93              asr      x2, x3, #2
+0x0002ac3c: e1 03 13 aa              mov      x1, x19
+0x0002ac40: 43 10 c0 da              clz      x3, x2
+0x0002ac44: e2 07 80 d2              mov      x2, #0x3f
+0x0002ac48: 42 00 03 cb              sub      x2, x2, x3
+0x0002ac4c: 42 f8 7f d3              lsl      x2, x2, #1
+0x0002ac50: eb f7 ff 97              bl       #0x28bfc
+0x0002ac54: e0 03 15 aa              mov      x0, x21
+0x0002ac58: e1 03 13 aa              mov      x1, x19
+0x0002ac5c: 7f f7 ff 97              bl       #0x28a58
+0x0002ac60: e0 27 40 f9              ldr      x0, [sp, #0x48]
+0x0002ac64: e8 03 14 2a              mov      w8, w20
+0x0002ac68: 02 e3 43 f9              ldr      x2, [x24, #0x7c0]
+0x0002ac6c: 08 05 00 91              add      x8, x8, #1
+0x0002ac70: 69 00 80 92              mov      x9, #-4
+0x0002ac74: 06 00 80 d2              mov      x6, #0
+0x0002ac78: 29 49 34 8b              add      x9, x9, w20, uxtw #2
+0x0002ac7c: 08 05 08 8b              add      x8, x8, x8, lsl #1
+0x0002ac80: 09 00 09 8b              add      x9, x0, x9
+0x0002ac84: 0a c8 34 8b              add      x10, x0, w20, sxtw #2
+0x0002ac88: 08 11 08 8b              add      x8, x8, x8, lsl #4
+0x0002ac8c: 08 e9 7b d3              lsl      x8, x8, #5
+0x0002ac90: 47 00 06 8b              add      x7, x2, x6
+0x0002ac94: 41 01 40 b9              ldr      w1, [x10]
+0x0002ac98: e5 44 46 b9              ldr      w5, [x7, #0x644]
+0x0002ac9c: bf 00 01 6b              cmp      w5, w1
+0x0002aca0: a0 02 00 54              b.eq     #0x2acf4
+0x0002aca4: e3 03 09 aa              mov      x3, x9
+0x0002aca8: e1 03 14 2a              mov      w1, w20
+0x0002acac: 04 00 00 14              b        #0x2acbc                   ; -> _ZN7MainOCR20estimateFrameAvgConfEv+0x16c
+0x0002acb0: 64 c4 5f b8              ldr      w4, [x3], #0xfffffffffffffffc
+0x0002acb4: 9f 00 05 6b              cmp      w4, w5
+0x0002acb8: 00 02 00 54              b.eq     #0x2acf8
+0x0002acbc: 21 04 00 51              sub      w1, w1, #1
+0x0002acc0: 3f 04 00 31              cmn      w1, #1
+0x0002acc4: 61 ff ff 54              b.ne     #0x2acb0
+0x0002acc8: c6 80 19 91              add      x6, x6, #0x660
+0x0002accc: df 00 08 eb              cmp      x6, x8
+0x0002acd0: 01 fe ff 54              b.ne     #0x2ac90
+0x0002acd4: 40 00 00 b4              cbz      x0, #0x2acdc
+0x0002acd8: d4 10 00 94              bl       #0x2f028                   ; -> _ZdlPv
+0x0002acdc: f3 53 40 a9              ldp      x19, x20, [sp]
+0x0002ace0: f5 5b 41 a9              ldp      x21, x22, [sp, #0x10]
+0x0002ace4: f7 63 42 a9              ldp      x23, x24, [sp, #0x20]
+0x0002ace8: fe 1b 40 f9              ldr      x30, [sp, #0x30]
+0x0002acec: ff 83 01 91              add      sp, sp, #0x60
+0x0002acf0: c0 03 5f d6              ret      
+0x0002acf4: e1 03 14 2a              mov      w1, w20
+0x0002acf8: e3 4c 46 b9              ldr      w3, [x7, #0x64c]
+0x0002acfc: c6 80 19 91              add      x6, x6, #0x660
+0x0002ad00: df 00 08 eb              cmp      x6, x8
+0x0002ad04: 61 00 01 0b              add      w1, w3, w1
+0x0002ad08: e1 4c 06 b9              str      w1, [x7, #0x64c]
+0x0002ad0c: 21 fc ff 54              b.ne     #0x2ac90
+0x0002ad10: f1 ff ff 17              b        #0x2acd4                   ; -> _ZN7MainOCR20estimateFrameAvgConfEv+0x184
+0x0002ad14: e0 03 13 aa              mov      x0, x19
+0x0002ad18: d3 ff ff 17              b        #0x2ac64                   ; -> _ZN7MainOCR20estimateFrameAvgConfEv+0x114
+0x0002ad1c: e1 27 40 f9              ldr      x1, [sp, #0x48]
+0x0002ad20: f3 03 00 aa              mov      x19, x0
+0x0002ad24: 61 00 00 b4              cbz      x1, #0x2ad30
+0x0002ad28: e0 03 01 aa              mov      x0, x1
+0x0002ad2c: bf 10 00 94              bl       #0x2f028                   ; -> _ZdlPv
+0x0002ad30: e0 03 13 aa              mov      x0, x19
+0x0002ad34: c7 8b 01 94              bl       #0x8dc50                   ; -> _Unwind_Resume

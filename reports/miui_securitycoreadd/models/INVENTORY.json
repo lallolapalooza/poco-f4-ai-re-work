@@ -1,0 +1,12 @@
+{
+  "slug": "miui_securitycoreadd",
+  "apk": "assets/aiautobrt.tflite (197,836 B, 7 subgraphs)",
+  "local_files": 1,
+  "bytes": 197836,
+  "tflite": 1,
+  "bundles": 0,
+  "absent": [
+    "Runtime per-user checkpoint is device-generated, not shipped."
+  ],
+  "notes": "Inference MLP weights extracted from subgraphs 0/1; training graph in subgraphs 2-6."
+}

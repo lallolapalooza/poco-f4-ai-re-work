@@ -1,0 +1,48 @@
+$ python verify.py
+=== 1. featurizer ===
+featurize('Hello world') shape=(4, 10) dtype=int32
+first column hashes: [601, 442, 8620, 294]
+hash range OK (1..vocab_size), 0 reserved for padding
+
+=== 2. JAX vs independent NumPy reference ===
+random hash tensors: 200 cases, max |jax - numpy| = 1.311e-06
+real sentences:      28 cases, max |jax - numpy| = 5.364e-07
+
+=== 3. end-to-end language identification (JAX) ===
+  OK  want=en  top=en       p=0.9852 2nd=ceb:0.003  | Hello, how are you doing today? I would like
+  OK  want=fr  top=fr       p=0.9982 2nd=lb:0.001  | Bonjour, comment allez-vous aujourd'hui ? Je
+  OK  want=de  top=de       p=0.9810 2nd=en:0.013  | Guten Tag, wie geht es Ihnen? Ich möchte bit
+  OK  want=es  top=es       p=0.9933 2nd=gl:0.004  | Hola, ¿cómo estás hoy? Me gustaría tomar un 
+  OK  want=it  top=it       p=0.8624 2nd=co:0.072  | Ciao, come stai oggi? Vorrei un caffè per fa
+  OK  want=pt  top=pt       p=0.9977 2nd=ne:0.000  | Olá, como você está hoje? Eu gostaria de um 
+  OK  want=ru  top=ru       p=0.9794 2nd=eo:0.001  | Здравствуйте, как у вас дела сегодня? Я хоте
+  OK  want=zh  top=zh       p=0.9888 2nd=ko:0.002  | 你好，你今天怎麼樣？我想要一杯咖啡。
+  OK  want=ja  top=ja       p=0.9994 2nd=ko:0.000  | こんにちは、今日はお元気ですか。コーヒーをください。
+  OK  want=ko  top=ko       p=0.9984 2nd=am:0.001  | 안녕하세요, 오늘 기분이 어떠세요? 커피 한 잔 주세요.
+  OK  want=ar  top=ar       p=0.6613 2nd=ps:0.267  | مرحبا، كيف حالك اليوم؟ أريد فنجان قهوة من فض
+  OK  want=tr  top=tr       p=0.9989 2nd=az:0.001  | Merhaba, bugün nasılsın? Bir fincan kahve is
+  OK  want=nl  top=nl       p=0.8477 2nd=af:0.113  | Hallo, hoe gaat het vandaag met je? Ik wil g
+  OK  want=vi  top=vi       p=0.8638 2nd=sk:0.013  | Xin chào, hôm nay bạn thế nào? Tôi muốn một 
+  OK  want=th  top=th       p=0.7074 2nd=zh:0.041  | สวัสดี วันนี้คุณเป็นอย่างไรบ้าง ฉันต้องการกา
+  OK  want=pl  top=pl       p=0.8886 2nd=unknown:0.034  | Dzień dobry, jak się dzisiaj masz? Chciałbym
+  OK  want=uk  top=uk       p=0.9986 2nd=eo:0.000  | Добрий день, як у вас справи сьогодні? Я хот
+  OK  want=sw  top=sw       p=0.9009 2nd=fil:0.037  | Habari, u hali gani leo? Ningependa kikombe 
+  OK  want=el  top=el       p=0.9994 2nd=zh:0.000  | Γεια σας, πώς είστε σήμερα; Θα ήθελα ένα φλι
+  OK  want=he  top=iw       p=0.9985 2nd=yi:0.000  | שלום, מה שלומך היום? אני רוצה כוס קפה.
+  OK  want=fi  top=fi       p=0.9999 2nd=et:0.000  | Hei, mitä sinulle kuuluu tänään? Haluaisin k
+  OK  want=sv  top=sv       p=0.9648 2nd=ko:0.003  | Hej, hur mår du idag? Jag skulle vilja ha en
+  OK  want=cs  top=cs       p=0.9895 2nd=sk:0.004  | Dobrý den, jak se dnes máte? Chtěl bych šále
+  OK  want=ro  top=ro       p=0.9781 2nd=pt:0.006  | Bună ziua, ce mai faci astăzi? Aș dori o cea
+  OK  want=hu  top=hu       p=0.9994 2nd=be:0.000  | Jó napot, hogy van ma? Szeretnék egy csésze 
+  OK  want=da  top=da       p=0.9997 2nd=it:0.000  | Hej, hvordan har du det i dag? Jeg vil gerne
+  MISS want=hi  top=mr       p=0.3304 2nd=eu:0.291  | नमस्ते, आज आप कैसे हैं? मुझे एक कप कॉफ़ी चाह
+  OK  want=id  top=id       p=0.8626 2nd=ms:0.041  | Selamat pagi, apa kabar hari ini? Saya mau m
+top-1 accuracy: 27/28
+
+=== 4. shapes ===
+text -> hashes [4,N] int32 -> embeddings [96] float32 -> logits [111] -> softmax [111]
+params: b_matrix (256, 4) x4, c_matrix (5501, 6)/(13001, 6), fc [(160, 96), (200, 160), (111, 200)]
+model thresholds/metadata: confidence threshold = 0.30000001192092896
+
+RESULT: PASS
+exit status: 0

@@ -1,0 +1,316 @@
+{
+  "slug": "miui_biometric",
+  "package": "com.miui.face",
+  "app_name": "Biometric (MIUI face unlock, SenseTime FaceAuth SDK 1.37.4-A140026)",
+  "ai_summary": "On-device face unlock. The APK is a library app (no components) that publishes a Binder service 'miui.face.FaceService' consumed by SystemUI. Java (com.ts.faceauth.FaceAuthManager -> FaceAuthNative, 25 JNI methods) drives a 101.8 MiB native SDK libstfaceunlockocl.so which runs eight embedded Caffe (caffe-lite) CNNs through SenseTime hpc/pplwrapper with precompiled Adreno OpenCL kernels: Hunter detector, 106-point occlusion aligner, ANN pose regressor, eye-state classifier, MTNet quality attributes, RGB full-frame liveness, and a MobileNetV2-T6 face embedder for 1:1 matching. The eight models are shipped as STEF/v3 containers (plaintext 16-byte header + encrypted payload + 257-byte trailer); the payload is a tar (meta.conf st_model.ModelMeta protobuf + model.bin + rel.prototxt) but stays encrypted at rest, so no weight tensor is recoverable statically.",
+  "features": [
+    {
+      "name": "face unlock (1:1 authentication)",
+      "entrypoints": [
+        "com.miui.face.MiuiFaceService (Binder 'miui.face.FaceService', CODE_AUTHENTICATE=3)",
+        "com.android.keyguard.faceunlock.FaceUnlockManager.onPreviewFrame(byte[],String)",
+        "com.android.keyguard.FaceAuthenHelper",
+        "com.ts.faceauth.FaceAuthManager.compare(byte[],int,int,int,boolean)",
+        "com.ts.faceauth.FaceAuthNative.auth(STImage,int,int[],int[])",
+        "st_auth_unlock(st_image_t*,int,int*,int)"
+      ],
+      "pipeline": [
+        "NV21 preview frame (CvPixelFormat.NV21=3, stride=width)",
+        "colour convert + rotate by FaceOrientation bitmask (UP=1,LEFT=2,DOWN=4,RIGHT=8)",
+        "Hunter detector on square-padded 360px frame (M_Hunter_CommonFace_Gray_ppl_360_9_2_5_v2_origin)",
+        "tracking (stfaceunlock::NormalTrack/TrackManager)",
+        "106-point alignment (M_Align_occlusion_106_1_19_3 / M_Align_occlusion_106_360_1_7_1)",
+        "pose regression (M_Align_CalcPose_Ann_106_2_3_0) + eye state (M_Align_Deepface_Eye_State_Analysis_3_7_8)",
+        "quality gate (M_Attribute_MTNet_Quality_1_0_0)",
+        "liveness / anti-spoof (IM_RGB_Liveness_General_Full_FP32_10_1_65)",
+        "112x112 aligned crop -> MobileNetV2-T6 embedding (M_Verify_MobileNetV2T6_Common_3_135_0)",
+        "cosine match vs enrolled template (FeatureCmp, threshold 0.905) -> status 201 = unlock ok"
+      ],
+      "models": [
+        "M_Hunter_CommonFace_Gray_ppl_360_9_2_5_v2_origin_model",
+        "M_Align_occlusion_106_1_19_3_model",
+        "M_Align_occlusion_106_360_1_7_1_model",
+        "M_Align_CalcPose_Ann_106_2_3_0_model",
+        "M_Align_Deepface_Eye_State_Analysis_3_7_8_model",
+        "M_Attribute_MTNet_Quality_1_0_0_model",
+        "IM_RGB_Liveness_General_Full_FP32_10_1_65_half_compression_v2_origin_model",
+        "M_Verify_MobileNetV2T6_Common_3_135_0_half_compression_v2_origin_model"
+      ],
+      "confidence": "confirmed",
+      "notes": "Status mapping in FaceAuthManager.stFaceAuthStatusToFaceAuthResult (60+ codes). Thresholds: DEFAULT_VERIFY_THRESHOLD=0.905, DEFAULT_LIVENESS_THRESHOLD=0.9 (floats read from .data)."
+    },
+    {
+      "name": "face enrolment",
+      "entrypoints": [
+        "com.miui.face.MiuiFaceService (CODE_ENROLL=5)",
+        "com.android.keyguard.FaceEnrollHelper",
+        "com.ts.faceauth.FaceAuthManager.saveFeature(byte[],int,int,int)",
+        "com.ts.faceauth.FaceAuthNative.enroll(STImage,int,int[])",
+        "st_auth_enroll(st_image_t*,int,int*)"
+      ],
+      "pipeline": [
+        "setDetectArea(ROI guide box) -> st_auth_set_roi",
+        "setEnrollImageNumberForFace(n) -> st_auth_set_faceid_image_number",
+        "per frame: detect + quality + pose + eye-state gates",
+        "feature extraction (same MobileNetV2-T6 embedder) for N accepted frames",
+        "template update: stfaceunlock::TemplateHepler -> pb::TemplateFile (magic STFACEUNLOCK, version 1.0.1) at /data/data/com.miui.face/files/template_file.data",
+        "template file compressed on disk ('Compression template file' strings)"
+      ],
+      "models": [
+        "M_Align_occlusion_106_1_19_3_model",
+        "M_Attribute_MTNet_Quality_1_0_0_model",
+        "M_Verify_MobileNetV2T6_Common_3_135_0_half_compression_v2_origin_model"
+      ],
+      "confidence": "confirmed",
+      "notes": "Enrol cap enforced via ST_FACE_AUTH_ERROR_TEMPLDATE_FILE_UPPER_LIMIT (-1008). pb::TemplateFile stores Direction, Points, Feature and the enrolment Image."
+    },
+    {
+      "name": "liveness / anti-spoofing",
+      "entrypoints": [
+        "st_auth_unlock(st_image_t*, int config, int*, int) with liveness bit in config",
+        "FaceAuthManager.compare(..., boolean liveness=true)",
+        "stfaceunlock::FaceHackness2D::HacknessDetect / HacknessDetectMultiStepGetScore"
+      ],
+      "pipeline": [
+        "full-frame RGB input",
+        "IM_RGB_Liveness_General_Full_FP32.10.1.65 CNN",
+        "score compared against FASTAUTH_HACKNESS_THRESHOLD / DEFAULT_LIVENESS_THRESHOLD (0.9)"
+      ],
+      "models": [
+        "IM_RGB_Liveness_General_Full_FP32_10_1_65_half_compression_v2_origin_model"
+      ],
+      "confidence": "confirmed",
+      "notes": "Additional liveness families exist as symbols (live::GeneralFacePredictorV7..V20, FramePredictorAntispoofing*, Depth/DualPD predictors, M_Liveness_Antispoofing_General.10.x) but only one liveness blob is shipped in this APK."
+    },
+    {
+      "name": "batch evaluation / QA",
+      "entrypoints": [
+        "com.ts.faceauth.FaceAuthNative.evaluate(String,String,int,int,int,int,int)",
+        "st_auth_evaluate, st_auth_evaluate_init, st_auth_evaluate_extract_info, st_auth_evaluate_general_report, st_auth_evaluate_ocular_report"
+      ],
+      "pipeline": [
+        "dataset directory -> detect -> align -> quality -> liveness -> verify",
+        "per-threshold score sweeps (FaceEvaluationReport::GenerateThresholds / GenerateOcularThresholds)"
+      ],
+      "models": [
+        "M_Verify_MobileNetV2T6_Common_3_135_0_half_compression_v2_origin_model"
+      ],
+      "confidence": "confirmed",
+      "notes": "Returns -1 when either path argument is null (JNI disassembly at 0x36dc)."
+    }
+  ],
+  "models": [
+    {
+      "path": "reports/miui_biometric/models/M_Hunter_CommonFace_Gray_ppl_360_9_2_5_v2_origin.bin",
+      "format": "STEF/v3 container wrapping an encrypted tar (Caffe caffe-lite NetParameter + model.bin)",
+      "size": 983313,
+      "io": {"input": "grayscale, 360x360 square-padded", "output": "face boxes + scores (RPN)"},
+      "ops": ["conv", "bn", "relu", "rpn_proposal", "nms"],
+      "weights": "encrypted",
+      "jax_reimpl": "reimpl/pipeline.py::detect (Hunter-style backbone + RPN head)",
+      "verification": "extracted byte-exact (sha256 ed96a7464716...); payload entropy 7.999 and no standard codec -> weights not parseable",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "reports/miui_biometric/models/M_Align_occlusion_106_1_19_3.bin",
+      "format": "STEF/v3 container wrapping an encrypted tar",
+      "size": 1782033,
+      "io": {"input": "aligned face crop", "output": "106 landmarks + occlusion flags"},
+      "ops": ["conv", "bn", "relu", "flatten", "inner_product"],
+      "weights": "encrypted",
+      "jax_reimpl": "reimpl/pipeline.py::align (106x2 regression head)",
+      "verification": "extracted byte-exact (sha256 9b1a676565ca...); payload encrypted",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "reports/miui_biometric/models/M_Align_occlusion_106_360_1_7_1.bin",
+      "format": "STEF/v3 container wrapping an encrypted tar",
+      "size": 2058513,
+      "io": {"input": "aligned face crop (360 variant)", "output": "106 landmarks"},
+      "ops": ["conv", "bn", "relu", "inner_product"],
+      "weights": "encrypted",
+      "jax_reimpl": "reimpl/pipeline.py::align",
+      "verification": "extracted byte-exact (sha256 5f4fdb84262b...); payload encrypted",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "reports/miui_biometric/models/M_Align_CalcPose_Ann_106_2_3_0.bin",
+      "format": "STEF/v3 container wrapping an encrypted tar",
+      "size": 123153,
+      "io": {"input": "106 landmarks", "output": "yaw/pitch/roll"},
+      "ops": ["inner_product", "relu"],
+      "weights": "encrypted",
+      "jax_reimpl": "reimpl/pipeline.py::align (pose head)",
+      "verification": "extracted byte-exact (sha256 c8daf5eae905...); payload encrypted",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "reports/miui_biometric/models/M_Align_Deepface_Eye_State_Analysis_3_7_8.bin",
+      "format": "STEF/v3 container wrapping an encrypted tar",
+      "size": 1771793,
+      "io": {"input": "eye crops", "output": "per-eye open/closed score"},
+      "ops": ["conv", "bn", "relu", "softmax"],
+      "weights": "encrypted",
+      "jax_reimpl": "reimpl/pipeline.py::align (eye-state head)",
+      "verification": "extracted byte-exact (sha256 e1d020a71d63...); payload encrypted",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "reports/miui_biometric/models/M_Attribute_MTNet_Quality_1_0_0.bin",
+      "format": "STEF/v3 container wrapping an encrypted tar",
+      "size": 471313,
+      "io": {"input": "face crop", "output": "quality / attribute scores"},
+      "ops": ["conv", "bn", "relu", "inner_product", "sigmoid"],
+      "weights": "encrypted",
+      "jax_reimpl": "reimpl/pipeline.py::quality",
+      "verification": "extracted byte-exact (sha256 50f64eb5abfc...); payload encrypted",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "reports/miui_biometric/models/IM_RGB_Liveness_General_Full_FP32_10_1_65_half_compression_v2_origin.bin",
+      "format": "STEF/v3 container wrapping an encrypted tar",
+      "size": 4106513,
+      "io": {"input": "full-frame RGB", "output": "liveness score"},
+      "ops": ["conv", "bn", "relu", "inner_product", "sigmoid"],
+      "weights": "encrypted",
+      "jax_reimpl": "reimpl/pipeline.py::liveness",
+      "verification": "extracted byte-exact (sha256 69366df2ae8c...); payload encrypted",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "reports/miui_biometric/models/M_Verify_MobileNetV2T6_Common_3_135_0_half_compression_v2_origin.bin",
+      "format": "STEF/v3 container wrapping an encrypted tar",
+      "size": 5110033,
+      "io": {"input": "112x112x3 aligned RGB crop", "output": "512-d feature (inferred)"},
+      "ops": ["conv", "depthwise_conv", "bn", "relu6", "global_pool", "inner_product", "l2_normalize"],
+      "weights": "encrypted",
+      "jax_reimpl": "reimpl/pipeline.py::embed (MobileNetV2 t=6, 17 inverted-residual blocks) + match",
+      "verification": "extracted byte-exact (sha256 518b214184ad...); payload encrypted",
+      "confidence": "confirmed"
+    }
+  ],
+  "reimplementation": {
+    "path": "reports/miui_biometric/reimpl/pipeline.py",
+    "run_command": "cd reports/miui_biometric/reimpl && python pipeline.py",
+    "status": "architecture_only",
+    "limitations": "All eight model payloads are encrypted (STEF/v3, entropy 8.0, no standard codec, no repeating-XOR key, key derived at run time by the SenseTime protector/licence chain), so no weights could be extracted. Model topology (MobileNetV2-T6 embedder, RPN detector, 106-landmark aligner, pose/eye/quality/liveness heads) and the I/O contract are implemented with deterministic random init; numeric outputs are meaningless. Per-net preprocessing mean/scale and the detection/quality thresholds are also inside the encrypted container and are unknown."
+  },
+  "data_pipelines": [
+    {
+      "id": "auth",
+      "name": "face unlock authentication (1:1 match -> keyguard unlock)",
+      "doc": "PIPELINE.md#pipeline-a--authenticate-unlock",
+      "confidence": "confirmed",
+      "trigger": {
+        "kind": "binder",
+        "detail": "SystemUI calls code 3 (CODE_AUTHENTICATE) on service 'miui.face.FaceService' (raw Binder published by MiuiBioApp); warm-up via code 2 (CODE_PRE_INIT_AUTHEN); USER_PRESENT broadcast releases a pre-initialised client",
+        "ref": "sources/faceunlock/classes/com.miui.face.MiuiFaceService.java (onTransact case 3, preInitAuth, ScreenReceiver)",
+        "confidence": "confirmed"
+      },
+      "transport": {
+        "source": "front Camera2 device (LENS_FACING==0), CameraCaptureSession.setRepeatingRequest(TEMPLATE_PREVIEW), handler HandlerThread 'auth_worker'",
+        "format": "ImageFormat.YUV_420_888 (35) -> NV21 byte[] in com.miui.image.Yuv; 460800 bytes",
+        "width": 640,
+        "height": 480,
+        "stride": 640,
+        "pixel_format_enum": 3,
+        "rotation": "angle constant 90 -> FaceOrientation.RIGHT = 8 bitmask (st_auth_set_face_orientation(8))",
+        "mirroring": "none in Java path (byte[] unmodified)",
+        "timestamp": "absent (Image.getTimestamp never read; timing is wall clock)",
+        "cadence": "sensor default; ImageReader maxImages=1 with immediate close, frames dropped while SDK busy; auth also skips frames while mIsDetecting and every other frame after a no-face result",
+        "ref": "sources/faceunlock/classes/com.android.keyguard.faceunlock.Camera2Util.java, AbstractCameraUtil.java:15-17, sources/faceunlock_extra/classes/com.miui.image.Yuv.java",
+        "confidence": "confirmed"
+      },
+      "preprocess": [
+        {"step": "pin byte[]", "detail": "GetByteArrayElements -> st_image_t.data (no copy)", "ref": "native/jni_all.c:360", "confidence": "confirmed"},
+        {"step": "colour convert", "detail": "st_image_t -> cv_image_t, ImageHepler::GetCvImageFromStImage @0x140ee8", "ref": "native/big_FaceDetectionClass_Detect.s", "confidence": "confirmed"},
+        {"step": "resize", "detail": "ImageHepler::ShouldResize @0x140d1c -> ResizeImage @0x140c08 (bilinear)", "ref": "native/big_FaceDetectionClass_Detect.s", "confidence": "confirmed"},
+        {"step": "rotate", "detail": "ImageHepler::RotateImage @0x14154c by orientation bitmask", "ref": "native/big_FaceDetectionClass_Detect.s", "confidence": "confirmed"},
+        {"step": "roi", "detail": "auth always clears ROI: st_auth_set_roi(NULL)", "ref": "sources/faceauth/classes/com.ts.faceauth.FaceAuthManager.java (compare)", "confidence": "confirmed"},
+        {"step": "mean/scale", "detail": "CommonFun::GetMean @0x143398 with cv_model_net_config_t; constants inside encrypted meta.conf", "ref": "native/big_FaceDetectionClass_Detect.s", "confidence": "unknown"}
+      ],
+      "models": [
+        {"stage": "detect", "model": "M_Hunter_CommonFace_Gray_ppl_360_9_2_5_v2_origin_model", "runtime": "caffe-lite on hpc/pplwrapper, Adreno OpenCL"},
+        {"stage": "align", "model": "M_Align_occlusion_106_1_19_3_model", "runtime": "same"},
+        {"stage": "pose", "model": "M_Align_CalcPose_Ann_106_2_3_0_model", "runtime": "same"},
+        {"stage": "eye", "model": "M_Align_Deepface_Eye_State_Analysis_3_7_8_model", "runtime": "same"},
+        {"stage": "quality", "model": "M_Attribute_MTNet_Quality_1_0_0_model", "runtime": "same"},
+        {"stage": "liveness", "model": "IM_RGB_Liveness_General_Full_FP32_10_1_65_half_compression_v2_origin_model", "runtime": "same"},
+        {"stage": "embed", "model": "M_Verify_MobileNetV2T6_Common_3_135_0_half_compression_v2_origin_model", "runtime": "same"}
+      ],
+      "postprocess": [
+        {"step": "geometry+quality gate", "detail": "CheckFaceInfo -> FaceAttributeQuality::GetAttribute @0x17c798", "ref": "native/big_CheckFaceInfo.s", "confidence": "confirmed"},
+        {"step": "liveness", "detail": "FaceHackness2D::HacknessDetect @0x11cea8, threshold 0.9f (DEFAULT_LIVENESS_THRESHOLD .data 0x4f2c08c)", "ref": "native/big_AuthUseId.s, .data", "confidence": "confirmed"},
+        {"step": "embed", "detail": "FaceVerifyManager::ExtractFeature on dedicated native thread", "ref": "native/big_StartThread.s", "confidence": "confirmed"},
+        {"step": "score", "detail": "FaceVerify::CompareFeature @0x123bd0 -> cv_common_feature_comparator_get_distance (dot product, Q16 fast path 2^-16 @0x230d04) -> normalize_score_by_model -> stsdk::FeatureCmp::normalizeScore @0x2446b4 -> protector::NormModel::Run", "ref": "native/big_FaceVerify_CompareFeature.s, native/cv_cmp_get_distance.s", "confidence": "inferred"},
+        {"step": "threshold", "detail": "FeatureManager::Unlock @0x1358ec compares against DEFAULT_VERIFY_THRESHOLD 0.905f (.data 0x4f2c090)", "ref": "native/big_FeatureManager_Unlock.s, native/big_st_auth_init.s", "confidence": "confirmed"},
+        {"step": "status map", "detail": "201 -> app 0 (unlock), 202 -> 12, 1 -> 5 (no face), 2 -> 14 (liveness), 117/102 -> 4 (quality) ...", "ref": "sources/faceauth/classes/com.ts.faceauth.FaceAuthManager.java (stFaceAuthStatusToFaceAuthResult)", "confidence": "confirmed"}
+      ],
+      "consumer": {
+        "detail": "status 0 -> FaceUnlockManager.handlePassed -> onFaceAuthenticated -> MiuiFaceService MSG_ON_AUTHENTICATE -> ClientMonitor.onAuthenticationSucceeded -> receiver.transact(203) to SystemUI with Face('Miuiface1',1,123456); failures delivered as acquired codes (transact 202) / error (205)",
+        "unlock_id_forwarded": false,
+        "ref": "sources/faceunlock/classes/com.android.keyguard.FaceAuthenHelper.java, sources/faceunlock_extra/classes/com.miui.face.util.ClientMonitor.java",
+        "confidence": "confirmed"
+      },
+      "fallback": [
+        {"situation": "camera busy", "behaviour": "retry 5x with (5-n)*200 ms backoff then fail", "ref": "BaseFaceUnlockManager.UNLOCK_RETRY_TIME", "confidence": "confirmed"},
+        {"situation": "timeout", "behaviour": "3000 ms -> MSG 1008 -> stopDetect + onFaceAuthFailed -> error 3 to client", "ref": "FaceAuthenHelper.mTimeout, BaseFaceUnlockManager.openCameraSucced", "confidence": "confirmed"},
+        {"situation": "no other biometric", "behaviour": "no fallback inside Biometric.apk; PIN/pattern policy is SystemUI-side", "ref": "absence of code path", "confidence": "inferred"}
+      ]
+    },
+    {
+      "id": "enroll",
+      "name": "face enrolment (template creation)",
+      "doc": "PIPELINE.md#pipeline-b--enroll",
+      "confidence": "confirmed",
+      "trigger": {
+        "kind": "binder",
+        "detail": "code 5 (CODE_ENROLL) with token, Surface, detectArea/enrollArea RectF, step count and timeout; cancel via code 6, guide via code 101 (EXT_CMD)",
+        "ref": "sources/faceunlock/classes/com.miui.face.MiuiFaceService.java (onTransact case 5, enroll, cancelEnrollment, onExtCmd)",
+        "confidence": "confirmed"
+      },
+      "transport": {
+        "source": "same Camera2 front camera; caller preview Surface plus internal ImageReader",
+        "format": "YUV_420_888 -> NV21 byte[] 640x480, stride 640",
+        "rotation": "angle 90 -> bitmask 8",
+        "roi": "guide rect set via FaceAuthManager.setDetectArea -> st_auth_set_roi(rotated rect) per frame; RotateMaskRect in Java + RotateRect in native",
+        "cadence": "every frame on this device (munch not in get_frame_nonsequence)",
+        "ref": "sources/faceunlock/classes/com.android.keyguard.FaceEnrollHelper.java, evidence/resources_arrays.txt",
+        "confidence": "confirmed"
+      },
+      "preprocess": [
+        {"step": "roi rotate", "detail": "RotateMaskRect(rect,w,h,angle,true) then st_auth_set_roi", "ref": "FaceAuthManager.saveFeature/setDetectArea", "confidence": "confirmed"},
+        {"step": "shared chain", "detail": "same colour convert / resize / rotate / align / pose / occlusion as auth", "ref": "native/big_Enroll.s, native/big_CheckFaceInfo.s", "confidence": "confirmed"}
+      ],
+      "models": [
+        {"stage": "all seven auth stages", "model": "same eight blobs", "runtime": "same"},
+        {"stage": "template write", "model": "none (protobuf pb.TemplateFile)", "runtime": "FeatureManager::AddUser -> TemplateHepler::SaveTemplateFile"}
+      ],
+      "postprocess": [
+        {"step": "result", "detail": "JNI return = face id (st_auth_enroll user_id out-param); rc[0] = status; EnrollResult{mFaceId,mEnrollStatus,mNativeStatus}", "ref": "native/jni_all.c:701, FaceAuthManager.saveFeature", "confidence": "confirmed"},
+        {"step": "state machine", "detail": "19 KEEP -> wait for EXT_CMD 0; 36 -> reset(); 0 -> success (faceId+1 reported); 4/5/8-11/15-18/21/23/27/30/33 -> coaching codes", "ref": "FaceEnrollHelper.onPreviewFrame", "confidence": "confirmed"},
+        {"step": "persist", "detail": "<filesDir>/template_file.data, protobuf pb.TemplateFile magic STFACEUNLOCK, version 1.0.1, features cv_feature_serialize/degarble, compressed", "ref": "FaceUnlockManager.MODEL_PATH, .rodata 0x762278", "confidence": "inferred"}
+      ],
+      "consumer": {
+        "detail": "MiuiFaceService.onEnrollResult -> ClientMonitor.onEnrollResult(transact 201) + SharedPrefUtil.saveFacesEnrollSuccess + Settings.Secure face_unlock_has_feature/face_unlock_valid_feature",
+        "ref": "sources/faceunlock/classes/com.miui.face.MiuiFaceService.java (onEnrollResult)",
+        "confidence": "confirmed"
+      },
+      "fallback": [
+        {"situation": "timeout", "behaviour": "30000 ms mDelayedHide -> MSG 1008 -> error 3", "ref": "FaceEnrollHelper.mTimeout", "confidence": "confirmed"},
+        {"situation": "cancel", "behaviour": "stopFromBp: close camera, reset() if other faces remain else release(false)", "ref": "FaceEnrollHelper$2", "confidence": "confirmed"}
+      ]
+    }
+  ],
+  "unknowns": [
+    "CNN weights: all eight STEF payloads encrypted; decryption key produced at runtime by protector::ModelLoader + sdk_protector_* (AES/RC4/RSA/MD5) from the licence chain; not present in plaintext in the APK.",
+    "Exact per-net preprocessing (mean value / scale / crop affine) held in the encrypted tar member meta.conf (st_model.ModelMeta -> st_model.CaffeParam).",
+    "Detection threshold and quality thresholds (set at runtime via FaceDetection::SetDetectThreshold; no plaintext constants).",
+    "Per-ISO-3166 threshold table used by st_auth_set_threshold_by_international_code (only the Java area->code map and area.co cache are visible).",
+    "Full liveness ensemble composition: live::GeneralFacePredictorV7..V20 / FramePredictorAntispoofing* / Depth / DualPD symbols exist but only one liveness blob is shipped for this device.",
+    "Embedding dimension (512 assumed) and whether FeatureCmp applies the PCA projection / score-normalisation table (st_model.PCAParam) - config is inside the encrypted container.",
+    "Ghidra decompilation of libstfaceunlockocl.so did not complete within the shared import budget (auto-analysis of a 101.8 MiB binary); native evidence is capstone disassembly + symbol/DWARF analysis.",
+    "Whether the native preprocessor mirrors (horizontally flips) the camera image before the detector: no mirroring exists in the Java path, and the Caffe graph ships a Reverse layer plus hpc::pplwrapper Reverse kernels, but the prototxt that would show whether they are used is inside the encrypted container.",
+    "Default template Identifier namespace: st_auth_set_identifier is never called by this app; the value stored in pb.TemplateFile field 2 could not be observed statically."
+  ]
+}

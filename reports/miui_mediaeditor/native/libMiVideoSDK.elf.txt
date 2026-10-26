@@ -1,0 +1,626 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/me_libs/lib/arm64-v8a/libMiVideoSDK.so
+==============================================================================
+size        : 3877696 bytes (3.70 MiB)
+sha256      : 7242b861b47ee1102ba418b70181b27d5f43b9772f68bad15daf6a641b3cc892
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0xe72e0   imagebase: 0x0
+build id    : 3bd1b29cc9243fa6aba194d0e044cfb3db1c0b89
+android     : SDK 28, NDK r21e, build 7075529
+soname      : libMiVideoSDK.so
+needed      : liblog.so, libGLESv3.so, libEGL.so, libandroid.so, libmediandk.so, libjnigraphics.so, libOpenSLES.so, libmiffmpeg.so, libdl.so, libm.so, libc.so
+parser      : lief
+counts      : 7861 exports, 466 imports, 257 JNI, 25 sections, 8 segments
+symtab/dynsym: 0 / 8348
+
+Sections (25)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .gnu.hash              GNU_HASH         A      0x228        56120      0x228
+  .dynsym                DYNSYM           A      0xdd60       200352     0xdd60
+  .dynstr                STRTAB           A      0x3ec00      340211     0x3ec00
+  .gnu.version           GNU_VERSYM       A      0x91cf4      16696      0x91cf4
+  .gnu.version_r         GNU_VERNEED      A      0x95e30      128        0x95e30
+  .rela.dyn              RELA             A      0x95eb0      224568     0x95eb0
+  .rela.plt              RELA             AI     0xccbe8      64944      0xccbe8
+  .plt                   PROGBITS         AX     0xdc9a0      43328      0xdc9a0
+  .text                  PROGBITS         AX     0xe72e0      2077392    0xe72e0
+  .rodata                PROGBITS         A      0x2e25b0     377593     0x2e25b0
+  .eh_frame_hdr          PROGBITS         A      0x33e8ac     56676      0x33e8ac
+  .eh_frame              PROGBITS         A      0x34c610     245264     0x34c610
+  .gcc_except_table      PROGBITS         A      0x388420     66992      0x388420
+  .note.android.ident    NOTE             A      0x3989d0     152        0x3989d0
+  .init_array            INIT_ARRAY       WA     0x39a430     88         0x399430
+  .fini_array            FINI_ARRAY       WA     0x39a488     16         0x399488
+  .data.rel.ro           PROGBITS         WA     0x39a498     68912      0x399498
+  .dynamic               DYNAMIC          WA     0x3ab1c8     624        0x3aa1c8
+  .got                   PROGBITS         WA     0x3ab438     31688      0x3aa438
+  .data                  PROGBITS         WA     0x3b3000     808        0x3b2000
+  .bss                   NOBITS           WA     0x3b3330     25728      0x3b2328
+  .comment               PROGBITS         MS     0x0          220        0x3b2328
+  .shstrtab              STRTAB           -      0x0          251        0x3b2404
+
+JNI entry points (257)
+  0xe7d80        280        com.xiaomi.milab.videosdk.AudioBeats.nativeAudioBeats
+      Java_com_xiaomi_milab_videosdk_AudioBeats_nativeAudioBeats
+  0xee468        64         com.xiaomi.milab.videosdk.XmsContext.nativeCreateContext
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativeCreateContext
+  0xee4a8        48         com.xiaomi.milab.videosdk.XmsContext.nativeInitContext
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativeInitContext
+  0xee4d8        232        com.xiaomi.milab.videosdk.XmsContext.nativeSetupDolbyVision
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativeSetupDolbyVision
+  0xee5c0        8          com.xiaomi.milab.videosdk.XmsContext.nativeCreateTimeline
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativeCreateTimeline
+  0xee5c8        12         com.xiaomi.milab.videosdk.XmsContext.nativePlayTimeline
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativePlayTimeline
+  0xee5d4        16         com.xiaomi.milab.videosdk.XmsContext.nativePlayTimelineByStart
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativePlayTimelineByStart
+  0xee5e4        12         com.xiaomi.milab.videosdk.XmsContext.nativePlayTimelinePrepare
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativePlayTimelinePrepare
+  0xee5f0        12         com.xiaomi.milab.videosdk.XmsContext.nativePauseTimeline
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativePauseTimeline
+  0xee5fc        12         com.xiaomi.milab.videosdk.XmsContext.nativeResumeTimeline
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativeResumeTimeline
+  0xee608        8          com.xiaomi.milab.videosdk.XmsTimeline.nativeAppendVideoTrack
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeAppendVideoTrack
+  0xee610        8          com.xiaomi.milab.videosdk.XmsTimeline.nativeAppendDecorateTrack
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeAppendDecorateTrack
+  0xee618        440        com.xiaomi.milab.videosdk.XmsAudioTrack.nativeCreateAudioClip
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeCreateAudioClip
+  0xee7d0        8          com.xiaomi.milab.videosdk.XmsTimeline.nativeAppendAudioTrack
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeAppendAudioTrack
+  0xee7d8        244        com.xiaomi.milab.videosdk.XmsTimeline.nativeGetFpsRange
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeGetFpsRange
+  0xee8cc        12         com.xiaomi.milab.videosdk.XmsTimeline.nativeRemoveVideoTrack
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeRemoveVideoTrack
+  0xee8d8        12         com.xiaomi.milab.videosdk.XmsTimeline.nativeRemoveDecorateTrack
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeRemoveDecorateTrack
+  0xee8e4        12         com.xiaomi.milab.videosdk.XmsTimeline.nativeRemoveAudioTrack
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeRemoveAudioTrack
+  0xee8f0        72         com.xiaomi.milab.videosdk.XmsTimeline.nativeGetLength
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeGetLength
+  0xee938        56         com.xiaomi.milab.videosdk.XmsTimeline.nativeGetDuration
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeGetDuration
+  0xee970        8          com.xiaomi.milab.videosdk.XmsTimeline.nativeGetStatus
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeGetStatus
+  0xee978        20         com.xiaomi.milab.videosdk.XmsContext.nativeGetSdkVersion
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativeGetSdkVersion
+  0xee98c        28         com.xiaomi.milab.videosdk.XmsContext.nativeGetTimelineCurrentPosition
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativeGetTimelineCurrentPosition
+  0xee9a8        8          com.xiaomi.milab.videosdk.XmsTrack.nativeGetTrackIndex
+      Java_com_xiaomi_milab_videosdk_XmsTrack_nativeGetTrackIndex
+  0xee9b0        12         com.xiaomi.milab.videosdk.XmsContext.nativeRemoveTimeline
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativeRemoveTimeline
+  0xee9bc        8          com.xiaomi.milab.videosdk.XmsContext.nativeRelease
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativeRelease
+  0xee9c4        440        com.xiaomi.milab.videosdk.XmsAudioTrack.nativeAppendAudioClip
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeAppendAudioClip
+  0xeeb7c        456        com.xiaomi.milab.videosdk.XmsAudioTrack.nativeAppendAudioClipWithFps
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeAppendAudioClipWithFps
+  0xeed44        456        com.xiaomi.milab.videosdk.XmsAudioTrack.nativeAppendPreviewAudioClipWithFps
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeAppendPreviewAudioClipWithFps
+  0xeef0c        44         com.xiaomi.milab.videosdk.XmsTimeline.nativeAttachSurface
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeAttachSurface
+  0xeef38        16         com.xiaomi.milab.videosdk.XmsTimeline.nativeSetProfile
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeSetProfile
+  0xeef48        16         com.xiaomi.milab.videosdk.XmsTimeline.nativeResizeRenderBuffer
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeResizeRenderBuffer__JII
+  0xeef58        12         com.xiaomi.milab.videosdk.XmsTimeline.nativeResizeRenderBuffer
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeResizeRenderBuffer__JI
+  0xeef64        216        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeVideoEffectExist
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeVideoEffectExist
+  0xef03c        524        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeAppendVideoClip
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeAppendVideoClip
+  0xef248        368        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeAppendVideoClipUri
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeAppendVideoClipUri
+  0xef3b8        536        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeInsertVideoClip
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeInsertVideoClip
+  0xef5d0        384        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeInsertVideoClipUri
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeInsertVideoClipUri
+  0xef750        16         com.xiaomi.milab.videosdk.XmsVideoTrack.nativeSplitClip
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeSplitClip
+  0xef760        16         com.xiaomi.milab.videosdk.XmsVideoTrack.nativeGetCount
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeGetCount
+  0xef770        360        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeAddVideoEffect
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeAddVideoEffect
+  0xef8d8        8          com.xiaomi.milab.videosdk.XmsVideoTrack.nativeRemoveAllVideoEffect
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeRemoveAllVideoEffect
+  0xef8e0        216        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeRemoveVideoEffectByName
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeRemoveVideoEffectByName
+  0xef9b8        16         com.xiaomi.milab.videosdk.XmsAudioTrack.nativeGetCount
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeGetCount
+  0xef9c8        12         com.xiaomi.milab.videosdk.XmsAudioTrack.nativeGetAudioClipByIndex
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeGetAudioClipByIndex
+  0xef9d4        8          com.xiaomi.milab.videosdk.XmsAudioTrack.nativeGetFirstAudioClip
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeGetFirstAudioClip
+  0xef9dc        12         com.xiaomi.milab.videosdk.XmsAudioTrack.nativeGetNextClipIndex
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeGetNextClipIndex
+  0xef9e8        12         com.xiaomi.milab.videosdk.XmsAudioTrack.nativeGetNextAudioClip
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeGetNextAudioClip
+  0xef9f4        368        com.xiaomi.milab.videosdk.XmsVideoClip.nativeAppendVideoEffect
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeAppendVideoEffect
+  0xefb64        8          com.xiaomi.milab.videosdk.XmsVideoClip.nativeGetIndex
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeGetIndex
+  0xefb6c        8          com.xiaomi.milab.videosdk.XmsVideoClip.nativeGetTransOut
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeGetTransOut
+  0xefb74        8          com.xiaomi.milab.videosdk.XmsVideoClip.nativeGetTransIn
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeGetTransIn
+  0xefb7c        8          com.xiaomi.milab.videosdk.XmsAudioClip.nativeGetIndex
+      Java_com_xiaomi_milab_videosdk_XmsAudioClip_nativeGetIndex
+  0xefb84        16         com.xiaomi.milab.videosdk.XmsAudioClip.nativeSetInAndOut
+      Java_com_xiaomi_milab_videosdk_XmsAudioClip_nativeSetInAndOut
+  0xefb94        16         com.xiaomi.milab.videosdk.XmsAudioClip.nativeSetTrackInAndOut
+      Java_com_xiaomi_milab_videosdk_XmsAudioClip_nativeSetTrackInAndOut
+  0xefba4        24         com.xiaomi.milab.videosdk.XmsAudioClip.nativeUpdateTrackInAndOut
+      Java_com_xiaomi_milab_videosdk_XmsAudioClip_nativeUpdateTrackInAndOut
+  0xefbbc        216        com.xiaomi.milab.videosdk.XmsVideoClip.nativeRemoveVideoEffectByName
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeRemoveVideoEffectByName
+  0xefc94        216        com.xiaomi.milab.videosdk.XmsVideoClip.nativeAudioEffectExist
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeAudioEffectExist
+  0xefd6c        216        com.xiaomi.milab.videosdk.XmsVideoClip.nativeVideoEffectExist
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeVideoEffectExist
+  0xefe44        244        com.xiaomi.milab.videosdk.XmsVideoClip.nativeGetVideoEffectByName
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeGetVideoEffectByName
+  0xeff38        216        com.xiaomi.milab.videosdk.XmsVideoClip.nativeRemoveAudioEffectByName
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeRemoveAudioEffectByName
+  0xf0010        368        com.xiaomi.milab.videosdk.XmsVideoClip.nativeAppendAudioEffect
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeAppendAudioEffect
+  0xf0180        216        com.xiaomi.milab.videosdk.XmsAudioClip.nativeRemoveEffectByName
+      Java_com_xiaomi_milab_videosdk_XmsAudioClip_nativeRemoveEffectByName
+  0xf0258        368        com.xiaomi.milab.videosdk.XmsAudioClip.nativeAppendAudioEffect
+      Java_com_xiaomi_milab_videosdk_XmsAudioClip_nativeAppendAudioEffect
+  0xf03c8        384        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeSetVideoTransition
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeSetVideoTransition
+  0xf0548        16         com.xiaomi.milab.videosdk.XmsTimeline.nativeMixAudioTrack
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeMixAudioTrack
+  0xf0558        16         com.xiaomi.milab.videosdk.XmsVideoClip.nativeSetInAndOut
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeSetInAndOut
+  0xf0568        8          com.xiaomi.milab.videosdk.XmsVideoClip.nativeSetInOutSpeed
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeSetInOutSpeed
+  0xf0570        16         com.xiaomi.milab.videosdk.XmsVideoClip.nativeSetInAndOutTrans
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeSetInAndOutTrans
+  0xf0580        8          com.xiaomi.milab.videosdk.XmsClip.nativeSetInAndOutLength
+      Java_com_xiaomi_milab_videosdk_XmsClip_nativeSetInAndOutLength
+  0xf0588        28         com.xiaomi.milab.videosdk.XmsTrack.nativeGetLength
+      Java_com_xiaomi_milab_videosdk_XmsTrack_nativeGetLength
+  0xf05a4        8          com.xiaomi.milab.videosdk.XmsTrack.nativeGetDuration
+      Java_com_xiaomi_milab_videosdk_XmsTrack_nativeGetDuration
+  0xf05ac        12         com.xiaomi.milab.videosdk.XmsTrack.nativeGetClipStartPos
+      Java_com_xiaomi_milab_videosdk_XmsTrack_nativeGetClipStartPos
+  0xf05b8        16         com.xiaomi.milab.videosdk.XmsVideoTrack.nativeMoveClip
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeMoveClip
+  0xf05c8        8          com.xiaomi.milab.videosdk.XmsClip.nativeSetInOutSpeed
+      Java_com_xiaomi_milab_videosdk_XmsClip_nativeSetInOutSpeed
+  0xf05d0        8          com.xiaomi.milab.videosdk.XmsClip.nativeGetInSpeed
+      Java_com_xiaomi_milab_videosdk_XmsClip_nativeGetInSpeed
+  0xf05d8        8          com.xiaomi.milab.videosdk.XmsClip.nativeGetOutSpeed
+      Java_com_xiaomi_milab_videosdk_XmsClip_nativeGetOutSpeed
+  0xf05e0        28         com.xiaomi.milab.videosdk.XmsClip.nativeGetLength
+      Java_com_xiaomi_milab_videosdk_XmsClip_nativeGetLength
+  0xf05fc        8          com.xiaomi.milab.videosdk.XmsClip.nativeGetSourceLength
+      Java_com_xiaomi_milab_videosdk_XmsClip_nativeGetSourceLength
+  0xf0604        8          com.xiaomi.milab.videosdk.XmsClip.nativeGetIn
+      Java_com_xiaomi_milab_videosdk_XmsClip_nativeGetIn
+  0xf060c        8          com.xiaomi.milab.videosdk.XmsClip.nativeGetOut
+      Java_com_xiaomi_milab_videosdk_XmsClip_nativeGetOut
+  0xf0614        8          com.xiaomi.milab.videosdk.XmsClip.nativeGetDuration
+      Java_com_xiaomi_milab_videosdk_XmsClip_nativeGetDuration
+  0xf061c        8          com.xiaomi.milab.videosdk.XmsClip.nativeGetSourceDuration
+      Java_com_xiaomi_milab_videosdk_XmsClip_nativeGetSourceDuration
+  0xf0624        536        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeAppendVideoClipInAndOut
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeAppendVideoClipInAndOut
+  0xf083c        384        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeAppendVideoClipInAndOutUri
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeAppendVideoClipInAndOutUri
+  0xf09bc        460        com.xiaomi.milab.videosdk.XmsAudioTrack.nativeAppendAudioClipInAndOut
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeAppendAudioClipInAndOut
+  0xf0b88        384        com.xiaomi.milab.videosdk.XmsAudioTrack.nativeSetAudioTransition
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeSetAudioTransition
+  0xf0d08        4          com.xiaomi.milab.videosdk.XmsTimeline.nativeRelease
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeRelease
+  0xf0d0c        12         com.xiaomi.milab.videosdk.XmsContext.nativeSkipPauseTimeline
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativeSkipPauseTimeline
+  0xf0d18        20         com.xiaomi.milab.videosdk.XmsContext.nativeSeekTimeline
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativeSeekTimeline
+  0xf0d2c        344        com.xiaomi.milab.videosdk.XmsContext.nativeExportTimeline
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativeExportTimeline
+  0xf0e84        280        com.xiaomi.milab.videosdk.XmsContext.nativeExportTimelineFd
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativeExportTimelineFd
+  0xf0f9c        348        com.xiaomi.milab.videosdk.XmsContext.nativeExportTimelineCbr
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativeExportTimelineCbr
+  0xf10f8        8          com.xiaomi.milab.videosdk.XmsContext.nativeCancelExport
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativeCancelExport
+  0xf1100        12         com.xiaomi.milab.videosdk.XmsTimeline.nativeGetVideoTrackByIndex
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeGetVideoTrackByIndex
+  0xf110c        12         com.xiaomi.milab.videosdk.XmsTimeline.nativeGetDecorateTrackByIndex
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeGetDecorateTrackByIndex
+  0xf1118        12         com.xiaomi.milab.videosdk.XmsTimeline.nativeGetAudioTrackByIndex
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeGetAudioTrackByIndex
+  0xf1124        12         com.xiaomi.milab.videosdk.XmsVideoTrack.nativeGetVideoClipByIndex
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeGetVideoClipByIndex
+  0xf1130        12         com.xiaomi.milab.videosdk.XmsVideoTrack.nativeGetCurrentClip
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeGetCurrentClip
+  0xf113c        8          com.xiaomi.milab.videosdk.XmsVideoTrack.nativeGetFirstVideoClip
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeGetFirstVideoClip
+  0xf1144        12         com.xiaomi.milab.videosdk.XmsVideoTrack.nativeGetNextClipIndex
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeGetNextClipIndex
+  0xf1150        12         com.xiaomi.milab.videosdk.XmsVideoTrack.nativeGetNextVideoClip
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeGetNextVideoClip
+  0xf115c        12         com.xiaomi.milab.videosdk.XmsVideoTrack.nativeGetPreVideoClip
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeGetPreVideoClip
+  0xf1168        12         com.xiaomi.milab.videosdk.XmsVideoTrack.nativeGetClipStartPos
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeGetClipStartPos
+  0xf1174        8          com.xiaomi.milab.videosdk.XmsTimeline.nativeReconnect
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeReconnect
+  0xf117c        8          com.xiaomi.milab.videosdk.XmsTimeline.nativeStop
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeStop
+  0xf1184        28         com.xiaomi.milab.videosdk.XmsTimeline.nativeSafeExit
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeSafeExit
+  0xf11a0        4          com.xiaomi.milab.videosdk.XmsTimeline.nativeDebug
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeDebug
+  0xf11a4        12         com.xiaomi.milab.videosdk.XmsContext.nativePauseToBackground
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativePauseToBackground
+  0xf11b0        12         com.xiaomi.milab.videosdk.XmsContext.nativeResumeToForeground
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativeResumeToForeground
+  0xf11bc        8          com.xiaomi.milab.videosdk.XmsVideoClip.nativeRemoveAllVideoEffect
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeRemoveAllVideoEffect
+  0xf11c4        12         com.xiaomi.milab.videosdk.XmsVideoClip.nativeRemoveVideoEffect
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeRemoveVideoEffect
+  0xf11d0        12         com.xiaomi.milab.videosdk.XmsVideoClip.nativeRemoveAudioEffect
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeRemoveAudioEffect
+  0xf11dc        52         com.xiaomi.milab.videosdk.XmsAudioTrack.nativeRemoveAudioTransition
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeRemoveAudioTransition
+  0xf1210        16         com.xiaomi.milab.videosdk.XmsAudioTrack.nativeMoveClip
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeMoveClip
+  0xf1220        12         com.xiaomi.milab.videosdk.XmsAudioTrack.nativeRemoveAudioClip
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeRemoveAudioClip
+  0xf122c        12         com.xiaomi.milab.videosdk.XmsAudioTrack.nativeRemoveAudioClipAndReplaceWithEmpty
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeRemoveAudioClipAndReplaceWithEmpty
+  0xf1238        16         com.xiaomi.milab.videosdk.XmsAudioTrack.nativeRemoveAllClips
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeRemoveAllClips
+  0xf1248        384        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeSetAudioTransition
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeSetAudioTransition
+  0xf13c8        384        com.xiaomi.milab.videosdk.XmsTimeline.nativeMixVideoTrack
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeMixVideoTrack
+  0xf1548        180        com.xiaomi.milab.videosdk.XmsVideoClip.nativeGetSourcePath
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeGetSourcePath
+  0xf15fc        180        com.xiaomi.milab.videosdk.XmsAudioClip.nativeGetSourcePath
+      Java_com_xiaomi_milab_videosdk_XmsAudioClip_nativeGetSourcePath
+  0xf16b0        8          com.xiaomi.milab.videosdk.XmsVideoClip.nativeGetVideoWidth
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeGetVideoWidth
+  0xf16b8        8          com.xiaomi.milab.videosdk.XmsVideoClip.nativeSetMute
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeSetMute
+  0xf16c0        116        com.xiaomi.milab.videosdk.XmsVideoClip.nativeSetIntParam
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeSetIntParam
+  0xf1734        8          com.xiaomi.milab.videosdk.XmsVideoClip.nativeGetVideHeight
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeGetVideHeight
+  0xf173c        8          com.xiaomi.milab.videosdk.XmsVideoClip.nativeGetAttchTrans
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeGetAttchTrans
+  0xf1744        16         com.xiaomi.milab.videosdk.XmsVideoTrack.nativeRemoveAllClips
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeRemoveAllClips
+  0xf1754        12         com.xiaomi.milab.videosdk.XmsTimeline.nativeRemoveVideoMixer
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeRemoveVideoMixer
+  0xf1760        12         com.xiaomi.milab.videosdk.XmsVideoTrack.nativeAppendVideoClipByAndroidBitmap
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeAppendVideoClipByAndroidBitmap
+  0xf176c        20         com.xiaomi.milab.videosdk.XmsVideoTrack.nativeInsertDecorationClipByAndroidBitmap
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeInsertDecorationClipByAndroidBitmap
+  0xf1780        324        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeInsertDecorationClip
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeInsertDecorationClip
+  0xf18c4        384        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeInsertDecorationClipUri
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeInsertDecorationClipUri
+  0xf1a44        240        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeInsertSeqFrameClip
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeInsertSeqFrameClip
+  0xf1b34        12         com.xiaomi.milab.videosdk.XmsVideoTrack.nativeDecorationRemoveClip
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeDecorationRemoveClip
+  0xf1b40        12         com.xiaomi.milab.videosdk.XmsVideoTrack.nativeRemoveClip
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeRemoveClip
+  0xf1b4c        52         com.xiaomi.milab.videosdk.XmsVideoTrack.nativeRemoveVideoTransition
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeRemoveVideoTransition
+  0xf1b80        8          com.xiaomi.milab.videosdk.XmsVideoTrack.nativeRemoveAllVideoTransition
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeRemoveAllVideoTransition
+  0xf1b88        8          com.xiaomi.milab.videosdk.XmsVideoTrack.nativeRemoveAllAudioTransition
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeRemoveAllAudioTransition
+  0xf1b90        52         com.xiaomi.milab.videosdk.XmsVideoTrack.nativeRemoveAudioTransition
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeRemoveAudioTransition
+  0xf1bc4        80         com.xiaomi.milab.videosdk.XmsAnimProperties.nativeCreateAnimationProperties
+      Java_com_xiaomi_milab_videosdk_XmsAnimProperties_nativeCreateAnimationProperties
+  0xf1c14        48         com.xiaomi.milab.videosdk.XmsAnimProperties.nativeReleaseAnimationProperties
+      Java_com_xiaomi_milab_videosdk_XmsAnimProperties_nativeReleaseAnimationProperties
+  0xf1c44        216        com.xiaomi.milab.videosdk.XmsAnimProperties.nativeSetInt
+      Java_com_xiaomi_milab_videosdk_XmsAnimProperties_nativeSetInt
+  0xf1d1c        216        com.xiaomi.milab.videosdk.XmsAnimProperties.nativeSetInt64
+      Java_com_xiaomi_milab_videosdk_XmsAnimProperties_nativeSetInt64
+  0xf1df4        224        com.xiaomi.milab.videosdk.XmsAnimProperties.nativeSetDouble
+      Java_com_xiaomi_milab_videosdk_XmsAnimProperties_nativeSetDouble
+  0xf1ed4        352        com.xiaomi.milab.videosdk.XmsAnimProperties.nativeSetString
+      Java_com_xiaomi_milab_videosdk_XmsAnimProperties_nativeSetString
+  0xf2034        216        com.xiaomi.milab.videosdk.XmsAnimProperties.nativeGetInt
+      Java_com_xiaomi_milab_videosdk_XmsAnimProperties_nativeGetInt
+  0xf210c        216        com.xiaomi.milab.videosdk.XmsAnimProperties.nativeGetInt64
+      Java_com_xiaomi_milab_videosdk_XmsAnimProperties_nativeGetInt64
+  0xf21e4        224        com.xiaomi.milab.videosdk.XmsAnimProperties.nativeGetDouble
+      Java_com_xiaomi_milab_videosdk_XmsAnimProperties_nativeGetDouble
+  0xf22c4        296        com.xiaomi.milab.videosdk.XmsAnimProperties.nativeGetString
+      Java_com_xiaomi_milab_videosdk_XmsAnimProperties_nativeGetString
+  0xf23ec        240        com.xiaomi.milab.videosdk.XmsAnimProperties.nativeAnimGetInt
+      Java_com_xiaomi_milab_videosdk_XmsAnimProperties_nativeAnimGetInt
+  0xf24dc        248        com.xiaomi.milab.videosdk.XmsAnimProperties.nativeAnimGetDouble
+      Java_com_xiaomi_milab_videosdk_XmsAnimProperties_nativeAnimGetDouble
+  0xf25d4        216        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeAppendSeqFrameClip
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeAppendSeqFrameClip
+  0xf26ac        28         com.xiaomi.milab.videosdk.XmsVideoTrack.nativeGetVideoTrackLength
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeGetVideoTrackLength
+  0xf26c8        8          com.xiaomi.milab.videosdk.XmsVideoTrack.nativeGetVideoTrackDuration
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeGetVideoTrackDuration
+  0xf26d0        180        com.xiaomi.milab.videosdk.XmsVideoClip.nativeGetId
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeGetId
+  0xf2784        216        com.xiaomi.milab.videosdk.XmsAudioFilter.nativeSetIntParam
+      Java_com_xiaomi_milab_videosdk_XmsAudioFilter_nativeSetIntParam
+  0xf285c        224        com.xiaomi.milab.videosdk.XmsAudioFilter.nativeSetDoubleParam
+      Java_com_xiaomi_milab_videosdk_XmsAudioFilter_nativeSetDoubleParam
+  0xf293c        352        com.xiaomi.milab.videosdk.XmsAudioFilter.nativeSetStringParam
+      Java_com_xiaomi_milab_videosdk_XmsAudioFilter_nativeSetStringParam
+  0xf2a9c        216        com.xiaomi.milab.videosdk.XmsAudioFilter.nativeGetIntValue
+      Java_com_xiaomi_milab_videosdk_XmsAudioFilter_nativeGetIntValue
+  0xf2b74        224        com.xiaomi.milab.videosdk.XmsAudioFilter.nativeGetDoubleValue
+      Java_com_xiaomi_milab_videosdk_XmsAudioFilter_nativeGetDoubleValue
+  0xf2c54        216        com.xiaomi.milab.videosdk.XmsVideoFilter.nativeSetIntParam
+      Java_com_xiaomi_milab_videosdk_XmsVideoFilter_nativeSetIntParam
+  0xf2d2c        252        com.xiaomi.milab.videosdk.XmsVideoFilter.nativeSetDoubleParam
+      Java_com_xiaomi_milab_videosdk_XmsVideoFilter_nativeSetDoubleParam
+  0xf2e28        224        com.xiaomi.milab.videosdk.XmsVideoFilter.nativeGetDoubleParam
+      Java_com_xiaomi_milab_videosdk_XmsVideoFilter_nativeGetDoubleParam
+  0xf2f08        352        com.xiaomi.milab.videosdk.XmsVideoFilter.nativeSetStringParam
+      Java_com_xiaomi_milab_videosdk_XmsVideoFilter_nativeSetStringParam
+  0xf3068        256        com.xiaomi.milab.videosdk.XmsVideoFilter.nativeSetColorParam
+      Java_com_xiaomi_milab_videosdk_XmsVideoFilter_nativeSetColorParam
+  0xf3168        360        com.xiaomi.milab.videosdk.XmsAudioTrack.nativeAddAudioEffect
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeAddAudioEffect
+  0xf32d0        8          com.xiaomi.milab.videosdk.XmsAudioTrack.nativeRemoveAllAudioEffect
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeRemoveAllAudioEffect
+  0xf32d8        16         com.xiaomi.milab.videosdk.XmsAudioTrack.nativeSplitClip
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeSplitClip
+  0xf32e8        272        com.xiaomi.milab.videosdk.XmsAudioTrack.nativeInsertTrackInAndOut
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeInsertTrackInAndOut
+  0xf33f8        360        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeAddAudioEffect
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeAddAudioEffect
+  0xf3560        8          com.xiaomi.milab.videosdk.XmsVideoTrack.nativeRemoveAllAudioEffect
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeRemoveAllAudioEffect
+  0xf3568        80         com.xiaomi.milab.videosdk.XmsTimeline.surfaceChanged
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_surfaceChanged
+  0xf35b8        964        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeGetVideoClipInfo
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeGetVideoClipInfo
+  0xf3a18        964        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeDebugVideoClipInfo
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeDebugVideoClipInfo
+  0xf3ddc        16         com.xiaomi.milab.videosdk.XmsClip.nativeSetDecorationInAndOut
+      Java_com_xiaomi_milab_videosdk_XmsClip_nativeSetDecorationInAndOut
+  0xf3dec        12         com.xiaomi.milab.videosdk.XmsTrack.nativeSetDuration
+      Java_com_xiaomi_milab_videosdk_XmsTrack_nativeSetDuration
+  0xf3df8        8          com.xiaomi.milab.videosdk.XmsTimeline.nativeGetVideoTrackCount
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeGetVideoTrackCount
+  0xf3e00        8          com.xiaomi.milab.videosdk.XmsTimeline.nativeGetAudioTrackCount
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeGetAudioTrackCount
+  0xf3e08        8          com.xiaomi.milab.videosdk.XmsTimeline.nativeGetDecorateTrackCount
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeGetDecorateTrackCount
+  0xf3e10        24         com.xiaomi.milab.videosdk.XmsTimeline.nativeSetInAndOut
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeSetInAndOut
+  0xf3e28        16         com.xiaomi.milab.videosdk.XmsTimeline.nativeSetForceSync
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeSetForceSync
+  0xf3e38        8          com.xiaomi.milab.videosdk.XmsTimeline.nativeResetInAndOut
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeResetInAndOut
+  0xf3e40        8          com.xiaomi.milab.videosdk.XmsVideoTransition.nativeGetAttchIndex
+      Java_com_xiaomi_milab_videosdk_XmsVideoTransition_nativeGetAttchIndex
+  0xf3e48        180        com.xiaomi.milab.videosdk.XmsVideoTransition.nativeGetName
+      Java_com_xiaomi_milab_videosdk_XmsVideoTransition_nativeGetName
+  0xf3efc        8          com.xiaomi.milab.videosdk.XmsVideoTransition.nativeGetDurtion
+      Java_com_xiaomi_milab_videosdk_XmsVideoTransition_nativeGetDurtion
+  0xf3f04        304        com.xiaomi.milab.videosdk.XmsTimeline.nativeExportGif
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeExportGif
+  0xf4034        208        com.xiaomi.milab.videosdk.XmsTimeline.nativeExportXml
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeExportXml
+  0xf4104        8          com.xiaomi.milab.videosdk.XmsTimeline.updateRender
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_updateRender
+  0xf410c        12         com.xiaomi.milab.videosdk.XmsTimeline.nativeSetCover
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeSetCover
+  0xf4118        228        com.xiaomi.milab.videosdk.XmsTimeline.nativeStartRecordPreview
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeStartRecordPreview
+  0xf41fc        8          com.xiaomi.milab.videosdk.XmsTimeline.nativeStartPreview
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeStartPreview
+  0xf4204        44         com.xiaomi.milab.videosdk.XmsTimeline.nativeFeedPreview
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeFeedPreview
+  0xf4230        8          com.xiaomi.milab.videosdk.XmsTimeline.nativeStopPreview
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeStopPreview
+  0xf4238        116        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeAppendPreviewClip
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeAppendPreviewClip
+  0xf42ac        8          com.xiaomi.milab.videosdk.XmsContext.nativeAttachPreviewGLThread
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativeAttachPreviewGLThread
+  0xf42b4        16         com.xiaomi.milab.videosdk.XmsTimeline.nativeSetPreviewProfile
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeSetPreviewProfile
+  0xf42c4        8          com.xiaomi.milab.videosdk.XmsVideoClip.nativeGetStartPos
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeGetStartPos
+  0xf42cc        56         com.xiaomi.milab.videosdk.XmsVideoClip.nativeUpdateSTMatrix
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeUpdateSTMatrix
+  0xf4304        12         com.xiaomi.milab.videosdk.XmsAudioClip.nativeSetTimelineStartPos
+      Java_com_xiaomi_milab_videosdk_XmsAudioClip_nativeSetTimelineStartPos
+  0xf4310        272        com.xiaomi.milab.videosdk.XmsVideoFilter.nativeSetMat4
+      Java_com_xiaomi_milab_videosdk_XmsVideoFilter_nativeSetMat4
+  0xf4420        8          com.xiaomi.milab.videosdk.XmsTimeline.nativeEnterFreeCropMode
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeEnterFreeCropMode
+  0xf4428        8          com.xiaomi.milab.videosdk.XmsTimeline.nativeExitFreeCropMode
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeExitFreeCropMode
+  0xf4430        272        com.xiaomi.milab.videosdk.XmsVideoFilter.nativeSetRect
+      Java_com_xiaomi_milab_videosdk_XmsVideoFilter_nativeSetRect
+  0xf4540        8          com.xiaomi.milab.videosdk.XmsVideoClip.nativeGetOrginalFramePts
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeGetOrginalFramePts
+  0xf4548        248        com.xiaomi.milab.videosdk.XmsVideoFilter.nativeGetRect
+      Java_com_xiaomi_milab_videosdk_XmsVideoFilter_nativeGetRect
+  0xf4640        164        com.xiaomi.milab.videosdk.XmsVideoFilter.nativeGetIntParam
+      Java_com_xiaomi_milab_videosdk_XmsVideoFilter_nativeGetIntParam
+  0xf46e4        32         com.xiaomi.milab.videosdk.XmsTimeline.nativeSetCallback
+      Java_com_xiaomi_milab_videosdk_XmsTimeline_nativeSetCallback
+  0xf4704        264        com.xiaomi.milab.videosdk.XmsContext.nativeSetupBeauty
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativeSetupBeauty
+  0xf480c        28         com.xiaomi.milab.videosdk.XmsContext.nativeShutDownBeauty
+      Java_com_xiaomi_milab_videosdk_XmsContext_nativeShutDownBeauty
+  0xf4828        240        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeGetVideoEffect
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeGetVideoEffect
+  0xf4918        240        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeGetAudioEffect
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeGetAudioEffect
+  0xf4a08        216        com.xiaomi.milab.videosdk.XmsAudioTrack.nativeGetAudioEffect
+      Java_com_xiaomi_milab_videosdk_XmsAudioTrack_nativeGetAudioEffect
+  0xf4ae0        216        com.xiaomi.milab.videosdk.XmsVideoTrack.nativeRemoveAudioEffectByName
+      Java_com_xiaomi_milab_videosdk_XmsVideoTrack_nativeRemoveAudioEffectByName
+  0xf4bb8        244        com.xiaomi.milab.videosdk.XmsVideoClip.nativeGetAudioEffectByName
+      Java_com_xiaomi_milab_videosdk_XmsVideoClip_nativeGetAudioEffectByName
+  0xfb224        32         com.xiaomi.milab.videosdk.message.XmsMessage.OnUserCommand
+      Java_com_xiaomi_milab_videosdk_message_XmsMessage_OnUserCommand
+  0x106e84       208        com.xiaomi.milab.videosdk.utils.FormatUtil.nGetXiaomiVideoType
+      Java_com_xiaomi_milab_videosdk_utils_FormatUtil_nGetXiaomiVideoType
+  0x106f54       372        com.xiaomi.milab.videosdk.AudioExtraction.nativeExtractAudio
+      Java_com_xiaomi_milab_videosdk_AudioExtraction_nativeExtractAudio
+  0x1070c8       80         com.xiaomi.milab.videosdk.AudioExtraction.nativeRelease
+      Java_com_xiaomi_milab_videosdk_AudioExtraction_nativeRelease
+  0x107118       64         com.xiaomi.milab.videosdk.AudioExtraction.nativeStop
+      Java_com_xiaomi_milab_videosdk_AudioExtraction_nativeStop
+  0x107158       140        com.xiaomi.milab.videosdk.AudioExtraction.nativeHasAudioTrack
+      Java_com_xiaomi_milab_videosdk_AudioExtraction_nativeHasAudioTrack
+  0x1071e4       232        com.xiaomi.milab.videosdk.AudioFetch
+      Java_com_xiaomi_milab_videosdk_AudioFetch__1fetchAudio
+  0x1072cc       72         com.xiaomi.milab.videosdk.AudioFetch
+      Java_com_xiaomi_milab_videosdk_AudioFetch__1release
+  0x107314       64         com.xiaomi.milab.videosdk.explain.FrameExplain.nativeCreate
+      Java_com_xiaomi_milab_videosdk_explain_FrameExplain_nativeCreate
+  0x107354       136        com.xiaomi.milab.videosdk.explain.FrameExplain.nativeSetDataSource
+      Java_com_xiaomi_milab_videosdk_explain_FrameExplain_nativeSetDataSource
+  0x1073dc       136        com.xiaomi.milab.videosdk.explain.FrameExplain.nativeSetDlcPath
+      Java_com_xiaomi_milab_videosdk_explain_FrameExplain_nativeSetDlcPath
+  0x107464       8          com.xiaomi.milab.videosdk.explain.FrameExplain.nativeStart
+      Java_com_xiaomi_milab_videosdk_explain_FrameExplain_nativeStart
+  0x10746c       216        com.xiaomi.milab.videosdk.explain.FrameExplain.nativeSetCallback
+      Java_com_xiaomi_milab_videosdk_explain_FrameExplain_nativeSetCallback
+  0x107544       52         com.xiaomi.milab.videosdk.explain.FrameExplain.nativeRelease
+      Java_com_xiaomi_milab_videosdk_explain_FrameExplain_nativeRelease
+  0x107578       12         com.xiaomi.milab.videosdk.explain.FrameExplain.nativeTest
+      Java_com_xiaomi_milab_videosdk_explain_FrameExplain_nativeTest
+  0x107584       12         com.xiaomi.milab.videosdk.explain.FrameExplain.nativeSetKeyFrameLimit
+      Java_com_xiaomi_milab_videosdk_explain_FrameExplain_nativeSetKeyFrameLimit
+  0x107590       676        com.xiaomi.milab.videosdk.explain.FrameExplain.nativeExplainPic
+      Java_com_xiaomi_milab_videosdk_explain_FrameExplain_nativeExplainPic
+  0x107834       136        com.xiaomi.milab.videosdk.explain.FrameExplain.nativeSetSoPath
+      Java_com_xiaomi_milab_videosdk_explain_FrameExplain_nativeSetSoPath
+  0x1078bc       60         com.xiaomi.milab.videosdk.explain.FrameExplain.nativeSetKeyFrameInterval
+      Java_com_xiaomi_milab_videosdk_explain_FrameExplain_nativeSetKeyFrameInterval
+  0x1078f8       804        com.xiaomi.milab.videosdk.explain.FrameExplain.nativeSetVideoList
+      Java_com_xiaomi_milab_videosdk_explain_FrameExplain_nativeSetVideoList
+  0x1084f0       88         com.xiaomi.milab.videosdk.FrameRetriever.nativeCreate
+      Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeCreate
+  0x108548       68         com.xiaomi.milab.videosdk.FrameRetriever.nativeDestroy
+      Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeDestroy
+  0x10858c       156        com.xiaomi.milab.videosdk.FrameRetriever.nativeSetDataSource
+      Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeSetDataSource
+  0x108628       64         com.xiaomi.milab.videosdk.FrameRetriever.nativeGetDuration
+      Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeGetDuration
+  0x108668       64         com.xiaomi.milab.videosdk.FrameRetriever.nativeGetWidth
+      Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeGetWidth
+  0x1086a8       64         com.xiaomi.milab.videosdk.FrameRetriever.nativeGetHeight
+      Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeGetHeight
+  0x1086e8       64         com.xiaomi.milab.videosdk.FrameRetriever.nativeGetBitrate
+      Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeGetBitrate
+  0x108728       64         com.xiaomi.milab.videosdk.FrameRetriever.nativeGetFPS
+      Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeGetFPS
+  0x108768       72         com.xiaomi.milab.videosdk.FrameRetriever.nativeSetFrameAtTime
+      Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeSetFrameAtTime
+  0x1087b0       76         com.xiaomi.milab.videosdk.FrameRetriever.nativeSetSize
+      Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeSetSize
+  0x1087fc       68         com.xiaomi.milab.videosdk.FrameRetriever.nativeSetAccurate
+      Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeSetAccurate
+  0x108840       212        com.xiaomi.milab.videosdk.FrameRetriever.nativeGetNextFrame
+      Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeGetNextFrame
+  0x108914       188        com.xiaomi.milab.videosdk.FrameRetriever.nativeGetNextFrameData
+      Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeGetNextFrameData
+  0x1089d0       8          com.xiaomi.milab.videosdk.FrameRetriever.nativeRelease
+      Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeRelease
+  0x1089d8       52         com.xiaomi.milab.videosdk.FrameRetriever.nativeGetDataSource
+      Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeGetDataSource
+  0x108e2c       88         com.xiaomi.milab.videosdk.MediaTranscode.creatMediaTranscode
+      Java_com_xiaomi_milab_videosdk_MediaTranscode_creatMediaTranscode
+  0x108e84       60         com.xiaomi.milab.videosdk.MediaTranscode.setConfig
+      Java_com_xiaomi_milab_videosdk_MediaTranscode_setConfig
+  0x108ec0       68         com.xiaomi.milab.videosdk.MediaTranscode.setPreferSoftDecoder
+      Java_com_xiaomi_milab_videosdk_MediaTranscode_setPreferSoftDecoder
+  0x108f04       172        com.xiaomi.milab.videosdk.MediaTranscode.setThumbBitmap
+      Java_com_xiaomi_milab_videosdk_MediaTranscode_setThumbBitmap
+  0x108fb0       1392       com.xiaomi.milab.videosdk.MediaTranscode.convertMediaFile
+      Java_com_xiaomi_milab_videosdk_MediaTranscode_convertMediaFile
+  0x109520       60         com.xiaomi.milab.videosdk.MediaTranscode.stop
+      Java_com_xiaomi_milab_videosdk_MediaTranscode_stop
+  0x10955c       68         com.xiaomi.milab.videosdk.MediaTranscode.release
+      Java_com_xiaomi_milab_videosdk_MediaTranscode_release
+
+AI-relevant strings (1751868 bytes scanned in allocated data sections)
+  [model] 18 unique (first 18)
+    0x0030f454 .rodata    float rand(vec2 n) { return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453); } const float maxY = 720.0; vec4 motionBlur1(vec2 uv, vec2 speed) { vec3 color = vec3(0.0); float total = 0.0; float offset = rand(uv)/maxY; float pass = 10.0; for (float t = 0.0; t <= pass; t++) { float percent = (t + offset*maxY); float weight = (percent - percent * percent); vec2 currentUv = uv + (1.0/maxY)*percent*speed; color += INPUT1(currentUv).rgb*weight; total += weight; } return vec4(color/total, 1.0); } vec4 motionBlur2(vec2 uv, vec2 speed) { vec3 color = vec3(0.0); float total = 0.0; float offset = rand(uv)/maxY; float pass = 10.0; for (float t = 0.0; t <= pass; t++) { float percent = (t + offset*maxY); float weight = (percent - percent * percent); vec2 currentUv = uv + (1.0/maxY)*percent*speed; color += INPUT2(currentUv).rgb*weight; total += weight; } return vec4(color/total, 1.0); } vec4 FUNCNAME(vec2 tc) { float progress = 1.0-PREFIX(percent); float blurRadius = PREFIX(blurRadius)/100.0; vec4 color; vec2 dir = vec2(1.0,0.0); if( progress < 0.5) { color=motionBlur1(tc,dir*blurRadius); } else { color=motionBlur2(tc,dir*blurRadius); } return color; } 
+    0x0030ff2d .rodata    float rand(vec2 n) { return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453); } const float maxY = 720.0; vec4 motionBlurInput1(vec2 uv, float blurRadius) { vec3 color = vec3(0.0); float total = 0.0; float offset = rand(uv)/maxY; float degree = 10.0; for (float t = 0.0; t <= degree; t++) { float percent = (t + offset*maxY) / degree; float weight = degree * (percent - percent * percent); vec2 currentUv = uv + (blurRadius/maxY)*percent*vec2(0.0,1.0); color += INPUT1(currentUv).rgb*weight; total += weight; percent = (t - offset*maxY) / degree; weight = degree * (percent - percent * percent); currentUv = uv + (blurRadius/maxY)*percent*vec2(0.0,1.0); color += INPUT1(currentUv).rgb*weight; total += weight; } return vec4(color/total, 1.0); } vec4 motionBlurInput2(vec2 uv, float blurRadius) { vec3 color = vec3(0.0); float total = 0.0; float offset = rand(uv)/maxY; float degree = 10.0; for (float t = 0.0; t <= degree; t++) { float percent = (t + offset*maxY) / degree; float weight = degree * (percent - percent * percent); vec2 currentUv = uv + (blurRadius/maxY)*percent*vec2(0.0,1.0); color += INPUT2(currentUv).rgb*weight; total += weight; percent = (t - offset*maxY) / degree; weight = degree * (percent - percent * percent); currentUv = uv + (blurRadius/maxY)*percent*vec2(0.0,1.0); color += INPUT2(currentUv).rgb*weight; total += weight; } return vec4(color/total, 1.0); } vec4 FUNCNAME(vec2 tc) { float per = PREFIX(percent); float offset = PREFIX(offset)/maxY; float blurRadius = PREFIX(blurRadius); float st2 = PREFIX(showTime2); vec2 uv = tc; uv.y = uv.y - offset; if (mod(floor(uv.y),2.0) == 1.0) uv.y = 1.0-fract(uv.y); else uv.y = fract(uv.y); if (per <= 0.5) { if (mod(st2,2.0) == 0.0) { uv.y = 1.0-uv.y; } return motionBlurInput2(uv, blurRadius); } else { return motionBlurInput1(uv, blurRadius); } } 
+    0x00310652 .rodata    float rand(vec2 n) { return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453); } const float maxY = 720.0; vec4 motionBlurInput1(vec2 uv, float blurRadius) { vec3 color = vec3(0.0); float total = 0.0; float offset = rand(uv)/maxY; float degree = 10.0; for (float t = 0.0; t <= degree; t++) { float percent = (t + offset*maxY) / degree; float weight = degree * (percent - percent * percent); vec2 currentUv = uv + (blurRadius/maxY)*percent*vec2(0.0,-1.0); color += INPUT1(currentUv).rgb*weight; total += weight; percent = (t - offset*maxY) / degree; weight = degree * (percent - percent * percent); currentUv = uv + (blurRadius/maxY)*percent*vec2(0.0,-1.0); color += INPUT1(currentUv).rgb*weight; total += weight; } return vec4(color/total, 1.0); } vec4 motionBlurInput2(vec2 uv, float blurRadius) { vec3 color = vec3(0.0); float total = 0.0; float offset = rand(uv)/maxY; float degree = 10.0; for (float t = 0.0; t <= degree; t++) { float percent = (t + offset*maxY) / degree; float weight = degree * (percent - percent * percent); vec2 currentUv = uv + (blurRadius/maxY)*percent*vec2(0.0,-1.0); color += INPUT2(currentUv).rgb*weight; total += weight; percent = (t - offset*maxY) / degree; weight = degree * (percent - percent * percent); currentUv = uv + (blurRadius/maxY)*percent*vec2(0.0,-1.0); color += INPUT2(currentUv).rgb*weight; total += weight; } return vec4(color/total, 1.0); } vec4 FUNCNAME(vec2 tc) { float per = PREFIX(percent); float offset = PREFIX(offset)/maxY; float blurRadius = PREFIX(blurRadius); float st2 = PREFIX(showTime2); vec2 uv = tc; uv.y = uv.y - offset; if (mod(floor(uv.y),2.0) == 1.0) uv.y = 1.0-fract(uv.y); else uv.y = fract(uv.y); if (per <= 0.5) { if (mod(st2,2.0) == 0.0) { uv.y = 1.0-uv.y; } return motionBlurInput2(uv, blurRadius); } else return motionBlurInput1(uv, blurRadius); } 
+    0x00310d77 .rodata    float rand(vec2 n) { return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453); } const float maxX = 1280.0; vec4 motionBlurInput1(vec2 uv, float blurRadius) { vec3 color = vec3(0.0); float total = 0.0; float offset = rand(uv)/maxX; float degree = 10.0; for (float t = 0.0; t <= degree; t++) { float percent = (t + offset*maxX) / degree; float weight = degree * (percent - percent * percent); vec2 currentUv = uv + (blurRadius/maxX)*percent*vec2(-1.0,0.0); color += INPUT1(currentUv).rgb*weight; total += weight; percent = (t - offset*maxX) / degree; weight = degree * (percent - percent * percent); currentUv = uv + (blurRadius/maxX)*percent*vec2(-1.0,0.0); color += INPUT1(currentUv).rgb*weight; total += weight; } return vec4(color/total, 1.0); } vec4 motionBlurInput2(vec2 uv, float blurRadius) { vec3 color = vec3(0.0); float total = 0.0; float offset = rand(uv)/maxX; float degree = 10.0; for (float t = 0.0; t <= degree; t++) { float percent = (t + offset*maxX) / degree; float weight = degree * (percent - percent * percent); vec2 currentUv = uv + (blurRadius/maxX)*percent*vec2(-1.0,0.0); color += INPUT2(currentUv).rgb*weight; total += weight; percent = (t - offset*maxX) / degree; weight = degree * (percent - percent * percent); currentUv = uv + (blurRadius/maxX)*percent*vec2(-1.0,0.0); color += INPUT2(currentUv).rgb*weight; total += weight; } return vec4(color/total, 1.0); } vec4 FUNCNAME(vec2 tc) { float per = PREFIX(percent); float offset = PREFIX(offset)/maxX; float blurRadius = PREFIX(blurRadius); float st2 = PREFIX(showTime2); vec2 uv = tc; uv.x = uv.x - offset; if (mod(floor(uv.x),2.0) == 1.0) uv.x = 1.0-fract(uv.x); else uv.x = fract(uv.x); if (per <= 0.5) { if (mod(st2,2.0) == 0.0) { uv.x = 1.0-uv.x; } return motionBlurInput2(uv, blurRadius); } else return motionBlurInput1(uv, blurRadius); } 
+    0x0031149d .rodata    float rand(vec2 n) { return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453); } const float maxX = 1280.0; vec4 motionBlurInput1(vec2 uv, float blurRadius) { vec3 color = vec3(0.0); float total = 0.0; float offset = rand(uv)/maxX; float degree = 10.0; for (float t = 0.0; t <= degree; t++) { float percent = (t + offset*maxX) / degree; float weight = degree * (percent - percent * percent); vec2 currentUv = uv + (blurRadius/maxX)*percent*vec2(1.0,0.0); color += INPUT1(currentUv).rgb*weight; total += weight; percent = (t - offset*maxX) / degree; weight = degree * (percent - percent * percent); currentUv = uv + (blurRadius/maxX)*percent*vec2(1.0,0.0); color += INPUT1(currentUv).rgb*weight; total += weight; } return vec4(color/total, 1.0); } vec4 motionBlurInput2(vec2 uv, float blurRadius) { vec3 color = vec3(0.0); float total = 0.0; float offset = rand(uv)/maxX; float degree = 10.0; for (float t = 0.0; t <= degree; t++) { float percent = (t + offset*maxX) / degree; float weight = degree * (percent - percent * percent); vec2 currentUv = uv + (blurRadius/maxX)*percent*vec2(1.0,0.0); color += INPUT2(currentUv).rgb*weight; total += weight; percent = (t - offset*maxX) / degree; weight = degree * (percent - percent * percent); currentUv = uv + (blurRadius/maxX)*percent*vec2(1.0,0.0); color += INPUT2(currentUv).rgb*weight; total += weight; } return vec4(color/total, 1.0); } vec4 FUNCNAME(vec2 tc) { float per = PREFIX(percent); float offset = PREFIX(offset)/maxX; float blurRadius = PREFIX(blurRadius); float st2 = PREFIX(showTime2); vec2 uv = tc; uv.x = uv.x - offset; if (mod(floor(uv.x),2.0) == 1.0) uv.x = 1.0-fract(uv.x); else uv.x = fract(uv.x); if (per <= 0.5) { if (mod(st2,2.0) == 0.0) { uv.x = 1.0-uv.x; } return motionBlurInput2(uv, blurRadius); } else return motionBlurInput1(uv, blurRadius); } 
+    0x00311c00 .rodata    const float PI = 3.14159265; float rand(vec2 n) { return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453); } vec2 rotateUV_simple(vec2 uv, float rotation, vec2 mid) { vec2 resolution = PREFIX(resolution); float ratio =resolution.x /resolution.y; float s = sin ( rotation ); float c = cos ( rotation ); mat2 rotationMatrix = mat2( c, -s, s, c); vec2 coord = vec2((uv.x - mid.x) * ratio ,(uv.y -mid.y)*1.0); vec2 scaled = rotationMatrix * coord; return vec2(scaled.x / ratio + mid.x,scaled.y + mid.y); } vec2 scaleUV(vec2 uv, float scale) { vec2 pq = (uv-vec2(0.5,0.5))*scale + vec2(0.5,0.5); float p = pq.x; float q = pq.y; if(abs(mod(floor(p),2.0))==1.0) { p = 1.0 -fract(p); } else { p = fract(p); } if(abs(mod(floor(q),2.0))==1.0) { q = 1.0 -fract(q); } else { q = fract(q); } return vec2(p,q); } const float maxY = 720.0; vec4 motionBlur1(vec2 uv, float blurRadius) { vec3 color = vec3(0.0); float total = 0.0; float offset = rand(uv)/maxY; float pass = 10.0; vec2 dir = vec2(0.5-uv.x,0.5-uv.y); for (float t = 0.0; t <= pass; t++) { float percent = (t + offset*maxY); float weight = (percent - percent * percent); vec2 currentUv = uv + (blurRadius/maxY)*percent*dir; color += INPUT1(currentUv).rgb*weight; total += weight; } return vec4(color/total, 1.0); } vec4 motionBlur2(vec2 uv, float blurRadius) { vec3 color = vec3(0.0); float total = 0.0; float offset = rand(uv)/maxY; float pass = 10.0; vec2 dir = vec2(0.5-uv.x,0.5-uv.y); for (float t = 0.0; t <= pass; t++) { float percent = (t + offset*maxY); float weight = (percent - percent * percent); vec2 currentUv = uv + (blurRadius/maxY)*percent*dir; color += INPUT2(currentUv).rgb*weight; total += weight; } return vec4(color/total, 1.0); } vec4 FUNCNAME(vec2 tc) { float progress = 1.0-PREFIX(percent); float blurRadius = PREFIX(blurRadius)/100.0; float scale1 = PREFIX(scale1); float scale2 = PREFIX(scale2); float angle2 = PREFIX(angle2)*PI/180.0; float alpha2 = 0.0; vec2 targetUV; vec4 color; if (progress <= 0.519) { targetUV = scaleUV(tc,1.0/scale1); color = motionBlur1(targetUV, blurRadius); } else if(progress > 0.519 && progress <= 0.520) { alpha2 = (progress-0.519)/0.001; targetUV = scaleUV(tc,1.0/scale1); vec4 color1 = motionBlur1(targetUV, blurRadius); targetUV = scaleUV(tc,1.0/scale2); targetUV = rotateUV_simple(targetUV, angle2, vec2(0.5,0.5)); vec4 color2 = motionBlur2(targetUV, blurRadius); color = mix(color1,color2,alpha2); } else { targetUV = scaleUV(tc,1.0/scale2); targetUV = rotateUV_simple(targetUV, angle2, vec2(0.5,0.5)); color = motionBlur2(targetUV, blurRadius); } return color; } 
+    0x00312615 .rodata    float rand(vec2 n) { return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453); } vec2 scaleRadicalUVRepeated(vec2 uv, float scale) { vec2 pq = (uv - vec2(0.5,0.5))*scale + vec2(0.5,0.5); float p = pq.x; float q = pq.y; if(abs(mod(floor(p),2.0))==1.0) { p = 1.0 -fract(p); } else { p = fract(p); } if(abs(mod(floor(q),2.0))==1.0) { q = 1.0 -fract(q); } else { q = fract(q); } return vec2(p,q); } const float maxY = 720.0; vec4 motionBlurA(vec2 uv, float blurRadius) { vec3 color = vec3(0.0); float total = 0.0; float offset = rand(uv)/maxY; float pass = 10.0; vec2 dir = vec2(0.5-uv.x,0.5-uv.y); float rxShift = PREFIX(rxShift); for (float t = 0.0; t <= pass; t++) { float percent = (t + offset*maxY); float weight = (percent - percent * percent); float r = INPUT1(uv + (blurRadius/maxY)*percent*dir + vec2(rxShift, 0)).r; float g = INPUT1(uv + (blurRadius/maxY)*percent*dir + vec2(0, 0)).g; float b = INPUT1(uv + (blurRadius/maxY)*percent*dir + vec2(-rxShift, 0)).b; color += vec3(r,g,b) * weight; total += weight; } return vec4(color/total, 1.0); } vec4 motionBlurB(vec2 uv, float blurRadius) { vec3 color = vec3(0.0); float total = 0.0; float offset = rand(uv)/maxY; float pass = 10.0; vec2 dir = vec2(0.5-uv.x,0.5-uv.y); float rxShift = PREFIX(rxShift); for (float t = 0.0; t <= pass; t++) { float percent = (t + offset*maxY); float weight = (percent - percent * percent); float r = INPUT2(uv + (blurRadius/maxY)*percent*dir + vec2(rxShift, 0)).r; float g = INPUT2(uv + (blurRadius/maxY)*percent*dir + vec2(0, 0)).g; float b = INPUT2(uv + (blurRadius/maxY)*percent*dir + vec2(-rxShift, 0)).b; color += vec3(r,g,b) * weight; total += weight; } return vec4(color/total, 1.0); } vec4 FUNCNAME(vec2 tc) { float progress = 1.0-PREFIX(percent); float blurRadius = PREFIX(blurRadius)/100.0; float scale1 = PREFIX(scale1); float scale2 = PREFIX(scale2); float alpha2 = 0.0; vec2 targetUV; vec4 color; if (progress <= 0.519) { targetUV = scaleRadicalUVRepeated(tc,1.0/scale1); color = motionBlurA(targetUV, blurRadius); } else if(progress > 0.519 && progress <= 0.520) { alpha2 = (progress-0.519)/0.001; targetUV = scaleRadicalUVRepeated(tc,1.0/scale1); vec4 color1 = motionBlurA(targetUV, blurRadius); targetUV = scaleRadicalUVRepeated(tc,1.0/scale2); vec4 color2 = motionBlurB(targetUV, blurRadius); color = mix(color1,color2,alpha2); } else { targetUV = scaleRadicalUVRepeated(tc,1.0/scale2); color = motionBlurB(targetUV, blurRadius); } return color; } 
+    0x00312faf .rodata    float rand(vec2 n) { return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453); } vec2 scaleUV(vec2 uv, float scale) { vec2 pq = (uv-vec2(0.5,0.5))*scale + vec2(0.5,0.5); float p = pq.x; float q = pq.y; if(abs(mod(floor(p),2.0))==1.0) { p = 1.0 -fract(p); } else { p = fract(p); } if(abs(mod(floor(q),2.0))==1.0) { q = 1.0 -fract(q); } else { q = fract(q); } return vec2(p,q); } const float maxY = 720.0; vec4 motionBlur1(vec2 uv, float blurRadius) { vec3 color = vec3(0.0); float total = 0.0; float offset = rand(uv)/maxY; float pass = 10.0; vec2 dir = vec2(uv.x-0.5,uv.y-0.5); for (float t = 0.0; t <= pass; t++) { float percent = (t + offset*maxY); float weight = (percent - percent * percent); vec2 currentUv = uv + (blurRadius/maxY)*percent*dir; color += INPUT1(currentUv).rgb*weight; total += weight; } return vec4(color/total, 1.0); } vec4 motionBlur2(vec2 uv, float blurRadius) { vec3 color = vec3(0.0); float total = 0.0; float offset = rand(uv)/maxY; float pass = 10.0; vec2 dir = vec2(uv.x-0.5,uv.y-0.5); for (float t = 0.0; t <= pass; t++) { float percent = (t + offset*maxY); float weight = (percent - percent * percent); vec2 currentUv = uv + (blurRadius/maxY)*percent*dir; color += INPUT2(currentUv).rgb*weight; total += weight; } return vec4(color/total, 1.0); } vec4 FUNCNAME(vec2 tc) { float progress = 1.0-PREFIX(percent); float blurRadius = PREFIX(blurRadius)/100.0; float scale1 = PREFIX(scale1); float scale2 = PREFIX(scale2); float alpha2 = 0.0; vec2 targetUV; vec4 color; if (progress <= 0.466) { targetUV = scaleUV(tc,1.0/scale1); color = motionBlur1(targetUV, blurRadius); } else if(progress > 0.466 && progress <= 0.533) { alpha2 = (progress-0.466)/(0.067); targetUV = scaleUV(tc,1.0/scale1); vec4 color1 = motionBlur1(targetUV, blurRadius); targetUV = scaleUV(tc,1.0/scale2); vec4 color2 = motionBlur2(targetUV, blurRadius); color = mix(color1,color2,alpha2); } else { targetUV = scaleUV(tc,1.0/scale2); color = motionBlur2(targetUV, blurRadius); } return color; } 
+    0x0031377e .rodata    float rand(vec2 n) { return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453); } vec2 scaleRadicalUVRepeated(vec2 uv, float scale) { vec2 pq = (uv - vec2(0.5,0.5))*scale + vec2(0.5,0.5); float p = pq.x; float q = pq.y; if(abs(mod(floor(p),2.0))==1.0) { p = 1.0 -fract(p); } else { p = fract(p); } if(abs(mod(floor(q),2.0))==1.0) { q = 1.0 -fract(q); } else { q = fract(q); } return vec2(p,q); } vec4 motionBlurA(vec2 uv, vec2 speed) { float _Raduis = 10.0; vec2 texCoord = uv; vec3 color; float total = 0.0; float signoffset = rand(uv); float offset = signoffset; float progress = 1.0 - PREFIX(percent); float shift = 0.5 - distance(progress,0.5); shift *= 0.05; for (float t = 0.0; t <= _Raduis; t++) { float percent = (t + offset) / _Raduis; float weight = _Raduis * (percent - percent * percent); float r = INPUT2 ((texCoord + speed * percent + vec2(0, 0))).r; float g = INPUT2 ((texCoord + speed * percent + vec2(-shift, 0))).g; float b = INPUT2 ((texCoord + speed * percent + vec2(-shift, 0))).b; color += vec3(r,g,b) * weight; total += weight; } return vec4(color / total, 1.0); } vec4 motionBlurB(vec2 uv, vec2 speed) { float _Raduis = 10.0; vec2 texCoord = uv; vec3 color; float total = 0.0; float signoffset = rand(uv); float offset = signoffset; float progress = 1.0 - PREFIX(percent); float shift = 0.5 - distance(progress,0.5); shift *= 0.05; for (float t = 0.0; t <= _Raduis; t++) { float percent = (t + offset) / _Raduis; float weight = _Raduis * (percent - percent * percent); float r = INPUT1 ((texCoord + speed * percent + vec2(0, 0))).r; float g = INPUT1 ((texCoord + speed * percent + vec2(-shift, 0))).g; float b = INPUT1 ((texCoord + speed * percent + vec2(-shift, 0))).b; color += vec3(r,g,b) * weight; total += weight; } return vec4(color / total, 1.0); } vec4 FUNCNAME(vec2 tc) { float blur; vec4 color; vec2 dir = tc - vec2(0.5, 0.5); float progress = 1.0 - PREFIX(percent); float radical = 0.15; if (progress < 0.5) { radical *= (progress * 2.0); tc = scaleRadicalUVRepeated(tc,1.0 / (1.0 - progress)); color = motionBlurB(tc, dir * radical); } else { radical *= ( (1.0 - progress) * 2.0); tc = scaleRadicalUVRepeated(tc,1.0/(5.0 - 4.0*progress)); color = motionBlurA(tc, dir * radical); } return color; } 
+    0x0031406d .rodata    const float PI = 3.14159265; float rand(vec2 n) { return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453); } vec2 rotateUV_simple(vec2 uv, float rotation, vec2 mid) { vec2 resolution = PREFIX(resolution); vec2 size = PREFIX(size); float ratio =resolution.x /resolution.y; float s = sin ( rotation ); float c = cos ( rotation ); mat2 rotationMatrix = mat2( c, -s, s, c); vec2 coord = vec2((uv.x - mid.x) * ratio ,(uv.y -mid.y)*1.0); vec2 scaled = rotationMatrix * coord; return vec2(scaled.x / ratio + mid.x,scaled.y + mid.y); } vec2 ScaleUVRepeated(vec2 uv, float scale) { vec2 pq = (uv - vec2(0.5,0.5))*scale + vec2(0.5,0.5); float p = pq.x; float q = pq.y; if(abs(mod(floor(p),2.0))==1.0) { p = 1.0 -fract(p); } else { p = fract(p); } if(abs(mod(floor(q),2.0))==1.0) { q = 1.0 -fract(q); } else { q = fract(q); } return vec2(p,q); } const float maxY = 720.0; vec4 motionBlur1(vec2 uv, vec2 speed) { vec3 color = vec3(0.0); float total = 0.0; float offset = rand(uv)/maxY; float pass = 10.0; for (float t = 0.0; t <= pass; t++) { float percent = (t + offset*maxY); float weight = (percent - percent * percent); vec2 currentUv = uv + (1.0/maxY)*percent*speed; color += INPUT1(currentUv).rgb*weight; total += weight; } return vec4(color/total, 1.0); } vec4 motionBlur2(vec2 uv, vec2 speed) { vec3 color = vec3(0.0); float total = 0.0; float offset = rand(uv)/maxY; float pass = 10.0; for (float t = 0.0; t <= pass; t++) { float percent = (t + offset*maxY); float weight = (percent - percent * percent); vec2 currentUv = uv + (1.0/maxY)*percent*speed; color += INPUT2(currentUv).rgb*weight; total += weight; } return vec4(color/total, 1.0); } vec4 FUNCNAME(vec2 tc) { float progress = 1.0 - PREFIX(percent); float angle1 = PREFIX(angle1)*PI/180.0; float angle2 = PREFIX(angle2)*PI/180.0; float scale1 = PREFIX(scale1); float scale2 = PREFIX(scale2); float blurRadius = PREFIX(blurRadius)/100.0; vec2 center = PREFIX(center); vec4 color; vec2 targetUV; if (progress < 0.500) { targetUV = rotateUV_simple(tc, angle1, center); vec2 dir = targetUV-tc; targetUV = ScaleUVRepeated(targetUV, 1.0/scale1); color = motionBlur1(targetUV, blurRadius * dir * length(dir)); } else if ( progress < 0.540 && progress >= 0.500) { float alpha2 = (progress-0.500)/0.040; targetUV = rotateUV_simple(tc, angle1, center); vec2 dir = targetUV-tc; targetUV = ScaleUVRepeated(targetUV, 1.0/scale1); vec4 color1 = motionBlur1(targetUV, blurRadius * dir * length(dir)); targetUV = rotateUV_simple(tc, angle2, center); dir = targetUV-tc; targetUV = ScaleUVRepeated(targetUV, 1.0/scale2); vec4 color2 = motionBlur2(targetUV, blurRadius * dir * length(dir)); color = mix(color1, color2, alpha2); } else { targetUV = rotateUV_simple(tc, angle2, center); vec2 dir = targetUV-tc; targetUV = ScaleUVRepeated(targetUV, 1.0/scale2); color = motionBlur2(targetUV, blurRadius * dir * length(dir)); } return color; } 
+    0x0031b520 .rodata    const mat2 m = mat2( 1.6, 1.2, -1.2, 1.6 ); vec2 hash( vec2 p ) { p = vec2(dot(p,vec2(127.1,311.7)), dot(p,vec2(269.5,183.3))); return -1.0 + 2.0*fract(sin(p)*43758.5453123); } float noise( in vec2 p ) { const float K1 = 0.366025404; const float K2 = 0.211324865; vec2 i = floor(p + (p.x+p.y)*K1); vec2 a = p - i + (i.x+i.y)*K2; vec2 o = 0.5 + 0.5*vec2(sign(a.x-a.y), sign(a.y-a.x)); vec2 b = a - o + K2; vec2 c = a - 1.0 + 2.0*K2; vec3 h = max(0.5-vec3(dot(a,a), dot(b,b), dot(c,c) ), 0.0 ); vec3 n = h*h*h*h*vec3( dot(a,hash(i+0.0)), dot(b,hash(i+o)), dot(c,hash(i+1.0))); return dot(n, vec3(70.0)); } float fbm(vec2 n) { float total = 0.0; float amplitude = 0.1; for (int i = 0; i < 7; i++) { total += noise(n) * amplitude; n = m * n; amplitude *= 0.4; } return total; } vec4 FUNCNAME(vec2 tc) { vec4 to = INPUT1(tc); vec4 from = INPUT2(tc); vec2 resolution = PREFIX(resolution); float speed = PREFIX(speed); float alpha = PREFIX(alpha); vec2 uv = -tc * vec2(resolution.x / resolution.y, 1.0); float q = fbm(uv * 0.1 * 0.5); float time = speed; float r = 0.0; uv *= 0.1; uv -= tc - time; float weight = 0.8; for (int i=0; i<8; i++){ r += abs(weight*noise( uv )); uv = m*uv + time; weight *= 0.9; } float f = 0.0; uv = -tc * vec2(resolution.x / resolution.y, 1.0); uv *= 0.1; uv -= q - speed; weight = 0.7; for (int i=0; i<8; i++){ f += weight*noise( uv ); uv = m*uv + time; weight *= 0.625; } f *= r + f; float c = 0.0; time = speed * 2.0; uv = -tc * vec2(resolution.x / resolution.y, 1.0); uv *= 0.1*2.0; uv -= q - time; weight = 0.4; for (int i=0; i<7; i++){ c += weight*noise( uv ); uv = m*uv + time; weight *= 0.8; } vec3 toColor = to.rgb; vec3 fromColor = from.rgb; f = 0.1 + 16.0*f*r; vec3 result = mix(toColor, clamp(alpha * toColor + fromColor, 0.0, 1.0), clamp(f + c, 0.0, 1.0)); return vec4(mix(result, toColor, alpha), 1.0); } 
+    0x0031bc6f .rodata    vec4 FUNCNAME(vec2 tc) { float stretch = PREFIX(stretch); float direction = PREFIX(direction); float progress = PREFIX(percent); vec2 uv = tc; uv.x = (uv.x - direction) * stretch + direction; float blurRadius = PREFIX(blurRadius); float numSamples = 50.0; vec2 sampleOffset = vec2(blurRadius / numSamples, 0.0); vec4 blurColor = vec4(0.0); float weightSum = 0.0; for (float i = 0.0; i < numSamples; i++) { vec2 samplePos = uv + vec2(i * sampleOffset.x, sampleOffset.y); vec4 sampleColor = vec4(0.0); if (direction <= 0.5) { sampleColor = INPUT2(samplePos); } else { sampleColor = INPUT1(samplePos); } float weight = 1.0 - i / numSamples; blurColor += sampleColor * weight; weightSum += weight; } blurColor /= weightSum; return blurColor; } 
+    0x0031ff90 .rodata    vec3 ContrastSaturationBrightness(vec3 color,float brt,float sat,float con) { float AvgLumR = 0.5; float AvgLumG =0.5; float AvgLumB = 0.5; vec3 LuminanceCoeff = vec3(0.2125,0.7154,0.0721); vec3 AvgLumin = vec3(AvgLumR,AvgLumG,AvgLumB); vec3 brtColor = color * brt; float intensityf = dot(brtColor,LuminanceCoeff); vec3 intensity = vec3(intensityf,intensityf,intensityf); vec3 satColor = mix(intensity,brtColor,sat); vec3 conColor = mix(AvgLumin,satColor,con); return conColor; } float vignette(vec2 uv) { uv *= 1.0 - uv.yx; float vig = uv.x*uv.y * 15.0; vig = pow(vig, PREFIX(Vignette)); return vig; } vec3 sharpen(vec2 uv) { float centerMultiplier = 1.0 - 4.0 * PREFIX(Sharpen); float edgeMultiplier = PREFIX(Sharpen); vec2 resolution = PREFIX(Resolution); vec3 textureColor = INPUT(uv).rgb; vec3 leftTextureColor = INPUT(uv + vec2(-1.0/resolution.x,0.0)).rgb; vec3 rightTextureColor = INPUT(uv + vec2(1.0/resolution.x,0.0)).rgb; vec3 topTextureColor = INPUT(uv + vec2(0.0,1.0/resolution.y)).rgb; vec3 bottomTextureColor = INPUT(uv + vec2(0.0,-1.0/resolution.y)).rgb; vec3 sharpenColor = textureColor * centerMultiplier + (leftTextureColor * edgeMultiplier + rightTextureColor * edgeMultiplier + topTextureColor * edgeMultiplier + bottomTextureColor * edgeMultiplier); float weight = 0.3; vec3 ret = (textureColor - weight * sharpenColor) / (1.0 - weight); return ret; } vec4 FUNCNAME(vec2 tc) { vec4 ret = vec4(sharpen(tc),1.0); ret.xyz = ContrastSaturationBrightness(ret.xyz,PREFIX(Brightness),PREFIX(Saturation),PREFIX(Contrast)); float vig = vignette(tc); ret.xyz *= vig; return ret; } 
+    0x0032990b .rodata    const bool UseSimplifiedGaussian = true; const float Pi = 3.141592653; float Gaussian1D(float x, float sigma) { if (UseSimplifiedGaussian) { return exp(-(x * x) / (2.0 * sigma * sigma)); } float o = sigma * sigma; float a = 1.0 / sqrt(2.0 * Pi * o); float b = (x * x) / (2.0 * o); return a * exp(-b); } vec4 GaussianBlur1D( vec2 uv, vec2 dir, float sigma, int samples) { float halfSamples = float(samples) * 0.5; vec4 color = vec4(0.0); float accum = 0.0; uv -= halfSamples * dir; for (int i = 0; i < samples; ++i) { float weight = Gaussian1D(float(i) - halfSamples, sigma); color += INPUT(uv) * weight; accum += weight; uv += dir; } return color / accum; } vec4 FUNCNAME(vec2 tc) { float radius = PREFIX(radius); float s = 5.0 * PREFIX(scale); float texelWidthOffset = PREFIX(texelWidthOffset); float texelHeightOffset = PREFIX(texelHeightOffset); vec2 BlurScale = vec2(s, s); int BlurSamples = int(radius); float BlurSigma = sqrt(float(BlurSamples)); vec2 uv = tc; vec2 p = vec2(texelWidthOffset, texelHeightOffset); vec4 color = GaussianBlur1D( uv, p * BlurScale, BlurSigma, BlurSamples); return color; } 
+    0x00329ded .rodata    const vec2 BlurScale = vec2(2.0); const int BlurSamples = 19; const float BlurSigma = sqrt(float(BlurSamples)); const bool UseSimplifiedGaussian = true; const float Pi = atan(1.0) * 4.0; mat2 rotate(float rad) { return mat2(cos(rad), -sin(rad), sin(rad), cos(rad)); } float Gaussian1D(float x, float sigma) { if (UseSimplifiedGaussian) { return exp(-(x * x) / (2.0 * sigma * sigma)); } float o = sigma * sigma; float a = 1.0 / sqrt(2.0 * Pi * o); float b = (x * x) / (2.0 * o); return a * exp(-b); } vec4 GaussianBlur1D( vec2 uv, vec2 dir, float sigma, int samples) { float halfSamples = float(samples) * 0.5; vec4 color = vec4(0.0); float accum = 0.0; uv -= halfSamples * dir; for (int i = 0; i < samples; ++i) { float weight = Gaussian1D(float(i) - halfSamples, sigma); color += INPUT(uv) * weight; accum += weight; uv += dir; } return color / accum; } vec4 effect(vec2 resolution, vec2 uv, float progress, float strength, float rotation) { vec3 ps = vec3(vec2(1.0) / resolution.xy, 0.0); vec2 p = gl_FragCoord.xy * ps.xy; vec4 color; vec2 dir = rotate(Pi * rotation) * ps.xz; color = GaussianBlur1D( p, dir * BlurScale * strength, BlurSigma, BlurSamples); return color; } vec4 FUNCNAME(vec2 tc) { vec4 cc = INPUT(tc); vec2 uv = tc; float iGlobalTime = PREFIX(CurrentTime); vec2 resolution = PREFIX(resolution); float duration = PREFIX(duration); float strength = PREFIX(strength); float rotation = PREFIX(rotation); float progress = iGlobalTime / duration; progress = clamp(progress, 0.0, 1.0); vec4 col = effect(resolution, uv, progress, strength, rotation); return col; } 
+    0x0032a43a .rodata    const vec2 BlurScale = vec2(2.0); const int BlurSamples = 19; const float BlurSigma = sqrt(float(BlurSamples)); const bool UseSimplifiedGaussian = true; const float Pi = atan(1.0) * 4.0; mat2 rotate(float rad) { return mat2(cos(rad), -sin(rad), sin(rad), cos(rad)); } float Gaussian1D(float x, float sigma) { if (UseSimplifiedGaussian) { return exp(-(x * x) / (2.0 * sigma * sigma)); } float o = sigma * sigma; float a = 1.0 / sqrt(2.0 * Pi * o); float b = (x * x) / (2.0 * o); return a * exp(-b); } vec4 GaussianBlur1D( vec2 uv, vec2 dir, float sigma, int samples) { float halfSamples = float(samples) * 0.5; vec4 color = vec4(0.0); float accum = 0.0; uv -= halfSamples * dir; for (int i = 0; i < samples; ++i) { float weight = Gaussian1D(float(i) - halfSamples, sigma); color += INPUT(uv) * weight; accum += weight; uv += dir; } return color / accum; } vec4 effect(vec2 resolution, vec2 uv, float progress, float strength) { vec3 ps = vec3(vec2(1.0) / resolution.xy, 0.0); vec2 p = gl_FragCoord.xy * ps.xy; vec4 color; vec2 dir = ps.zy * BlurScale * strength; color = GaussianBlur1D( p, dir, BlurSigma, BlurSamples); return color; } vec4 FUNCNAME(vec2 tc) { vec4 cc = INPUT(tc); vec2 uv = tc; float iGlobalTime = PREFIX(CurrentTime); vec2 resolution = PREFIX(resolution); float duration = PREFIX(duration); float strength = PREFIX(strength); float progress = iGlobalTime / duration; progress = clamp(progress, 0.0, 1.0); vec4 col = effect(resolution, uv, progress, strength); return col; } 
+    0x0032c1b9 .rodata    float PREFIX(Gaussian1D)(float x, float sigma) { return exp(-(x * x) / (2.0 * sigma * sigma)); } vec4 PREFIX(GaussianBlur1D)( vec2 uv, vec2 dir, float sigma, int samples) { float halfSamples = float(samples) * 0.5; vec4 color = vec4(0.0); float accum = 0.0; uv -= halfSamples * dir; for (int i = 0; i < samples; ++i) { float weight = PREFIX(Gaussian1D)(float(i) - halfSamples, sigma); color += INPUT(uv) * weight; accum += weight; uv += dir; } return color / accum; } vec4 PREFIX(maskBlur)(vec2 uv) { float radius = PREFIX(radius); float s = 5.0 * PREFIX(scale); float texelWidthOffset = PREFIX(texelWidthOffset); float texelHeightOffset = PREFIX(texelHeightOffset); float progress = PREFIX(progress); float m = PREFIX(maxDistFactor); vec2 p = vec2(texelWidthOffset, texelHeightOffset); vec2 BlurScale = vec2(s, s); int BlurSamples = int(radius); float BlurSigma = sqrt(float(BlurSamples)); float d = length(uv - vec2(0.5, 0.5)); float maxDist = length(vec2(0.5, 0.5)); float f = (d / maxDist + 0.5 * progress) * progress; f = smoothstep(maxDist * m, (maxDist + 0.3) * m, d); f += progress * 2.0; vec4 blur = PREFIX(GaussianBlur1D)( uv, p * BlurScale * f, BlurSigma, BlurSamples); vec4 color = blur; return color; } vec4 FUNCNAME(vec2 tc) { vec4 color = PREFIX(maskBlur)(tc); return color; } 
+    0x003354a0 .rodata    float nrand(vec2 n) { return fract(sin(dot(n, vec2(12.9898, 78.233))) * 43758.5453); } float n6rand(vec2 n, float time){ float t = time / 100.0; float nrnd0 = nrand( n + 0.07*t ); float nrnd1 = nrand( n + 0.11*t ); float nrnd2 = nrand( n + 0.13*t ); float nrnd3 = nrand( n + 0.17*t ); float nrnd4 = nrand( n + 0.19*t ); float nrnd5 = nrand( n + 0.23*t ); return (nrnd0+nrnd1+nrnd2+nrnd3+nrnd4+nrnd5) / 6.0; } float lum(vec4 color) { return color.x * 0.299 + color.y *0.114 + color.z * 0.587; } vec4 colorNoise(vec4 color, vec2 uv, float time, float noiseStrength) { float its = n6rand(uv, time); its = its * 2.0; vec3 noise = vec3(its*color.r, its*color.g, its*color.b); float brightness = lum(color); noiseStrength = noiseStrength * (1.0 - brightness); noiseStrength = step(0.0, noiseStrength) * noiseStrength; vec3 withNoise = mix(color.rgb, noise, noiseStrength); vec3 withVig = mix(withNoise, withNoise, noiseStrength); return vec4(withVig,1.0); } vec4 sharpen(vec4 color, vec2 uv, float sharpenStrength, vec2 resolution) { vec2 step = 1.0 / resolution.xy; vec3 texA = INPUT(uv + vec2(-step.x, -step.y) * 1.5).rgb; vec3 texB = INPUT(uv + vec2( step.x, -step.y) * 1.5).rgb; vec3 texC = INPUT(uv + vec2(-step.x, step.y) * 1.5).rgb; vec3 texD = INPUT(uv + vec2( step.x, step.y) * 1.5).rgb; vec3 around = 0.25 * (texA + texB + texC + texD); vec3 center = color.rgb; vec3 rgb = center + (center - around) * sharpenStrength; return vec4(rgb, 1.0); } vec4 FUNCNAME(vec2 tc) { vec2 resolution = PREFIX(resolution); float noiseStrength = PREFIX(noiseStrength); float sharpenStrength = PREFIX(sharpenStrength); float saturation = PREFIX(saturation); float time = PREFIX(time); vec3 textureColor = vec3(0.0); textureColor.r = INPUT(vec2(tc.x + 0.001,tc.y + 0.001)).r; textureColor.g = INPUT(tc).g; textureColor.b = INPUT(vec2(tc.x + 0.001,tc.y + 0.001)).b; vec2 sampleOffset = vec2(1.0 / resolution.x,1.0 / resolution.y); vec4 blurColor = vec4(0.0); float weightSum = 0.0; for (float i = 0.0; i < 5.0; i++) { vec2 samplePos = tc + vec2(i * sampleOffset.x,i * sampleOffset.y); vec4 sampleColor = INPUT(samplePos); float weight = 1.0 - i / 10.0; blurColor += sampleColor * weight; weightSum += weight; } blurColor /= weightSum; vec4 color3 = vec4(textureColor, 1.0); color3 = mix(blurColor, color3, 0.5); vec4 color = sharpen(color3, tc, sharpenStrength, resolution); vec4 color2 = colorNoise(color, tc, time, noiseStrength); return color2; } 
+  [face] 39 unique (first 20)
+    0x000412f5 .dynstr    _ZN12BeautyWapper35faceProcessorSetFaceLandmarkQualityEi
+    0x000417f2 .dynstr    mlt_face_beauty_register
+    0x0004180b .dynstr    mlt_face_center_register
+    0x00052ce8 .dynstr    filter_movit_face_beauty_init
+    0x00052ecf .dynstr    filter_movit_face_center_init
+    0x0005cd0f .dynstr    _ZNKSt6__ndk16locale9use_facetERNS0_2idE
+    0x000632a7 .dynstr    _ZNKSt6__ndk16locale9has_facetERNS0_2idE
+    0x0008db62 .dynstr    _ZNSt6__ndk15alignEmmRPvRm
+    0x0008e0ce .dynstr    _ZdaPvSt11align_val_t
+    0x0008e0e4 .dynstr    _ZdaPvSt11align_val_tRKSt9nothrow_t
+    0x0008e110 .dynstr    _ZdaPvmSt11align_val_t
+    0x0008e13c .dynstr    _ZdlPvSt11align_val_t
+    0x0008e152 .dynstr    _ZdlPvSt11align_val_tRKSt9nothrow_t
+    0x0008e17e .dynstr    _ZdlPvmSt11align_val_t
+    0x0008e1a9 .dynstr    _ZnamSt11align_val_t
+    0x0008e1be .dynstr    _ZnamSt11align_val_tRKSt9nothrow_t
+    0x0008e1f5 .dynstr    _ZnwmSt11align_val_t
+    0x0008e20a .dynstr    _ZnwmSt11align_val_tRKSt9nothrow_t
+    0x0008e22d .dynstr    posix_memalign
+    0x002ec9e0 .rodata    face.rect
+    ... 19 more
+  [asr] 106 unique (first 20)
+    0x002e262a .rodata    debug__ AudioClip::setInAndOut Audio in=%lu out=%lu,outlength=%lf, object=%x
+    0x002e2a2f .rodata    debug__ Audio  insertTrackInAndOut path=%s offset=%ld [%ld-%ld]ms track[%ld-%ld]ms trackIdx=%d
+    0x002e2af8 .rodata    debug__ Audio appendClip done %p %p %p %p
+    0x002e2ceb .rodata    debug__ trackIdx =%d Audio removeClip object=%x
+    0x002e2d4b .rodata    Audio appendClip path=%s
+    0x002e2d64 .rodata    debug__ trackIdx =%d Audio appendPreviewClipWithFps path=%s
+    0x002e2da0 .rodata    audio.ffmpeg.none.stop
+    0x002e2db7 .rodata    audio.fadeInAndOut
+    0x002e2dca .rodata    debug__ trackIdx =%d Audio appendClip path=%s lalala
+    0x002e2dff .rodata    debug__ Audio appendClip done %p %p %p %p lalala
+    0x002e2e30 .rodata    debug__ Audio appendClip path=%s in=%d out=%d  trackIdx=%d
+    0x002e2e6b .rodata    audio.resample
+    0x002e2eba .rodata    debug__ no found audio transition %p
+    0x002e2eea .rodata    audio.livephoto
+    0x002e2f03 .rodata    audio.opensl
+    0x002e2f10 .rodata    audio.ffmpeg
+    0x002e3982 .rodata    global.codec.stop
+    0x002e3c0b .rodata    audio.bitrate
+    0x002e4051 .rodata    audio.transition.mix
+    0x002e457d .rodata    make tag onTimelineFirstRender cost=%d resolution=%s,bitrate=%s,codec=%s,versionNum=%s
+    ... 86 more
+  [segment] 3 unique (first 3)
+    0x0031acf9 .rodata    const vec4 black = vec4(0.0,0.0,0.0,1.0); const vec4 white = vec4(1.0,1.0,1.0,0.0); float sdBox( in vec2 p, in vec2 b ) { vec2 d = abs(p)-b; return abs(length(max(d,0.0)) + min(max(d.x,d.y),0.0)); } float sdCircle( vec2 p, float r ) { return length(p) - r; } float sdCircle2( vec2 p, float r ) { return abs(length(p) - r); } float sdSegment( in vec2 p, in vec2 a, in vec2 b ) { vec2 pa = p-a; vec2 ba = b-a; float h = clamp( dot(pa,ba)/dot(ba,ba), 0.0, 1.0 ); return length( pa - ba*h ); } vec4 FUNCNAME(vec2 tc) { vec2 resolution = PREFIX(resolution); float speed = PREFIX(speed); float xOffset = PREFIX(xOffset); float yOffset = PREFIX(yOffset); float radius = PREFIX(radius); float progress = 1.0-PREFIX(percent); if (yOffset >= 1.0) { yOffset = -0.2; } vec2 uv = tc; vec4 color_in1 = INPUT1(uv); vec4 color_in2 = INPUT2(uv); vec4 color1 = color_in1; if (progress > 0.5) { color1 = color_in2; } if(radius <= 0.01) { radius -= 0.2; } if(speed <= 0.0) { return color1; } uv=(uv*2.0)-1.0; uv.x*=resolution.x/resolution.y; float ptc = sdCircle(uv,radius); float pct1 = sdCircle2(uv,0.1*speed); float pct2 = sdBox(uv,vec2(0.02*speed)); float pct3 = sdSegment(uv, vec2(0.8-xOffset, 0.0),vec2(0.5-xOffset,0.0)); float pct4 = sdSegment(uv, vec2(-0.8+xOffset, 0.0),vec2(-0.5+xOffset,0.0)); float pct5 = sdSegment(uv, vec2(0.0, 0.5-yOffset),vec2(0.0,0.8-yOffset)); float pct6 = sdSegment(uv, vec2(0.0, -0.5+yOffset),vec2(0.0,-0.8+yOffset)); vec4 color2 = mix(color1,white,1.0-smoothstep(0.0,0.005,pct1)); vec4 color3 = mix(color2,white,1.0-smoothstep(0.0,0.005,pct2)); if(radius >= 1.0) { return mix(color1, color3, 1.5-radius); } vec4 color4 = mix(color3, white,1.0-smoothstep(0.0,0.005,pct3)); vec4 color5 = mix(color4, white,1.0-smoothstep(0.0,0.005,pct4)); vec4 color6 = mix(color5, white,1.0-smoothstep(0.0,0.005,pct5)); vec4 color7 = mix(color6, white,1.0-smoothstep(0.0,0.005,pct6)); if(radius >= 0.6) { color7 = mix(color1, color7, 1.6-radius); } vec4 color8 = mix(color7, black,smoothstep(0.0,0.2,ptc)); return color8; } 
+    0x00330243 .rodata    float getDistance(in vec2 position, float x1, float y1, float x2, float y2, bool segment) { if (x1 == x2) return abs(position.x - x1); if (y1 == y2) return abs(position.y - y1); float cross = (x2 - x1) * (position.x - x1) + (y2 - y1) * (position.y - y1); if (segment && cross <= 0.0) return sqrt((position.x - x1) * (position.x - x1) + (position.y - y1) * (position.y - y1)); float d2 = (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1); if (segment && cross >= d2) return sqrt((position.x - x2) * (position.x - x2) + (position.y - y2) * (position.y - y2)); float r = cross / d2; float px = x1 + (x2 - x1) * r; float py = y1 + (y2 - y1) * r; return sqrt((position.x - px) * (position.x - px) + (py - position.y) * (py - position.y)); } vec4 FUNCNAME(vec2 tc) { float effect_width = PREFIX(effect_width); float start_x = PREFIX(start_x); float start_y = PREFIX(start_y); float end_x = PREFIX(end_x); float end_y = PREFIX(end_y); float centerClear = PREFIX(centerClear); float maskAlpha = PREFIX(maskAlpha); float ratio = 1.0; float maxTransition = 0.4; float clearRatio = 0.75 * effect_width < maxTransition ? 0.25 : ((effect_width - maxTransition) / effect_width); float maskRatio = 0.0; if (effect_width < 0.01) { return INPUT1(tc); } float d = getDistance(tc, start_x, start_y, end_x, end_y, false); if (d <= effect_width) { ratio = d / effect_width; } if(centerClear <= 0.0) { return mix(INPUT2(tc), INPUT1(tc), maskAlpha); } else if (centerClear < 0.5 && centerClear > 0.0) { if (ratio < clearRatio) { ratio = 0.0; maskRatio = 0.0; } else if (ratio < 1.0) { ratio = (ratio - clearRatio) / (1.0 - clearRatio); maskRatio = 1.0 - (1.0 - ratio) * (1.0 - ratio); } else { maskRatio = 1.0; } } else if (centerClear < 1.0) { if (ratio < 1.0) { maskRatio = 1.0 - ratio * ratio; } else { maskRatio = 0.0; } } else { return INPUT1(tc); } return mix(INPUT1(tc), INPUT2(tc), maskRatio); } 
+    0x00337819 .rodata    cannot parse segment header

@@ -1,0 +1,5926 @@
+{
+  "file": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_securitycenter/inventory/libs/lib/arm64-v8a/libtensorflowlite_jni.so",
+  "size": 1700448,
+  "sha256": "3e3eee4134c19eafceeae4aabc14eb7bb7bfe2726f1f51a9a31a2e4961c326f0",
+  "parser": "lief",
+  "lief_version": "1.0.0-d05b3499b",
+  "class": "ELF64",
+  "endianness": "little",
+  "type": "DYN",
+  "machine": "AARCH64",
+  "os_abi": "SYSTEMV",
+  "entrypoint": 69312,
+  "imagebase": 0,
+  "interpreter": null,
+  "build_id": null,
+  "android": {
+    "sdk": 21,
+    "ndk": "r19c",
+    "ndk_build": "5345600"
+  },
+  "needed": [
+    "libm.so",
+    "libdl.so",
+    "liblog.so",
+    "libc.so"
+  ],
+  "soname": "libtensorflowlite_jni.so",
+  "rpath": null,
+  "runpath": null,
+  "dynamic_flags": {},
+  "dynamic_entries_count": 28,
+  "sections": [
+    {
+      "name": "",
+      "type": "SHT_NULL_",
+      "flags": "-",
+      "flags_raw": 0,
+      "address": 0,
+      "offset": 0,
+      "size": 0,
+      "entry_size": 0,
+      "alignment": 0,
+      "entropy": 0.0
+    },
+    {
+      "name": ".hash",
+      "type": "HASH",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 456,
+      "offset": 456,
+      "size": 1696,
+      "entry_size": 4,
+      "alignment": 8,
+      "entropy": 1.593
+    },
+    {
+      "name": ".dynsym",
+      "type": "DYNSYM",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 2152,
+      "offset": 2152,
+      "size": 5400,
+      "entry_size": 24,
+      "alignment": 8,
+      "entropy": 2.106
+    },
+    {
+      "name": ".dynstr",
+      "type": "STRTAB",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 7552,
+      "offset": 7552,
+      "size": 6058,
+      "entry_size": 0,
+      "alignment": 1,
+      "entropy": 4.603
+    },
+    {
+      "name": ".gnu.version",
+      "type": "GNU_VERSYM",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 13610,
+      "offset": 13610,
+      "size": 450,
+      "entry_size": 2,
+      "alignment": 2,
+      "entropy": 1.669
+    },
+    {
+      "name": ".gnu.version_d",
+      "type": "GNU_VERDEF",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 14064,
+      "offset": 14064,
+      "size": 56,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": 2.334
+    },
+    {
+      "name": ".gnu.version_r",
+      "type": "GNU_VERNEED",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 14120,
+      "offset": 14120,
+      "size": 96,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": 2.191
+    },
+    {
+      "name": ".rela.dyn",
+      "type": "RELA",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 14216,
+      "offset": 14216,
+      "size": 49944,
+      "entry_size": 24,
+      "alignment": 8,
+      "entropy": 2.831
+    },
+    {
+      "name": ".rela.plt",
+      "type": "RELA",
+      "flags": "AI",
+      "flags_raw": 66,
+      "address": 64160,
+      "offset": 64160,
+      "size": 3072,
+      "entry_size": 24,
+      "alignment": 8,
+      "entropy": 1.999
+    },
+    {
+      "name": ".plt",
+      "type": "PROGBITS",
+      "flags": "AX",
+      "flags_raw": 6,
+      "address": 67232,
+      "offset": 67232,
+      "size": 2080,
+      "entry_size": 16,
+      "alignment": 16,
+      "entropy": 4.751
+    },
+    {
+      "name": ".text",
+      "type": "PROGBITS",
+      "flags": "AX",
+      "flags_raw": 6,
+      "address": 69312,
+      "offset": 69312,
+      "size": 1378016,
+      "entry_size": 0,
+      "alignment": 16,
+      "entropy": 6.887
+    },
+    {
+      "name": ".rodata",
+      "type": "PROGBITS",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 1447328,
+      "offset": 1447328,
+      "size": 87616,
+      "entry_size": 0,
+      "alignment": 16,
+      "entropy": 6.467
+    },
+    {
+      "name": ".eh_frame_hdr",
+      "type": "PROGBITS",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 1534944,
+      "offset": 1534944,
+      "size": 23372,
+      "entry_size": 0,
+      "alignment": 4,
+      "entropy": 6.08
+    },
+    {
+      "name": ".eh_frame",
+      "type": "PROGBITS",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 1558320,
+      "offset": 1558320,
+      "size": 103904,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": 4.839
+    },
+    {
+      "name": ".gcc_except_table",
+      "type": "PROGBITS",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 1662224,
+      "offset": 1662224,
+      "size": 10364,
+      "entry_size": 0,
+      "alignment": 4,
+      "entropy": 4.834
+    },
+    {
+      "name": ".note.android.ident",
+      "type": "NOTE",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 1672588,
+      "offset": 1672588,
+      "size": 152,
+      "entry_size": 0,
+      "alignment": 4,
+      "entropy": 1.189
+    },
+    {
+      "name": ".init_array",
+      "type": "INIT_ARRAY",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 1742232,
+      "offset": 1676696,
+      "size": 680,
+      "entry_size": 8,
+      "alignment": 8,
+      "entropy": 2.541
+    },
+    {
+      "name": ".fini_array",
+      "type": "FINI_ARRAY",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 1742912,
+      "offset": 1677376,
+      "size": 16,
+      "entry_size": 8,
+      "alignment": 8,
+      "entropy": 1.674
+    },
+    {
+      "name": ".data.rel.ro",
+      "type": "PROGBITS",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 1742928,
+      "offset": 1677392,
+      "size": 16072,
+      "entry_size": 0,
+      "alignment": 16,
+      "entropy": 2.96
+    },
+    {
+      "name": ".dynamic",
+      "type": "DYNAMIC",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 1759000,
+      "offset": 1693464,
+      "size": 512,
+      "entry_size": 16,
+      "alignment": 8,
+      "entropy": 1.663
+    },
+    {
+      "name": ".got",
+      "type": "PROGBITS",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 1759512,
+      "offset": 1693976,
+      "size": 1744,
+      "entry_size": 8,
+      "alignment": 8,
+      "entropy": 3.279
+    },
+    {
+      "name": ".got.plt",
+      "type": "PROGBITS",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 1761256,
+      "offset": 1695720,
+      "size": 1048,
+      "entry_size": 8,
+      "alignment": 8,
+      "entropy": 1.529
+    },
+    {
+      "name": ".data",
+      "type": "PROGBITS",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 1762304,
+      "offset": 1696768,
+      "size": 1456,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": 1.651
+    },
+    {
+      "name": ".bss",
+      "type": "NOBITS",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 1763760,
+      "offset": 1698224,
+      "size": 7792,
+      "entry_size": 0,
+      "alignment": 16,
+      "entropy": 0.0
+    },
+    {
+      "name": ".comment",
+      "type": "PROGBITS",
+      "flags": "MS",
+      "flags_raw": 48,
+      "address": 0,
+      "offset": 1698224,
+      "size": 302,
+      "entry_size": 1,
+      "alignment": 1,
+      "entropy": 5.107
+    },
+    {
+      "name": ".shstrtab",
+      "type": "STRTAB",
+      "flags": "-",
+      "flags_raw": 0,
+      "address": 0,
+      "offset": 1698526,
+      "size": 252,
+      "entry_size": 0,
+      "alignment": 1,
+      "entropy": 4.21
+    }
+  ],
+  "segments": [
+    {
+      "type": "LOAD",
+      "flags": "XR",
+      "flags_raw": 5,
+      "offset": 0,
+      "address": 0,
+      "filesz": 1672740,
+      "memsz": 1672740,
+      "alignment": 65536
+    },
+    {
+      "type": "LOAD",
+      "flags": "WR",
+      "flags_raw": 6,
+      "offset": 1676696,
+      "address": 1742232,
+      "filesz": 21528,
+      "memsz": 29320,
+      "alignment": 65536
+    },
+    {
+      "type": "DYNAMIC",
+      "flags": "WR",
+      "flags_raw": 6,
+      "offset": 1693464,
+      "address": 1759000,
+      "filesz": 512,
+      "memsz": 512,
+      "alignment": 8
+    },
+    {
+      "type": "NOTE",
+      "flags": "R",
+      "flags_raw": 4,
+      "offset": 1672588,
+      "address": 1672588,
+      "filesz": 152,
+      "memsz": 152,
+      "alignment": 4
+    },
+    {
+      "type": "GNU_EH_FRAME",
+      "flags": "R",
+      "flags_raw": 4,
+      "offset": 1534944,
+      "address": 1534944,
+      "filesz": 23372,
+      "memsz": 23372,
+      "alignment": 4
+    },
+    {
+      "type": "GNU_STACK",
+      "flags": "WR",
+      "flags_raw": 6,
+      "offset": 0,
+      "address": 0,
+      "filesz": 0,
+      "memsz": 0,
+      "alignment": 16
+    },
+    {
+      "type": "GNU_RELRO",
+      "flags": "R",
+      "flags_raw": 4,
+      "offset": 1676696,
+      "address": 1742232,
+      "filesz": 19048,
+      "memsz": 19048,
+      "alignment": 1
+    }
+  ],
+  "symbols": {
+    "exported": [
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputCount",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputCount",
+        "address": 74208,
+        "size": 128,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "getInputCount",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteInterpreterOptionsSetErrorReporter",
+        "demangled": "TfLiteInterpreterOptionsSetErrorReporter",
+        "address": 142156,
+        "size": 8,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteTensorCopyFromBuffer",
+        "demangled": "TfLiteTensorCopyFromBuffer",
+        "address": 143656,
+        "size": 48,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteInterpreterGetOutputTensor",
+        "demangled": "TfLiteInterpreterGetOutputTensor",
+        "address": 143520,
+        "size": 68,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteTensorType",
+        "demangled": "TfLiteTensorType",
+        "address": 143588,
+        "size": 8,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteTensorByteSize",
+        "demangled": "TfLiteTensorByteSize",
+        "address": 143624,
+        "size": 8,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorImpl_hasDelegateBufferHandle",
+        "demangled": "Java_org_tensorflow_lite_TensorImpl_hasDelegateBufferHandle",
+        "address": 138824,
+        "size": 104,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorImpl",
+        "jni_method": "hasDelegateBufferHandle",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteModelDelete",
+        "demangled": "TfLiteModelDelete",
+        "address": 141592,
+        "size": 112,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorImpl_buffer",
+        "demangled": "Java_org_tensorflow_lite_TensorImpl_buffer",
+        "address": 134408,
+        "size": 136,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorImpl",
+        "jni_method": "buffer",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteInterpreterOptionsDelete",
+        "demangled": "TfLiteInterpreterOptionsDelete",
+        "address": 141828,
+        "size": 64,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorImpl_shapeSignature",
+        "demangled": "Java_org_tensorflow_lite_TensorImpl_shapeSignature",
+        "address": 138568,
+        "size": 180,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorImpl",
+        "jni_method": "shapeSignature",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteCheckInitializedOrThrow",
+        "demangled": "TfLiteCheckInitializedOrThrow",
+        "address": 145824,
+        "size": 8,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapperExperimental_resetVariableTensors",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapperExperimental_resetVariableTensors",
+        "address": 70392,
+        "size": 176,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapperExperimental",
+        "jni_method": "resetVariableTensors",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteTensorDim",
+        "demangled": "TfLiteTensorDim",
+        "address": 143608,
+        "size": 16,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorImpl_shape",
+        "demangled": "Java_org_tensorflow_lite_TensorImpl_shape",
+        "address": 138400,
+        "size": 168,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorImpl",
+        "jni_method": "shape",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeResizeInput",
+        "demangled": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeResizeInput",
+        "address": 132020,
+        "size": 444,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeSignatureRunnerWrapper",
+        "jni_method": "nativeResizeInput",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_nnapi_NnApiDelegate_getNnapiErrno",
+        "demangled": "Java_org_tensorflow_lite_nnapi_NnApiDelegate_getNnapiErrno",
+        "address": 721264,
+        "size": 8,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.nnapi.NnApiDelegate",
+        "jni_method": "getNnapiErrno",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorImpl_readMultiDimensionalArray",
+        "demangled": "Java_org_tensorflow_lite_TensorImpl_readMultiDimensionalArray",
+        "address": 134744,
+        "size": 208,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorImpl",
+        "jni_method": "readMultiDimensionalArray",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetOutputIndex",
+        "demangled": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetOutputIndex",
+        "address": 131732,
+        "size": 288,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeSignatureRunnerWrapper",
+        "jni_method": "nativeGetOutputIndex",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorFlowLite_nativeDoNothing",
+        "demangled": "Java_org_tensorflow_lite_TensorFlowLite_nativeDoNothing",
+        "address": 140672,
+        "size": 4,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorFlowLite",
+        "jni_method": "nativeDoNothing",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeOutputNames",
+        "demangled": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeOutputNames",
+        "address": 131372,
+        "size": 72,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeSignatureRunnerWrapper",
+        "jni_method": "nativeOutputNames",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteTensorReset",
+        "demangled": "TfLiteTensorReset",
+        "address": 1007836,
+        "size": 144,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createInterpreter",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createInterpreter",
+        "address": 76500,
+        "size": 1420,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "createInterpreter",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeInputNames",
+        "demangled": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeInputNames",
+        "address": 131300,
+        "size": 72,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeSignatureRunnerWrapper",
+        "jni_method": "nativeInputNames",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createModelWithBuffer",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createModelWithBuffer",
+        "address": 76076,
+        "size": 424,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "createModelWithBuffer",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteTensorNumDims",
+        "demangled": "TfLiteTensorNumDims",
+        "address": 143596,
+        "size": 12,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteInterpreterInvoke",
+        "demangled": "TfLiteInterpreterInvoke",
+        "address": 143472,
+        "size": 20,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteInterpreterResizeInputTensor",
+        "demangled": "TfLiteInterpreterResizeInputTensor",
+        "address": 143136,
+        "size": 328,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_XnnpackDelegate_applyDeleteFunction",
+        "demangled": "Java_org_tensorflow_lite_XnnpackDelegate_applyDeleteFunction",
+        "address": 140860,
+        "size": 136,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.XnnpackDelegate",
+        "jni_method": "applyDeleteFunction",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_deleteCancellationFlag",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_deleteCancellationFlag",
+        "address": 79428,
+        "size": 16,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "deleteCancellationFlag",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorImpl_writeScalar",
+        "demangled": "Java_org_tensorflow_lite_TensorImpl_writeScalar",
+        "address": 137048,
+        "size": 1100,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorImpl",
+        "jni_method": "writeScalar",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteVersion",
+        "demangled": "TfLiteVersion",
+        "address": 140996,
+        "size": 12,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorFlowLite_nativeRuntimeVersion",
+        "demangled": "Java_org_tensorflow_lite_TensorFlowLite_nativeRuntimeVersion",
+        "address": 140676,
+        "size": 72,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorFlowLite",
+        "jni_method": "nativeRuntimeVersion",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_setCancelled",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_setCancelled",
+        "address": 79444,
+        "size": 20,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "setCancelled",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteIntArrayCopy",
+        "demangled": "TfLiteIntArrayCopy",
+        "address": 1007176,
+        "size": 100,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeInvoke",
+        "demangled": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeInvoke",
+        "address": 132640,
+        "size": 176,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeSignatureRunnerWrapper",
+        "jni_method": "nativeInvoke",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteXNNPackDelegateDelete",
+        "demangled": "TfLiteXNNPackDelegateDelete",
+        "address": 868112,
+        "size": 208,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetSignatureRunner",
+        "demangled": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetSignatureRunner",
+        "address": 131060,
+        "size": 176,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeSignatureRunnerWrapper",
+        "jni_method": "nativeGetSignatureRunner",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputNames",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputNames",
+        "address": 74464,
+        "size": 360,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "getOutputNames",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorImpl_dtype",
+        "demangled": "Java_org_tensorflow_lite_TensorImpl_dtype",
+        "address": 138148,
+        "size": 76,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorImpl",
+        "jni_method": "dtype",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorImpl_delete",
+        "demangled": "Java_org_tensorflow_lite_TensorImpl_delete",
+        "address": 134344,
+        "size": 64,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorImpl",
+        "jni_method": "delete",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteXNNPackDelegateGetThreadPool",
+        "demangled": "TfLiteXNNPackDelegateGetThreadPool",
+        "address": 868096,
+        "size": 16,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteTensorFree",
+        "demangled": "TfLiteTensorFree",
+        "address": 1007676,
+        "size": 160,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorImpl_create",
+        "demangled": "Java_org_tensorflow_lite_TensorImpl_create",
+        "address": 133676,
+        "size": 88,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorImpl",
+        "jni_method": "create",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputCount",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputCount",
+        "address": 74336,
+        "size": 128,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "getOutputCount",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteTensorName",
+        "demangled": "TfLiteTensorName",
+        "address": 143640,
+        "size": 8,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteIntArrayEqual",
+        "demangled": "TfLiteIntArrayEqual",
+        "address": 1006896,
+        "size": 124,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_nnapi_NnApiDelegate_deleteDelegate",
+        "demangled": "Java_org_tensorflow_lite_nnapi_NnApiDelegate_deleteDelegate",
+        "address": 721272,
+        "size": 48,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.nnapi.NnApiDelegate",
+        "jni_method": "deleteDelegate",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteInterpreterGetInputTensorCount",
+        "demangled": "TfLiteInterpreterGetInputTensorCount",
+        "address": 143040,
+        "size": 28,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteInterpreterGetInputTensor",
+        "demangled": "TfLiteInterpreterGetInputTensor",
+        "address": 143068,
+        "size": 68,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteFloatArrayCreate",
+        "demangled": "TfLiteFloatArrayCreate",
+        "address": 1007292,
+        "size": 48,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteTensorCopy",
+        "demangled": "TfLiteTensorCopy",
+        "address": 1007980,
+        "size": 232,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorImpl_index",
+        "demangled": "Java_org_tensorflow_lite_TensorImpl_index",
+        "address": 138928,
+        "size": 60,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorImpl",
+        "jni_method": "index",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorImpl_createSignatureOutputTensor",
+        "demangled": "Java_org_tensorflow_lite_TensorImpl_createSignatureOutputTensor",
+        "address": 134056,
+        "size": 288,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorImpl",
+        "jni_method": "createSignatureOutputTensor",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteSparsityFree",
+        "demangled": "TfLiteSparsityFree",
+        "address": 1007488,
+        "size": 188,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetSubgraphIndex",
+        "demangled": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetSubgraphIndex",
+        "address": 131236,
+        "size": 64,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeSignatureRunnerWrapper",
+        "jni_method": "nativeGetSubgraphIndex",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createModel",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createModel",
+        "address": 75688,
+        "size": 388,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "createModel",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteIntArrayEqualsArray",
+        "demangled": "TfLiteIntArrayEqualsArray",
+        "address": 1007020,
+        "size": 104,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getSignatureKeys",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getSignatureKeys",
+        "address": 73028,
+        "size": 428,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "getSignatureKeys",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeAllocateTensors",
+        "demangled": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeAllocateTensors",
+        "address": 132464,
+        "size": 176,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeSignatureRunnerWrapper",
+        "jni_method": "nativeAllocateTensors",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteTensorRealloc",
+        "demangled": "TfLiteTensorRealloc",
+        "address": 1008212,
+        "size": 116,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_delete",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_delete",
+        "address": 79464,
+        "size": 256,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "delete",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorImpl_writeDirectBuffer",
+        "demangled": "Java_org_tensorflow_lite_TensorImpl_writeDirectBuffer",
+        "address": 134544,
+        "size": 200,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorImpl",
+        "jni_method": "writeDirectBuffer",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteIntArrayGetSizeInBytes",
+        "demangled": "TfLiteIntArrayGetSizeInBytes",
+        "address": 1006884,
+        "size": 12,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_allocateTensors",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_allocateTensors",
+        "address": 72584,
+        "size": 172,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "allocateTensors",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteInterpreterOptionsCreate",
+        "demangled": "TfLiteInterpreterOptionsCreate",
+        "address": 141704,
+        "size": 124,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputTensorIndex",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputTensorIndex",
+        "address": 73988,
+        "size": 144,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "getOutputTensorIndex",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputTensorIndex",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputTensorIndex",
+        "address": 73844,
+        "size": 144,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "getInputTensorIndex",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteInterpreterOptionsSetNumThreads",
+        "demangled": "TfLiteInterpreterOptionsSetNumThreads",
+        "address": 141892,
+        "size": 8,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorImpl_quantizationZeroPoint",
+        "demangled": "Java_org_tensorflow_lite_TensorImpl_quantizationZeroPoint",
+        "address": 139076,
+        "size": 76,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorImpl",
+        "jni_method": "quantizationZeroPoint",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorImpl_createSignatureInputTensor",
+        "demangled": "Java_org_tensorflow_lite_TensorImpl_createSignatureInputTensor",
+        "address": 133764,
+        "size": 292,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorImpl",
+        "jni_method": "createSignatureInputTensor",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputDataType",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputDataType",
+        "address": 78560,
+        "size": 232,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "getOutputDataType",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteInterpreterOptionsAddDelegate",
+        "demangled": "TfLiteInterpreterOptionsAddDelegate",
+        "address": 141900,
+        "size": 256,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteFloatArrayFree",
+        "demangled": "TfLiteFloatArrayFree",
+        "address": 1007340,
+        "size": 4,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteInterpreterDelete",
+        "demangled": "TfLiteInterpreterDelete",
+        "address": 142876,
+        "size": 164,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteDelegateCreate",
+        "demangled": "TfLiteDelegateCreate",
+        "address": 1008364,
+        "size": 16,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteTensorDataFree",
+        "demangled": "TfLiteTensorDataFree",
+        "address": 1007344,
+        "size": 56,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_allowFp16PrecisionForFp32",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_allowFp16PrecisionForFp32",
+        "address": 74824,
+        "size": 48,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "allowFp16PrecisionForFp32",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_resizeInput",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_resizeInput",
+        "address": 78792,
+        "size": 488,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "resizeInput",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorImpl_quantizationScale",
+        "demangled": "Java_org_tensorflow_lite_TensorImpl_quantizationScale",
+        "address": 138988,
+        "size": 88,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorImpl",
+        "jni_method": "quantizationScale",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputNames",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputNames",
+        "address": 72224,
+        "size": 360,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "getInputNames",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createErrorReporter",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createErrorReporter",
+        "address": 75604,
+        "size": 84,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "createErrorReporter",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_hasUnresolvedFlexOp",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_hasUnresolvedFlexOp",
+        "address": 72756,
+        "size": 272,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "hasUnresolvedFlexOp",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorFlowLite_nativeSchemaVersion",
+        "demangled": "Java_org_tensorflow_lite_TensorFlowLite_nativeSchemaVersion",
+        "address": 140748,
+        "size": 112,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorFlowLite",
+        "jni_method": "nativeSchemaVersion",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getExecutionPlanLength",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getExecutionPlanLength",
+        "address": 74132,
+        "size": 76,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "getExecutionPlanLength",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteInterpreterAllocateTensors",
+        "demangled": "TfLiteInterpreterAllocateTensors",
+        "address": 143464,
+        "size": 8,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteTensorQuantizationParams",
+        "demangled": "TfLiteTensorQuantizationParams",
+        "address": 143648,
+        "size": 8,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteXNNPackDelegateOptionsDefault",
+        "demangled": "TfLiteXNNPackDelegateOptionsDefault",
+        "address": 867792,
+        "size": 8,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteTypeGetName",
+        "demangled": "TfLiteTypeGetName",
+        "address": 1008328,
+        "size": 36,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetInputIndex",
+        "demangled": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetInputIndex",
+        "address": 131444,
+        "size": 288,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeSignatureRunnerWrapper",
+        "jni_method": "nativeGetInputIndex",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createCancellationFlag",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createCancellationFlag",
+        "address": 79280,
+        "size": 148,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "createCancellationFlag",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteTensorData",
+        "demangled": "TfLiteTensorData",
+        "address": 143632,
+        "size": 8,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteIntArrayFree",
+        "demangled": "TfLiteIntArrayFree",
+        "address": 1007276,
+        "size": 4,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteTensorCopyToBuffer",
+        "demangled": "TfLiteTensorCopyToBuffer",
+        "address": 143704,
+        "size": 56,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_run",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_run",
+        "address": 78388,
+        "size": 172,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "run",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteInterpreterCreate",
+        "demangled": "TfLiteInterpreterCreate",
+        "address": 142164,
+        "size": 136,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_allowBufferHandleOutput",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_allowBufferHandleOutput",
+        "address": 74872,
+        "size": 48,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "allowBufferHandleOutput",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorImpl_numBytes",
+        "demangled": "Java_org_tensorflow_lite_TensorImpl_numBytes",
+        "address": 138748,
+        "size": 76,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorImpl",
+        "jni_method": "numBytes",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteInterpreterGetOutputTensorCount",
+        "demangled": "TfLiteInterpreterGetOutputTensorCount",
+        "address": 143492,
+        "size": 28,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteQuantizationFree",
+        "demangled": "TfLiteQuantizationFree",
+        "address": 1007400,
+        "size": 88,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteIntArrayCreate",
+        "demangled": "TfLiteIntArrayCreate",
+        "address": 1007124,
+        "size": 52,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorImpl_writeMultiDimensionalArray",
+        "demangled": "Java_org_tensorflow_lite_TensorImpl_writeMultiDimensionalArray",
+        "address": 136060,
+        "size": 400,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorImpl",
+        "jni_method": "writeMultiDimensionalArray",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteFloatArrayGetSizeInBytes",
+        "demangled": "TfLiteFloatArrayGetSizeInBytes",
+        "address": 1007280,
+        "size": 12,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "Java_org_tensorflow_lite_nnapi_NnApiDelegate_createDelegate",
+        "demangled": "Java_org_tensorflow_lite_nnapi_NnApiDelegate_createDelegate",
+        "address": 720564,
+        "size": 700,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.nnapi.NnApiDelegate",
+        "jni_method": "createDelegate",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createXNNPACKDelegate",
+        "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createXNNPACKDelegate",
+        "address": 74920,
+        "size": 528,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+        "jni_method": "createXNNPACKDelegate",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_org_tensorflow_lite_TensorImpl_name",
+        "demangled": "Java_org_tensorflow_lite_TensorImpl_name",
+        "address": 138224,
+        "size": 176,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "org.tensorflow.lite.TensorImpl",
+        "jni_method": "name",
+        "jni_signature": ""
+      },
+      {
+        "name": "TfLiteModelCreateFromFile",
+        "demangled": "TfLiteModelCreateFromFile",
+        "address": 141304,
+        "size": 288,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteModelCreate",
+        "demangled": "TfLiteModelCreate",
+        "address": 141008,
+        "size": 296,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "TfLiteXNNPackDelegateCreate",
+        "demangled": "TfLiteXNNPackDelegateCreate",
+        "address": 867800,
+        "size": 296,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      }
+    ],
+    "imported": [
+      {
+        "name": "mmap",
+        "demangled": "mmap",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "dl_iterate_phdr",
+        "demangled": "dl_iterate_phdr",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "ldexp",
+        "demangled": "ldexp",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "getauxval",
+        "demangled": "getauxval",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strnlen",
+        "demangled": "strnlen",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "iswxdigit",
+        "demangled": "iswxdigit",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strncpy",
+        "demangled": "strncpy",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "iswalpha",
+        "demangled": "iswalpha",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "towlower",
+        "demangled": "towlower",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "vasprintf",
+        "demangled": "vasprintf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_getspecific",
+        "demangled": "pthread_getspecific",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "__cxa_atexit",
+        "demangled": "__cxa_atexit",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "qsort",
+        "demangled": "qsort",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "memcmp",
+        "demangled": "memcmp",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_create",
+        "demangled": "pthread_create",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_join",
+        "demangled": "pthread_join",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "fread",
+        "demangled": "fread",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "malloc",
+        "demangled": "malloc",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "rename",
+        "demangled": "rename",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "dlopen",
+        "demangled": "dlopen",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_once",
+        "demangled": "pthread_once",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "ldexpf",
+        "demangled": "ldexpf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "__stack_chk_fail",
+        "demangled": "__stack_chk_fail",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "vfprintf",
+        "demangled": "vfprintf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "lrintf",
+        "demangled": "lrintf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "memalign",
+        "demangled": "memalign",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "calloc",
+        "demangled": "calloc",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "iswcntrl",
+        "demangled": "iswcntrl",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strxfrm",
+        "demangled": "strxfrm",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "nan",
+        "demangled": "nan",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "iswupper",
+        "demangled": "iswupper",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_cond_wait",
+        "demangled": "pthread_cond_wait",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "read",
+        "demangled": "read",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "closelog",
+        "demangled": "closelog",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "close",
+        "demangled": "close",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pow",
+        "demangled": "pow",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "openlog",
+        "demangled": "openlog",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "free",
+        "demangled": "free",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "fputc",
+        "demangled": "fputc",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "toupper",
+        "demangled": "toupper",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "__sF",
+        "demangled": "__sF",
+        "address": 0,
+        "size": 0,
+        "type": "OBJECT",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": false,
+        "is_jni": false
+      },
+      {
+        "name": "__errno",
+        "demangled": "__errno",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "frexp",
+        "demangled": "frexp",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "open",
+        "demangled": "open",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strcmp",
+        "demangled": "strcmp",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "expf",
+        "demangled": "expf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "getenv",
+        "demangled": "getenv",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "wcscoll",
+        "demangled": "wcscoll",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_cond_broadcast",
+        "demangled": "pthread_cond_broadcast",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "exp",
+        "demangled": "exp",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "__system_property_get",
+        "demangled": "__system_property_get",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_setspecific",
+        "demangled": "pthread_setspecific",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strftime",
+        "demangled": "strftime",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "dlsym",
+        "demangled": "dlsym",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "iswlower",
+        "demangled": "iswlower",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_mutex_unlock",
+        "demangled": "pthread_mutex_unlock",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "memmove",
+        "demangled": "memmove",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "wcsxfrm",
+        "demangled": "wcsxfrm",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "memset",
+        "demangled": "memset",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "time",
+        "demangled": "time",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "isxdigit",
+        "demangled": "isxdigit",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "__cxa_finalize",
+        "demangled": "__cxa_finalize",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "android_set_abort_message",
+        "demangled": "android_set_abort_message",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "sqrtf",
+        "demangled": "sqrtf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "fsync",
+        "demangled": "fsync",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_mutex_init",
+        "demangled": "pthread_mutex_init",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "towupper",
+        "demangled": "towupper",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "logf",
+        "demangled": "logf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "dlerror",
+        "demangled": "dlerror",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "fclose",
+        "demangled": "fclose",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "fprintf",
+        "demangled": "fprintf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_cond_destroy",
+        "demangled": "pthread_cond_destroy",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "munmap",
+        "demangled": "munmap",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "snprintf",
+        "demangled": "snprintf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "abort",
+        "demangled": "abort",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "dlclose",
+        "demangled": "dlclose",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "isupper",
+        "demangled": "isupper",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "__android_log_vprint",
+        "demangled": "__android_log_vprint",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "write",
+        "demangled": "write",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "iswpunct",
+        "demangled": "iswpunct",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strtol",
+        "demangled": "strtol",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_mutex_lock",
+        "demangled": "pthread_mutex_lock",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "getpagesize",
+        "demangled": "getpagesize",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_mutex_destroy",
+        "demangled": "pthread_mutex_destroy",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "fstat",
+        "demangled": "fstat",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "flock",
+        "demangled": "flock",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "realloc",
+        "demangled": "realloc",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "syslog",
+        "demangled": "syslog",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strcoll",
+        "demangled": "strcoll",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_key_delete",
+        "demangled": "pthread_key_delete",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "WEAK",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strncmp",
+        "demangled": "strncmp",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "fopen",
+        "demangled": "fopen",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "iswspace",
+        "demangled": "iswspace",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "iswdigit",
+        "demangled": "iswdigit",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "dup",
+        "demangled": "dup",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "memcpy",
+        "demangled": "memcpy",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "iswblank",
+        "demangled": "iswblank",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strerror_r",
+        "demangled": "strerror_r",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "vsnprintf",
+        "demangled": "vsnprintf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "iswprint",
+        "demangled": "iswprint",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "tolower",
+        "demangled": "tolower",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "syscall",
+        "demangled": "syscall",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "islower",
+        "demangled": "islower",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "fileno",
+        "demangled": "fileno",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "memchr",
+        "demangled": "memchr",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "nanf",
+        "demangled": "nanf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strerror",
+        "demangled": "strerror",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strlen",
+        "demangled": "strlen",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_key_create",
+        "demangled": "pthread_key_create",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "lrint",
+        "demangled": "lrint",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "clock_gettime",
+        "demangled": "clock_gettime",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "posix_memalign",
+        "demangled": "posix_memalign",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      }
+    ],
+    "symtab_count": 0,
+    "dynsym_count": 225
+  },
+  "jni_entrypoints": [
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapperExperimental_resetVariableTensors",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapperExperimental_resetVariableTensors",
+      "address": 70392,
+      "size": 176,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapperExperimental",
+      "jni_method": "resetVariableTensors",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputNames",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputNames",
+      "address": 72224,
+      "size": 360,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "getInputNames",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_allocateTensors",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_allocateTensors",
+      "address": 72584,
+      "size": 172,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "allocateTensors",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_hasUnresolvedFlexOp",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_hasUnresolvedFlexOp",
+      "address": 72756,
+      "size": 272,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "hasUnresolvedFlexOp",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getSignatureKeys",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getSignatureKeys",
+      "address": 73028,
+      "size": 428,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "getSignatureKeys",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputTensorIndex",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputTensorIndex",
+      "address": 73844,
+      "size": 144,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "getInputTensorIndex",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputTensorIndex",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputTensorIndex",
+      "address": 73988,
+      "size": 144,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "getOutputTensorIndex",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getExecutionPlanLength",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getExecutionPlanLength",
+      "address": 74132,
+      "size": 76,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "getExecutionPlanLength",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputCount",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputCount",
+      "address": 74208,
+      "size": 128,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "getInputCount",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputCount",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputCount",
+      "address": 74336,
+      "size": 128,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "getOutputCount",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputNames",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputNames",
+      "address": 74464,
+      "size": 360,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "getOutputNames",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_allowFp16PrecisionForFp32",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_allowFp16PrecisionForFp32",
+      "address": 74824,
+      "size": 48,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "allowFp16PrecisionForFp32",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_allowBufferHandleOutput",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_allowBufferHandleOutput",
+      "address": 74872,
+      "size": 48,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "allowBufferHandleOutput",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createXNNPACKDelegate",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createXNNPACKDelegate",
+      "address": 74920,
+      "size": 528,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "createXNNPACKDelegate",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createErrorReporter",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createErrorReporter",
+      "address": 75604,
+      "size": 84,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "createErrorReporter",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createModel",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createModel",
+      "address": 75688,
+      "size": 388,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "createModel",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createModelWithBuffer",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createModelWithBuffer",
+      "address": 76076,
+      "size": 424,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "createModelWithBuffer",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createInterpreter",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createInterpreter",
+      "address": 76500,
+      "size": 1420,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "createInterpreter",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_run",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_run",
+      "address": 78388,
+      "size": 172,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "run",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputDataType",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputDataType",
+      "address": 78560,
+      "size": 232,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "getOutputDataType",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_resizeInput",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_resizeInput",
+      "address": 78792,
+      "size": 488,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "resizeInput",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createCancellationFlag",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createCancellationFlag",
+      "address": 79280,
+      "size": 148,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "createCancellationFlag",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_deleteCancellationFlag",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_deleteCancellationFlag",
+      "address": 79428,
+      "size": 16,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "deleteCancellationFlag",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_setCancelled",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_setCancelled",
+      "address": 79444,
+      "size": 20,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "setCancelled",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeInterpreterWrapper_delete",
+      "demangled": "Java_org_tensorflow_lite_NativeInterpreterWrapper_delete",
+      "address": 79464,
+      "size": 256,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeInterpreterWrapper",
+      "jni_method": "delete",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetSignatureRunner",
+      "demangled": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetSignatureRunner",
+      "address": 131060,
+      "size": 176,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeSignatureRunnerWrapper",
+      "jni_method": "nativeGetSignatureRunner",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetSubgraphIndex",
+      "demangled": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetSubgraphIndex",
+      "address": 131236,
+      "size": 64,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeSignatureRunnerWrapper",
+      "jni_method": "nativeGetSubgraphIndex",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeInputNames",
+      "demangled": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeInputNames",
+      "address": 131300,
+      "size": 72,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeSignatureRunnerWrapper",
+      "jni_method": "nativeInputNames",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeOutputNames",
+      "demangled": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeOutputNames",
+      "address": 131372,
+      "size": 72,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeSignatureRunnerWrapper",
+      "jni_method": "nativeOutputNames",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetInputIndex",
+      "demangled": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetInputIndex",
+      "address": 131444,
+      "size": 288,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeSignatureRunnerWrapper",
+      "jni_method": "nativeGetInputIndex",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetOutputIndex",
+      "demangled": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetOutputIndex",
+      "address": 131732,
+      "size": 288,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeSignatureRunnerWrapper",
+      "jni_method": "nativeGetOutputIndex",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeResizeInput",
+      "demangled": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeResizeInput",
+      "address": 132020,
+      "size": 444,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeSignatureRunnerWrapper",
+      "jni_method": "nativeResizeInput",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeAllocateTensors",
+      "demangled": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeAllocateTensors",
+      "address": 132464,
+      "size": 176,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeSignatureRunnerWrapper",
+      "jni_method": "nativeAllocateTensors",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeInvoke",
+      "demangled": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeInvoke",
+      "address": 132640,
+      "size": 176,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.NativeSignatureRunnerWrapper",
+      "jni_method": "nativeInvoke",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorImpl_create",
+      "demangled": "Java_org_tensorflow_lite_TensorImpl_create",
+      "address": 133676,
+      "size": 88,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorImpl",
+      "jni_method": "create",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorImpl_createSignatureInputTensor",
+      "demangled": "Java_org_tensorflow_lite_TensorImpl_createSignatureInputTensor",
+      "address": 133764,
+      "size": 292,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorImpl",
+      "jni_method": "createSignatureInputTensor",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorImpl_createSignatureOutputTensor",
+      "demangled": "Java_org_tensorflow_lite_TensorImpl_createSignatureOutputTensor",
+      "address": 134056,
+      "size": 288,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorImpl",
+      "jni_method": "createSignatureOutputTensor",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorImpl_delete",
+      "demangled": "Java_org_tensorflow_lite_TensorImpl_delete",
+      "address": 134344,
+      "size": 64,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorImpl",
+      "jni_method": "delete",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorImpl_buffer",
+      "demangled": "Java_org_tensorflow_lite_TensorImpl_buffer",
+      "address": 134408,
+      "size": 136,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorImpl",
+      "jni_method": "buffer",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorImpl_writeDirectBuffer",
+      "demangled": "Java_org_tensorflow_lite_TensorImpl_writeDirectBuffer",
+      "address": 134544,
+      "size": 200,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorImpl",
+      "jni_method": "writeDirectBuffer",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorImpl_readMultiDimensionalArray",
+      "demangled": "Java_org_tensorflow_lite_TensorImpl_readMultiDimensionalArray",
+      "address": 134744,
+      "size": 208,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorImpl",
+      "jni_method": "readMultiDimensionalArray",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorImpl_writeMultiDimensionalArray",
+      "demangled": "Java_org_tensorflow_lite_TensorImpl_writeMultiDimensionalArray",
+      "address": 136060,
+      "size": 400,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorImpl",
+      "jni_method": "writeMultiDimensionalArray",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorImpl_writeScalar",
+      "demangled": "Java_org_tensorflow_lite_TensorImpl_writeScalar",
+      "address": 137048,
+      "size": 1100,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorImpl",
+      "jni_method": "writeScalar",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorImpl_dtype",
+      "demangled": "Java_org_tensorflow_lite_TensorImpl_dtype",
+      "address": 138148,
+      "size": 76,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorImpl",
+      "jni_method": "dtype",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorImpl_name",
+      "demangled": "Java_org_tensorflow_lite_TensorImpl_name",
+      "address": 138224,
+      "size": 176,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorImpl",
+      "jni_method": "name",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorImpl_shape",
+      "demangled": "Java_org_tensorflow_lite_TensorImpl_shape",
+      "address": 138400,
+      "size": 168,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorImpl",
+      "jni_method": "shape",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorImpl_shapeSignature",
+      "demangled": "Java_org_tensorflow_lite_TensorImpl_shapeSignature",
+      "address": 138568,
+      "size": 180,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorImpl",
+      "jni_method": "shapeSignature",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorImpl_numBytes",
+      "demangled": "Java_org_tensorflow_lite_TensorImpl_numBytes",
+      "address": 138748,
+      "size": 76,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorImpl",
+      "jni_method": "numBytes",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorImpl_hasDelegateBufferHandle",
+      "demangled": "Java_org_tensorflow_lite_TensorImpl_hasDelegateBufferHandle",
+      "address": 138824,
+      "size": 104,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorImpl",
+      "jni_method": "hasDelegateBufferHandle",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorImpl_index",
+      "demangled": "Java_org_tensorflow_lite_TensorImpl_index",
+      "address": 138928,
+      "size": 60,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorImpl",
+      "jni_method": "index",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorImpl_quantizationScale",
+      "demangled": "Java_org_tensorflow_lite_TensorImpl_quantizationScale",
+      "address": 138988,
+      "size": 88,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorImpl",
+      "jni_method": "quantizationScale",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorImpl_quantizationZeroPoint",
+      "demangled": "Java_org_tensorflow_lite_TensorImpl_quantizationZeroPoint",
+      "address": 139076,
+      "size": 76,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorImpl",
+      "jni_method": "quantizationZeroPoint",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorFlowLite_nativeDoNothing",
+      "demangled": "Java_org_tensorflow_lite_TensorFlowLite_nativeDoNothing",
+      "address": 140672,
+      "size": 4,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorFlowLite",
+      "jni_method": "nativeDoNothing",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorFlowLite_nativeRuntimeVersion",
+      "demangled": "Java_org_tensorflow_lite_TensorFlowLite_nativeRuntimeVersion",
+      "address": 140676,
+      "size": 72,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorFlowLite",
+      "jni_method": "nativeRuntimeVersion",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_TensorFlowLite_nativeSchemaVersion",
+      "demangled": "Java_org_tensorflow_lite_TensorFlowLite_nativeSchemaVersion",
+      "address": 140748,
+      "size": 112,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.TensorFlowLite",
+      "jni_method": "nativeSchemaVersion",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_XnnpackDelegate_applyDeleteFunction",
+      "demangled": "Java_org_tensorflow_lite_XnnpackDelegate_applyDeleteFunction",
+      "address": 140860,
+      "size": 136,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.XnnpackDelegate",
+      "jni_method": "applyDeleteFunction",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_nnapi_NnApiDelegate_createDelegate",
+      "demangled": "Java_org_tensorflow_lite_nnapi_NnApiDelegate_createDelegate",
+      "address": 720564,
+      "size": 700,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.nnapi.NnApiDelegate",
+      "jni_method": "createDelegate",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_nnapi_NnApiDelegate_getNnapiErrno",
+      "demangled": "Java_org_tensorflow_lite_nnapi_NnApiDelegate_getNnapiErrno",
+      "address": 721264,
+      "size": 8,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.nnapi.NnApiDelegate",
+      "jni_method": "getNnapiErrno",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_org_tensorflow_lite_nnapi_NnApiDelegate_deleteDelegate",
+      "demangled": "Java_org_tensorflow_lite_nnapi_NnApiDelegate_deleteDelegate",
+      "address": 721272,
+      "size": 48,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "org.tensorflow.lite.nnapi.NnApiDelegate",
+      "jni_method": "deleteDelegate",
+      "jni_signature": ""
+    }
+  ],
+  "strings": {
+    "scanned_bytes": 313708,
+    "categories": {
+      "tflite": [
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapperExperimental_resetVariableTensors",
+          "offset": 7581,
+          "address": 7581,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteCheckInitializedOrThrow",
+          "offset": 7664,
+          "address": 7664,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_allocateTensors",
+          "offset": 7746,
+          "address": 7746,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_allowBufferHandleOutput",
+          "offset": 7812,
+          "address": 7812,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_allowFp16PrecisionForFp32",
+          "offset": 7886,
+          "address": 7886,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createCancellationFlag",
+          "offset": 7962,
+          "address": 7962,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createErrorReporter",
+          "offset": 8035,
+          "address": 8035,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createInterpreter",
+          "offset": 8105,
+          "address": 8105,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createModel",
+          "offset": 8173,
+          "address": 8173,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createModelWithBuffer",
+          "offset": 8235,
+          "address": 8235,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_createXNNPACKDelegate",
+          "offset": 8307,
+          "address": 8307,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_delete",
+          "offset": 8379,
+          "address": 8379,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_deleteCancellationFlag",
+          "offset": 8436,
+          "address": 8436,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getExecutionPlanLength",
+          "offset": 8509,
+          "address": 8509,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputCount",
+          "offset": 8582,
+          "address": 8582,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputNames",
+          "offset": 8646,
+          "address": 8646,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputTensorIndex",
+          "offset": 8710,
+          "address": 8710,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputCount",
+          "offset": 8780,
+          "address": 8780,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputDataType",
+          "offset": 8845,
+          "address": 8845,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputNames",
+          "offset": 8913,
+          "address": 8913,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputTensorIndex",
+          "offset": 8978,
+          "address": 8978,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_getSignatureKeys",
+          "offset": 9049,
+          "address": 9049,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_hasUnresolvedFlexOp",
+          "offset": 9116,
+          "address": 9116,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_resizeInput",
+          "offset": 9186,
+          "address": 9186,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_run",
+          "offset": 9248,
+          "address": 9248,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeInterpreterWrapper_setCancelled",
+          "offset": 9302,
+          "address": 9302,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeAllocateTensors",
+          "offset": 9393,
+          "address": 9393,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetInputIndex",
+          "offset": 9469,
+          "address": 9469,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetOutputIndex",
+          "offset": 9543,
+          "address": 9543,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetSignatureRunner",
+          "offset": 9618,
+          "address": 9618,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetSubgraphIndex",
+          "offset": 9697,
+          "address": 9697,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeInputNames",
+          "offset": 9774,
+          "address": 9774,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeInvoke",
+          "offset": 9845,
+          "address": 9845,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeOutputNames",
+          "offset": 9912,
+          "address": 9912,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeResizeInput",
+          "offset": 9984,
+          "address": 9984,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorImpl_buffer",
+          "offset": 10070,
+          "address": 10070,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorImpl_create",
+          "offset": 10113,
+          "address": 10113,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorImpl_createSignatureInputTensor",
+          "offset": 10156,
+          "address": 10156,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorImpl_createSignatureOutputTensor",
+          "offset": 10219,
+          "address": 10219,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorImpl_delete",
+          "offset": 10283,
+          "address": 10283,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorImpl_dtype",
+          "offset": 10326,
+          "address": 10326,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorImpl_hasDelegateBufferHandle",
+          "offset": 10368,
+          "address": 10368,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorImpl_index",
+          "offset": 10428,
+          "address": 10428,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorImpl_name",
+          "offset": 10470,
+          "address": 10470,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorImpl_numBytes",
+          "offset": 10511,
+          "address": 10511,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorImpl_quantizationScale",
+          "offset": 10556,
+          "address": 10556,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorImpl_quantizationZeroPoint",
+          "offset": 10610,
+          "address": 10610,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorImpl_readMultiDimensionalArray",
+          "offset": 10668,
+          "address": 10668,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorImpl_shape",
+          "offset": 10730,
+          "address": 10730,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorImpl_shapeSignature",
+          "offset": 10772,
+          "address": 10772,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorImpl_writeDirectBuffer",
+          "offset": 10823,
+          "address": 10823,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorImpl_writeMultiDimensionalArray",
+          "offset": 10877,
+          "address": 10877,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorImpl_writeScalar",
+          "offset": 10940,
+          "address": 10940,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorFlowLite_nativeDoNothing",
+          "offset": 10988,
+          "address": 10988,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorFlowLite_nativeRuntimeVersion",
+          "offset": 11044,
+          "address": 11044,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_TensorFlowLite_nativeSchemaVersion",
+          "offset": 11105,
+          "address": 11105,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteVersion",
+          "offset": 11165,
+          "address": 11165,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_XnnpackDelegate_applyDeleteFunction",
+          "offset": 11179,
+          "address": 11179,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteInterpreterAllocateTensors",
+          "offset": 11240,
+          "address": 11240,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteInterpreterCreate",
+          "offset": 11273,
+          "address": 11273,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteInterpreterDelete",
+          "offset": 11297,
+          "address": 11297,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteInterpreterGetInputTensor",
+          "offset": 11321,
+          "address": 11321,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteInterpreterGetInputTensorCount",
+          "offset": 11353,
+          "address": 11353,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteInterpreterGetOutputTensor",
+          "offset": 11390,
+          "address": 11390,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteInterpreterGetOutputTensorCount",
+          "offset": 11423,
+          "address": 11423,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteInterpreterInvoke",
+          "offset": 11461,
+          "address": 11461,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteInterpreterOptionsAddDelegate",
+          "offset": 11485,
+          "address": 11485,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteInterpreterOptionsCreate",
+          "offset": 11521,
+          "address": 11521,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteInterpreterOptionsDelete",
+          "offset": 11552,
+          "address": 11552,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteInterpreterOptionsSetErrorReporter",
+          "offset": 11583,
+          "address": 11583,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteInterpreterOptionsSetNumThreads",
+          "offset": 11624,
+          "address": 11624,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteInterpreterResizeInputTensor",
+          "offset": 11662,
+          "address": 11662,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteModelCreate",
+          "offset": 11697,
+          "address": 11697,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteModelCreateFromFile",
+          "offset": 11715,
+          "address": 11715,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteModelDelete",
+          "offset": 11741,
+          "address": 11741,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteTensorByteSize",
+          "offset": 11759,
+          "address": 11759,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteTensorCopyFromBuffer",
+          "offset": 11780,
+          "address": 11780,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteTensorCopyToBuffer",
+          "offset": 11807,
+          "address": 11807,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteTensorData",
+          "offset": 11832,
+          "address": 11832,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteTensorDim",
+          "offset": 11849,
+          "address": 11849,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteTensorName",
+          "offset": 11865,
+          "address": 11865,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteTensorNumDims",
+          "offset": 11882,
+          "address": 11882,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteTensorQuantizationParams",
+          "offset": 11902,
+          "address": 11902,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteTensorType",
+          "offset": 11933,
+          "address": 11933,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteIntArrayCopy",
+          "offset": 11958,
+          "address": 11958,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteTypeGetName",
+          "offset": 11977,
+          "address": 11977,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteIntArrayCreate",
+          "offset": 12006,
+          "address": 12006,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteIntArrayFree",
+          "offset": 12027,
+          "address": 12027,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteIntArrayEqual",
+          "offset": 12060,
+          "address": 12060,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteIntArrayEqualsArray",
+          "offset": 12080,
+          "address": 12080,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteTensorRealloc",
+          "offset": 12111,
+          "address": 12111,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteTensorCopy",
+          "offset": 12131,
+          "address": 12131,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteIntArrayGetSizeInBytes",
+          "offset": 12193,
+          "address": 12193,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteQuantizationFree",
+          "offset": 12222,
+          "address": 12222,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteSparsityFree",
+          "offset": 12245,
+          "address": 12245,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteTensorDataFree",
+          "offset": 12264,
+          "address": 12264,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteTensorFree",
+          "offset": 12285,
+          "address": 12285,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteTensorReset",
+          "offset": 12302,
+          "address": 12302,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteFloatArrayCreate",
+          "offset": 12320,
+          "address": 12320,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteXNNPackDelegateCreate",
+          "offset": 12463,
+          "address": 12463,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteXNNPackDelegateDelete",
+          "offset": 12491,
+          "address": 12491,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteXNNPackDelegateOptionsDefault",
+          "offset": 12519,
+          "address": 12519,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_nnapi_NnApiDelegate_createDelegate",
+          "offset": 12555,
+          "address": 12555,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_nnapi_NnApiDelegate_deleteDelegate",
+          "offset": 12615,
+          "address": 12615,
+          "section": ".dynstr"
+        },
+        {
+          "value": "Java_org_tensorflow_lite_nnapi_NnApiDelegate_getNnapiErrno",
+          "offset": 12675,
+          "address": 12675,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteDelegateCreate",
+          "offset": 12734,
+          "address": 12734,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteXNNPackDelegateGetThreadPool",
+          "offset": 12866,
+          "address": 12866,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteFloatArrayFree",
+          "offset": 13095,
+          "address": 13095,
+          "section": ".dynstr"
+        },
+        {
+          "value": "TfLiteFloatArrayGetSizeInBytes",
+          "offset": 13116,
+          "address": 13116,
+          "section": ".dynstr"
+        },
+        {
+          "value": "libtensorflowlite_jni.so",
+          "offset": 13571,
+          "address": 13571,
+          "section": ".dynstr"
+        },
+        {
+          "value": "N6tflite3jni19BufferErrorReporterE",
+          "offset": 1447728,
+          "address": 1447728,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite13ErrorReporterE",
+          "offset": 1447776,
+          "address": 1447776,
+          "section": ".rodata"
+        },
+        {
+          "value": "FlatBuffers 1.12.0",
+          "offset": 1448288,
+          "address": 1448288,
+          "section": ".rodata"
+        },
+        {
+          "value": "org/tensorflow/lite/XnnpackDelegate",
+          "offset": 1448695,
+          "address": 1448695,
+          "section": ".rodata"
+        },
+        {
+          "value": "Internal error: Can't find org/tensorflow/lite/XnnpackDelegate class",
+          "offset": 1448731,
+          "address": 1448731,
+          "section": ".rodata"
+        },
+        {
+          "value": "Internal error: Can't find org/tensorflow/lite/XnnpackDelegate constructor",
+          "offset": 1448813,
+          "address": 1448813,
+          "section": ".rodata"
+        },
+        {
+          "value": "Contents of %s does not encode a valid TensorFlow Lite model: %s",
+          "offset": 1449067,
+          "address": 1449067,
+          "section": ".rodata"
+        },
+        {
+          "value": "ByteBuffer is not a valid flatbuffer model",
+          "offset": 1449132,
+          "address": 1449132,
+          "section": ".rodata"
+        },
+        {
+          "value": "The model is not a valid Flatbuffer file",
+          "offset": 1450151,
+          "address": 1450151,
+          "section": ".rodata"
+        },
+        {
+          "value": "TFL3",
+          "offset": 1450192,
+          "address": 1450192,
+          "section": ".rodata"
+        },
+        {
+          "value": "N12_GLOBAL__N_121JNIFlatBufferVerifierE",
+          "offset": 1450208,
+          "address": 1450208,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite14TfLiteVerifierE",
+          "offset": 1450256,
+          "address": 1450256,
+          "section": ".rodata"
+        },
+        {
+          "value": "Internal error: Invalid handle to TfLiteTensor.",
+          "offset": 1450717,
+          "address": 1450717,
+          "section": ".rodata"
+        },
+        {
+          "value": "DataType error: TensorFlowLite currently supports float (32 bits), int (32 bits), byte (8 bits), bool (8 bits), and long (64 bits), support for other types (DataType %d in this case) will be added in the future",
+          "offset": 1450958,
+          "address": 1450958,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite23InterpreterTensorHandleE",
+          "offset": 1451376,
+          "address": 1451376,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite16TensorHandleImplE",
+          "offset": 1451424,
+          "address": 1451424,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite27SignatureRunnerTensorHandleE",
+          "offset": 1451456,
+          "address": 1451456,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite10OpResolverE",
+          "offset": 1451584,
+          "address": 1451584,
+          "section": ".rodata"
+        },
+        {
+          "value": "NSt6__ndk120__shared_ptr_pointerIPN6tflite15FlatBufferModelENS_14default_deleteIS2_EENS_9allocatorIS2_EEEE",
+          "offset": 1451712,
+          "address": 1451712,
+          "section": ".rodata"
+        },
+        {
+          "value": "NSt6__ndk114default_deleteIN6tflite15FlatBufferModelEEE",
+          "offset": 1451824,
+          "address": 1451824,
+          "section": ".rodata"
+        },
+        {
+          "value": "./tensorflow/lite/core/subgraph.h",
+          "offset": 1451968,
+          "address": 1451968,
+          "section": ".rodata"
+        },
+        {
+          "value": "t->buffer_handle != kTfLiteNullBufferHandle",
+          "offset": 1452025,
+          "address": 1452025,
+          "section": ".rodata"
+        },
+        {
+          "value": "TFLite_Detection_PostProcess",
+          "offset": 1452150,
+          "address": 1452150,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/activations.cc",
+          "offset": 1452590,
+          "address": 1452590,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/add.cc",
+          "offset": 1454484,
+          "address": 1454484,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/batch_matmul.cc",
+          "offset": 1455000,
+          "address": 1455000,
+          "section": ".rodata"
+        },
+        {
+          "value": "lhs_data->type == kTfLiteFloat32 || lhs_data->type == kTfLiteInt8 || lhs_data->type == kTfLiteInt16",
+          "offset": 1455096,
+          "address": 1455096,
+          "section": ".rodata"
+        },
+        {
+          "value": "rhs_data->type == kTfLiteFloat32 || rhs_data->type == kTfLiteInt8 || rhs_data->type == kTfLiteInt16",
+          "offset": 1455196,
+          "address": 1455196,
+          "section": ".rodata"
+        },
+        {
+          "value": "(lhs_data->type == kTfLiteFloat32 && rhs_data->type == kTfLiteInt8) || lhs_data->type == rhs_data->type",
+          "offset": 1455296,
+          "address": 1455296,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/cast.cc",
+          "offset": 1456540,
+          "address": 1456540,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/concatenation.cc",
+          "offset": 1456684,
+          "address": 1456684,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteActNone",
+          "offset": 1456766,
+          "address": 1456766,
+          "section": ".rodata"
+        },
+        {
+          "value": "input_type == kTfLiteFloat32 || input_type == kTfLiteUInt8 || input_type == kTfLiteInt8 || input_type == kTfLiteInt16 || input_type == kTfLiteInt32 || input_type == kTfLiteInt64 || input_type == kTfLiteBool",
+          "offset": 1456781,
+          "address": 1456781,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/conv.cc",
+          "offset": 1457188,
+          "address": 1457188,
+          "section": ".rodata"
+        },
+        {
+          "value": "input_type == kTfLiteFloat32 || input_type == kTfLiteUInt8 || input_type == kTfLiteInt8 || input_type == kTfLiteInt16",
+          "offset": 1457336,
+          "address": 1457336,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteAffineQuantization",
+          "offset": 1457480,
+          "address": 1457480,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteInt32",
+          "offset": 1457567,
+          "address": 1457567,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteInt64",
+          "offset": 1457604,
+          "address": 1457604,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/dequantize.cc",
+          "offset": 1458024,
+          "address": 1458024,
+          "section": ".rodata"
+        },
+        {
+          "value": "op_context.input->type == kTfLiteUInt8 || op_context.input->type == kTfLiteInt8 || op_context.input->type == kTfLiteInt16 || op_context.input->type == kTfLiteFloat16",
+          "offset": 1458062,
+          "address": 1458062,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/elementwise.cc",
+          "offset": 1458330,
+          "address": 1458330,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/elementwise.cc Rsqrt is only defined for positive values",
+          "offset": 1458779,
+          "address": 1458779,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/fully_connected.cc",
+          "offset": 1458928,
+          "address": 1458928,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteUInt8",
+          "offset": 1459162,
+          "address": 1459162,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteFloat32",
+          "offset": 1459214,
+          "address": 1459214,
+          "section": ".rodata"
+        },
+        {
+          "value": "input->type == kTfLiteUInt8 || input->type == kTfLiteInt8 || input->type == kTfLiteInt16",
+          "offset": 1459252,
+          "address": 1459252,
+          "section": ".rodata"
+        },
+        {
+          "value": "output->type == kTfLiteUInt8 || output->type == kTfLiteInt8 || output->type == kTfLiteInt16",
+          "offset": 1459341,
+          "address": 1459341,
+          "section": ".rodata"
+        },
+        {
+          "value": "params->activation == kTfLiteActNone || params->activation == kTfLiteActRelu || params->activation == kTfLiteActReluN1To1 || params->activation == kTfLiteActRelu6",
+          "offset": 1459453,
+          "address": 1459453,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/gather.cc",
+          "offset": 1459980,
+          "address": 1459980,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/mul.cc",
+          "offset": 1460355,
+          "address": 1460355,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/pack.cc",
+          "offset": 1460748,
+          "address": 1460748,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/range.cc",
+          "offset": 1460950,
+          "address": 1460950,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/reduce.cc",
+          "offset": 1461440,
+          "address": 1461440,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/reshape.cc",
+          "offset": 1465719,
+          "address": 1465719,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/shape.cc",
+          "offset": 1465853,
+          "address": 1465853,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/squared_difference.cc",
+          "offset": 1465936,
+          "address": 1465936,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/strided_slice.cc StridedSlice op only supports up to 5D output including added axis.",
+          "offset": 1466432,
+          "address": 1466432,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/strided_slice.cc stride value has to be non-zero",
+          "offset": 1466541,
+          "address": 1466541,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/strided_slice.cc",
+          "offset": 1466614,
+          "address": 1466614,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/strided_slice.cc StridedSlice op only supports 1D-5D input arrays.",
+          "offset": 1466925,
+          "address": 1466925,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/sub.cc",
+          "offset": 1467068,
+          "address": 1467068,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/transpose.cc",
+          "offset": 1467340,
+          "address": 1467340,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/transpose.cc Transpose op permutations array is out of bounds.",
+          "offset": 1467441,
+          "address": 1467441,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/kernels/transpose.cc Transpose op only supports 1D-5D input arrays.",
+          "offset": 1467528,
+          "address": 1467528,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteNoType",
+          "offset": 1468371,
+          "address": 1468371,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteUInt32",
+          "offset": 1468385,
+          "address": 1468385,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteInt8",
+          "offset": 1468399,
+          "address": 1468399,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteUInt64",
+          "offset": 1468411,
+          "address": 1468411,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteString",
+          "offset": 1468425,
+          "address": 1468425,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteComplex64",
+          "offset": 1468439,
+          "address": 1468439,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteComplex128",
+          "offset": 1468456,
+          "address": 1468456,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteFloat64",
+          "offset": 1468474,
+          "address": 1468474,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteResource",
+          "offset": 1468489,
+          "address": 1468489,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteVariant",
+          "offset": 1468505,
+          "address": 1468505,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteMemNone",
+          "offset": 1468530,
+          "address": 1468530,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteMmapRo",
+          "offset": 1468545,
+          "address": 1468545,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteDynamic",
+          "offset": 1468559,
+          "address": 1468559,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteArenaRw",
+          "offset": 1468574,
+          "address": 1468574,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteArenaRwPersistent",
+          "offset": 1468589,
+          "address": 1468589,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLitePersistentRo",
+          "offset": 1468614,
+          "address": 1468614,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteCustom",
+          "offset": 1468634,
+          "address": 1468634,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteDynamic Info: ",
+          "offset": 1468809,
+          "address": 1468809,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/core/subgraph.cc",
+          "offset": 1470559,
+          "address": 1470559,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/core/subgraph.cc BytesRequired number of elements overflowed.",
+          "offset": 1470781,
+          "address": 1470781,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/core/subgraph.cc BytesRequired number of bytes overflowed.",
+          "offset": 1470860,
+          "address": 1470860,
+          "section": ".rodata"
+        },
+        {
+          "value": "Select TensorFlow op(s), included in the given model, is(are) not supported by this interpreter. Make sure you apply/link the Flex delegate before inference. For the Android, it can be resolved by adding \"org.tensorflow:tensorflow-lite-select-tf-ops\" dependency. See instructions: https://www.tensorflow.org/lite/guide/ops_select",
+          "offset": 1471442,
+          "address": 1471442,
+          "section": ".rodata"
+        },
+        {
+          "value": "See instructions: https://www.tensorflow.org/lite/guide/ops_custom",
+          "offset": 1471810,
+          "address": 1471810,
+          "section": ".rodata"
+        },
+        {
+          "value": "(tensor->allocation_type == kTfLiteArenaRw || tensor->allocation_type == kTfLiteArenaRwPersistent || tensor->allocation_type == kTfLiteCustom)",
+          "offset": 1472743,
+          "address": 1472743,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite8SubgraphE",
+          "offset": 1473200,
+          "address": 1473200,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite15InterpreterInfoE",
+          "offset": 1473232,
+          "address": 1473232,
+          "section": ".rodata"
+        }
+      ],
+      "model": [
+        {
+          "value": "Unhandled fully-connected weights format",
+          "offset": 1459616,
+          "address": 1459616,
+          "section": ".rodata"
+        },
+        {
+          "value": "Unsupported sparse fully-connected weight format.",
+          "offset": 1459794,
+          "address": 1459794,
+          "section": ".rodata"
+        },
+        {
+          "value": "debug.tflite.trace",
+          "offset": 1475925,
+          "address": 1475925,
+          "section": ".rodata"
+        },
+        {
+          "value": "Unhandled fully-connected weights format.",
+          "offset": 1499951,
+          "address": 1499951,
+          "section": ".rodata"
+        },
+        {
+          "value": "unsupported non-default weights format in node #%d",
+          "offset": 1509164,
+          "address": 1509164,
+          "section": ".rodata"
+        }
+      ],
+      "nn_runtime": [
+        {
+          "value": "NNAPI delegate requested but no accelerators available.",
+          "offset": 1494776,
+          "address": 1494776,
+          "section": ".rodata"
+        },
+        {
+          "value": "creating NNAPI model",
+          "offset": 1494832,
+          "address": 1494832,
+          "section": ".rodata"
+        },
+        {
+          "value": "creating NNAPI model for given devices",
+          "offset": 1494907,
+          "address": 1494907,
+          "section": ".rodata"
+        },
+        {
+          "value": "creating NNAPI compilation",
+          "offset": 1494946,
+          "address": 1494946,
+          "section": ".rodata"
+        },
+        {
+          "value": "Attempted to call ANeuralNetworksCompilation_create from NNAPI delegate that is constructed from a support library",
+          "offset": 1494973,
+          "address": 1494973,
+          "section": ".rodata"
+        },
+        {
+          "value": "configuring NNAPI caching",
+          "offset": 1495120,
+          "address": 1495120,
+          "section": ".rodata"
+        },
+        {
+          "value": "completing NNAPI compilation",
+          "offset": 1495203,
+          "address": 1495203,
+          "section": ".rodata"
+        },
+        {
+          "value": "creating NNAPI burst",
+          "offset": 1495232,
+          "address": 1495232,
+          "section": ".rodata"
+        },
+        {
+          "value": "creating NNAPI execution",
+          "offset": 1495295,
+          "address": 1495295,
+          "section": ".rodata"
+        },
+        {
+          "value": "associating NNAPI execution input with a memory object",
+          "offset": 1495482,
+          "address": 1495482,
+          "section": ".rodata"
+        },
+        {
+          "value": "associating NNAPI execution output to a memory object",
+          "offset": 1495698,
+          "address": 1495698,
+          "section": ".rodata"
+        },
+        {
+          "value": "associating NNAPI execution state output to a memory object",
+          "offset": 1495752,
+          "address": 1495752,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensorflow/lite/delegates/nnapi/nnapi_delegate.cc",
+          "offset": 1495926,
+          "address": 1495926,
+          "section": ".rodata"
+        },
+        {
+          "value": "getting number of NNAPI devices",
+          "offset": 1496183,
+          "address": 1496183,
+          "section": ".rodata"
+        },
+        {
+          "value": "nnapi-reference",
+          "offset": 1496520,
+          "address": 1496520,
+          "section": ".rodata"
+        },
+        {
+          "value": "Could not find the specified NNAPI accelerator: %s. Must be one of: {%s}.",
+          "offset": 1496598,
+          "address": 1496598,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANEURALNETWORKS_NO_ERROR",
+          "offset": 1496672,
+          "address": 1496672,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANEURALNETWORKS_OUT_OF_MEMORY",
+          "offset": 1496697,
+          "address": 1496697,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANEURALNETWORKS_INCOMPLETE",
+          "offset": 1496727,
+          "address": 1496727,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANEURALNETWORKS_UNEXPECTED_NULL",
+          "offset": 1496754,
+          "address": 1496754,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANEURALNETWORKS_BAD_DATA",
+          "offset": 1496786,
+          "address": 1496786,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANEURALNETWORKS_OP_FAILED",
+          "offset": 1496811,
+          "address": 1496811,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANEURALNETWORKS_BAD_STATE",
+          "offset": 1496837,
+          "address": 1496837,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANEURALNETWORKS_UNMAPPABLE",
+          "offset": 1496863,
+          "address": 1496863,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANEURALNETWORKS_OUTPUT_INSUFFICIENT_SIZE",
+          "offset": 1496890,
+          "address": 1496890,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANEURALNETWORKS_UNAVAILABLE_DEVICE",
+          "offset": 1496931,
+          "address": 1496931,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANEURALNETWORKS_MISSED_DEADLINE_TRANSIENT",
+          "offset": 1496966,
+          "address": 1496966,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANEURALNETWORKS_MISSED_DEADLINE_PERSISTENT",
+          "offset": 1497008,
+          "address": 1497008,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANEURALNETWORKS_RESOURCE_EXHAUSTED_TRANSIENT",
+          "offset": 1497051,
+          "address": 1497051,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANEURALNETWORKS_RESOURCE_EXHAUSTED_PERSISTENT",
+          "offset": 1497096,
+          "address": 1497096,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANEURALNETWORKS_DEAD_OBJECT",
+          "offset": 1497142,
+          "address": 1497142,
+          "section": ".rodata"
+        },
+        {
+          "value": "Unknown NNAPI error code: ",
+          "offset": 1497170,
+          "address": 1497170,
+          "section": ".rodata"
+        },
+        {
+          "value": "Created TensorFlow Lite delegate for NNAPI.",
+          "offset": 1497513,
+          "address": 1497513,
+          "section": ".rodata"
+        },
+        {
+          "value": "nnapi error: unable to open both library %s (%s) and library %s (%s)",
+          "offset": 1500807,
+          "address": 1500807,
+          "section": ".rodata"
+        },
+        {
+          "value": "nnapi error: unable to open function %s",
+          "offset": 1500877,
+          "address": 1500877,
+          "section": ".rodata"
+        },
+        {
+          "value": "nnapi error: requires android sdk version to be at least %d",
+          "offset": 1500918,
+          "address": 1500918,
+          "section": ".rodata"
+        },
+        {
+          "value": "nnapi error: unable to open library %s",
+          "offset": 1500984,
+          "address": 1500984,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksMemory_createFromFd",
+          "offset": 1501024,
+          "address": 1501024,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksMemory_free",
+          "offset": 1501059,
+          "address": 1501059,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksModel_create",
+          "offset": 1501086,
+          "address": 1501086,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksModel_free",
+          "offset": 1501114,
+          "address": 1501114,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksModel_finish",
+          "offset": 1501140,
+          "address": 1501140,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksModel_addOperand",
+          "offset": 1501168,
+          "address": 1501168,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksModel_setOperandValue",
+          "offset": 1501200,
+          "address": 1501200,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksModel_setOperandSymmPerChannelQuantParams",
+          "offset": 1501237,
+          "address": 1501237,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksModel_setOperandValueFromMemory",
+          "offset": 1501294,
+          "address": 1501294,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksModel_addOperation",
+          "offset": 1501341,
+          "address": 1501341,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksModel_identifyInputsAndOutputs",
+          "offset": 1501375,
+          "address": 1501375,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksCompilation_create",
+          "offset": 1501421,
+          "address": 1501421,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksCompilation_free",
+          "offset": 1501455,
+          "address": 1501455,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksCompilation_setPreference",
+          "offset": 1501487,
+          "address": 1501487,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksCompilation_finish",
+          "offset": 1501528,
+          "address": 1501528,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksExecution_create",
+          "offset": 1501562,
+          "address": 1501562,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksExecution_free",
+          "offset": 1501594,
+          "address": 1501594,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksExecution_setInput",
+          "offset": 1501624,
+          "address": 1501624,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksExecution_setInputFromMemory",
+          "offset": 1501658,
+          "address": 1501658,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksExecution_setOutput",
+          "offset": 1501702,
+          "address": 1501702,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksExecution_setOutputFromMemory",
+          "offset": 1501737,
+          "address": 1501737,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksExecution_startCompute",
+          "offset": 1501782,
+          "address": 1501782,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksEvent_wait",
+          "offset": 1501820,
+          "address": 1501820,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksEvent_free",
+          "offset": 1501846,
+          "address": 1501846,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksModel_relaxComputationFloat32toFloat16",
+          "offset": 1501872,
+          "address": 1501872,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworks_getDeviceCount",
+          "offset": 1501926,
+          "address": 1501926,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworks_getDevice",
+          "offset": 1501957,
+          "address": 1501957,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksDevice_getName",
+          "offset": 1501983,
+          "address": 1501983,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksDevice_getVersion",
+          "offset": 1502013,
+          "address": 1502013,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksDevice_getFeatureLevel",
+          "offset": 1502046,
+          "address": 1502046,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksDevice_getType",
+          "offset": 1502084,
+          "address": 1502084,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksModel_getSupportedOperationsForDevices",
+          "offset": 1502114,
+          "address": 1502114,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksCompilation_createForDevices",
+          "offset": 1502168,
+          "address": 1502168,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksCompilation_setCaching",
+          "offset": 1502212,
+          "address": 1502212,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksExecution_compute",
+          "offset": 1502250,
+          "address": 1502250,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksExecution_getOutputOperandRank",
+          "offset": 1502283,
+          "address": 1502283,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksExecution_getOutputOperandDimensions",
+          "offset": 1502329,
+          "address": 1502329,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksBurst_create",
+          "offset": 1502381,
+          "address": 1502381,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksBurst_free",
+          "offset": 1502409,
+          "address": 1502409,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksExecution_burstCompute",
+          "offset": 1502435,
+          "address": 1502435,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksMemory_createFromAHardwareBuffer",
+          "offset": 1502473,
+          "address": 1502473,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksExecution_setMeasureTiming",
+          "offset": 1502521,
+          "address": 1502521,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksExecution_getDuration",
+          "offset": 1502563,
+          "address": 1502563,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksDevice_getExtensionSupport",
+          "offset": 1502600,
+          "address": 1502600,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksModel_getExtensionOperandType",
+          "offset": 1502642,
+          "address": 1502642,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksModel_getExtensionOperationType",
+          "offset": 1502687,
+          "address": 1502687,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksModel_setOperandExtensionData",
+          "offset": 1502734,
+          "address": 1502734,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksCompilation_setTimeout",
+          "offset": 1502779,
+          "address": 1502779,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksCompilation_setPriority",
+          "offset": 1502817,
+          "address": 1502817,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksExecution_setTimeout",
+          "offset": 1502856,
+          "address": 1502856,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksExecution_setLoopTimeout",
+          "offset": 1502892,
+          "address": 1502892,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksMemoryDesc_create",
+          "offset": 1502932,
+          "address": 1502932,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksMemoryDesc_free",
+          "offset": 1502965,
+          "address": 1502965,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksMemoryDesc_addInputRole",
+          "offset": 1502996,
+          "address": 1502996,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksMemoryDesc_addOutputRole",
+          "offset": 1503035,
+          "address": 1503035,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksMemoryDesc_setDimensions",
+          "offset": 1503075,
+          "address": 1503075,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksMemoryDesc_finish",
+          "offset": 1503115,
+          "address": 1503115,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksMemory_createFromDesc",
+          "offset": 1503148,
+          "address": 1503148,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksMemory_copy",
+          "offset": 1503185,
+          "address": 1503185,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksEvent_createFromSyncFenceFd",
+          "offset": 1503212,
+          "address": 1503212,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksEvent_getSyncFenceFd",
+          "offset": 1503255,
+          "address": 1503255,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksExecution_startComputeWithDependencies",
+          "offset": 1503291,
+          "address": 1503291,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworks_getRuntimeFeatureLevel",
+          "offset": 1503345,
+          "address": 1503345,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksExecution_enableInputAndOutputPadding",
+          "offset": 1503384,
+          "address": 1503384,
+          "section": ".rodata"
+        },
+        {
+          "value": "ANeuralNetworksExecution_setReusable",
+          "offset": 1503437,
+          "address": 1503437,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticCompilationInfo_getSessionId",
+          "offset": 1503474,
+          "address": 1503474,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticCompilationInfo_getNnApiVersion",
+          "offset": 1503531,
+          "address": 1503531,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticCompilationInfo_getModelArchHash",
+          "offset": 1503591,
+          "address": 1503591,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticCompilationInfo_getDeviceIds",
+          "offset": 1503652,
+          "address": 1503652,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticCompilationInfo_getErrorCode",
+          "offset": 1503709,
+          "address": 1503709,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticCompilationInfo_getInputDataClass",
+          "offset": 1503766,
+          "address": 1503766,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticCompilationInfo_getOutputDataClass",
+          "offset": 1503828,
+          "address": 1503828,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticCompilationInfo_getCompilationTimeNanos",
+          "offset": 1503891,
+          "address": 1503891,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticCompilationInfo_isCachingEnabled",
+          "offset": 1503959,
+          "address": 1503959,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticCompilationInfo_isControlFlowUsed",
+          "offset": 1504020,
+          "address": 1504020,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticCompilationInfo_areDynamicTensorsUsed",
+          "offset": 1504082,
+          "address": 1504082,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticExecutionInfo_getSessionId",
+          "offset": 1504148,
+          "address": 1504148,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticExecutionInfo_getNnApiVersion",
+          "offset": 1504203,
+          "address": 1504203,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticExecutionInfo_getModelArchHash",
+          "offset": 1504261,
+          "address": 1504261,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticExecutionInfo_getDeviceIds",
+          "offset": 1504320,
+          "address": 1504320,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticExecutionInfo_getExecutionMode",
+          "offset": 1504375,
+          "address": 1504375,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticExecutionInfo_getInputDataClass",
+          "offset": 1504434,
+          "address": 1504434,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticExecutionInfo_getOutputDataClass",
+          "offset": 1504494,
+          "address": 1504494,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticExecutionInfo_getErrorCode",
+          "offset": 1504555,
+          "address": 1504555,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticExecutionInfo_getRuntimeExecutionTimeNanos",
+          "offset": 1504610,
+          "address": 1504610,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticExecutionInfo_getDriverExecutionTimeNanos",
+          "offset": 1504681,
+          "address": 1504681,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticExecutionInfo_getHardwareExecutionTimeNanos",
+          "offset": 1504751,
+          "address": 1504751,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticExecutionInfo_isCachingEnabled",
+          "offset": 1504823,
+          "address": 1504823,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticExecutionInfo_isControlFlowUsed",
+          "offset": 1504882,
+          "address": 1504882,
+          "section": ".rodata"
+        },
+        {
+          "value": "SL_ANeuralNetworksDiagnosticExecutionInfo_areDynamicTensorsUsed",
+          "offset": 1504942,
+          "address": 1504942,
+          "section": ".rodata"
+        },
+        {
+          "value": "libneuralnetworks.so",
+          "offset": 1505027,
+          "address": 1505027,
+          "section": ".rodata"
+        }
+      ],
+      "face": [
+        {
+          "value": "posix_memalign",
+          "offset": 13030,
+          "address": 13030,
+          "section": ".dynstr"
+        },
+        {
+          "value": "data_ptr_value % kDefaultTensorAlignment == 0",
+          "offset": 1472913,
+          "address": 1472913,
+          "section": ".rodata"
+        },
+        {
+          "value": "alignment <= arena_alignment_",
+          "offset": 1490816,
+          "address": 1490816,
+          "section": ".rodata"
+        },
+        {
+          "value": "alignof (",
+          "offset": 1530385,
+          "address": 1530385,
+          "section": ".rodata"
+        }
+      ],
+      "ocr": [],
+      "asr": [],
+      "segment": [
+        {
+          "value": "SEGMENT_SUM",
+          "offset": 1470131,
+          "address": 1470131,
+          "section": ".rodata"
+        }
+      ],
+      "model_name": []
+    },
+    "counts": {
+      "tflite": 247,
+      "model": 5,
+      "nn_runtime": 128,
+      "face": 4,
+      "ocr": 0,
+      "asr": 0,
+      "segment": 1,
+      "model_name": 0
+    },
+    "note": "strings from SHF_ALLOC non-executable sections; case-insensitive substring match, capped per category"
+  },
+  "statistics": {
+    "exports": 109,
+    "imports": 112,
+    "jni_entrypoints": 59,
+    "sections": 26,
+    "segments": 7
+  }
+}

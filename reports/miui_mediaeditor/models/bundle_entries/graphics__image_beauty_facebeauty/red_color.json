@@ -1,0 +1,122 @@
+{
+    "red_normal_lip": [
+        115,
+        63,
+        70
+    ],
+    "red_normal_face": [
+        128,
+        105,
+        107
+    ],
+    "red_normal_brown": [
+        102,
+        100,
+        100
+    ],
+    "red_rixi_lip": [
+        87,
+        43,
+        54
+    ],
+    "red_rixi_face": [
+        109,
+        62,
+        95
+    ],
+    "red_rixi_brown": [
+        100,
+        100,
+        100
+    ],
+    "red_zhigan_lip": [
+        112,
+        88,
+        85
+    ],
+    "red_zhigan_face": [
+        67,
+        40,
+        45
+    ],
+    "red_zhigan_brown": [
+        48,
+        42,
+        42
+    ],
+    "red_qinshu_lip": [
+        95,
+        0,
+        23
+    ],
+    "red_qinshu_face": [
+        98,
+        62,
+        72
+    ],
+    "red_qinshu_brown": [
+        50,
+        41,
+        41
+    ],
+    "red_jingdian_lip": [
+        177,
+        63,
+        64
+    ],
+    "red_jingdian_face": [
+        141,
+        90,
+        90
+    ],
+    "red_jingdian_brown": [
+        70,
+        59,
+        56
+    ],
+    "red_ziran_lip": [
+        114,
+        33,
+        33
+    ],
+    "red_ziran_face": [
+        120,
+        81,
+        93
+    ],
+    "red_ziran_brown": [
+        70,
+        59,
+        56
+    ],
+    "red_light_lip": [
+        102,
+        51,
+        26
+    ],
+    "red_light_face": [
+        120,
+        81,
+        93
+    ],
+    "red_light_brown": [
+        102,
+        100,
+        100
+    ],
+    "red_strong_lip": [
+        114,
+        33,
+        33
+    ],
+    "red_strong_face": [
+        120,
+        81,
+        93
+    ],
+    "red_strong_brown": [
+        102,
+        100,
+        100
+    ]
+}

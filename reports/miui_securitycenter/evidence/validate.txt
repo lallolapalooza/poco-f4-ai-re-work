@@ -1,0 +1,2 @@
+findings.json VALID
+findings.json VALID (schema + data_pipelines=7)  [pipeline patch]

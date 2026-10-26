@@ -1,0 +1,5191 @@
+{
+  "buffer_count": 134,
+  "conversion": {
+    "inputs": [
+      {
+        "dtype": "FLOAT32",
+        "name": "inputs",
+        "quantization": {
+          "max": [],
+          "min": [],
+          "quantized_dimension": 0,
+          "scale": [],
+          "scheme": "none",
+          "zero_point": []
+        },
+        "shape": [
+          1,
+          64,
+          64,
+          1
+        ],
+        "tensor_index": 0
+      }
+    ],
+    "model": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/work/bundles/ai_face_processor_detect_landmark/s1.tflite",
+    "model_file": "model.py",
+    "outputs": [
+      {
+        "dtype": "FLOAT32",
+        "name": "Identity",
+        "quantization": {
+          "max": [],
+          "min": [],
+          "quantized_dimension": 0,
+          "scale": [],
+          "scheme": "none",
+          "zero_point": []
+        },
+        "shape": [
+          91,
+          2
+        ],
+        "tensor_index": 129
+      },
+      {
+        "dtype": "FLOAT32",
+        "name": "Identity_1",
+        "quantization": {
+          "max": [],
+          "min": [],
+          "quantized_dimension": 0,
+          "scale": [],
+          "scheme": "none",
+          "zero_point": []
+        },
+        "shape": [
+          2
+        ],
+        "tensor_index": 131
+      }
+    ],
+    "params_file": "params.npz",
+    "selection_reason": "subgraph 0 (model has no signature defs)",
+    "signature_key": null,
+    "status": "ok",
+    "subgraph_index": 0,
+    "subgraph_name": "main",
+    "subgraph_role": "inference"
+  },
+  "description": "MLIR Converted.",
+  "file_size": 672836,
+  "format": "tflite_ir/1",
+  "model_version": 3,
+  "operator_codes": [
+    {
+      "builtin_code": 3,
+      "builtin_name": "CONV_2D",
+      "custom_code": null,
+      "index": 0,
+      "version": 1
+    },
+    {
+      "builtin_code": 4,
+      "builtin_name": "DEPTHWISE_CONV_2D",
+      "custom_code": null,
+      "index": 1,
+      "version": 1
+    },
+    {
+      "builtin_code": 0,
+      "builtin_name": "ADD",
+      "custom_code": null,
+      "index": 2,
+      "version": 1
+    },
+    {
+      "builtin_code": 1,
+      "builtin_name": "AVERAGE_POOL_2D",
+      "custom_code": null,
+      "index": 3,
+      "version": 1
+    },
+    {
+      "builtin_code": 22,
+      "builtin_name": "RESHAPE",
+      "custom_code": null,
+      "index": 4,
+      "version": 1
+    },
+    {
+      "builtin_code": 25,
+      "builtin_name": "SOFTMAX",
+      "custom_code": null,
+      "index": 5,
+      "version": 1
+    }
+  ],
+  "path": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/work/bundles/ai_face_processor_detect_landmark/s1.tflite",
+  "signatures": [],
+  "subgraphs": [
+    {
+      "index": 0,
+      "inputs": [
+        0
+      ],
+      "name": "main",
+      "operators": [
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 0,
+          "inputs": [
+            0,
+            77,
+            32
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU",
+            "Padding": "SAME",
+            "QuantizedBiasType": 0,
+            "StrideH": 2,
+            "StrideW": 2
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            80
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 1,
+          "inputs": [
+            80,
+            75,
+            31
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            81
+          ]
+        },
+        {
+          "builtin_code": 4,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 2,
+          "inputs": [
+            81,
+            74,
+            76
+          ],
+          "intermediates": [],
+          "op": "DEPTHWISE_CONV_2D",
+          "opcode_index": 1,
+          "opcode_version": 1,
+          "options": {
+            "DepthMultiplier": 1,
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "SAME",
+            "StrideH": 2,
+            "StrideW": 2
+          },
+          "options_type": "DepthwiseConv2DOptions",
+          "outputs": [
+            82
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 3,
+          "inputs": [
+            82,
+            73,
+            30
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU6",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            83
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 4,
+          "inputs": [
+            83,
+            72,
+            29
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU6",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            84
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 5,
+          "inputs": [
+            84,
+            70,
+            28
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            85
+          ]
+        },
+        {
+          "builtin_code": 4,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 6,
+          "inputs": [
+            85,
+            69,
+            71
+          ],
+          "intermediates": [],
+          "op": "DEPTHWISE_CONV_2D",
+          "opcode_index": 1,
+          "opcode_version": 1,
+          "options": {
+            "DepthMultiplier": 1,
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "SAME",
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "DepthwiseConv2DOptions",
+          "outputs": [
+            86
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 7,
+          "inputs": [
+            86,
+            68,
+            27
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU6",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            87
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 8,
+          "inputs": [
+            87,
+            67,
+            26
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            88
+          ]
+        },
+        {
+          "builtin_code": 0,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 9,
+          "inputs": [
+            88,
+            84
+          ],
+          "intermediates": [],
+          "op": "ADD",
+          "opcode_index": 2,
+          "opcode_version": 1,
+          "options": {
+            "FusedActivationFunction": "RELU6",
+            "PotScaleInt16": true
+          },
+          "options_type": "AddOptions",
+          "outputs": [
+            89
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 10,
+          "inputs": [
+            89,
+            66,
+            25
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            90
+          ]
+        },
+        {
+          "builtin_code": 4,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 11,
+          "inputs": [
+            90,
+            65,
+            71
+          ],
+          "intermediates": [],
+          "op": "DEPTHWISE_CONV_2D",
+          "opcode_index": 1,
+          "opcode_version": 1,
+          "options": {
+            "DepthMultiplier": 1,
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "SAME",
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "DepthwiseConv2DOptions",
+          "outputs": [
+            91
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 12,
+          "inputs": [
+            91,
+            64,
+            24
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU6",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            92
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 13,
+          "inputs": [
+            92,
+            63,
+            23
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            93
+          ]
+        },
+        {
+          "builtin_code": 0,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 14,
+          "inputs": [
+            93,
+            89
+          ],
+          "intermediates": [],
+          "op": "ADD",
+          "opcode_index": 2,
+          "opcode_version": 1,
+          "options": {
+            "FusedActivationFunction": "RELU6",
+            "PotScaleInt16": true
+          },
+          "options_type": "AddOptions",
+          "outputs": [
+            94
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 15,
+          "inputs": [
+            94,
+            62,
+            22
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            95
+          ]
+        },
+        {
+          "builtin_code": 4,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 16,
+          "inputs": [
+            95,
+            61,
+            71
+          ],
+          "intermediates": [],
+          "op": "DEPTHWISE_CONV_2D",
+          "opcode_index": 1,
+          "opcode_version": 1,
+          "options": {
+            "DepthMultiplier": 1,
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "SAME",
+            "StrideH": 2,
+            "StrideW": 2
+          },
+          "options_type": "DepthwiseConv2DOptions",
+          "outputs": [
+            96
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 17,
+          "inputs": [
+            96,
+            60,
+            21
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU6",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            97
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 18,
+          "inputs": [
+            97,
+            59,
+            20
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU6",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            98
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 19,
+          "inputs": [
+            98,
+            57,
+            19
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            99
+          ]
+        },
+        {
+          "builtin_code": 4,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 20,
+          "inputs": [
+            99,
+            56,
+            58
+          ],
+          "intermediates": [],
+          "op": "DEPTHWISE_CONV_2D",
+          "opcode_index": 1,
+          "opcode_version": 1,
+          "options": {
+            "DepthMultiplier": 1,
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "SAME",
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "DepthwiseConv2DOptions",
+          "outputs": [
+            100
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 21,
+          "inputs": [
+            100,
+            55,
+            18
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU6",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            101
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 22,
+          "inputs": [
+            101,
+            54,
+            17
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            102
+          ]
+        },
+        {
+          "builtin_code": 0,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 23,
+          "inputs": [
+            102,
+            98
+          ],
+          "intermediates": [],
+          "op": "ADD",
+          "opcode_index": 2,
+          "opcode_version": 1,
+          "options": {
+            "FusedActivationFunction": "RELU6",
+            "PotScaleInt16": true
+          },
+          "options_type": "AddOptions",
+          "outputs": [
+            103
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 24,
+          "inputs": [
+            103,
+            53,
+            16
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            104
+          ]
+        },
+        {
+          "builtin_code": 4,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 25,
+          "inputs": [
+            104,
+            52,
+            58
+          ],
+          "intermediates": [],
+          "op": "DEPTHWISE_CONV_2D",
+          "opcode_index": 1,
+          "opcode_version": 1,
+          "options": {
+            "DepthMultiplier": 1,
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "SAME",
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "DepthwiseConv2DOptions",
+          "outputs": [
+            105
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 26,
+          "inputs": [
+            105,
+            51,
+            15
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU6",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            106
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 27,
+          "inputs": [
+            106,
+            50,
+            14
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            107
+          ]
+        },
+        {
+          "builtin_code": 0,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 28,
+          "inputs": [
+            107,
+            103
+          ],
+          "intermediates": [],
+          "op": "ADD",
+          "opcode_index": 2,
+          "opcode_version": 1,
+          "options": {
+            "FusedActivationFunction": "RELU6",
+            "PotScaleInt16": true
+          },
+          "options_type": "AddOptions",
+          "outputs": [
+            108
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 29,
+          "inputs": [
+            108,
+            49,
+            13
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            109
+          ]
+        },
+        {
+          "builtin_code": 4,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 30,
+          "inputs": [
+            109,
+            48,
+            58
+          ],
+          "intermediates": [],
+          "op": "DEPTHWISE_CONV_2D",
+          "opcode_index": 1,
+          "opcode_version": 1,
+          "options": {
+            "DepthMultiplier": 1,
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "SAME",
+            "StrideH": 2,
+            "StrideW": 2
+          },
+          "options_type": "DepthwiseConv2DOptions",
+          "outputs": [
+            110
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 31,
+          "inputs": [
+            110,
+            47,
+            12
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU6",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            111
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 32,
+          "inputs": [
+            111,
+            46,
+            11
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU6",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            112
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 33,
+          "inputs": [
+            112,
+            44,
+            10
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            113
+          ]
+        },
+        {
+          "builtin_code": 4,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 34,
+          "inputs": [
+            113,
+            43,
+            45
+          ],
+          "intermediates": [],
+          "op": "DEPTHWISE_CONV_2D",
+          "opcode_index": 1,
+          "opcode_version": 1,
+          "options": {
+            "DepthMultiplier": 1,
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "SAME",
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "DepthwiseConv2DOptions",
+          "outputs": [
+            114
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 35,
+          "inputs": [
+            114,
+            42,
+            9
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU6",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            115
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 36,
+          "inputs": [
+            115,
+            41,
+            8
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            116
+          ]
+        },
+        {
+          "builtin_code": 0,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 37,
+          "inputs": [
+            116,
+            112
+          ],
+          "intermediates": [],
+          "op": "ADD",
+          "opcode_index": 2,
+          "opcode_version": 1,
+          "options": {
+            "FusedActivationFunction": "RELU6",
+            "PotScaleInt16": true
+          },
+          "options_type": "AddOptions",
+          "outputs": [
+            117
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 38,
+          "inputs": [
+            117,
+            40,
+            7
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            118
+          ]
+        },
+        {
+          "builtin_code": 4,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 39,
+          "inputs": [
+            118,
+            39,
+            45
+          ],
+          "intermediates": [],
+          "op": "DEPTHWISE_CONV_2D",
+          "opcode_index": 1,
+          "opcode_version": 1,
+          "options": {
+            "DepthMultiplier": 1,
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "SAME",
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "DepthwiseConv2DOptions",
+          "outputs": [
+            119
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 40,
+          "inputs": [
+            119,
+            38,
+            6
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "RELU6",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            120
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 41,
+          "inputs": [
+            120,
+            37,
+            5
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "VALID",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            121
+          ]
+        },
+        {
+          "builtin_code": 0,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 42,
+          "inputs": [
+            121,
+            117
+          ],
+          "intermediates": [],
+          "op": "ADD",
+          "opcode_index": 2,
+          "opcode_version": 1,
+          "options": {
+            "FusedActivationFunction": "RELU6",
+            "PotScaleInt16": true
+          },
+          "options_type": "AddOptions",
+          "outputs": [
+            122
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 43,
+          "inputs": [
+            122,
+            36,
+            4
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "SAME",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            123
+          ]
+        },
+        {
+          "builtin_code": 1,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 44,
+          "inputs": [
+            123
+          ],
+          "intermediates": [],
+          "op": "AVERAGE_POOL_2D",
+          "opcode_index": 3,
+          "opcode_version": 1,
+          "options": {
+            "FilterHeight": 4,
+            "FilterWidth": 4,
+            "FusedActivationFunction": "NONE",
+            "Padding": "SAME",
+            "StrideH": 4,
+            "StrideW": 4
+          },
+          "options_type": "Pool2DOptions",
+          "outputs": [
+            124
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 45,
+          "inputs": [
+            124,
+            35,
+            3
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "SAME",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            125
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 46,
+          "inputs": [
+            122,
+            34,
+            2
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "SAME",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            126
+          ]
+        },
+        {
+          "builtin_code": 1,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 47,
+          "inputs": [
+            126
+          ],
+          "intermediates": [],
+          "op": "AVERAGE_POOL_2D",
+          "opcode_index": 3,
+          "opcode_version": 1,
+          "options": {
+            "FilterHeight": 4,
+            "FilterWidth": 4,
+            "FusedActivationFunction": "NONE",
+            "Padding": "SAME",
+            "StrideH": 4,
+            "StrideW": 4
+          },
+          "options_type": "Pool2DOptions",
+          "outputs": [
+            127
+          ]
+        },
+        {
+          "builtin_code": 3,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 48,
+          "inputs": [
+            127,
+            33,
+            1
+          ],
+          "intermediates": [],
+          "op": "CONV_2D",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "DilationHFactor": 1,
+            "DilationWFactor": 1,
+            "FusedActivationFunction": "NONE",
+            "Padding": "SAME",
+            "QuantizedBiasType": 0,
+            "StrideH": 1,
+            "StrideW": 1
+          },
+          "options_type": "Conv2DOptions",
+          "outputs": [
+            128
+          ]
+        },
+        {
+          "builtin_code": 22,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 49,
+          "inputs": [
+            125,
+            78
+          ],
+          "intermediates": [],
+          "op": "RESHAPE",
+          "opcode_index": 4,
+          "opcode_version": 1,
+          "options": {},
+          "options_type": null,
+          "outputs": [
+            129
+          ]
+        },
+        {
+          "builtin_code": 22,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 50,
+          "inputs": [
+            128,
+            79
+          ],
+          "intermediates": [],
+          "op": "RESHAPE",
+          "opcode_index": 4,
+          "opcode_version": 1,
+          "options": {},
+          "options_type": null,
+          "outputs": [
+            130
+          ]
+        },
+        {
+          "builtin_code": 25,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 51,
+          "inputs": [
+            130
+          ],
+          "intermediates": [],
+          "op": "SOFTMAX",
+          "opcode_index": 5,
+          "opcode_version": 1,
+          "options": {
+            "Beta": 1.0
+          },
+          "options_type": "SoftmaxOptions",
+          "outputs": [
+            131
+          ]
+        }
+      ],
+      "outputs": [
+        129,
+        131
+      ],
+      "role": "inference",
+      "stateful": false,
+      "tensors": [
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 1,
+          "dtype": "FLOAT32",
+          "index": 0,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "inputs",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            64,
+            64,
+            1
+          ],
+          "shape_signature": [
+            -1,
+            64,
+            64,
+            1
+          ]
+        },
+        {
+          "buffer_bytes": 8,
+          "buffer_index": 2,
+          "dtype": "FLOAT32",
+          "index": 1,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_25/BiasAdd;model/conv2d_25/Conv2D;model/conv2d_25/BiasAdd/ReadVariableOp/resource",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            2
+          ],
+          "shape_signature": [
+            2
+          ]
+        },
+        {
+          "buffer_bytes": 384,
+          "buffer_index": 3,
+          "dtype": "FLOAT32",
+          "index": 2,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_24/BiasAdd;model/conv2d_13/Conv2D;model/conv2d_24/Conv2D;model/conv2d_24/BiasAdd/ReadVariableOp/resource",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            96
+          ],
+          "shape_signature": [
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 728,
+          "buffer_index": 4,
+          "dtype": "FLOAT32",
+          "index": 3,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_21/BiasAdd;model/conv2d_21/Conv2D;model/conv2d_21/BiasAdd/ReadVariableOp/resource",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            182
+          ],
+          "shape_signature": [
+            182
+          ]
+        },
+        {
+          "buffer_bytes": 1024,
+          "buffer_index": 5,
+          "dtype": "FLOAT32",
+          "index": 4,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_20/BiasAdd;model/conv2d_20/Conv2D;model/conv2d_20/BiasAdd/ReadVariableOp/resource",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            256
+          ],
+          "shape_signature": [
+            256
+          ]
+        },
+        {
+          "buffer_bytes": 384,
+          "buffer_index": 6,
+          "dtype": "FLOAT32",
+          "index": 5,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_26/FusedBatchNormV3;model/conv2d_17/BiasAdd/ReadVariableOp/resource;model/conv2d_17/BiasAdd;model/conv2d_13/Conv2D;model/conv2d_17/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            96
+          ],
+          "shape_signature": [
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 384,
+          "buffer_index": 7,
+          "dtype": "FLOAT32",
+          "index": 6,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_25/FusedBatchNormV3;model/separable_conv2d_8/BiasAdd/ReadVariableOp/resource;model/separable_conv2d_8/BiasAdd;model/conv2d_13/Conv2D;model/separable_conv2d_8/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            96
+          ],
+          "shape_signature": [
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 384,
+          "buffer_index": 8,
+          "dtype": "FLOAT32",
+          "index": 7,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_24/FusedBatchNormV3;model/conv2d_16/BiasAdd/ReadVariableOp/resource;model/conv2d_16/BiasAdd;model/conv2d_13/Conv2D;model/conv2d_16/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            96
+          ],
+          "shape_signature": [
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 384,
+          "buffer_index": 9,
+          "dtype": "FLOAT32",
+          "index": 8,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_23/FusedBatchNormV3;model/conv2d_15/BiasAdd/ReadVariableOp/resource;model/conv2d_15/BiasAdd;model/conv2d_13/Conv2D;model/conv2d_15/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            96
+          ],
+          "shape_signature": [
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 384,
+          "buffer_index": 10,
+          "dtype": "FLOAT32",
+          "index": 9,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_22/FusedBatchNormV3;model/separable_conv2d_7/BiasAdd/ReadVariableOp/resource;model/separable_conv2d_7/BiasAdd;model/conv2d_13/Conv2D;model/separable_conv2d_7/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            96
+          ],
+          "shape_signature": [
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 384,
+          "buffer_index": 11,
+          "dtype": "FLOAT32",
+          "index": 10,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_21/FusedBatchNormV3;model/conv2d_14/BiasAdd/ReadVariableOp/resource;model/conv2d_14/BiasAdd;model/conv2d_13/Conv2D;model/conv2d_14/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            96
+          ],
+          "shape_signature": [
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 384,
+          "buffer_index": 12,
+          "dtype": "FLOAT32",
+          "index": 11,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_20/FusedBatchNormV3;model/conv2d_13/BiasAdd/ReadVariableOp/resource;model/conv2d_13/BiasAdd;model/conv2d_13/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            96
+          ],
+          "shape_signature": [
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 144,
+          "buffer_index": 13,
+          "dtype": "FLOAT32",
+          "index": 12,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_19/FusedBatchNormV3;model/separable_conv2d_6/BiasAdd/ReadVariableOp/resource;model/separable_conv2d_6/BiasAdd;model/conv2d_7/Conv2D;model/separable_conv2d_6/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            36
+          ],
+          "shape_signature": [
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 144,
+          "buffer_index": 14,
+          "dtype": "FLOAT32",
+          "index": 13,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_18/FusedBatchNormV3;model/conv2d_12/BiasAdd/ReadVariableOp/resource;model/conv2d_12/BiasAdd;model/conv2d_7/Conv2D;model/conv2d_12/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            36
+          ],
+          "shape_signature": [
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 144,
+          "buffer_index": 15,
+          "dtype": "FLOAT32",
+          "index": 14,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_17/FusedBatchNormV3;model/conv2d_11/BiasAdd/ReadVariableOp/resource;model/conv2d_11/BiasAdd;model/conv2d_7/Conv2D;model/conv2d_11/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            36
+          ],
+          "shape_signature": [
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 144,
+          "buffer_index": 16,
+          "dtype": "FLOAT32",
+          "index": 15,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_16/FusedBatchNormV3;model/separable_conv2d_5/BiasAdd/ReadVariableOp/resource;model/separable_conv2d_5/BiasAdd;model/conv2d_7/Conv2D;model/separable_conv2d_5/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            36
+          ],
+          "shape_signature": [
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 144,
+          "buffer_index": 17,
+          "dtype": "FLOAT32",
+          "index": 16,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_15/FusedBatchNormV3;model/conv2d_10/BiasAdd/ReadVariableOp/resource;model/conv2d_10/BiasAdd;model/conv2d_7/Conv2D;model/conv2d_10/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            36
+          ],
+          "shape_signature": [
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 144,
+          "buffer_index": 18,
+          "dtype": "FLOAT32",
+          "index": 17,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_14/FusedBatchNormV3;model/conv2d_9/BiasAdd/ReadVariableOp/resource;model/conv2d_9/BiasAdd;model/conv2d_7/Conv2D;model/conv2d_9/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            36
+          ],
+          "shape_signature": [
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 144,
+          "buffer_index": 19,
+          "dtype": "FLOAT32",
+          "index": 18,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_13/FusedBatchNormV3;model/separable_conv2d_4/BiasAdd/ReadVariableOp/resource;model/separable_conv2d_4/BiasAdd;model/conv2d_7/Conv2D;model/separable_conv2d_4/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            36
+          ],
+          "shape_signature": [
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 144,
+          "buffer_index": 20,
+          "dtype": "FLOAT32",
+          "index": 19,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_12/FusedBatchNormV3;model/conv2d_8/BiasAdd/ReadVariableOp/resource;model/conv2d_8/BiasAdd;model/conv2d_7/Conv2D;model/conv2d_8/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            36
+          ],
+          "shape_signature": [
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 144,
+          "buffer_index": 21,
+          "dtype": "FLOAT32",
+          "index": 20,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_11/FusedBatchNormV3;model/conv2d_7/BiasAdd/ReadVariableOp/resource;model/conv2d_7/BiasAdd;model/conv2d_7/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            36
+          ],
+          "shape_signature": [
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 96,
+          "buffer_index": 22,
+          "dtype": "FLOAT32",
+          "index": 21,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_10/FusedBatchNormV3;model/separable_conv2d_3/BiasAdd/ReadVariableOp/resource;model/separable_conv2d_3/BiasAdd;model/conv2d_1/Conv2D;model/separable_conv2d_3/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            24
+          ],
+          "shape_signature": [
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 96,
+          "buffer_index": 23,
+          "dtype": "FLOAT32",
+          "index": 22,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_9/FusedBatchNormV3;model/conv2d_6/BiasAdd/ReadVariableOp/resource;model/conv2d_6/BiasAdd;model/conv2d_1/Conv2D;model/conv2d_6/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            24
+          ],
+          "shape_signature": [
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 96,
+          "buffer_index": 24,
+          "dtype": "FLOAT32",
+          "index": 23,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_8/FusedBatchNormV3;model/conv2d_5/BiasAdd/ReadVariableOp/resource;model/conv2d_5/BiasAdd;model/conv2d_1/Conv2D;model/conv2d_5/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            24
+          ],
+          "shape_signature": [
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 96,
+          "buffer_index": 25,
+          "dtype": "FLOAT32",
+          "index": 24,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_7/FusedBatchNormV3;model/separable_conv2d_2/BiasAdd/ReadVariableOp/resource;model/separable_conv2d_2/BiasAdd;model/conv2d_1/Conv2D;model/separable_conv2d_2/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            24
+          ],
+          "shape_signature": [
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 96,
+          "buffer_index": 26,
+          "dtype": "FLOAT32",
+          "index": 25,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_6/FusedBatchNormV3;model/conv2d_4/BiasAdd/ReadVariableOp/resource;model/conv2d_4/BiasAdd;model/conv2d_1/Conv2D;model/conv2d_4/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            24
+          ],
+          "shape_signature": [
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 96,
+          "buffer_index": 27,
+          "dtype": "FLOAT32",
+          "index": 26,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_5/FusedBatchNormV3;model/conv2d_3/BiasAdd/ReadVariableOp/resource;model/conv2d_3/BiasAdd;model/conv2d_1/Conv2D;model/conv2d_3/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            24
+          ],
+          "shape_signature": [
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 96,
+          "buffer_index": 28,
+          "dtype": "FLOAT32",
+          "index": 27,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_4/FusedBatchNormV3;model/separable_conv2d_1/BiasAdd/ReadVariableOp/resource;model/separable_conv2d_1/BiasAdd;model/conv2d_1/Conv2D;model/separable_conv2d_1/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            24
+          ],
+          "shape_signature": [
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 96,
+          "buffer_index": 29,
+          "dtype": "FLOAT32",
+          "index": 28,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_3/FusedBatchNormV3;model/conv2d_2/BiasAdd/ReadVariableOp/resource;model/conv2d_2/BiasAdd;model/conv2d_1/Conv2D;model/conv2d_2/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            24
+          ],
+          "shape_signature": [
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 96,
+          "buffer_index": 30,
+          "dtype": "FLOAT32",
+          "index": 29,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_2/FusedBatchNormV3;model/conv2d_1/BiasAdd/ReadVariableOp/resource;model/conv2d_1/BiasAdd;model/conv2d_1/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            24
+          ],
+          "shape_signature": [
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 64,
+          "buffer_index": 31,
+          "dtype": "FLOAT32",
+          "index": 30,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization_1/FusedBatchNormV3;model/separable_conv2d/BiasAdd/ReadVariableOp/resource;model/separable_conv2d/BiasAdd;model/conv1/Conv2D;model/separable_conv2d/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            16
+          ],
+          "shape_signature": [
+            16
+          ]
+        },
+        {
+          "buffer_bytes": 64,
+          "buffer_index": 32,
+          "dtype": "FLOAT32",
+          "index": 31,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/batch_normalization/FusedBatchNormV3;model/conv2d/BiasAdd/ReadVariableOp/resource;model/conv2d/BiasAdd;model/conv1/Conv2D;model/conv2d/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            16
+          ],
+          "shape_signature": [
+            16
+          ]
+        },
+        {
+          "buffer_bytes": 64,
+          "buffer_index": 33,
+          "dtype": "FLOAT32",
+          "index": 32,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/bn1/FusedBatchNormV3;model/conv1/BiasAdd/ReadVariableOp/resource;model/conv1/BiasAdd;model/conv1/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            16
+          ],
+          "shape_signature": [
+            16
+          ]
+        },
+        {
+          "buffer_bytes": 768,
+          "buffer_index": 34,
+          "dtype": "FLOAT32",
+          "index": 33,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_25/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            2,
+            1,
+            1,
+            96
+          ],
+          "shape_signature": [
+            2,
+            1,
+            1,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 36864,
+          "buffer_index": 35,
+          "dtype": "FLOAT32",
+          "index": 34,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_24/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            96,
+            1,
+            1,
+            96
+          ],
+          "shape_signature": [
+            96,
+            1,
+            1,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 186368,
+          "buffer_index": 36,
+          "dtype": "FLOAT32",
+          "index": 35,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_21/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            182,
+            1,
+            1,
+            256
+          ],
+          "shape_signature": [
+            182,
+            1,
+            1,
+            256
+          ]
+        },
+        {
+          "buffer_bytes": 98304,
+          "buffer_index": 37,
+          "dtype": "FLOAT32",
+          "index": 36,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_20/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            256,
+            1,
+            1,
+            96
+          ],
+          "shape_signature": [
+            256,
+            1,
+            1,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 36864,
+          "buffer_index": 38,
+          "dtype": "FLOAT32",
+          "index": 37,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_17/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            96,
+            1,
+            1,
+            96
+          ],
+          "shape_signature": [
+            96,
+            1,
+            1,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 36864,
+          "buffer_index": 39,
+          "dtype": "FLOAT32",
+          "index": 38,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/separable_conv2d_8/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            96,
+            1,
+            1,
+            96
+          ],
+          "shape_signature": [
+            96,
+            1,
+            1,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 3456,
+          "buffer_index": 40,
+          "dtype": "FLOAT32",
+          "index": 39,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/separable_conv2d_8/separable_conv2d/depthwise",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            3,
+            3,
+            96
+          ],
+          "shape_signature": [
+            1,
+            3,
+            3,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 36864,
+          "buffer_index": 41,
+          "dtype": "FLOAT32",
+          "index": 40,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_16/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            96,
+            1,
+            1,
+            96
+          ],
+          "shape_signature": [
+            96,
+            1,
+            1,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 36864,
+          "buffer_index": 42,
+          "dtype": "FLOAT32",
+          "index": 41,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_15/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            96,
+            1,
+            1,
+            96
+          ],
+          "shape_signature": [
+            96,
+            1,
+            1,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 36864,
+          "buffer_index": 43,
+          "dtype": "FLOAT32",
+          "index": 42,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/separable_conv2d_7/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            96,
+            1,
+            1,
+            96
+          ],
+          "shape_signature": [
+            96,
+            1,
+            1,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 3456,
+          "buffer_index": 44,
+          "dtype": "FLOAT32",
+          "index": 43,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/separable_conv2d_7/separable_conv2d/depthwise",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            3,
+            3,
+            96
+          ],
+          "shape_signature": [
+            1,
+            3,
+            3,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 36864,
+          "buffer_index": 45,
+          "dtype": "FLOAT32",
+          "index": 44,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_14/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            96,
+            1,
+            1,
+            96
+          ],
+          "shape_signature": [
+            96,
+            1,
+            1,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 384,
+          "buffer_index": 46,
+          "dtype": "FLOAT32",
+          "index": 45,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_13/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            96
+          ],
+          "shape_signature": [
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 13824,
+          "buffer_index": 47,
+          "dtype": "FLOAT32",
+          "index": 46,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_13/Conv2D1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            96,
+            1,
+            1,
+            36
+          ],
+          "shape_signature": [
+            96,
+            1,
+            1,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 5184,
+          "buffer_index": 48,
+          "dtype": "FLOAT32",
+          "index": 47,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/separable_conv2d_6/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            36,
+            1,
+            1,
+            36
+          ],
+          "shape_signature": [
+            36,
+            1,
+            1,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 1296,
+          "buffer_index": 49,
+          "dtype": "FLOAT32",
+          "index": 48,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/separable_conv2d_6/separable_conv2d/depthwise",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            3,
+            3,
+            36
+          ],
+          "shape_signature": [
+            1,
+            3,
+            3,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 5184,
+          "buffer_index": 50,
+          "dtype": "FLOAT32",
+          "index": 49,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_12/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            36,
+            1,
+            1,
+            36
+          ],
+          "shape_signature": [
+            36,
+            1,
+            1,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 5184,
+          "buffer_index": 51,
+          "dtype": "FLOAT32",
+          "index": 50,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_11/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            36,
+            1,
+            1,
+            36
+          ],
+          "shape_signature": [
+            36,
+            1,
+            1,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 5184,
+          "buffer_index": 52,
+          "dtype": "FLOAT32",
+          "index": 51,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/separable_conv2d_5/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            36,
+            1,
+            1,
+            36
+          ],
+          "shape_signature": [
+            36,
+            1,
+            1,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 1296,
+          "buffer_index": 53,
+          "dtype": "FLOAT32",
+          "index": 52,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/separable_conv2d_5/separable_conv2d/depthwise",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            3,
+            3,
+            36
+          ],
+          "shape_signature": [
+            1,
+            3,
+            3,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 5184,
+          "buffer_index": 54,
+          "dtype": "FLOAT32",
+          "index": 53,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_10/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            36,
+            1,
+            1,
+            36
+          ],
+          "shape_signature": [
+            36,
+            1,
+            1,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 5184,
+          "buffer_index": 55,
+          "dtype": "FLOAT32",
+          "index": 54,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_9/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            36,
+            1,
+            1,
+            36
+          ],
+          "shape_signature": [
+            36,
+            1,
+            1,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 5184,
+          "buffer_index": 56,
+          "dtype": "FLOAT32",
+          "index": 55,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/separable_conv2d_4/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            36,
+            1,
+            1,
+            36
+          ],
+          "shape_signature": [
+            36,
+            1,
+            1,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 1296,
+          "buffer_index": 57,
+          "dtype": "FLOAT32",
+          "index": 56,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/separable_conv2d_4/separable_conv2d/depthwise",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            3,
+            3,
+            36
+          ],
+          "shape_signature": [
+            1,
+            3,
+            3,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 5184,
+          "buffer_index": 58,
+          "dtype": "FLOAT32",
+          "index": 57,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_8/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            36,
+            1,
+            1,
+            36
+          ],
+          "shape_signature": [
+            36,
+            1,
+            1,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 144,
+          "buffer_index": 59,
+          "dtype": "FLOAT32",
+          "index": 58,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_7/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            36
+          ],
+          "shape_signature": [
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 3456,
+          "buffer_index": 60,
+          "dtype": "FLOAT32",
+          "index": 59,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_7/Conv2D1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            36,
+            1,
+            1,
+            24
+          ],
+          "shape_signature": [
+            36,
+            1,
+            1,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 2304,
+          "buffer_index": 61,
+          "dtype": "FLOAT32",
+          "index": 60,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/separable_conv2d_3/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            24,
+            1,
+            1,
+            24
+          ],
+          "shape_signature": [
+            24,
+            1,
+            1,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 864,
+          "buffer_index": 62,
+          "dtype": "FLOAT32",
+          "index": 61,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/separable_conv2d_3/separable_conv2d/depthwise",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            3,
+            3,
+            24
+          ],
+          "shape_signature": [
+            1,
+            3,
+            3,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 2304,
+          "buffer_index": 63,
+          "dtype": "FLOAT32",
+          "index": 62,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_6/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            24,
+            1,
+            1,
+            24
+          ],
+          "shape_signature": [
+            24,
+            1,
+            1,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 2304,
+          "buffer_index": 64,
+          "dtype": "FLOAT32",
+          "index": 63,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_5/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            24,
+            1,
+            1,
+            24
+          ],
+          "shape_signature": [
+            24,
+            1,
+            1,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 2304,
+          "buffer_index": 65,
+          "dtype": "FLOAT32",
+          "index": 64,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/separable_conv2d_2/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            24,
+            1,
+            1,
+            24
+          ],
+          "shape_signature": [
+            24,
+            1,
+            1,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 864,
+          "buffer_index": 66,
+          "dtype": "FLOAT32",
+          "index": 65,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/separable_conv2d_2/separable_conv2d/depthwise",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            3,
+            3,
+            24
+          ],
+          "shape_signature": [
+            1,
+            3,
+            3,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 2304,
+          "buffer_index": 67,
+          "dtype": "FLOAT32",
+          "index": 66,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_4/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            24,
+            1,
+            1,
+            24
+          ],
+          "shape_signature": [
+            24,
+            1,
+            1,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 2304,
+          "buffer_index": 68,
+          "dtype": "FLOAT32",
+          "index": 67,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_3/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            24,
+            1,
+            1,
+            24
+          ],
+          "shape_signature": [
+            24,
+            1,
+            1,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 2304,
+          "buffer_index": 69,
+          "dtype": "FLOAT32",
+          "index": 68,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/separable_conv2d_1/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            24,
+            1,
+            1,
+            24
+          ],
+          "shape_signature": [
+            24,
+            1,
+            1,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 864,
+          "buffer_index": 70,
+          "dtype": "FLOAT32",
+          "index": 69,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/separable_conv2d_1/separable_conv2d/depthwise",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            3,
+            3,
+            24
+          ],
+          "shape_signature": [
+            1,
+            3,
+            3,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 2304,
+          "buffer_index": 71,
+          "dtype": "FLOAT32",
+          "index": 70,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_2/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            24,
+            1,
+            1,
+            24
+          ],
+          "shape_signature": [
+            24,
+            1,
+            1,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 96,
+          "buffer_index": 72,
+          "dtype": "FLOAT32",
+          "index": 71,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_1/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            24
+          ],
+          "shape_signature": [
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 1536,
+          "buffer_index": 73,
+          "dtype": "FLOAT32",
+          "index": 72,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d_1/Conv2D1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            24,
+            1,
+            1,
+            16
+          ],
+          "shape_signature": [
+            24,
+            1,
+            1,
+            16
+          ]
+        },
+        {
+          "buffer_bytes": 1024,
+          "buffer_index": 74,
+          "dtype": "FLOAT32",
+          "index": 73,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/separable_conv2d/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            16,
+            1,
+            1,
+            16
+          ],
+          "shape_signature": [
+            16,
+            1,
+            1,
+            16
+          ]
+        },
+        {
+          "buffer_bytes": 576,
+          "buffer_index": 75,
+          "dtype": "FLOAT32",
+          "index": 74,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/separable_conv2d/separable_conv2d/depthwise",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            3,
+            3,
+            16
+          ],
+          "shape_signature": [
+            1,
+            3,
+            3,
+            16
+          ]
+        },
+        {
+          "buffer_bytes": 1024,
+          "buffer_index": 76,
+          "dtype": "FLOAT32",
+          "index": 75,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv2d/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            16,
+            1,
+            1,
+            16
+          ],
+          "shape_signature": [
+            16,
+            1,
+            1,
+            16
+          ]
+        },
+        {
+          "buffer_bytes": 64,
+          "buffer_index": 77,
+          "dtype": "FLOAT32",
+          "index": 76,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv1/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            16
+          ],
+          "shape_signature": [
+            16
+          ]
+        },
+        {
+          "buffer_bytes": 576,
+          "buffer_index": 78,
+          "dtype": "FLOAT32",
+          "index": 77,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/conv1/Conv2D1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            16,
+            3,
+            3,
+            1
+          ],
+          "shape_signature": [
+            16,
+            3,
+            3,
+            1
+          ]
+        },
+        {
+          "buffer_bytes": 8,
+          "buffer_index": 79,
+          "dtype": "INT32",
+          "index": 78,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/tf.reshape_1/Reshape/shape",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            2
+          ],
+          "shape_signature": [
+            2
+          ]
+        },
+        {
+          "buffer_bytes": 4,
+          "buffer_index": 80,
+          "dtype": "INT32",
+          "index": 79,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/tf.reshape_3/Reshape/shape",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1
+          ],
+          "shape_signature": [
+            1
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 81,
+          "dtype": "FLOAT32",
+          "index": 80,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/relu1/Relu;model/bn1/FusedBatchNormV3;model/conv1/BiasAdd/ReadVariableOp/resource;model/conv1/BiasAdd;model/conv1/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            32,
+            32,
+            16
+          ],
+          "shape_signature": [
+            -1,
+            32,
+            32,
+            16
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 82,
+          "dtype": "FLOAT32",
+          "index": 81,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu/Relu;model/batch_normalization/FusedBatchNormV3;model/conv2d/BiasAdd/ReadVariableOp/resource;model/conv2d/BiasAdd;model/conv1/Conv2D;model/conv2d/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            32,
+            32,
+            16
+          ],
+          "shape_signature": [
+            -1,
+            32,
+            32,
+            16
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 83,
+          "dtype": "FLOAT32",
+          "index": 82,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/separable_conv2d/separable_conv2d/depthwise1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            16,
+            16,
+            16
+          ],
+          "shape_signature": [
+            -1,
+            16,
+            16,
+            16
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 84,
+          "dtype": "FLOAT32",
+          "index": 83,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_1/Relu6;model/batch_normalization_1/FusedBatchNormV3;model/separable_conv2d/BiasAdd/ReadVariableOp/resource;model/separable_conv2d/BiasAdd;model/conv1/Conv2D;model/separable_conv2d/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            16,
+            16,
+            16
+          ],
+          "shape_signature": [
+            -1,
+            16,
+            16,
+            16
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 85,
+          "dtype": "FLOAT32",
+          "index": 84,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_2/Relu6;model/batch_normalization_2/FusedBatchNormV3;model/conv2d_1/BiasAdd/ReadVariableOp/resource;model/conv2d_1/BiasAdd;model/conv2d_1/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            16,
+            16,
+            24
+          ],
+          "shape_signature": [
+            -1,
+            16,
+            16,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 86,
+          "dtype": "FLOAT32",
+          "index": 85,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_3/Relu;model/batch_normalization_3/FusedBatchNormV3;model/conv2d_2/BiasAdd/ReadVariableOp/resource;model/conv2d_2/BiasAdd;model/conv2d_1/Conv2D;model/conv2d_2/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            16,
+            16,
+            24
+          ],
+          "shape_signature": [
+            -1,
+            16,
+            16,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 87,
+          "dtype": "FLOAT32",
+          "index": 86,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/separable_conv2d_1/separable_conv2d/depthwise1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            16,
+            16,
+            24
+          ],
+          "shape_signature": [
+            -1,
+            16,
+            16,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 88,
+          "dtype": "FLOAT32",
+          "index": 87,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_4/Relu6;model/batch_normalization_4/FusedBatchNormV3;model/separable_conv2d_1/BiasAdd/ReadVariableOp/resource;model/separable_conv2d_1/BiasAdd;model/conv2d_1/Conv2D;model/separable_conv2d_1/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            16,
+            16,
+            24
+          ],
+          "shape_signature": [
+            -1,
+            16,
+            16,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 89,
+          "dtype": "FLOAT32",
+          "index": 88,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/batch_normalization_5/FusedBatchNormV3;model/conv2d_3/BiasAdd/ReadVariableOp/resource;model/conv2d_3/BiasAdd;model/conv2d_1/Conv2D;model/conv2d_3/Conv2D1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            16,
+            16,
+            24
+          ],
+          "shape_signature": [
+            -1,
+            16,
+            16,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 90,
+          "dtype": "FLOAT32",
+          "index": 89,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_5/Relu6;model/add/add",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            16,
+            16,
+            24
+          ],
+          "shape_signature": [
+            -1,
+            16,
+            16,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 91,
+          "dtype": "FLOAT32",
+          "index": 90,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_6/Relu;model/batch_normalization_6/FusedBatchNormV3;model/conv2d_4/BiasAdd/ReadVariableOp/resource;model/conv2d_4/BiasAdd;model/conv2d_1/Conv2D;model/conv2d_4/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            16,
+            16,
+            24
+          ],
+          "shape_signature": [
+            -1,
+            16,
+            16,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 92,
+          "dtype": "FLOAT32",
+          "index": 91,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/separable_conv2d_2/separable_conv2d/depthwise1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            16,
+            16,
+            24
+          ],
+          "shape_signature": [
+            -1,
+            16,
+            16,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 93,
+          "dtype": "FLOAT32",
+          "index": 92,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_7/Relu6;model/batch_normalization_7/FusedBatchNormV3;model/separable_conv2d_2/BiasAdd/ReadVariableOp/resource;model/separable_conv2d_2/BiasAdd;model/conv2d_1/Conv2D;model/separable_conv2d_2/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            16,
+            16,
+            24
+          ],
+          "shape_signature": [
+            -1,
+            16,
+            16,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 94,
+          "dtype": "FLOAT32",
+          "index": 93,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/batch_normalization_8/FusedBatchNormV3;model/conv2d_5/BiasAdd/ReadVariableOp/resource;model/conv2d_5/BiasAdd;model/conv2d_1/Conv2D;model/conv2d_5/Conv2D1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            16,
+            16,
+            24
+          ],
+          "shape_signature": [
+            -1,
+            16,
+            16,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 95,
+          "dtype": "FLOAT32",
+          "index": 94,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_8/Relu6;model/add_1/add",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            16,
+            16,
+            24
+          ],
+          "shape_signature": [
+            -1,
+            16,
+            16,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 96,
+          "dtype": "FLOAT32",
+          "index": 95,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_9/Relu;model/batch_normalization_9/FusedBatchNormV3;model/conv2d_6/BiasAdd/ReadVariableOp/resource;model/conv2d_6/BiasAdd;model/conv2d_1/Conv2D;model/conv2d_6/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            16,
+            16,
+            24
+          ],
+          "shape_signature": [
+            -1,
+            16,
+            16,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 97,
+          "dtype": "FLOAT32",
+          "index": 96,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/separable_conv2d_3/separable_conv2d/depthwise1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            8,
+            8,
+            24
+          ],
+          "shape_signature": [
+            -1,
+            8,
+            8,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 98,
+          "dtype": "FLOAT32",
+          "index": 97,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_10/Relu6;model/batch_normalization_10/FusedBatchNormV3;model/separable_conv2d_3/BiasAdd/ReadVariableOp/resource;model/separable_conv2d_3/BiasAdd;model/conv2d_1/Conv2D;model/separable_conv2d_3/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            8,
+            8,
+            24
+          ],
+          "shape_signature": [
+            -1,
+            8,
+            8,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 99,
+          "dtype": "FLOAT32",
+          "index": 98,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_11/Relu6;model/batch_normalization_11/FusedBatchNormV3;model/conv2d_7/BiasAdd/ReadVariableOp/resource;model/conv2d_7/BiasAdd;model/conv2d_7/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            8,
+            8,
+            36
+          ],
+          "shape_signature": [
+            -1,
+            8,
+            8,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 100,
+          "dtype": "FLOAT32",
+          "index": 99,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_12/Relu;model/batch_normalization_12/FusedBatchNormV3;model/conv2d_8/BiasAdd/ReadVariableOp/resource;model/conv2d_8/BiasAdd;model/conv2d_7/Conv2D;model/conv2d_8/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            8,
+            8,
+            36
+          ],
+          "shape_signature": [
+            -1,
+            8,
+            8,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 101,
+          "dtype": "FLOAT32",
+          "index": 100,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/separable_conv2d_4/separable_conv2d/depthwise1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            8,
+            8,
+            36
+          ],
+          "shape_signature": [
+            -1,
+            8,
+            8,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 102,
+          "dtype": "FLOAT32",
+          "index": 101,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_13/Relu6;model/batch_normalization_13/FusedBatchNormV3;model/separable_conv2d_4/BiasAdd/ReadVariableOp/resource;model/separable_conv2d_4/BiasAdd;model/conv2d_7/Conv2D;model/separable_conv2d_4/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            8,
+            8,
+            36
+          ],
+          "shape_signature": [
+            -1,
+            8,
+            8,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 103,
+          "dtype": "FLOAT32",
+          "index": 102,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/batch_normalization_14/FusedBatchNormV3;model/conv2d_9/BiasAdd/ReadVariableOp/resource;model/conv2d_9/BiasAdd;model/conv2d_7/Conv2D;model/conv2d_9/Conv2D1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            8,
+            8,
+            36
+          ],
+          "shape_signature": [
+            -1,
+            8,
+            8,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 104,
+          "dtype": "FLOAT32",
+          "index": 103,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_14/Relu6;model/add_2/add",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            8,
+            8,
+            36
+          ],
+          "shape_signature": [
+            -1,
+            8,
+            8,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 105,
+          "dtype": "FLOAT32",
+          "index": 104,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_15/Relu;model/batch_normalization_15/FusedBatchNormV3;model/conv2d_10/BiasAdd/ReadVariableOp/resource;model/conv2d_10/BiasAdd;model/conv2d_7/Conv2D;model/conv2d_10/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            8,
+            8,
+            36
+          ],
+          "shape_signature": [
+            -1,
+            8,
+            8,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 106,
+          "dtype": "FLOAT32",
+          "index": 105,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/separable_conv2d_5/separable_conv2d/depthwise1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            8,
+            8,
+            36
+          ],
+          "shape_signature": [
+            -1,
+            8,
+            8,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 107,
+          "dtype": "FLOAT32",
+          "index": 106,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_16/Relu6;model/batch_normalization_16/FusedBatchNormV3;model/separable_conv2d_5/BiasAdd/ReadVariableOp/resource;model/separable_conv2d_5/BiasAdd;model/conv2d_7/Conv2D;model/separable_conv2d_5/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            8,
+            8,
+            36
+          ],
+          "shape_signature": [
+            -1,
+            8,
+            8,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 108,
+          "dtype": "FLOAT32",
+          "index": 107,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/batch_normalization_17/FusedBatchNormV3;model/conv2d_11/BiasAdd/ReadVariableOp/resource;model/conv2d_11/BiasAdd;model/conv2d_7/Conv2D;model/conv2d_11/Conv2D1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            8,
+            8,
+            36
+          ],
+          "shape_signature": [
+            -1,
+            8,
+            8,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 109,
+          "dtype": "FLOAT32",
+          "index": 108,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_17/Relu6;model/add_3/add",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            8,
+            8,
+            36
+          ],
+          "shape_signature": [
+            -1,
+            8,
+            8,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 110,
+          "dtype": "FLOAT32",
+          "index": 109,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_18/Relu;model/batch_normalization_18/FusedBatchNormV3;model/conv2d_12/BiasAdd/ReadVariableOp/resource;model/conv2d_12/BiasAdd;model/conv2d_7/Conv2D;model/conv2d_12/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            8,
+            8,
+            36
+          ],
+          "shape_signature": [
+            -1,
+            8,
+            8,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 111,
+          "dtype": "FLOAT32",
+          "index": 110,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/separable_conv2d_6/separable_conv2d/depthwise1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            4,
+            4,
+            36
+          ],
+          "shape_signature": [
+            -1,
+            4,
+            4,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 112,
+          "dtype": "FLOAT32",
+          "index": 111,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_19/Relu6;model/batch_normalization_19/FusedBatchNormV3;model/separable_conv2d_6/BiasAdd/ReadVariableOp/resource;model/separable_conv2d_6/BiasAdd;model/conv2d_7/Conv2D;model/separable_conv2d_6/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            4,
+            4,
+            36
+          ],
+          "shape_signature": [
+            -1,
+            4,
+            4,
+            36
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 113,
+          "dtype": "FLOAT32",
+          "index": 112,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_20/Relu6;model/batch_normalization_20/FusedBatchNormV3;model/conv2d_13/BiasAdd/ReadVariableOp/resource;model/conv2d_13/BiasAdd;model/conv2d_13/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            4,
+            4,
+            96
+          ],
+          "shape_signature": [
+            -1,
+            4,
+            4,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 114,
+          "dtype": "FLOAT32",
+          "index": 113,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_21/Relu;model/batch_normalization_21/FusedBatchNormV3;model/conv2d_14/BiasAdd/ReadVariableOp/resource;model/conv2d_14/BiasAdd;model/conv2d_13/Conv2D;model/conv2d_14/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            4,
+            4,
+            96
+          ],
+          "shape_signature": [
+            -1,
+            4,
+            4,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 115,
+          "dtype": "FLOAT32",
+          "index": 114,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/separable_conv2d_7/separable_conv2d/depthwise1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            4,
+            4,
+            96
+          ],
+          "shape_signature": [
+            -1,
+            4,
+            4,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 116,
+          "dtype": "FLOAT32",
+          "index": 115,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_22/Relu6;model/batch_normalization_22/FusedBatchNormV3;model/separable_conv2d_7/BiasAdd/ReadVariableOp/resource;model/separable_conv2d_7/BiasAdd;model/conv2d_13/Conv2D;model/separable_conv2d_7/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            4,
+            4,
+            96
+          ],
+          "shape_signature": [
+            -1,
+            4,
+            4,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 117,
+          "dtype": "FLOAT32",
+          "index": 116,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/batch_normalization_23/FusedBatchNormV3;model/conv2d_15/BiasAdd/ReadVariableOp/resource;model/conv2d_15/BiasAdd;model/conv2d_13/Conv2D;model/conv2d_15/Conv2D1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            4,
+            4,
+            96
+          ],
+          "shape_signature": [
+            -1,
+            4,
+            4,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 118,
+          "dtype": "FLOAT32",
+          "index": 117,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_23/Relu6;model/add_4/add",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            4,
+            4,
+            96
+          ],
+          "shape_signature": [
+            -1,
+            4,
+            4,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 119,
+          "dtype": "FLOAT32",
+          "index": 118,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_24/Relu;model/batch_normalization_24/FusedBatchNormV3;model/conv2d_16/BiasAdd/ReadVariableOp/resource;model/conv2d_16/BiasAdd;model/conv2d_13/Conv2D;model/conv2d_16/Conv2D",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            4,
+            4,
+            96
+          ],
+          "shape_signature": [
+            -1,
+            4,
+            4,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 120,
+          "dtype": "FLOAT32",
+          "index": 119,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/separable_conv2d_8/separable_conv2d/depthwise1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            4,
+            4,
+            96
+          ],
+          "shape_signature": [
+            -1,
+            4,
+            4,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 121,
+          "dtype": "FLOAT32",
+          "index": 120,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_25/Relu6;model/batch_normalization_25/FusedBatchNormV3;model/separable_conv2d_8/BiasAdd/ReadVariableOp/resource;model/separable_conv2d_8/BiasAdd;model/conv2d_13/Conv2D;model/separable_conv2d_8/separable_conv2d",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            4,
+            4,
+            96
+          ],
+          "shape_signature": [
+            -1,
+            4,
+            4,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 122,
+          "dtype": "FLOAT32",
+          "index": 121,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/batch_normalization_26/FusedBatchNormV3;model/conv2d_17/BiasAdd/ReadVariableOp/resource;model/conv2d_17/BiasAdd;model/conv2d_13/Conv2D;model/conv2d_17/Conv2D1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            4,
+            4,
+            96
+          ],
+          "shape_signature": [
+            -1,
+            4,
+            4,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 123,
+          "dtype": "FLOAT32",
+          "index": 122,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/re_lu_26/Relu6;model/add_5/add",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            4,
+            4,
+            96
+          ],
+          "shape_signature": [
+            -1,
+            4,
+            4,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 124,
+          "dtype": "FLOAT32",
+          "index": 123,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/conv2d_20/BiasAdd;model/conv2d_20/Conv2D;model/conv2d_20/BiasAdd/ReadVariableOp/resource1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            4,
+            4,
+            256
+          ],
+          "shape_signature": [
+            -1,
+            4,
+            4,
+            256
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 125,
+          "dtype": "FLOAT32",
+          "index": 124,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/average_pooling2d_1/AvgPool",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            1,
+            1,
+            256
+          ],
+          "shape_signature": [
+            -1,
+            1,
+            1,
+            256
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 126,
+          "dtype": "FLOAT32",
+          "index": 125,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/conv2d_21/BiasAdd;model/conv2d_21/Conv2D;model/conv2d_21/BiasAdd/ReadVariableOp/resource1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            1,
+            1,
+            182
+          ],
+          "shape_signature": [
+            -1,
+            1,
+            1,
+            182
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 127,
+          "dtype": "FLOAT32",
+          "index": 126,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/conv2d_24/BiasAdd;model/conv2d_13/Conv2D;model/conv2d_24/Conv2D;model/conv2d_24/BiasAdd/ReadVariableOp/resource1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            4,
+            4,
+            96
+          ],
+          "shape_signature": [
+            -1,
+            4,
+            4,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 128,
+          "dtype": "FLOAT32",
+          "index": 127,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/average_pooling2d_3/AvgPool",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            1,
+            1,
+            96
+          ],
+          "shape_signature": [
+            -1,
+            1,
+            1,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 129,
+          "dtype": "FLOAT32",
+          "index": 128,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/conv2d_25/BiasAdd;model/conv2d_25/Conv2D;model/conv2d_25/BiasAdd/ReadVariableOp/resource1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            1,
+            1,
+            2
+          ],
+          "shape_signature": [
+            -1,
+            1,
+            1,
+            2
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 130,
+          "dtype": "FLOAT32",
+          "index": 129,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "Identity",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            91,
+            2
+          ],
+          "shape_signature": [
+            91,
+            2
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 131,
+          "dtype": "FLOAT32",
+          "index": 130,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "model/tf.reshape_3/Reshape",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            2
+          ],
+          "shape_signature": [
+            2
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 132,
+          "dtype": "FLOAT32",
+          "index": 131,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "Identity_1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            2
+          ],
+          "shape_signature": [
+            2
+          ]
+        }
+      ],
+      "unsupported_ops": []
+    }
+  ],
+  "supported_ops": [
+    "ABS",
+    "ADD",
+    "ARG_MAX",
+    "ARG_MIN",
+    "AVERAGE_POOL_2D",
+    "BATCH_MATMUL",
+    "CAST",
+    "CONCATENATION",
+    "CONV_2D",
+    "COS",
+    "DEPTHWISE_CONV_2D",
+    "DEPTH_TO_SPACE",
+    "DEQUANTIZE",
+    "DIV",
+    "ELU",
+    "EQUAL",
+    "EXP",
+    "EXPAND_DIMS",
+    "FILL",
+    "FLOOR",
+    "FLOOR_DIV",
+    "FULLY_CONNECTED",
+    "GATHER",
+    "GATHER_ND",
+    "GREATER",
+    "GREATER_EQUAL",
+    "HARD_SWISH",
+    "LEAKY_RELU",
+    "LESS",
+    "LESS_EQUAL",
+    "LOG",
+    "LOGICAL_AND",
+    "LOGICAL_NOT",
+    "LOGICAL_OR",
+    "LOGISTIC",
+    "MAXIMUM",
+    "MAX_POOL_2D",
+    "MEAN",
+    "MINIMUM",
+    "MUL",
+    "NEG",
+    "NOT_EQUAL",
+    "ONE_HOT",
+    "PACK",
+    "PAD",
+    "PADV2",
+    "POW",
+    "QUANTIZE",
+    "REDUCE_MAX",
+    "REDUCE_MIN",
+    "REDUCE_PROD",
+    "RELU",
+    "RELU6",
+    "RELU_N1_TO_1",
+    "RESHAPE",
+    "RESIZE_BILINEAR",
+    "RESIZE_NEAREST_NEIGHBOR",
+    "RSQRT",
+    "SELECT",
+    "SHAPE",
+    "SIN",
+    "SLICE",
+    "SOFTMAX",
+    "SPACE_TO_DEPTH",
+    "SQRT",
+    "SQUARE",
+    "SQUARED_DIFFERENCE",
+    "SQUEEZE",
+    "STRIDED_SLICE",
+    "SUB",
+    "SUM",
+    "TANH",
+    "TILE",
+    "TOPK_V2",
+    "TRANSPOSE",
+    "UNPACK",
+    "ZEROS_LIKE"
+  ]
+}

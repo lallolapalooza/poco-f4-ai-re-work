@@ -1,0 +1,471 @@
+{
+  "format": "miui_biometric/model-container/1",
+  "note": "Embedded Caffe models shipped inside libstfaceunlockocl.so. Header is plaintext; payload is encrypted (see encrypted_payload_evidence).",
+  "container": {
+    "magic": "STEF",
+    "layout": [
+      {
+        "offset": "0x00",
+        "size": 4,
+        "field": "magic",
+        "value": "STEF",
+        "endian": "-"
+      },
+      {
+        "offset": "0x04",
+        "size": 4,
+        "field": "payload_size",
+        "type": "uint32le",
+        "constraint": "multiple of 0x1000 (and of 16)"
+      },
+      {
+        "offset": "0x08",
+        "size": 3,
+        "field": "ver_tag",
+        "value": "VER"
+      },
+      {
+        "offset": "0x0b",
+        "size": 1,
+        "field": "version",
+        "type": "uint8",
+        "value": 3
+      },
+      {
+        "offset": "0x0c",
+        "size": 4,
+        "field": "flags",
+        "type": "uint32le",
+        "value": 0
+      },
+      {
+        "offset": "0x10",
+        "size": "payload_size",
+        "field": "payload",
+        "encoding": "encrypted"
+      },
+      {
+        "offset": "0x10+payload_size",
+        "size": 257,
+        "field": "trailer",
+        "note": "256-byte signature/MAC + 0x00"
+      }
+    ],
+    "total_size_rule": "total == 16 + payload_size + 257",
+    "decrypted_payload_format": {
+      "type": "tar",
+      "evidence": [
+        "protector::TarModelResource::TarModelResource(shared_ptr<ModelResource>)",
+        "protector::TarModelResource::FindFileByName",
+        "'ustar' string in .rodata",
+        "'meta.conf' string",
+        "'/model.bin' string",
+        "'rel.prototxt' string"
+      ],
+      "members_observed_as_strings": [
+        "meta.conf",
+        "model.bin",
+        "rel.prototxt",
+        "detector.model",
+        "proposal_final",
+        "net_001",
+        "pose"
+      ]
+    }
+  },
+  "st_model_schema": {
+    "source": "protobuf field-number symbols in libstfaceunlockocl.so (.rodata @0x4dd03a4..0x4dd03c0)",
+    "messages": {
+      "ModelMeta": {
+        "1": "Version",
+        "2": "ModelName",
+        "3": "ModelType",
+        "4": "Description",
+        "5": "ModelFiles"
+      },
+      "ModelFile": {
+        "1": "Name",
+        "2": "Version",
+        "3": "Filenames",
+        "4": "ModelType",
+        "5": "CustomType",
+        "6": "CaffeParam",
+        "7": "ScoreNormParam"
+      },
+      "CaffeParam": {
+        "1": "InputLayer",
+        "2": "OutputLayer",
+        "3": "EnableSharedBlob",
+        "4": "MarkedOutputBlobs"
+      },
+      "Version": {
+        "1": "Major",
+        "2": "Minor",
+        "3": "Patch",
+        "4": "TrainDate"
+      },
+      "Matrix": {
+        "1": "Dim",
+        "2": "Data"
+      },
+      "PCAParam": {
+        "1": "SrcDim",
+        "2": "DstDim",
+        "3": "Mean",
+        "4": "Coeff"
+      },
+      "ScoreNormalizationParameter": {
+        "1": "SrcPoints",
+        "2": "DstPoints"
+      }
+    }
+  },
+  "algoinfo_schema": {
+    "messages": {
+      "AlgoInfo": {
+        "1": "NetName",
+        "2": "AlgoInfo",
+        "3": "AlgoInfoLength"
+      },
+      "ModelAlgo": {
+        "1": "ModelType",
+        "2": "ModelName",
+        "3": "AlgoInfo"
+      },
+      "AlgoInfoMap": {
+        "1": "SdkVersion",
+        "2": "AlgoMap"
+      }
+    }
+  },
+  "template_schema": {
+    "source": "pb:: proto field-number symbols + magic 'STFACEUNLOCK' @0x762290",
+    "TemplateFile": {
+      "1": "Version",
+      "2": "Identifier",
+      "3": "SinglePersonTemplate",
+      "4": "ModelVersion",
+      "5": "VersionString"
+    },
+    "SinglePersonTemplate": {
+      "1": "Index",
+      "2": "SingleTemlate"
+    },
+    "SingleTemlate": {
+      "1": "Direction",
+      "2": "Points",
+      "3": "Feature",
+      "4": "ImageInfo"
+    },
+    "Image": {
+      "1": "Format",
+      "2": "Width",
+      "3": "Height",
+      "4": "Stride",
+      "5": "Data"
+    },
+    "KeyPoint": {
+      "1": "X",
+      "2": "Y"
+    }
+  },
+  "caffe_runtime_layers": [
+    "BlobShape",
+    "BlobProto",
+    "NetParameter",
+    "LayerParameter",
+    "ConvolutionParameter",
+    "Convolution3dParameter",
+    "ConvolutionTranspose3dParameter",
+    "PoolingParameter",
+    "Pooling3dParameter",
+    "InnerProductParameter",
+    "ReLUParameter",
+    "ReLU6Parameter",
+    "PReLUParameter",
+    "BNParameter",
+    "BatchNormParameter",
+    "BatchNorm3dParameter",
+    "GroupNorm3dParameter",
+    "InstanceNormParameter",
+    "ScaleParameter",
+    "EltwiseParameter",
+    "EltwiseAffineTransformParameter",
+    "ConcatParameter",
+    "SliceParameter",
+    "SlicingParameter",
+    "ReshapeParameter",
+    "FlattenParameter",
+    "PermuteParameter",
+    "TransposeParameter",
+    "InterpParameter",
+    "NNUpsampleParameter",
+    "SubpixelUpParameter",
+    "SubpixelDownParameter",
+    "PixelShuffleParameter",
+    "ChannelShuffleParameter",
+    "TileParameter",
+    "CropParameter",
+    "PadParameter",
+    "NormalizeParameter",
+    "LRNParameter",
+    "MVNParameter",
+    "SoftmaxParameter",
+    "SigmoidParameter",
+    "TanHParameter",
+    "ClipParameter",
+    "ThresholdParameter",
+    "PointsCurveParameter",
+    "AffineTransParameter",
+    "GridSampleParameter",
+    "GridSample3DParameter",
+    "ROIPoolingParameter",
+    "ROIAlignParameter",
+    "ROIAlignPoolingParameter",
+    "PSROIPoolingParameter",
+    "PSROIAlignPoolingParameter",
+    "RpnProposalLayerParameter",
+    "PriorBoxParameter",
+    "PriorVBoxParameter",
+    "DetectionOutputParameter",
+    "NonMaximumSuppressionParameter",
+    "ArgMaxParameter",
+    "ReduceParameter",
+    "ReduceL2Parameter",
+    "MatMulParameter",
+    "LSTMParameter",
+    "GRUParameter",
+    "RecurrentParameter",
+    "DropoutParameter",
+    "QuantizeParameter",
+    "MemoryDataParameter",
+    "DataParameter",
+    "ImageDataParameter",
+    "TransformationParameter",
+    "AccuracyParameter",
+    "ContrastiveLossParameter",
+    "HingeLossParameter",
+    "InfogainLossParameter",
+    "CorrelationParameter",
+    "Correlation2DParameter",
+    "BTCostVolumeParameter",
+    "MainTransformParameter",
+    "CalcAffineMatParameter",
+    "AlignmentToROIParameter",
+    "HeatMap2CoordParameter",
+    "ROITransformParameter",
+    "ROIMaskPoolingParameter",
+    "ZXYBNParameter",
+    "BilateralSliceApplyParameter",
+    "AdaptiveBilateralSliceApplyParameter",
+    "BilateralSlicingParameter",
+    "MeanParameter",
+    "PowerParameter",
+    "ExpParameter",
+    "LogParameter",
+    "SlicingParameter",
+    "ReverseParameter",
+    "UnpoolingParameter",
+    "V0LayerParameter",
+    "V1LayerParameter",
+    "PythonParameter",
+    "FillerParameter",
+    "ParamSpec"
+  ],
+  "models": [
+    {
+      "name": "IM_RGB_Liveness_General_Full_FP32_10_1_65_half_compression_v2_origin",
+      "file": "IM_RGB_Liveness_General_Full_FP32_10_1_65_half_compression_v2_origin.bin",
+      "symbol": "__res_IM_RGB_Liveness_General_Full_FP32_10_1_65_half_compression_v2_origin",
+      "vaddr": "0x4f2c460",
+      "file_offset": "0x4f1c460",
+      "section": ".data",
+      "size": 4106513,
+      "sha256": "69366df2ae8ce328131f9bac977616c29c225fd91ecb6c50696d936565b948d0",
+      "header": {
+        "magic": "STEF",
+        "payload_size": 4106240,
+        "ver_tag": "VER",
+        "version": 3,
+        "flags": 0,
+        "payload_offset": 16,
+        "trailer_size": 257
+      },
+      "payload_encrypted": true
+    },
+    {
+      "name": "M_Align_CalcPose_Ann_106_2_3_0",
+      "file": "M_Align_CalcPose_Ann_106_2_3_0.bin",
+      "symbol": "__res_M_Align_CalcPose_Ann_106_2_3_0",
+      "vaddr": "0x5316da0",
+      "file_offset": "0x5306da0",
+      "section": ".data",
+      "size": 123153,
+      "sha256": "c8daf5eae9051f68c857fa9131b296d39a82bdd3ec15c9cadb7bd15bd8040074",
+      "header": {
+        "magic": "STEF",
+        "payload_size": 122880,
+        "ver_tag": "VER",
+        "version": 3,
+        "flags": 0,
+        "payload_offset": 16,
+        "trailer_size": 257
+      },
+      "payload_encrypted": true
+    },
+    {
+      "name": "M_Align_Deepface_Eye_State_Analysis_3_7_8",
+      "file": "M_Align_Deepface_Eye_State_Analysis_3_7_8.bin",
+      "symbol": "__res_M_Align_Deepface_Eye_State_Analysis_3_7_8",
+      "vaddr": "0x5334ee0",
+      "file_offset": "0x5324ee0",
+      "section": ".data",
+      "size": 1771793,
+      "sha256": "e1d020a71d63a2ada5d917aaea94d56b224967672e42ad607d0a20af752d82b0",
+      "header": {
+        "magic": "STEF",
+        "payload_size": 1771520,
+        "ver_tag": "VER",
+        "version": 3,
+        "flags": 0,
+        "payload_offset": 16,
+        "trailer_size": 257
+      },
+      "payload_encrypted": true
+    },
+    {
+      "name": "M_Align_occlusion_106_1_19_3",
+      "file": "M_Align_occlusion_106_1_19_3.bin",
+      "symbol": "__res_M_Align_occlusion_106_1_19_3",
+      "vaddr": "0x54e5820",
+      "file_offset": "0x54d5820",
+      "section": ".data",
+      "size": 1782033,
+      "sha256": "9b1a676565cad212e455bff19abe59fbb46936e539eaf3017c38947af6df3a2a",
+      "header": {
+        "magic": "STEF",
+        "payload_size": 1781760,
+        "ver_tag": "VER",
+        "version": 3,
+        "flags": 0,
+        "payload_offset": 16,
+        "trailer_size": 257
+      },
+      "payload_encrypted": true
+    },
+    {
+      "name": "M_Align_occlusion_106_360_1_7_1",
+      "file": "M_Align_occlusion_106_360_1_7_1.bin",
+      "symbol": "__res_M_Align_occlusion_106_360_1_7_1",
+      "vaddr": "0x5698960",
+      "file_offset": "0x5688960",
+      "section": ".data",
+      "size": 2058513,
+      "sha256": "5f4fdb84262bea085150c3caad160eda9193734582b3cb13be4540a413152861",
+      "header": {
+        "magic": "STEF",
+        "payload_size": 2058240,
+        "ver_tag": "VER",
+        "version": 3,
+        "flags": 0,
+        "payload_offset": 16,
+        "trailer_size": 257
+      },
+      "payload_encrypted": true
+    },
+    {
+      "name": "M_Attribute_MTNet_Quality_1_0_0",
+      "file": "M_Attribute_MTNet_Quality_1_0_0.bin",
+      "symbol": "__res_M_Attribute_MTNet_Quality_1_0_0",
+      "vaddr": "0x588f2a0",
+      "file_offset": "0x587f2a0",
+      "section": ".data",
+      "size": 471313,
+      "sha256": "50f64eb5abfc3d41b5bef1bbe639bc16641c8be22b6c32e8b1acc4254aa322e5",
+      "header": {
+        "magic": "STEF",
+        "payload_size": 471040,
+        "ver_tag": "VER",
+        "version": 3,
+        "flags": 0,
+        "payload_offset": 16,
+        "trailer_size": 257
+      },
+      "payload_encrypted": true
+    },
+    {
+      "name": "M_Hunter_CommonFace_Gray_ppl_360_9_2_5_v2_origin",
+      "file": "M_Hunter_CommonFace_Gray_ppl_360_9_2_5_v2_origin.bin",
+      "symbol": "__res_M_Hunter_CommonFace_Gray_ppl_360_9_2_5_v2_origin",
+      "vaddr": "0x59023e0",
+      "file_offset": "0x58f23e0",
+      "section": ".data",
+      "size": 983313,
+      "sha256": "ed96a7464716f55b4770983682e75efc3ca6b188f630968265e18cd7405102d2",
+      "header": {
+        "magic": "STEF",
+        "payload_size": 983040,
+        "ver_tag": "VER",
+        "version": 3,
+        "flags": 0,
+        "payload_offset": 16,
+        "trailer_size": 257
+      },
+      "payload_encrypted": true
+    },
+    {
+      "name": "M_Verify_MobileNetV2T6_Common_3_135_0_half_compression_v2_origin",
+      "file": "M_Verify_MobileNetV2T6_Common_3_135_0_half_compression_v2_origin.bin",
+      "symbol": "__res_M_Verify_MobileNetV2T6_Common_3_135_0_half_compression_v2_origin",
+      "vaddr": "0x59f2520",
+      "file_offset": "0x59e2520",
+      "section": ".data",
+      "size": 5110033,
+      "sha256": "518b214184adc39a108718dde0d53e4ffefbd57215c6eef84a7751b7326e244f",
+      "header": {
+        "magic": "STEF",
+        "payload_size": 5109760,
+        "ver_tag": "VER",
+        "version": 3,
+        "flags": 0,
+        "payload_offset": 16,
+        "trailer_size": 257
+      },
+      "payload_encrypted": true
+    }
+  ],
+  "encrypted_payload_evidence": {
+    "payload_entropy": "7.997-8.000 bits/byte for all eight payloads",
+    "standard_codecs_tested": [
+      "zlib",
+      "raw deflate",
+      "gzip",
+      "lzma",
+      "bz2",
+      "zstd(no module)",
+      "lz4(no module)"
+    ],
+    "standard_codecs_result": "all rejected",
+    "repeating_xor_tested": [
+      {
+        "key": "md5(name)"
+      },
+      {
+        "key": "md5(name+'caffe_model')"
+      },
+      {
+        "key": "md5('caffe_model')"
+      },
+      {
+        "key": "md5(license SN)"
+      },
+      {
+        "key": "name[0:16]"
+      }
+    ],
+    "repeating_xor_result": "none produce printable/structured output; per-position entropy stays ~8.00 (no 16-byte period)",
+    "known_plaintext_tar_test": "assuming repeating-16 XOR with plaintext tar header 'meta.conf'/'model.bin'/'/model.bin' still yields no 'ustar' magic at tar offset 257",
+    "duplicate_16B_blocks": "0 in all payloads (rules out ECB over repetitive plaintext)",
+    "conclusion": "payload is encrypted with a proprietary strong cipher; the key is produced at run time by the SenseTime app-protect layer (protector::ModelLoader, sdk_protector_* RSA/AES/RC4/MD5 code, license chain) and is not present in plaintext in the APK"
+  }
+}

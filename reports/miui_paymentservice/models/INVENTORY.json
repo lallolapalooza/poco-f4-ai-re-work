@@ -1,0 +1,10 @@
+{
+  "slug": "miui_paymentservice",
+  "apk": "assets/Digital_OCR_svm_2.model (258,588 B), assets/Digital_OCR_svm_9.model (568,611 B)",
+  "local_files": 2,
+  "bytes": 827199,
+  "tflite": 0,
+  "bundles": 0,
+  "absent": [],
+  "notes": "LIBSVM models parsed; HOG+SVM JAX verified bit-exact."
+}

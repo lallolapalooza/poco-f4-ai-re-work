@@ -1,0 +1,109 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.snapchat.android_200/partner-com.snapchat.android_200.apk",
+  "regex": "com\\.snapchat\\.client\\.learned_search\\.(ModelCoordinator|ModelFileBuffer|ModelMetaData|StatusEnums)$|com\\.snapchat\\.client\\.voiceml\\.(IVoiceMLSDK|ASRConfig)$",
+  "packages": [],
+  "max": 6,
+  "timeout": 180.0,
+  "jadx": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/jadx/bin/jadx",
+  "classes_scanned": 69928,
+  "candidates": [
+    {
+      "class": "com.snapchat.client.voiceml.ASRConfig",
+      "dex": "classes6.dex",
+      "method_count": 18,
+      "access": 17,
+      "matched": [
+        "com.snapchat.client.voiceml.asrconfig"
+      ],
+      "score": 1018,
+      "rank": 1,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.snapchat.client.voiceml.ASRConfig.java",
+      "seconds": 19.05
+    },
+    {
+      "class": "com.snapchat.client.voiceml.IVoiceMLSDK",
+      "dex": "classes6.dex",
+      "method_count": 7,
+      "access": 1025,
+      "matched": [
+        "com.snapchat.client.voiceml.ivoicemlsdk"
+      ],
+      "score": 1007,
+      "rank": 2,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.snapchat.client.voiceml.IVoiceMLSDK.java",
+      "seconds": 18.85
+    },
+    {
+      "class": "com.snapchat.client.learned_search.ModelFileBuffer",
+      "dex": "classes6.dex",
+      "method_count": 6,
+      "access": 1025,
+      "matched": [
+        "com.snapchat.client.learned_search.modelfilebuffer"
+      ],
+      "score": 1006,
+      "rank": 3,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.snapchat.client.learned_search.ModelFileBuffer.java",
+      "seconds": 18.89
+    },
+    {
+      "class": "com.snapchat.client.learned_search.ModelMetaData",
+      "dex": "classes6.dex",
+      "method_count": 5,
+      "access": 17,
+      "matched": [
+        "com.snapchat.client.learned_search.modelmetadata"
+      ],
+      "score": 1005,
+      "rank": 4,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.snapchat.client.learned_search.ModelMetaData.java",
+      "seconds": 18.6
+    },
+    {
+      "class": "com.snapchat.client.learned_search.StatusEnums",
+      "dex": "classes6.dex",
+      "method_count": 4,
+      "access": 16401,
+      "matched": [
+        "com.snapchat.client.learned_search.statusenums"
+      ],
+      "score": 1004,
+      "rank": 5,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.snapchat.client.learned_search.StatusEnums.java",
+      "seconds": 17.23
+    },
+    {
+      "class": "com.snapchat.client.learned_search.ModelCoordinator",
+      "dex": "classes6.dex",
+      "method_count": 4,
+      "access": 1025,
+      "matched": [
+        "com.snapchat.client.learned_search.modelcoordinator"
+      ],
+      "score": 1004,
+      "rank": 6,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.snapchat.client.learned_search.ModelCoordinator.java",
+      "seconds": 15.93
+    }
+  ],
+  "decompiled": 6,
+  "elapsed_sec": 110.37
+}

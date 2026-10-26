@@ -1,0 +1,56 @@
+# Patch pass: Android entry / data-path / consumer classes
+# host: linux 7.2.9-arch1-1 ; jadx single-class, one class per invocation
+# APK (read-only):
+#   /run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/
+#   system_ext/priv-app/QualcommVoiceActivation/QualcommVoiceActivation.apk
+# sha256 565f8818b189d4cc0c90ad383f068093292fe51ac89ca8c1cc1d9680a7a32863
+
+# --- manifest (binary AXML -> text) ---
+python - <<'EOF'
+from androguard.core.axml import AXMLPrinter   # loguru silenced
+z = zipfile.ZipFile(apk); AXMLPrinter(z.read('AndroidManifest.xml')).get_xml()
+EOF
+-> /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/qva_manifest.xml (57 lines). Components confirmed:
+   16 services, 1 activity (PermissionActivity), 1 receiver (VoiceAssistReceiver);
+   ForegroundService foregroundServiceType=0x80 (microphone);
+   no VoiceInteractionService / no SoundTrigger service component.
+
+# --- decompile batches (tools/decompile_classes.py, --max N) ---
+B4  ^(com.quicinc.voice.activation.VoiceAssistApplication|
+      ...receiver.VoiceAssistReceiver|
+      ...engineservice.(ForegroundService|WakewordToggleService|UtteranceProviderService)|
+      ...audiorecord.[ac]$|...algorithm.FrameFlag)$          -> 8/8 ok
+B5  ^(d\.g|o\.k|G\.q|e\.a)$                                    -> 4/4 ok
+B6  ^(n\.(V|D|z|p|m0)|j\.(h|a|b))$                            -> 8 ok (case-insensitive)
+B7  ^j\.(i|c|d|e|g|a|b|n)$                                    -> 8 ok
+B8  ^(I\.(a|b)|j\.(a|l|n)|k\.(a|b|c)|G\.(g|i))$               -> 8 ok
+B9  ^(h\.(h|e|a)|G\.(g|h))$                                   -> 6 ok
+B10 ^(E\.h|E\.e|E\.g)$                                        -> 3/3 ok
+B11 ^(E\.o|N\.(f|e|g|c))$                                     -> 5 ok
+B13 ^(N\.(i|d|g|b|l|h)|G\.h)$ --case-sensitive                -> 7/7 ok
+B14 ^(n\.f|p\.(f|g|j))$ --case-sensitive                      -> 4/4 ok
+B16 ^E\.(n|k|i|m|f|c)$ --case-sensitive                       -> 5/6 ok (E.c failed: 1.4s)
+B17 ^p\.(c|g|d|e)$ --case-sensitive                           -> 4/4 ok
+B18 ^(d\.(d|b)|n\.(z|p|t0|q))$ --case-sensitive               -> 6/6 ok
+B19 ^(I\.(a|b|c)|e\.a)$ --case-sensitive                      -> 4/4 ok
+B20 ^(L\.a|M\.a|F\.e)$ --case-sensitive                       -> 3/3 ok
+B21 ^v\.(j|c)$ --case-sensitive                               -> 2/2 ok
+B22 ^r\.(c|h)$ --case-sensitive                               -> 2/2 ok
+B23 (ReenableWakewordService|PackageChangedReceiver)          -> 2/2 ok
+B24 ^(n\.Y|u\.a|u\.b)$ --case-sensitive                       -> 3/3 ok
+B25 ^u\.(g|l)$ --case-sensitive                               -> 2/2 ok
+B26 ^h\.(a|b|c)$ --case-sensitive                             -> 3/3 ok
+B27 ^com\.quicinc\.voice\.activation\.algorithm\.AlgorithmProcessResult -> 1/1 ok
+
+# --- jadx naming notes ---
+# jadx rewrites single-letter dex packages with an index prefix:
+#   dex d.g  -> p003d.g   | dex e.a -> p004e.a | dex j.* -> p009j.*
+#   dex k.*  -> p010k.*   | dex l.* -> p011l.* | dex n.* -> p013n.*
+#   dex p.*  -> p015p.*   | dex q.* -> p016q.* | dex r.* -> p017r.*
+# Single-capital packages (E, G, I, L, M, N) keep their names.
+# Files in ../sources/classes/ keep the jadx file name; the dex name is the
+# same minus the "pNNN" prefix.
+
+# --- selected native symbol list (libqvajni.so) ---
+tools/disasm_elf.py native/libs/libqvajni.so --list-jni
+-> evidence/jni_symbols_libqvajni.txt (36 Java_* entries)

@@ -1,0 +1,193 @@
+verify.txt - miui_extraphoto embedded MACE document models
+generated: 2026-10-26T17:42:36Z
+python: Python 3.12.12   lib: native/libdoc_photo_process.so (25029048 B)
+
+================================================================
+1. PASS  $PY reimpl/mace_loader.py --self-test
+================================================================
+mace_loader self-test: OK (2 synthetic blocks; trailer split, fp16 payload law, exact-slack and slack>0 verdicts, sha256 and extract round-trip verified)
+exit=0
+
+================================================================
+2. report  $PY reimpl/mace_loader.py --report
+================================================================
+rodata 0x435700..0x16d80ad (19540397 B)  sha256 cbfac2f0e32012f1dff584bdb9fdfa12249d17eea95483afd5a57bea17a8d57d
+model region 0x16020d8..0x160cb60 (43656 B), 5 blocks
+
+block 0  0x16020e0..0x1605be0  (15104 B)
+  names        : 283 (13346 B, sha256 1be68244afd9998b)
+  first        : ['Create net ', 'default_graph', 'Create operators']
+  provenance   : {'inference/': 255, '<op-named>': 28}
+  ops          : Eltwise x1, Conv2D x1, StridedSlice x1, ScalarMath x1, Stack x1, Concat x1
+  tensor table : 105 records in 1 run(s) (1 invalid slots), 1696 B, offsets 0x8..0x8d45d, sizes 0x1..0x4800, sum 289318
+  payload      : 578656 B declared by trailer; tensors end at 0x8d45e (slack 2, coverage 1.0000, gaps 6/18 B, overlaps 0)
+  payload maps : [0]
+  payload law  : byte_offset + 2*fp16_count -> VERIFIED
+
+block 1  0x1605be8..0x16071e8  (5632 B)
+  names        : 369 (3049 B, sha256 f9c01a93c27dd70a)
+  first        : ['Div_1', 'dewarp_466', 'Sub_3']
+  provenance   : {'<op-named>': 235, '<numeric-node-id>': 134}
+  ops          : DepthwiseConv2d x1, FullyConnected x1
+  tensor table : 160 records in 1 run(s) (0 invalid slots), 2560 B, offsets 0x0..0x1430d4, sizes 0x2..0xb400, sum 661626
+  payload      : 1323252 B declared by trailer; tensors end at 0x1430f4 (slack 0, coverage 1.0000, gaps 0/0 B, overlaps 0)
+  payload maps : [1, 2]
+  payload law  : byte_offset + 2*fp16_count -> VERIFIED
+
+block 2  0x16071f0..0x1609560  (9072 B)
+  names        : 226 (8151 B, sha256 7c36f483b1353eef)
+  first        : ['inference/generator/input_conv/BiasAdd', 'inference/generator/input_conv/weights:0', 'inference/generator/input_conv/biases:0']
+  provenance   : {'inference/': 219, '<op-named>': 7}
+  ops          : Activation x1, Deconv2D x1
+  tensor table : 57 records in 1 run(s) (0 invalid slots), 912 B, offsets 0x0..0x30489c, sizes 0x3..0x48000, sum 1582356
+  payload      : 3164748 B declared by trailer; tensors end at 0x304a4c (slack 0, coverage 1.0000, gaps 6/36 B, overlaps 0)
+  payload maps : [3]
+  payload law  : byte_offset + 2*fp16_count -> VERIFIED
+
+block 3  0x1609568..0x160a030  (2760 B)
+  names        : 119 (1858 B, sha256 4cf916152e5ffade)
+  first        : ['Mul_1', 'Relu_3', 'model.conv1.conv2d.weight']
+  provenance   : {'model.*': 56, '<op-named>': 51, '<numeric-node-id>': 12}
+  ops          : ResizeNearestNeighbor x1, DepthToSpace x1
+  tensor table : 56 records in 1 run(s) (0 invalid slots), 896 B, offsets 0x0..0x8ce470, sizes 0xc..0x90000, sum 2750748
+  payload      : 11002992 B declared by trailer; tensors end at 0x95e470 (slack 1179648, coverage 0.5000, gaps 55/4321848 B, overlaps 0)
+  payload maps : [4]
+  payload law  : byte_offset + 2*fp16_count -> NOT verified (unaccounted bytes)
+
+block 4  0x160a038..0x160cb60  (11048 B)
+  names        : 202 (9635 B, sha256 226454f3c1d40069)
+  first        : ['EdgeDet/MobilenetV1/Conv2d_0/Relu', 'EdgeDet/MobilenetV1/Conv2d_0/weights:0', 'EdgeDet/MobilenetV1/Conv2d_0/Conv2D_bn_offset:0']
+  provenance   : {'EdgeDet/': 198, '<op-named>': 4}
+  ops          : -
+  tensor table : 88 records in 1 run(s) (0 invalid slots), 1408 B, offsets 0x0..0x132f98, sizes 0x1..0x14000, sum 628898
+  payload      : 1257800 B declared by trailer; tensors end at 0x133148 (slack 0, coverage 1.0000, gaps 2/4 B, overlaps 0)
+  payload maps : [5]
+  payload law  : byte_offset + 2*fp16_count -> VERIFIED
+
+interface descriptors (proven bytes):
+  hed_model          ['hed_model', 'hed_input', 'img_output'] -> [[1, 384, 384, 3], [1, 384, 384, 2]]
+  enhance_model      ['enhance_model', 'img_input'] -> [[1, 512, 512, 3]]
+  dewarp_fine_model  ['dewarp_fine_model'] -> [[1, 193, 193, 3], [1, 385, 385, 3], [1, 385, 385, 2]]
+
+weight payload arrays (proven by .text getter pairs):
+  P0  0x004387cc..0x004c5c2c     578656 B  getter 0xb1694  blocks [0]
+  P1  0x004c5cb0..0x00608da4    1323252 B  getter 0xb1828  blocks [1]
+  P2  0x00608e28..0x0074bf1c    1323252 B  getter 0xb19bc  blocks [1]
+  P3  0x0074bfb4..0x00a50a00    3164748 B  getter 0xb1b50  blocks [2]
+  P4  0x00a50a98..0x014cef08   11002992 B  getter 0xb1ce4  blocks [3]
+  P5  0x014cef8c..0x016020d4    1257800 B  getter 0xb1e78  blocks [4]
+
+tensor payload regions (statistical candidates, NOT claimed):
+  int8_zero_point_0x80   0x4d3700..0x78c700   2854912 B  mean=50.92 frac0x80=0.1609
+  fp16_like              0x78c700..0x1602000  15161600 B  mean=122.71 frac0x80=0.0030 finite=0.98867 |x|<=1=0.482 p99.9=62688.000
+
+graph_decoded=False  inference_available=False
+  note: name streams are provably delimited (NUL-terminated tokens, gap<=8B)
+  note: record tables are provably delimited (16B u64 pairs, values < 0x4000000)
+  note: blocks are provably delimited by the (u32 0, u32 payload_bytes) trailers
+  note: record law: u64 byte_offset + u64 fp16_element_count, tensor body is 2*count bytes inside the block payload (verified for 4/5 blocks)
+  note: payload bases come from the six (const float16_t*, uint32_t) getters in .text (adrp+add;ret / movz+movk;ret) consumed by the model loader at 0xafbc4; each block is joined to a payload by its trailer size
+  note: the operator graph (NetDef) is NOT in this binary: no protobuf framing exists in .rodata and the description blocks are referenced by no instruction/relocation, so operator wiring and per-tensor shapes cannot be reconstructed (see GAP_CLOSURE.md)
+exit=0
+
+================================================================
+3. extract  $PY reimpl/mace_loader.py --extract models/embedded/mace
+================================================================
+wrote models/embedded/mace/MANIFEST.json
+exit=0
+  total 18396
+  -rw-r--r-- 1 asdf asdf    10811 Oct 26 12:42 MANIFEST.json
+  -rw-r--r-- 1 asdf asdf    13346 Oct 26 12:42 block0_16020e0.names.bin
+  -rw-r--r-- 1 asdf asdf   578656 Oct 26 12:42 block0_16020e0.payload00.87cc.weights.f16.bin
+  -rw-r--r-- 1 asdf asdf    18342 Oct 26 12:42 block0_16020e0.tensors.json
+  -rw-r--r-- 1 asdf asdf     1696 Oct 26 12:42 block0_16020e0.tensors.u64.bin
+  -rw-r--r-- 1 asdf asdf     3049 Oct 26 12:42 block1_1605be8.names.bin
+  -rw-r--r-- 1 asdf asdf  1323252 Oct 26 12:42 block1_1605be8.payload01.5cb0.weights.f16.bin
+  -rw-r--r-- 1 asdf asdf  1323252 Oct 26 12:42 block1_1605be8.payload02.8e28.weights.f16.bin
+  -rw-r--r-- 1 asdf asdf    28496 Oct 26 12:42 block1_1605be8.tensors.json
+  -rw-r--r-- 1 asdf asdf     2560 Oct 26 12:42 block1_1605be8.tensors.u64.bin
+  -rw-r--r-- 1 asdf asdf     8151 Oct 26 12:42 block2_16071f0.names.bin
+  -rw-r--r-- 1 asdf asdf  3164748 Oct 26 12:42 block2_16071f0.payload03.bfb4.weights.f16.bin
+  -rw-r--r-- 1 asdf asdf    10078 Oct 26 12:42 block2_16071f0.tensors.json
+  -rw-r--r-- 1 asdf asdf      912 Oct 26 12:42 block2_16071f0.tensors.u64.bin
+  -rw-r--r-- 1 asdf asdf     1858 Oct 26 12:42 block3_1609568.names.bin
+  -rw-r--r-- 1 asdf asdf 11002992 Oct 26 12:42 block3_1609568.payload04.0a98.weights.f16.bin
+  -rw-r--r-- 1 asdf asdf    10401 Oct 26 12:42 block3_1609568.tensors.json
+  -rw-r--r-- 1 asdf asdf      896 Oct 26 12:42 block3_1609568.tensors.u64.bin
+  -rw-r--r-- 1 asdf asdf     9635 Oct 26 12:42 block4_160a038.names.bin
+  -rw-r--r-- 1 asdf asdf  1257800 Oct 26 12:42 block4_160a038.payload05.ef8c.weights.f16.bin
+  -rw-r--r-- 1 asdf asdf    15545 Oct 26 12:42 block4_160a038.tensors.json
+  -rw-r--r-- 1 asdf asdf     1408 Oct 26 12:42 block4_160a038.tensors.u64.bin
+
+================================================================
+4. PASS  $PY reimpl/mace_loader.py --check models/embedded/mace
+================================================================
+check: 5 blocks, 21 files, 466 tensors, 0 errors
+exit=0
+
+================================================================
+5. PASS  $PY evidence/mace_refscan.py
+================================================================
+file      : native/libdoc_photo_process.so (25029048 B)
+.text     : 0x68b80..0x4356f8   .rodata: 0x435700..0x16d80ad
+model region 0x16020d8..0x160cb60 (43656 B)
+weight payloads 0x4387cc..0x4c5c2c, 0x4c5cb0..0x608da4, 0x608e28..0x74bf1c, 0x74bfb4..0xa50a00, 0xa50a98..0x14cef08, 0x14cef8c..0x16020d4
+
+1. R_AARCH64_RELATIVE relocations with addend in model region : 0
+   R_AARCH64_RELATIVE relocations with addend in payload      : 0
+2. adrp+add targets inside model region (<=12 insns)          : 1128
+     0x1605528 x627  -> b'Create tensor '
+     0x1602145 x488  -> b'Create operator '
+     0x16020e0 x6    -> b'Create net '
+     0x16020fa x6    -> b'Create operators'
+     0x16063cf x1    -> b'20'
+   (all of the above are MACE runtime log string literals that the linker interleaved with the
+    model name streams; no tensor name, record table or payload byte is targeted)
+   adrp+add targets inside payload regions                    : 6
+     0x4387cc x1 -> b'C.F,\x05-\x00\x00(\xb63.\x8a4\xb8\xae'
+     0x4c5cb0 x1 -> b'\xe5\x89\xdb\x06\xc7\x86H\x80\xd6\x0e\xda\x8f\xc3\x07T\r'
+     0x608e28 x1 -> b'g\n\x00\x80\x00\x00\x00\x80\x00\x00\x00\x00\x00\x80\x00\x00'
+     0x74bfb4 x1 -> b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+     0xa50a98 x1 -> b'd&\xf4>\x83\rn>N\x00\xc6>\xe7f\xb5\xbd'
+     0x14cef8c x1 -> b')\xc4\x00\x00\xae\xbc\x87;\x80\xbb\x13\xbfR)\x17\xbe'
+3. movz/movk absolute constants in model region               : 0
+   movz/movk absolute constants in payload regions            : 0
+4. ldr-literal 64-bit constants in model region               : 0
+   ldr-literal 64-bit constants in payload regions            : 0
+5. protobuf framing of model strings in .rodata:
+   hed_model              plain occurrences=1  pb-framed (0x0a/0x22 len)=0
+   enhance_model          plain occurrences=3  pb-framed (0x0a/0x22 len)=0
+   dewarp_coarse_model    plain occurrences=1  pb-framed (0x0a/0x22 len)=0
+   dewarp_fine_model      plain occurrences=1  pb-framed (0x0a/0x22 len)=0
+   EdgeDet/MobilenetV1    plain occurrences=92  pb-framed (0x0a/0x22 len)=0
+   inference/generator    plain occurrences=469  pb-framed (0x0a/0x22 len)=0
+   pred_segment:0         plain occurrences=1  pb-framed (0x0a/0x22 len)=0
+   op type Conv2D               pb-framed (field 4,string)=0
+   op type DepthwiseConv2d      pb-framed (field 4,string)=0
+   op type FullyConnected       pb-framed (field 4,string)=0
+   op type StridedSlice         pb-framed (field 4,string)=0
+
+verdict:
+  * model DESCRIPTION blocks (0x16020d8..0x160cb60) are referenced by nothing: 0 relocations,
+    and the only adrp+add hits inside the region are MACE runtime log literals interleaved
+    with the name streams ('Create operator ', 'Create tensor ', 'Create net ').
+  * model WEIGHTS are reachable only through the constant-returning getters listed in
+    step 2 payload hits (adrp x0/add x0,#imm/ret and movz/movk/ret pairs, consumed by the
+    loader at 0xafbc4).  Those two instructions per getter are the entire link between
+    code and the 18 MB of fp16 bytes; nothing else points at them.
+  * no protobuf/NetDef framing of the model names exists anywhere in the image, so the
+    operator graph is not stored statically.
+exit=0
+
+================================================================
+6. weight-content spot check (decoded fp16, first tensors per block)
+================================================================
+  block0_16020e0         tensors=105  first: off=8      elems=864    absmax=1.12305   std=0.127226
+  block1_1605be8         tensors=160  first: off=0      elems=64     absmax=0.00093   std=0.000276
+  block2_16071f0         tensors=57   first: off=0      elems=131072 absmax=0.0       std=0.0
+  block3_1609568         tensors=56   first: off=0      elems=16     absmax=1767.0    std=454.963593
+  block4_160a038         tensors=88   first: off=0      elems=1      absmax=4.16016   std=0.0
+  RESULT: PASS (466 const tensors indexed, all fp16, all inside their payload)
+exit=0
+
+RESULT: PASS (all steps exit 0)

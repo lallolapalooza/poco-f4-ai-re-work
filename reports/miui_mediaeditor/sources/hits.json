@@ -1,0 +1,77 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/data-app/MIMediaEditorGlobal/MIMediaEditorGlobal.apk",
+  "regex": "^com\\.faceunity\\.core\\.controller\\.facebeauty\\.FaceBeautyController$|^com\\.faceunity\\.core\\.support\\.FURenderBridge$|^com\\.faceunity\\.core\\.bundle\\.FUBundleData$|^com\\.faceunity\\.core\\.utils\\.FUBundleUtil$|^com\\.miui\\.mediaeditor\\.aigc\\.cloud\\.inpaint\\.InpaintEdgeCloudJni$|^com\\.miui\\.mediaeditor\\.detection\\.scene\\.SceneDetector$",
+  "packages": [],
+  "max": 8,
+  "timeout": 240.0,
+  "jadx": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/jadx/bin/jadx",
+  "classes_scanned": 20815,
+  "candidates": [
+    {
+      "class": "com.faceunity.core.support.FURenderBridge",
+      "dex": "classes.dex",
+      "method_count": 11,
+      "access": 17,
+      "matched": [
+        "com.faceunity.core.support.furenderbridge"
+      ],
+      "score": 1011,
+      "rank": 1,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.faceunity.core.support.FURenderBridge.java",
+      "seconds": 13.61
+    },
+    {
+      "class": "com.miui.mediaeditor.aigc.cloud.inpaint.InpaintEdgeCloudJni",
+      "dex": "classes2.dex",
+      "method_count": 9,
+      "access": 0,
+      "matched": [
+        "com.miui.mediaeditor.aigc.cloud.inpaint.inpaintedgecloudjni"
+      ],
+      "score": 1009,
+      "rank": 2,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.mediaeditor.aigc.cloud.inpaint.InpaintEdgeCloudJni.java",
+      "seconds": 15.39
+    },
+    {
+      "class": "com.miui.mediaeditor.detection.scene.SceneDetector",
+      "dex": "classes2.dex",
+      "method_count": 5,
+      "access": 1,
+      "matched": [
+        "com.miui.mediaeditor.detection.scene.scenedetector"
+      ],
+      "score": 1005,
+      "rank": 3,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.mediaeditor.detection.scene.SceneDetector.java",
+      "seconds": 13.91
+    },
+    {
+      "class": "com.faceunity.core.controller.facebeauty.FaceBeautyController",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 17,
+      "matched": [
+        "com.faceunity.core.controller.facebeauty.facebeautycontroller"
+      ],
+      "score": 1003,
+      "rank": 4,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.faceunity.core.controller.facebeauty.FaceBeautyController.java",
+      "seconds": 20.84
+    }
+  ],
+  "decompiled": 4,
+  "elapsed_sec": 64.67
+}

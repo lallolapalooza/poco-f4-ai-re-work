@@ -1,0 +1,38 @@
+{
+  "error": null,
+  "max_abs": 1.609325408935547e-05,
+  "model": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/tflite/model__ai_face_beauty_processor__mobile_spade_256_ch16_from16_ftsevere_lr0.0001_117_16001.tflite",
+  "model_file": "model__ai_face_beauty_processor__mobile_spade_256_ch16_from16_ftsevere_lr0.0001_117_16001.tflite",
+  "ok": true,
+  "reference": "ai_edge_litert Interpreter with reference kernels (no XNNPACK delegate)",
+  "rows": [
+    {
+      "dtype": "FLOAT32",
+      "dtype_ok": true,
+      "jax_dtype": "float32",
+      "kind": "absolute",
+      "max_abs": 1.609325408935547e-05,
+      "name": "generator_1/Tanh",
+      "ok": true,
+      "ref_dtype": "float32",
+      "shape": [
+        1,
+        256,
+        256,
+        3
+      ],
+      "tensor_index": 101,
+      "tol": 0.0001
+    }
+  ],
+  "selection_reason": "subgraph 0 (model has no signature defs)",
+  "signature_key": null,
+  "status": "pass",
+  "subgraph_index": 0,
+  "subgraph_name": null,
+  "tolerances": {
+    "float16": 0.01,
+    "float32": 0.0001,
+    "quantized_dequantized": 0.02
+  }
+}

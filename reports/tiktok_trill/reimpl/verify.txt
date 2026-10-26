@@ -1,0 +1,117 @@
+$ python reimpl/descriptor.py models/*.model
+models/tt_face_v10.0.model: version='tt_face_v10.0' records=9 trailing=8
+  detect      cfg=  4708 plain=  4689 weight=  14448
+  base120     cfg=  6932 plain=  6925 weight= 356816
+  base120det  cfg=  5140 plain=  5122 weight= 151168
+  pout        cfg=   676 plain=   664 weight=   6489
+  eyecls      cfg=   676 plain=   667 weight=   6489
+  partface    cfg=  5012 plain=  5003 weight= 151169
+  image       cfg=  6644 plain=  6639 weight=  81880
+  slowimage   cfg=  6660 plain=  6652 weight=  92296
+  mean        cfg=    20 plain=     1 weight=   7620
+models/tt_face_extra_v13.0.model: version='v13.0' records=2 trailing=0
+  iris        cfg=  3556 plain=  3545 weight=  22324
+  extra       cfg= 11236 plain= 11223 weight= 536580
+models/tt_face_attribute_age_v1.1.model: version='tt_face_attribute_age_v1.1' records=1 trailing=0
+  agenet      cfg= 14260 plain= 14253 weight= 188648
+exit=0
+
+$ python reimpl/run_record.py --model models/tt_face_v10.0.model --list
+models/tt_face_v10.0.model: version='tt_face_v10.0' records=9 auth_known=True
+  detect      cfg=  4708 plain=  4689 weight=  14448 ok
+  base120     cfg=  6932 plain=  6925 weight= 356816 ok
+  base120det  cfg=  5140 plain=  5122 weight= 151168 ok
+  pout        cfg=   676 plain=   664 weight=   6489 ok
+  eyecls      cfg=   676 plain=   667 weight=   6489 ok
+  partface    cfg=  5012 plain=  5003 weight= 151169 ok
+  image       cfg=  6644 plain=  6639 weight=  81880 ok
+  slowimage   cfg=  6660 plain=  6652 weight=  92296 ok
+  mean        cfg=    20 plain=     1 weight=   7620 no-net (bad header line '1')
+exit=0
+
+$ python reimpl/verify.py
+== AES
+[ok  ] FIPS-197 C.3 AES-256 decrypt
+
+== container
+[ok  ] tt_face_v10.0.model: declared_size == file size  905491
+[ok  ] tt_face_v10.0.model: records parse, remainder 8 B  version='tt_face_v10.0' records=9
+[ok  ] tt_face_v10.0.model:detect: key_len == 36 and key[32:36] == u32 32
+[ok  ] tt_face_v10.0.model:detect: config len 4708 == 4 mod 16, plain_len 4689
+[ok  ] tt_face_v10.0.model:base120: key_len == 36 and key[32:36] == u32 32
+[ok  ] tt_face_v10.0.model:base120: config len 6932 == 4 mod 16, plain_len 6925
+[ok  ] tt_face_v10.0.model:base120det: key_len == 36 and key[32:36] == u32 32
+[ok  ] tt_face_v10.0.model:base120det: config len 5140 == 4 mod 16, plain_len 5122
+[ok  ] tt_face_v10.0.model:pout: key_len == 36 and key[32:36] == u32 32
+[ok  ] tt_face_v10.0.model:pout: config len 676 == 4 mod 16, plain_len 664
+[ok  ] tt_face_v10.0.model:eyecls: key_len == 36 and key[32:36] == u32 32
+[ok  ] tt_face_v10.0.model:eyecls: config len 676 == 4 mod 16, plain_len 667
+[ok  ] tt_face_v10.0.model:partface: key_len == 36 and key[32:36] == u32 32
+[ok  ] tt_face_v10.0.model:partface: config len 5012 == 4 mod 16, plain_len 5003
+[ok  ] tt_face_v10.0.model:image: key_len == 36 and key[32:36] == u32 32
+[ok  ] tt_face_v10.0.model:image: config len 6644 == 4 mod 16, plain_len 6639
+[ok  ] tt_face_v10.0.model:slowimage: key_len == 36 and key[32:36] == u32 32
+[ok  ] tt_face_v10.0.model:slowimage: config len 6660 == 4 mod 16, plain_len 6652
+[ok  ] tt_face_v10.0.model:mean: key_len == 36 and key[32:36] == u32 32
+[ok  ] tt_face_v10.0.model:mean: config len 20 == 4 mod 16, plain_len 1
+[ok  ] tt_face_extra_v13.0.model: declared_size == file size  573858
+[ok  ] tt_face_extra_v13.0.model: records parse, remainder 0 B  version='v13.0' records=2
+[ok  ] tt_face_extra_v13.0.model:iris: key_len == 36 and key[32:36] == u32 32
+[ok  ] tt_face_extra_v13.0.model:iris: config len 3556 == 4 mod 16, plain_len 3545
+[ok  ] tt_face_extra_v13.0.model:extra: key_len == 36 and key[32:36] == u32 32
+[ok  ] tt_face_extra_v13.0.model:extra: config len 11236 == 4 mod 16, plain_len 11223
+[ok  ] tt_face_attribute_age_v1.1.model: declared_size == file size  203028
+[ok  ] tt_face_attribute_age_v1.1.model: records parse, remainder 0 B  version='tt_face_attribute_age_v1.1' records=1
+[ok  ] tt_face_attribute_age_v1.1.model:agenet: key_len == 36 and key[32:36] == u32 32
+[ok  ] tt_face_attribute_age_v1.1.model:agenet: config len 14260 == 4 mod 16, plain_len 14253
+
+== descriptor decryption (11 of 12 records; agenet blocked)
+[ok  ] tt_face_v10.0.model:detect: plaintext is ASCII (printable 1.000)
+[ok  ] tt_face_v10.0.model:detect: net parsed, 54 layers (declared 53 + data)
+[ok  ] tt_face_v10.0.model:base120: plaintext is ASCII (printable 1.000)
+[ok  ] tt_face_v10.0.model:base120: net parsed, 79 layers (declared 78 + data)
+[ok  ] tt_face_v10.0.model:base120det: plaintext is ASCII (printable 1.000)
+[ok  ] tt_face_v10.0.model:base120det: net parsed, 58 layers (declared 57 + data)
+[ok  ] tt_face_v10.0.model:pout: plaintext is ASCII (printable 1.000)
+[ok  ] tt_face_v10.0.model:pout: net parsed, 11 layers (declared 10 + data)
+[ok  ] tt_face_v10.0.model:eyecls: plaintext is ASCII (printable 1.000)
+[ok  ] tt_face_v10.0.model:eyecls: net parsed, 11 layers (declared 10 + data)
+[ok  ] tt_face_v10.0.model:partface: plaintext is ASCII (printable 1.000)
+[ok  ] tt_face_v10.0.model:partface: net parsed, 58 layers (declared 57 + data)
+[ok  ] tt_face_v10.0.model:image: plaintext is ASCII (printable 1.000)
+[ok  ] tt_face_v10.0.model:image: net parsed, 75 layers (declared 74 + data)
+[ok  ] tt_face_v10.0.model:slowimage: plaintext is ASCII (printable 1.000)
+[ok  ] tt_face_v10.0.model:slowimage: net parsed, 75 layers (declared 74 + data)
+[ok  ] tt_face_v10.0.model:mean: config plaintext b'1' (data record)
+[ok  ] tt_face_extra_v13.0.model:iris: plaintext is ASCII (printable 1.000)
+[ok  ] tt_face_extra_v13.0.model:iris: net parsed, 42 layers (declared 41 + data)
+[ok  ] tt_face_extra_v13.0.model:extra: plaintext is ASCII (printable 1.000)
+[ok  ] tt_face_extra_v13.0.model:extra: net parsed, 141 layers (declared 140 + data)
+[note] tt_face_attribute_age_v1.1.model:agenet: auth_code not recovered (config 14260 B, plain_len 14253) -> BLOCKER, see GAP_CLOSURE.md
+
+== weight-buffer closure (int8/int16 weights + int32 bias per layer)
+       tt_face_v10.0.model  detect      consumed=  14448 buffer=  14448 residue=     0 CLOSED
+       tt_face_v10.0.model  base120     consumed= 337188 buffer= 356816 residue= 19628 
+       tt_face_v10.0.model  base120det  consumed= 151168 buffer= 151168 residue=     0 CLOSED
+       tt_face_v10.0.model  pout        consumed=   6104 buffer=   6489 residue=   385 
+       tt_face_v10.0.model  eyecls      consumed=   6104 buffer=   6489 residue=   385 
+       tt_face_v10.0.model  partface    consumed= 109696 buffer= 151169 residue= 41473 
+       tt_face_v10.0.model  image       consumed=  81880 buffer=  81880 residue=     0 CLOSED
+       tt_face_v10.0.model  slowimage   consumed=  92296 buffer=  92296 residue=     0 CLOSED
+       tt_face_extra_v13.0. iris        consumed=  18480 buffer=  22324 residue=  3844 
+       tt_face_extra_v13.0. extra       consumed= 494520 buffer= 536580 residue= 42060 
+[ok  ] weight layout closes for 4/10 shape-resolvable records
+
+== execution with real weights
+[ok  ] detect runs: 1x3x128x128 -> rpn output  layers=54 tensors=39 out[-17.762,7.057]
+[ok  ] image runs: 1x3x160x160 fp16(int16) weights, buffer closed  tensors=53 out=[1, 12, 5, 5]
+[ok  ] slowimage runs: 1x3x192x192  out=[1, 16, 6, 6]
+[ok  ] pout runs: 56x56 -> softmax prob (2 classes)  weight residue=385 (InnerProduct f32 + 1 B)
+[ok  ] mean data record: 1905 float32 prior/anchor table  range [-2.769, 255.241]
+
+== extra model (tt_face_extra_v13.0.model)
+[note] extra:iris graph needs layer support: 'pool13'
+[note] extra:extra graph needs layer support: layer type 'Slice' (1318_1319)
+
+0 failure(s)
+exit=0

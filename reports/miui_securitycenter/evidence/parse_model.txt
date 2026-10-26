@@ -1,0 +1,7 @@
+file 680154 bytes sha256 b282b4efb958ca2131fd14fbd687990da23c3b01521891119655434be52a9f15
+header version=1 reserved=0 n_models=5 consumed=680154 exact=True
+stage 0: off 0xc..0x2e122 n_feat=68 dict1=58ch dict2=39 tokens=8000 patterns=414 thr=(10.100,-9.611,-0.082) w[min,max]=(-10.322,-0.034)
+stage 1: off 0x2e122..0x5b852 n_feat=23 dict1=13ch dict2=18 tokens=8000 patterns=292 thr=(5.453,-5.453,0.647) w[min,max]=(-8.924,-0.002)
+stage 2: off 0x5b852..0x7c1ac n_feat=10 dict1=0ch dict2=24 tokens=5752 patterns=193 thr=(13.209,-11.360,-1.940) w[min,max]=(-7.030,-0.017)
+stage 3: off 0x7c1ac..0x96f84 n_feat=10 dict1=0ch dict2=23 tokens=4759 patterns=139 thr=(5.208,-5.208,-2.044) w[min,max]=(-6.910,-0.014)
+stage 4: off 0x96f84..0xa60da n_feat=16 dict1=6ch dict2=104 tokens=2573 patterns=171 thr=(3.543,-3.543,0.165) w[min,max]=(-7.013,-0.954)

@@ -1,0 +1,2493 @@
+{
+  "file": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/work/x/lib/arm64-v8a/liblanguage_id_l2c_jni.so",
+  "size": 1035408,
+  "sha256": "3d417a5e5f2d38bc082aae2b2707e33b6826df3f6b332443a15eed3a48f6a47e",
+  "parser": "lief",
+  "lief_version": "1.0.0-d05b3499b",
+  "class": "ELF64",
+  "endianness": "little",
+  "type": "DYN",
+  "machine": "AARCH64",
+  "os_abi": "SYSTEMV",
+  "entrypoint": 0,
+  "imagebase": 0,
+  "interpreter": null,
+  "build_id": "e536e4cd680d10ed0329fc946fc929e8",
+  "android": {
+    "sdk": 21,
+    "ndk": "r25",
+    "ndk_build": "8775105"
+  },
+  "needed": [
+    "libandroid.so",
+    "libm.so",
+    "liblog.so",
+    "libdl.so",
+    "libc.so"
+  ],
+  "soname": "liblanguage_id_l2c_jni.so",
+  "rpath": null,
+  "runpath": null,
+  "dynamic_flags": {
+    "FLAGS": 8,
+    "FLAGS_1": 1
+  },
+  "dynamic_entries_count": 32,
+  "sections": [
+    {
+      "name": "",
+      "type": "SHT_NULL_",
+      "flags": "-",
+      "flags_raw": 0,
+      "address": 0,
+      "offset": 0,
+      "size": 0,
+      "entry_size": 0,
+      "alignment": 0,
+      "entropy": 0.0
+    },
+    {
+      "name": ".note.android.ident",
+      "type": "NOTE",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 568,
+      "offset": 568,
+      "size": 152,
+      "entry_size": 0,
+      "alignment": 4,
+      "entropy": 1.115
+    },
+    {
+      "name": ".note.gnu.build-id",
+      "type": "NOTE",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 720,
+      "offset": 720,
+      "size": 32,
+      "entry_size": 0,
+      "alignment": 4,
+      "entropy": 3.774
+    },
+    {
+      "name": ".dynsym",
+      "type": "DYNSYM",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 752,
+      "offset": 752,
+      "size": 3120,
+      "entry_size": 24,
+      "alignment": 8,
+      "entropy": 1.195
+    },
+    {
+      "name": ".gnu.version",
+      "type": "GNU_VERSYM",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 3872,
+      "offset": 3872,
+      "size": 260,
+      "entry_size": 2,
+      "alignment": 2,
+      "entropy": 1.452
+    },
+    {
+      "name": ".gnu.version_d",
+      "type": "GNU_VERDEF",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 4132,
+      "offset": 4132,
+      "size": 56,
+      "entry_size": 0,
+      "alignment": 4,
+      "entropy": 2.37
+    },
+    {
+      "name": ".gnu.version_r",
+      "type": "GNU_VERNEED",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 4188,
+      "offset": 4188,
+      "size": 96,
+      "entry_size": 0,
+      "alignment": 4,
+      "entropy": 2.191
+    },
+    {
+      "name": ".gnu.hash",
+      "type": "GNU_HASH",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 4288,
+      "offset": 4288,
+      "size": 48,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": 3.913
+    },
+    {
+      "name": ".hash",
+      "type": "HASH",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 4336,
+      "offset": 4336,
+      "size": 1048,
+      "entry_size": 4,
+      "alignment": 4,
+      "entropy": 1.421
+    },
+    {
+      "name": ".dynstr",
+      "type": "STRTAB",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 5384,
+      "offset": 5384,
+      "size": 1870,
+      "entry_size": 0,
+      "alignment": 1,
+      "entropy": 4.597
+    },
+    {
+      "name": ".rela.dyn",
+      "type": "RELA",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 7256,
+      "offset": 7256,
+      "size": 50304,
+      "entry_size": 24,
+      "alignment": 8,
+      "entropy": 2.799
+    },
+    {
+      "name": ".rela.plt",
+      "type": "RELA",
+      "flags": "AI",
+      "flags_raw": 66,
+      "address": 57560,
+      "offset": 57560,
+      "size": 2952,
+      "entry_size": 24,
+      "alignment": 8,
+      "entropy": 2.0
+    },
+    {
+      "name": ".rodata",
+      "type": "PROGBITS",
+      "flags": "AMS",
+      "flags_raw": 50,
+      "address": 60512,
+      "offset": 60512,
+      "size": 56332,
+      "entry_size": 0,
+      "alignment": 16,
+      "entropy": 5.205
+    },
+    {
+      "name": ".gcc_except_table",
+      "type": "PROGBITS",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 116844,
+      "offset": 116844,
+      "size": 12636,
+      "entry_size": 0,
+      "alignment": 4,
+      "entropy": 4.76
+    },
+    {
+      "name": ".eh_frame_hdr",
+      "type": "PROGBITS",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 129480,
+      "offset": 129480,
+      "size": 23292,
+      "entry_size": 0,
+      "alignment": 4,
+      "entropy": 5.693
+    },
+    {
+      "name": ".eh_frame",
+      "type": "PROGBITS",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 152776,
+      "offset": 152776,
+      "size": 85900,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": 4.799
+    },
+    {
+      "name": ".text",
+      "type": "PROGBITS",
+      "flags": "AX",
+      "flags_raw": 6,
+      "address": 238688,
+      "offset": 238688,
+      "size": 749588,
+      "entry_size": 0,
+      "alignment": 16,
+      "entropy": 6.755
+    },
+    {
+      "name": "malloc_hook",
+      "type": "PROGBITS",
+      "flags": "AX",
+      "flags_raw": 6,
+      "address": 988276,
+      "offset": 988276,
+      "size": 344,
+      "entry_size": 0,
+      "alignment": 2,
+      "entropy": 5.636
+    },
+    {
+      "name": ".plt",
+      "type": "PROGBITS",
+      "flags": "AX",
+      "flags_raw": 6,
+      "address": 988624,
+      "offset": 988624,
+      "size": 2000,
+      "entry_size": 0,
+      "alignment": 16,
+      "entropy": 4.685
+    },
+    {
+      "name": ".data.rel.ro",
+      "type": "PROGBITS",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 999424,
+      "offset": 999424,
+      "size": 15800,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": 0.233
+    },
+    {
+      "name": ".fini_array",
+      "type": "FINI_ARRAY",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 1015224,
+      "offset": 1015224,
+      "size": 16,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": -0.0
+    },
+    {
+      "name": ".init_array",
+      "type": "INIT_ARRAY",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 1015240,
+      "offset": 1015240,
+      "size": 48,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": -0.0
+    },
+    {
+      "name": ".dynamic",
+      "type": "DYNAMIC",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 1015288,
+      "offset": 1015288,
+      "size": 512,
+      "entry_size": 16,
+      "alignment": 8,
+      "entropy": 1.861
+    },
+    {
+      "name": ".got",
+      "type": "PROGBITS",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 1015800,
+      "offset": 1015800,
+      "size": 2328,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": -0.0
+    },
+    {
+      "name": ".got.plt",
+      "type": "PROGBITS",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 1018128,
+      "offset": 1018128,
+      "size": 1008,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": 1.528
+    },
+    {
+      "name": ".data",
+      "type": "PROGBITS",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 1035520,
+      "offset": 1019136,
+      "size": 13944,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": 4.015
+    },
+    {
+      "name": ".bss",
+      "type": "NOBITS",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 1049472,
+      "offset": 1033080,
+      "size": 93216,
+      "entry_size": 0,
+      "alignment": 64,
+      "entropy": 0.0
+    },
+    {
+      "name": ".comment",
+      "type": "PROGBITS",
+      "flags": "MS",
+      "flags_raw": 48,
+      "address": 0,
+      "offset": 1033080,
+      "size": 184,
+      "entry_size": 1,
+      "alignment": 1,
+      "entropy": 5.094
+    },
+    {
+      "name": ".shstrtab",
+      "type": "STRTAB",
+      "flags": "-",
+      "flags_raw": 0,
+      "address": 0,
+      "offset": 1033264,
+      "size": 287,
+      "entry_size": 0,
+      "alignment": 1,
+      "entropy": 4.282
+    }
+  ],
+  "segments": [
+    {
+      "type": "PHDR",
+      "flags": "R",
+      "flags_raw": 4,
+      "offset": 64,
+      "address": 64,
+      "filesz": 504,
+      "memsz": 504,
+      "alignment": 8
+    },
+    {
+      "type": "LOAD",
+      "flags": "XR",
+      "flags_raw": 5,
+      "offset": 0,
+      "address": 0,
+      "filesz": 990624,
+      "memsz": 990624,
+      "alignment": 16384
+    },
+    {
+      "type": "LOAD",
+      "flags": "WR",
+      "flags_raw": 6,
+      "offset": 999424,
+      "address": 999424,
+      "filesz": 19712,
+      "memsz": 19712,
+      "alignment": 16384
+    },
+    {
+      "type": "LOAD",
+      "flags": "WR",
+      "flags_raw": 6,
+      "offset": 1019136,
+      "address": 1035520,
+      "filesz": 13944,
+      "memsz": 107168,
+      "alignment": 16384
+    },
+    {
+      "type": "DYNAMIC",
+      "flags": "WR",
+      "flags_raw": 6,
+      "offset": 1015288,
+      "address": 1015288,
+      "filesz": 512,
+      "memsz": 512,
+      "alignment": 8
+    },
+    {
+      "type": "GNU_RELRO",
+      "flags": "R",
+      "flags_raw": 4,
+      "offset": 999424,
+      "address": 999424,
+      "filesz": 19712,
+      "memsz": 20480,
+      "alignment": 1
+    },
+    {
+      "type": "GNU_EH_FRAME",
+      "flags": "R",
+      "flags_raw": 4,
+      "offset": 129480,
+      "address": 129480,
+      "filesz": 23292,
+      "memsz": 23292,
+      "alignment": 4
+    },
+    {
+      "type": "GNU_STACK",
+      "flags": "WR",
+      "flags_raw": 6,
+      "offset": 0,
+      "address": 0,
+      "filesz": 0,
+      "memsz": 0,
+      "alignment": 0
+    },
+    {
+      "type": "NOTE",
+      "flags": "R",
+      "flags_raw": 4,
+      "offset": 568,
+      "address": 568,
+      "filesz": 184,
+      "memsz": 184,
+      "alignment": 4
+    }
+  ],
+  "symbols": {
+    "exported": [
+      {
+        "name": "Java_com_google_mlkit_nl_languageid_bundled_internal_ThickLanguageIdentifier_nativeInitFromBuffer",
+        "demangled": "Java_com_google_mlkit_nl_languageid_bundled_internal_ThickLanguageIdentifier_nativeInitFromBuffer",
+        "address": 239180,
+        "size": 256,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "com.google.mlkit.nl.languageid.bundled.internal.ThickLanguageIdentifier",
+        "jni_method": "nativeInitFromBuffer",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_com_google_mlkit_nl_languageid_bundled_internal_ThickLanguageIdentifier_nativeIdentifyPossibleLanguages",
+        "demangled": "Java_com_google_mlkit_nl_languageid_bundled_internal_ThickLanguageIdentifier_nativeIdentifyPossibleLanguages",
+        "address": 239436,
+        "size": 672,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "com.google.mlkit.nl.languageid.bundled.internal.ThickLanguageIdentifier",
+        "jni_method": "nativeIdentifyPossibleLanguages",
+        "jni_signature": ""
+      },
+      {
+        "name": "Java_com_google_mlkit_nl_languageid_bundled_internal_ThickLanguageIdentifier_nativeDestroy",
+        "demangled": "Java_com_google_mlkit_nl_languageid_bundled_internal_ThickLanguageIdentifier_nativeDestroy",
+        "address": 240724,
+        "size": 28,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": true,
+        "jni_class": "com.google.mlkit.nl.languageid.bundled.internal.ThickLanguageIdentifier",
+        "jni_method": "nativeDestroy",
+        "jni_signature": ""
+      }
+    ],
+    "imported": [
+      {
+        "name": "__cxa_finalize",
+        "demangled": "__cxa_finalize",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "__cxa_atexit",
+        "demangled": "__cxa_atexit",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strlen",
+        "demangled": "strlen",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "memcpy",
+        "demangled": "memcpy",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "__stack_chk_fail",
+        "demangled": "__stack_chk_fail",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "memcmp",
+        "demangled": "memcmp",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "abort",
+        "demangled": "abort",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "memset",
+        "demangled": "memset",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "bsearch",
+        "demangled": "bsearch",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strcmp",
+        "demangled": "strcmp",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "__errno",
+        "demangled": "__errno",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strtoull_l",
+        "demangled": "strtoull_l",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strtoll_l",
+        "demangled": "strtoll_l",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "expf",
+        "demangled": "expf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strtod",
+        "demangled": "strtod",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "log2f",
+        "demangled": "log2f",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "memmove",
+        "demangled": "memmove",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "frexp",
+        "demangled": "frexp",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "exp",
+        "demangled": "exp",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "free",
+        "demangled": "free",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "malloc",
+        "demangled": "malloc",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "__sF",
+        "demangled": "__sF",
+        "address": 0,
+        "size": 0,
+        "type": "OBJECT",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": false,
+        "is_jni": false
+      },
+      {
+        "name": "fprintf",
+        "demangled": "fprintf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "munmap",
+        "demangled": "munmap",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "mmap",
+        "demangled": "mmap",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "madvise",
+        "demangled": "madvise",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "sysconf",
+        "demangled": "sysconf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "ldexp",
+        "demangled": "ldexp",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "getauxval",
+        "demangled": "getauxval",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "snprintf",
+        "demangled": "snprintf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_once",
+        "demangled": "pthread_once",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_mutex_lock",
+        "demangled": "pthread_mutex_lock",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_cond_broadcast",
+        "demangled": "pthread_cond_broadcast",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_mutex_unlock",
+        "demangled": "pthread_mutex_unlock",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_join",
+        "demangled": "pthread_join",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_cond_destroy",
+        "demangled": "pthread_cond_destroy",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_mutex_destroy",
+        "demangled": "pthread_mutex_destroy",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "getenv",
+        "demangled": "getenv",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "posix_memalign",
+        "demangled": "posix_memalign",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_create",
+        "demangled": "pthread_create",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_setspecific",
+        "demangled": "pthread_setspecific",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "clock_gettime",
+        "demangled": "clock_gettime",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "syscall",
+        "demangled": "syscall",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "calloc",
+        "demangled": "calloc",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "qsort",
+        "demangled": "qsort",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "open",
+        "demangled": "open",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "read",
+        "demangled": "read",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strerror",
+        "demangled": "strerror",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "close",
+        "demangled": "close",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strnlen",
+        "demangled": "strnlen",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strncmp",
+        "demangled": "strncmp",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strncpy",
+        "demangled": "strncpy",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "__system_property_get",
+        "demangled": "__system_property_get",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "newlocale",
+        "demangled": "newlocale",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "freelocale",
+        "demangled": "freelocale",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "fwrite",
+        "demangled": "fwrite",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "fflush",
+        "demangled": "fflush",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "memchr",
+        "demangled": "memchr",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "__android_log_vprint",
+        "demangled": "__android_log_vprint",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "vfprintf",
+        "demangled": "vfprintf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "fputc",
+        "demangled": "fputc",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "dlopen",
+        "demangled": "dlopen",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "dlsym",
+        "demangled": "dlsym",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "dlclose",
+        "demangled": "dlclose",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "realloc",
+        "demangled": "realloc",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "sched_yield",
+        "demangled": "sched_yield",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "nanosleep",
+        "demangled": "nanosleep",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_key_create",
+        "demangled": "pthread_key_create",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_getspecific",
+        "demangled": "pthread_getspecific",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "_exit",
+        "demangled": "_exit",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "__android_log_write",
+        "demangled": "__android_log_write",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_self",
+        "demangled": "pthread_self",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_getschedparam",
+        "demangled": "pthread_getschedparam",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strerror_r",
+        "demangled": "strerror_r",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "wcslen",
+        "demangled": "wcslen",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "sigfillset",
+        "demangled": "sigfillset",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_sigmask",
+        "demangled": "pthread_sigmask",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "prctl",
+        "demangled": "prctl",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strtol",
+        "demangled": "strtol",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "write",
+        "demangled": "write",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "vsnprintf",
+        "demangled": "vsnprintf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_cond_signal",
+        "demangled": "pthread_cond_signal",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_cond_wait",
+        "demangled": "pthread_cond_wait",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "wmemcpy",
+        "demangled": "wmemcpy",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "ungetc",
+        "demangled": "ungetc",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "getc",
+        "demangled": "getc",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "uselocale",
+        "demangled": "uselocale",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "vsscanf",
+        "demangled": "vsscanf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "__vsnprintf_chk",
+        "demangled": "__vsnprintf_chk",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "vasprintf",
+        "demangled": "vasprintf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "isxdigit_l",
+        "demangled": "isxdigit_l",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "isdigit_l",
+        "demangled": "isdigit_l",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "wmemset",
+        "demangled": "wmemset",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strftime_l",
+        "demangled": "strftime_l",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "mbsrtowcs",
+        "demangled": "mbsrtowcs",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "sscanf",
+        "demangled": "sscanf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "iswlower_l",
+        "demangled": "iswlower_l",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "islower_l",
+        "demangled": "islower_l",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "isupper_l",
+        "demangled": "isupper_l",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "wcsnrtombs",
+        "demangled": "wcsnrtombs",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "wcrtomb",
+        "demangled": "wcrtomb",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "mbsnrtowcs",
+        "demangled": "mbsnrtowcs",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "mbrtowc",
+        "demangled": "mbrtowc",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "mbtowc",
+        "demangled": "mbtowc",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "__ctype_get_mb_cur_max",
+        "demangled": "__ctype_get_mb_cur_max",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "mbrlen",
+        "demangled": "mbrlen",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strtof",
+        "demangled": "strtof",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strtold_l",
+        "demangled": "strtold_l",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "__strlen_chk",
+        "demangled": "__strlen_chk",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "wmemmove",
+        "demangled": "wmemmove",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "android_set_abort_message",
+        "demangled": "android_set_abort_message",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "openlog",
+        "demangled": "openlog",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "syslog",
+        "demangled": "syslog",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "closelog",
+        "demangled": "closelog",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "dl_iterate_phdr",
+        "demangled": "dl_iterate_phdr",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_rwlock_unlock",
+        "demangled": "pthread_rwlock_unlock",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_rwlock_rdlock",
+        "demangled": "pthread_rwlock_rdlock",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_key_delete",
+        "demangled": "pthread_key_delete",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pthread_rwlock_wrlock",
+        "demangled": "pthread_rwlock_wrlock",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      }
+    ],
+    "symtab_count": 0,
+    "dynsym_count": 130
+  },
+  "jni_entrypoints": [
+    {
+      "name": "Java_com_google_mlkit_nl_languageid_bundled_internal_ThickLanguageIdentifier_nativeInitFromBuffer",
+      "demangled": "Java_com_google_mlkit_nl_languageid_bundled_internal_ThickLanguageIdentifier_nativeInitFromBuffer",
+      "address": 239180,
+      "size": 256,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "com.google.mlkit.nl.languageid.bundled.internal.ThickLanguageIdentifier",
+      "jni_method": "nativeInitFromBuffer",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_com_google_mlkit_nl_languageid_bundled_internal_ThickLanguageIdentifier_nativeIdentifyPossibleLanguages",
+      "demangled": "Java_com_google_mlkit_nl_languageid_bundled_internal_ThickLanguageIdentifier_nativeIdentifyPossibleLanguages",
+      "address": 239436,
+      "size": 672,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "com.google.mlkit.nl.languageid.bundled.internal.ThickLanguageIdentifier",
+      "jni_method": "nativeIdentifyPossibleLanguages",
+      "jni_signature": ""
+    },
+    {
+      "name": "Java_com_google_mlkit_nl_languageid_bundled_internal_ThickLanguageIdentifier_nativeDestroy",
+      "demangled": "Java_com_google_mlkit_nl_languageid_bundled_internal_ThickLanguageIdentifier_nativeDestroy",
+      "address": 240724,
+      "size": 28,
+      "type": "FUNC",
+      "binding": "GLOBAL",
+      "visibility": "DEFAULT",
+      "is_function": true,
+      "is_jni": true,
+      "jni_class": "com.google.mlkit.nl.languageid.bundled.internal.ThickLanguageIdentifier",
+      "jni_method": "nativeDestroy",
+      "jni_signature": ""
+    }
+  ],
+  "strings": {
+    "scanned_bytes": 271754,
+    "categories": {
+      "tflite": [
+        {
+          "value": "kTfLiteAffineQuantization",
+          "offset": 69695,
+          "address": 69695,
+          "section": ".rodata"
+        },
+        {
+          "value": "filter->type == kTfLiteInt8 || filter->type == kTfLiteInt4",
+          "offset": 69734,
+          "address": 69734,
+          "section": ".rodata"
+        },
+        {
+          "value": "third_party/tensorflow/lite/util.cc BytesRequired number of elements overflowed.",
+          "offset": 70377,
+          "address": 70377,
+          "section": ".rodata"
+        },
+        {
+          "value": "learning/expander/pod/deep_pod/tflite_handlers/expected_value.cc",
+          "offset": 71753,
+          "address": 71753,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteInt32",
+          "offset": 71954,
+          "address": 71954,
+          "section": ".rodata"
+        },
+        {
+          "value": "third_party/tensorflow/lite/util.cc",
+          "offset": 72250,
+          "address": 72250,
+          "section": ".rodata"
+        },
+        {
+          "value": "TFL3",
+          "offset": 72912,
+          "address": 72912,
+          "section": ".rodata"
+        },
+        {
+          "value": "third_party/tensorflow/lite/kernels/activations.cc",
+          "offset": 73358,
+          "address": 73358,
+          "section": ".rodata"
+        },
+        {
+          "value": "input->type == kTfLiteUInt8 || input->type == kTfLiteInt8 || input->type == kTfLiteInt16",
+          "offset": 73541,
+          "address": 73541,
+          "section": ".rodata"
+        },
+        {
+          "value": "third_party/tensorflow/lite/kernels/pad.cc INT64 padding overflow. Only support value between INT32_MIN and INT32_MAX.",
+          "offset": 73764,
+          "address": 73764,
+          "section": ".rodata"
+        },
+        {
+          "value": "t->buffer_handle != kTfLiteNullBufferHandle",
+          "offset": 74139,
+          "address": 74139,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteFloat32",
+          "offset": 75455,
+          "address": 75455,
+          "section": ".rodata"
+        },
+        {
+          "value": "Initialized TensorFlow Lite runtime.",
+          "offset": 76396,
+          "address": 76396,
+          "section": ".rodata"
+        },
+        {
+          "value": "third_party/tensorflow/lite/util.cc BytesRequired number of bytes overflowed.",
+          "offset": 76609,
+          "address": 76609,
+          "section": ".rodata"
+        },
+        {
+          "value": "num_threads should be >=0 or just -1 to let TFLite runtime set the value.",
+          "offset": 77480,
+          "address": 77480,
+          "section": ".rodata"
+        },
+        {
+          "value": "Didn't find op for builtin opcode '%s' version '%d'. An older version of this builtin might be supported. Are you using an old TFLite binary with a newer model?",
+          "offset": 77690,
+          "address": 77690,
+          "section": ".rodata"
+        },
+        {
+          "value": "params->activation == kTfLiteActNone || params->activation == kTfLiteActRelu || params->activation == kTfLiteActReluN1To1 || params->activation == kTfLiteActRelu6",
+          "offset": 78499,
+          "address": 78499,
+          "section": ".rodata"
+        },
+        {
+          "value": "output->type == kTfLiteUInt8 || output->type == kTfLiteInt8 || output->type == kTfLiteInt16",
+          "offset": 79291,
+          "address": 79291,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteUInt8",
+          "offset": 80073,
+          "address": 80073,
+          "section": ".rodata"
+        },
+        {
+          "value": "third_party/tensorflow/lite/kernels/conv.cc",
+          "offset": 80177,
+          "address": 80177,
+          "section": ".rodata"
+        },
+        {
+          "value": "The model is not a valid Flatbuffer buffer",
+          "offset": 80393,
+          "address": 80393,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteArenaRwPersistent Dump:",
+          "offset": 80542,
+          "address": 80542,
+          "section": ".rodata"
+        },
+        {
+          "value": "debug.tflite.trace",
+          "offset": 81196,
+          "address": 81196,
+          "section": ".rodata"
+        },
+        {
+          "value": "learning/expander/pod/deep_pod/tflite_handlers/kmeans_embedding_lookup.cc",
+          "offset": 82558,
+          "address": 82558,
+          "section": ".rodata"
+        },
+        {
+          "value": "third_party/tensorflow/lite/kernels/unpack.cc",
+          "offset": 82852,
+          "address": 82852,
+          "section": ".rodata"
+        },
+        {
+          "value": "third_party/tensorflow/lite/c/common_internal.cc",
+          "offset": 82975,
+          "address": 82975,
+          "section": ".rodata"
+        },
+        {
+          "value": "ExternalCpuBackendContext isn't properly initialized during TFLite interpreter initialization.",
+          "offset": 83414,
+          "address": 83414,
+          "section": ".rodata"
+        },
+        {
+          "value": "input_type == kTfLiteFloat32 || input_type == kTfLiteUInt8 || input_type == kTfLiteInt8 || input_type == kTfLiteInt16",
+          "offset": 85070,
+          "address": 85070,
+          "section": ".rodata"
+        },
+        {
+          "value": "third_party/tensorflow/lite/kernels/reshape.cc",
+          "offset": 86147,
+          "address": 86147,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteCustom",
+          "offset": 87046,
+          "address": 87046,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteArenaRw Dump:",
+          "offset": 87079,
+          "address": 87079,
+          "section": ".rodata"
+        },
+        {
+          "value": "third_party/tensorflow/lite/kernels/fully_connected.cc",
+          "offset": 87449,
+          "address": 87449,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteInt16",
+          "offset": 87504,
+          "address": 87504,
+          "section": ".rodata"
+        },
+        {
+          "value": "(bias->type == kTfLiteInt32) || (bias->type == kTfLiteInt64)",
+          "offset": 88108,
+          "address": 88108,
+          "section": ".rodata"
+        },
+        {
+          "value": "third_party/tensorflow/lite/simple_memory_arena.cc",
+          "offset": 89421,
+          "address": 89421,
+          "section": ".rodata"
+        },
+        {
+          "value": "kTfLiteActNone",
+          "offset": 89755,
+          "address": 89755,
+          "section": ".rodata"
+        },
+        {
+          "value": "input_type == kTfLiteFloat32 || input_type == kTfLiteUInt8 || input_type == kTfLiteInt8 || input_type == kTfLiteInt16 || input_type == kTfLiteInt32 || input_type == kTfLiteInt64 || input_type == kTfLiteBool || input_type == kTfLiteUInt32",
+          "offset": 89770,
+          "address": 89770,
+          "section": ".rodata"
+        },
+        {
+          "value": "params->quantized_bias_type == kTfLiteInt32 || params->quantized_bias_type == kTfLiteInt64",
+          "offset": 90035,
+          "address": 90035,
+          "section": ".rodata"
+        },
+        {
+          "value": "(filter->type == kTfLiteInt8)",
+          "offset": 90126,
+          "address": 90126,
+          "section": ".rodata"
+        },
+        {
+          "value": "filter->type != kTfLiteInt4",
+          "offset": 90156,
+          "address": 90156,
+          "section": ".rodata"
+        },
+        {
+          "value": "third_party/tensorflow/lite/kernels/concatenation.cc",
+          "offset": 91003,
+          "address": 91003,
+          "section": ".rodata"
+        },
+        {
+          "value": "Op builtin_code out of range: %d. Are you using old TFLite binary with newer model?",
+          "offset": 91429,
+          "address": 91429,
+          "section": ".rodata"
+        },
+        {
+          "value": "input->type == kTfLiteInt8 || input->type == kTfLiteInt16",
+          "offset": 91749,
+          "address": 91749,
+          "section": ".rodata"
+        },
+        {
+          "value": "third_party/tensorflow/lite/kernels/kernel_util.cc",
+          "offset": 92021,
+          "address": 92021,
+          "section": ".rodata"
+        },
+        {
+          "value": "Unknown status (%d) after applying the default TensorFlow Lite delegate indexed at %zu.",
+          "offset": 92072,
+          "address": 92072,
+          "section": ".rodata"
+        },
+        {
+          "value": "See instructions: https://www.tensorflow.org/lite/guide/ops_custom ",
+          "offset": 92396,
+          "address": 92396,
+          "section": ".rodata"
+        },
+        {
+          "value": "third_party/tensorflow/lite/arena_planner.cc",
+          "offset": 92623,
+          "address": 92623,
+          "section": ".rodata"
+        },
+        {
+          "value": "learning/expander/pod/deep_pod/tflite_handlers/ngram_hash.cc",
+          "offset": 94210,
+          "address": 94210,
+          "section": ".rodata"
+        },
+        {
+          "value": "third_party/tensorflow/lite/kernels/pad.cc",
+          "offset": 94367,
+          "address": 94367,
+          "section": ".rodata"
+        },
+        {
+          "value": "tensor_index != kTfLiteOptionalTensor",
+          "offset": 94779,
+          "address": 94779,
+          "section": ".rodata"
+        },
+        {
+          "value": "Failed to apply the default TensorFlow Lite delegate indexed at %zu.",
+          "offset": 95285,
+          "address": 95285,
+          "section": ".rodata"
+        },
+        {
+          "value": "third_party/tensorflow/lite/core/subgraph.cc",
+          "offset": 95450,
+          "address": 95450,
+          "section": ".rodata"
+        },
+        {
+          "value": "third_party/tensorflow/lite/kernels/pad.cc Pad value has to be greater than equal to 0.",
+          "offset": 96260,
+          "address": 96260,
+          "section": ".rodata"
+        },
+        {
+          "value": "tflite",
+          "offset": 96736,
+          "address": 96736,
+          "section": ".rodata"
+        },
+        {
+          "value": "learning/expander/pod/deep_pod/tflite_handlers/embedding_lookup.cc",
+          "offset": 97051,
+          "address": 97051,
+          "section": ".rodata"
+        },
+        {
+          "value": "Select TensorFlow op(s), included in the given model, is(are) not supported by this interpreter. Make sure you apply/link the Flex delegate before inference. For the Android, it can be resolved by adding \"org.tensorflow:tensorflow-lite-select-tf-ops\" dependency. See instructions: https://www.tensorflow.org/lite/guide/ops_select",
+          "offset": 97328,
+          "address": 97328,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite3ops6custom26sequence_string_projection12_GLOBAL__N_116ProjectionParamsE",
+          "offset": 98602,
+          "address": 98602,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite17CpuBackendContextE",
+          "offset": 100864,
+          "address": 100864,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite28TfLiteInternalBackendContextE",
+          "offset": 100893,
+          "address": 100893,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite8Subgraph21SubgraphAwareProfilerE",
+          "offset": 102624,
+          "address": 102624,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite8ProfilerE",
+          "offset": 102666,
+          "address": 102666,
+          "section": ".rodata"
+        },
+        {
+          "value": "NSt6__ndk110__function6__funcIZN6tflite4impl11Interpreter27ModifyGraphWithDelegateImplI14TfLiteDelegatePFvPS6_EEE12TfLiteStatusONS_10unique_ptrIT_T0_EEEUlS7_E_NS_9allocatorISG_EES8_EE",
+          "offset": 102685,
+          "address": 102685,
+          "section": ".rodata"
+        },
+        {
+          "value": "NSt6__ndk110__function6__baseIFvP14TfLiteDelegateEEE",
+          "offset": 102869,
+          "address": 102869,
+          "section": ".rodata"
+        },
+        {
+          "value": "ZN6tflite4impl11Interpreter27ModifyGraphWithDelegateImplI14TfLiteDelegatePFvPS3_EEE12TfLiteStatusONSt6__ndk110unique_ptrIT_T0_EEEUlS4_E_",
+          "offset": 102922,
+          "address": 102922,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite12_GLOBAL__N_119MallocDataAllocatorE",
+          "offset": 103110,
+          "address": 103110,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite20BuiltinDataAllocatorE",
+          "offset": 103155,
+          "address": 103155,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite17MutableOpResolverE",
+          "offset": 103408,
+          "address": 103408,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite10OpResolverE",
+          "offset": 103437,
+          "address": 103437,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite14StderrReporterE",
+          "offset": 103460,
+          "address": 103460,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite13ErrorReporterE",
+          "offset": 103486,
+          "address": 103486,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite8SubgraphE",
+          "offset": 103511,
+          "address": 103511,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite15InterpreterInfoE",
+          "offset": 103530,
+          "address": 103530,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite9GraphInfoE",
+          "offset": 103557,
+          "address": 103557,
+          "section": ".rodata"
+        },
+        {
+          "value": "NSt6__ndk120__shared_ptr_pointerIPN6tflite8internal26RegistrationExternalsCacheENS_14default_deleteIS3_EENS_9allocatorIS3_EEEE",
+          "offset": 103593,
+          "address": 103593,
+          "section": ".rodata"
+        },
+        {
+          "value": "NSt6__ndk114default_deleteIN6tflite8internal26RegistrationExternalsCacheEEE",
+          "offset": 103720,
+          "address": 103720,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite10AllocationE",
+          "offset": 103796,
+          "address": 103796,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite16MemoryAllocationE",
+          "offset": 103818,
+          "address": 103818,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite12ArenaPlannerE",
+          "offset": 103904,
+          "address": 103904,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite13MemoryPlannerE",
+          "offset": 103928,
+          "address": 103928,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite9profiling14ATraceProfilerE",
+          "offset": 104152,
+          "address": 104152,
+          "section": ".rodata"
+        },
+        {
+          "value": "N6tflite9profiling12RootProfilerE",
+          "offset": 104188,
+          "address": 104188,
+          "section": ".rodata"
+        }
+      ],
+      "model": [
+        {
+          "value": "Unhandled fully-connected weights format.",
+          "offset": 72925,
+          "address": 72925,
+          "section": ".rodata"
+        },
+        {
+          "value": "Weight type %s (%d) not supported for filter.",
+          "offset": 73495,
+          "address": 73495,
+          "section": ".rodata"
+        },
+        {
+          "value": "Quantized and sparse fully-connected format supports symmetric weight quantization only.",
+          "offset": 73675,
+          "address": 73675,
+          "section": ".rodata"
+        },
+        {
+          "value": "Unhandled fully-connected weights format",
+          "offset": 75470,
+          "address": 75470,
+          "section": ".rodata"
+        },
+        {
+          "value": "debug.tflite.trace",
+          "offset": 81196,
+          "address": 81196,
+          "section": ".rodata"
+        },
+        {
+          "value": "Unsupported sparse fully-connected weight format.",
+          "offset": 96210,
+          "address": 96210,
+          "section": ".rodata"
+        }
+      ],
+      "nn_runtime": [
+        {
+          "value": "j?$Dsp",
+          "offset": 106741,
+          "address": 106741,
+          "section": ".rodata"
+        }
+      ],
+      "face": [
+        {
+          "value": "posix_memalign",
+          "offset": 6059,
+          "address": 6059,
+          "section": ".dynstr"
+        },
+        {
+          "value": "DW_EH_PE_aligned pointer encoding not supported",
+          "offset": 93052,
+          "address": 93052,
+          "section": ".rodata"
+        },
+        {
+          "value": "alignment <= underlying_buffer_.GetAlignment()",
+          "offset": 96743,
+          "address": 96743,
+          "section": ".rodata"
+        }
+      ],
+      "ocr": [],
+      "asr": [],
+      "segment": [
+        {
+          "value": "UNSORTED_SEGMENT_PROD",
+          "offset": 72073,
+          "address": 72073,
+          "section": ".rodata"
+        },
+        {
+          "value": "UNSORTED_SEGMENT_SUM",
+          "offset": 72095,
+          "address": 72095,
+          "section": ".rodata"
+        },
+        {
+          "value": "UNSORTED_SEGMENT_MIN",
+          "offset": 76498,
+          "address": 76498,
+          "section": ".rodata"
+        },
+        {
+          "value": "UNSORTED_SEGMENT_MAX",
+          "offset": 83610,
+          "address": 83610,
+          "section": ".rodata"
+        },
+        {
+          "value": "SEGMENT_SUM",
+          "offset": 92191,
+          "address": 92191,
+          "section": ".rodata"
+        }
+      ],
+      "model_name": []
+    },
+    "counts": {
+      "tflite": 81,
+      "model": 6,
+      "nn_runtime": 1,
+      "face": 3,
+      "ocr": 0,
+      "asr": 0,
+      "segment": 5,
+      "model_name": 0
+    },
+    "note": "strings from SHF_ALLOC non-executable sections; case-insensitive substring match, capped per category"
+  },
+  "statistics": {
+    "exports": 3,
+    "imports": 119,
+    "jni_entrypoints": 3,
+    "sections": 29,
+    "segments": 9
+  }
+}

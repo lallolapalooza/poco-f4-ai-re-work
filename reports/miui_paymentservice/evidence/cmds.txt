@@ -1,0 +1,57 @@
+# Evidence transcripts — miui_paymentservice
+# APK = /run/media/asdf/.../product/app/PaymentService_Global/PaymentService_Global.apk
+# PY  = /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python ; TOOLS = $WS/tools
+
+## 1. inventory
+$PY $TOOLS/apk_inventory.py "$APK" --out reports/miui_paymentservice/inventory \
+    --extract-models --extract-libs --max-file-mb 50 --max-total-mb 90
+-> inventory/inventory.md  (package com.xiaomi.payment 1.12.13-global, 2 model assets,
+   3 libdigit_ocr.so, assets/manifest/ocr/*)
+
+## 2. model identification
+$ xxd -l 384 models/assets/Digital_OCR_svm_9.model
+00000000: 7376 6d5f 7479 7065 2063 5f73 7663 0d0a  svm_type c_svc..
+00000010: 6b65 726e 656c 5f74 7970 6520 7262 660d  kernel_type rbf.
+...
+-> standard LIBSVM text model (CRLF), NOT an opaque container. magic "svm_type".
+
+## 3. java call chain
+$PY $TOOLS/dex_find.py "$APK" --regex 'com\.mibi\.ocr|XiaoMIDigitOCR'
+$PY $TOOLS/decompile_classes.py "$APK" --regex 'com\.mibi\.ocr|XiaoMIDigitOCR' \
+    --out reports/miui_paymentservice/sources --max 12 --timeout 180
+$PY $TOOLS/decompile_classes.py "$APK" --regex '^a\.b\.a\.' \
+    --out reports/miui_paymentservice/sources/classes_abac --max 12 --timeout 180
+
+## 4. native
+$PY $TOOLS/elf_info.py .../libdigit_ocr.so --json native/elf_info_arm64.json
+$PY $TOOLS/disasm_elf.py .../libdigit_ocr.so --addr 0x14fd8 --size 1144 -o native/hog_extract.s
+flock logs/ghidra.lock -c "$TOOLS/ghidra_decompile.sh <so> native/ghidra_digitocr.c \
+    'Java_|CDigitalOCR|CFEATURE_HOG|MainOCR|DigitSegment|svm_load_model|svm_predict|OCR_STR' \
+    --timeout 900 --max-functions 64"
+-> SUMMARY matched=91 attempted=64 decompiled=64 failed=0
+
+## 5. numeric verification against the shipped binary (qemu-aarch64 + cross-gcc)
+cd native/harness && ./build.sh
+H=$PWD ; P=../../models
+qemu-aarch64 /usr/aarch64-linux-gnu/lib/ld-linux-aarch64.so.1 --library-path $H/libs \
+    $H/harness hog ../../evidence/hog/random1.bin 20 32          > evidence/hog/random1.native.txt
+qemu-aarch64 ... harness cls $P/Digital_OCR_svm_9.model $P/Digital_OCR_svm_2.model \
+    ../../evidence/hog/bar.bin 20 32                             > evidence/hog/bar.cls.txt
+qemu-aarch64 ... harness dec $P/Digital_OCR_svm_9.model ../../evidence/hog/bar.bin 20 32 \
+                                                                 > evidence/hog/bar.dec.txt
+qemu-aarch64 ... harness pipeline $P/Digital_OCR_svm_9.model $P/Digital_OCR_svm_2.model \
+    /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/d640.gray 472 192 1 /tmp/patches.bin
+beginProcess=1 (img 472x192 fmt=1, bytes=90624)
+setImage=1
+process_OneImg=1
+digits=4
+digit_array: 1 2 3 4
+patches=4
+patch 0 ptr=0x... w=20 h=32
+patch 1 ptr=0x... w=20 h=32
+patch 2 ptr=0x... w=20 h=32
+patch 3 ptr=0x... w=20 h=32
+-> evidence/patches/digits1234.patches.bin  (4 x 20 x 32, vendor-normalised)
+
+## 6. JAX reimplementation
+cd reimpl && $PY pipeline.py            # -> reimpl/verify.txt  (exit 0)

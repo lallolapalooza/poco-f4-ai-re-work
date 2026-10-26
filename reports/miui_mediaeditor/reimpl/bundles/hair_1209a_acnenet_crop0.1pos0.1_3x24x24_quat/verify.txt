@@ -1,0 +1,4 @@
+hair_1209a_acnenet_crop0.1pos0.1_3x24x24_quat.tflite  subgraph=0 signature=None  PASS
+  output    shape   dtype    max_abs  tol       result
+  Identity  (1, 2)  FLOAT32  0        1.00e-04  PASS
+  1 output(s), max_abs=0, status=pass

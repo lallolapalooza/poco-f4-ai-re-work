@@ -1,0 +1,131 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_securitycoreadd/native/libtensorflowlite_flex_jni.so
+==============================================================================
+size        : 10604944 bytes (10.11 MiB)
+sha256      : d65d4c2641fbcf6aa60e485c65c0cd15ef461b9bbf6db914c91b5114ff2bcb10
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0xc4080   imagebase: 0x0
+android     : SDK 21, NDK r21b, build 6352462
+soname      : libtensorflowlite_flex_jni.so
+needed      : libdl.so, libm.so, liblog.so, libc.so
+parser      : lief
+counts      : 3 exports, 190 imports, 3 JNI, 27 sections, 7 segments
+symtab/dynsym: 0 / 199
+
+Sections (27)
+  name                   type             flags  address      size       offset
+  .hash                  HASH             A      0x1c8        1328       0x1c8
+  .gnu.hash              GNU_HASH         A      0x6f8        52         0x6f8
+  .dynsym                DYNSYM           A      0x730        4776       0x730
+  .dynstr                STRTAB           A      0x19d8       2097       0x19d8
+  .gnu.version           GNU_VERSYM       A      0x220a       398        0x220a
+  .gnu.version_d         GNU_VERDEF       A      0x2398       56         0x2398
+  .gnu.version_r         GNU_VERNEED      A      0x23d0       96         0x23d0
+  .rela.dyn              RELA             A      0x2430       786000     0x2430
+  .rela.plt              RELA             AI     0xc2280      4584       0xc2280
+  .plt                   PROGBITS         AX     0xc3470      3088       0xc3470
+  .text                  PROGBITS         AX     0xc4080      7643392    0xc4080
+  malloc_hook            PROGBITS         AX     0x80e180     644        0x80e180
+  .rodata                PROGBITS         A      0x80e410     559312     0x80e410
+  .eh_frame_hdr          PROGBITS         A      0x896ce0     229988     0x896ce0
+  .eh_frame              PROGBITS         A      0x8cef48     948216     0x8cef48
+  .gcc_except_table      PROGBITS         A      0x9b6740     128868     0x9b6740
+  .note.android.ident    NOTE             A      0x9d5ea4     152        0x9d5ea4
+  .init_array            INIT_ARRAY       WA     0x9d7eb0     8080       0x9d6eb0
+  .fini_array            FINI_ARRAY       WA     0x9d9e40     16         0x9d8e40
+  .data.rel.ro           PROGBITS         WA     0x9d9e50     242528     0x9d8e50
+  .dynamic               DYNAMIC          WA     0xa151b0     560        0xa141b0
+  .got                   PROGBITS         WA     0xa153e0     23584      0xa143e0
+  .data                  PROGBITS         WA     0xa1b000     10480      0xa1a000
+  .bss                   NOBITS           WA     0xa1d900     66048      0xa1c8f0
+  .comment               PROGBITS         MS     0x0          220        0xa1c8f0
+  .shstrtab              STRTAB           -      0x0          259        0xa1c9cc
+
+JNI entry points (3)
+  0xcf200        4          org.tensorflow.lite.flex.FlexDelegate.nativeInitTensorFlow
+      Java_org_tensorflow_lite_flex_FlexDelegate_nativeInitTensorFlow
+  0xcf204        108        org.tensorflow.lite.flex.FlexDelegate.nativeCreateDelegate
+      Java_org_tensorflow_lite_flex_FlexDelegate_nativeCreateDelegate
+  0xcf270        8          org.tensorflow.lite.flex.FlexDelegate.nativeDeleteDelegate
+      Java_org_tensorflow_lite_flex_FlexDelegate_nativeDeleteDelegate
+
+AI-relevant strings (2951171 bytes scanned in allocated data sections)
+  [tflite] 2808 unique (first 20)
+    0x00001a12 .dynstr    Java_org_tensorflow_lite_flex_FlexDelegate_nativeCreateDelegate
+    0x00001a52 .dynstr    Java_org_tensorflow_lite_flex_FlexDelegate_nativeDeleteDelegate
+    0x00001a92 .dynstr    Java_org_tensorflow_lite_flex_FlexDelegate_nativeInitTensorFlow
+    0x00001b24 .dynstr    _ZTHN10tensorflow4data5model4Node11work_start_E
+    0x000021dd .dynstr    libtensorflowlite_flex_jni.so
+    0x0080e64b .rodata    NSt6__ndk110__function6__funcIN10tensorflow3$_0ENS_9allocatorIS3_EEFNS2_6StatusEPNS2_15shape_inference16InferenceContextEEEE
+    0x0080e6c8 .rodata    N10tensorflow3$_0E
+    0x0080e6db .rodata    NSt6__ndk110__function6__baseIFN10tensorflow6StatusEPNS2_15shape_inference16InferenceContextEEEE
+    0x0080e98e .rodata    NSt6__ndk110__function6__funcIN10tensorflow3$_1ENS_9allocatorIS3_EEFNS2_6StatusEPNS2_15shape_inference16InferenceContextEEEE
+    0x0080ea0b .rodata    N10tensorflow3$_1E
+    0x0080ea1e .rodata    NSt6__ndk110__function6__funcIN10tensorflow3$_2ENS_9allocatorIS3_EEFNS2_6StatusEPNS2_15shape_inference16InferenceContextEEEE
+    0x0080ea9b .rodata    N10tensorflow3$_2E
+    0x0080eaae .rodata    NSt6__ndk110__function6__funcIN10tensorflow3$_3ENS_9allocatorIS3_EEFNS2_6StatusEPNS2_15shape_inference16InferenceContextEEEE
+    0x0080eb2b .rodata    N10tensorflow3$_3E
+    0x0080eb3e .rodata    NSt6__ndk110__function6__funcIPFN10tensorflow6StatusEPNS2_15shape_inference16InferenceContextEENS_9allocatorIS8_EES7_EE
+    0x0080ebb6 .rodata    PFN10tensorflow6StatusEPNS_15shape_inference16InferenceContextEE
+    0x0080ebf7 .rodata    FN10tensorflow6StatusEPNS_15shape_inference16InferenceContextEE
+    0x0080f28c .rodata    tensorflow/core/ops/math_grad.cc
+    0x0080f330 .rodata    ./tensorflow/core/framework/tensor.h
+    0x0080f8b8 .rodata    NSt6__ndk110__function6__funcIN10tensorflow8profiler21MemoryDebugAnnotation18pending_shape_funcMUlvE_ENS_9allocatorIS5_EEFNS_12basic_stringIcNS_11char_traitsIcEENS6_IcEEEEvEEE
+    ... 20 more
+  [model] 12 unique (first 12)
+    0x0085e3aa .rodata    tensorflow.GPUInfo.model
+    0x00864921 .rodata    tensorflow.DeviceProperties.model
+    0x00872dc4 .rodata    2(.tensorflow.data.model.AutotuneAlgorithmH
+    0x008770f1 .rodata    tensorflow.data.model"
+    0x00877124 .rodata    2,.tensorflow.data.model.ModelProto.NodesEntry
+    0x00877193 .rodata    24.tensorflow.data.model.ModelProto.OptimizationParams
+    0x008772bc .rodata    20.tensorflow.data.model.ModelProto.Node.Parameter
+    0x0087735a .rodata    2 .tensorflow.data.model.NodeClass
+    0x00877435 .rodata    2&.tensorflow.data.model.ModelProto.Node:
+    0x0087748b .rodata    2(.tensorflow.data.model.AutotuneAlgorithm
+    0x008777af .rodata    tensorflow.data.model.ModelProto.Node.Parameter.name
+    0x0087782e .rodata    tensorflow.data.model.ModelProto.Node.name
+  [nn_runtime] 6 unique (first 6)
+    0x0082f04c .rodata     The requested device appears to be a GPU, but CUDA is not enabled.
+    0x00841b0b .rodata    GPU 
+    0x0085613b .rodata    /gpu:
+    0x00856141 .rodata    /GPU:
+    0x0087603d .rodata    HEXAGON
+    0x0088bed5 .rodata    j?$Dsp
+  [face] 19 unique (first 19)
+    0x00001d3f .dynstr    posix_memalign
+    0x0080f82b .rodata    Check failed: IsAligned() 
+    0x008120a9 .rodata    Readonly memory region has wrong alignment
+    0x00820269 .rodata     bytes are not enough to store TensorFlow's aligned buffer of size 
+    0x008223b8 .rodata    data_ptr_value % kDefaultTensorAlignment == 0
+    0x0082278a .rodata    alignment <= arena_alignment_
+    0x00823a15 .rodata    Aligned and single element
+    0x0083b9b8 .rodata    reinterpret_cast<uintptr_t>(ptr) % kItemAlignment == 0
+    0x0083c30c .rodata    uintptr_t(bytes_) % alignof(LargeCounts) == 0
+    0x00857202 .rodata    Check failed: SatisfyAlignment(kDefaultAlignment) 
+    0x00857235 .rodata    Check failed: SatisfyAlignment(alignment) 
+    0x00857260 .rodata    adjusted_alignment <= static_cast<uint32>(1 << 20)
+    0x00857293 .rodata    Alignment on boundaries greater than 1MB not supported.
+    0x00857306 .rodata     alignment=
+    0x00857312 .rodata     adjusted_alignment=
+    0x00857327 .rodata    Check failed: alignment > 0 && 0 == (alignment & (alignment - 1)) 
+    0x0088d2a5 .rodata    empty arena has non-page-aligned block size
+    0x0088d30c .rodata    empty arena has non-page-aligned block
+    0x00894fdd .rodata    alignof (
+  [asr] 5 unique (first 5)
+    0x0087ae5b .rodata    Audio
+    0x0087afcc .rodata    audio
+    0x0087b3a7 .rodata    tensorflow.Summary.Audio.content_type
+    0x0088cd3a .rodata    Signal wakeup
+    0x0088cd48 .rodata    SignalAll wakeup
+  [segment] 2 unique (first 2)
+    0x008217ed .rodata    SEGMENT_SUM
+    0x008516bb .rodata    tensorflow/core/framework/op_segment.cc
+  [model_name] 5 unique (first 5)
+    0x0081b7de .rodata    tf_data_model
+    0x00831770 .rodata    COST_MODEL
+    0x0085e3aa .rodata    tensorflow.GPUInfo.model
+    0x00860ebe .rodata    build_cost_model
+    0x00864921 .rodata    tensorflow.DeviceProperties.model
+
+JSON written to native/libtensorflowlite_flex_jni.elfinfo.json

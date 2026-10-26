@@ -1,0 +1,74 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/tiktok_musically/native/libbytenn.so
+==============================================================================
+size        : 1959936 bytes (1.87 MiB)
+sha256      : f488e553ddd86dcb11c23018573f62c7fdaab456c39a03d97aaf13f186932dd7
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x317c0   imagebase: 0x0
+build id    : fa844d96df910cbb496b3d0f2d1f7269c835f656
+android     : SDK 21, NDK r21b, build 6352462
+soname      : libbytenn.so
+needed      : liblog.so, libGLESv2.so, libEGL.so, libm.so, libc++_shared.so, libdl.so, libc.so
+parser      : lief
+counts      : 841 exports, 128 imports, 0 JNI, 24 sections, 8 segments
+symtab/dynsym: 0 / 979
+
+Sections (24)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        6008       0x228
+  .gnu.hash              GNU_HASH         A      0x19a0       6516       0x19a0
+  .dynsym                DYNSYM           A      0x3318       23496      0x3318
+  .dynstr                STRTAB           A      0x8ee0       66537      0x8ee0
+  .gnu.version           GNU_VERSYM       A      0x192ca      1958       0x192ca
+  .gnu.version_r         GNU_VERNEED      A      0x19a70      96         0x19a70
+  .rela.dyn              RELA             A      0x19ad0      76200      0x19ad0
+  .rela.plt              RELA             AI     0x2c478      12768      0x2c478
+  .plt                   PROGBITS         AX     0x2f660      8544       0x2f660
+  .text                  PROGBITS         AX     0x317c0      1384624    0x317c0
+  .rodata                PROGBITS         A      0x183870     203305     0x183870
+  .eh_frame_hdr          PROGBITS         A      0x1b529c     25028      0x1b529c
+  .eh_frame              PROGBITS         A      0x1bb460     105912     0x1bb460
+  .note.android.ident    NOTE             A      0x1d5218     152        0x1d5218
+  .init_array            INIT_ARRAY       WA     0x1d6880     48         0x1d5880
+  .fini_array            FINI_ARRAY       WA     0x1d68b0     16         0x1d58b0
+  .data.rel.ro           PROGBITS         WA     0x1d68c0     28104      0x1d58c0
+  .dynamic               DYNAMIC          WA     0x1dd688     576        0x1dc688
+  .got                   PROGBITS         WA     0x1dd8c8     5944       0x1dc8c8
+  .bss                   NOBITS           WA     0x1df000     224        0x1de000
+  .comment               PROGBITS         MS     0x0          281        0x1de000
+  .shstrtab              STRTAB           -      0x0          227        0x1de119
+
+AI-relevant strings (562700 bytes scanned in allocated data sections)
+  [model] 5 unique (first 5)
+    0x00184806 .rodata    Error: weight tensor data type error:%d
+    0x001850f8 .rodata    weight not match net !!!
+    0x00185226 .rodata    num_kernel = %d, bias = %d, weight = %d, top = %d, bottom = %d
+    0x001854af .rodata    num_kernel = %d, kernel = %d, stride = %d, pad = %d, bias = %d, weight = %d, top = %d, bottom = %d
+    0x00187173 .rodata    ro.product.model
+  [nn_runtime] 36 unique (first 20)
+    0x00013ed5 .dynstr    _ZN5IESNN31iesCreate2DImgFromTextureAdrenoEPNS_7OClInfoEiiiPP7_cl_memPjS5_biNS_15TextureDatatypeE
+    0x00015ebf .dynstr    _ZN5IESNN22texture2imageAdrenoSrcE
+    0x00184178 .rodata    ByteNN-mt without npu logic.
+    0x001864d8 .rodata    OpenCL 3.0
+    0x001864e3 .rodata    OpenCL 2.2
+    0x001864ee .rodata    OpenCL 2.1
+    0x001864f9 .rodata    OpenCL 2.0
+    0x00186504 .rodata    OpenCL 1.2
+    0x0018650f .rodata    OpenCL 1.1
+    0x0018651a .rodata    OpenCL 1.0
+    0x00186525 .rodata    Adreno
+    0x001868a0 .rodata    Adreno(TM) 505
+    0x001868af .rodata    Adreno(TM) 506
+    0x001868be .rodata    Adreno(TM) 508
+    0x001868cd .rodata    Adreno(TM) 509
+    0x001868dc .rodata    Adreno(TM) 510
+    0x001868eb .rodata    Adreno(TM) 512
+    0x001868fa .rodata    Adreno(TM) 530
+    0x00186909 .rodata    Adreno(TM) 540
+    0x00186918 .rodata    Adreno(TM) 605
+    ... 16 more
+  [face] 1 unique (first 1)
+    0x00012828 .dynstr    _ZNSt6__ndk116__copy_unalignedINS_6vectorIbNS_9allocatorIbEEEELb0EEENS_14__bit_iteratorIT_Lb0EXLi0EEEENS5_IS6_XT0_EXLi0EEEES8_S7_
+  [model_name] 1 unique (first 1)
+    0x00187173 .rodata    ro.product.model

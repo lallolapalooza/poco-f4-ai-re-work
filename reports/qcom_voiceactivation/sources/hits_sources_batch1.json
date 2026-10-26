@@ -1,0 +1,340 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/system_ext/priv-app/QualcommVoiceActivation/QualcommVoiceActivation.apk",
+  "regex": "com\\.quicinc\\.voice\\.activation\\.(algorithm|onevoice\\.algorithm|soundmodel|vad)\\.",
+  "packages": [],
+  "max": 12,
+  "timeout": 240.0,
+  "jadx": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/work/jadx2.sh",
+  "classes_scanned": 695,
+  "candidates": [
+    {
+      "class": "com.quicinc.voice.activation.soundmodel.BigSoundModel",
+      "dex": "classes.dex",
+      "method_count": 30,
+      "access": 1,
+      "matched": [
+        "com.quicinc.voice.activation.soundmodel."
+      ],
+      "score": 1030,
+      "rank": 1,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.soundmodel.BigSoundModel.java",
+      "seconds": 5.01
+    },
+    {
+      "class": "com.quicinc.voice.activation.onevoice.algorithm.OneVoiceAlgorithmTask",
+      "dex": "classes.dex",
+      "method_count": 26,
+      "access": 1,
+      "matched": [
+        "com.quicinc.voice.activation.onevoice.algorithm."
+      ],
+      "score": 1026,
+      "rank": 2,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.onevoice.algorithm.OneVoiceAlgorithmTask.java",
+      "seconds": 3.01
+    },
+    {
+      "class": "com.quicinc.voice.activation.algorithm.Algorithm",
+      "dex": "classes.dex",
+      "method_count": 25,
+      "access": 1,
+      "matched": [
+        "com.quicinc.voice.activation.algorithm."
+      ],
+      "score": 1025,
+      "rank": 3,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.algorithm.Algorithm.java",
+      "seconds": 3.22
+    },
+    {
+      "class": "com.quicinc.voice.activation.algorithm.AlgorithmTask",
+      "dex": "classes.dex",
+      "method_count": 24,
+      "access": 17,
+      "matched": [
+        "com.quicinc.voice.activation.algorithm."
+      ],
+      "score": 1024,
+      "rank": 4,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.algorithm.AlgorithmTask.java",
+      "seconds": 5.9
+    },
+    {
+      "class": "com.quicinc.voice.activation.soundmodel.SoundModelCodec",
+      "dex": "classes.dex",
+      "method_count": 17,
+      "access": 17,
+      "matched": [
+        "com.quicinc.voice.activation.soundmodel."
+      ],
+      "score": 1017,
+      "rank": 5,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.soundmodel.SoundModelCodec.java",
+      "seconds": 6.02
+    },
+    {
+      "class": "com.quicinc.voice.activation.vad.DNNVAD",
+      "dex": "classes.dex",
+      "method_count": 15,
+      "access": 1,
+      "matched": [
+        "com.quicinc.voice.activation.vad."
+      ],
+      "score": 1015,
+      "rank": 6,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.vad.DNNVAD.java",
+      "seconds": 5.31
+    },
+    {
+      "class": "com.quicinc.voice.activation.vad.DNNVADAction",
+      "dex": "classes.dex",
+      "method_count": 15,
+      "access": 17,
+      "matched": [
+        "com.quicinc.voice.activation.vad."
+      ],
+      "score": 1015,
+      "rank": 7,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.vad.DNNVADAction.java",
+      "seconds": 5.16
+    },
+    {
+      "class": "com.quicinc.voice.activation.soundmodel.AlgorithmType",
+      "dex": "classes.dex",
+      "method_count": 11,
+      "access": 16401,
+      "matched": [
+        "com.quicinc.voice.activation.soundmodel."
+      ],
+      "score": 1011,
+      "rank": 8,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.soundmodel.AlgorithmType.java",
+      "seconds": 4.87
+    },
+    {
+      "class": "com.quicinc.voice.activation.soundmodel.SVAVersion",
+      "dex": "classes.dex",
+      "method_count": 10,
+      "access": 16401,
+      "matched": [
+        "com.quicinc.voice.activation.soundmodel."
+      ],
+      "score": 1010,
+      "rank": 9,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.soundmodel.SVAVersion.java",
+      "seconds": 5.39
+    },
+    {
+      "class": "com.quicinc.voice.activation.soundmodel.SoundModel",
+      "dex": "classes.dex",
+      "method_count": 10,
+      "access": 1,
+      "matched": [
+        "com.quicinc.voice.activation.soundmodel."
+      ],
+      "score": 1010,
+      "rank": 10,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.soundmodel.SoundModel.java",
+      "seconds": 4.96
+    },
+    {
+      "class": "com.quicinc.voice.activation.soundmodel.BigSoundModelType",
+      "dex": "classes.dex",
+      "method_count": 8,
+      "access": 16401,
+      "matched": [
+        "com.quicinc.voice.activation.soundmodel."
+      ],
+      "score": 1008,
+      "rank": 11,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.soundmodel.BigSoundModelType.java",
+      "seconds": 3.48
+    },
+    {
+      "class": "com.quicinc.voice.activation.algorithm.AlgorithmResponseStatus",
+      "dex": "classes.dex",
+      "method_count": 8,
+      "access": 16401,
+      "matched": [
+        "com.quicinc.voice.activation.algorithm."
+      ],
+      "score": 1008,
+      "rank": 12,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.quicinc.voice.activation.algorithm.AlgorithmResponseStatus.java",
+      "seconds": 5.12
+    },
+    {
+      "class": "com.quicinc.voice.activation.soundmodel.ConfigurationId",
+      "dex": "classes.dex",
+      "method_count": 7,
+      "access": 16401,
+      "matched": [
+        "com.quicinc.voice.activation.soundmodel."
+      ],
+      "score": 1007,
+      "rank": 13,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.quicinc.voice.activation.soundmodel.opaque.data.Header$Key",
+      "dex": "classes.dex",
+      "method_count": 7,
+      "access": 16401,
+      "matched": [
+        "com.quicinc.voice.activation.soundmodel."
+      ],
+      "score": 1007,
+      "rank": 14,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.quicinc.voice.activation.soundmodel.opaque.data.level.ConfidenceLevel$ModelId",
+      "dex": "classes.dex",
+      "method_count": 7,
+      "access": 16401,
+      "matched": [
+        "com.quicinc.voice.activation.soundmodel."
+      ],
+      "score": 1007,
+      "rank": 15,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.quicinc.voice.activation.algorithm.FrameFlag",
+      "dex": "classes.dex",
+      "method_count": 6,
+      "access": 16401,
+      "matched": [
+        "com.quicinc.voice.activation.algorithm."
+      ],
+      "score": 1006,
+      "rank": 16,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.quicinc.voice.activation.algorithm.AlgorithmProcessResult$AlgorithmResultKey",
+      "dex": "classes.dex",
+      "method_count": 6,
+      "access": 16401,
+      "matched": [
+        "com.quicinc.voice.activation.algorithm."
+      ],
+      "score": 1006,
+      "rank": 17,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.quicinc.voice.activation.vad.DNNVADAction$ResultType",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 16401,
+      "matched": [
+        "com.quicinc.voice.activation.vad."
+      ],
+      "score": 1005,
+      "rank": 18,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.quicinc.voice.activation.algorithm.AlgorithmTask$State",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 16400,
+      "matched": [
+        "com.quicinc.voice.activation.algorithm."
+      ],
+      "score": 1005,
+      "rank": 19,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.quicinc.voice.activation.onevoice.algorithm.OneVoiceAlgorithmTask$State",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 16400,
+      "matched": [
+        "com.quicinc.voice.activation.onevoice.algorithm."
+      ],
+      "score": 1005,
+      "rank": 20,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.quicinc.voice.activation.soundmodel.ConfidenceData",
+      "dex": "classes.dex",
+      "method_count": 1,
+      "access": 1,
+      "matched": [
+        "com.quicinc.voice.activation.soundmodel."
+      ],
+      "score": 1001,
+      "rank": 21,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    }
+  ],
+  "decompiled": 12,
+  "elapsed_sec": 57.48
+}

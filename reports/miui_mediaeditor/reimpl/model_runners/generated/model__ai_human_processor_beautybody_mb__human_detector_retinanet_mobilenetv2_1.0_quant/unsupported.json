@@ -1,0 +1,406 @@
+{
+  "build_errors": [
+    {
+      "index": 116,
+      "op": "RESHAPE",
+      "reason": "RESHAPE requires a constant new shape (input 1, tensor 349) but it is dynamic"
+    },
+    {
+      "index": 117,
+      "op": "QUANTIZE",
+      "reason": "tensor 350 (retinanet/reshape_2/Reshape;retinanet/quant_boxnet_2/box_predict/pw/MovingAvgQuantize/FakeQuantWithMinMaxVars) is read before it is produced"
+    },
+    {
+      "index": 120,
+      "op": "RESHAPE",
+      "reason": "RESHAPE requires a constant new shape (input 1, tensor 353) but it is dynamic"
+    },
+    {
+      "index": 121,
+      "op": "QUANTIZE",
+      "reason": "tensor 354 (retinanet/reshape_3/Reshape;retinanet/quant_boxnet_3/box_predict/pw/MovingAvgQuantize/FakeQuantWithMinMaxVars) is read before it is produced"
+    },
+    {
+      "index": 124,
+      "op": "RESHAPE",
+      "reason": "RESHAPE requires a constant new shape (input 1, tensor 357) but it is dynamic"
+    },
+    {
+      "index": 125,
+      "op": "LOGISTIC",
+      "reason": "tensor 358 (retinanet/reshape_6/Reshape;retinanet/quant_clsnet_2/cls_predict/pw/MovingAvgQuantize/FakeQuantWithMinMaxVars) is read before it is produced"
+    },
+    {
+      "index": 128,
+      "op": "RESHAPE",
+      "reason": "RESHAPE requires a constant new shape (input 1, tensor 361) but it is dynamic"
+    },
+    {
+      "index": 129,
+      "op": "LOGISTIC",
+      "reason": "tensor 362 (retinanet/reshape_7/Reshape;retinanet/quant_clsnet_3/cls_predict/pw/MovingAvgQuantize/FakeQuantWithMinMaxVars) is read before it is produced"
+    },
+    {
+      "index": 132,
+      "op": "RESIZE_NEAREST_NEIGHBOR",
+      "reason": "RESIZE_NEAREST_NEIGHBOR requires a constant size (input 1, tensor 365) but it is dynamic"
+    },
+    {
+      "index": 133,
+      "op": "ADD",
+      "reason": "tensor 366 (retinanet/up_sampling2d/resize/ResizeNearestNeighbor) is read before it is produced"
+    },
+    {
+      "index": 134,
+      "op": "DEPTHWISE_CONV_2D",
+      "reason": "tensor 367 (retinanet/quant_P4_merged/add) is read before it is produced"
+    },
+    {
+      "index": 135,
+      "op": "CONV_2D",
+      "reason": "tensor 369 (retinanet/quant_P4/ds/BiasAdd;retinanet/quant_clsnet_0/cls_predict/dw/depthwise;retinanet/quant_P4/ds/depthwise;retinanet/quant_P4/ds/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 136,
+      "op": "DEPTHWISE_CONV_2D",
+      "reason": "tensor 371 (retinanet/quant_P4/bn/FusedBatchNormV3;retinanet/quant_clsnet_0/cls_2/ps/Conv2D;retinanet/quant_P4/ps/Conv2D) is read before it is produced"
+    },
+    {
+      "index": 137,
+      "op": "CONV_2D",
+      "reason": "tensor 373 (retinanet/quant_boxnet_1/box_0/ds/BiasAdd;retinanet/quant_clsnet_0/cls_predict/dw/depthwise;retinanet/quant_boxnet_1/box_0/ds/depthwise;retinanet/quant_boxnet_1/box_0/ds/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 138,
+      "op": "DEPTHWISE_CONV_2D",
+      "reason": "tensor 375 (retinanet/quant_re_lu_3/Relu;retinanet/quant_boxnet_1/box_0/bn/FusedBatchNormV3;retinanet/quant_clsnet_0/cls_2/ps/Conv2D;retinanet/quant_boxnet_1/box_0/ps/Conv2D) is read before it is produced"
+    },
+    {
+      "index": 139,
+      "op": "CONV_2D",
+      "reason": "tensor 377 (retinanet/quant_boxnet_1/box_1/ds/BiasAdd;retinanet/quant_clsnet_0/cls_predict/dw/depthwise;retinanet/quant_boxnet_1/box_1/ds/depthwise;retinanet/quant_boxnet_1/box_1/ds/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 140,
+      "op": "DEPTHWISE_CONV_2D",
+      "reason": "tensor 379 (retinanet/quant_re_lu_4/Relu;retinanet/quant_boxnet_1/box_1/bn/FusedBatchNormV3;retinanet/quant_clsnet_0/cls_2/ps/Conv2D;retinanet/quant_boxnet_1/box_1/ps/Conv2D) is read before it is produced"
+    },
+    {
+      "index": 141,
+      "op": "CONV_2D",
+      "reason": "tensor 381 (retinanet/quant_boxnet_1/box_2/ds/BiasAdd;retinanet/quant_clsnet_0/cls_predict/dw/depthwise;retinanet/quant_boxnet_1/box_2/ds/depthwise;retinanet/quant_boxnet_1/box_2/ds/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 142,
+      "op": "DEPTHWISE_CONV_2D",
+      "reason": "tensor 383 (retinanet/quant_re_lu_5/Relu;retinanet/quant_boxnet_1/box_2/bn/FusedBatchNormV3;retinanet/quant_clsnet_0/cls_2/ps/Conv2D;retinanet/quant_boxnet_1/box_2/ps/Conv2D) is read before it is produced"
+    },
+    {
+      "index": 143,
+      "op": "CONV_2D",
+      "reason": "tensor 385 (retinanet/quant_boxnet_1/box_predict/dw/BiasAdd;retinanet/quant_clsnet_0/cls_predict/dw/depthwise;retinanet/quant_boxnet_1/box_predict/dw/depthwise;retinanet/quant_boxnet_1/box_predict/dw/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 144,
+      "op": "SHAPE",
+      "reason": "tensor 387 (retinanet/quant_boxnet_1/box_predict/pw/BiasAdd;retinanet/quant_boxnet_0/box_predict/pw/Conv2D;retinanet/quant_boxnet_1/box_predict/pw/Conv2D;retinanet/quant_boxnet_1/box_predict/pw/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 145,
+      "op": "STRIDED_SLICE",
+      "reason": "tensor 388 (retinanet/reshape_1/Shape) is read before it is produced"
+    },
+    {
+      "index": 146,
+      "op": "PACK",
+      "reason": "tensor 389 (retinanet/reshape_1/strided_slice) is read before it is produced"
+    },
+    {
+      "index": 147,
+      "op": "RESHAPE",
+      "reason": "tensor 387 (retinanet/quant_boxnet_1/box_predict/pw/BiasAdd;retinanet/quant_boxnet_0/box_predict/pw/Conv2D;retinanet/quant_boxnet_1/box_predict/pw/Conv2D;retinanet/quant_boxnet_1/box_predict/pw/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 148,
+      "op": "QUANTIZE",
+      "reason": "tensor 391 (retinanet/reshape_1/Reshape;retinanet/quant_boxnet_1/box_predict/pw/MovingAvgQuantize/FakeQuantWithMinMaxVars) is read before it is produced"
+    },
+    {
+      "index": 149,
+      "op": "DEPTHWISE_CONV_2D",
+      "reason": "tensor 371 (retinanet/quant_P4/bn/FusedBatchNormV3;retinanet/quant_clsnet_0/cls_2/ps/Conv2D;retinanet/quant_P4/ps/Conv2D) is read before it is produced"
+    },
+    {
+      "index": 150,
+      "op": "CONV_2D",
+      "reason": "tensor 394 (retinanet/quant_clsnet_1/cls_0/ds/BiasAdd;retinanet/quant_clsnet_0/cls_predict/dw/depthwise;retinanet/quant_clsnet_1/cls_0/ds/depthwise;retinanet/quant_clsnet_1/cls_0/ds/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 151,
+      "op": "DEPTHWISE_CONV_2D",
+      "reason": "tensor 396 (retinanet/quant_re_lu_15/Relu;retinanet/quant_clsnet_1/cls_0/bn/FusedBatchNormV3;retinanet/quant_clsnet_0/cls_2/ps/Conv2D;retinanet/quant_clsnet_1/cls_0/ps/Conv2D) is read before it is produced"
+    },
+    {
+      "index": 152,
+      "op": "CONV_2D",
+      "reason": "tensor 398 (retinanet/quant_clsnet_1/cls_1/ds/BiasAdd;retinanet/quant_clsnet_0/cls_predict/dw/depthwise;retinanet/quant_clsnet_1/cls_1/ds/depthwise;retinanet/quant_clsnet_1/cls_1/ds/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 153,
+      "op": "DEPTHWISE_CONV_2D",
+      "reason": "tensor 400 (retinanet/quant_re_lu_16/Relu;retinanet/quant_clsnet_1/cls_1/bn/FusedBatchNormV3;retinanet/quant_clsnet_0/cls_2/ps/Conv2D;retinanet/quant_clsnet_1/cls_1/ps/Conv2D) is read before it is produced"
+    },
+    {
+      "index": 154,
+      "op": "CONV_2D",
+      "reason": "tensor 402 (retinanet/quant_clsnet_1/cls_2/ds/BiasAdd;retinanet/quant_clsnet_0/cls_predict/dw/depthwise;retinanet/quant_clsnet_1/cls_2/ds/depthwise;retinanet/quant_clsnet_1/cls_2/ds/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 155,
+      "op": "DEPTHWISE_CONV_2D",
+      "reason": "tensor 404 (retinanet/quant_re_lu_17/Relu;retinanet/quant_clsnet_1/cls_2/bn/FusedBatchNormV3;retinanet/quant_clsnet_0/cls_2/ps/Conv2D;retinanet/quant_clsnet_1/cls_2/ps/Conv2D) is read before it is produced"
+    },
+    {
+      "index": 156,
+      "op": "CONV_2D",
+      "reason": "tensor 406 (retinanet/quant_clsnet_1/cls_predict/dw/BiasAdd;retinanet/quant_clsnet_0/cls_predict/dw/depthwise;retinanet/quant_clsnet_1/cls_predict/dw/depthwise;retinanet/quant_clsnet_1/cls_predict/dw/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 157,
+      "op": "SHAPE",
+      "reason": "tensor 408 (retinanet/quant_clsnet_1/cls_predict/pw/BiasAdd;retinanet/quant_clsnet_0/cls_predict/pw/Conv2D;retinanet/quant_clsnet_1/cls_predict/pw/Conv2D;retinanet/quant_clsnet_1/cls_predict/pw/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 158,
+      "op": "STRIDED_SLICE",
+      "reason": "tensor 409 (retinanet/reshape_5/Shape) is read before it is produced"
+    },
+    {
+      "index": 159,
+      "op": "PACK",
+      "reason": "tensor 410 (retinanet/reshape_5/strided_slice) is read before it is produced"
+    },
+    {
+      "index": 160,
+      "op": "RESHAPE",
+      "reason": "tensor 408 (retinanet/quant_clsnet_1/cls_predict/pw/BiasAdd;retinanet/quant_clsnet_0/cls_predict/pw/Conv2D;retinanet/quant_clsnet_1/cls_predict/pw/Conv2D;retinanet/quant_clsnet_1/cls_predict/pw/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 161,
+      "op": "LOGISTIC",
+      "reason": "tensor 412 (retinanet/reshape_5/Reshape;retinanet/quant_clsnet_1/cls_predict/pw/MovingAvgQuantize/FakeQuantWithMinMaxVars) is read before it is produced"
+    },
+    {
+      "index": 162,
+      "op": "SHAPE",
+      "reason": "tensor 367 (retinanet/quant_P4_merged/add) is read before it is produced"
+    },
+    {
+      "index": 163,
+      "op": "STRIDED_SLICE",
+      "reason": "tensor 414 (retinanet/up_sampling2d_1/Shape) is read before it is produced"
+    },
+    {
+      "index": 164,
+      "op": "MUL",
+      "reason": "tensor 415 (retinanet/up_sampling2d_1/strided_slice1) is read before it is produced"
+    },
+    {
+      "index": 165,
+      "op": "RESIZE_NEAREST_NEIGHBOR",
+      "reason": "tensor 367 (retinanet/quant_P4_merged/add) is read before it is produced"
+    },
+    {
+      "index": 166,
+      "op": "ADD",
+      "reason": "tensor 417 (retinanet/up_sampling2d_1/resize/ResizeNearestNeighbor) is read before it is produced"
+    },
+    {
+      "index": 167,
+      "op": "DEPTHWISE_CONV_2D",
+      "reason": "tensor 418 (retinanet/quant_P3_merged/add) is read before it is produced"
+    },
+    {
+      "index": 168,
+      "op": "CONV_2D",
+      "reason": "tensor 420 (retinanet/quant_P3/ds/BiasAdd;retinanet/quant_clsnet_0/cls_predict/dw/depthwise;retinanet/quant_P3/ds/depthwise;retinanet/quant_P3/ds/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 169,
+      "op": "DEPTHWISE_CONV_2D",
+      "reason": "tensor 422 (retinanet/quant_P3/bn/FusedBatchNormV3;retinanet/quant_clsnet_0/cls_2/ps/Conv2D;retinanet/quant_P3/ps/Conv2D) is read before it is produced"
+    },
+    {
+      "index": 170,
+      "op": "CONV_2D",
+      "reason": "tensor 424 (retinanet/quant_boxnet_0/box_0/ds/BiasAdd;retinanet/quant_clsnet_0/cls_predict/dw/depthwise;retinanet/quant_boxnet_0/box_0/ds/depthwise;retinanet/quant_boxnet_0/box_0/ds/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 171,
+      "op": "DEPTHWISE_CONV_2D",
+      "reason": "tensor 426 (retinanet/quant_re_lu/Relu;retinanet/quant_boxnet_0/box_0/bn/FusedBatchNormV3;retinanet/quant_clsnet_0/cls_2/ps/Conv2D;retinanet/quant_boxnet_0/box_0/ps/Conv2D) is read before it is produced"
+    },
+    {
+      "index": 172,
+      "op": "CONV_2D",
+      "reason": "tensor 428 (retinanet/quant_boxnet_0/box_1/ds/BiasAdd;retinanet/quant_clsnet_0/cls_predict/dw/depthwise;retinanet/quant_boxnet_0/box_1/ds/depthwise;retinanet/quant_boxnet_0/box_1/ds/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 173,
+      "op": "DEPTHWISE_CONV_2D",
+      "reason": "tensor 430 (retinanet/quant_re_lu_1/Relu;retinanet/quant_boxnet_0/box_1/bn/FusedBatchNormV3;retinanet/quant_clsnet_0/cls_2/ps/Conv2D;retinanet/quant_boxnet_0/box_1/ps/Conv2D) is read before it is produced"
+    },
+    {
+      "index": 174,
+      "op": "CONV_2D",
+      "reason": "tensor 432 (retinanet/quant_boxnet_0/box_2/ds/BiasAdd;retinanet/quant_clsnet_0/cls_predict/dw/depthwise;retinanet/quant_boxnet_0/box_2/ds/depthwise;retinanet/quant_boxnet_0/box_2/ds/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 175,
+      "op": "DEPTHWISE_CONV_2D",
+      "reason": "tensor 434 (retinanet/quant_re_lu_2/Relu;retinanet/quant_boxnet_0/box_2/bn/FusedBatchNormV3;retinanet/quant_clsnet_0/cls_2/ps/Conv2D;retinanet/quant_boxnet_0/box_2/ps/Conv2D) is read before it is produced"
+    },
+    {
+      "index": 176,
+      "op": "CONV_2D",
+      "reason": "tensor 436 (retinanet/quant_boxnet_0/box_predict/dw/BiasAdd;retinanet/quant_clsnet_0/cls_predict/dw/depthwise;retinanet/quant_boxnet_0/box_predict/dw/depthwise;retinanet/quant_boxnet_0/box_predict/dw/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 177,
+      "op": "SHAPE",
+      "reason": "tensor 438 (retinanet/quant_boxnet_0/box_predict/pw/BiasAdd;retinanet/quant_boxnet_0/box_predict/pw/Conv2D;retinanet/quant_boxnet_0/box_predict/pw/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 178,
+      "op": "STRIDED_SLICE",
+      "reason": "tensor 439 (retinanet/reshape/Shape) is read before it is produced"
+    },
+    {
+      "index": 179,
+      "op": "PACK",
+      "reason": "tensor 440 (retinanet/reshape/strided_slice) is read before it is produced"
+    },
+    {
+      "index": 180,
+      "op": "RESHAPE",
+      "reason": "tensor 438 (retinanet/quant_boxnet_0/box_predict/pw/BiasAdd;retinanet/quant_boxnet_0/box_predict/pw/Conv2D;retinanet/quant_boxnet_0/box_predict/pw/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 181,
+      "op": "CONCATENATION",
+      "reason": "tensor 442 (retinanet/reshape/Reshape;retinanet/quant_boxnet_0/box_predict/pw/MovingAvgQuantize/FakeQuantWithMinMaxVars) is read before it is produced"
+    },
+    {
+      "index": 182,
+      "op": "DEQUANTIZE",
+      "reason": "tensor 443 (retinanet/regression/concat) is read before it is produced"
+    },
+    {
+      "index": 183,
+      "op": "DEPTHWISE_CONV_2D",
+      "reason": "tensor 422 (retinanet/quant_P3/bn/FusedBatchNormV3;retinanet/quant_clsnet_0/cls_2/ps/Conv2D;retinanet/quant_P3/ps/Conv2D) is read before it is produced"
+    },
+    {
+      "index": 184,
+      "op": "CONV_2D",
+      "reason": "tensor 446 (retinanet/quant_clsnet_0/cls_0/ds/BiasAdd;retinanet/quant_clsnet_0/cls_predict/dw/depthwise;retinanet/quant_clsnet_0/cls_0/ds/depthwise;retinanet/quant_clsnet_0/cls_0/ds/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 185,
+      "op": "DEPTHWISE_CONV_2D",
+      "reason": "tensor 448 (retinanet/quant_re_lu_12/Relu;retinanet/quant_clsnet_0/cls_0/bn/FusedBatchNormV3;retinanet/quant_clsnet_0/cls_2/ps/Conv2D;retinanet/quant_clsnet_0/cls_0/ps/Conv2D) is read before it is produced"
+    },
+    {
+      "index": 186,
+      "op": "CONV_2D",
+      "reason": "tensor 450 (retinanet/quant_clsnet_0/cls_1/ds/BiasAdd;retinanet/quant_clsnet_0/cls_predict/dw/depthwise;retinanet/quant_clsnet_0/cls_1/ds/depthwise;retinanet/quant_clsnet_0/cls_1/ds/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 187,
+      "op": "DEPTHWISE_CONV_2D",
+      "reason": "tensor 452 (retinanet/quant_re_lu_13/Relu;retinanet/quant_clsnet_0/cls_1/bn/FusedBatchNormV3;retinanet/quant_clsnet_0/cls_2/ps/Conv2D;retinanet/quant_clsnet_0/cls_1/ps/Conv2D) is read before it is produced"
+    },
+    {
+      "index": 188,
+      "op": "CONV_2D",
+      "reason": "tensor 454 (retinanet/quant_clsnet_0/cls_2/ds/BiasAdd;retinanet/quant_clsnet_0/cls_predict/dw/depthwise;retinanet/quant_clsnet_0/cls_2/ds/depthwise;retinanet/quant_clsnet_0/cls_2/ds/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 189,
+      "op": "DEPTHWISE_CONV_2D",
+      "reason": "tensor 456 (retinanet/quant_re_lu_14/Relu;retinanet/quant_clsnet_0/cls_2/bn/FusedBatchNormV3;retinanet/quant_clsnet_0/cls_2/ps/Conv2D) is read before it is produced"
+    },
+    {
+      "index": 190,
+      "op": "CONV_2D",
+      "reason": "tensor 458 (retinanet/quant_clsnet_0/cls_predict/dw/BiasAdd;retinanet/quant_clsnet_0/cls_predict/dw/depthwise;retinanet/quant_clsnet_0/cls_predict/dw/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 191,
+      "op": "SHAPE",
+      "reason": "tensor 460 (retinanet/quant_clsnet_0/cls_predict/pw/BiasAdd;retinanet/quant_clsnet_0/cls_predict/pw/Conv2D;retinanet/quant_clsnet_0/cls_predict/pw/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 192,
+      "op": "STRIDED_SLICE",
+      "reason": "tensor 461 (retinanet/reshape_4/Shape) is read before it is produced"
+    },
+    {
+      "index": 193,
+      "op": "PACK",
+      "reason": "tensor 462 (retinanet/reshape_4/strided_slice2) is read before it is produced"
+    },
+    {
+      "index": 194,
+      "op": "RESHAPE",
+      "reason": "tensor 460 (retinanet/quant_clsnet_0/cls_predict/pw/BiasAdd;retinanet/quant_clsnet_0/cls_predict/pw/Conv2D;retinanet/quant_clsnet_0/cls_predict/pw/BiasAdd/ReadVariableOp/resource1) is read before it is produced"
+    },
+    {
+      "index": 195,
+      "op": "LOGISTIC",
+      "reason": "tensor 464 (retinanet/reshape_4/Reshape;retinanet/quant_clsnet_0/cls_predict/pw/MovingAvgQuantize/FakeQuantWithMinMaxVars) is read before it is produced"
+    },
+    {
+      "index": 196,
+      "op": "CONCATENATION",
+      "reason": "tensor 465 (retinanet/activation/Sigmoid) is read before it is produced"
+    },
+    {
+      "index": 197,
+      "op": "DEQUANTIZE",
+      "reason": "tensor 466 (retinanet/classification/concat) is read before it is produced"
+    }
+  ],
+  "hint": "An op requires a compile-time constant (shape/axes/slice bounds) that is computed dynamically in this graph.",
+  "model": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/tflite/model__ai_human_processor_beautybody_mb__human_detector_retinanet_mobilenetv2_1.0_quant.tflite",
+  "model_conversion": {
+    "reason": "subgraph 0 'main' needs dynamic parameters: op 116 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 349) but it is dynamic; op 117 (QUANTIZE): tensor 350 (retinanet/reshape_2/Reshape;retinanet/quant_boxnet_2/box_predict/pw/MovingAvgQuantize/FakeQuantWithMinMaxVars) is read before it is produced; op 120 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 353) but it is dynamic; op 121 (QUANTIZE): tensor 354 (retinanet/reshape_3/Reshape;retinanet/quant_boxnet_3/box_predict/pw/MovingAvgQuantize/FakeQuantWithMinMaxVars) is read before it is produced; op 124 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 357) but it is dynamic; op 125 (LOGISTIC): tensor 358 (retinanet/reshape_6/Reshape;retinanet/quant_clsnet_2/cls_predict/pw/MovingAvgQuantize/FakeQuantWithMinMaxVars) is read before it is produced; op 128 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 361) but it is dynamic; op 129 (LOGISTIC): tensor 362 (retinanet/reshape_7/Reshape;retinanet/quant_clsnet_3/cls_predict/pw/MovingAvgQuantize/FakeQuantWithMinMaxVars) is read before it is produced; ... 66 more",
+    "signature_key": null,
+    "status": "unsupported",
+    "subgraph_index": 0
+  },
+  "reason": "subgraph 0 'main' needs dynamic parameters: op 116 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 349) but it is dynamic; op 117 (QUANTIZE): tensor 350 (retinanet/reshape_2/Reshape;retinanet/quant_boxnet_2/box_predict/pw/MovingAvgQuantize/FakeQuantWithMinMaxVars) is read before it is produced; op 120 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 353) but it is dynamic; op 121 (QUANTIZE): tensor 354 (retinanet/reshape_3/Reshape;retinanet/quant_boxnet_3/box_predict/pw/MovingAvgQuantize/FakeQuantWithMinMaxVars) is read before it is produced; op 124 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 357) but it is dynamic; op 125 (LOGISTIC): tensor 358 (retinanet/reshape_6/Reshape;retinanet/quant_clsnet_2/cls_predict/pw/MovingAvgQuantize/FakeQuantWithMinMaxVars) is read before it is produced; op 128 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 361) but it is dynamic; op 129 (LOGISTIC): tensor 362 (retinanet/reshape_7/Reshape;retinanet/quant_clsnet_3/cls_predict/pw/MovingAvgQuantize/FakeQuantWithMinMaxVars) is read before it is produced; ... 66 more",
+  "signature_key": null,
+  "stateful": false,
+  "status": "unsupported_params",
+  "subgraph_index": 0,
+  "subgraph_name": "main",
+  "subgraph_role": "inference",
+  "subgraphs": [
+    {
+      "index": 0,
+      "inputs": [
+        "input_1"
+      ],
+      "name": "main",
+      "outputs": [
+        "Identity",
+        "Identity_1"
+      ],
+      "role": "inference",
+      "stateful": false,
+      "unsupported_ops": []
+    }
+  ],
+  "unsupported_ops": []
+}

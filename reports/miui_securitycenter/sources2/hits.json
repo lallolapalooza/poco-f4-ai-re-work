@@ -1,0 +1,141 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/MIUISecurityCenterGlobal/MIUISecurityCenterGlobal.apk",
+  "regex": "^(com\\.miui\\.antispam\\.service\\.AntiSpamService|com\\.miui\\.antispam\\.policy\\.a|com\\.miui\\.antispam\\.policy\\.b|com\\.miui\\.antispam\\.policy\\.a\\$a|com\\.miui\\.antispam\\.policy\\.a\\$b|j2\\.c|j2\\.b|j2\\.e)$",
+  "packages": [],
+  "max": 8,
+  "timeout": 200.0,
+  "jadx": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/jadx/bin/jadx",
+  "classes_scanned": 39564,
+  "candidates": [
+    {
+      "class": "j2.b",
+      "dex": "classes2.dex",
+      "method_count": 30,
+      "access": 1,
+      "matched": [
+        "j2.b"
+      ],
+      "score": 1030,
+      "rank": 1,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/j2.b.java",
+      "seconds": 12.88
+    },
+    {
+      "class": "com.miui.antispam.policy.b",
+      "dex": "classes2.dex",
+      "method_count": 7,
+      "access": 1,
+      "matched": [
+        "com.miui.antispam.policy.b"
+      ],
+      "score": 1007,
+      "rank": 2,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.antispam.policy.b.java",
+      "seconds": 13.05
+    },
+    {
+      "class": "com.miui.antispam.service.AntiSpamService",
+      "dex": "classes2.dex",
+      "method_count": 6,
+      "access": 1,
+      "matched": [
+        "com.miui.antispam.service.antispamservice"
+      ],
+      "score": 1006,
+      "rank": 3,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.antispam.service.AntiSpamService.java",
+      "seconds": 12.4
+    },
+    {
+      "class": "com.miui.antispam.policy.a",
+      "dex": "classes2.dex",
+      "method_count": 5,
+      "access": 1025,
+      "matched": [
+        "com.miui.antispam.policy.a"
+      ],
+      "score": 1005,
+      "rank": 4,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.antispam.policy.a.java",
+      "seconds": 12.26
+    },
+    {
+      "class": "j2.e",
+      "dex": "classes2.dex",
+      "method_count": 4,
+      "access": 16401,
+      "matched": [
+        "j2.e"
+      ],
+      "score": 1004,
+      "rank": 5,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/j2.e.java",
+      "seconds": 11.84
+    },
+    {
+      "class": "j2.c",
+      "dex": "classes2.dex",
+      "method_count": 2,
+      "access": 1,
+      "matched": [
+        "j2.c"
+      ],
+      "score": 1002,
+      "rank": 6,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/j2.c.java",
+      "seconds": 12.96
+    },
+    {
+      "class": "com.miui.antispam.policy.a$a",
+      "dex": "classes2.dex",
+      "method_count": 2,
+      "access": 1,
+      "matched": [
+        "com.miui.antispam.policy.a$a"
+      ],
+      "score": 1002,
+      "rank": 7,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.antispam.policy.a$a.java",
+      "seconds": 16.73
+    },
+    {
+      "class": "com.miui.antispam.policy.a$b",
+      "dex": "classes2.dex",
+      "method_count": 1,
+      "access": 1537,
+      "matched": [
+        "com.miui.antispam.policy.a$b"
+      ],
+      "score": 1001,
+      "rank": 8,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.antispam.policy.a$b.java",
+      "seconds": 36.58
+    }
+  ],
+  "decompiled": 8,
+  "elapsed_sec": 129.92
+}

@@ -1,0 +1,69 @@
+# Gap-patch evidence transcript (bulldog pipeline / JNI contracts)
+# APK: partner-com.kwai.bulldog_112.apk (sha256 d18888e3a450569b50769a9a550358e92e4bb158608f0ba04edaafa21c1f9c7d)
+# All commands run from $WS = /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work
+# PY=/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python  TOOLS=$WS/tools
+
+## 1. Which camerasdk classes exist in this variant's DEX
+$PY tools/dex_find.py "$APK" --regex 'com\.kwai\.camerasdk\.(video|face)' --classes-only --limit 200
+  -> com.kwai.camerasdk.face.FaceDetectorContext   defined classes15.dex (58 methods)
+  -> com.kwai.camerasdk.videoCapture.CameraController{,$a..$g}      defined classes15.dex
+  -> com.kwai.camerasdk.videoCapture.CameraControllerImpl a0..z      defined classes15.dex
+  -> com.kwai.camerasdk.videoCapture.CameraSession{,$a..$c}          defined classes15.dex
+  -> com.kwai.camerasdk.video.VideoFrame             defined:false in classes3/8/15/16.dex
+     (referenced by com.kwai.video.ksmedialivekit.LivePushClient$1.onVideoFrame(VideoFrame))
+$PY tools/dex_find.py "$APK" --regex 'detectFacesFromFrame' --limit 50
+  -> only declared + defined in com.kwai.camerasdk.face.FaceDetectorContext (classes15.dex);
+     no other DEX member in the APK calls it.
+$PY tools/dex_find.py "$APK" --regex '^mo\.(g0|h0|l0|k0|i0|j0)$' --classes-only
+  -> all six protobuf/enum holders defined in classes15.dex
+
+## 2. Decompilation (jadx single-class, <=2 threads)
+$PY tools/decompile_classes.py "$APK" --regex '^(com\.kwai\.kscnnrenderlib\.[A-Za-z0-9_]+|mo\.(g0|h0|l0|k0|i0|j0))$' \
+     --out reports/kwai_bulldog/sources_gap --max 30 --timeout 150
+$PY tools/decompile_classes.py "$APK" --regex '^(com\.kwai\.kscnnrenderlib\.YCNNModelInfo.*|com\.kwai\.video\.westeros\.v2\.faceless\.(...))$' \
+     --out reports/kwai_bulldog/sources_gap2 --max 8 --timeout 300
+$TOOLS/jadx/bin/jadx --single-class com.kwai.video.westeros.v2.faceless.FaceMagicController \
+     --single-class-output reports/kwai_bulldog/sources_gap2/classes/com.kwai.video.westeros.v2.faceless.FaceMagicController.java \
+     --show-bad-code --no-res "$APK"
+  (FaceMagicController: OK on the direct run; the batch wrapper timed it out at 30 s)
+  -> sources/classes/  (all files consolidated)
+
+## 3. Native: extract the JNI bridge libraries not previously in native/libs
+unzip -o -q "$APK" 'lib/arm64-v8a/libdaenerys.so' 'lib/arm64-v8a/libyuv.so' 'lib/arm64-v8a/libc++_shared.so' -d /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/bd_x
+cp /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/bd_x/lib/arm64-v8a/*.so reports/kwai_bulldog/native/libs_extra/
+  libdaenerys.so 2,580,368 B  (owns kuaishou::android::VideoRawFrameFromJni + the camera/encoder JNI)
+
+## 4. Native disassembly (capstone via tools/disasm_elf.py)
+$PY tools/disasm_elf.py native/libs/libfacedetectcontext.so --list-jni
+  FaceDetectorContext.nativeDetectFacesFromFrame  0x1a19c size 1312
+  FaceDetectorContext.nativeSetData               0x18e28 size 304
+  FaceDetectorContext.nativeInit                  0x184b0 size 1632
+$PY tools/disasm_elf.py native/libs/libfacedetectcontext.so --addr 0x1a19c --size 0x520 \
+     --out native/facedetect_detectFaces.s          (pre-existing)
+$PY tools/disasm_elf.py native/libs/libfacedetectcontext.so --addr 0x18e28 --size 0x130 \
+     --out native/facedetect_nativeSetData.s
+$PY tools/disasm_elf.py native/libs_extra/libdaenerys.so \
+     --symbol _ZN8kuaishou7android20VideoRawFrameFromJniEP7_JNIEnvP8_jobject \
+     --out native/daenerys_VideoRawFrameFromJni.s   (1512 insns, 0x17a0 bytes; symbol 0xece3c)
+$PY tools/disasm_elf.py native/libs/libykit.so \
+     --symbol Java_com_kwai_kscnnrenderlib_KSJNILib_renderModel --out native/ykit_renderModel.s
+$PY tools/disasm_elf.py native/libs/libykit.so --addr 0xc8a54 --size 0x33f4 \
+     --out native/ykit_updateModelOut.s
+$PY tools/disasm_elf.py native/libs/libfaceless-plugin.so --list-jni
+  FaceMagicController.nativeInitController 0x3d49c, nativeGetGlProcessor 0x3d6f0,
+  nativeSetEffect 0x3d858, nativeUpdateEffectControl 0x3db7c, nativeSetInitialVideoFrameSize 0x3e17c,
+  nativeSetExternalBuiltinPath 0x3e228, nativeSetBeautifyExternalBuiltinPath 0x3e564,
+  FacelessPlugin.nativeCreateFacelessPlugin 0x3ef24
+
+## 5. adrp/add -> rodata string resolution (script /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/resolve_adrp.py; lief + section map)
+$PY /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/resolve_adrp.py native/libs_extra/libdaenerys.so native/daenerys_VideoRawFrameFromJni.s
+$PY /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/resolve_adrp.py native/libs/libykit.so native/ykit_renderModel.s
+$PY /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/resolve_adrp.py native/libs/libykit.so native/ykit_updateModelOut.s
+  outputs saved in evidence/gap_pipeline/*.txt
+
+## 6. Symbol table lookups
+$PY /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/syms2.py native/libs_extra/libdaenerys.so VideoRawFrameFromJni DaenerysFrameObserver MediaRecorderImpl
+  _ZN8kuaishou7android20VideoRawFrameFromJniEP7_JNIEnvP8_jobject  0xece3c size 6048
+  Java_com_kwai_camerasdk_videoCapture_DaenerysFrameObserver_nativeOnVideoFrameCaptured 0xe18d8
+  Java_com_kwai_camerasdk_mediarecorder_MediaRecorderImpl_nativeStartRecording 0xe46dc
+  Java_com_kwai_camerasdk_mediarecorder_MediaRecorderImpl_nativeCaptureOneVideoFrame 0xe4ef0

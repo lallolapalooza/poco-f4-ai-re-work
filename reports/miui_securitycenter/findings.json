@@ -1,0 +1,718 @@
+{
+ "slug": "miui_securitycenter",
+ "package": "com.miui.securitycenter",
+ "app_name": "Security (MIUISecurityCenterGlobal 8.9.4-240516.1.1)",
+ "ai_summary": "The APK ships exactly one on-device model, assets/model (680,154 B, sha256 b282b4ef...2a9f15), which is not a TFLite/SNPE/MACE file but a custom big-endian binary containing a 5-stage cascade of log-linear SMS spam/phishing classifiers: 68/23/10/10/16 features per stage, 8000/8000/5752/4759/2573 token weights, 414/292/193/139/171 substring-pattern weights, per-stage character dictionaries, a message-length feature, 9 rule features and an 8-way sender-category bias table, followed by three decision thresholds. It is loaded by ah.c.b(Context,\"model\") from ah.d.h and evaluated against a normalised SMS (ah.b) whose tokens come from the assets/dict word segmenter. A second, newer SMS engine (d9.a -> a9.a/a9.c) uses the bundled TensorFlow Lite 2.8.4 JNI library, but its models (1.bin, 2.bin) and vocabulary (v.txt) are downloaded in resource.zip and are not in the APK. Game Turbo 'AI' features (AI subtitles, UltraClear, video-call beauty/privacy/portrait/pickup) are UI + allow-list configuration only; inference is delegated to com.xiaomi.aiasst.vision and vendor camera/video-toolbox code, and assets/redmi_performance_mode/Ai-Model.json is a Lottie animation, not a model.",
+ "features": [
+  {
+   "name": "SMS phishing/spam blocking (legacy on-device engine, assets/model)",
+   "entrypoints": [
+    "com.miui.antispam.db.AntiSpamProvider.query/update (case 9, content://antispam/sms_judge, selectionArgs={address,body,simId})",
+    "com.miui.antispam.policy.SmartSmsFilterPolicy.handleData",
+    "com.miui.antispam.policy.SmartSmsFilterPolicy.shouldFilter",
+    "j2.a.h (SmsEngineHandler.getSMSJudgeResult)",
+    "ah.a.a (ah/a.java)",
+    "ah.d.h (ah/d.java)"
+   ],
+   "pipeline": [
+    "Incoming SMS handled by the antispam policy chain (com.miui.antispam) -> SmartSmsFilterPolicy.handleData (skips international builds; requires service_sms_mode/stranger_sms_mode)",
+    "shouldFilter: skip empty body, MIUI notification template (isMiuiPattern), YellowPage antispam white list; else j2.a.h(number, body)",
+    "j2.a.h builds the new engine (d9.a.b from files/SmsEngineResource) and only falls back to the legacy engine when MIUI MMS versionCode < 11000249",
+    "ah.a.a builds ah.b(number, body): strip +86, category = dh.a.d(number) (8 classes), body normalised by ah.h.c",
+    "new dh.e().e(b): dh.j/dh.b/dh.c split the body and yield 9 rule feature counts (b.m); the split pieces are stored in b.l",
+    "ah.d.h: applies ah.e.f flags (URL heuristic ah.i.b, phish list ah.d.d) and ch.d pattern flags from assets/pattern, loads ah.g(assets/dict)",
+    "dh.e.f(b) -> a(b): the split pieces are expanded with the ah.g dictionary (assets/dict) and filtered by ah.i.a/ah.g.c; the sorted set becomes b.i(), the token list matched against the model",
+    "opens assets/model through ah.c.b(Context,\"model\") (files/model override wins if present), reads 5 stages with DataInputStream (big-endian)",
+    "per stage: s[k] = sum(feature ? w[k][f] : log1p(-exp(w[k][f]))) + token/pattern terms + category bias; d = s0 - s1; thresholds decide class or defer to next stage; majority vote",
+    "result 1 => block reason 8 (phishing), 2 => block reason 4 (spam); a 'Common' sender with existing SMS/call history is unblocked via ah.f.a"
+   ],
+   "models": [
+    "assets/model",
+    "assets/dict",
+    "assets/pattern"
+   ],
+   "confidence": "confirmed",
+   "notes": "Container fully decoded (ir/parse_model.py); walk consumes all 680,154 bytes. Weights are log-probabilities (ah.i.g(x)=log(1-exp(x)); all weights negative). Spam-probe vs ham-probe tokens separate at +136.8 / -131.4 log-odds against thresholds 10.1 / -9.6. Patch: the in-APK entry is the exported ContentProvider (AntiSpamProvider case 9), not AntiSpamService; PDU->text happens in the caller SMS app. Policy dispatch is d2.b.e -> SmartSmsFilterPolicy (priority 18) -> j2.a.h. Block action = block type 4/8 returned to the caller + async FirewallLog insert (o2.f.a)."
+  },
+  {
+   "name": "SMS filtering (new TFLite engine, downloaded resources)",
+   "entrypoints": [
+    "j2.a.h (SmsEngineHandler.getSMSJudgeResult)",
+    "d9.a (SmsRecognizer) c()/d()",
+    "a9.a (ImportanRecognizer, 2.bin, threshold 0.6)",
+    "a9.c (UnlawRecognizer, 1.bin, threshold 0.4)",
+    "c9.a (128-dim bag-of-code-point vectorizer over v.txt)",
+    "l2.a (SmsEngineUpdateManager, resource.zip download)",
+    "d2.b.e (PolicyManager SMS chain) and j2.a.h gate the new engine; d9.a is released after every message"
+   ],
+   "pipeline": [
+    "j2.a.h -> d9.a.b(files/SmsEngineResource) constructs c9.a(v.txt), a9.a(2.bin), a9.c(1.bin), a9.b",
+    "d9.a.c(addr, body): z8.a regex gate, a9.b phone/content model, then a9.a on the c9.a vector -> 'important SMS' (return 0)",
+    "d9.a.d(body): z8.a regex filters, c9.a -> float[1][128], a9.a gate (return not-spam if important), a9.c -> 'unlaw' spam verdict",
+    "both TFLite interpreters are org.tensorflow.lite.b (Interpreter) over NativeInterpreterWrapperExperimental with default (null) options => CPU kernels, no NNAPI, no Flex"
+   ],
+   "models": [
+    "files/SmsEngineResource/1.bin",
+    "files/SmsEngineResource/2.bin",
+    "files/SmsEngineResource/v.txt"
+   ],
+   "confidence": "confirmed",
+   "notes": "Code path confirmed; the model files themselves are delivered by resource.zip from https://api.sec.intl.miui.com/GuardProviderV1/GetResourceZipFile and are absent from the APK, so their graphs are unknown."
+  },
+  {
+   "name": "Game Turbo AI subtitles / screen translation",
+   "entrypoints": [
+    "q7.a (AiSubTitleUtils) i()/j()/b()",
+    "h7.c0.m (checkAISubtitle: com.xiaomi.aiasst.vision version >= 413)",
+    "p7.b.k (loadCloudAisubtitleActivity)",
+    "f5.f.z / f5.f.k0 (pref_aisubtitle_app)"
+   ],
+   "pipeline": [
+    "Game Turbo UI toggles AI subtitles; support is decided by h7.c0.m (installed com.xiaomi.aiasst.vision >= 413, non-international build)",
+    "AiSubTitleUtils starts com.xiaomi.aiasst.vision/.control.translation.AiTranslateService with floatingWindowType=startAiSubtitlesWindow and a channel string",
+    "state is read from content://com.xiaomi.aiasst.vision/subtitleState (or /screenTranslateState); activity allow-list from assets/aisubtitle_support_activity_list.json, cloud override via p7.b.k -> f5.f.k0"
+   ],
+   "models": [],
+   "confidence": "confirmed",
+   "notes": "No model in this APK; ASR/translation inference lives in the separate AI Assistant app."
+  },
+  {
+   "name": "Game Turbo UltraClear video enhancement",
+   "entrypoints": [
+    "f5.f.z (loads ultraclear_support_activity_list.json)",
+    "f5.f.H0 / p7.b.A (cloud override of pref_ultraclear_app)",
+    "g5.i d0/w0 (pref_ultraclear_mode)"
+   ],
+   "pipeline": [
+    "Allow-list of video apps is loaded from assets/ultraclear_support_activity_list.json (WeChat/QQ/DingTalk/Feishu video activities) and can be replaced by a cloud value",
+    "The toggle is handed to the vendor video toolbox (persist.vendor.vcb.* properties written by f5.f.J0); no inference code ships here"
+   ],
+   "models": [],
+   "confidence": "confirmed",
+   "notes": "Dispatch/configuration only; super-resolution model lives in vendor partitions."
+  },
+  {
+   "name": "Video-call beauty / privacy / portrait / pickup",
+   "entrypoints": [
+    "com.miui.gamebooster.beauty.BeautyService",
+    "com.miui.gamebooster.beauty.BeautySettingsActivity / conversation.ConversationSettingsActivity",
+    "f5.f.z (beauty_face_support_activity_list.json, beauty_light_default_support_list.json, privacy_*_support_activity_list.json, protrait_support_activity_list.json, pickup_support_activity_list.json)",
+    "p7.b.l / p7.b.m (cloud allow-list refresh)"
+   ],
+   "pipeline": [
+    "Per-app allow-lists decide whether the video toolbox overlay is offered for a given activity (WeChat VideoActivity, QQ AVActivity, DingTalk, ...)",
+    "BeautyService/BeautyView expose the controls; the actual face-beauty/privacy blur runs in the vendor camera/video-toolbox pipeline"
+   ],
+   "models": [],
+   "confidence": "confirmed",
+   "notes": "No model or inference code in this APK."
+  },
+  {
+   "name": "Performance mode 'AI model' asset (not a model)",
+   "entrypoints": [
+    "a8.r0.y",
+    "assets/redmi_performance_mode/Ai-Model.json"
+   ],
+   "pipeline": [
+    "a8.r0 loads assets/redmi_performance_mode/Ai-Model.json together with redmi_performance_mode/images for the performance-mode UI"
+   ],
+   "models": [],
+   "confidence": "confirmed",
+   "notes": "File content is a Lottie animation ({\"v\":\"5.8.1\",\"fr\":60,...,\"nm\":\"lottie\"}), 119,414 B; it is an animation payload, not a neural network."
+  }
+ ],
+ "models": [
+  {
+   "path": "assets/model",
+   "format": "custom big-endian cascade of 5 log-linear (log-probability) SMS classifiers; u32 version=1, u32 0, u32 n_models=5, then per stage: i32 n_feat, dh.i char dictionary (i32 count + u16 chars), i32 length threshold, interleaved f64[2][n_feat] weights, i32 n_tokens + (u16 chars terminated by 0x000A, f64 w0, f64 w1)*, i32 n_patterns + same records, interleaved f64 cat_bias[2][8], f64 thr[3]",
+   "size": 680154,
+   "io": {
+    "input": "normalised SMS text (ah.h.c) + sender number (dh.a.d -> 8 categories) + 9 rule feature counts + per-stage character-presence vector + length flag; token hits by exact string match, pattern hits by substring contains",
+    "input_shapes": [
+     [
+      68
+     ],
+     [
+      23
+     ],
+     [
+      10
+     ],
+     [
+      10
+     ],
+     [
+      16
+     ]
+    ],
+    "output": "class decision 0/1 per stage (2-class log-odds difference d = s0 - s1 compared with thresholds), majority vote across stages",
+    "thresholds": [
+     [
+      10.099625,
+      -9.61066,
+      -0.081894
+     ],
+     [
+      5.453194,
+      -5.453194,
+      0.647298
+     ],
+     [
+      13.208791,
+      -11.359606,
+      -1.939627
+     ],
+     [
+      5.207687,
+      -5.207687,
+      -2.043938
+     ],
+     [
+      3.542977,
+      -3.542977,
+      0.164712
+     ]
+    ]
+   },
+   "ops": [
+    "log_probability_accumulate (present ? w : log1p(-exp(w)))",
+    "exact_token_match",
+    "substring_pattern_contains",
+    "character_presence_feature",
+    "message_length_threshold_feature",
+    "sender_category_bias_lookup",
+    "threshold_cascade_with_early_exit",
+    "majority_vote"
+   ],
+   "weights": "extracted",
+   "jax_reimpl": "reimpl/model.py",
+   "verification": "ir/parse_model.py consumes all 680,154 bytes with zero remainder; reimpl/model.py runs under python3.12+JAX with the extracted float64 weights and matches an independent NumPy transcription of ah/d.java within 1e-9 on every stage; spam-token probe scores +136.83 (spam) and ham-token probe -131.43 (not spam) against thresholds 10.100 / -9.611. Log: reimpl/verify.txt (exit 0).",
+   "confidence": "confirmed"
+  },
+  {
+   "path": "files/SmsEngineResource/1.bin",
+   "format": "TFLite (expected flatbuffer; loaded by org.tensorflow.lite.b/Interpreter from file) - not present in the APK",
+   "io": {
+    "input": "float[1][128] from c9.a vectorizer over v.txt vocabulary",
+    "output": "float[1][1] 'unlaw' score, spam if > 0.4"
+   },
+   "weights": "unavailable",
+   "jax_reimpl": "",
+   "verification": "not possible: file is delivered inside resource.zip downloaded from api.sec.intl.miui.com (SmsEngineUpdateManager l2.a, version 2.1.2)",
+   "confidence": "inferred"
+  },
+  {
+   "path": "files/SmsEngineResource/2.bin",
+   "format": "TFLite (expected flatbuffer; loaded by org.tensorflow.lite.b/Interpreter from file) - not present in the APK",
+   "io": {
+    "input": "float[1][128] from c9.a vectorizer over v.txt vocabulary",
+    "output": "float[1][1] 'important' score, important if > 0.6"
+   },
+   "weights": "unavailable",
+   "jax_reimpl": "",
+   "verification": "not possible: downloaded resource (see 1.bin)",
+   "confidence": "inferred"
+  }
+ ],
+ "reimplementation": {
+  "path": "reimpl/model.py",
+  "run_command": "cd reports/miui_securitycenter && /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python reimpl/model.py models/assets_model",
+  "status": "verified",
+  "limitations": "Weights are the real extracted values, but verification is against an independent NumPy transcription of the decompiled Java (ah/d.java, ah/i.java, ah/e.java), not against a running Android runtime. The 9 rule features (dh.j, dh.b, dh.c) are accepted as caller-supplied booleans instead of being re-derived from the raw SMS, and the ch.d pattern-feedback counters are inputs. The newer TFLite engine (1.bin/2.bin/v.txt) cannot be rebuilt because its files are downloaded at runtime and absent from the APK."
+ },
+ "unknowns": [
+  "Contents/graph of 1.bin and 2.bin and the v.txt vocabulary of the new TFLite SMS engine: delivered in resource.zip from https://api.sec.intl.miui.com/GuardProviderV1/GetResourceZipFile (no network access, not in APK).",
+  "assets/phish (newline list of phishing URLs used by ah.d.d) is absent from the APK.",
+  "Exact numeric semantics of dh.c's 7 rule features (bank card / phone / 400 / range / 'Confus' counters) - they enter the model only as 0/1 counts.",
+  "Semantics of the 6-byte prefix-node records and the 4x4 double transition matrix at the head of assets/dict (used by bh.a segmentation cost).",
+  "Whether a downloaded files/model or files/dict (resource.zip) overrides the APK assets on any given device (ah.c.b prefers the file when present and ah.c.c(false) is in effect).",
+  "Exact caller of content://antispam/sms_judge (system SMS app, outside APK): its PDU decode and quarantine logic are not in this APK; only the 3-arg provider contract is confirmed.",
+  "Literal numeric value of the com.google.android.exoplayer2.C.BUFFER_FLAG_FIRST_SAMPLE early-exit bit used by ah.e.b is taken from the library constant (inlined), not resolved here."
+ ],
+ "data_pipelines": [
+  {
+   "id": "P1-sms-legacy-model",
+   "name": "SMS spam/phishing — legacy 5-stage log-linear cascade (assets/model)",
+   "feature": "SMS phishing/spam blocking (legacy on-device engine, assets/model)",
+   "confidence": "confirmed",
+   "trigger": {
+    "entry": "ContentResolver.query(content://antispam/sms_judge, selectionArgs={address,body,simId}) -> com.miui.antispam.db.AntiSpamProvider.query case 9 (also update case 9) -> c(String[]) -> new j2.c(...) -> d2.b.e(j2.c)",
+    "gates": [
+     "!f4.z.A()  (ro.miui.google.csp == false)",
+     "o2.f.E(ctx)  (non-international, else default smsto: app must be com.android.mms)",
+     "o2.a.j(ctx,simId)  (antispam enabled per SIM)",
+     "!miui.os.Build.IS_INTERNATIONAL_BUILD inside SmartSmsFilterPolicy.handleData, else return null"
+    ],
+    "pdu_decoding": "outside APK (system SMS app); no SmsReceiver defined in this APK; 'sms_judge' string only in AntiSpamProvider.<clinit>",
+    "thread": "Binder thread of the provider process (:remote); Binder.clearCallingIdentity() around judging"
+   },
+   "transport": {
+    "wire": "ContentProvider.query -> MatrixCursor{'smsBlockType':int}",
+    "args": [
+     "address (String, normalised by o2.f.p)",
+     "body (String, raw)",
+     "simId (decimal String, Integer.parseInt)"
+    ],
+    "intermediate_objects": [
+     "j2.c{number,normalized,country,simId,type=1,body,flags}",
+     "ah.b{number, category 0..7, normalised body, pieces, int[] features, List<String> tokens, Set<String> tokenSet, int flags}"
+    ],
+    "model_stream": "DataInputStream over assets/model, big-endian"
+   },
+   "preprocess": [
+    "j2.c.<init>: o2.f.p(number) then o2.f.I() -> PhoneNumberUtils.PhoneNumber.parse(...).getNormalizedNumber(false,true); CountryCode.getNetworkCountryCode(); Brazil(62) leading '0' toggle",
+    "ah.b.<init>: strip '+86' when len>3 and prefix; dh.a.d(number) -> sender category index 0..7; ah.h.c(body) trim + split on , . ; : ! ，。；、：！ + de-obfuscation of separator-laced pieces (>=3 weird chars, >=50% density)",
+    "dh.e.e: pieces list (whole body then dh.j/dh.b/dh.c splits); 9 rule features int[9] (dh.j=1, dh.b=1, dh.c=7)",
+    "dh.e.f -> a(): expand pieces with assets/dict segmenter (ah.g.a -> bh.a.c); keep all-CJK (ah.i.a) or in-dictionary (ah.g.c); TreeSet sort/dedup -> token list",
+    "dh.e.f: feature vector int[9 rules] ++ char-dict occurrence counts (dh.i.b) ++ [len(body)>=n_chars2] (dh.h.b); 9+n_chars+1 == n_feat for all stages",
+    "ah.e.f: URL heuristic ah.i.b -> flag bit1; phish list ah.d.d -> bit2; ch.d.e(assets/pattern) -> pattern bits; ah.e.g shifts thresholds by ((active-inactive)*(thr0-thr1))/4"
+   ],
+   "model": {
+    "path": "assets/model",
+    "format": "custom big-endian 5-stage log-linear cascade",
+    "size": 680154,
+    "sha256": "b282b4efb958ca2131fd14fbd687990da23c3b01521891119655434be52a9f15",
+    "engine": "pure Java evaluator ah.d.h(ah.b,Context); no tensor runtime",
+    "io": {
+     "stages": 5,
+     "features": [
+      68,
+      23,
+      10,
+      10,
+      16
+     ],
+     "tokens": [
+      8000,
+      8000,
+      5752,
+      4759,
+      2573
+     ],
+     "patterns": [
+      414,
+      292,
+      193,
+      139,
+      171
+     ],
+     "bias": [
+      2,
+      8
+     ],
+     "thresholds": [
+      [
+       10.1,
+       -9.611,
+       -0.082
+      ],
+      [
+       5.453,
+       -5.453,
+       0.647
+      ],
+      [
+       13.209,
+       -11.36,
+       -1.94
+      ],
+      [
+       5.208,
+       -5.208,
+       -2.044
+      ],
+      [
+       3.543,
+       -3.543,
+       0.165
+      ]
+     ]
+    },
+    "supporting_assets": [
+     {
+      "path": "assets/dict",
+      "size": 3639702,
+      "sha256": "f99086243babe60fd6d50f8d06bfdd15cefcbf0dc867b0e10521c2f6559cc668",
+      "role": "word segmenter, 348982 words; freshly parsed per message (ah.d.k -> ah.g.d), then discarded"
+     },
+     {
+      "path": "assets/pattern",
+      "size": 5568,
+      "sha256": "f25e73d1db98b2cf7a73548f74c7221ddb44dcb4a5364e4081be44e7df2bf595",
+      "role": "19 regex features -> 32-bit flag word (ch.d)"
+     },
+     {
+      "path": "assets/phish",
+      "size": 0,
+      "sha256": null,
+      "role": "absent from APK; ah.d.d would read it"
+     }
+    ]
+   },
+   "postprocess": [
+    "per stage: s[k]=sum(f>0?w[k][f]:log1p(-exp(w[k][f]))) + token terms + pattern terms + cat_bias[k][senderCat]; d=s0-s1; d<thr'[1] -> 0; d>thr'[0] -> 1; else vote=d-thr'[2]",
+    "after 5 stages: majority of positive votes; tie -> sum(vote)<0 ? 0 : 1",
+    "ah.a.a returns 2 (blocked) / 1 (blocked and flag bit2 = phish) / 0 (allow); history whitelist ah.f.a can unblock category 'Common'"
+   ],
+   "consumer": [
+    "SmartSmsFilterPolicy.handleData maps 1->blockType 8 (phishing), 2->blockType 4 (spam)",
+    "d2.b.e returns int block type",
+    "AntiSpamProvider returns MatrixCursor{'smsBlockType'} to the caller SMS app"
+   ],
+   "action": [
+    "o2.f.a(ctx,number,blockType,keyword) when ExtraTelephony.getRealBlockType(type)>=3: async insert/update ExtraTelephony.FirewallLog.CONTENT_URI {number, read=1, type=2, reason, data1}",
+    "caller (outside APK) quarantines the message in the blocked conversation"
+   ],
+   "failure_fallback": [
+    "asset open failure -> ah.c.b returns null -> exception -> j2.a.h catches -> 0 (allow)",
+    "international build -> policy returns null (disabled)",
+    "dict failure -> NPE -> j2.a.h -> allow (inferred)"
+   ],
+   "evidence": [
+    "sources/classes/com.miui.antispam.db.AntiSpamProvider.java:913-918,1311-1315",
+    "sources/classes/d2.b.java (e)",
+    "sources/classes/com.miui.antispam.policy.SmartSmsFilterPolicy.java",
+    "sources/classes/j2.a.java (h)",
+    "sources/classes/ah.a.java, ah.b.java, ah.d.java, ah.e.java, ah.h.java",
+    "sources/classes/dh.e.java, dh.i.java, dh.h.java",
+    "sources/classes/o2.f.java",
+    "ir/model_ir.json",
+    "evidence/xref_sms_judge.jsonl",
+    "evidence/xref_policy_dispatch.jsonl",
+    "PIPELINE.md"
+   ],
+   "unknowns": [
+    "caller SMS app code that decodes the PDU and issues the query",
+    "literal value of the com.google.android.exoplayer2.C.BUFFER_FLAG_FIRST_SAMPLE early-exit bit (constant name only)"
+   ]
+  },
+  {
+   "id": "P2-sms-tflite-new-engine",
+   "name": "SMS spam/phishing — new TFLite engine (downloaded 1.bin/2.bin/v.txt)",
+   "feature": "SMS filtering (new TFLite engine, downloaded resources)",
+   "confidence": "confirmed code / unknown weights",
+   "trigger": {
+    "entry": "j2.a.h -> d9.a.b(files/SmsEngineResource) -> d9.a.c(addr,body) [important] / d9.a.d(body) [unlaw]",
+    "thread": "same Binder thread",
+    "cadence": "per SMS; singleton is released (d9.a.a) in every exit path so models are re-opened per message"
+   },
+   "transport": {
+    "input": "float[1][128] float32",
+    "output": "float[1][1]",
+    "files": [
+     "files/SmsEngineResource/v.txt",
+     "files/SmsEngineResource/1.bin",
+     "files/SmsEngineResource/2.bin"
+    ]
+   },
+   "preprocess": [
+    "c9.a.a(body): strip \\n \\r \\t, spaces, \\s+, double/single quotes; lowercase; String.getBytes() (UTF-8); split by UTF-8 lead byte (>=0xFC:6, >=0xF8:5, >=0xF0:4, >=0xE0:3, >=0xC0:2, else 1)",
+    "map each code-point token via v.txt ('<token>\\t<float>'), appended in message order to successive slots; unknown tokens dropped (no placeholder); zero-fill to 128",
+    "a9.b/b9.b: 7 hard-coded Pattern rules keyed by sender '10086', '95555' and fallback '0' (StatManager.PARAMS_SWITCH_OFF inlined as \"0\")"
+   ],
+   "model": {
+    "path": "files/SmsEngineResource/{1.bin,2.bin}",
+    "format": "TFLite (inferred from org.tensorflow.lite.b)",
+    "size": null,
+    "sha256": null,
+    "available": false,
+    "engine": "org.tensorflow.lite.b -> NativeInterpreterWrapperExperimental(path, null), default CPU options, no NNAPI/XNNPACK delegate",
+    "thresholds": {
+     "2.bin important": 0.6,
+     "1.bin unlawful": 0.4
+    }
+   },
+   "postprocess": [
+    "a9.a: score=out[0][0] (logcat 'important score:'), important if >0.6",
+    "a9.c: score=out[0][0] (logcat 'unlaw score:'), unlawful if >0.4",
+    "d9.a.c: return true if sender-rule match or important; j2.a.h -> 0",
+    "d9.a.d: reject empty / pure number / 1-500 alnum-no-space; if important -> false; else unlaw"
+   ],
+   "consumer": [
+    "j2.a.h returns 2 (block) / 0 (allow) to SmartSmsFilterPolicy.handleData"
+   ],
+   "action": [
+    "same block-type path as P1 (4/8) and FirewallLog insert"
+   ],
+   "failure_fallback": [
+    "constructor IOException/RuntimeException -> d9.a.f44135e=false -> c()/d() return false (fail-open)",
+    "missing files -> same",
+    "old SMS app (<11000249) -> legacy engine verdict takes precedence"
+   ],
+   "evidence": [
+    "sources/classes/d9.a.java, a9.a.java, a9.c.java, c9.a.java, a9.b.java, b9.b.java, z8.a.java",
+    "sources/classes/org.tensorflow.lite.b.java",
+    "native/tflite_run_jni.s",
+    "evidence/xref_a9d9_callers.jsonl",
+    "PIPELINE.md"
+   ],
+   "unknowns": [
+    "contents/graph/op set/dtypes of 1.bin and 2.bin",
+    "v.txt token->float semantics",
+    "whether outputs are probabilities or logits (Java applies no activation)"
+   ]
+  },
+  {
+   "id": "P3-sms-resource-download",
+   "name": "SMS engine resource acquisition (cloud -> resource.zip -> SmsEngineResource)",
+   "feature": "SMS filtering (new TFLite engine, downloaded resources)",
+   "confidence": "confirmed",
+   "trigger": {
+    "entry": "l2.a.d(callback) -> AsyncTask; after install ContentResolver.call(content://antispam,'initSmsEngine') -> SmartSmsFilterPolicy.initSmsEngine(true) -> j2.a.k(true)",
+    "gates": [
+     "!Build.IS_INTERNATIONAL_BUILD",
+     "w.u() (network available)",
+     "d.s(ctx)",
+     "!mUpdating",
+     "version != 2.1.2"
+    ]
+   },
+   "transport": {
+    "protocol": "HTTPS GET JSON + DownloadManager",
+    "url": "https://api.sec.intl.miui.com/GuardProviderV1/GetResourceZipFile",
+    "params": {
+     "appVersion": "DeviceUtil.getAppVersionCode()",
+     "ver": "2.1.2",
+     "sign": "ce.j.p(map, '7htr5238-a8cf-3k79-ec73-75382145ns5c')",
+     "channel": "antispam_checkupdate"
+    },
+    "artifact": "resource.zip",
+    "md5": "6206c9f17a64246498b52e117d0cff1e",
+    "staging": "Environment.DIRECTORY_DOWNLOADS/resource.zip.tmp -> files/resource.zip"
+   },
+   "preprocess": [
+    "DownloadManager status must be 8 (successful)",
+    "MD5 verify against pinned constant",
+    "unzip with zip-slip guard (canonical path prefix check) and per-entry size validation (l())"
+   ],
+   "model": {
+    "path": "files/SmsEngineResource/ (unzipped entries)",
+    "format": "ZIP container",
+    "size": null,
+    "sha256": null,
+    "available": false
+   },
+   "postprocess": [
+    "SmsEnginePreference.version=2.1.2",
+    "ah.c.c(true) forces APK assets for names dict/model/pattern/phish",
+    "d9.a.b(dir) re-init"
+   ],
+   "consumer": [
+    "P1 asset override path (files/<name>) and P2 engine"
+   ],
+   "action": [
+    "next SMS is judged with the updated engine; analytics event e2.a.v(version, success/fail_reason)"
+   ],
+   "failure_fallback": [
+    "md5 mismatch -> delete tmp, analytics fail_md5",
+    "download status != 8 -> fail_download",
+    "unzip exception -> delete files/SmsEngineResource tree, return false",
+    "version match -> no update (code 1)"
+   ],
+   "evidence": [
+    "sources/classes/l2.a.java:140-200,240-275,300-367",
+    "sources/classes/j2.a.java (j,l,k)",
+    "sources/classes/com.miui.antispam.db.AntiSpamProvider.java:345",
+    "PIPELINE.md"
+   ],
+   "unknowns": [
+    "contents of resource.zip (1.bin/2.bin/v.txt and possible dict/model/pattern/phish overrides)"
+   ]
+  },
+  {
+   "id": "P4-sms-url-cloud-check",
+   "name": "SMS URL/phishing cloud check (URLFilterPolicy)",
+   "feature": "SMS phishing/spam blocking",
+   "confidence": "confirmed client / unknown server",
+   "trigger": {
+    "entry": "d2.b.e -> com.miui.antispam.policy.b.d(i10, j2.c) after all policies",
+    "gates": [
+     "!Build.IS_INTERNATIONAL_BUILD",
+     "o2.a.j(ctx,simId)",
+     "o2.i.b(body) extracts >=1 URL"
+    ]
+   },
+   "transport": {
+    "binder": "bindService(Intent('com.miui.guardprovider.action.urlscan').setPackage('com.miui.guardprovider')) -> IURLScanServer.Stub; b3('AVL', url) -> int (8 s latch)",
+    "http": "GET url (redirect probe, UA antispam/1.0.0, 5 s timeouts) then signed POST via ce.j.p(map{url,ts,c,sign}, endpoint, key)",
+    "cloud": "api.sec.intl.miui.com (GuardProviderV1), response JSON code==200 -> data.urlCategoryId"
+   },
+   "preprocess": [
+    "URL extraction o2.i.b",
+    "normalisation o2.i.a",
+    "whitelist set o2.i.d"
+   ],
+   "model": {
+    "path": "server-side",
+    "format": "remote classifier",
+    "size": null,
+    "sha256": null,
+    "available": false
+   },
+   "postprocess": [
+    "private b.b(url): urlCategoryId 0 -> 2, 1 or 2 -> 1, -1 -> 0",
+    "b.c(): 1 -> block (return 2), 2 -> allow (return 0), -1 -> unknown",
+    "on hit, block type |= 128 (b.e(i10) = i10 | 128)"
+   ],
+   "consumer": [
+    "d2.b.e block type -> provider cursor -> caller; fwlog insert"
+   ],
+   "action": [
+    "URL-containing SMS blocked; analytics e2.a.t/u with url and number"
+   ],
+   "failure_fallback": [
+    "no GuardProvider / RemoteException -> -1 -> unchanged verdict",
+    "no network -> -1 -> unchanged",
+    "URL whitelist hit -> 0"
+   ],
+   "evidence": [
+    "sources/classes/com.miui.antispam.policy.b.java",
+    "sources/classes/j2.f.java",
+    "sources/classes/d2.b.java (e)",
+    "PIPELINE.md"
+   ],
+   "unknowns": [
+    "server-side classifier model and endpoint response schema beyond urlCategoryId"
+   ]
+  },
+  {
+   "id": "P5-ai-subtitles-delegated",
+   "name": "Game Turbo AI subtitles / screen translation (delegated to com.xiaomi.aiasst.vision)",
+   "feature": "Game Turbo AI subtitles / screen translation",
+   "confidence": "confirmed dispatch / unknown model",
+   "trigger": {
+    "entry": "q7.a.j(ctx,channel) -> i(); q7.a.b() closes; callers: o7.h.onClick, l5.c.onClick, m7.a, g5.i, q7.r",
+    "gate": "h7.c0.m(ctx): query content://com.xiaomi.aiasst.vision/supportSubtitleState, else !IS_INTERNATIONAL_BUILD && installed version >= 413"
+   },
+   "transport": {
+    "intent": "startService(Intent{ComponentName('com.xiaomi.aiasst.vision','com.xiaomi.aiasst.vision.control.translation.AiTranslateService')})",
+    "extras": {
+     "from": "video_toolbox | conference_toolbox | conference_toolbox_screen_translate",
+     "floatingWindowType": "startAiSubtitlesWindow",
+     "extra": "close (on stop)"
+    },
+    "state": "ContentResolver.query(content://com.xiaomi.aiasst.vision/subtitleState | /screenTranslateState) column 'value' int"
+   },
+   "preprocess": [],
+   "model": {
+    "path": "none in this APK",
+    "format": "delegated",
+    "size": null,
+    "sha256": null,
+    "available": false
+   },
+   "postprocess": [
+    "none in this APK; the service renders the floating subtitle window"
+   ],
+   "consumer": [
+    "user-visible on-screen subtitles; Security Center only toggles and reads state"
+   ],
+   "action": [
+    "startService / query state provider"
+   ],
+   "failure_fallback": [
+    "support check false -> feature hidden/disabled",
+    "startService throws -> caught and logged"
+   ],
+   "evidence": [
+    "sources/classes/q7.a.java",
+    "sources/classes/h7.c0.java:453-460",
+    "evidence/xref_aisubtitle_callers.jsonl",
+    "PIPELINE.md"
+   ],
+   "unknowns": [
+    "ASR/translation model, capture path (screen capture / audio) and IPC inside com.xiaomi.aiasst.vision"
+   ]
+  },
+  {
+   "id": "P6-ultraclear-delegated",
+   "name": "Game Turbo UltraClear video super-resolution (delegated to vendor video toolbox)",
+   "feature": "Game Turbo UltraClear video enhancement",
+   "confidence": "confirmed dispatch / unknown model",
+   "trigger": {
+    "entry": "BeautyView.onClick R.id.iv_beauty_face -> f5.f.J0(bool); allow-list assets/ultraclear_support_activity_list.json via f5.f.z; cloud override p7.b.A -> f5.f.H0(pref_ultraclear_app)",
+    "gate": "f5.f.F(): persist.vendor.vcb.ability && device != 'taoyao' && region != 'IN'"
+   },
+   "transport": {
+    "property": "persist.vendor.vcb.enable = 'true'|'false' (p1.d)",
+    "state": "persist.vendor.vcb.enable/ability (p1.a)"
+   },
+   "preprocess": [],
+   "model": {
+    "path": "vendor video toolbox (not in APK)",
+    "format": "delegated",
+    "size": null,
+    "sha256": null,
+    "available": false
+   },
+   "postprocess": [],
+   "consumer": [
+    "video toolbox upscales the game/video surface; no data enters Security Center"
+   ],
+   "action": [
+    "SystemProperties write only"
+   ],
+   "failure_fallback": [
+    "ability property false or blocked device/region -> feature not offered"
+   ],
+   "evidence": [
+    "sources/classes/f5.f.java:106-130,446",
+    "sources/classes/p7.b.java:30-42",
+    "sources/classes/com.miui.gamebooster.beauty.BeautyView.java:363-366",
+    "evidence/xref_vtb_callers.jsonl",
+    "PIPELINE.md"
+   ],
+   "unknowns": [
+    "SR model/engine and session config inside the vendor video toolbox"
+   ]
+  },
+  {
+   "id": "P7-beauty-privacy-delegated",
+   "name": "Video-call beauty / privacy / portrait / pickup (delegated to vendor camera stack)",
+   "feature": "Video-call beauty / privacy / portrait / pickup",
+   "confidence": "confirmed dispatch / unknown model",
+   "trigger": {
+    "entry": "com.miui.gamebooster.beauty.BeautyService (foreground service; IActivityChangeListener.Stub, CameraManager.AvailabilityCallback, ACTION_SCREEN_ON/OFF/USER_PRESENT, TaskStackListener, beauty_action_monitor_activity broadcast); overlay BeautyView/BeautySmallView"
+   },
+   "transport": {
+    "properties": [
+     "persist.vendor.vcf.enable (bitfield: enabled<<16 | mode<<12 | (level+1)<<1 | on)",
+     "persist.vendor.camera.facetracker.active",
+     "persist.vendor.camera.facetracker.rrzosize",
+     "persist.vendor.vcf.colorsupport"
+    ],
+    "binder": "local DockWindowManagerService + remote IGameBoosterWindow.Stub",
+    "config": "assets/{beauty_face,beauty_light_default,privacy_single,privacy_all,protrait,pickup,split_scene}_support_activity_list.json via f5.f.z; cloud via p7.b.l/m"
+   },
+   "preprocess": [],
+   "model": {
+    "path": "vendor camera HAL / video toolbox (not in APK)",
+    "format": "delegated",
+    "size": null,
+    "sha256": null,
+    "available": false
+   },
+   "postprocess": [],
+   "consumer": [
+    "camera preview/encode path of the video-call app"
+   ],
+   "action": [
+    "property writes + overlay toggles; no pixels pass through this APK"
+   ],
+   "failure_fallback": [
+    "unsupported device/property -> toggle not shown",
+    "bindService failure -> overlay not shown"
+   ],
+   "evidence": [
+    "sources/classes/com.miui.gamebooster.beauty.BeautyService.java:121,218,299,593,639,728",
+    "sources/classes/f5.f.java (M0,y0)",
+    "sources/classes/com.miui.gamebooster.beauty.BeautyView.java",
+    "evidence/xref_vtb_callers.jsonl",
+    "PIPELINE.md"
+   ],
+   "unknowns": [
+    "beauty/privacy model graphs inside the vendor camera stack"
+   ]
+  }
+ ]
+}

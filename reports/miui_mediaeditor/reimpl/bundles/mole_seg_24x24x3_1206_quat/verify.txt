@@ -1,0 +1,4 @@
+mole_seg_24x24x3_1206_quat.tflite  subgraph=0 signature=None  PASS
+  output    shape           dtype    max_abs   tol       result
+  Identity  (1, 24, 24, 1)  FLOAT32  3.76e-06  1.00e-04  PASS
+  1 output(s), max_abs=3.76e-06, status=pass

@@ -1,0 +1,4 @@
+model__ai_beauty_type_processor__face_landmark_lite_210818_360.tflite  subgraph=0 signature=None  PASS
+  output  shape     dtype    max_abs   tol       result
+  add_7   (1, 154)  FLOAT32  9.92e-05  1.00e-04  PASS
+  1 output(s), max_abs=9.92e-05, status=pass

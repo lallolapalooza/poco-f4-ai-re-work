@@ -1,0 +1,105 @@
+
+audio_quality: 
+
+voice_ho_type: 
+, mAudioManager = 
+0.3_new_0410_less.tflite
+AUDIO_RECEIVER_STATE
+AUDIO_RECEIVER_STATE_OFF
+AUDIO_RECEIVER_STATE_ON
+AUDIO_SAMPLE_RATE
+AudioFocusHandler.java
+AudioReceiverState: 
+AudioTrack.play()
+AudioTrack.write()
+Data/Voice
+EXTRA_VOICE_REG_STATE
+HOST_CODE_DIAG_LOG_AUDIO
+HOST_CODE_DIAG_LOG_AUDIO_AUTO
+Landroid/media/AudioAttributes;
+Landroid/media/AudioManager;
+Landroid/media/AudioTrack;
+Landroid/support/v4/media/AudioFocusHandler;
+Lcom/xiaomi/mtb/MtbHydraDataManager$ModemStatsGroupNonStopCmn;
+Lcom/xiaomi/mtb/MtbHydraDataManager$ModemStatsGroupSubVoiceInfo;
+Lcom/xiaomi/mtb/MtbTFLiteLoader;
+Lcom/xiaomi/mtb/activity/MtbSarTestActivity$AudioTrackRunnale;
+Lorg/tensorflow/lite/InterpreterApi$Options$TfLiteRuntime;
+MODEM_STATS_DATA_CALL_TYPE_VOICE
+MODEM_STATS_DATA_ID_1544_DIAG_LOG_QMI_MCS_QCSI_PKT_FOR_VOICE
+MODEM_STATS_DATA_ID_REG_LTE_IMS_VOICE_AVAIL
+MODEM_STATS_DATA_VOICE_HANDOVER_1XCSFB
+MODEM_STATS_DATA_VOICE_HANDOVER_GWCSFB
+MODEM_STATS_DATA_VOICE_HO_G_2_G
+MODEM_STATS_DATA_VOICE_HO_G_2_W
+MODEM_STATS_DATA_VOICE_HO_NONE
+MODEM_STATS_DATA_VOICE_HO_SRVCC_L_2_C
+MODEM_STATS_DATA_VOICE_HO_SRVCC_L_2_G
+MODEM_STATS_DATA_VOICE_HO_SRVCC_L_2_W
+MODEM_STATS_DATA_VOICE_HO_W_2_G
+MODEM_STATS_DATA_VOICE_HO_W_2_W
+ModemStatsGroupNonStopCmn Constructor
+ModemStatsGroupSubVoiceInfo Constructor
+MtbTFLiteLoader
+MtbTFLiteLoader.java
+NR_NSA_MMWAVE
+PHONE_SUB_VOICE_INFO
+PHONE_VOICE_INFO
+PROP_DIAG_LOG_AUTO_AUDIO
+TYPE_AUDIO_RECEIVER_STATE
+TYPE_AUDIO_RECEIVER_STATE is running
+TYPE_AUDIO_RECEIVER_STATE is running, eventType = 
+TYPE_AUDIO_RECEIVER_STATE is stopped
+VOICE
+Voice
+[Lorg/tensorflow/lite/InterpreterApi$Options$TfLiteRuntime;
+audio
+audio play start....
+filedialog_wavfile
+getAudioAttributes
+getVoiceAudioQualityString
+getVoiceAudioQualityString, audioQuality: 
+getVoiceNetworkModeString
+getVoiceNetworkModeString, networkMode: 
+getVoiceSpeechCodecString
+getVoiceSpeechCodecString, speechCodec: 
+mAudioManager
+mAudioReceiverSwtich
+mAudioTrack
+mAudioTrackBuffer
+mAudioTrackBufferSize
+mAudioTrackRunnable
+mAudioTrackThread
+mCurrentAudioReceiverState
+mListenerStateAudioReceiver
+mTFLite
+mTFLiteInterpreter
+mtb_auto_anasys_tool_5g_voice_bearer
+mtb_auto_anasys_tool_audio_downlink_analysis_abnormal
+mtb_auto_anasys_tool_audio_downlink_analysis_normal
+mtb_auto_anasys_tool_audio_uplink_analysis_abnormal
+mtb_auto_anasys_tool_audio_uplink_analysis_normal
+mtb_auto_anasys_tool_auto_call_voice
+mtb_auto_anasys_tool_auto_test_on_going_voice_call
+mtb_auto_anasys_tool_remove_5g_voice_bearer
+mtb_auto_anasys_tool_start_auto_voice_call_confirm
+mtb_auto_anasys_tool_volte_audio_rbt_up_down_analysis
+mtb_auto_anasys_tool_vonr_audio_rbt_up_down_analysis
+mtb_tool_audio_receiver_switch
+onAudioInfoChanged
+onDestroy, mAudioTrackThread = 
+start(), mAudioManager = 
+startAudioTrack
+startAudioTrack do nothing, mAudioManager is null
+startAudioTrack do nothing, mAudioTrackThread is not null
+startPollAudioReceiverStatus
+stopAudioTrack
+stopAudioTrack do nothing, mAudioManager is null
+stopAudioTrack do nothing, mAudioTrack is null
+stopAudioTrack do nothing, mAudioTrackRunnable is null
+stopAudioTrack()
+sw_audio_receiver
+sw_audio_receiver click, isChecked = 
+vendor.audio.voice.receiver.status
+voiceRegState
+wav

@@ -1,0 +1,331 @@
+{
+  "slug": "miui_remote",
+  "package": "com.duokan.phone.remotecontroller",
+  "app_name": "Mi Remote",
+  "ai_summary": "Mi Remote's voice control is a hybrid pipeline: AudioRecord(16 kHz mono/16-bit) -> local VAD and Opus encode inside libmibrainsdk.so -> protobuf over TLS WebSocket to wss://speech.ai.xiaomi.com/speech/v1.0/access for ASR/NLU -> JSON intent (domain/entity/action) routed by cg.l (VoiceControlManager) to per-device IR/BLE handlers -> TTS returned as MP3 and decoded locally by libmibraindec (libmad). No on-device ASR or wake-word model exists in the APK. The only neural network is a 9-component Soil VAD (vad_2.1.0_0, 1.13 MB) embedded in libmibrainvad2.so via the exported symbol mdata_vad; it is shipped but not referenced by this APK's Java code (the SDK's classic vadInit/vadCheckBegin VAD is used instead when AsrRequest.setUseVad(true) with VadMode.VAD_MODE_LOCAL, the app's defaults).",
+  "features": [
+    {
+      "name": "Voice control of IR/BLE devices (TV, STB, AC, fan, light, projector, DVD, amp, purifier, heater, camera)",
+      "entrypoints": [
+        "com.xiaomi.mitv.phone.remotecontroller.voice.VoiceControlReceiver (manifest receiver, action com.xiaomi.mitv.phone.remotecontroller.voice_control_action)",
+        "cg.k = VoiceControlActivity fragment",
+        "com.xiaomi.mitv.phone.remotecontroller.common.ui.SpeechVolumeView",
+        "cg.l = VoiceControlManager"
+      ],
+      "pipeline": [
+        "cg.l.o(): builds {'all_devices':[...]} context, AsrRequest.setUseVad(true), NlpRequest.setContext(\"mi_remote\", json), SpeechEngine.startIntegrally(needAsr+needNlp)",
+        "com.xiaomi.ai.c: AudioRecord(1, 16000, 16, 2) read(short[]) -> byte[] -> MibrainRequest.addData",
+        "libmibrainjni Java_..._MibrainNativeRequest_addData -> miBrainSdk* in libmibrainsdk.so",
+        "libmibrainsdk: vadCheckBegin/vadCheckEnd local VAD, Opus encode, protobuf over wss TLS",
+        "cloud: RESULT_ASR_PARTIAL / RESULT_ASR_FINAL / RESULT_NLP (JSON intention.domain|entity|action)",
+        "cg.l.b.onResult: domain tvChannelControl -> cg.f; else entity -> cg.a/cg.g/cg.b/cg.e handlers -> device ee.j -> IR/BLE/MiLink command",
+        "TTS answer: setTTSCodec(\"mp3\") -> libmibraindec (libmad) -> AudioTrack"
+      ],
+      "models": [
+        "vad_2.1.0_0 (shipped, not used by app code)",
+        "cloud ASR/NLU/TTS (opaque)"
+      ],
+      "confidence": "confirmed",
+      "notes": "App credentials at cg.l.java:46-55 (appId 2882303761517406041 / apiKey 5141740612041; production pair 2882303761517406027 / 5311740683027). User agent 'MiRemote; Sensy/1.56 Build/<n> Channel/Release OS/Android'. Env 0 = CN production, 3 = SGP."
+    },
+    {
+      "name": "EPG / TV content voice search",
+      "entrypoints": [
+        "cg.k (VoiceControlActivity UI)",
+        "com.xiaomi.mitv.phone.remotecontroller.epg.* activities"
+      ],
+      "pipeline": [
+        "same MiBrain ASR/NLP session; NlpRequest context carries bound devices",
+        "answer text / displayed cards rendered by cg.k"
+      ],
+      "models": [
+        "cloud"
+      ],
+      "confidence": "inferred",
+      "notes": "UI strings 'Voice search', 'Couldn't recognize voice', 'Tap the microphone to use voice controls'. No separate recognition code path found."
+    },
+    {
+      "name": "Voiceprint register / recognize / query / delete",
+      "entrypoints": [
+        "com.xiaomi.ai.VoiceprintRegisterRequest",
+        "com.xiaomi.ai.VoiceprintRecognizeRequest",
+        "com.xiaomi.ai.VoiceprintQueryRequest",
+        "com.xiaomi.ai.VoiceprintDeleteRequest"
+      ],
+      "pipeline": [
+        "SpeechEngine.doVoiceprint* -> MibrainRequest with MIBRAINSDK_CMD_VOR_REG/7/9/8",
+        "cloud wss://speech.ai.xiaomi.com/speech/v1.0/vor"
+      ],
+      "models": [
+        "cloud"
+      ],
+      "confidence": "confirmed",
+      "notes": "libmibrainsdk.so .rodata 0xb8830-0xb8890 holds the /vor endpoints for sgp/preview/prod/staging."
+    },
+    {
+      "name": "XiaoAi (MVS) third-party voice integration",
+      "entrypoints": [
+        "com.miui.voiceassist.mvs.client.MvsClientManager",
+        "com.miui.voiceassist.mvs.client.MvsClientReceiver (manifest, ACTION_RESGISTER_MVS, permission com.miui.voiceassist.MVS_BROADCAST)"
+      ],
+      "pipeline": [
+        "bind com.miui.voiceassist.mvs.server.MvsService (AIDL IMvsTransition)",
+        "send MvsRequest / receive MvsMsg with MvsCard payloads; startXiaoAi() launches the system assistant"
+      ],
+      "models": [
+        "cloud (system assistant)"
+      ],
+      "confidence": "confirmed",
+      "notes": "Separate from the MiBrain path; the app provides device cards and receives results."
+    },
+    {
+      "name": "Bluetooth voice remote (Mi TV) support",
+      "entrypoints": [
+        "com.xiaomi.mitv.phone.remotecontroller.voice.VoiceControlReceiver",
+        "VoiceControlPopup / wf.e0 (VOICECONTROL flag)"
+      ],
+      "pipeline": [
+        "system features mitv.hardware.voicerc.compatible / mitv.hardware.voicerc.default gate the feature",
+        "voice audio handled by the BLE remote / system assistant, not by this APK"
+      ],
+      "models": [],
+      "confidence": "inferred",
+      "notes": "Only string evidence (no const-string 'ifly' or voicerc code path beyond feature lookups)."
+    }
+  ],
+  "models": [
+    {
+      "path": "models/vad_2.1.0_0.binn",
+      "format": "soil-binn container (Xiaomi Soil/CornVad) wrapping a Soil binary NN graph; extracted from libmibrainvad2.so exported symbol mdata_vad (vaddr 0x4fd90, 1132916 bytes, mdata_vad_length at 0x164704); sha256 5e4d9ff470f763883bb6a2c6043e009059b855f97da9aa73fe3c4bda55816c66",
+      "size": 1132916,
+      "io": {
+        "input": "[T, 840] float32 = 40 MFCC cepstra x 21 frames (left/right context 10)",
+        "output": "[T, 2] softmax posteriors (num-pdf = 2)",
+        "sample_rate": 16000,
+        "frame_ms": 10,
+        "frontend": "25 ms frames, pre-emphasis 0.97, Povey window, 512-pt FFT, 40 mel bins 40-7800 Hz, 40 cepstra, CMVN"
+      },
+      "ops": [
+        "affine 840->300",
+        "pnorm out_size=100",
+        "affine 100->300",
+        "pnorm out_size=100",
+        "normalize(size=100, need_divide=1, target_rms=1.0)",
+        "normalize(size=100, need_divide=1, target_rms=1.0)",
+        "affine 100->2",
+        "softmax",
+        "posterior smoothing (win 5) + decoder min-voice 50 / min-sil 60 frames"
+      ],
+      "weights": "extracted",
+      "jax_reimpl": "reimpl/vad_model.py (init_params/apply/posteriors) + reimpl/frontend.py + reimpl/pipeline.py",
+      "verification": "reimpl/verify.txt: pipeline runs end-to-end with the real affine weights (W1 300x840, W3 300x100, W7 2x100), prints all shapes and exits 0; no numeric comparison against the ARM library was possible (no aarch64 execution environment). pnorm/normalize arithmetic and CMVN scaling are ARCHITECTURE_ONLY.",
+      "confidence": "confirmed"
+    }
+  ],
+  "reimplementation": {
+    "path": "reimpl/",
+    "run_command": "cd reimpl && python pipeline.py",
+    "status": "runs_unverified",
+    "limitations": "Only the on-device VAD stage exists in the APK, so only it was reimplemented. Affine weights are real extracted floats; the Soil graph (9 components, dependencies) is recovered exactly (the binary stream is consumed to the last byte). pnorm window and normalize arithmetic are reconstructed from configuration fields only; the embedded CMVN array magnitudes (~1e10) are incompatible with log-cepstra so the demo falls back to on-line CMVN. ASR/NLU/TTS are cloud services: documented (WebSocket endpoints, AI_CMD_*/RESULT_* ids, Opus/MP3 codec, *_TOKEN-V1 auth headers) but not stubbed in code."
+  },
+  "unknowns": [
+    "Exact arithmetic of ComponentPnormPropgate / ComponentNormalizePropgate (only configuration recovered).",
+    "Semantic of the embedded CMVN array (82 values, magnitudes ~1e10-1e12): whether features are log-cepstra or linear power/mel domain.",
+    "The classic VAD inside libmibrainsdk.so (vadInit 0x16e20 / detector 0x41de0) was not fully reversed (log/exp based adaptive detector).",
+    "Cloud ASR/NLU/TTS model internals and the protobuf schema of the speech messages (only message ids and field strings were recovered).",
+    "Whether vad_2.1.0_0 is ever activated at runtime (no Java reference to MibrainVad2 in this APK).",
+    "The iFly voice-engine install prompt has no code reference in any dex string table; the external engine package name could not be recovered.",
+    "Exact Opus frame size / bitrate chosen by libmibrainsdk when the app passes codecMode=0, opusFrameSize=0, opusBitrates=0 (AsrRequest defaults).",
+    "Whether TTS is audible on a real device: the stream player runs in TTSMode 1 (PCM callback) and cg.l$c.onPCMData is an empty method, so the decoded MP3 has no sink in this build."
+  ],
+  "data_pipelines": [
+    {
+      "id": "voice_command",
+      "name": "Voice control turn: mic PCM -> local VAD -> Opus -> WSS cloud ASR/NLP -> intent -> IR",
+      "trigger": {
+        "ui": "cg.k (VoiceControlActivity fragment) mic button onClick -> cg.l.p(activity,view) -> cg.l.o()",
+        "service_or_broadcast": "com.xiaomi.mitv.phone.remotecontroller.voice.VoiceControlReceiver (action ...voice_control_action)",
+        "engine_call": "SpeechEngine.startIntegrally(ParamBuilder) -> com.xiaomi.ai.c.a(ParamBuilder)",
+        "lifecycle": "one native context per turn; forceStop() at the start of every turn; endSpeech()/forceStop() on cancel",
+        "evidence": "sources/classes/cg.l.java:514,583; com.xiaomi.ai.c.java:1445,2030,2057; com.xiaomi.ai.SpeechEngine.java:1106"
+      },
+      "transport": {
+        "audio_in": {
+          "sample_rate": 16000,
+          "channels": 1,
+          "encoding": "PCM s16le",
+          "buffer_bytes": "AudioRecord.getMinBufferSize(16000,16,2) (platform value; 1280 B on AOSP -> 80 ms chunks)",
+          "read_samples_per_call": "minBufferSize (byte count reused as short count; 2x minBufferSize bytes)",
+          "chunk_bytes": 2560,
+          "chunk_ms": 80,
+          "confidence": "confirmed for the code, inferred for the concrete 1280/2560 values"
+        },
+        "uplink": {
+          "codec": "Opus (libopus, CodecMode/Opus-Frame-Size tags); PCM mode available via USE_ENCODER_PCM",
+          "framing": "protobuf over TLS WebSocket wss://speech.ai.xiaomi.com/speech/v1.0/access",
+          "codec_params_from_app": "codecMode=0, opusFrameSize=0, opusBitrates=0 (app never calls setEncodeMode) -> SDK defaults; exact frame size/bitrate unknown",
+          "command_id": "MI_CMD_ASR_NLP = 0",
+          "confidence": "confirmed"
+        },
+        "downlink": {
+          "format": "JSON text produced by native from protobuf frames",
+          "envelope": "{\"meta\":{\"type\":...,\"request_id\":...},\"response\":{...}}",
+          "types": [
+            "TRANSACTION_BEGIN",
+            "RESULT_ASR_PARTIAL",
+            "RESULT_ASR_FINAL",
+            "RESULT_ASR_VAD",
+            "RESULT_NLP",
+            "RESULT_TTS_BEGIN",
+            "RESULT_TTS_END",
+            "RESULT_TTS_URL",
+            "TRANSACTION_END",
+            "ERROR"
+          ],
+          "confidence": "confirmed"
+        }
+      },
+      "preprocessing": [
+        {
+          "stage": "pcm_convert",
+          "what": "short[] -> byte[] s16le copy",
+          "where": "com.xiaomi.ai.utils.e.a(short[],int)",
+          "confidence": "confirmed"
+        },
+        {
+          "stage": "level_meter",
+          "what": "mean(|s16 sample|) per chunk",
+          "where": "com.xiaomi.ai.utils.n.a(byte[],int) via c$a.a(b)",
+          "confidence": "confirmed"
+        },
+        {
+          "stage": "vad",
+          "what": "classic SDK VAD on raw PCM chunks (25 ms window / 10 ms hop)",
+          "where": "libmibrainsdk.so miBrainSdkAddDataInternal 0x13f74 -> vadCheckBegin(0x14800)/vadCheckEnd(0x147b4); detector at 0x41de0",
+          "confidence": "confirmed call sites / unknown arithmetic"
+        },
+        {
+          "stage": "opus_encode",
+          "what": "Opus encode of the same PCM into websocket frames",
+          "where": "libmibrainsdk.so (CodecMode:%d,isLast:%d inputsize:%d)",
+          "confidence": "confirmed"
+        }
+      ],
+      "model_invocation": {
+        "on_device": "no ASR/NLU model; VAD only (classic detector inside libmibrainsdk; NN vad_2.1.0_0 shipped but unused)",
+        "cloud": "ASR + NLU per turn; no local fallback",
+        "confidence": "confirmed"
+      },
+      "output_postprocessing": {
+        "asr": "SpeechEngine.ResultParser.getAsrResult -> response.queries[0].query, meta.request_id",
+        "nlp": "SpeechEngine.ResultParser.getNlpResult -> response.{version,session_id,answer[0].{domain,action,text,intention.query,content.{to_speak|toSpeak,to_display.text/duration,open_mic,directive,vad_idle,unknown_domain_action}}}",
+        "intent_dispatch": "cg.l$b.onResult parses SpeechResult.getAnswer().intention{domain,entity,action}; domain==tvChannelControl -> cg.f + yd.k.g.f72699a.G(); else entity -> handler map cg.l.f12217c {aircondition:cg.a, fan:cg.b, stb:cg.f, tv:cg.g}; device from device_list or handler default",
+        "confidence": "confirmed"
+      },
+      "consumer": {
+        "ir": "handler.b() -> ee.j.E(key) -> re.g (ConsumerIrManager.transmit(freq,int[]) or Miir.d) on re.g Handler thread; AC path via KKACManagerV2 -> re.g.j(...)",
+        "ble": "not reachable from the voice handlers (no GATT write in cg.a/b/f/g)",
+        "ui": "cg.l.f callbacks -> cg.k Handler messages (f12185g7/f12186h7/f12187i7/f12188j7)",
+        "speech": "cg.k.b/g -> cg.l.n(text) -> SpeechEngine.speak -> TTS pipeline",
+        "confidence": "confirmed for IR/UI, inferred for BLE (absence)"
+      },
+      "buffers_and_threads": {
+        "java_queue": "com.xiaomi.ai.c$e.f17151b = LinkedBlockingDeque (unbounded)",
+        "native_ring_slots": 200,
+        "native_ring_capacity_bytes_at_80ms": 512000,
+        "native_max_single_add_bytes": 65535,
+        "native_max_total_audio_bytes": 3836928,
+        "native_drop_policy": "none; full ring returns -7 (MIBRAINSDK_ERR_BUFFERQUEUE) and the turn aborts",
+        "threads": [
+          "UI main (cg.k)",
+          "T2 com.xiaomi.ai.i (request setup)",
+          "T3 com.xiaomi.ai.c$a (AudioRecord loop)",
+          "T4 com.xiaomi.ai.l (queue drain -> addAudioData)",
+          "T5 native cwebsocket receiver (callbacks)",
+          "T6 native sender (Opus/WebSocket)"
+        ],
+        "timestamps": "none per chunk; per-turn request_id/session_id + native duration counter ctx+0x628 (bytes/32000.0 s)",
+        "evidence": "com.xiaomi.ai.c.java:1230,1264,1372,1479; libmibrainsdk.so 0x10dcc, 0x13f74-0x14860; evidence/sdk_adddata_disasm.txt",
+        "confidence": "confirmed"
+      },
+      "failure_and_fallback": {
+        "no_network": "SpeechError(13) -> voice_control_err_network",
+        "mic_fail": "AudioRecord.getState()!=1 -> SpeechError(code=5) -> voice_control_err_permission",
+        "timeouts": {
+          "connect_s": 5,
+          "receive_s": 10,
+          "upload_s": 4,
+          "active_s": 10
+        },
+        "cloud_error": "meta.type=ERROR -> response.error_code/error_msg -> SpeechError(type=1) -> UI string only",
+        "buffer_full": "-7 -> sdk addAudioData failed -> turn aborted",
+        "local_fallback": "none (no on-device ASR); no Java reconnect, new native context per turn",
+        "confidence": "confirmed"
+      },
+      "confidence": "confirmed",
+      "open_questions": [
+        "Exact Opus frame size/bitrate defaults chosen by libmibrainsdk when the app passes 0/0/0.",
+        "Exact arithmetic of the classic VAD detector at libmibrainsdk.so 0x41de0.",
+        "Whether device transport p()==101/102 uses BLE for command output (no GATT write found in the voice handlers)."
+      ]
+    },
+    {
+      "id": "tts_playback",
+      "name": "Spoken answer: speak(text) -> MP3 chunks -> libmad -> PCM callback (no sink in this app)",
+      "trigger": {
+        "ui": "cg.k.b(String)/cg.k.g(String) -> cg.l.n(String) (also cg.l.n on the NLU fallback text)",
+        "engine_call": "SpeechEngine.speak(TtsRequest) = forceStop() + doSpeak(); sdkCmd = MI_CMD_TTS (3)",
+        "evidence": "sources/classes/cg.l.java:508-512, cg.k.java:425-520, com.xiaomi.ai.SpeechEngine.java:1101"
+      },
+      "transport": {
+        "request_fields": "ttsText, ttsCodec=\"mp3\", tone/volume/speed, ttsTimeout, ttsVendor",
+        "downlink": "RESULT_TTS_BEGIN (meta.tts.codec) + binary MP3 frames (onRequestTTSResult with empty text) + RESULT_TTS_END",
+        "confidence": "confirmed"
+      },
+      "preprocessing": {
+        "stage": "none",
+        "note": "MP3 bytes are fed straight into a PipedOutputStream for the native decoder",
+        "confidence": "confirmed"
+      },
+      "model_invocation": {
+        "decoder": "com.xiaomi.ai.mibrain.MibrainMp3Decoder (JNI libmibraindec.so = libmad 0.15.1b) when TTSDecoderConfig.sUseHardDecoder == false (default)",
+        "unused_alternative": "com.xiaomi.ai.streamplayer.d (MediaCodec hard decoder) — selected only if sUseHardDecoder is true, which the app never sets",
+        "confidence": "confirmed"
+      },
+      "output_postprocessing": {
+        "decoded_frame": "streamplayer.a$C0169a{sample_rate, channels, bit, eof, pcm[]} -> PCMInfo{sample_rate,channels,bit,eof,pcm}",
+        "play_modes": "mode 2 = write bytes to AudioTrack; mode 1 = PCM callback to TtsListener.onPCMData",
+        "mode_used": "1 (com.xiaomi.ai.c constructor sets f17129x=1; cg.l never calls setTTSMode)",
+        "sink_in_app": "cg.l$c.onPCMData and onPlayStart are empty -> PCM discarded; AudioTrack created in mode 1 is play()ed but never written",
+        "audible_result": "no audible TTS from this SDK path (inferred from code)",
+        "confidence": "confirmed for code path, inferred for audible consequence"
+      },
+      "consumer": {
+        "ui": "onPlayFinish -> cg.l.f.i() (empty in cg.k) and Handler messages for the answer text",
+        "confidence": "confirmed"
+      },
+      "buffers_and_threads": {
+        "pipe": "PipedInputStream/PipedOutputStream (default 1024-byte buffer) between MP3 feed and decoder",
+        "decoded_queue": "LinkedBlockingDeque<C0169a> (unbounded)",
+        "threads": [
+          "feed thread = native callback (T5)",
+          "decode thread = libmad JNI thread started by MibrainMp3Decoder.start()",
+          "player thread = streamplayer.k$b (40 ms idle poll)"
+        ],
+        "audio_track": "AudioTrack(streamType=3, sampleRate, chCfg 4|12, PCM16, getMinBufferSize, MODE_STREAM)",
+        "confidence": "confirmed"
+      },
+      "failure_and_fallback": {
+        "codec": "only \"mp3\" accepted; k.a(String) throws RuntimeException otherwise",
+        "tts_error": "streamplayer listener a(k,int,String) -> SpeechError{stage=STAGE_TTS, type=2} -> notifyTtsError (cg.l ignores)",
+        "url_variant": "RESULT_TTS_URL -> onTtsGotURL (ignored)",
+        "fallback": "none; if decoding fails the answer stays text-only",
+        "confidence": "confirmed"
+      },
+      "confidence": "confirmed",
+      "open_questions": [
+        "Whether AudioTrack mode 1 is played but silent on real devices (device test needed)."
+      ]
+    }
+  ]
+}

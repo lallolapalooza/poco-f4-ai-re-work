@@ -1,0 +1,542 @@
+{
+  "slug": "snapchat",
+  "package": "com.snapchat.android",
+  "app_name": "Snapchat",
+  "ai_summary": "Snapshot of the on-device AI in Snapchat 11.70.0.36: no DNN model ships in the APK. The bundled intelligence is classical computer vision from the Looksery lens engine inside libcamplat+.production.so: a Lienhart 20x20 Haar cascade for face detection, an LZC/zstd container of ERT landmark regressors (68/98 landmarks, eyes, denoise, Candide-3 3-D shape and perspective), two 256-bit ORB vocabulary trees for natural-feature tracking, and Scenarium GLES shaders plus landmark triangulations for AR deformation. Snap's newer AI Factory (Cameo/Bloop) stack, which uses MACE/TNN interpreters, expects AES-encrypted '.dnn.enc' models that are downloaded from a 'bloops' native component and are not present; ML Kit barcode/face is delegated to GmsCore; Memories face clustering, learned search and voice ML are server-side.",
+  "features": [
+    {
+      "name": "Haar-cascade face detection (Looksery lens engine)",
+      "entrypoints": [
+        "com.looksery.sdk.FaceTrackerWrapper#nativeTrackImage(Bitmap) -> float[][]",
+        "com.looksery.sdk.FaceTrackerWrapper#nativeInit(Mode, LandmarksType, ExternalFaceDetectorFactory)",
+        "libcamplat+....so: LS::CoreManager::processFrame / processFrameToTexture -> LS::FaceDetectorStage"
+      ],
+      "pipeline": [
+        "camera frame -> gray (NV21ToRgb shader / YUV planes)",
+        "integral image over the uint8 gray frame",
+        "LS::FaceDetectorStage loads /HaarCascades/haarcascade_frontalface_alt2.xml (OpenCV cascade parser)",
+        "20-stage 20x20 gentle-AdaBoost cascade over a scale ladder",
+        "optional LS::Tracking::Face::HybridAccuracyFaceDetector with a downloaded NN detector (not in APK)",
+        "face rectangles feed the ERT tracking stages"
+      ],
+      "models": [
+        "assets/looksery/core/HaarCascades/haarcascade_frontalface_alt2.xml"
+      ],
+      "confidence": "confirmed",
+      "notes": "Asset path and engine strings observed in libcamplat (.rodata); OpenCV cascade parser error string 'weight must be real number. (stage %d, tree %d, node %d, rect %d)' confirms OpenCV semantics. JAX reimplementation in reimpl/haar.py."
+    },
+    {
+      "name": "ERT landmark tracking (68 landmarks, eyes, denoise, Candide-3, perspective)",
+      "entrypoints": [
+        "LS::Tracking::NaturalFeatureTracker / LS::NnRegressor / LS::ShapeFitter (libcamplat)",
+        "LiteTrackingData_ert.lns:/Tracking.xml TrackingStage chain"
+      ],
+      "pipeline": [
+        "haar face box -> FaceRegressor.bin (68 landmarks, ConfidenceThreshold 0.76)",
+        "-> EyesRegressor.bin -> DenoiseRegressor.bin",
+        "-> CandideRegressor.bin (Candide-3 shape id 1) and CandidePespectiveRegressor.bin (shape id 2)"
+      ],
+      "models": [
+        "assets/looksery/core/LiteTrackingData_ert.lns",
+        "models/looksery_ert/{Tracking.xml,FaceRegressor.bin,CandideRegressor.bin,DenoiseRegressor.bin,CandidePespectiveRegressor.bin,EyesRegressor.bin}"
+      ],
+      "confidence": "confirmed",
+      "notes": "Container (LZC v1 + zstd) fully decoded; the five regressor payloads use a proprietary packed binary encoding (tag byte 0x53, mixed int32/IEEE-754 doubles) that is not decoded. Pipeline topology is declared by the shipped Tracking.xml."
+    },
+    {
+      "name": "ORB natural-feature tracking",
+      "entrypoints": [
+        "LS::Tracking::NaturalFeatureTracker (libcamplat)",
+        "/NaturalFeatureTracker/SystemData resource path"
+      ],
+      "pipeline": [
+        "FAST-9 corner detection",
+        "intensity-centroid orientation (r-10)",
+        "steered BRIEF-256 descriptors",
+        "Hamming matching + face-region motion tracking",
+        "vocabulary tree (branching 20, depth 2) quantisation of descriptors"
+      ],
+      "models": [
+        "assets/looksery/core/NaturalFeatureTracker/SystemData/tree-ORB-sharp-b-20-d-2-r-10-numSig-195777265.bin",
+        "assets/looksery/core/NaturalFeatureTracker/SystemData/tree-b-20-d-2-r-10-numSig-168673445.bin"
+      ],
+      "confidence": "confirmed",
+      "notes": "Both trees are bare protobuf messages (1 root + 20 level-1 + 400 leaves, 32-byte centroids each). Decoded in reimpl/looksery_assets.py, used in reimpl/orb.py."
+    },
+    {
+      "name": "Scenarium AR deformation and GLES rendering",
+      "entrypoints": [
+        "LS::Scenarium (libcamplat)",
+        "com.looksery.sdk.LSCoreManagerWrapper native GL/render calls",
+        "com.looksery.sdk.RenderDriver / com.looksery.sdk.snapos.SnapOsRenderDriver"
+      ],
+      "pipeline": [
+        "landmark mesh from ERT stages",
+        "triangulation.txt / triangulation_with_mouth.txt (118/124 triangles)",
+        "face-stretch/liquify displacement (scenarium/facestretchLiquify.glsl)",
+        "inpainting_gpu.glsl, guidedFilter, blur, depth and std_vs/std_fs stage shaders",
+        "GLES2/GLES3 draw via EGL"
+      ],
+      "models": [
+        "assets/looksery/core/Landmarks/triangulation.txt",
+        "assets/looksery/core/Landmarks/triangulation_with_mouth.txt",
+        "assets/looksery/core/scenarium/facestretchLiquify.glsl"
+      ],
+      "confidence": "confirmed",
+      "notes": "275 GLSL assets; liquify formula reimplemented exactly in reimpl/deform.py (pow(clamp(d2/r2, 1/1280, 1), coef)-1 falloff, inverse mapping)."
+    },
+    {
+      "name": "Snap AI Factory / Cameo (face neutralisation, face+eye segmentation, landmark aligner/refiner, face2face)",
+      "entrypoints": [
+        "app.aifactory.ai.faceneutrality.FaceNeutrality#internalInitInterpreter(byte[], int, String)",
+        "app.aifactory.ai.facesegmentation.FSFaceSegmentation#internalInitInterpreter(byte[], FSSegmentationModelType, String)",
+        "app.aifactory.ai.landmarksextractor.LandmarksExtractor#internalInitInterpreter(byte[])",
+        "app.aifactory.ai.face2face.F2FScenario"
+      ],
+      "pipeline": [
+        "model file (.dnn.enc) downloaded into the app dir or a bloops component",
+        "ModelCrypto.decrypt (AES Cipher, key/IV/algorithm from native internalInit)",
+        "native internalInitInterpreter (backend string \"MACE\")",
+        "Bitmap in -> FaceNeutralityResult / segmentation masks / landmarks out"
+      ],
+      "models": [
+        "manifest: /face_neutrality_model_dnn/FaceNeutralityModel_16.04.2019_small_model_8bit_new_format/FaceNeutralityModel_16.04.2019_small_model_8bit_new_format.dnn.enc",
+        "manifest: /face_neutrality_model_dnn/FaceNeutralityClassifier_24.05.2019_classifier_8bit_new_format/FaceNeutralityClassifier_24.05.2019_classifier_8bit_new_format.dnn.enc",
+        "manifest: /face_segmentation_dnn/FaceSegmentation_02.07.2019_smaller_8bit/FaceSegmentation_02.07.2019_smaller_8bit.dnn.enc",
+        "manifest: /face_segmentation_dnn/EyesSegmentation_06.06.2019_ver2_8bit/EyesSegmentation_06.06.2019_ver2_8bit.dnn.enc",
+        "manifest: /landmarks_model_dnn/LandmarksAlignerModel_v11/cnn_aligner_v113_best_inference_fused_8bit.dnn.enc",
+        "manifest: /landmarks_model_dnn/LandmarksRefinerModel_v11/cnn_refiner_v118_best_inference_fused_8bit.dnn.enc"
+      ],
+      "confidence": "confirmed",
+      "notes": "All model paths are manifest meta-data; none of these files is packaged. Native component 'bloops' (NLOader) plus manifest tnn_shared_lib=libtnn.so and hexagon_nn skels are also absent. Backend selector literal 'MACE'."
+    },
+    {
+      "name": "ML Kit barcode scanning and GmsCore face detection",
+      "entrypoints": [
+        "com.google.mlkit.vision.barcode.internal.BarcodeScannerImpl",
+        "com.google.android.gms.vision.face.internal.client.FaceParcel / LandmarkParcel"
+      ],
+      "pipeline": [
+        "app calls the ML Kit / GMS vision API",
+        "executor and models are provided by Google Play services (GmsCore)",
+        "no ML Kit native library or model asset is shipped in the APK"
+      ],
+      "models": [],
+      "confidence": "confirmed",
+      "notes": "Manifest advertises com.google.mlkit.vision.DEPENDENCIES=barcode and com.google.android.gms.vision.DEPENDENCIES=face,barcode; only registrar/parcel classes are compiled in. External service contract."
+    },
+    {
+      "name": "Snap PreviewCV classical filters (SnapCut, PortraitFilter, SkyFilter, MomentFilter, ManyTargetTracker)",
+      "entrypoints": [
+        "com.snapchat.research.previewcv.PreviewCVInterfaceJNI (157 JNI exports)",
+        "com.snap.previewtools.tracking.ManyTargetTracker (7 JNI exports)"
+      ],
+      "pipeline": [
+        "OpenCV-based image processing in libcamplat (org_opencv_* JNI, 500+ exports)",
+        "SWIG wrappers for SnapCut/PortraitFilter/SkyFilter/MomentFilter/ContextFilter"
+      ],
+      "models": [],
+      "confidence": "confirmed",
+      "notes": "Classical CV (grabcut-style SnapCut, color/bokeh filters, sky segmentation heuristics), no DNN weights observed for these classes."
+    },
+    {
+      "name": "Server-side / cloud ML surfaces",
+      "entrypoints": [
+        "com.snap.memories.lib.faceclustering.job.FaceClusteringJob",
+        "libclient.so learned_search::ModelCoordinator / ModelFileBuffer",
+        "libclient.so voiceml::{IntentsModel,KeywordsModel}"
+      ],
+      "pipeline": [
+        "client uploads features/frames or requests model updates",
+        "model bytes fetched at runtime (downloadModel/getRemoteModelStatus)"
+      ],
+      "models": [],
+      "confidence": "inferred",
+      "notes": "Strings and JNI wrappers present in libclient.so; no local model files. Treated as cloud/server contract."
+    }
+  ],
+  "models": [
+    {
+      "path": "assets/looksery/core/HaarCascades/haarcascade_frontalface_alt2.xml",
+      "format": "OpenCV haar cascade XML, Lienhart 20x20 gentle AdaBoost (20 stages, 1047 depth-2 trees, 4535 weighted rects)",
+      "size": 837462,
+      "io": {
+        "input": "uint8 grayscale frame, multi-scale windows from 20x20",
+        "output": "accept/reject per window and face box (grouped)"
+      },
+      "ops": [
+        "integral_image",
+        "rect_sum",
+        "weighted_feature",
+        "tree_split",
+        "stage_cascade"
+      ],
+      "weights": "extracted",
+      "jax_reimpl": "reimpl/haar.py",
+      "verification": "reimpl/verify.py: haar_asset, cascade_jax_vs_scalar (max diff 3.4e-08), haar_face_detection (exact box), haar_no_false_positives (0 boxes on noise); OpenCV 5 cross-check on the same 20x20 template",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "assets/looksery/core/LiteTrackingData_ert.lns",
+      "format": "LZC v1 container: 72-byte header + entry table + single zstd frame; 6 entries (Tracking.xml + 5 ERT regressors)",
+      "size": 302357,
+      "io": {
+        "input": "face box + image crop per tracking stage (per Tracking.xml)",
+        "output": "68/98 landmarks, eye landmarks, Candide-3 shape and perspective"
+      },
+      "ops": [
+        "zstd_decompress",
+        "container_index",
+        "ERT_regression (payload packed, not decoded)"
+      ],
+      "weights": "partial",
+      "jax_reimpl": "reimpl/looksery_assets.py (container + Tracking.xml); ERT weights not reimplemented",
+      "verification": "reimpl/verify.py: lzc_container (sizes tile the 383911-byte stream, zstd frame verified, Tracking.xml parsed)",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "assets/looksery/core/NaturalFeatureTracker/SystemData/tree-ORB-sharp-b-20-d-2-r-10-numSig-195777265.bin",
+      "format": "bare protobuf ORB vocabulary tree: 1 root + 20 level-1 + 400 leaves, 32-byte centroids",
+      "size": 16019,
+      "io": {
+        "input": "256-bit ORB descriptor",
+        "output": "leaf/candidate id"
+      },
+      "ops": [
+        "hamming_distance",
+        "tree_descent"
+      ],
+      "weights": "extracted",
+      "jax_reimpl": "reimpl/orb.py + looksery_assets.orb_tree_flat",
+      "verification": "reimpl/verify.py: orb_vocabulary_tree (400 leaves, 19/20 level-1 self-map), orb_frame_to_frame_tracking (translation 7,-5 exactly)",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "assets/looksery/core/NaturalFeatureTracker/SystemData/tree-b-20-d-2-r-10-numSig-168673445.bin",
+      "format": "same protobuf ORB vocabulary tree (non-sharp variant)",
+      "size": 16019,
+      "weights": "extracted",
+      "jax_reimpl": "reimpl/orb.py",
+      "verification": "same decoder as the sharp variant (decoded in reimpl/verify.py orb_vocabulary_tree run)",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "assets/looksery/core/Candide/candide3reduce + candide3reduce14AU",
+      "format": "obfuscated/encrypted Candide-3 base and 14-action-unit model (5,612-byte shared prefix, entropy 7.04)",
+      "size": 38636,
+      "weights": "encrypted",
+      "jax_reimpl": "none (payload not decoded)",
+      "confidence": "inferred"
+    },
+    {
+      "path": "assets/looksery/core/Landmarks/triangulation.txt + triangulation_with_mouth.txt + borderTriangulation.txt",
+      "format": "plain-text triangle lists over the 68/98 landmark topology (118 / 124 / 21 triangles)",
+      "size": 2302,
+      "weights": "none",
+      "jax_reimpl": "reimpl/deform.py warp_mesh",
+      "verification": "reimpl/verify.py: mesh_warp_identity (max diff 0), mesh_landmark_deformation (exact (3,-2) shift)",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "assets/lenses/**/*.lns (11 bundled lens packages)",
+      "format": "LZC v1 containers holding GLSL, JS, scene.scn, PNG/JPG/PVR textures",
+      "size": 290355,
+      "weights": "none",
+      "verification": "container index dumped; no model/tensor entry in any bundled lens",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "manifest bloops component: *.dnn.enc (FaceNeutrality/Classifier, FaceSegmentation, EyesSegmentation, LandmarksAligner, LandmarksRefiner)",
+      "format": "AES-encrypted MACE/TNN model, downloaded at runtime, absent from APK",
+      "weights": "unavailable",
+      "jax_reimpl": "none (architecture not documented by the app; no weights)",
+      "confidence": "confirmed"
+    }
+  ],
+  "reimplementation": {
+    "path": "reports/snapchat/reimpl",
+    "run_command": "cd reports/snapchat/reimpl && python verify.py",
+    "status": "verified",
+    "limitations": "Implements the shipped classical CV stages (Haar detection with the real 20-stage cascade, ORB FAST/BRIEF tracking with the real vocabulary tree, liquify + triangulated mesh deformation). ERT regressor payloads inside LiteTrackingData_ert.lns use an undecoded proprietary packed format, so landmark regression is architecture-only; Candide-3 files are encrypted. No DNN is implemented because no DNN model ships in the APK; AI Factory .dnn.enc models and the downloaded NN face detector are external contracts. The BRIEF sampling pattern is a documented deterministic Gaussian pattern (OpenCV's exact table is absent)."
+  },
+  "unknowns": [
+    "Proprietary ERT regressor binary layout inside LiteTrackingData_ert.lns (tag byte 0x53; mixed int32/IEEE-754 doubles) is not decoded, so landmark weights cannot be run.",
+    "candide3reduce / candide3reduce14AU are encrypted or obfuscated (5,612-byte shared prefix); the plaintext vertex/shape/action-unit tables are unavailable.",
+    "Which runtime executes the AI Factory .dnn.enc models is inferred from the ctor string 'MACE' plus manifest tnn_shared_lib=libtnn.so, but no bloops/TNN library ships in the APK.",
+    "Whether bundled lenses ever use libcamplat's dlopen TFLite path is unknown; no TFLite model ships.",
+    "OpenCV 5.0's rewritten xobjdetect evaluator rounds scaled Haar rectangles differently from the classic calc_offsets path embedded in libcamplat; haar.py follows the classic convention (verified at base scale, stage 17/20 on a 184px synthetic face where OpenCV 5 accepts).",
+    "Remote/downloaded lens assets (LSRemoteAssetsWrapper, .crypt.glsl) are encrypted with keys not present in the APK.",
+    "Memories face clustering, learned search and voice ML model bytes are server-provided; their architectures are not recoverable from this APK.",
+    "Exact Android Camera2 capture delegate/session used to feed the lens OES texture is obfuscated (frame dispatcher rk6.a / Hs8.b identified); rotation and resolution source (CameraCharacteristics vs display) is inferred from the frame state.",
+    "Haar runtime defaults (scale factor, minimum face size, minFaceInImageRatio) are enforced in native code but the exact numeric defaults were not extracted.",
+    "ERT regressor patch size and node/tree layout remain undecoded inside the 0x53-tagged FaceRegressor.bin/EyesRegressor.bin/DenoiseRegressor.bin/Candide* payloads.",
+    "ORB robust-estimator/RANSAC parameters and the TrackingManager queue drop policy are internal and were not recovered."
+  ],
+  "data_pipelines": [
+    {
+      "id": "lens_cv_camera",
+      "name": "Looksery lens CV: camera OES frame -> Haar face -> ERT landmarks + ORB tracking -> Scenarium AR -> GL texture",
+      "kind": "on_device_classical_cv",
+      "confidence": "confirmed",
+      "trigger": {
+        "ui": "Snap camera preview / capture (camera permission; Camera2 pipeline)",
+        "java_entrypoints": [
+          "defpackage.rk6.a(C7363Og5, S45, float[], int, EnumC2325Emg, long, long, ...) on the GL thread",
+          "defpackage.Hs8.b(int texId, int texTarget, long tsNs, float[] m1, float[] m2, EnumC34220qmg) [LensesCameraFeatureProcessingCoreSub]",
+          "defpackage.WA4.e(Object) render lambda",
+          "com.looksery.sdk.LSCoreManagerWrapper.processFrameToTexture(int,int,long,float[],float[],int,int,ImageProcessingConfig)"
+        ],
+        "native_entrypoints": [
+          "libcamplat initialize_native_component_lenscore @0x7a547c (RegisterNatives)",
+          "LSCoreManagerWrapper.nativeInit @0x766838",
+          "LSCoreManagerWrapper.nativeProcessFrameToTexture @0x767500",
+          "LSCoreManagerWrapper.nativeCreateTexture @0x767338",
+          "LSCoreManagerWrapper.nativeSetInputImageSize @0x766804",
+          "LSCoreManagerWrapper.nativeSetCameraParams @0x76bfec",
+          "LSCoreManagerWrapper.nativeSetFrontCameraEnabled @0x76b040",
+          "LSCoreManagerWrapper.nativeDrawTexture @0x767a00",
+          "LSCoreManagerWrapper.nativeDrawExternalTexture @0x76780c",
+          "FaceTrackerWrapper.nativeInit @0x753bd8",
+          "FaceTrackerWrapper.nativeTrackImage @0x754458"
+        ],
+        "lifecycle": "init once on an EGL thread (nativeInit); per camera frame; release on teardown (nativeRelease @0x767bcc)"
+      },
+      "transport": {
+        "type": "GL texture",
+        "camera_format": "GL_TEXTURE_EXTERNAL_OES (36197) via SurfaceTexture; GL_TEXTURE_2D (3553) for video textures",
+        "texture_creation": "nativeCreateTexture: glGenTextures + glBindTexture(36197), GL_LINEAR, GL_CLAMP_TO_EDGE",
+        "timestamp": "long nanoseconds; TimestampConverter divides by 1e9 and applies a one-time clock-offset correction",
+        "matrices": "two float[16] 4x4 matrices (texture transform + camera/crop transform)",
+        "size": "input width/height ints; Size.OPTIMAL_FOR_PROCESSING=600x800; optimizeForProcessing caps larger frames at 480k px (w multiple of 32, h multiple of 4)",
+        "rotation": "setCameraParams(hFovDeg, vFovDeg, orientationDeg) @0x76bfec; orientation 0/90/180/270; front flag controls mirroring; default 59.0f,-1.0f,0",
+        "thread": "render/EGL thread; EglContextChecker enforces the owning EGL context; WA4 checks the captured thread id; optional async tracking mode",
+        "cadence": "one submission per rendered camera frame; TrackingStage InitializeAsync=True; no fixed engine timer; ~30 fps camera inferred"
+      },
+      "preprocessing": [
+        "OES/RGBA sample with samplerExternalOES (#extension GL_OES_EGL_image_external, uniform samplerExternalOES sTexture)",
+        "texture transform + camera matrix applied; resize capped by Size.optimizeForProcessing (<=600x800)",
+        "RGBA -> NV21 (common/rgbToNv21Tex, RGBToNV21ConverterSG/GLImpl) and/or uint8 gray (YUV2RGBx)",
+        "Haar: integral image of uint8 gray; 20x20 window; scale ladder (kMinFaceScale, minFaceInImageRatio, scaleFactor>1)",
+        "ERT: per-face crop warped to the regressor's normalized patch with current shape initialisation (patch size not decoded)",
+        "ORB: uint8 gray, FAST-9 + NMS, intensity-centroid orientation r=10, steered BRIEF-256",
+        "Scenarium: landmark mesh + facestretch/liquify displacement"
+      ],
+      "models": [
+        "assets/looksery/core/HaarCascades/haarcascade_frontalface_alt2.xml (837462 B, 20 stages, 1047 trees, 4535 rects)",
+        "assets/looksery/core/LiteTrackingData_ert.lns (LZC v1 + zstd; Tracking.xml + Face/Eyes/Denoise/Candide/CandidePerspective regressors)",
+        "assets/looksery/core/NaturalFeatureTracker/SystemData/tree-ORB-sharp-b-20-d-2-r-10-numSig-195777265.bin",
+        "assets/looksery/core/NaturalFeatureTracker/SystemData/tree-b-20-d-2-r-10-numSig-168673445.bin",
+        "assets/looksery/core/Landmarks/triangulation.txt (118 tris) / triangulation_with_mouth.txt (124) / borderTriangulation.txt (21)",
+        "assets/looksery/core/scenarium/facestretchLiquify.glsl (uniforms ptsInvMat[MAX_LIQUIFY], coeffs[MAX_LIQUIFY], camDirO[MAX_LIQUIFY]; attribute atbCoord2d)"
+      ],
+      "model_invocation": {
+        "engine": "in-process C++ (libcamplat) + OpenCV 3.1 cascade code + custom LZC/zstd asset loader + GLES2/3",
+        "path": "LSCoreManagerWrapper::processFrameToTexture -> LS::CoreManager::processFrameToTexture -> LS::TrackingManager::track(LS::ImageArray&&, LS::SharedTexture, TrackingData, Timestamp, ImageProcessingConfig) -> LS::FaceDetectorStage -> LS::TrackingStage graph -> LS::Scenarium",
+        "dnn": "none shipped: model_assets=0, TFL3 hits=0; MACE/TFLite/NNAPI code paths exist but require a downloaded model (NeuralModelInference cache empty -> libdnn; LENSCORE_NN_FACE_DETECTOR_MODEL absent)",
+        "threads": "render thread; async tracking optional"
+      },
+      "postprocessing": [
+        "Haar boxes grouped across scales; min face pixel height / max faces configurable (native 0x754424/0x754400)",
+        "ERT chain FaceLandmarks68Unblurred (ConfidenceThreshold 0.76) -> Eyes -> Denoise -> FaceLandmarks68 -> Candide (shape 1) -> CandidePerspective (shape 2); FaceLandmarks98 pipeline output",
+        "ORB Hamming matching + frame-to-frame translation/inlier vote",
+        "landmark mesh 118/124 triangles (observed index range 0..75) piecewise-affine warp",
+        "liquify: pow(clamp(d^2/r^2, 1/1280, 1), coef)-1 inverse screen-space sampling",
+        "result RGBA texture; drawTexture/drawExternalTexture to app surface or returned texture id"
+      ],
+      "consumer": "Snap camera preview/encoder via GL surface; Scenarium lens rendering; FaceRegionsListener stream; FaceTrackerWrapper float[][] landmarks",
+      "external_boundary": {
+        "type": "none for the shipped per-frame path",
+        "detail": "all stages run locally in libcamplat; the optional NN face detector and lens NN models are downloaded (LENSCORE_NN_FACE_DETECTOR_MODEL, https://perception.sc-cdn.net) and are not packaged"
+      },
+      "failure_fallback": [
+        "missing/corrupt cascade -> 'No cascade file found' / 'Invalid classifier cascade'; no detection",
+        "missing regressor -> 'Trying to call execute on tracking stage with empty regressor'",
+        "NN detector download failure -> 'Failed to download NN face detector model.', falls back to Haar",
+        "nativeInit==0 -> throwUnsupportedEnvironmentException"
+      ],
+      "refs": [
+        "PIPELINE.md sections 1-6",
+        "sources/java/classes/com.looksery.sdk.LSCoreManagerWrapper.java",
+        "sources/java/classes/Hs8.java",
+        "sources/java/classes/rk6.java",
+        "sources/java/classes/com.looksery.sdk.TimestampConverter.java",
+        "sources/java/classes/com.looksery.sdk.domain.Size.java",
+        "native/jni_binding_table.txt",
+        "evidence/07_camera_lens_trace.txt",
+        "models/looksery_ert/Tracking.xml",
+        "ir/haar_cascade.json",
+        "ir/ert_regressors.json",
+        "models/looksery/core/scenarium/facestretchLiquify.glsl"
+      ]
+    },
+    {
+      "id": "mlkit_barcode_face",
+      "name": "Google ML Kit barcode scanning + GMS face detection (GmsCore service)",
+      "kind": "external_service_boundary",
+      "confidence": "inferred",
+      "trigger": {
+        "java_entrypoints": [
+          "com.google.mlkit.vision.barcode.internal.BarcodeScannerImpl",
+          "com.google.mlkit.vision.common.internal.MobileVisionBase",
+          "com.google.android.gms.vision.face.internal.client.FaceParcel"
+        ]
+      },
+      "transport": {
+        "input": "camera image via ML Kit InputImage/ImageProxy (YUV_420_888/JPEG) + BarcodeScannerOptions; GMS face Frame (NV21)",
+        "crossing": "binder IPC to Google Play services (GmsCore)",
+        "output": "List<Barcode> (bounding boxes, raw bytes, format) / FaceParcel[] (id, type, center, size, eulerY/Z, LandmarkParcel[], smiling/eye-open probabilities)"
+      },
+      "preprocessing": "done inside GmsCore, not observable in this APK",
+      "model_invocation": {
+        "engine": "proprietary GmsCore barcode/face detectors",
+        "models": "not in APK",
+        "local": "runs on-device in the GmsCore process"
+      },
+      "postprocessing": "ML Kit/GMS result parcels returned to the app",
+      "consumer": "Snap scan/barcode UI and face-driven features",
+      "external_boundary": {
+        "type": "GmsCore APK/service",
+        "data_crossing": "image frames + options to GmsCore; barcode/face results back",
+        "local_only": "no image leaves the device by this API (inferred); no APK model/executable"
+      },
+      "failure_fallback": [
+        "GmsCore missing/outdated -> ML Kit task fails (MlKitException); app must degrade"
+      ],
+      "refs": [
+        "evidence/08_external_boundaries.txt",
+        "sources/java/classes/com.google.mlkit.vision.barcode.internal.BarcodeScannerImpl.java",
+        "sources/java/classes/com.google.mlkit.vision.common.internal.MobileVisionBase.java",
+        "sources/java/classes/com.google.android.gms.vision.face.internal.client.FaceParcel.java",
+        "inventory/inventory.json"
+      ]
+    },
+    {
+      "id": "aifactory_deferred_dnn",
+      "name": "Snap AI Factory / Cameo deferred DNN (.dnn.enc -> AES -> MACE/TNN interpreter in bloops)",
+      "kind": "deferred_dnn",
+      "confidence": "inferred",
+      "trigger": {
+        "java_entrypoints": [
+          "app.aifactory.ai.faceneutrality.FaceNeutrality (getNeutralizedFace(Bitmap,float[]))",
+          "app.aifactory.ai.facesegmentation.FSFaceSegmentation (segmentImage(Bitmap,float[],byte[]))",
+          "app.aifactory.ai.landmarksextractor.LandmarksExtractor (getLandmarks/getLandmarksFast/getLandmarksRefined; convert98->78)",
+          "app.aifactory.ai.face2face.F2FScenario"
+        ],
+        "download_trigger": "com.snap.bloops.data.DownloadBloopsAiModelsDurableJob (DOWNLOAD_BLOOPS_AI_MODELS)"
+      },
+      "transport": {
+        "input": "Bitmap (ARGB_8888) + float[] landmarks/face rect for inference",
+        "model_download": "HTTPS via BloopsHttpInterface from Snap CDN (lens-storage.storage.googleapis.com / *.sc-cdn.net); encrypted .dnn.enc bytes saved app-private",
+        "decrypt": "ModelCrypto.decrypt: AES Cipher; key/IV/algorithm from native bloops internalInit() (not in APK)",
+        "to_interpreter": "plaintext byte[] -> native internalInitInterpreter(byte[], int modelType, String backend=\"MACE\")"
+      },
+      "preprocessing": "implemented in bloops (not shipped); FaceNeutrality/FSFaceSegmentation take Bitmap + landmarks",
+      "model_invocation": {
+        "engine": "MACE (literal ctor backend) / TNN (tnn_shared_lib=libtnn.so) / NNAPI / TFLite threads; bloops native component via NLOader",
+        "models": [
+          "/face_segmentation_dnn/FaceSegmentation_02.07.2019_smaller_8bit/*.dnn.enc",
+          "/face_segmentation_dnn/EyesSegmentation_06.06.2019_ver2_8bit/*.dnn.enc",
+          "/face_neutrality_model_dnn/FaceNeutralityModel_16.04.2019_small_model_8bit_new_format/*.dnn.enc",
+          "/face_neutrality_model_dnn/FaceNeutralityClassifier_24.05.2019_classifier_8bit_new_format/*.dnn.enc",
+          "/landmarks_model_dnn/LandmarksAlignerModel_v11/*.dnn.enc",
+          "/landmarks_model_dnn/LandmarksRefinerModel_v11/*.dnn.enc"
+        ],
+        "shipped": "none; bloops/libtnn/hexagon skels absent"
+      },
+      "postprocessing": "FaceNeutralityResult[], FSTargetSegmentationResult masks, float[] 78/98 landmarks; consumed by Cameo/Bloops UI",
+      "consumer": "Cameo/Bloops face effects",
+      "external_boundary": {
+        "type": "download + native component",
+        "data_crossing": "model bytes + model URL/version from Snap CDN; decryption key comes from the native component",
+        "local_only": "user Bitmap/landmarks are processed locally after the interpreter exists"
+      },
+      "failure_fallback": [
+        "missing .enc or decrypt failure -> IOException('neutralization model not found'/'classifier model not found')",
+        "getNeutralizedFace returns null if interpreters are 0"
+      ],
+      "refs": [
+        "PIPELINE.md section 7",
+        "evidence/08_external_boundaries.txt",
+        "sources/java/app.aifactory.ai.faceneutrality.FaceNeutrality.java",
+        "sources/java/app.aifactory.ai.facesegmentation.FSFaceSegmentation.java",
+        "sources/java/app.aifactory.ai.landmarksextractor.LandmarksExtractor.java",
+        "sources/java/app.aifactory.ai.modelcrypto.ModelCrypto.java",
+        "sources/java/classes/com.snap.bloops.data.DownloadBloopsAiModelsDurableJob.java"
+      ]
+    },
+    {
+      "id": "libclient_learned_search_voiceml",
+      "name": "libclient deferred models: learned search + VoiceML (downloaded model bytes, local inference)",
+      "kind": "deferred_dnn",
+      "confidence": "confirmed",
+      "trigger": {
+        "java_entrypoints": [
+          "com.snapchat.client.learned_search.ModelCoordinator.getModel(String)",
+          "ModelCoordinator.updateLocalModel(String)",
+          "com.snapchat.client.voiceml.IVoiceMLSDK.asrTranscribe(String, ASRConfig, ByteBuffer)",
+          "startStreamingSessionAsrVoiceCommands"
+        ]
+      },
+      "transport": {
+        "model": "ModelMetaData{mModelUrl,mModelVersion,StatusEnums}; bytes downloaded then ModelFileBuffer{getAddress(),getSize(),stateIsValid(),modelFileBufferInstanceWithPath(path)} exposes a native pointer",
+        "audio": "PCM16 ByteBuffer + ASRConfig (sample/channel count, model names, language/context)",
+        "crossing": "HTTPS model download; audio stays local in the libclient process"
+      },
+      "model_invocation": {
+        "engine": "libclient native (djinni C++); model mmap'd via path/address",
+        "models": "runtime-downloaded, not in APK"
+      },
+      "postprocessing": "TranscribeResult/TTSResult; StatusEnums SUCCESS/FAILEDGENERIC/FAILEDDISK/FAILEDNETWORK",
+      "consumer": "in-app voice commands/ASR/TTS and learned search",
+      "external_boundary": {
+        "type": "model download",
+        "data_crossing": "model URL/version + model bytes",
+        "local_only": "inference and audio processing local"
+      },
+      "failure_fallback": [
+        "status enums FAILEDNETWORK/FAILEDDISK; ModelFileBuffer.stateIsValid()==false"
+      ],
+      "refs": [
+        "PIPELINE.md section 7",
+        "evidence/08_external_boundaries.txt",
+        "sources/java/classes/com.snapchat.client.learned_search.ModelCoordinator.java",
+        "sources/java/classes/com.snapchat.client.learned_search.ModelFileBuffer.java",
+        "sources/java/classes/com.snapchat.client.learned_search.ModelMetaData.java",
+        "sources/java/classes/com.snapchat.client.voiceml.IVoiceMLSDK.java",
+        "native/libclient_strings.txt"
+      ]
+    },
+    {
+      "id": "memories_face_clustering",
+      "name": "Memories face clustering (server-side durable job)",
+      "kind": "cloud_boundary",
+      "confidence": "inferred",
+      "trigger": {
+        "java_entrypoint": "com.snap.memories.lib.faceclustering.job.FaceClusteringJob (MEMORIES_FACE_CLUSTERING_JOB durable job)"
+      },
+      "transport": {
+        "input": "Memories media metadata/thumbnails (not traced)",
+        "crossing": "Snap backend",
+        "output": "face clusters/progress via FaceClusteringProgress"
+      },
+      "model_invocation": {
+        "engine": "server-side",
+        "models": "none in APK"
+      },
+      "consumer": "Memories face grouping UI",
+      "external_boundary": {
+        "type": "cloud service",
+        "data_crossing": "media/face metadata to Snap servers",
+        "local_only": "none of the clustering model"
+      },
+      "failure_fallback": [
+        "durable job retry/backoff (framework default; not traced)"
+      ],
+      "refs": [
+        "PIPELINE.md section 7",
+        "evidence/08_external_boundaries.txt",
+        "sources/java/classes/com.snap.memories.lib.faceclustering.job.FaceClusteringJob.java"
+      ]
+    }
+  ]
+}

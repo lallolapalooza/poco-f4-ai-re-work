@@ -1,0 +1,153 @@
+[ghidra_decompile] jdk: /usr/lib/jvm/java-21-openjdk (openjdk version "21.0.12.1" 2026-08-18)
+[ghidra_decompile] input : reports/tiktok_trill/native/libbytenn.so (1959936 bytes)
+[ghidra_decompile] output: reports/tiktok_trill/native/bytenn_loader_decompiled.c
+[ghidra_decompile] regex : EspressoDisassembler|ByteNNEngineImpl4Init|CheckMd5sum
+[ghidra_decompile] heap  : 3G, timeout: 1500s, max funcs: 12
+openjdk version "21.0.12.1" 2026-08-18
+OpenJDK Runtime Environment (build 21.0.12.1+1)
+OpenJDK 64-Bit Server VM (build 21.0.12.1+1, mixed mode)
+INFO  Using log config file: jar:file:/opt/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: /home/asdf/.config/ghidra/ghidra_12.1.2_DEV/application.log (LoggingInitialization)  
+INFO  Loading user preferences: /home/asdf/.config/ghidra/ghidra_12.1.2_DEV/preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (2035 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: NativePRNGNonBlocking (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (7331 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 60 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    /opt/ghidra/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /opt/ghidra/Ghidra/Processors/JVM/ghidra_scripts
+    /opt/ghidra/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/VersionTracking/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/PyGhidra/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/SwiftDemangler/ghidra_scripts
+    /opt/ghidra/Ghidra/Processors/Atmel/ghidra_scripts
+    /opt/ghidra/Ghidra/Debug/Debugger/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/Decompiler/ghidra_scripts
+    /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/FunctionID/ghidra_scripts
+    /opt/ghidra/Ghidra/Processors/PIC/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/BSim/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/BytePatterns/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/WildcardAssembler/ghidra_scripts
+    /opt/ghidra/Ghidra/Processors/DATA/ghidra_scripts
+    /home/asdf/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/Base/ghidra_scripts
+    /home/asdf/.config/ghidra/ghidra_12.1.2_DEV/Extensions/MachineLearning/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/PDB/ghidra_scripts
+    /opt/ghidra/Ghidra/Processors/8051/ghidra_scripts
+    /opt/ghidra/Ghidra/Features/FileFormats/ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Creating project: /tmp/ghidra_decomp.sywzAB/proj (HeadlessAnalyzer)  
+INFO  Creating project: /tmp/ghidra_decomp.sywzAB/proj (DefaultProject)  
+INFO  REPORT: Processing input files:  (HeadlessAnalyzer)  
+INFO       project: /tmp/ghidra_decomp.sywzAB/proj (HeadlessAnalyzer)  
+INFO  IMPORTING: file:///run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/tiktok_trill/native/libbytenn.so (HeadlessAnalyzer)  
+INFO  Using Loader: Executable and Linking Format (ELF) (ProgramLoader)  
+INFO  Using Language/Compiler: AARCH64:LE:64:v8A:default (ProgramLoader)  
+INFO  Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64] (ProgramLoader)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d69e0 (External Location = _ZTVN10__cxxabiv117__class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d6b10 (External Location = _ZTVN10__cxxabiv117__class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d6b58 (External Location = _ZTVN10__cxxabiv117__class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d6c40 (External Location = _ZTVN10__cxxabiv117__class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d6e78 (External Location = _ZTVN10__cxxabiv117__class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002dd5f0 (External Location = _ZTVN10__cxxabiv117__class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d69f0 (External Location = _ZTVN10__cxxabiv121__vmi_class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d6b68 (External Location = _ZTVN10__cxxabiv121__vmi_class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d6b20 (External Location = _ZTVN10__cxxabiv120__si_class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d6bb0 (External Location = _ZTVN10__cxxabiv120__si_class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d6c00 (External Location = _ZTVN10__cxxabiv120__si_class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d6c88 (External Location = _ZTVN10__cxxabiv120__si_class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d6cd8 (External Location = _ZTVN10__cxxabiv120__si_class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d6d28 (External Location = _ZTVN10__cxxabiv120__si_class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d6d78 (External Location = _ZTVN10__cxxabiv120__si_class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d6e88 (External Location = _ZTVN10__cxxabiv120__si_class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d6ed8 (External Location = _ZTVN10__cxxabiv120__si_class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d6f28 (External Location = _ZTVN10__cxxabiv120__si_class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d7028 (External Location = _ZTVN10__cxxabiv120__si_class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d7078 (External Location = _ZTVN10__cxxabiv120__si_class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002d70c8 (External Location = _ZTVN10__cxxabiv120__si_class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002dd5b0 (External Location = _ZTVN10__cxxabiv120__si_class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002dd600 (External Location = _ZTVN10__cxxabiv120__si_class_type_infoE+0x10) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 002dd670 (External Location = _ZTVN10__cxxabiv120__si_class_type_infoE+0x10) (ElfRelocationHandler)  
+INFO  Additional info:
+Loading file:///run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/tiktok_trill/native/libbytenn.so?MD5=78ab3f724ea7e43ff866be098d2b6926...
+Setting block .init_array to read-only
+Setting block .fini_array to read-only
+Setting block .data.rel.ro to read-only
+Setting block .dynamic to read-only
+------------------------------------------------
+
+Linking the External Programs of 'libbytenn.so' to imported libraries...
+  [liblog.so] -> not found in project
+  [libGLESv2.so] -> not found in project
+  [libEGL.so] -> not found in project
+  [libm.so] -> not found in project
+  [libc++_shared.so] -> not found in project
+  [libdl.so] -> not found in project
+  [libc.so] -> not found in project
+------------------------------------------------
+
+Resolving External Symbols of [/libbytenn.so] - 121 unresolved symbols, no external libraries configured - skipping
+ (ProgramLoader)  
+INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
+INFO  ANALYZING all memory and code: file:///run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/tiktok_trill/native/libbytenn.so (HeadlessAnalyzer)  
+INFO  DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=fa844d96df910cbb496b3d0f2d1f7269c835f656, objectType=DEBUGINFO, extra=null] (ExternalDebugFileSectionProvider)  
+INFO  Unable to find DWARF information, skipping DWARF analysis (DWARFAnalyzer)  
+INFO  Packed database cache: /var/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/asdf-ghidra/packed-db-cache (PackedDatabaseCache)  
+INFO  Applied data type archive: generic_clib_64 (ApplyDataArchiveAnalyzer)  
+WARN  Unable to fully apply external demangled Address Table at 002e01d0: std::length_error::vtable (DemangledAddressTable)  
+WARN  Unable to fully apply external demangled Address Table at 002e02c8: __cxxabiv1::__si_class_type_info::vtable (DemangledAddressTable)  
+WARN  Unable to fully apply external demangled Address Table at 002e0338: std::__ndk1::__shared_weak_count::typeinfo (DemangledAddressTable)  
+WARN  Unable to fully apply external demangled Address Table at 002e0398: __cxxabiv1::__class_type_info::vtable (DemangledAddressTable)  
+WARN  Unable to fully apply external demangled Address Table at 002e03e0: __cxxabiv1::__vmi_class_type_info::vtable (DemangledAddressTable)  
+INFO  -----------------------------------------------------
+    AARCH64 ELF PLT Thunks                     1.306 secs
+    ASCII Strings                              0.529 secs
+    Apply Data Archives                        0.782 secs
+    Basic Constant Reference Analyzer         18.507 secs
+    Call Convention ID                        25.774 secs
+    Call-Fixup Installer                       0.052 secs
+    Create Address Tables                      0.498 secs
+    Create Address Tables - One Time           0.402 secs
+    Create Function                            0.000 secs
+    DWARF                                      0.063 secs
+    Data Reference                             0.529 secs
+    Decompiler Switch Analysis                33.846 secs
+    Demangler GNU                              1.731 secs
+    Disassemble Entry Points                  15.136 secs
+    Embedded Media                             0.048 secs
+    External Entry References                  0.011 secs
+    Function ID                                0.031 secs
+    Function Start Search                      0.165 secs
+    Function Start Search After Code           0.205 secs
+    Function Start Search After Data           0.132 secs
+    Function Start Search delayed - One Time   0.001 secs
+    GCC Exception Handlers                     4.786 secs
+    Non-Returning Functions - Discovered       0.855 secs
+    Non-Returning Functions - Known            0.015 secs
+    Reference                                  0.748 secs
+    Shared Return Calls                        1.236 secs
+    Stack                                     13.802 secs
+    Subroutine References                      0.432 secs
+-----------------------------------------------------
+     Total Time   121 secs
+-----------------------------------------------------
+ (AutoAnalysisManager)  
+INFO  REPORT: Analysis succeeded for file: file:///run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/tiktok_trill/native/libbytenn.so (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: DecompileSelected.java 'reports/tiktok_trill/native/bytenn_loader_decompiled.c' 'EspressoDisassembler|ByteNNEngineImpl4Init|CheckMd5sum' '12' '120'  (HeadlessAnalyzer)  
+INFO  SCRIPT: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/ghidra_scripts/DecompileSelected.java (HeadlessAnalyzer)  
+INFO  DecompileSelected.java> SUMMARY matched=12 attempted=12 decompiled=12 failed=0 timedout=0 truncated=false output=/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/tiktok_trill/native/bytenn_loader_decompiled.c (GhidraScript)  
+INFO  ANALYZING changes made by post scripts: file:///run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/tiktok_trill/native/libbytenn.so (HeadlessAnalyzer)  
+INFO  REPORT: Post-analysis succeeded for file: file:///run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/tiktok_trill/native/libbytenn.so (HeadlessAnalyzer)  
+INFO  /libbytenn.so: file created (asdf) (LocalFileSystem)  
+INFO  REPORT: Save succeeded for: /libbytenn.so (proj:/libbytenn.so) (HeadlessAnalyzer)  
+INFO  REPORT: Import succeeded (HeadlessAnalyzer)  
+[ghidra_decompile] functions in output: 12 (147s, 86586 bytes)
+RC=0

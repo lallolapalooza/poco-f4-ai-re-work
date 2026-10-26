@@ -1,0 +1,18 @@
+carved EAI2 blobs (magic 'eai2', size = u32 at blob+0x10)
+
+63ff0ae5_en-US_001_198088.eai              8492  72e95e900d677837  fmt 2.2 kind 4.3
+63ff0ae5_en-US_001_58312.eai               6076  fd5707ea3b2ce38e  fmt 2.2 kind 12.2
+63ff0ae5_en-US_001_64968.eai             132752  90aa71dd5fe7a9e6  fmt 2.2 kind 4.3
+63ff0ae5_en-US_001_968.eai                56928  750ec697b054b952  fmt 2.2 kind 12.2
+63ff0ae5_en-US_002_1208.eai              408936  ac6c0351c9f29b37  fmt 2.2 kind 4.3
+63ff0ae5_en-US_002_410552.eai             41772  3457fe77688c3f25  fmt 2.2 kind 4.3
+63ff0ae5_en-US_036_200136.eai              8492  72e95e900d677837  fmt 2.2 kind 4.3
+63ff0ae5_en-US_036_67016.eai             132752  90aa71dd5fe7a9e6  fmt 2.2 kind 4.3
+63ff0ae5_en-US_038_1224.eai               41508  dce2f9a91b6db138  fmt 2.2 kind 4.3
+63ff0ae5_en-US_038_161736.eai             13708  d06182871df82f21  fmt 2.2 kind 4.3
+63ff0ae5_en-US_038_43208.eai               5820  055e2828d0828cfa  fmt 2.2 kind 4.3
+63ff0ae5_en-US_038_49864.eai             111372  1aabf8c82b672ee2  fmt 2.2 kind 4.3
+63ff0ae5_en-US_040_189384.eai              8492  72e95e900d677837  fmt 2.2 kind 4.3
+63ff0ae5_en-US_040_56264.eai             132752  90aa71dd5fe7a9e6  fmt 2.2 kind 4.3
+general_UV_015_526296.eai              10572796  c46fcec1ce3f3ff2  fmt 2.2 kind 4.3
+speech_float_speech_0.eai                 36632  e548360ccd51641f  fmt 2.2 kind 4.3

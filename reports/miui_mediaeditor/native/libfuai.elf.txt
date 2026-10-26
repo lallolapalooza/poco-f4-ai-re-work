@@ -1,0 +1,165 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/inventory/libs/lib/arm64-v8a/libfuai.so
+==============================================================================
+size        : 7654224 bytes (7.30 MiB)
+sha256      : 3832b52706d77527adb1f6e4c5adb678c27ffa667cfeed0c3ac5256d08c42525
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x1cdf80   imagebase: 0x0
+build id    : 6f69324cb2368dd4e2bbec4fb11dbff2e722f47a
+android     : SDK 21, NDK r23c, build 8568313
+soname      : libfuai.so
+needed      : liblog.so, libz.so, libm.so, libdl.so, libc.so
+parser      : lief
+counts      : 674 exports, 189 imports, 0 JNI, 27 sections, 9 segments
+symtab/dynsym: 0 / 864
+
+Sections (27)
+  name                   type             flags  address      size       offset
+  .note.android.ident    NOTE             A      0x238        152        0x238
+  .note.gnu.build-id     NOTE             A      0x2d0        36         0x2d0
+  .dynsym                DYNSYM           A      0x2f8        20736      0x2f8
+  .gnu.version           GNU_VERSYM       A      0x53f8       1728       0x53f8
+  .gnu.version_r         GNU_VERNEED      A      0x5ab8       96         0x5ab8
+  .gnu.hash              GNU_HASH         A      0x5b18       4408       0x5b18
+  .hash                  HASH             A      0x6c50       6920       0x6c50
+  .dynstr                STRTAB           A      0x8758       29303      0x8758
+  .rela.dyn              RELA             A      0xf9d0       278592     0xf9d0
+  .rela.plt              RELA             AI     0x53a10      4584       0x53a10
+  .rodata                PROGBITS         AMS    0x54c00      457360     0x54c00
+  .gcc_except_table      PROGBITS         A      0xc4690      306132     0xc4690
+  .eh_frame_hdr          PROGBITS         A      0x10f264     158620     0x10f264
+  .eh_frame              PROGBITS         A      0x135e00     622964     0x135e00
+  .text                  PROGBITS         AX     0x1cdf80     5642612    0x1cdf80
+  malloc_hook            PROGBITS         AX     0x72f8f4     1560       0x72f8f4
+  .plt                   PROGBITS         AX     0x72ff10     3088       0x72ff10
+  .data.rel.ro           PROGBITS         WA     0x731b20     96872      0x730b20
+  .fini_array            FINI_ARRAY       WA     0x749588     16         0x748588
+  .init_array            INIT_ARRAY       WA     0x749598     384        0x748598
+  .dynamic               DYNAMIC          WA     0x749718     480        0x748718
+  .got                   PROGBITS         WA     0x7498f8     1336       0x7488f8
+  .got.plt               PROGBITS         WA     0x749e30     1552       0x748e30
+  .data                  PROGBITS         WA     0x74b440     12104      0x749440
+  .bss                   NOBITS           WA     0x74e3c0     693752     0x74c388
+  .shstrtab              STRTAB           -      0x0          263        0x74c388
+
+AI-relevant strings (2004375 bytes scanned in allocated data sections)
+  [tflite] 570 unique (first 20)
+    0x00009a4a .dynstr    FUAI_NewTfliteModel
+    0x00009a5e .dynstr    FUAI_DeleteTfliteModel
+    0x00009a75 .dynstr    FUAI_TfliteModelRun
+    0x00009a89 .dynstr    FUAI_TfliteModelSetInputData
+    0x00009aa6 .dynstr    FUAI_TfliteModelGetOutputData
+    0x00009ac4 .dynstr    FUAI_TfliteHexagonInitWithPath
+    0x00009ae3 .dynstr    FUAI_TfliteHexagonTearDown
+    0x00055414 .rodata     tflite gpu not support!
+    0x0005563f .rodata    /home/gitlab-runner/builds/fTJm8zLM/0/chenliang/tensorflow/tensorflow/lite/delegates/gpu/delegate.cc 805 Created TensorFlow Lite delegate for GPU.
+    0x00055967 .rodata    ) is not supported by TFLite GPU Delegate.
+    0x000567ee .rodata    output->type == kTfLiteFloat32 || output->type == kTfLiteUInt8 || output->type == kTfLiteInt8
+    0x00056858 .rodata    (input_to_forget_weights->type == kTfLiteFloat32) || (input_to_forget_weights->type == kTfLiteUInt8) || (input_to_forget_weights->type == kTfLiteInt8)
+    0x00056c74 .rodata    /home/gitlab-runner/builds/fTJm8zLM/0/chenliang/tensorflow/tensorflow/lite/kernels/matrix_set_diag.cc
+    0x00057610 .rodata    Init TFLiteModel finished. model_is_quant_=
+    0x00057c50 .rodata    kTfLiteCustom
+    0x00057c7c .rodata    /home/gitlab-runner/builds/fTJm8zLM/0/chenliang/tensorflow/tensorflow/lite/delegates/gpu/delegate.cc 872 Could not flock %s: %s
+    0x00058cc6 .rodata    /home/gitlab-runner/builds/fTJm8zLM/0/chenliang/tensorflow/tensorflow/lite/kernels/activations.cc
+    0x00058d80 .rodata    /home/gitlab-runner/builds/fTJm8zLM/0/chenliang/tensorflow/tensorflow/lite/kernels/hashtable_lookup.cc
+    0x00058ea5 .rodata    /home/gitlab-runner/builds/fTJm8zLM/0/chenliang/tensorflow/tensorflow/lite/kernels/div.cc
+    0x00058f13 .rodata    (bias->type == kTfLiteInt64) || (bias->type == kTfLiteInt32)
+    ... 180 more
+  [model] 84 unique (first 20)
+    0x00055dd5 .rodata    args.weights.Height()
+    0x00055e21 .rodata      __global FLT4* f = args.weights.GetPtr() + S * 10;
+    0x00056911 .rodata    weights->dims->size
+    0x00056b70 .rodata    NumDimensions(weights)
+    0x000581da .rodata      device FLT4* f_offseted = args.weights.GetPtr() + DST_S * 4 * args.src_tensor.Slices();
+    0x00058414 .rodata        FLT4 f = args.weights.Read(fx_c);
+    0x000584e6 .rodata       FLT4 f2 = args.weights.Read(2, S);
+    0x00058f50 .rodata    weights->quantization.type
+    0x0005a3a2 .rodata    Unsupported FullyConnected weights format.
+    0x0005a5a3 .rodata    args.weights.GetPtr()
+    0x0005a8b2 .rodata        weights_cache[local_id] = args.weights.Read(f_offset + local_id);
+    0x0005aa02 .rodata        f[local_id] = args.weights.Read(S * 10 + local_id);
+    0x0005c72a .rodata    , args.weights.Read(
+    0x0005c73f .rodata     * args.weights.Read(
+    0x0005c783 .rodata    args.weights.Read(filters_offset + 
+    0x0005ca9d .rodata        async_work_group_copy(weights_cache, args.weights.GetPtr(f_offset), 64, 0);
+    0x0005cb9e .rodata        FLT4 f = args.weights.Read(kx, ky, S);
+    0x0005edcf .rodata        async_work_group_copy(weights_cache, args.weights.GetPtr(f_offset), 36, 0);
+    0x00061453 .rodata    weight
+    0x00061bab .rodata        FLT4 result = args.weights.Read(
+    ... 64 more
+  [nn_runtime] 81 unique (first 20)
+    0x00055414 .rodata     tflite gpu not support!
+    0x0005563f .rodata    /home/gitlab-runner/builds/fTJm8zLM/0/chenliang/tensorflow/tensorflow/lite/delegates/gpu/delegate.cc 805 Created TensorFlow Lite delegate for GPU.
+    0x000558c4 .rodata    apple a9 gpu
+    0x00055967 .rodata    ) is not supported by TFLite GPU Delegate.
+    0x00055ac3 .rodata     can not be created. Max Image3D width for this GPU - 
+    0x00057c7c .rodata    /home/gitlab-runner/builds/fTJm8zLM/0/chenliang/tensorflow/tensorflow/lite/delegates/gpu/delegate.cc 872 Could not flock %s: %s
+    0x00058065 .rodata    GetPtr selector supported only in Metal and OpenCL.
+    0x0005a135 .rodata    /home/gitlab-runner/builds/fTJm8zLM/0/chenliang/tensorflow/tensorflow/lite/delegates/gpu/delegate.cc 1000 TF CreateDefaultGPUDevice failer
+    0x0005a454 .rodata    No GPU object with name - 
+    0x0005c3d6 .rodata    /home/gitlab-runner/builds/fTJm8zLM/0/chenliang/tensorflow/tensorflow/lite/delegates/gpu/delegate.cc 995 TF LoadOpenCL failer
+    0x0005c5d1 .rodata    apple a10 gpu
+    0x0005c5df .rodata    apple m1 gpu
+    0x0005e807 .rodata    tflite use gpu.
+    0x0005e9f4 .rodata    Can not open OpenCL library on this device - 
+    0x0005eb1b .rodata     can not be created. Max Image2DArray height for this GPU - 
+    0x00061530 .rodata    /home/gitlab-runner/builds/fTJm8zLM/0/chenliang/tensorflow/tensorflow/lite/delegates/gpu/delegate.cc 1030 %s
+    0x0006189c .rodata     can not be created. Max Image2D width for this GPU - 
+    0x000633bf .rodata    /home/gitlab-runner/builds/fTJm8zLM/0/chenliang/tensorflow/tensorflow/lite/delegates/gpu/delegate.cc 944 Invalid directory
+    0x0006345a .rodata    Failed to read data from GPU (clEnqueueReadImage) - 
+    0x00063562 .rodata    #pragma OPENCL EXTENSION cl_khr_fp16 : enable
+    ... 61 more
+  [face] 871 unique (first 20)
+    0x00009c9e .dynstr    FUAI_FaceProcessorProcess2Result
+    0x00009cbf .dynstr    FUAI_FaceProcessorProcess2ResultThreadSafe
+    0x00009cea .dynstr    FUAI_FaceProcessorSetFaceRect
+    0x00009d08 .dynstr    FUAI_FaceProcessorGetFaceSortChange
+    0x00009d2c .dynstr    FUAI_FaceProcessorReset
+    0x00009d44 .dynstr    FUAI_FaceProcessorSetMaxFaces
+    0x00009d62 .dynstr    FUAI_FaceProcessorSetDetectSmallFace
+    0x00009d87 .dynstr    FUAI_FaceProcessorSetDetectEveryNFramesWhenNoFace
+    0x00009db9 .dynstr    FUAI_FaceProcessorSetDetectEveryNFramesWhenFace
+    0x00009de9 .dynstr    FUAI_FaceProcessorResetModules
+    0x00009e08 .dynstr    FUAI_FaceProcessorSetUseFaceLandmark
+    0x00009e2d .dynstr    FUAI_FaceProcessorSetFaceLandmarkHpOccu
+    0x00009e55 .dynstr    FUAI_FaceProcessorSetUseFaceLandmarkImage
+    0x00009e7f .dynstr    FUAI_FaceProcessorSetUseFaceMeshV2
+    0x00009ea2 .dynstr    FUAI_FaceProcessorSetFaceLandmarkQuality
+    0x00009ecb .dynstr    FUAI_FaceProcessorSetUseDenseLandmark
+    0x00009ef1 .dynstr    FUAI_FaceProcessorSetUseFaceDde
+    0x00009f11 .dynstr    FUAI_FaceProcessorSetUseFaceExpressionRecognizer
+    0x00009f42 .dynstr    FUAI_FaceProcessorSetUseFaceEmotionRecognizer
+    0x00009f70 .dynstr    FUAI_FaceProcessorSetUseRotationTranslationFilter
+    ... 180 more
+  [segment] 168 unique (first 20)
+    0x00009ffa .dynstr    FUAI_FaceProcessorSetUseHairSegmenter
+    0x0000a020 .dynstr    FUAI_FaceProcessorSetUseHeadSegmenter
+    0x0000a0b0 .dynstr    FUAI_FaceProcessorSetUseLipsOccuSegmenter
+    0x0000a117 .dynstr    FUAI_FaceProcessorSetUseFaceOccuSegmenter
+    0x0000c079 .dynstr    FUAI_HumanProcessorSetUseHumanSegmenter
+    0x0000f090 .dynstr    FUAI_NewBackgroundSegmenterV1
+    0x0000f0ae .dynstr    FUAI_NewBackgroundSegmenter
+    0x0000f0ca .dynstr    FUAI_NewBackgroundSegmenterFromBundle
+    0x0000f0f0 .dynstr    FUAI_DeleteBackgroundSegmenter
+    0x0000f10f .dynstr    FUAI_BackgroundSegmenterReset
+    0x0000f12d .dynstr    FUAI_BackgroundSegmenterInference
+    0x0000f14f .dynstr    FUAI_BackgroundSegmenterGetResultMask
+    0x0000f175 .dynstr    FUAI_BackgroundSegmenterInferenceV1
+    0x00054e0a .rodata    use_human_segmentation_cpu_common
+    0x00054e2c .rodata    use_human_segmentation_gpu_meeting
+    0x000552d8 .rodata    FaceDelSpot_SegmentMole
+    0x00056d28 .rodata    Currently SegmentSum doesn't support type: %s
+    0x0005765e .rodata    ProcessLipsOccuSegment end.
+    0x0005767a .rodata    ProcessHeadSegment end.
+    0x00057bce .rodata    green_segment_s_low_margin
+    ... 148 more
+  [model_name] 7 unique (first 7)
+    0x0005bed0 .rodata    l2exprt_model
+    0x00067fbb .rodata    exp_emo_model
+    0x00067fe0 .rodata    face_capture_s_model
+    0x0006e638 .rodata    contact_model
+    0x000914b6 .rodata    face_capture_model
+    0x000956bb .rodata    use_yolox_model
+    0x0009ae39 .rodata    ro.product.model
+
+JSON written to reports/miui_mediaeditor/native/libfuai.elf.json

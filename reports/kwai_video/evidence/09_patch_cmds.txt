@@ -1,0 +1,35 @@
+# Frame-path patch — commands actually run (2026-10-24)
+# $PY = /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python ; $TOOLS = <ws>/tools
+APK="/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.kwai.video_33/partner-com.kwai.video_33.apk"
+
+# 0. libs missing from the first extraction (90 MB cap): daenerys, westeros, ykit, ykit_core_plugin
+unzip -p "$APK" lib/arm64-v8a/libdaenerys.so          > /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/kwpatch/libs/libdaenerys.so
+unzip -p "$APK" lib/arm64-v8a/libwesteros.so          > /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/kwpatch/libs/libwesteros.so
+unzip -p "$APK" lib/arm64-v8a/libykit.so              > /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/kwpatch/libs/libykit.so
+unzip -p "$APK" lib/arm64-v8a/libykit_core_plugin.so  > /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/kwpatch/libs/libykit_core_plugin.so
+sha256sum /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/kwpatch/libs/*.so        # recorded in evidence/05_hashes.txt
+
+# 1. Java surface for the camera/frame path
+$PY $TOOLS/dex_find.py "$APK" --regex 'FaceMagicController|FaceDetectorContext|VideoFrame' --classes-only
+$PY $TOOLS/dex_find.py "$APK" --regex 'WesterosCamera|CaptureOne|Camera2Controller|OpenCamera|CameraController' --classes-only
+$PY $TOOLS/dex_find.py "$APK" --regex 'camera2|Camera2|YuvTo|YuvUtil|NV21' --classes-only
+$PY $TOOLS/dex_find.py "$APK" --regex 'detectFacesFromFrame|onVideoFrameCaptured|FaceDetectorContext'
+$PY $TOOLS/decompile_classes.py "$APK" --regex '^com\.kwai\.camerasdk\.video\.VideoFrame$|^com\.kwai\.video\.westeros\.v2\.faceless\.FaceMagicController$' --out /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/kwpatch/d1 --max 4
+$PY $TOOLS/decompile_classes.py "$APK" --regex '^com\.kwai\.video\.westeros\.v2\.WesterosGlProcessor$|^com\.kwai\.camerasdk\.videoCapture\.(CameraControllerImpl|FrameBuffer|CameraController)$' --out /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/kwpatch/d2 --max 6
+$PY $TOOLS/decompile_classes.py "$APK" --regex '^com\.kwai\.video\.westeros\.(Westeros|WesterosPlugin)$|^com\.kwai\.camerasdk\.preprocess\.(AbstractGlProcessor|GlPreProcessor)$|^do\.o0$' --out /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/kwpatch/d3 --max 8
+$PY $TOOLS/decompile_classes.py "$APK" --regex '^com\.kwai\.camerasdk\.preprocess\.a$|^com\.kwai\.camerasdk\.videoCapture\.CameraSession$|^com\.kwai\.camerasdk\.face\.a$' --out /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/kwpatch/d4 --max 4
+$PY $TOOLS/decompile_classes.py "$APK" --regex '^com\.kwai\.camerasdk\.videoCapture\.cameras\.camerakit\.d$|^com\.kwai\.video\.westeros\.v2\.faceless\.FacelessPlugin$' --out /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/kwpatch/d5 --max 3
+$PY $TOOLS/decompile_classes.py "$APK" --regex '^com\.kwai\.camerasdk\.videoCapture\.i$' --out /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/kwpatch/d7 --max 2
+
+# 2. Native: the Java->C++ frame bridge and the Ylab provider
+$PY $TOOLS/disasm_elf.py /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/kwpatch/libs/libdaenerys.so \
+    --symbol _ZN8kuaishou7android20VideoRawFrameFromJniEP7_JNIEnvP8_jobject \
+    --out native/daenerys_videorawframe.s
+# adrp+add literal resolver over that .s -> native/daenerys_videorawframe.strings.txt
+#   (direct-approach decode: 42 field/method literals of VideoFrame / FrameBuffer)
+$PY $TOOLS/disasm_elf.py /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/kwpatch/libs/libdaenerys.so --list-jni | head -60
+$PY $TOOLS/disasm_elf.py /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/kwpatch/libs/libykit_core_plugin.so --addr 0x33e00 --size 0x700 -o native/ylab_createmodel.s
+
+# 3. Library string dumps used for the render/thread/encoder section
+#    (evidence/08_daenerys_westeros_strings.txt: offset, string for the
+#     GlGroup / *Processor / *Thread / FrameMonitor / MediaCodec keys)

@@ -1,0 +1,220 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/PaymentService_Global/PaymentService_Global.apk",
+  "regex": "com\\.mibi\\.ocr|XiaoMIDigitOCR",
+  "packages": [],
+  "max": 12,
+  "timeout": 180.0,
+  "jadx": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/jadx/bin/jadx",
+  "classes_scanned": 10002,
+  "candidates": [
+    {
+      "class": "com.xiaomi.payment.camera.XiaoMIDigitOCR",
+      "dex": "classes2.dex",
+      "method_count": 36,
+      "access": 1,
+      "matched": [
+        "xiaomidigitocr"
+      ],
+      "score": 1036,
+      "rank": 1,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.xiaomi.payment.camera.XiaoMIDigitOCR.java",
+      "seconds": 10.59
+    },
+    {
+      "class": "com.mibi.ocr.ui.CaptureFragment",
+      "dex": "classes.dex",
+      "method_count": 25,
+      "access": 1,
+      "matched": [
+        "com.mibi.ocr"
+      ],
+      "score": 1025,
+      "rank": 2,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.mibi.ocr.ui.CaptureFragment.java",
+      "seconds": 10.41
+    },
+    {
+      "class": "com.mibi.ocr.ui.PreviewMaskView",
+      "dex": "classes.dex",
+      "method_count": 8,
+      "access": 1,
+      "matched": [
+        "com.mibi.ocr"
+      ],
+      "score": 1008,
+      "rank": 3,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.mibi.ocr.ui.PreviewMaskView.java",
+      "seconds": 9.94
+    },
+    {
+      "class": "com.mibi.ocr.ui.CameraPreview",
+      "dex": "classes.dex",
+      "method_count": 7,
+      "access": 1,
+      "matched": [
+        "com.mibi.ocr"
+      ],
+      "score": 1007,
+      "rank": 4,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.mibi.ocr.ui.CameraPreview.java",
+      "seconds": 8.98
+    },
+    {
+      "class": "com.mibi.ocr.entry.DigitOcrEntry",
+      "dex": "classes.dex",
+      "method_count": 4,
+      "access": 1,
+      "matched": [
+        "com.mibi.ocr"
+      ],
+      "score": 1004,
+      "rank": 5,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.mibi.ocr.entry.DigitOcrEntry.java",
+      "seconds": 8.69
+    },
+    {
+      "class": "com.mibi.ocr.ui.CameraPreview$a",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 1537,
+      "matched": [
+        "com.mibi.ocr"
+      ],
+      "score": 1003,
+      "rank": 6,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.mibi.ocr.ui.CameraPreview$a.java",
+      "seconds": 8.45
+    },
+    {
+      "class": "com.mibi.ocr.ui.CaptureActivity",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 1,
+      "matched": [
+        "com.mibi.ocr"
+      ],
+      "score": 1002,
+      "rank": 7,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.mibi.ocr.ui.CaptureActivity.java",
+      "seconds": 8.94
+    },
+    {
+      "class": "com.mibi.ocr.ui.CaptureFragment$a",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "com.mibi.ocr"
+      ],
+      "score": 1002,
+      "rank": 8,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.mibi.ocr.ui.CaptureFragment$a.java",
+      "seconds": 9.77
+    },
+    {
+      "class": "com.mibi.ocr.ui.CaptureFragment$b",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "com.mibi.ocr"
+      ],
+      "score": 1002,
+      "rank": 9,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.mibi.ocr.ui.CaptureFragment$b.java",
+      "seconds": 11.36
+    },
+    {
+      "class": "com.mibi.ocr.ui.CaptureFragment$c",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "com.mibi.ocr"
+      ],
+      "score": 1002,
+      "rank": 10,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.mibi.ocr.ui.CaptureFragment$c.java",
+      "seconds": 10.82
+    },
+    {
+      "class": "com.mibi.ocr.ui.CaptureFragment$d",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "com.mibi.ocr"
+      ],
+      "score": 1002,
+      "rank": 11,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.mibi.ocr.ui.CaptureFragment$d.java",
+      "seconds": 9.61
+    },
+    {
+      "class": "com.mibi.ocr.ui.CaptureFragment$e",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "com.mibi.ocr"
+      ],
+      "score": 1002,
+      "rank": 12,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.mibi.ocr.ui.CaptureFragment$e.java",
+      "seconds": 9.35
+    },
+    {
+      "class": "com.mibi.ocr.ui.CaptureFragment$f",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "com.mibi.ocr"
+      ],
+      "score": 1002,
+      "rank": 13,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    }
+  ],
+  "decompiled": 12,
+  "elapsed_sec": 117.57
+}

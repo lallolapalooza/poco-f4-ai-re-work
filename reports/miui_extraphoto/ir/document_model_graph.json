@@ -1,0 +1,4215 @@
+{
+ "container": "SNPE DLC (protobuf payload)",
+ "magic": "0x20ad5",
+ "version": 5,
+ "model_version": 1,
+ "input_tensors": {
+  "hed_input:0": [
+   1,
+   512,
+   512,
+   3
+  ]
+ },
+ "output_tensors": {
+  "img_output:0": [
+   1,
+   512,
+   512,
+   1
+  ]
+ },
+ "tensors": {
+  "hed_input:0": {
+   "dims": [
+    1,
+    512,
+    512,
+    3
+   ],
+   "type_id": 132
+  },
+  "truediv/y:0": {
+   "dims": [
+    1
+   ],
+   "type_id": 132
+  },
+  "truediv:0": {
+   "dims": [
+    1,
+    512,
+    512,
+    3
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block0_0/conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    512,
+    512,
+    3
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block0_0/conv2d/Relu:0": {
+   "dims": [
+    1,
+    512,
+    512,
+    3
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block0_1/conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    512,
+    512,
+    6
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block0_1/conv2d/Relu:0": {
+   "dims": [
+    1,
+    512,
+    512,
+    6
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block0_2/conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    256,
+    256,
+    12
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block0_2/conv2d/Relu:0": {
+   "dims": [
+    1,
+    256,
+    256,
+    12
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block1_0/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    256,
+    256,
+    12
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block1_0/1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    256,
+    256,
+    6
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block1_0/expansion_1x1_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    256,
+    256,
+    12
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block1_0/depthwise_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    256,
+    256,
+    12
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block1_0/depthwise_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    256,
+    256,
+    12
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block1_0/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    256,
+    256,
+    6
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block1_0/add:0": {
+   "dims": [
+    1,
+    256,
+    256,
+    6
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block2_0/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    256,
+    256,
+    36
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block2_0/expansion_1x1_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    256,
+    256,
+    36
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block2_0/depthwise_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    128,
+    128,
+    36
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block2_0/depthwise_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    128,
+    128,
+    36
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block2_0/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    128,
+    128,
+    12
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block2_1/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    128,
+    128,
+    72
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block2_1/expansion_1x1_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    128,
+    128,
+    72
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block2_1/depthwise_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    128,
+    128,
+    72
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block2_1/depthwise_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    128,
+    128,
+    72
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block2_1/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    128,
+    128,
+    12
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block2_1/add:0": {
+   "dims": [
+    1,
+    128,
+    128,
+    12
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block3_0/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    128,
+    128,
+    72
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block3_0/expansion_1x1_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    128,
+    128,
+    72
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block3_0/depthwise_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    72
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block3_0/depthwise_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    72
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block3_0/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    24
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block3_1/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block3_1/expansion_1x1_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block3_1/depthwise_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block3_1/depthwise_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block3_1/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    24
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block3_1/add:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    24
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block3_2/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block3_2/expansion_1x1_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block3_2/depthwise_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block3_2/depthwise_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block3_2/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    24
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block3_2/add:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    24
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_0/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_0/expansion_1x1_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_0/depthwise_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    144
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_0/depthwise_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    144
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_0/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    48
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_1/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_1/expansion_1x1_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_1/depthwise_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_1/depthwise_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_1/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    48
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_1/add:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    48
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_2/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_2/expansion_1x1_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_2/depthwise_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_2/depthwise_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_2/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    48
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_2/add:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    48
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_3/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_3/expansion_1x1_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_3/depthwise_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_3/depthwise_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_3/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    48
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block4_3/add:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    48
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block5_0/1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    64
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block5_0/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block5_0/expansion_1x1_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block5_0/depthwise_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block5_0/depthwise_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block5_0/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    64
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block5_0/add:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    64
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block5_1/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    384
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block5_1/expansion_1x1_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    384
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block5_1/depthwise_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    384
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block5_1/depthwise_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    384
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block5_1/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    64
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block5_1/add:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    64
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block5_2/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    384
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block5_2/expansion_1x1_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    384
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block5_2/depthwise_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    384
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block5_2/depthwise_conv2d/Relu6:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    384
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block5_2/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    64
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/block5_2/add:0": {
+   "dims": [
+    1,
+    32,
+    32,
+    64
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/conv2d_transpose/BiasAdd:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    24
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/concat:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    48
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/batch_normalization/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    64,
+    64,
+    24
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/conv2d_transpose_1/BiasAdd:0": {
+   "dims": [
+    1,
+    128,
+    128,
+    12
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/concat_1:0": {
+   "dims": [
+    1,
+    128,
+    128,
+    24
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/batch_normalization_1/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    128,
+    128,
+    12
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/conv2d_transpose_2/BiasAdd:0": {
+   "dims": [
+    1,
+    256,
+    256,
+    6
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/concat_2:0": {
+   "dims": [
+    1,
+    256,
+    256,
+    12
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/batch_normalization_2/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    256,
+    256,
+    6
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/conv2d_transpose_3/BiasAdd:0": {
+   "dims": [
+    1,
+    512,
+    512,
+    3
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/concat_3:0": {
+   "dims": [
+    1,
+    512,
+    512,
+    9
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/batch_normalization_3/FusedBatchNorm:0": {
+   "dims": [
+    1,
+    512,
+    512,
+    3
+   ],
+   "type_id": 132
+  },
+  "hed/mobilenet_v2_skip/conv2d_4/BiasAdd:0": {
+   "dims": [
+    1,
+    512,
+    512,
+    1
+   ],
+   "type_id": 132
+  },
+  "img_output:0": {
+   "dims": [
+    1,
+    512,
+    512,
+    1
+   ],
+   "type_id": 132
+  }
+ },
+ "layers": [
+  {
+   "index": 0,
+   "name": "hed_input:0",
+   "type_id": 60,
+   "type": "input",
+   "output_dims": [
+    1,
+    512,
+    512,
+    3
+   ],
+   "inputs": [
+    "hed_input:0"
+   ],
+   "outputs": [
+    "hed_input:0"
+   ],
+   "params": {}
+  },
+  {
+   "index": 1,
+   "name": "truediv/y:0",
+   "type_id": 211,
+   "type": "const",
+   "output_dims": [
+    1
+   ],
+   "inputs": [
+    "truediv/y:0"
+   ],
+   "outputs": [
+    "truediv/y:0"
+   ],
+   "params": {}
+  },
+  {
+   "index": 2,
+   "name": "truediv",
+   "type_id": 95,
+   "type": "elementwise_binary",
+   "output_dims": [
+    1,
+    512,
+    512,
+    3
+   ],
+   "inputs": [
+    "hed_input:0",
+    "truediv/y:0"
+   ],
+   "outputs": [
+    "truediv:0"
+   ],
+   "params": {
+    "binop": "div"
+   }
+  },
+  {
+   "index": 3,
+   "name": "hed/mobilenet_v2_skip/block0_0/conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    512,
+    512,
+    3
+   ],
+   "inputs": [
+    "truediv:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block0_0/conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 4,
+   "name": "hed/mobilenet_v2_skip/block0_0/conv2d/Relu",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    512,
+    512,
+    3
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block0_0/conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block0_0/conv2d/Relu:0"
+   ],
+   "params": {
+    "activation": "relu",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "index": 5,
+   "name": "hed/mobilenet_v2_skip/block0_1/conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    512,
+    512,
+    6
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block0_0/conv2d/Relu:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block0_1/conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 6,
+   "name": "hed/mobilenet_v2_skip/block0_1/conv2d/Relu",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    512,
+    512,
+    6
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block0_1/conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block0_1/conv2d/Relu:0"
+   ],
+   "params": {
+    "activation": "relu",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "index": 7,
+   "name": "hed/mobilenet_v2_skip/block0_2/conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    256,
+    256,
+    12
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block0_1/conv2d/Relu:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block0_2/conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     2,
+     2
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 8,
+   "name": "hed/mobilenet_v2_skip/block0_2/conv2d/Relu",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    256,
+    256,
+    12
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block0_2/conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block0_2/conv2d/Relu:0"
+   ],
+   "params": {
+    "activation": "relu",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "index": 9,
+   "name": "hed/mobilenet_v2_skip/block1_0/expansion_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    256,
+    256,
+    12
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block0_2/conv2d/Relu:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block1_0/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 10,
+   "name": "hed/mobilenet_v2_skip/block1_0/1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    256,
+    256,
+    6
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block0_2/conv2d/Relu:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block1_0/1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 11,
+   "name": "hed/mobilenet_v2_skip/block1_0/expansion_1x1_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    256,
+    256,
+    12
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block1_0/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block1_0/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 12,
+   "name": "hed/mobilenet_v2_skip/block1_0/depthwise_conv2d/SeparableConv2d/depthwise",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    256,
+    256,
+    12
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block1_0/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block1_0/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     12,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 13,
+   "name": "hed/mobilenet_v2_skip/block1_0/depthwise_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    256,
+    256,
+    12
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block1_0/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block1_0/depthwise_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 14,
+   "name": "hed/mobilenet_v2_skip/block1_0/projection_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    256,
+    256,
+    6
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block1_0/depthwise_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block1_0/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 15,
+   "name": "hed/mobilenet_v2_skip/block1_0/add",
+   "type_id": 90,
+   "type": "add",
+   "output_dims": [
+    1,
+    256,
+    256,
+    6
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block1_0/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0",
+    "hed/mobilenet_v2_skip/block1_0/1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block1_0/add:0"
+   ],
+   "params": {
+    "coeffs": [
+     1.0,
+     1.0
+    ],
+    "op": 2
+   }
+  },
+  {
+   "index": 16,
+   "name": "hed/mobilenet_v2_skip/block2_0/expansion_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    256,
+    256,
+    36
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block1_0/add:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block2_0/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 17,
+   "name": "hed/mobilenet_v2_skip/block2_0/expansion_1x1_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    256,
+    256,
+    36
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block2_0/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block2_0/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 18,
+   "name": "hed/mobilenet_v2_skip/block2_0/depthwise_conv2d/SeparableConv2d/depthwise",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    128,
+    128,
+    36
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block2_0/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block2_0/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     2,
+     2
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     36,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 19,
+   "name": "hed/mobilenet_v2_skip/block2_0/depthwise_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    128,
+    128,
+    36
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block2_0/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block2_0/depthwise_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 20,
+   "name": "hed/mobilenet_v2_skip/block2_0/projection_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    128,
+    128,
+    12
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block2_0/depthwise_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block2_0/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 21,
+   "name": "hed/mobilenet_v2_skip/block2_1/expansion_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    128,
+    128,
+    72
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block2_0/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block2_1/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 22,
+   "name": "hed/mobilenet_v2_skip/block2_1/expansion_1x1_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    128,
+    128,
+    72
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block2_1/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block2_1/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 23,
+   "name": "hed/mobilenet_v2_skip/block2_1/depthwise_conv2d/SeparableConv2d/depthwise",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    128,
+    128,
+    72
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block2_1/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block2_1/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     72,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 24,
+   "name": "hed/mobilenet_v2_skip/block2_1/depthwise_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    128,
+    128,
+    72
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block2_1/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block2_1/depthwise_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 25,
+   "name": "hed/mobilenet_v2_skip/block2_1/projection_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    128,
+    128,
+    12
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block2_1/depthwise_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block2_1/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 26,
+   "name": "hed/mobilenet_v2_skip/block2_1/add",
+   "type_id": 90,
+   "type": "add",
+   "output_dims": [
+    1,
+    128,
+    128,
+    12
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block2_1/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0",
+    "hed/mobilenet_v2_skip/block2_0/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block2_1/add:0"
+   ],
+   "params": {
+    "coeffs": [
+     1.0,
+     1.0
+    ],
+    "op": 2
+   }
+  },
+  {
+   "index": 27,
+   "name": "hed/mobilenet_v2_skip/block3_0/expansion_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    128,
+    128,
+    72
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block2_1/add:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block3_0/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 28,
+   "name": "hed/mobilenet_v2_skip/block3_0/expansion_1x1_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    128,
+    128,
+    72
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block3_0/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block3_0/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 29,
+   "name": "hed/mobilenet_v2_skip/block3_0/depthwise_conv2d/SeparableConv2d/depthwise",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    64,
+    64,
+    72
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block3_0/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block3_0/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     2,
+     2
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     72,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 30,
+   "name": "hed/mobilenet_v2_skip/block3_0/depthwise_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    64,
+    64,
+    72
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block3_0/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block3_0/depthwise_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 31,
+   "name": "hed/mobilenet_v2_skip/block3_0/projection_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    64,
+    64,
+    24
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block3_0/depthwise_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block3_0/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 32,
+   "name": "hed/mobilenet_v2_skip/block3_1/expansion_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block3_0/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block3_1/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 33,
+   "name": "hed/mobilenet_v2_skip/block3_1/expansion_1x1_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block3_1/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block3_1/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 34,
+   "name": "hed/mobilenet_v2_skip/block3_1/depthwise_conv2d/SeparableConv2d/depthwise",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block3_1/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block3_1/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     144,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 35,
+   "name": "hed/mobilenet_v2_skip/block3_1/depthwise_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block3_1/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block3_1/depthwise_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 36,
+   "name": "hed/mobilenet_v2_skip/block3_1/projection_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    64,
+    64,
+    24
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block3_1/depthwise_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block3_1/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 37,
+   "name": "hed/mobilenet_v2_skip/block3_1/add",
+   "type_id": 90,
+   "type": "add",
+   "output_dims": [
+    1,
+    64,
+    64,
+    24
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block3_1/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0",
+    "hed/mobilenet_v2_skip/block3_0/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block3_1/add:0"
+   ],
+   "params": {
+    "coeffs": [
+     1.0,
+     1.0
+    ],
+    "op": 2
+   }
+  },
+  {
+   "index": 38,
+   "name": "hed/mobilenet_v2_skip/block3_2/expansion_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block3_1/add:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block3_2/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 39,
+   "name": "hed/mobilenet_v2_skip/block3_2/expansion_1x1_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block3_2/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block3_2/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 40,
+   "name": "hed/mobilenet_v2_skip/block3_2/depthwise_conv2d/SeparableConv2d/depthwise",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block3_2/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block3_2/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     144,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 41,
+   "name": "hed/mobilenet_v2_skip/block3_2/depthwise_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block3_2/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block3_2/depthwise_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 42,
+   "name": "hed/mobilenet_v2_skip/block3_2/projection_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    64,
+    64,
+    24
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block3_2/depthwise_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block3_2/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 43,
+   "name": "hed/mobilenet_v2_skip/block3_2/add",
+   "type_id": 90,
+   "type": "add",
+   "output_dims": [
+    1,
+    64,
+    64,
+    24
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block3_2/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0",
+    "hed/mobilenet_v2_skip/block3_1/add:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block3_2/add:0"
+   ],
+   "params": {
+    "coeffs": [
+     1.0,
+     1.0
+    ],
+    "op": 2
+   }
+  },
+  {
+   "index": 44,
+   "name": "hed/mobilenet_v2_skip/block4_0/expansion_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block3_2/add:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_0/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 45,
+   "name": "hed/mobilenet_v2_skip/block4_0/expansion_1x1_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    64,
+    64,
+    144
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_0/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_0/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 46,
+   "name": "hed/mobilenet_v2_skip/block4_0/depthwise_conv2d/SeparableConv2d/depthwise",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    144
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_0/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_0/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     2,
+     2
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     144,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 47,
+   "name": "hed/mobilenet_v2_skip/block4_0/depthwise_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    32,
+    32,
+    144
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_0/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_0/depthwise_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 48,
+   "name": "hed/mobilenet_v2_skip/block4_0/projection_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    48
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_0/depthwise_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_0/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 49,
+   "name": "hed/mobilenet_v2_skip/block4_1/expansion_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_0/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_1/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 50,
+   "name": "hed/mobilenet_v2_skip/block4_1/expansion_1x1_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_1/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_1/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 51,
+   "name": "hed/mobilenet_v2_skip/block4_1/depthwise_conv2d/SeparableConv2d/depthwise",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_1/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_1/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     288,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 52,
+   "name": "hed/mobilenet_v2_skip/block4_1/depthwise_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_1/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_1/depthwise_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 53,
+   "name": "hed/mobilenet_v2_skip/block4_1/projection_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    48
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_1/depthwise_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_1/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 54,
+   "name": "hed/mobilenet_v2_skip/block4_1/add",
+   "type_id": 90,
+   "type": "add",
+   "output_dims": [
+    1,
+    32,
+    32,
+    48
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_1/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0",
+    "hed/mobilenet_v2_skip/block4_0/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_1/add:0"
+   ],
+   "params": {
+    "coeffs": [
+     1.0,
+     1.0
+    ],
+    "op": 2
+   }
+  },
+  {
+   "index": 55,
+   "name": "hed/mobilenet_v2_skip/block4_2/expansion_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_1/add:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_2/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 56,
+   "name": "hed/mobilenet_v2_skip/block4_2/expansion_1x1_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_2/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_2/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 57,
+   "name": "hed/mobilenet_v2_skip/block4_2/depthwise_conv2d/SeparableConv2d/depthwise",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_2/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_2/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     288,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 58,
+   "name": "hed/mobilenet_v2_skip/block4_2/depthwise_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_2/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_2/depthwise_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 59,
+   "name": "hed/mobilenet_v2_skip/block4_2/projection_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    48
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_2/depthwise_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_2/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 60,
+   "name": "hed/mobilenet_v2_skip/block4_2/add",
+   "type_id": 90,
+   "type": "add",
+   "output_dims": [
+    1,
+    32,
+    32,
+    48
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_2/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0",
+    "hed/mobilenet_v2_skip/block4_1/add:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_2/add:0"
+   ],
+   "params": {
+    "coeffs": [
+     1.0,
+     1.0
+    ],
+    "op": 2
+   }
+  },
+  {
+   "index": 61,
+   "name": "hed/mobilenet_v2_skip/block4_3/expansion_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_2/add:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_3/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 62,
+   "name": "hed/mobilenet_v2_skip/block4_3/expansion_1x1_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_3/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_3/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 63,
+   "name": "hed/mobilenet_v2_skip/block4_3/depthwise_conv2d/SeparableConv2d/depthwise",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_3/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_3/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     288,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 64,
+   "name": "hed/mobilenet_v2_skip/block4_3/depthwise_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_3/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_3/depthwise_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 65,
+   "name": "hed/mobilenet_v2_skip/block4_3/projection_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    48
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_3/depthwise_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_3/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 66,
+   "name": "hed/mobilenet_v2_skip/block4_3/add",
+   "type_id": 90,
+   "type": "add",
+   "output_dims": [
+    1,
+    32,
+    32,
+    48
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_3/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0",
+    "hed/mobilenet_v2_skip/block4_2/add:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block4_3/add:0"
+   ],
+   "params": {
+    "coeffs": [
+     1.0,
+     1.0
+    ],
+    "op": 2
+   }
+  },
+  {
+   "index": 67,
+   "name": "hed/mobilenet_v2_skip/block5_0/1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    64
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_3/add:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block5_0/1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 68,
+   "name": "hed/mobilenet_v2_skip/block5_0/expansion_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block4_3/add:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block5_0/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 69,
+   "name": "hed/mobilenet_v2_skip/block5_0/expansion_1x1_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block5_0/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block5_0/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 70,
+   "name": "hed/mobilenet_v2_skip/block5_0/depthwise_conv2d/SeparableConv2d/depthwise",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block5_0/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block5_0/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     288,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 71,
+   "name": "hed/mobilenet_v2_skip/block5_0/depthwise_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    32,
+    32,
+    288
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block5_0/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block5_0/depthwise_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 72,
+   "name": "hed/mobilenet_v2_skip/block5_0/projection_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    64
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block5_0/depthwise_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block5_0/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 73,
+   "name": "hed/mobilenet_v2_skip/block5_0/add",
+   "type_id": 90,
+   "type": "add",
+   "output_dims": [
+    1,
+    32,
+    32,
+    64
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block5_0/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0",
+    "hed/mobilenet_v2_skip/block5_0/1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block5_0/add:0"
+   ],
+   "params": {
+    "coeffs": [
+     1.0,
+     1.0
+    ],
+    "op": 2
+   }
+  },
+  {
+   "index": 74,
+   "name": "hed/mobilenet_v2_skip/block5_1/expansion_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    384
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block5_0/add:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block5_1/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 75,
+   "name": "hed/mobilenet_v2_skip/block5_1/expansion_1x1_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    32,
+    32,
+    384
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block5_1/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block5_1/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 76,
+   "name": "hed/mobilenet_v2_skip/block5_1/depthwise_conv2d/SeparableConv2d/depthwise",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    384
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block5_1/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block5_1/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     384,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 77,
+   "name": "hed/mobilenet_v2_skip/block5_1/depthwise_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    32,
+    32,
+    384
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block5_1/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block5_1/depthwise_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 78,
+   "name": "hed/mobilenet_v2_skip/block5_1/projection_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    64
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block5_1/depthwise_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block5_1/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 79,
+   "name": "hed/mobilenet_v2_skip/block5_1/add",
+   "type_id": 90,
+   "type": "add",
+   "output_dims": [
+    1,
+    32,
+    32,
+    64
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block5_1/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0",
+    "hed/mobilenet_v2_skip/block5_0/add:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block5_1/add:0"
+   ],
+   "params": {
+    "coeffs": [
+     1.0,
+     1.0
+    ],
+    "op": 2
+   }
+  },
+  {
+   "index": 80,
+   "name": "hed/mobilenet_v2_skip/block5_2/expansion_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    384
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block5_1/add:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block5_2/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 81,
+   "name": "hed/mobilenet_v2_skip/block5_2/expansion_1x1_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    32,
+    32,
+    384
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block5_2/expansion_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block5_2/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 82,
+   "name": "hed/mobilenet_v2_skip/block5_2/depthwise_conv2d/SeparableConv2d/depthwise",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    384
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block5_2/expansion_1x1_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block5_2/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     384,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 83,
+   "name": "hed/mobilenet_v2_skip/block5_2/depthwise_conv2d/Relu6",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    32,
+    32,
+    384
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block5_2/depthwise_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block5_2/depthwise_conv2d/Relu6:0"
+   ],
+   "params": {
+    "activation": "relu6",
+    "extra": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ]
+   }
+  },
+  {
+   "index": 84,
+   "name": "hed/mobilenet_v2_skip/block5_2/projection_1x1_conv2d/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    32,
+    32,
+    64
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block5_2/depthwise_conv2d/Relu6:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block5_2/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 85,
+   "name": "hed/mobilenet_v2_skip/block5_2/add",
+   "type_id": 90,
+   "type": "add",
+   "output_dims": [
+    1,
+    32,
+    32,
+    64
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block5_2/projection_1x1_conv2d/batch_normalization/FusedBatchNorm:0",
+    "hed/mobilenet_v2_skip/block5_1/add:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/block5_2/add:0"
+   ],
+   "params": {
+    "coeffs": [
+     1.0,
+     1.0
+    ],
+    "op": 2
+   }
+  },
+  {
+   "index": 86,
+   "name": "hed/mobilenet_v2_skip/conv2d_transpose/conv2d_transpose",
+   "type_id": 70,
+   "type": "deconv2d",
+   "output_dims": [
+    1,
+    64,
+    64,
+    24
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/block5_2/add:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/conv2d_transpose/BiasAdd:0"
+   ],
+   "params": {
+    "kernel": [
+     4,
+     4
+    ],
+    "stride": [
+     2,
+     2
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 87,
+   "name": "hed/mobilenet_v2_skip/concat",
+   "type_id": 30,
+   "type": "concat",
+   "output_dims": [
+    1,
+    64,
+    64,
+    48
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/conv2d_transpose/BiasAdd:0",
+    "hed/mobilenet_v2_skip/block3_2/add:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/concat:0"
+   ],
+   "params": {
+    "axis": 3
+   }
+  },
+  {
+   "index": 88,
+   "name": "hed/mobilenet_v2_skip/conv2d/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    64,
+    64,
+    24
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/concat:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/batch_normalization/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 89,
+   "name": "hed/mobilenet_v2_skip/conv2d_transpose_1/conv2d_transpose",
+   "type_id": 70,
+   "type": "deconv2d",
+   "output_dims": [
+    1,
+    128,
+    128,
+    12
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/batch_normalization/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/conv2d_transpose_1/BiasAdd:0"
+   ],
+   "params": {
+    "kernel": [
+     4,
+     4
+    ],
+    "stride": [
+     2,
+     2
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 90,
+   "name": "hed/mobilenet_v2_skip/concat_1",
+   "type_id": 30,
+   "type": "concat",
+   "output_dims": [
+    1,
+    128,
+    128,
+    24
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/conv2d_transpose_1/BiasAdd:0",
+    "hed/mobilenet_v2_skip/block2_1/add:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/concat_1:0"
+   ],
+   "params": {
+    "axis": 3
+   }
+  },
+  {
+   "index": 91,
+   "name": "hed/mobilenet_v2_skip/conv2d_1/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    128,
+    128,
+    12
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/concat_1:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/batch_normalization_1/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 92,
+   "name": "hed/mobilenet_v2_skip/conv2d_transpose_2/conv2d_transpose",
+   "type_id": 70,
+   "type": "deconv2d",
+   "output_dims": [
+    1,
+    256,
+    256,
+    6
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/batch_normalization_1/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/conv2d_transpose_2/BiasAdd:0"
+   ],
+   "params": {
+    "kernel": [
+     4,
+     4
+    ],
+    "stride": [
+     2,
+     2
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 93,
+   "name": "hed/mobilenet_v2_skip/concat_2",
+   "type_id": 30,
+   "type": "concat",
+   "output_dims": [
+    1,
+    256,
+    256,
+    12
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/conv2d_transpose_2/BiasAdd:0",
+    "hed/mobilenet_v2_skip/block1_0/add:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/concat_2:0"
+   ],
+   "params": {
+    "axis": 3
+   }
+  },
+  {
+   "index": 94,
+   "name": "hed/mobilenet_v2_skip/conv2d_2/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    256,
+    256,
+    6
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/concat_2:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/batch_normalization_2/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 95,
+   "name": "hed/mobilenet_v2_skip/conv2d_transpose_3/conv2d_transpose",
+   "type_id": 70,
+   "type": "deconv2d",
+   "output_dims": [
+    1,
+    512,
+    512,
+    3
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/batch_normalization_2/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/conv2d_transpose_3/BiasAdd:0"
+   ],
+   "params": {
+    "kernel": [
+     4,
+     4
+    ],
+    "stride": [
+     2,
+     2
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 96,
+   "name": "hed/mobilenet_v2_skip/concat_3",
+   "type_id": 30,
+   "type": "concat",
+   "output_dims": [
+    1,
+    512,
+    512,
+    9
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/conv2d_transpose_3/BiasAdd:0",
+    "hed/mobilenet_v2_skip/block0_1/conv2d/Relu:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/concat_3:0"
+   ],
+   "params": {
+    "axis": 3
+   }
+  },
+  {
+   "index": 97,
+   "name": "hed/mobilenet_v2_skip/conv2d_3/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    512,
+    512,
+    3
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/concat_3:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/batch_normalization_3/FusedBatchNorm:0"
+   ],
+   "params": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     1,
+     1
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 98,
+   "name": "hed/mobilenet_v2_skip/conv2d_4/Conv2D",
+   "type_id": 40,
+   "type": "conv2d",
+   "output_dims": [
+    1,
+    512,
+    512,
+    1
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/batch_normalization_3/FusedBatchNorm:0"
+   ],
+   "outputs": [
+    "hed/mobilenet_v2_skip/conv2d_4/BiasAdd:0"
+   ],
+   "params": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": [
+     1,
+     1
+    ],
+    "pad": [
+     0,
+     0
+    ],
+    "dilation": [
+     1,
+     1
+    ],
+    "group": 1,
+    "pad_type": 0,
+    "out_channels": 3
+   }
+  },
+  {
+   "index": 99,
+   "name": "Sigmoid",
+   "type_id": 150,
+   "type": "activation",
+   "output_dims": [
+    1,
+    512,
+    512,
+    1
+   ],
+   "inputs": [
+    "hed/mobilenet_v2_skip/conv2d_4/BiasAdd:0"
+   ],
+   "outputs": [
+    "img_output:0"
+   ],
+   "params": {
+    "activation": "sigmoid",
+    "extra": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  }
+ ],
+ "layer_types": {
+  "60": "input",
+  "211": "const",
+  "40": "conv2d",
+  "70": "deconv2d",
+  "150": "activation",
+  "90": "add",
+  "30": "concat",
+  "95": "elementwise_binary"
+ }
+}

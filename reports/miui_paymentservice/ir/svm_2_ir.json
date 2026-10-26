@@ -1,0 +1,80 @@
+{
+ "file": "assets/Digital_OCR_svm_2.model",
+ "format": "libsvm_text",
+ "header": {
+  "svm_type": "c_svc",
+  "kernel_type": "rbf",
+  "gamma": 0.5,
+  "degree": 3.0,
+  "coef0": 0.0,
+  "nr_class": 2,
+  "total_sv": 545,
+  "label": [
+   0,
+   1
+  ],
+  "nr_sv": [
+   295,
+   250
+  ]
+ },
+ "tensors": {
+  "sv": {
+   "shape": [
+    545,
+    144
+   ],
+   "dtype": "float64",
+   "note": "dense 144-dim rows; libsvm stores sparse idx:val pairs, 142 max index used"
+  },
+  "sv_coef": {
+   "shape": [
+    545,
+    1
+   ],
+   "dtype": "float64"
+  },
+  "rho": {
+   "shape": [
+    1
+   ],
+   "dtype": "float64",
+   "values": [
+    3.24834
+   ]
+  },
+  "probA": {
+   "shape": [
+    1
+   ],
+   "dtype": "float64",
+   "values": [
+    -3.67793
+   ]
+  },
+  "probB": {
+   "shape": [
+    1
+   ],
+   "dtype": "float64",
+   "values": [
+    0.574236
+   ]
+  },
+  "start": {
+   "shape": [
+    2
+   ],
+   "dtype": "int64",
+   "values": [
+    0,
+    295
+   ]
+  }
+ },
+ "io": {
+  "input": "float32[144] HOG (libsvm node indices 1..144)",
+  "output": "float64[2] class probabilities (labels [0, 1])"
+ },
+ "decision_values_max_abs": 32.0
+}

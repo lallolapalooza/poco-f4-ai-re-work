@@ -1,0 +1,122 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libfacedetectcontext.so
+==============================================================================
+size        : 191728 bytes (0.18 MiB)
+sha256      : 6238b6122fb3b7520b7f6f36a106553677f814b7162fe5fb4d0124a51675bda0
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0xa820   imagebase: 0x0
+build id    : 95e8e27e603b56302b1b4291e952d055145511b2
+android     : SDK 21, NDK r20b, build 5948944
+soname      : libfacedetectcontext.so
+needed      : libykit.so, libdaenerys.so, libyuv.so, libffmpeg.so, libprotobuf-lite.so, libandroid.so, liblog.so, libEGL.so, libOpenSLES.so, libGLESv2.so, libjnigraphics.so, libz.so, libksaudioprocesslib.so, libturbojpeg.so, libm.so, libc++_shared.so, libdl.so, libc.so
+parser      : lief
+counts      : 100 exports, 151 imports, 26 JNI, 26 sections, 8 segments
+symtab/dynsym: 0 / 261
+
+Sections (26)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        1840       0x228
+  .gnu.hash              GNU_HASH         A      0x958        932        0x958
+  .dynsym                DYNSYM           A      0xd00        6264       0xd00
+  .dynstr                STRTAB           A      0x2578       13231      0x2578
+  .gnu.version           GNU_VERSYM       A      0x5928       522        0x5928
+  .gnu.version_r         GNU_VERNEED      A      0x5b38       32         0x5b38
+  .rela.dyn              RELA             A      0x5b58       14136      0x5b58
+  .rela.plt              RELA             AI     0x9290       3288       0x9290
+  .plt                   PROGBITS         AX     0x9f70       2224       0x9f70
+  .text                  PROGBITS         AX     0xa820       102544     0xa820
+  .rodata                PROGBITS         A      0x238b0      7855       0x238b0
+  .eh_frame_hdr          PROGBITS         A      0x25760      3588       0x25760
+  .eh_frame              PROGBITS         A      0x26568      15864      0x26568
+  .gcc_except_table      PROGBITS         A      0x2a360      7288       0x2a360
+  .note.android.ident    NOTE             A      0x2bfd8      152        0x2bfd8
+  .init_array            INIT_ARRAY       WA     0x3c3c0      8          0x2c3c0
+  .fini_array            FINI_ARRAY       WA     0x3c3c8      16         0x2c3c8
+  .data.rel.ro           PROGBITS         WA     0x3c3d8      5048       0x2c3d8
+  .dynamic               DYNAMIC          WA     0x3d790      752        0x2d790
+  .got                   PROGBITS         WA     0x3da80      1408       0x2da80
+  .data                  PROGBITS         WA     0x3e000      1128       0x2e000
+  .bss                   NOBITS           WA     0x3e470      48         0x2e468
+  .comment               PROGBITS         MS     0x0          264        0x2e468
+  .shstrtab              STRTAB           -      0x0          251        0x2e570
+
+JNI entry points (26)
+  0x183b4        252        com.kwai.camerasdk.face.FaceDetectorContext.nativeInitSensorManager
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeInitSensorManager
+  0x184b0        1632       com.kwai.camerasdk.face.FaceDetectorContext.nativeInit
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeInit
+  0x18b10        188        com.kwai.camerasdk.face.FaceDetectorContext.nativeDestroy
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeDestroy
+  0x18bcc        200        com.kwai.camerasdk.face.FaceDetectorContext.nativeSetType
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeSetType
+  0x18c94        200        com.kwai.camerasdk.face.FaceDetectorContext.nativeGetType
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeGetType
+  0x18d5c        204        com.kwai.camerasdk.face.FaceDetectorContext.nativeEnableLoadAssetFunc
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeEnableLoadAssetFunc
+  0x18e28        304        com.kwai.camerasdk.face.FaceDetectorContext.nativeSetData
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeSetData
+  0x18f58        200        com.kwai.camerasdk.utils.SensorUtils.nativeSensorUpdateQuaternion
+      Java_com_kwai_camerasdk_utils_SensorUtils_nativeSensorUpdateQuaternion
+  0x19020        196        com.kwai.camerasdk.utils.SensorUtils.nativeSensorUpdateRotationRate
+      Java_com_kwai_camerasdk_utils_SensorUtils_nativeSensorUpdateRotationRate
+  0x190e4        196        com.kwai.camerasdk.utils.SensorUtils.nativeSensorUpdateRotation
+      Java_com_kwai_camerasdk_utils_SensorUtils_nativeSensorUpdateRotation
+  0x191a8        196        com.kwai.camerasdk.utils.SensorUtils.nativeSensorUpdateAcceleration
+      Java_com_kwai_camerasdk_utils_SensorUtils_nativeSensorUpdateAcceleration
+  0x1926c        192        com.kwai.camerasdk.utils.SensorUtils.nativeGetSensorOrientation90
+      Java_com_kwai_camerasdk_utils_SensorUtils_nativeGetSensorOrientation90
+  0x1932c        196        com.kwai.camerasdk.utils.SensorUtils.nativeSensorUpdateOrientation
+      Java_com_kwai_camerasdk_utils_SensorUtils_nativeSensorUpdateOrientation
+  0x193f0        892        com.kwai.camerasdk.face.FaceDetectorContext.nativeGetFaceDetectConfig
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeGetFaceDetectConfig
+  0x1976c        1012       com.kwai.camerasdk.face.FaceDetectorContext.nativeSetFaceDetectConfig
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeSetFaceDetectConfig
+  0x19b60        800        com.kwai.camerasdk.face.FaceDetectorContext.nativeSetFaceDetectEnabled
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeSetFaceDetectEnabled
+  0x19e80        796        com.kwai.camerasdk.face.FaceDetectorContext.nativeSetEnableAdaptiveMinFaceSize
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeSetEnableAdaptiveMinFaceSize
+  0x1a19c        1312       com.kwai.camerasdk.face.FaceDetectorContext.nativeDetectFacesFromFrame
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeDetectFacesFromFrame
+  0x1a814        200        com.kwai.camerasdk.face.FaceDetectorContext.nativeIgnoreSensorUpdate
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeIgnoreSensorUpdate
+  0x1a8dc        228        com.kwai.camerasdk.face.FaceDetectorContext.nativeSetTestDetectMode
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeSetTestDetectMode
+  0x1a9c0        228        com.kwai.camerasdk.face.FaceDetectorContext.nativeSetOverrideFaceDetectMode
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeSetOverrideFaceDetectMode
+  0x1aaa4        192        com.kwai.camerasdk.face.FaceDetectorContext.nativeClearOverrideFaceDetectMode
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeClearOverrideFaceDetectMode
+  0x1ab64        448        com.kwai.camerasdk.face.FaceDetectorContext.nativeSetFirstFrameValid
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeSetFirstFrameValid
+  0x1ad24        528        com.kwai.camerasdk.face.FaceDetectorContext.nativeSetBusinessAndABTestParam
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeSetBusinessAndABTestParam
+  0x1af34        740        com.kwai.camerasdk.face.FaceDetectorContext.nativePrepare
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativePrepare
+  0x1b218        192        com.kwai.camerasdk.face.FaceDetectorContext.nativeResetVideoDetector
+      Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeResetVideoDetector
+
+AI-relevant strings (83388 bytes scanned in allocated data sections)
+  [face] 34 unique (first 20)
+    0x000025d5 .dynstr    _ZN6google8protobuf5Arena15AllocateAlignedEPKSt9type_infom
+    0x0000323e .dynstr    _ZN5ycnn29YCNNModel12getLandmarksEPNS_15KSFaceDetectOutE
+    0x00003318 .dynstr    _ZN5ycnn29YCNNModel17getLandmarksParamEv
+    0x00003341 .dynstr    _ZN5ycnn29YCNNModel17setLandmarksParamENS_16KSLandmarksParamE
+    0x0000337f .dynstr    _ZN5ycnn29YCNNModel19setLandmarksParamExENS_18KSLandmarksParamExE
+    0x00003581 .dynstr    _ZN8kuaishou5model12FaceLandmarkC1Ev
+    0x0000368a .dynstr    Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeClearOverrideFaceDetectMode
+    0x000036dd .dynstr    Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeDestroy
+    0x0000371c .dynstr    Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeDetectFacesFromFrame
+    0x00003768 .dynstr    Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeEnableLoadAssetFunc
+    0x000037b3 .dynstr    Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeGetFaceDetectConfig
+    0x000037fe .dynstr    Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeGetType
+    0x0000383d .dynstr    Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeIgnoreSensorUpdate
+    0x00003887 .dynstr    Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeInit
+    0x000038c3 .dynstr    Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeInitSensorManager
+    0x0000390c .dynstr    Java_com_kwai_camerasdk_face_FaceDetectorContext_nativePrepare
+    0x0000394b .dynstr    Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeResetVideoDetector
+    0x00003995 .dynstr    Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeSetBusinessAndABTestParam
+    0x000039e6 .dynstr    Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeSetData
+    0x00003a25 .dynstr    Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeSetEnableAdaptiveMinFaceSize
+    ... 14 more
+
+JSON written to /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/native/libfacedetectcontext.so.json

@@ -1,0 +1,25 @@
+# APK identity
+apk: /run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.kwai.video_33/partner-com.kwai.video_33.apk
+a0050c589bf6d748e2c721c86e5e0f5e254e594aa88822fe304810af9611f98e  /run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.kwai.video_33/partner-com.kwai.video_33.apk
+-rw-r--r-- 1 asdf asdf 80706484 Dec 31  2008 /run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.kwai.video_33/partner-com.kwai.video_33.apk
+
+# library sha256 (extracted lib/arm64-v8a)
+6ef763ecb8a947a943707e2685c7025c2814868e930f3a505712964c228821bb  /tmp/kwai_libs/lib/arm64-v8a/libFaceMagic.so
+d18be8987e734bb2448cb7ef9c94bb4c797bf8a293b14dff43879b97d6c6e734  /tmp/kwai_libs/lib/arm64-v8a/libvisionengine.so
+468b928d18313c85cca82c4929ff2cf1c2a5182e88abfb92a6c9dda8f85fbdd9  /tmp/kwai_libs/lib/arm64-v8a/libskwai.so
+f0723a105fa946512501e048f08d6dbed1584231f6a6c399989a59174d558b69  /tmp/kwai_libs/lib/arm64-v8a/libykit.so
+dac55d66099e5bdc9eea1e441f2d0e4a14486947349988d88a26d6a123c524df  /tmp/kwai_libs/lib/arm64-v8a/libykit_module.so
+41693ab1572190d6dbafd92dbf451052664739986d528020544f55c2e11584ee  /tmp/kwai_libs/lib/arm64-v8a/libykit_core_plugin.so
+6238b6122fb3b7520b7f6f36a106553677f814b7162fe5fb4d0124a51675bda0  /tmp/kwai_libs/lib/arm64-v8a/libfacedetectcontext.so
+6ef8898d73f366db4ccf2d94738b916a67fba685f5d3941134a79b1f7911167f  /tmp/kwai_libs/lib/arm64-v8a/libtensorflow-lite.so
+9efd425f05cabb8774ce94cd7118fbf96b1a7d2643ffcafe481ef7cc81f7fb45  /tmp/kwai_libs/lib/arm64-v8a/libgorgeous.so
+727d44695b971ae7add4bb931b480b149159316587096fc557a3c3241b9f204c  /tmp/kwai_libs/lib/arm64-v8a/libfaceless-plugin.so
+39644f5eead40131febc35042bba29d9cff48c56d7b6246d663a29e04a1b14ab  /tmp/kwai_libs/lib/arm64-v8a/libksvisionengineplugin.so
+
+# beauty asset sha256
+832f73e1d47c55627dadb03ea7820b07d6198703e0667d67f7284c95554bf9f1  /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_video/models/default_enhance_lut.png
+5e6bbdc23a692149908c01f606d4115216104d0c9f5ba51344cdf3454a32c0fd  /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_video/models/fm_builtin_face_mask.jpg
+
+# library sha256 added by the frame-path patch (extracted from the same APK, lib/arm64-v8a)
+3b0758bf5b7343f38e5ba7b3746896f13dbb3821e2b5bdd8752738f733b146ee  /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/kwpatch/libs/libdaenerys.so
+add716bd946fb63c46cd6e087028113e0dc5441cd8467f264fa1ae3f1372d305  /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/kwpatch/libs/libwesteros.so

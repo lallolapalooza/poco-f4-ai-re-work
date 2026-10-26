@@ -1,0 +1,126 @@
+# Command transcript (MIUISecurityCenter AI analysis)
+
+PY=/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python
+WS=/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work
+TOOLS=$WS/tools
+APK="/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/MIUISecurityCenterGlobal/MIUISecurityCenterGlobal.apk"
+R=$WS/reports/miui_securitycenter
+
+# 1. inventory + extraction
+$PY $TOOLS/apk_inventory.py "$APK" --out $R/inventory --extract-models --extract-libs \
+    --max-file-mb 50 --max-total-mb 90
+# -> inventory/inventory.md|json, inventory/models/assets/model,
+#    inventory/libs/lib/arm64-v8a/libtensorflowlite_jni.so
+
+# 2. feature strings
+$PY $TOOLS/strings_dex.py "$APK" \
+    --regex 'assets/model|AiSubTitle|aisubtitle|ultraclear|beauty_face|redmi_performance|mibrain|tflite|tensorflow' \
+    --out $R/evidence/strings_ai.jsonl        # evidence/strings_ai.jsonl
+
+# 3. class discovery
+$PY $TOOLS/dex_find.py "$APK" --regex 'com\.miui\.gamebooster\.' --classes-only
+$PY $TOOLS/dex_find.py "$APK" --regex 'AiSub|Ultraclear|VideoBox|Privacy|Ultra' --classes-only
+
+# 4. custom xref scanners (written for this task; verdict-correct instruction decoding)
+$PY $R/evidence/tools/dex_strxref.py "$APK" \
+    --regex 'AiSubTitle|aisubtitle|ultraclear|beauty_face|redmi_performance_mode|performance_mode|^model$|assets/model' \
+    --out $R/evidence/xref_features_clean.jsonl
+$PY $R/evidence/tools/dex_strxref.py "$APK" --regex '^dict$'          # ah.c, ah.g
+$PY $R/evidence/tools/dex_strxref.py "$APK" --regex '^(phish|resource\.zip|SmsEngineResource)$'
+$PY $R/evidence/tools/dex_invokexref.py "$APK" --class-regex 'org/tensorflow/lite' \
+    --out $R/evidence/xref_tflite_clean.jsonl     # only a9.a, a9.c, d9.a call TFLite
+$PY $R/evidence/tools/dex_invokexref.py "$APK" --class-regex '^Lah/' \
+    --out $R/evidence/xref_ah_clean.jsonl         # j2.a -> ah.a ; ch.a/ch.b -> ah.b
+$PY $R/evidence/tools/dex_invokexref.py "$APK" --class-regex '^Lj2/a;$' \
+    --out $R/evidence/xref_j2a_callers.jsonl      # SmartSmsFilterPolicy
+$PY $R/evidence/tools/dex_invokexref.py "$APK" --class-regex 'SmartSmsFilterPolicy' \
+    --out $R/evidence/xref_policy.jsonl
+$PY $R/evidence/tools/dex_invokexref.py "$APK" --class-regex '^(La9|Ld9)/' \
+    --out $R/evidence/xref_a9d9_callers.jsonl
+
+# 5. decompilation (jadx single-class; output copied into sources/classes + index.md)
+$PY $TOOLS/decompile_classes.py "$APK" \
+    --regex '^(ah\.c|ah\.d|q7\.a|h7\.c0|f5\.f|p7\.b|n7\.a|l5\.e|l5\.h|v5\.a|ke\.e)$' \
+    --out $R/sources --max 12 --timeout 150
+$PY $TOOLS/decompile_classes.py "$APK" \
+    --regex '^(j2\.a|ah\.a|ah\.b|ah\.e|ah\.f|ah\.h|ah\.i|l2\.a\$a|dh\.a|dh\.e|dh\.g|dh\.c|dh\.h|dh\.i|a9\.a|a9\.c|d9\.a|ch\.a|ch\.b)$' \
+    --out /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/sc_dh --max 19 --timeout 200
+$PY $TOOLS/decompile_classes.py "$APK" \
+    --regex '^(com\.miui\.antispam\.policy\.SmartSmsFilterPolicy|dh\.f|dh\.j|dh\.b|dh\.d|ch\.d|ah\.g|l2\.a)$' \
+    --out /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/sc_dh2 --max 9 --timeout 200
+$PY $TOOLS/decompile_classes.py "$APK" \
+    --regex '^(c9\.a|a9\.b|org\.tensorflow\.lite\.b|dh\.b|dh\.j|ah\.f)$' \
+    --out /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/sc_dh3 --max 6 --timeout 200
+$PY $TOOLS/decompile_classes.py "$APK" \
+    --regex '^(bh\.a|bh\.b|ch\.c|ch\.e)$' --out /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/sc_dh4 --max 4 --timeout 240
+
+# 6. format identification on the asset
+$PY $TOOLS/carve_models.py $R/models/assets_model --types tflite,zip,caffe,flatbuffer \
+    --scan-flatbuffers                              # -> no model candidates found
+$PY -c 'entropy/zlib-ratio report'                  # -> evidence/entropy_model.txt
+
+# 7. decoders (this task)
+$PY $R/ir/parse_model.py $R/models/assets_model --json $R/ir/model_ir.json \
+    --dump-weights $R/ir/weights.npz                # -> evidence/parse_model.txt (exact EOF)
+$PY $R/ir/parse_dict.py  $R/models/assets_dict  --json $R/ir/dict_ir.json
+                                                    # -> evidence/parse_dict.txt (exact EOF)
+
+# 8. native
+$PY $TOOLS/elf_info.py    $R/inventory/libs/lib/arm64-v8a/libtensorflowlite_jni.so \
+    --json $R/native/elf_info.json                  # -> native/elf_info.txt
+$PY $TOOLS/disasm_elf.py  $R/inventory/libs/lib/arm64-v8a/libtensorflowlite_jni.so --list-jni
+                                                    # -> native/jni_list.txt (59 Java_* exports)
+strings -n 8 libtensorflowlite_jni.so | grep -E 'NNAPI|XNNPACK|Flex|Select TF' \
+                                                    # -> native/delegate_strings.txt
+
+# 9. reimplementation
+$PY $R/reimpl/model.py $R/models/assets_model > $R/reimpl/verify.txt   # exit 0
+
+# 10. schema validation
+python3 -c "import json,jsonschema; jsonschema.validate(json.load(open('findings.json')), json.load(open('SCHEMA.json')))"
+                                                    # -> evidence/validate.txt
+
+# --- pipeline patch (SMS entry trace, new-engine plumbing, delegated boundary) ---
+
+# 11. entry-point discovery: what actually calls the policy chain / PDU decode / subtitle+vtb callers
+$PY $TOOLS/dex_find.py  "$APK" --regex 'antispam' --classes-only         # policy/service/provider classes
+$PY $TOOLS/strings_dex.py "$APK" --regex 'SmsReceiver|SMS_RECEIVED|createFromPdu|pdus|AntiSpamService' --unique
+$PY $R/evidence/tools/dex_strxref.py     "$APK" --regex '^handleData$|^sms_receiver_action$|GetResourceZipFile'
+$PY $R/evidence/tools/dex_strxref.py     "$APK" --regex '^pdus$|SmsReceiver check is charge sms|createFromPdu'
+$PY $R/evidence/tools/dex_strxref.py     "$APK" --regex 'sms_judge|call_judge|service_num_judge' \
+    --out $R/evidence/xref_sms_judge.jsonl
+$PY $R/evidence/tools/dex_strxref.py     "$APK" --regex '^0$|^off$' \
+    --out $R/evidence/xref_const_0.jsonl              # StatManager.PARAMS_SWITCH_OFF inlined as "0"
+$PY $R/evidence/tools/dex_invokexref.py  "$APK" --class-regex '^Lcom/miui/antispam/policy/a;' \
+    --out $R/evidence/xref_policy_dispatch.jsonl
+$PY $R/evidence/tools/dex_invokexref.py  "$APK" --class-regex '^Ld2/b;' \
+    --out $R/evidence/xref_policymanager.jsonl
+$PY $R/evidence/tools/dex_invokexref.py  "$APK" --class-regex '^Lq7/a;' \
+    --out $R/evidence/xref_aisubtitle_callers.jsonl
+$PY $R/evidence/tools/dex_invokexref.py  "$APK" --class-regex '^Lf5/f;' \
+    --out $R/evidence/xref_vtb_callers.jsonl
+
+# 12. new single-class decompilations (all copied into sources/classes, index.md updated)
+$PY $TOOLS/decompile_classes.py "$APK" \
+    --regex '^(com\.miui\.antispam\.service\.AntiSpamService|com\.miui\.antispam\.policy\.a|com\.miui\.antispam\.policy\.b|com\.miui\.antispam\.policy\.a\$a|com\.miui\.antispam\.policy\.a\$b|j2\.c|j2\.b|j2\.e)$' \
+    --out $R/sources2 --max 8 --timeout 200
+$PY $TOOLS/decompile_classes.py "$APK" --regex '^(d2\.b|d2\.a|m2\.a|j2\.f|j2\.d)$' --out $R/sources3 --max 5 --timeout 200
+$PY $TOOLS/decompile_classes.py "$APK" --regex '^com\.miui\.antispam\.db\.AntiSpamProvider$' --out $R/sources4 --max 1 --timeout 200
+$PY $TOOLS/decompile_classes.py "$APK" --regex '^(b9\.a|b9\.b|z8\.a)$' --out $R/sources5 --max 3 --timeout 200
+$PY $TOOLS/decompile_classes.py "$APK" --regex '^o2\.f$' --out $R/sources6 --max 1 --timeout 200
+$PY $TOOLS/decompile_classes.py "$APK" --regex '^f4\.z$' --out $R/sources7 --max 1 --timeout 200
+
+# 13. manifest receiver/service/provider inventory (no SMS receiver in this APK)
+unzip -p "$APK" AndroidManifest.xml > /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/sc_manifest.bin
+$PY -c 'from androguard.core.axml import AXMLPrinter; open("/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/sc_manifest.xml","w").write(AXMLPrinter(open("/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/sc_manifest.bin","rb").read()).get_xml().decode())'
+grep -n -iE 'receiver|antispam|SMS' /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/sc_manifest.xml
+
+# 14. TFLite JNI run thunk disassembly (only model-executing native code)
+$PY $TOOLS/disasm_elf.py $R/inventory/libs/lib/arm64-v8a/libtensorflowlite_jni.so \
+    --symbol Java_org_tensorflow_lite_NativeInterpreterWrapper_run \
+    --out $R/native/tflite_run_jni.s
+
+# 15. deliverables written/updated
+#   $R/PIPELINE.md                        (9-section contract, P1..P7)
+#   $R/report.md sections 11.1..11.7      (appended; §6 kept, corrected in §11.1)
+#   $R/findings.json  key "data_pipelines" (7 entries) + feature entrypoints/unknowns

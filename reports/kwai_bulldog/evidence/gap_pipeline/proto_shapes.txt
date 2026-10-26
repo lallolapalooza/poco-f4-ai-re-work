@@ -1,0 +1,92 @@
+# Serialized structures on the bulldog vision path
+# Java: com.kwai.camerasdk protobuf-lite classes in classes15.dex (decompiled -> sources/classes/mo.*.java)
+# Native: kuaishou.model.* generated protobuf-lite in libdaenerys.so / libfacedetectcontext.so
+
+## 1. kuaishou.model.FaceData  ==  mo.g0
+Wire layout confirmed twice, independently:
+  a) Java  sources/classes/mo.g0.java  writeTo()/getSerializedSize()/mergeFrom()
+  b) native _ZNK8kuaishou5model8FaceData24SerializeWithCachedSizesEPN6google8protobuf2io17CodedOutputStreamE
+     libdaenerys.so 0x179520 -> WireFormatLite::WriteFloat(1..3), WriteMessage(4..7), then tag 8 enum
+tag  type            Java field -> accessor            name (native schema / proto)
+1    float           -                                  unknown (float; name not resolvable, see §6)
+2    float           -                                  unknown (float)
+3    float           f78636c  getConfidence()           confidence
+4    message Rect    e1       e()                       rect
+5    message FacePose n0      d()                       pose
+6    message FaceLandmark m0  b()                       landmark
+7    message Rect    e1       c()                       original_rect
+8    enum Gender     f78641h (default kGenderUnknown)   gender
+
+## 2. kuaishou.model.Rect == mo.e1 (compiled from Rect.java)
+1..4 float  (left, top, width, height order inferred from use sites; types confirmed)
+Symbols: mo.e1 0x? ; Java writeTo lines 231-243.
+
+## 3. kuaishou.model.FacePose == mo.n0 (compiled from FacePose.java)
+1 float, 2 float, 3 float  -> yaw, pitch, roll
+(native symbol names: _ZN8kuaishou5model8FacePose15kYawFieldNumberE 0x35967,
+ kPitch 0x359f4, kRoll 0x359c5)
+
+## 4. kuaishou.model.FaceLandmark == mo.m0 (compiled from FaceLandmark.java)
+1 repeated Point points
+2 bytes point_bytes
+3 bytes points_other
+4 repeated Point extra_points
+5 bytes extra_point_bytes
+6 bytes flipped_point_bytes
+(Java writeTo mo.m0.java:279-296; native kPointsFieldNumber 0x2d2c2, kPointBytes 0x2d352,
+ kPointsOther 0x2d38c, kExtraPointBytes 0x2d42e, kFlippedPointBytes 0x2d46d)
+Java-side flipped points are produced by the native detector (flipped_point_bytes), so mirroring is
+already resolved before the bytes reach Java.
+
+## 5. kuaishou.model.FaceDetectConfig == mo.h0 (compiled from FaceDetectConfig.java)
+1  enum FaceDetectMode (mo.j0)   0..6, default kNormal
+2  float
+3  float
+4  float
+5..9  bool
+10 string  paramex         (native kParamexFieldNumber 0x27131)
+11..14 bool
+15 int32
+Native field-number symbols (libdaenerys): kMode 0x270f9, kParamex 0x27131, kUseMask 0x2716c,
+ kInterval 0x271a7, kDetectEar 0x27241, kMinFaceSize 0x2727e, kUseForehead 0x272bd,
+ kUseRobust3D 0x272fc, kDetectTongue 0x2733b, kDetectEyeball 0x2737b, kUseAdjustMode 0x273bc,
+ kUseExtraPoint 0x273fd, kOneFaceTracking 0x274a9, kUseOutlineSmooth 0x274ec,
+ kFaceConfidenceThreshold 0x27530.
+Exact tag<->name binding for the 3 floats / 9 bools is inferred (order of the symbols does not
+encode field numbers); the wire types per tag are confirmed from mo.h0.writeTo.
+
+## 6. FaceDetectMode == mo.j0 (FaceDetectMode.java)
+kNormal 0, kTracking 1, kTrackingFast 3, kTrackingRobust 4, kDetectTrack 5, kTrackingRect 6
+libFaceMagic exposes the matching detector modes as
+"FaceDataWithFastMode" 0x587b77, "FaceDataWithRobustMode" 0x587b8d,
+"FaceDataWithRobust3DMode" 0x587c69, "FaceDataWithImageMode" 0x587de7 (libFaceMagic.so .rodata).
+
+## 7. FaceDetectType / FaceDetectorName / FaceDetectInitType (mo.k0 / mo.l0 / mo.i0)
+FaceDetectType:  kYcnnFaceDetect 0
+FaceDetectorName: kVideoDetector 0, kImageDetector 1
+FaceDetectInitType: kFaceDetectInitAuto 0, kSync 1, kAsync 2
+
+## 8. kuaishou.model.VideoFrameAttributes  (returned by VideoFrame.getSerializedAttributes()()[B)
+Fields present as generated symbols in libdaenerys.so:
+  fov 0x30abe, dump 0x30b36, faces 0x30b72, image_key 0x30baf, metadata 0x30bef,
+  source_id 0x30c2f, user_info 0x30c6f, is_ar_frame 0x30d11, transform 0x30d52,
+  color_space 0x30d93, is_captured 0x30dd5, frame_source 0x30e17, undroppable 0x30e5a,
+  is_first_frame 0x30e9d, system_ar_data 0x30ee1, color_primaries 0x30f25,
+  frame_number_key 0x30f6b, camera_session_id 0x31020, from_front_camera 0x31067,
+  extract_frame_type 0x310ae, should_extract_frame 0x310f6, bracket_image_context 0x31140,
+  color_transfer_function 0x3118b, display_layout_override 0x311d8
+Type names: "kuaishou.model.VideoFrameAttributes" 0x1f2164, plus
+ "kuaishou.model.VideoFrameAttributes.extract_frame_characteristic" 0x1f2123.
+
+### Transform (kuaishou.model.Transform) - the only rotation/crop carrier in the frame metadata
+  mirror 0x3624e, rotation 0x36280, crop_x_frac 0x3630a, crop_y_frac 0x3633f,
+  crop_width_frac 0x3641b, crop_height_frac 0x36454
+Device/camera orientation are separate keys in the camera config: "device_orientation" 0x1f32a7,
+"camera_orientation" 0x1f32ba.
+
+## 9. Open items
+- tags 1 and 2 of FaceData remain unnamed even though native symbols
+  _ZN8kuaishou5model8FaceData17kIndexFieldNumberE 0x35651 and
+  ...19kTrackIdFieldNumberE 0x356b2 exist. No int32/int64 field is serialized by this message
+  version, so those constants are stale or belong to a schema revision not used on this path.
+  Marked unknown in report.md / findings.json.

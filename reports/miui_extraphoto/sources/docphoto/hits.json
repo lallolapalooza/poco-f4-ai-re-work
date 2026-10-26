@@ -1,0 +1,443 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/ExtraPhotoGlobal/ExtraPhotoGlobal.apk",
+  "regex": "DocProcessor|DocPhotoManager|MiDualPhotoJni|DualPhotoJni|DocumentProcess|DocumentJNI|DocPhotoActivity",
+  "packages": [
+    "com.miui.extraphoto"
+  ],
+  "max": 8,
+  "timeout": 240.0,
+  "jadx": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/jadx/bin/jadx",
+  "classes_scanned": 4785,
+  "candidates": [
+    {
+      "class": "com.miui.extraphoto.docphoto.document.DocPhotoActivity",
+      "dex": "classes.dex",
+      "method_count": 55,
+      "access": 1,
+      "matched": [
+        "docphotoactivity"
+      ],
+      "score": 1055,
+      "rank": 1,
+      "selected": true,
+      "status": "failed",
+      "error": "jadx exit 3",
+      "file": null,
+      "seconds": 3.95
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.manager.DocPhotoManager",
+      "dex": "classes.dex",
+      "method_count": 54,
+      "access": 1,
+      "matched": [
+        "docphotomanager"
+      ],
+      "score": 1054,
+      "rank": 2,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.extraphoto.docphoto.manager.DocPhotoManager.java",
+      "seconds": 3.63
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.manager.DualPhotoJni",
+      "dex": "classes.dex",
+      "method_count": 27,
+      "access": 1,
+      "matched": [
+        "dualphotojni"
+      ],
+      "score": 1027,
+      "rank": 3,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.extraphoto.refocus.manager.DualPhotoJni.java",
+      "seconds": 3.1
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.manager.MiDualPhotoJni",
+      "dex": "classes.dex",
+      "method_count": 18,
+      "access": 1,
+      "matched": [
+        "midualphotojni"
+      ],
+      "score": 1018,
+      "rank": 4,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.extraphoto.refocus.manager.MiDualPhotoJni.java",
+      "seconds": 3.6
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.document.DocPhotoActivity$PhotoStartEndLinker",
+      "dex": "classes.dex",
+      "method_count": 16,
+      "access": 0,
+      "matched": [
+        "docphotoactivity"
+      ],
+      "score": 1016,
+      "rank": 5,
+      "selected": true,
+      "status": "failed",
+      "error": "jadx exit 3",
+      "file": null,
+      "seconds": 4.6
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.document.DocPhotoActivity$DocPhotoStartEndLinker",
+      "dex": "classes.dex",
+      "method_count": 16,
+      "access": 0,
+      "matched": [
+        "docphotoactivity"
+      ],
+      "score": 1016,
+      "rank": 6,
+      "selected": true,
+      "status": "failed",
+      "error": "jadx exit 3",
+      "file": null,
+      "seconds": 4.44
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.manager.DocPhotoManager$DocPhotoParser",
+      "dex": "classes.dex",
+      "method_count": 15,
+      "access": 0,
+      "matched": [
+        "docphotomanager"
+      ],
+      "score": 1015,
+      "rank": 7,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.extraphoto.docphoto.manager.DocPhotoManager$DocPhotoParser.java",
+      "seconds": 7.4
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.manager.DocProcessor",
+      "dex": "classes.dex",
+      "method_count": 14,
+      "access": 1,
+      "matched": [
+        "docprocessor"
+      ],
+      "score": 1014,
+      "rank": 8,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.extraphoto.docphoto.manager.DocProcessor.java",
+      "seconds": 3.55
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.manager.DocProcessor$SafeProcessor",
+      "dex": "classes.dex",
+      "method_count": 14,
+      "access": 0,
+      "matched": [
+        "docprocessor"
+      ],
+      "score": 1014,
+      "rank": 9,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.iactivity.DocPhotoActivityInterface",
+      "dex": "classes.dex",
+      "method_count": 13,
+      "access": 1537,
+      "matched": [
+        "docphotoactivity"
+      ],
+      "score": 1013,
+      "rank": 10,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.manager.DocPhotoManager$PhotoParser",
+      "dex": "classes.dex",
+      "method_count": 13,
+      "access": 0,
+      "matched": [
+        "docphotomanager"
+      ],
+      "score": 1013,
+      "rank": 11,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.manager.DocPhotoManager$Parser",
+      "dex": "classes.dex",
+      "method_count": 12,
+      "access": 1536,
+      "matched": [
+        "docphotomanager"
+      ],
+      "score": 1012,
+      "rank": 12,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.document.DocPhotoActivity$StartEndLinker",
+      "dex": "classes.dex",
+      "method_count": 10,
+      "access": 1536,
+      "matched": [
+        "docphotoactivity"
+      ],
+      "score": 1010,
+      "rank": 13,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.manager.MegviiDualPhotoJni",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 1,
+      "matched": [
+        "dualphotojni"
+      ],
+      "score": 1005,
+      "rank": 14,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.manager.DocPhotoManager$DocPhotoExporter",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 0,
+      "matched": [
+        "docphotomanager"
+      ],
+      "score": 1005,
+      "rank": 15,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.manager.DocPhotoManager$CancelablePreview",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 0,
+      "matched": [
+        "docphotomanager"
+      ],
+      "score": 1005,
+      "rank": 16,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.document.DocPhotoActivity$3",
+      "dex": "classes.dex",
+      "method_count": 4,
+      "access": 0,
+      "matched": [
+        "docphotoactivity"
+      ],
+      "score": 1004,
+      "rank": 17,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.document.DocPhotoActivity$PhotoStartEndLinker$2",
+      "dex": "classes.dex",
+      "method_count": 4,
+      "access": 0,
+      "matched": [
+        "docphotoactivity"
+      ],
+      "score": 1004,
+      "rank": 18,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.manager.DocPhotoManager$PhotoExporter",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 0,
+      "matched": [
+        "docphotomanager"
+      ],
+      "score": 1003,
+      "rank": 19,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.RefocusActivity$DualPhotoJniReleaseRunnable",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 0,
+      "matched": [
+        "dualphotojni"
+      ],
+      "score": 1003,
+      "rank": 20,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.document.DocPhotoActivity$PhotoStartEndLinker$FinishReceiver",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 0,
+      "matched": [
+        "docphotoactivity"
+      ],
+      "score": 1003,
+      "rank": 21,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.manager.DocProcessor$1",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "docprocessor"
+      ],
+      "score": 1002,
+      "rank": 22,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.document.DocPhotoActivity$1",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "docphotoactivity"
+      ],
+      "score": 1002,
+      "rank": 23,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.document.DocPhotoActivity$2",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "docphotoactivity"
+      ],
+      "score": 1002,
+      "rank": 24,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.document.DocPhotoActivity$PhotoStartEndLinker$1",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "docphotoactivity"
+      ],
+      "score": 1002,
+      "rank": 25,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.document.DocPhotoActivity$DocPhotoStartEndLinker$1",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "docphotoactivity"
+      ],
+      "score": 1002,
+      "rank": 26,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.document.DocPhotoActivity$DocPhotoStartEndLinker$2",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "docphotoactivity"
+      ],
+      "score": 1002,
+      "rank": 27,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.document.DocPhotoActivity$$ExternalSyntheticLambda0",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 4113,
+      "matched": [
+        "docphotoactivity"
+      ],
+      "score": 1002,
+      "rank": 28,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    }
+  ],
+  "decompiled": 5,
+  "elapsed_sec": 34.41
+}

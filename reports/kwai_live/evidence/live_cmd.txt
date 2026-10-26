@@ -1,0 +1,102 @@
+# Commands used for the live-push patch (2026-10-24)
+# APK: cust/app/customized/partner-com.kwai.kuaishou.video.live_155/partner-com.kwai.kuaishou.video.live_155.apk
+# sha256: 642f1cbfa4d4cfa4e9424e214f6295bf456cf7d220f74f9ca0bf5ba4743acbe9
+
+APK_ROOT="/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system"
+APK="$APK_ROOT/cust/app/customized/partner-com.kwai.kuaishou.video.live_155/partner-com.kwai.kuaishou.video.live_155.apk"
+PY=/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python
+WS=/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work
+JADX=$WS/tools/jadx/bin/jadx
+OUT=$WS/reports/kwai_live/sources/classes/live
+
+# --- class discovery -------------------------------------------------------
+$PY $WS/tools/dex_find.py "$APK" --regex '^com\.yxcorp\.gifshow\.live\.push' --classes-only
+$PY $WS/tools/dex_find.py "$APK" --regex 'westeros' --classes-only
+$PY $WS/tools/dex_find.py "$APK" --regex '^com\.kwai\.camerasdk' --classes-only
+$PY $WS/tools/dex_find.py "$APK" --regex 'AudioPlugin' --classes-only
+$PY $WS/tools/dex_find.py "$APK" --regex '^com\.kwai\.video\.ksmedialivekit' --classes-only
+$PY $WS/tools/dex_find.py "$APK" --regex '^com\.kwai\.video\.arya\.Arya$' --max-methods-per-class 400
+$PY $WS/tools/strings_dex.py "$APK" --regex 'AudioProcess|VoiceDetect|voiceDetect|AudioVoiceDetect' --unique --format plain
+
+# --- decompilation (jadx single-class, 2 threads, 2 parallel workers) ------
+for c in \
+  com.kwai.video.stannis.AudioProcess \
+  com.kwai.camerasdk.audioCapture.AudioControllerImpl \
+  com.kwai.camerasdk.audioCapture.a \
+  com.kwai.camerasdk.preprocess.AudioProcessor \
+  com.kwai.video.westeros.audioplugin.AudioPlugin \
+  com.kwai.camerasdk.videoCapture.CameraControllerImpl \
+  com.kwai.camerasdk.encoder.MediaCodecEncoder \
+  com.kwai.video.westeros.v2.WesterosGlProcessor \
+  com.kwai.video.westeros.GPUPerformance \
+  com.yxcorp.gifshow.live.push.LivePluginImpl \
+  com.kwai.camerasdk.face.FaceDetectorContext \
+  com.kwai.camerasdk.Daenerys ; do
+  $JADX --single-class "$c" --single-class-output "$OUT/$c.java" \
+        --show-bad-code --no-res --threads-count 2 "$APK"
+done
+
+for c in \
+  com.yxcorp.gifshow.live.push.LivePushActivity \
+  com.yxcorp.gifshow.live.push.stream.LivePushClient \
+  com.kwai.video.ksmedialivekit.KSMediaLiveKit \
+  com.kwai.video.ksmedialivekit.KwaiMediaLiveKit \
+  com.kwai.video.westeros.Westeros \
+  com.kwai.camerasdk.preprocess.GlPreProcessor \
+  com.kwai.camerasdk.render.NativeRenderThread \
+  com.kwai.video.stannis.Stannis ; do
+  $JADX --single-class "$c" --single-class-output "$OUT/$c.java" \
+        --show-bad-code --no-res --threads-count 2 "$APK"
+done
+
+for c in com.kwai.video.ksmedialivekit.LivePushClient com.kwai.video.ksmedialivekit.LiveKitSoLoader \
+         com.yxcorp.gifshow.live.push.ui.LiveAudioEffectFragment \
+         com.yxcorp.gifshow.live.music.LivePushSoundEffectFragment \
+         com.kwai.video.arya.AryaAudioEngineProxyImp ; do
+  $JADX --single-class "$c" --single-class-output "$OUT/$c.java" \
+        --show-bad-code --no-res --threads-count 2 "$APK"
+done
+
+for c in com.yxcorp.gifshow.live.push.prepush.presenter.LivePrePushPrettifyPresenter \
+         com.kwai.camerasdk.DaenerysConfigBuilder \
+         com.yxcorp.gifshow.live.push.prepush.presenter.g \
+         com.yxcorp.gifshow.camerasdk.widget.CameraView \
+         'do.u' 'do.k' 'do.i' \
+         'com.kwai.video.arya.Arya$AryaConfig' ; do
+  $JADX --single-class "$c" --single-class-output "$OUT/$c.java" \
+        --show-bad-code --no-res --threads-count 2 "$APK"
+done
+# note: jadx prints the obfuscated package `do` as `p000do` in Java sources;
+# the single-class selector must use the real DEX name (`do.u`).
+
+# --- native -----------------------------------------------------------------
+# libkwaiaudio is already extracted under inventory/libs (sha256 01419e63…)
+$PY $WS/tools/disasm_elf.py inventory/libs/lib/arm64-v8a/libkwaiaudio.so \
+    --addr 0x12a49c --size 0x1f8 -o native/audio_voicedetect_interface.s
+$PY $WS/tools/disasm_elf.py inventory/libs/lib/arm64-v8a/libkwaiaudio.so \
+    --addr 0x12a56c --size 0x128 -o native/audio_voicedetect_process.s
+
+unzip -p "$APK" lib/arm64-v8a/libdaenerys.so > /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/live_scan/libs/libdaenerys.so
+$PY $WS/tools/elf_info.py /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/live_scan/libs/libdaenerys.so \
+    --json native/libdaenerys.so.json > native/libdaenerys.so.summary.txt
+
+unzip -p "$APK" lib/arm64-v8a/libkwaivoip.so > /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/live_scan/libs/libkwaivoip.so
+$PY $WS/tools/elf_info.py /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/live_scan/libs/libkwaivoip.so --json /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/live_scan/voip.json
+# -> 130 JNI: 107 com.kwai.video.arya.Arya, 8 AryaAudioEngineProxyImp,
+#            4 AryaManager, 3 catelyn.OkHttpWebSocketClient, 3 GLDrawer, 2 AryaContext
+
+# adrp/add xref scan for the sample-rate log keys (capstone, venv python)
+# targets 0x15b78d AudioTxRecordedSampleRate, 0x15b88e AudioTxLiveStreamSampleRate,
+#         0x15b8e1 AudioTxLiveChatSampleRate, 0x15a71d kAudioTxLiveStreamSampleRate
+# results: 0x45cd8, 0x45fec, 0x460e4, 0xfd040 (all inside static init / config code)
+
+# --- strings evidence -------------------------------------------------------
+$PY - <<'EOF'   # -> evidence/kwaiaudio_strings.txt
+import re
+b=open('reports/kwai_live/inventory/libs/lib/arm64-v8a/libkwaiaudio.so','rb').read()
+seg=b[0x13cf50:0x13cf50+158285]
+pat=re.compile(rb'(sample_rate|SampleRate|Vad|VAD|LiveStream|AudioProcess|AudioPreProcess|InitRecorder|10ms|Aec|AudioEngine|AudioFrame|Observer|InSampleRate)',re.I)
+for m in re.finditer(rb'[ -~]{8,}',seg):
+    s=m.group()
+    if pat.search(s): print('%#08x %s'%(0x13cf50+m.start(), s.decode('latin1')[:220]))
+EOF

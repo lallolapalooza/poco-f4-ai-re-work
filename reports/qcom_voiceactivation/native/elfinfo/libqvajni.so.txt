@@ -1,0 +1,129 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/qcom_voiceactivation/native/libs/libqvajni.so
+==============================================================================
+size        : 138872 bytes (0.13 MiB)
+sha256      : 915c1088da01a7db57cd6a7dd5056cae295460215b38a8a1a1b14f50d432b493
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x0   imagebase: 0x0
+build id    : 65f8b3df5ae324a684ca66437ba21f0d
+soname      : libqvajni.so
+needed      : libqvasml.so, libstdc++.so, liblog.so, libc.so, libm.so, libdl.so
+parser      : lief
+counts      : 91 exports, 47 imports, 36 JNI, 24 sections, 12 segments
+symtab/dynsym: 0 / 142
+
+Sections (24)
+  name                   type             flags  address      size       offset
+  .note.android.ident    NOTE             A      0x2e0        24         0x2e0
+  .note.gnu.build-id     NOTE             A      0x2f8        32         0x2f8
+  .note.gnu.property     NOTE             A      0x318        32         0x318
+  .dynsym                DYNSYM           A      0x338        3408       0x338
+  .gnu.version           GNU_VERSYM       A      0x1088       284        0x1088
+  .gnu.version_r         GNU_VERNEED      A      0x11a4       96         0x11a4
+  .gnu.hash              GNU_HASH         A      0x1208       740        0x1208
+  .hash                  HASH             A      0x14ec       1144       0x14ec
+  .dynstr                STRTAB           A      0x1964       7186       0x1964
+  .relr.dyn              ANDROID_RELR     A      0x3578       16         0x3578
+  .rela.plt              RELA             AI     0x3588       2160       0x3588
+  .rodata                PROGBITS         AMS    0x3e00       27416      0x3e00
+  .eh_frame_hdr          PROGBITS         A      0xa918       788        0xa918
+  .eh_frame              PROGBITS         A      0xac30       6072       0xac30
+  .text                  PROGBITS         AX     0xd000       75636      0xd000
+  .plt                   PROGBITS         AX     0x1f780      2192       0x1f780
+  .data.rel.ro           PROGBITS         WA     0x21000      272        0x21000
+  .fini_array            FINI_ARRAY       WA     0x21110      16         0x21110
+  .dynamic               DYNAMIC          WA     0x21120      464        0x21120
+  .got.plt               PROGBITS         WA     0x212f0      744        0x212f0
+  .bss                   NOBITS           WA     0x225d8      24         0x215d8
+  .shstrtab              STRTAB           -      0x0          244        0x215d8
+  .gnu_debugdata         PROGBITS         -      0x0          428        0x216cc
+
+JNI entry points (36)
+  0x13ff8        588        com.quicinc.voice.activation.onlineepd.EPD.init
+      Java_com_quicinc_voice_activation_onlineepd_EPD_init
+  0x1459c        388        com.quicinc.voice.activation.onlineepd.EPD.process
+      Java_com_quicinc_voice_activation_onlineepd_EPD_process
+  0x14720        156        com.quicinc.voice.activation.onlineepd.EPD.release
+      Java_com_quicinc_voice_activation_onlineepd_EPD_release
+  0x147bc        96         com.quicinc.voice.activation.onlineepd.EPD.reinit
+      Java_com_quicinc_voice_activation_onlineepd_EPD_reinit
+  0x1481c        728        com.quicinc.voice.activation.algorithm.Algorithm.init
+      Java_com_quicinc_voice_activation_algorithm_Algorithm_init
+  0x14af4        1852       com.quicinc.voice.activation.algorithm.Algorithm.start
+      Java_com_quicinc_voice_activation_algorithm_Algorithm_start
+  0x15230        1616       com.quicinc.voice.activation.algorithm.Algorithm.process
+      Java_com_quicinc_voice_activation_algorithm_Algorithm_process
+  0x15880        96         com.quicinc.voice.activation.algorithm.Algorithm.stop
+      Java_com_quicinc_voice_activation_algorithm_Algorithm_stop
+  0x158e0        116        com.quicinc.voice.activation.algorithm.Algorithm.deinit
+      Java_com_quicinc_voice_activation_algorithm_Algorithm_deinit
+  0x15954        96         com.quicinc.voice.activation.algorithm.Algorithm.cancel
+      Java_com_quicinc_voice_activation_algorithm_Algorithm_cancel
+  0x159b4        1276       com.quicinc.voice.activation.soundmodel.SoundModelCodec.verifyUserRecording
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_verifyUserRecording__Ljava_nio_ByteBuffer_2Ljava_lang_String_2Ljava_nio_ShortBuffer_2
+  0x15eb0        1440       com.quicinc.voice.activation.soundmodel.SoundModelCodec.verifyUserRecording
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_verifyUserRecording__Ljava_nio_ByteBuffer_2Ljava_lang_String_2Ljava_nio_ShortBuffer_2ILcom_quicinc_voice_activation_soundmodel_ConfidenceData_2
+  0x16450        1032       com.quicinc.voice.activation.soundmodel.SoundModelCodec.verifyUserRecordingEnergyBased
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_verifyUserRecordingEnergyBased
+  0x16858        2248       com.quicinc.voice.activation.soundmodel.SoundModelCodec.getSizeWhenExtended
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_getSizeWhenExtended__Ljava_nio_ByteBuffer_2Ljava_lang_String_2Ljava_lang_String_2
+  0x17120        2368       com.quicinc.voice.activation.soundmodel.SoundModelCodec.getSizeWhenExtended
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_getSizeWhenExtended__Ljava_nio_ByteBuffer_2Ljava_nio_ByteBuffer_2Ljava_lang_String_2Ljava_lang_String_2
+  0x17a60        3308       com.quicinc.voice.activation.soundmodel.SoundModelCodec.extend
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_extend__Ljava_nio_ByteBuffer_2Ljava_lang_String_2Ljava_lang_String_2I_3Ljava_nio_ShortBuffer_2Ljava_nio_ByteBuffer_2Lcom_quicinc_voice_activation_soundmodel_ConfidenceData_2
+  0x1874c        3416       com.quicinc.voice.activation.soundmodel.SoundModelCodec.extend
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_extend__Ljava_nio_ByteBuffer_2Ljava_nio_ByteBuffer_2Ljava_lang_String_2Ljava_lang_String_2I_3Ljava_nio_ShortBuffer_2Ljava_nio_ByteBuffer_2Lcom_quicinc_voice_activation_soundmodel_ConfidenceData_2
+  0x194a4        1280       com.quicinc.voice.activation.soundmodel.SoundModelCodec.getSizeWhenCreateUserModel
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_getSizeWhenCreateUserModel__Ljava_nio_ByteBuffer_2Ljava_lang_String_2Ljava_lang_String_2
+  0x199a4        1360       com.quicinc.voice.activation.soundmodel.SoundModelCodec.getSizeWhenCreateUserModel
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_getSizeWhenCreateUserModel__Ljava_nio_ByteBuffer_2Ljava_lang_String_2Ljava_lang_String_2I
+  0x19ef4        2720       com.quicinc.voice.activation.soundmodel.SoundModelCodec.createUserModel
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_createUserModel__Ljava_nio_ByteBuffer_2Ljava_lang_String_2Ljava_lang_String_2I_3Ljava_nio_ShortBuffer_2Ljava_nio_ByteBuffer_2Lcom_quicinc_voice_activation_soundmodel_ConfidenceData_2
+  0x1a994        2808       com.quicinc.voice.activation.soundmodel.SoundModelCodec.createUserModel
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_createUserModel__Ljava_nio_ByteBuffer_2Ljava_lang_String_2Ljava_lang_String_2II_3Ljava_nio_ShortBuffer_2Ljava_nio_ByteBuffer_2Lcom_quicinc_voice_activation_soundmodel_ConfidenceData_2
+  0x1b48c        1172       com.quicinc.voice.activation.soundmodel.SoundModelCodec.getMergedModelSize
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_getMergedModelSize
+  0x1b920        1384       com.quicinc.voice.activation.soundmodel.SoundModelCodec.mergeModel
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_mergeModel
+  0x1be88        1084       com.quicinc.voice.activation.soundmodel.SoundModelCodec.verifyUdkRecording
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_verifyUdkRecording__Ljava_nio_ByteBuffer_2Ljava_nio_ShortBuffer_2
+  0x1c2c4        1504       com.quicinc.voice.activation.soundmodel.SoundModelCodec.verifyUdkRecording
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_verifyUdkRecording__Ljava_nio_ByteBuffer_2_3Ljava_nio_ShortBuffer_2
+  0x1c8a4        2076       com.quicinc.voice.activation.soundmodel.SoundModelCodec.getUdkSmSize
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_getUdkSmSize
+  0x1d0c0        1944       com.quicinc.voice.activation.soundmodel.SoundModelCodec.createUdkSm
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_createUdkSm
+  0x1d858        248        com.quicinc.voice.activation.soundmodel.SoundModelCodec.query
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_query
+  0x1d950        440        com.quicinc.voice.activation.soundmodel.SoundModelCodec.getByteBufferSize
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_getByteBufferSize
+  0x1db08        204        com.quicinc.voice.activation.soundmodel.SoundModelCodec.createFirstStageSM
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_createFirstStageSM
+  0x1dbd4        340        com.quicinc.voice.activation.soundmodel.SoundModelCodec.getVersion
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_getVersion
+  0x1dd28        880        com.quicinc.voice.activation.soundmodel.SoundModelCodec.setSMLTIParams
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_setSMLTIParams
+  0x1e098        1048       com.quicinc.voice.activation.soundmodel.SoundModelCodec.setSMLPDKParams
+      Java_com_quicinc_voice_activation_soundmodel_SoundModelCodec_setSMLPDKParams
+  0x1e6f0        1048       com.quicinc.voice.activation.vad.DNNVAD.init
+      Java_com_quicinc_voice_activation_vad_DNNVAD_init
+  0x1ee24        392        com.quicinc.voice.activation.vad.DNNVAD.process
+      Java_com_quicinc_voice_activation_vad_DNNVAD_process
+  0x1efac        204        com.quicinc.voice.activation.vad.DNNVAD.deinit
+      Java_com_quicinc_voice_activation_vad_DNNVAD_deinit
+
+AI-relevant strings (50894 bytes scanned in allocated data sections)
+  [face] 4 unique (first 4)
+    0x00004b66 .rodata    antiSpoofEnable
+    0x00006128 .rodata    anti_spoof_pass
+    0x000064e6 .rodata    anti_spoof_score
+    0x0000748f .rodata    antiSpoofThreshold
+  [asr] 6 unique (first 6)
+    0x00004635 .rodata    VAD.nnvad_len_hangover
+    0x00006cff .rodata    VAD.cmd_end_detection_threshold
+    0x00007d66 .rodata    VAD_init: ERROR VAD Params NULL ptr
+    0x00007d8a .rodata    QVA-Engine-vad
+    0x00009398 .rodata    VAD.nnvad_threshold
+    0x0000a018 .rodata    VAD.nnvad_len_future
+
+JSON written to reports/qcom_voiceactivation/native/elfinfo/libqvajni.so.json

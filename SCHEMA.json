@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["slug","package","app_name","ai_summary","features","models","reimplementation","unknowns"],
+  "properties": {
+    "slug": {"type":"string"},
+    "package": {"type":"string"},
+    "app_name": {"type":"string"},
+    "ai_summary": {"type":"string"},
+    "features": {"type":"array","items":{"type":"object","required":["name","entrypoints","pipeline","confidence"],"properties":{
+      "name":{"type":"string"},"entrypoints":{"type":"array","items":{"type":"string"}},
+      "pipeline":{"type":"array","items":{"type":"string"}},"models":{"type":"array","items":{"type":"string"}},
+      "confidence":{"enum":["confirmed","inferred","unknown"]},"notes":{"type":"string"}}}},
+    "models": {"type":"array","items":{"type":"object","required":["path","format","confidence"],"properties":{
+      "path":{"type":"string"},"format":{"type":"string"},"size":{"type":"integer"},
+      "io":{"type":"object"},"ops":{"type":"array","items":{"type":"string"}},
+      "weights":{"enum":["extracted","partial","encrypted","unavailable","none"]},
+      "jax_reimpl":{"type":"string"},"verification":{"type":"string"},
+      "confidence":{"enum":["confirmed","inferred","unknown"]}}}},
+    "reimplementation": {"type":"object","required":["path","run_command","status"],"properties":{
+      "path":{"type":"string"},"run_command":{"type":"string"},
+      "status":{"enum":["verified","runs_unverified","architecture_only","failed"]},"limitations":{"type":"string"}}},
+    "unknowns": {"type":"array","items":{"type":"string"}}
+  }
+}

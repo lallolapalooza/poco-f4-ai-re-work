@@ -1,0 +1,28 @@
+===== shader @ 0x1d7f94 =====
+#ifdef GL_ES
+   precision highp float;
+   precision highp sampler3D;
+#endif
+#if __VERSION__ >= 120
+   in vec2 varTexcoord;
+   out vec4 outputColor;
+#else
+   varying vec2 varTexcoord;
+#endif
+uniform sampler2D text_y, text_u, text_v, text_a, text_fliter;
+uniform sampler2D text_light, noise_light, low_brightness;
+uniform sampler3D filter_rgb;
+uniform float width, height, width_stride, smoothStepFactor;
+uniform int alphaPlaneExisted; // 0 for horizental 1 for vertical
+uniform float videoFilterIntensity;
+uniform int videoFilter;
+uniform bool extraVideoFilter, haveNoise, needBlur;
+uniform bool needColorSeparation, verticalScreen, haveFace, isMoving;
+uniform vec2 moveLightPos;
+uniform vec4 facePosition;
+
+float MULTIPLY(float x, float a, float b) {
+    return x * a * b;
+}
+
+

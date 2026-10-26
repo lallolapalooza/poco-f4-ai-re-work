@@ -1,0 +1,60 @@
+# Command transcript (musically)
+APK="$APK_ROOT/cust/app/customized/partner-com.zhiliaoapp.musically_100/partner-com.zhiliaoapp.musically_100.apk"
+PY=/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python; TOOLS=$WS/tools
+
+unzip -l "$APK" | grep -E 'assets/model|lib/arm64-v8a/lib'          # inventory
+unzip -o -j "$APK" 'assets/model/*' -d $WS/reports/tiktok_musically/models
+unzip -o -j "$APK" 'lib/arm64-v8a/lib{ByteAINN,ByteAIDT,gaia_lib,tailor,bytenn,bytennwrapper,avmdl,avmdlttnet,avmdlbase}.so' -d native
+unzip -o -j "$APK" 'lib/arm64-v8a/libeffect.so' 'lib/arm64-v8a/libEncryptor.so' -d /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/ttlibs
+
+# model container structure / carving
+$PY reimpl/model_container.py --carve                                  # -> ir/container_*.json, models/sections/*
+# entropy / dtype / float plausibility per record      (reimpl/model_container.py)
+# hash relationships (header vs md5/sha of body)       (evidence/model_structure.txt)
+
+# native
+$PY $TOOLS/elf_info.py native/libbytenn.so
+$PY $TOOLS/disasm_elf.py native/libbytenn.so --symbol _ZN6BYTENN20EspressoDisassembler11disassembleERNS_20ByteNNInternalConfigE
+$PY $TOOLS/disasm_elf.py native/libbytenn.so --symbol _ZN6BYTENN20EspressoDisassembler17disassembleModelsERNS_23ByteNNInternalConfigExtE
+$PY $TOOLS/disasm_elf.py native/libbytenn.so --symbol _ZN6BYTENN20EspressoDisassembler22disassembleModelBufferERNS_23ByteNNInternalConfigExtE
+$PY $TOOLS/disasm_elf.py native/libbytenn.so --symbol _ZN6BYTENN16ByteNNEngineImpl4InitERKNS_9ConfigExtE
+$PY $TOOLS/disasm_elf.py native/libbytennwrapper.so --symbol Java_com_ss_bytenn_API_nativeInitEngine
+# libeffect.so string xrefs: capstone adrp/add scan of .text (native/libeffect_*.s)
+$PY $TOOLS/disasm_elf.py /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/ttlibs/libeffect.so --addr 0x962c00 --size 0x700   # AlgorithmFace::doLoadModel caller
+$PY $TOOLS/disasm_elf.py /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/ttlibs/libeffect.so --addr 0x68a180 --size 0x400   # smash-face init
+$PY $TOOLS/disasm_elf.py /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/ttlibs/libeffect.so --addr 0x696200 --size 0x500   # model type switch
+$PY $TOOLS/disasm_elf.py /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/ttlibs/libeffect.so --addr 0x696634 --size 0x2d0   # model extract helper
+$PY $TOOLS/disasm_elf.py /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/ttlibs/libeffect.so --addr 0x951540 --size 0x260   # BachPackedModelUtil header check
+
+# java
+$TOOLS/jadx/bin/jadx --single-class com.bef.effectsdk.ModelsList --no-res -d /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/jadxout2 /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/ttdex/classes2.dex
+$TOOLS/jadx/bin/jadx --single-class com.ss.bytenn.API --no-res -d /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/jadxout6 /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/ttdex/classes6.dex
+$PY $TOOLS/dex_find.py "$APK" --regex 'ttface|tt_face|ByteAINN|ByteNN|bytenn|avmdl' --limit 0
+$PY $TOOLS/strings_dex.py "$APK" --regex 'tt_face_v10|tt_face_extra|tt_face_attribute'
+
+# reimplementation
+$PY reimpl/pipeline.py --verify
+
+# follow-up: video-frame interface (report §11, PIPELINE.md)
+unzip -p "$APK" lib/arm64-v8a/libeffect.so  > native/libeffect.so
+unzip -p "$APK" lib/arm64-v8a/libttvesdk.so > native/libttvesdk.so
+sha256sum native/libeffect.so native/libttvesdk.so   # identical to reports/tiktok_trill copies
+$TOOLS/jadx/bin/jadx --single-class com.bef.effectsdk.BEFEffectNative --single-class-output sources/video/com.bef.effectsdk.BEFEffectNative.java --show-bad-code --no-res "$APK"
+$TOOLS/jadx/bin/jadx --single-class com.ss.android.vesdk.faceinfo.VEFaceDetectInfo --single-class-output sources/video/com.ss.android.vesdk.faceinfo.VEFaceDetectInfo.java --show-bad-code --no-res "$APK"
+$TOOLS/jadx/bin/jadx --single-class com.ss.android.vesdk.faceinfo.VEFaceAttribute --single-class-output sources/video/com.ss.android.vesdk.faceinfo.VEFaceAttribute.java --show-bad-code --no-res "$APK"
+$TOOLS/jadx/bin/jadx --single-class com.ss.android.vesdk.faceinfo.VEFaceAttributeInfo --single-class-output sources/video/com.ss.android.vesdk.faceinfo.VEFaceAttributeInfo.java --show-bad-code --no-res "$APK"
+$TOOLS/jadx/bin/jadx --single-class com.ss.android.medialib.model.FaceDetect --single-class-output sources/video/com.ss.android.medialib.model.FaceDetect.java --show-bad-code --no-res "$APK"
+$TOOLS/jadx/bin/jadx --single-class com.ss.android.medialib.model.FaceDetectInfo --single-class-output sources/video/com.ss.android.medialib.model.FaceDetectInfo.java --show-bad-code --no-res "$APK"
+$TOOLS/jadx/bin/jadx --single-class com.ss.android.medialib.model.FaceAttribute --single-class-output sources/video/com.ss.android.medialib.model.FaceAttribute.java --show-bad-code --no-res "$APK"
+$TOOLS/jadx/bin/jadx --single-class X.C64698PZc --single-class-output sources/video/X.C64698PZc.java --show-bad-code --no-res "$APK"
+$TOOLS/jadx/bin/jadx --single-class X.C64697PZb --single-class-output sources/video/X.C64697PZb.java --show-bad-code --no-res "$APK"
+$PY $TOOLS/disasm_elf.py native/libeffect.so --addr 0x2eac68 --size 0x40 -o -
+$PY $TOOLS/disasm_elf.py native/libeffect.so --addr 0x2ead0c --size 0x44 -o -
+$PY $TOOLS/disasm_elf.py native/libeffect.so --addr 0x2ead50 --size 0x40 -o -
+$PY $TOOLS/disasm_elf.py native/libeffect.so --addr 0x2eabd4 --size 0x94 -o -
+$PY $TOOLS/disasm_elf.py native/libeffect.so --addr 0x3097f0 --size 0x20 -o -
+readelf -rW native/libttvesdk.so | grep -E 'bef_effect_(process_texture|set_width_height)|glTexImage2D'
+$PY evidence/xref_scan.py native/libttvesdk.so --sym bef_effect_process_texture
+$PY $TOOLS/dex_find.py "$APK" --regex 'processFrame'              # no Java caller of BEFEffectNative.processFrame
+$PY $TOOLS/dex_find.py "$APK" --regex 'VEFaceDetectInfo'
+$PY evidence/update_findings.py     # writes findings.json data_pipelines, then re-parses it

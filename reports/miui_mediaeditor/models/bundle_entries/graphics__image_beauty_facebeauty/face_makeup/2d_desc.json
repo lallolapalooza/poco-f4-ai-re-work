@@ -1,0 +1,26 @@
+[
+	{
+		"name":"default_2_ar",
+		"type":"",
+		"path":"zhuangrong_sh.png",
+		"fps":0,
+		"frameCnt1Loop":0,
+		"rotationType":0,
+		"triggerstart":"",
+		"startaction":"",
+		"needkeepfaceaction":0,
+		"triggerend":"",
+		"endaction":"",
+		"looptype":"",
+		"loopcnt":0,
+		"nodetype":0,
+		"root":0,
+		"isactiveonce":1,
+		"triggerNextNodes":[],
+		"childNodes":[],
+		"base_vertex":0,
+		"texture_frames":[
+
+		]
+	}
+]

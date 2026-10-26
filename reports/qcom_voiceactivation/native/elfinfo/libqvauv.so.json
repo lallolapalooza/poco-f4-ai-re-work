@@ -1,0 +1,1360 @@
+{
+  "file": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/qcom_voiceactivation/native/libs/libqvauv.so",
+  "size": 746648,
+  "sha256": "51bbfba4657e65c615e8740a253f738e63d5406ab557ca2d79093eef622d37a5",
+  "parser": "lief",
+  "lief_version": "1.0.0-d05b3499b",
+  "class": "ELF64",
+  "endianness": "little",
+  "type": "DYN",
+  "machine": "AARCH64",
+  "os_abi": "SYSTEMV",
+  "entrypoint": 0,
+  "imagebase": 0,
+  "interpreter": null,
+  "build_id": "14fbf5a78fb9c07a571e0059f5406760",
+  "android": {},
+  "needed": [
+    "libeai_floating.so",
+    "libVoiceSdk.so",
+    "libtensorflowlite_c.so",
+    "libstdc++.so",
+    "liblog.so",
+    "libm.so",
+    "libc.so",
+    "libdl.so"
+  ],
+  "soname": "libqvauv.so",
+  "rpath": null,
+  "runpath": null,
+  "dynamic_flags": {
+    "FLAGS": 8,
+    "FLAGS_1": 1
+  },
+  "dynamic_entries_count": 34,
+  "sections": [
+    {
+      "name": "",
+      "type": "SHT_NULL_",
+      "flags": "-",
+      "flags_raw": 0,
+      "address": 0,
+      "offset": 0,
+      "size": 0,
+      "entry_size": 0,
+      "alignment": 0,
+      "entropy": 0.0
+    },
+    {
+      "name": ".note.android.ident",
+      "type": "NOTE",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 736,
+      "offset": 736,
+      "size": 24,
+      "entry_size": 0,
+      "alignment": 4,
+      "entropy": 2.497
+    },
+    {
+      "name": ".note.gnu.build-id",
+      "type": "NOTE",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 760,
+      "offset": 760,
+      "size": 32,
+      "entry_size": 0,
+      "alignment": 4,
+      "entropy": 3.748
+    },
+    {
+      "name": ".note.gnu.property",
+      "type": "NOTE",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 792,
+      "offset": 792,
+      "size": 32,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": 1.686
+    },
+    {
+      "name": ".dynsym",
+      "type": "DYNSYM",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 824,
+      "offset": 824,
+      "size": 1272,
+      "entry_size": 24,
+      "alignment": 8,
+      "entropy": 1.12
+    },
+    {
+      "name": ".gnu.version",
+      "type": "GNU_VERSYM",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 2096,
+      "offset": 2096,
+      "size": 106,
+      "entry_size": 2,
+      "alignment": 2,
+      "entropy": 1.984
+    },
+    {
+      "name": ".gnu.version_r",
+      "type": "GNU_VERNEED",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 2204,
+      "offset": 2204,
+      "size": 128,
+      "entry_size": 0,
+      "alignment": 4,
+      "entropy": 2.311
+    },
+    {
+      "name": ".gnu.hash",
+      "type": "GNU_HASH",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 2336,
+      "offset": 2336,
+      "size": 48,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": 3.695
+    },
+    {
+      "name": ".hash",
+      "type": "HASH",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 2384,
+      "offset": 2384,
+      "size": 432,
+      "entry_size": 4,
+      "alignment": 4,
+      "entropy": 1.258
+    },
+    {
+      "name": ".dynstr",
+      "type": "STRTAB",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 2816,
+      "offset": 2816,
+      "size": 946,
+      "entry_size": 0,
+      "alignment": 1,
+      "entropy": 4.677
+    },
+    {
+      "name": ".rela.dyn",
+      "type": "ANDROID_RELA",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 3768,
+      "offset": 3768,
+      "size": 18,
+      "entry_size": 1,
+      "alignment": 8,
+      "entropy": 3.837
+    },
+    {
+      "name": ".relr.dyn",
+      "type": "ANDROID_RELR",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 3792,
+      "offset": 3792,
+      "size": 24,
+      "entry_size": 8,
+      "alignment": 8,
+      "entropy": 1.918
+    },
+    {
+      "name": ".rela.plt",
+      "type": "RELA",
+      "flags": "AI",
+      "flags_raw": 66,
+      "address": 3816,
+      "offset": 3816,
+      "size": 1104,
+      "entry_size": 24,
+      "alignment": 8,
+      "entropy": 1.895
+    },
+    {
+      "name": ".rodata",
+      "type": "PROGBITS",
+      "flags": "AMS",
+      "flags_raw": 50,
+      "address": 4928,
+      "offset": 4928,
+      "size": 196352,
+      "entry_size": 0,
+      "alignment": 16,
+      "entropy": 6.49
+    },
+    {
+      "name": ".eh_frame_hdr",
+      "type": "PROGBITS",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 201280,
+      "offset": 201280,
+      "size": 3132,
+      "entry_size": 0,
+      "alignment": 4,
+      "entropy": 5.166
+    },
+    {
+      "name": ".eh_frame",
+      "type": "PROGBITS",
+      "flags": "A",
+      "flags_raw": 2,
+      "address": 204416,
+      "offset": 204416,
+      "size": 20360,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": 5.419
+    },
+    {
+      "name": ".text",
+      "type": "PROGBITS",
+      "flags": "AX",
+      "flags_raw": 6,
+      "address": 225280,
+      "offset": 225280,
+      "size": 273672,
+      "entry_size": 0,
+      "alignment": 4,
+      "entropy": 6.858
+    },
+    {
+      "name": ".plt",
+      "type": "PROGBITS",
+      "flags": "AX",
+      "flags_raw": 6,
+      "address": 498960,
+      "offset": 498960,
+      "size": 1136,
+      "entry_size": 0,
+      "alignment": 16,
+      "entropy": 4.296
+    },
+    {
+      "name": ".data.rel.ro",
+      "type": "PROGBITS",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 503808,
+      "offset": 503808,
+      "size": 216,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": 2.104
+    },
+    {
+      "name": ".fini_array",
+      "type": "FINI_ARRAY",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 504024,
+      "offset": 504024,
+      "size": 16,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": 1.372
+    },
+    {
+      "name": ".dynamic",
+      "type": "DYNAMIC",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 504040,
+      "offset": 504040,
+      "size": 544,
+      "entry_size": 16,
+      "alignment": 8,
+      "entropy": 1.78
+    },
+    {
+      "name": ".got",
+      "type": "PROGBITS",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 504584,
+      "offset": 504584,
+      "size": 16,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": 0.993
+    },
+    {
+      "name": ".got.plt",
+      "type": "PROGBITS",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 504600,
+      "offset": 504600,
+      "size": 392,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": 1.494
+    },
+    {
+      "name": ".data",
+      "type": "PROGBITS",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 509088,
+      "offset": 504992,
+      "size": 234768,
+      "entry_size": 0,
+      "alignment": 8,
+      "entropy": 6.324
+    },
+    {
+      "name": ".bss",
+      "type": "NOBITS",
+      "flags": "WA",
+      "flags_raw": 3,
+      "address": 743856,
+      "offset": 739760,
+      "size": 4,
+      "entry_size": 0,
+      "alignment": 4,
+      "entropy": 2.0
+    },
+    {
+      "name": ".shstrtab",
+      "type": "STRTAB",
+      "flags": "-",
+      "flags_raw": 0,
+      "address": 0,
+      "offset": 739760,
+      "size": 265,
+      "entry_size": 0,
+      "alignment": 1,
+      "entropy": 4.178
+    },
+    {
+      "name": ".gnu_debugdata",
+      "type": "PROGBITS",
+      "flags": "-",
+      "flags_raw": 0,
+      "address": 0,
+      "offset": 740025,
+      "size": 4892,
+      "entry_size": 0,
+      "alignment": 1,
+      "entropy": 7.957
+    }
+  ],
+  "segments": [
+    {
+      "type": "PHDR",
+      "flags": "R",
+      "flags_raw": 4,
+      "offset": 64,
+      "address": 64,
+      "filesz": 672,
+      "memsz": 672,
+      "alignment": 8
+    },
+    {
+      "type": "LOAD",
+      "flags": "R",
+      "flags_raw": 4,
+      "offset": 0,
+      "address": 0,
+      "filesz": 224776,
+      "memsz": 224776,
+      "alignment": 4096
+    },
+    {
+      "type": "LOAD",
+      "flags": "XR",
+      "flags_raw": 5,
+      "offset": 225280,
+      "address": 225280,
+      "filesz": 274816,
+      "memsz": 274816,
+      "alignment": 4096
+    },
+    {
+      "type": "LOAD",
+      "flags": "WR",
+      "flags_raw": 6,
+      "offset": 503808,
+      "address": 503808,
+      "filesz": 1184,
+      "memsz": 1184,
+      "alignment": 4096
+    },
+    {
+      "type": "LOAD",
+      "flags": "WR",
+      "flags_raw": 6,
+      "offset": 504992,
+      "address": 509088,
+      "filesz": 234768,
+      "memsz": 234772,
+      "alignment": 4096
+    },
+    {
+      "type": "DYNAMIC",
+      "flags": "WR",
+      "flags_raw": 6,
+      "offset": 504040,
+      "address": 504040,
+      "filesz": 544,
+      "memsz": 544,
+      "alignment": 8
+    },
+    {
+      "type": "GNU_RELRO",
+      "flags": "R",
+      "flags_raw": 4,
+      "offset": 503808,
+      "address": 503808,
+      "filesz": 1184,
+      "memsz": 4096,
+      "alignment": 1
+    },
+    {
+      "type": "GNU_EH_FRAME",
+      "flags": "R",
+      "flags_raw": 4,
+      "offset": 201280,
+      "address": 201280,
+      "filesz": 3132,
+      "memsz": 3132,
+      "alignment": 4
+    },
+    {
+      "type": "GNU_STACK",
+      "flags": "WR",
+      "flags_raw": 6,
+      "offset": 0,
+      "address": 0,
+      "filesz": 0,
+      "memsz": 0,
+      "alignment": 0
+    },
+    {
+      "type": "GNU_PROPERTY",
+      "flags": "R",
+      "flags_raw": 4,
+      "offset": 792,
+      "address": 792,
+      "filesz": 32,
+      "memsz": 32,
+      "alignment": 8
+    },
+    {
+      "type": "NOTE",
+      "flags": "R",
+      "flags_raw": 4,
+      "offset": 736,
+      "address": 736,
+      "filesz": 56,
+      "memsz": 56,
+      "alignment": 4
+    },
+    {
+      "type": "NOTE",
+      "flags": "R",
+      "flags_raw": 4,
+      "offset": 792,
+      "address": 792,
+      "filesz": 32,
+      "memsz": 32,
+      "alignment": 8
+    }
+  ],
+  "symbols": {
+    "exported": [
+      {
+        "name": "capi_v2_get_static_properties",
+        "demangled": "capi_v2_get_static_properties",
+        "address": 225312,
+        "size": 12,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "capi_v2_init",
+        "demangled": "capi_v2_init",
+        "address": 225324,
+        "size": 620,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      }
+    ],
+    "imported": [
+      {
+        "name": "__cxa_finalize",
+        "demangled": "__cxa_finalize",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "calloc",
+        "demangled": "calloc",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "__android_log_print",
+        "demangled": "__android_log_print",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "__stack_chk_fail",
+        "demangled": "__stack_chk_fail",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "free",
+        "demangled": "free",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "log10",
+        "demangled": "log10",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "pow",
+        "demangled": "pow",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "VoiceSdkVoiceTemplateFactoryCreateFromBuffer",
+        "demangled": "VoiceSdkVoiceTemplateFactoryCreateFromBuffer",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "VoiceSdkVoiceTemplateMatcherCreateFromBuffer",
+        "demangled": "VoiceSdkVoiceTemplateMatcherCreateFromBuffer",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "VoiceSdkVoiceTemplateRelease",
+        "demangled": "VoiceSdkVoiceTemplateRelease",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "VoiceSdkVoiceTemplateMatcherRelease",
+        "demangled": "VoiceSdkVoiceTemplateMatcherRelease",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "VoiceSdkVoiceTemplateFactoryRelease",
+        "demangled": "VoiceSdkVoiceTemplateFactoryRelease",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "VoiceSdkVoiceTemplateDeserialize",
+        "demangled": "VoiceSdkVoiceTemplateDeserialize",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "VoiceSdkVoiceTemplateFactoryMergeVoiceTemplates",
+        "demangled": "VoiceSdkVoiceTemplateFactoryMergeVoiceTemplates",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "VoiceSdkVoiceTemplateSerialize",
+        "demangled": "VoiceSdkVoiceTemplateSerialize",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "VoiceSdkVoiceTemplateFactoryGetEstimatedMergedTemplateSize",
+        "demangled": "VoiceSdkVoiceTemplateFactoryGetEstimatedMergedTemplateSize",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "VoiceSdkByteArrayRelease",
+        "demangled": "VoiceSdkByteArrayRelease",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "memset",
+        "demangled": "memset",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "VoiceSdkVoiceTemplateFactoryCreateVoiceTemplateSamples",
+        "demangled": "VoiceSdkVoiceTemplateFactoryCreateVoiceTemplateSamples",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "VoiceSdkVoiceTemplateMatcherMatchVoiceTemplates",
+        "demangled": "VoiceSdkVoiceTemplateMatcherMatchVoiceTemplates",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strncmp",
+        "demangled": "strncmp",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "malloc",
+        "demangled": "malloc",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "memcpy",
+        "demangled": "memcpy",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "sincos",
+        "demangled": "sincos",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "powf",
+        "demangled": "powf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "logf",
+        "demangled": "logf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "exp2f",
+        "demangled": "exp2f",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "log10f",
+        "demangled": "log10f",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "log",
+        "demangled": "log",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "cos",
+        "demangled": "cos",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "exp",
+        "demangled": "exp",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "expf",
+        "demangled": "expf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "__memset_chk",
+        "demangled": "__memset_chk",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "_Znam",
+        "demangled": "operator new[](unsigned long)",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "_ZdaPv",
+        "demangled": "operator delete[](void*)",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "memmove",
+        "demangled": "memmove",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "dlclose",
+        "demangled": "dlclose",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "dlopen",
+        "demangled": "dlopen",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "dlsym",
+        "demangled": "dlsym",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "dlerror",
+        "demangled": "dlerror",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "printf",
+        "demangled": "printf",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "stdout",
+        "demangled": "stdout",
+        "address": 0,
+        "size": 0,
+        "type": "OBJECT",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": false,
+        "is_jni": false
+      },
+      {
+        "name": "fflush",
+        "demangled": "fflush",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strstr",
+        "demangled": "strstr",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strcmp",
+        "demangled": "strcmp",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "strtod",
+        "demangled": "strtod",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      },
+      {
+        "name": "sin",
+        "demangled": "sin",
+        "address": 0,
+        "size": 0,
+        "type": "FUNC",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "is_function": true,
+        "is_jni": false
+      }
+    ],
+    "symtab_count": 0,
+    "dynsym_count": 53
+  },
+  "jni_entrypoints": [],
+  "strings": {
+    "scanned_bytes": 459962,
+    "categories": {
+      "tflite": [
+        {
+          "value": "libtensorflowlite_c.so",
+          "offset": 3717,
+          "address": 3717,
+          "section": ".dynstr"
+        }
+      ],
+      "model": [],
+      "nn_runtime": [],
+      "face": [
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - EAI_INVALID_ALIGNMENT].",
+          "offset": 14816,
+          "address": 14816,
+          "section": ".rodata"
+        }
+      ],
+      "ocr": [],
+      "asr": [
+        {
+          "value": "[Audio-Systems] - Failed eai_execute [error status %d]",
+          "offset": 4983,
+          "address": 4983,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - EAI_FAIL].",
+          "offset": 5150,
+          "address": 5150,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - TI_VOICEPRINT_STATUS_ID_NOPROCESS].",
+          "offset": 5484,
+          "address": 5484,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - TI_VOICEPRINT_STATUS_ID_VF_PROCESSED].",
+          "offset": 6147,
+          "address": 6147,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - EAI_PROHIBITED_LPI_REQUEST].",
+          "offset": 6326,
+          "address": 6326,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - EAI_QDI_INTERNAL_ERROR].",
+          "offset": 6858,
+          "address": 6858,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [API: %s] [LINE: %d] [ERROR - DNNUV_STATUS_ID_EAI_FAIL].",
+          "offset": 7018,
+          "address": 7018,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [API: %s] [LINE: %d] [ERROR - Invalid status [%d].",
+          "offset": 7094,
+          "address": 7094,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - EAI_INVALID_HANDLE].",
+          "offset": 7164,
+          "address": 7164,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - Number of Enrolled User After Merging can't be greater than Max [%d]",
+          "offset": 7741,
+          "address": 7741,
+          "section": ".rodata"
+        },
+        {
+          "value": "[AUDIO-SYSTEMS]",
+          "offset": 8177,
+          "address": 8177,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - STAGE2_UV_WRAPPER_REACH_MAXIMUM_ENROLLED_USER].",
+          "offset": 8467,
+          "address": 8467,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - Model already stroes maximum user information [%d]",
+          "offset": 8590,
+          "address": 8590,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - EAI_INVALID_MODEL_VERSION].",
+          "offset": 9427,
+          "address": 9427,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [API: %s] [LINE: %d] [ERROR - DNNUV_STATUS_ID_WRONG_SIZE].",
+          "offset": 9791,
+          "address": 9791,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - TI_VOICEPRINT_STATUS_ID_INVALID_PARAM].",
+          "offset": 9891,
+          "address": 9891,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - STAGE2_UV_WRAPPER_INVALID_PARAM].",
+          "offset": 10482,
+          "address": 10482,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - STAGE2_UV_WRAPPER_EAI_FAIL].",
+          "offset": 10757,
+          "address": 10757,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - TI_VOICEPRINT_STATUS_ID_FAIL].",
+          "offset": 11143,
+          "address": 11143,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - TI_VOICEPRINT_STATUS_ID_MEMERROR].",
+          "offset": 11235,
+          "address": 11235,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - Invalid status.",
+          "offset": 11331,
+          "address": 11331,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - EAI_NO_SCRATCH_MEMORY].",
+          "offset": 11438,
+          "address": 11438,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - Invalid status [%d].",
+          "offset": 11715,
+          "address": 11715,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] Enable TIVOP SI Option2",
+          "offset": 11816,
+          "address": 11816,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - EAI_HAS_MORE].",
+          "offset": 11956,
+          "address": 11956,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - EAI_INVALID_MODEL].",
+          "offset": 12032,
+          "address": 12032,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - STAGE2_UV_WRAPPER_WRONG_MODEL].",
+          "offset": 12286,
+          "address": 12286,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - EAI_UNSUPPORTED_PROP].",
+          "offset": 12453,
+          "address": 12453,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - EAI_MLA_NOT_AVAILABLE].",
+          "offset": 12537,
+          "address": 12537,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - STAGE2_UV_WRAPPER_WRONG_SIZE].",
+          "offset": 12660,
+          "address": 12660,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - STAGE2_UV_WRAPPER_NULL_REF].",
+          "offset": 13057,
+          "address": 13057,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [API: %s] [LINE: %d] [ERROR - DNNUV_STATUS_ID_NULL_REF].",
+          "offset": 13147,
+          "address": 13147,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [API: %s] [LINE: %d] [ERROR - DNNUV_STATUS_ID_WRONG_MODEL].",
+          "offset": 13223,
+          "address": 13223,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - TI_VOICEPRINT_STATUS_ID_NO_VALID_FRAMES].",
+          "offset": 13639,
+          "address": 13639,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - STAGE2_UV_WRAPPER_FAIL].",
+          "offset": 13964,
+          "address": 13964,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [API: %s] [LINE: %d] [ERROR - DNNUV_STATUS_ID_FAIL].",
+          "offset": 14102,
+          "address": 14102,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - EAI_INVALID_ALIGNMENT].",
+          "offset": 14816,
+          "address": 14816,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [API: %s] [LINE: %d] [ERROR - DNNUV_STATUS_ID_INVALID_PARAM].",
+          "offset": 15127,
+          "address": 15127,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - TI_VOICEPRINT_STATUS_ID_WRONGMODEL].",
+          "offset": 15208,
+          "address": 15208,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - EAI_NEED_MORE].",
+          "offset": 15434,
+          "address": 15434,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - EAI_INVALID_PARAMETER].",
+          "offset": 15511,
+          "address": 15511,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - EAI_INVALID_MODEL_BUILD].",
+          "offset": 15596,
+          "address": 15596,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - EAI_RESOURCE_FAILURE].",
+          "offset": 16262,
+          "address": 16262,
+          "section": ".rodata"
+        },
+        {
+          "value": "[Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - TI_VOICEPRINT_STATUS_ID_UNSUPPORTED].",
+          "offset": 16644,
+          "address": 16644,
+          "section": ".rodata"
+        }
+      ],
+      "segment": [],
+      "model_name": [
+        {
+          "value": "ti_voiceprint_get_param_model",
+          "offset": 11408,
+          "address": 11408,
+          "section": ".rodata"
+        },
+        {
+          "value": "stage2_uv_wrapper_decode_model",
+          "offset": 14722,
+          "address": 14722,
+          "section": ".rodata"
+        },
+        {
+          "value": "ti_voiceprint_v1_embedding_forward_top_model",
+          "offset": 14771,
+          "address": 14771,
+          "section": ".rodata"
+        }
+      ]
+    },
+    "counts": {
+      "tflite": 1,
+      "model": 0,
+      "nn_runtime": 0,
+      "face": 1,
+      "ocr": 0,
+      "asr": 44,
+      "segment": 0,
+      "model_name": 3
+    },
+    "note": "strings from SHF_ALLOC non-executable sections; case-insensitive substring match, capped per category"
+  },
+  "statistics": {
+    "exports": 2,
+    "imports": 47,
+    "jni_entrypoints": 0,
+    "sections": 27,
+    "segments": 12
+  }
+}

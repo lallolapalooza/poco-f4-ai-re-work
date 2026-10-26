@@ -1,0 +1,32 @@
+{
+ "path": "models/tt_face_extra_v13.0.model",
+ "size": 573858,
+ "file_id": "02040d0317070b01742ef3fde9f9f5ff",
+ "declared_size": 573858,
+ "model_name": "v13.0",
+ "declared_records": 2,
+ "records": [
+  {
+   "name": "iris",
+   "name_offset": 33,
+   "const36": 36,
+   "key1": "03c60fe32c99e7f4b92095a86a02b96f25c676c8820dd360a5710d6453aa72da",
+   "const32": 32,
+   "blob2": "09162416e40d0000d1802b788b4eb4385ab29b92cf35eff29f693a773aed200b",
+   "payload_offset": 113,
+   "payload_end": 25977,
+   "payload_size": 25864
+  },
+  {
+   "name": "extra",
+   "name_offset": 25977,
+   "const36": 36,
+   "key1": "03c60fe32c99e7f4b92095a86a02b96f25c676c8820dd360a5710d6453aa72da",
+   "const32": 32,
+   "blob2": "e2c5fe88e42b00009c90f12d1aa78e1fa1e2ef9952035cc550fba74b52050927",
+   "payload_offset": 26058,
+   "payload_end": 573858,
+   "payload_size": 547800
+  }
+ ]
+}

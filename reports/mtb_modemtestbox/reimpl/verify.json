@@ -1,0 +1,36 @@
+{
+  "error": null,
+  "max_abs": 0.0,
+  "model": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/mtb_modemtestbox/models/0.3_new_0410_less.tflite",
+  "model_file": "0.3_new_0410_less.tflite",
+  "ok": true,
+  "reference": "ai_edge_litert Interpreter with reference kernels (no XNNPACK delegate)",
+  "rows": [
+    {
+      "dtype": "FLOAT32",
+      "dtype_ok": true,
+      "jax_dtype": "float32",
+      "kind": "absolute",
+      "max_abs": 0.0,
+      "name": "dense_1",
+      "ok": true,
+      "ref_dtype": "float32",
+      "shape": [
+        1,
+        2
+      ],
+      "tensor_index": 35,
+      "tol": 0.0001
+    }
+  ],
+  "selection_reason": "primary signature 'serving_default' (subgraph 0)",
+  "signature_key": "serving_default",
+  "status": "pass",
+  "subgraph_index": 0,
+  "subgraph_name": "main",
+  "tolerances": {
+    "float16": 0.01,
+    "float32": 0.0001,
+    "quantized_dequantized": 0.02
+  }
+}

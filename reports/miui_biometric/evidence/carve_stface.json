@@ -1,0 +1,242 @@
+{
+  "file": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so",
+  "size": 106744488,
+  "sha256": "ea711f433005fd1a2410c31339f0e1a1715b0e194abaf62403a0776ecdaabffc",
+  "findings": [
+    {
+      "kind": "caffe_string",
+      "offset": 75109,
+      "size": 5,
+      "end": 75114,
+      "confidence": "string",
+      "note": "Caffe-related string 'Caffe' (context: managerIPFPN9protector10CaffeModelEvEE10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.sscanf.ftell)",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=75109 count=5 status=none",
+      "occurrences": 107
+    },
+    {
+      "kind": "model_string",
+      "offset": 7685420,
+      "size": 9,
+      "end": 7685429,
+      "confidence": "string",
+      "note": "model-name string 'sdk_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=7685420 count=9 status=none",
+      "occurrences": 9
+    },
+    {
+      "kind": "model_string",
+      "offset": 7715720,
+      "size": 54,
+      "end": 7715774,
+      "confidence": "string",
+      "note": "model-name string 'M_Hunter_CommonFace_Gray_ppl_360_9_2_5_v2_origin_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=7715720 count=54 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 7715792,
+      "size": 34,
+      "end": 7715826,
+      "confidence": "string",
+      "note": "model-name string 'M_Align_occlusion_106_1_19_3_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=7715792 count=34 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 7715840,
+      "size": 37,
+      "end": 7715877,
+      "confidence": "string",
+      "note": "model-name string 'M_Align_occlusion_106_360_1_7_1_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=7715840 count=37 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 7715888,
+      "size": 36,
+      "end": 7715924,
+      "confidence": "string",
+      "note": "model-name string 'M_Align_CalcPose_Ann_106_2_3_0_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=7715888 count=36 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 7715936,
+      "size": 47,
+      "end": 7715983,
+      "confidence": "string",
+      "note": "model-name string 'M_Align_Deepface_Eye_State_Analysis_3_7_8_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=7715936 count=47 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 7715984,
+      "size": 74,
+      "end": 7716058,
+      "confidence": "string",
+      "note": "model-name string 'IM_RGB_Liveness_General_Full_FP32_10_1_65_half_compression_v2_origin_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=7715984 count=74 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 7716064,
+      "size": 70,
+      "end": 7716134,
+      "confidence": "string",
+      "note": "model-name string 'M_Verify_MobileNetV2T6_Common_3_135_0_half_compression_v2_origin_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=7716064 count=70 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 7716136,
+      "size": 37,
+      "end": 7716173,
+      "confidence": "string",
+      "note": "model-name string 'M_Attribute_MTNet_Quality_1_0_0_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=7716136 count=37 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "caffe_string",
+      "offset": 7716176,
+      "size": 5,
+      "end": 7716181,
+      "confidence": "string",
+      "note": "Caffe-related string 'caffe' (context: t_Quality_1_0_0_model...caffe_model.....IM_RGB_Liveness_General_Full_PPL.10.1.18........net_001.M_Verify)",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=7716176 count=5 status=none",
+      "occurrences": 4995
+    },
+    {
+      "kind": "model_string",
+      "offset": 7716176,
+      "size": 11,
+      "end": 7716187,
+      "confidence": "string",
+      "note": "model-name string 'caffe_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=7716176 count=11 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 7719672,
+      "size": 20,
+      "end": 7719692,
+      "confidence": "string",
+      "note": "model-name string 'cv_common_load_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=7719672 count=20 status=none",
+      "occurrences": 8
+    },
+    {
+      "kind": "model_string",
+      "offset": 81576016,
+      "size": 14,
+      "end": 81576030,
+      "confidence": "string",
+      "note": "model-name string 'detector.model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=81576016 count=14 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 81592785,
+      "size": 12,
+      "end": 81592797,
+      "confidence": "string",
+      "note": "model-name string 'rel.prototxt'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=81592785 count=12 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "caffe_string",
+      "offset": 81592788,
+      "size": 9,
+      "end": 81592797,
+      "confidence": "string",
+      "note": "Caffe-related string '.prototxt' (context: input fails.layer.../rel.prototxt.../model.bin......_.......!(engine_config && engine_config->prepare_ne)",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=81592788 count=9 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 105653326,
+      "size": 22,
+      "end": 105653348,
+      "confidence": "string",
+      "note": "model-name string 'cv_common_unload_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=105653326 count=22 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 105666992,
+      "size": 14,
+      "end": 105667006,
+      "confidence": "string",
+      "note": "model-name string 'svm_load_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=105666992 count=14 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 105685909,
+      "size": 53,
+      "end": 105685962,
+      "confidence": "string",
+      "note": "model-name string 'cv_common_feature_comparator_normalize_score_by_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=105685909 count=53 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "caffe_string",
+      "offset": 105720520,
+      "size": 5,
+      "end": 105720525,
+      "confidence": "string",
+      "note": "Caffe-related string 'CAFFE' (context: ZN5caffe13ReLUParameter5CAFFEE._ZN5caffe14SliceParameter5ClearEv._ZN3hpc10pplwrapper27RpnProposalParamet)",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=105720520 count=5 status=none",
+      "occurrences": 8
+    },
+    {
+      "kind": "model_string",
+      "offset": 106192620,
+      "size": 27,
+      "end": 106192647,
+      "confidence": "string",
+      "note": "model-name string 'svm_check_probability_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=106192620 count=27 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 106207455,
+      "size": 25,
+      "end": 106207480,
+      "confidence": "string",
+      "note": "model-name string 'cv_common_test_load_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=106207455 count=25 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 106441754,
+      "size": 26,
+      "end": 106441780,
+      "confidence": "string",
+      "note": "model-name string 'svm_free_and_destroy_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=106441754 count=26 status=none",
+      "occurrences": 1
+    }
+  ],
+  "counts": {
+    "caffe_string": 4,
+    "model_string": 19
+  },
+  "notes": []
+}

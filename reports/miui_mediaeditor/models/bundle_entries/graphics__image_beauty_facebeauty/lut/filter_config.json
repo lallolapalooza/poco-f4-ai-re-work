@@ -1,0 +1,474 @@
+{
+	"origin": {
+		"filter_name": "origin",
+		"type": 1,
+		"filter_scale": 1,
+		"path": "lut/origin.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"classic": {
+		"filter_name": "classic",
+		"type": 1,
+		"filter_scale": 1,
+		"path": "lut/classic.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"zhiganzong": {
+		"filter_name": "zhiganzong",
+		"type": 1,
+		"filter_scale": 1,
+		"path": "lut/zhiganzong.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"hongzong": {
+		"filter_name": "hongzong",
+		"type": 1,
+		"filter_scale": 1,
+		"path": "lut/hongzong.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"qise": {
+		"filter_name": "qise",
+		"type": 1,
+		"filter_scale": 1,
+		"path": "lut/qise.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"hutaomu": {
+		"filter_name": "hutaomu",
+		"type": 1,
+		"filter_scale": 1,
+		"path": "lut/hutaomu.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"naixing": {
+		"filter_name": "naixing",
+		"type": 1,
+		"filter_scale": 1,
+		"path": "lut/naixing.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"tianju": {
+		"filter_name": "tianju",
+		"type": 1,
+		"filter_scale": 1,
+		"path": "lut/tianju.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"liti": {
+		"filter_name": "liti",
+		"type": 1,
+		"filter_scale": 1,
+		"path": "lut/liti.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"oumei": {
+		"filter_name": "oumei",
+		"type": 1,
+		"filter_scale": 1,
+		"path": "lut/oumei.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"luozhuang": {
+		"filter_name": "luozhuang",
+		"type": 1,
+		"filter_scale": 1,
+		"path": "lut/luozhuang.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"nan": {
+		"filter_name": "nan",
+		"type": 1,
+		"filter_scale": 1,
+		"path": "lut/nan.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"jingdian": {
+		"filter_name": "jingdian",
+		"type": 1,
+		"filter_scale": 1,
+		"path": "lut/jingdian.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"nature": {
+		"filter_name": "nature",
+		"type": 1,
+		"filter_scale": 1,
+		"path": "lut/nature.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"mature": {
+		"filter_name": "mature",
+		"type": 1,
+		"filter_scale": 1,
+		"path": "lut/mature.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"japanese": {
+		"filter_name": "japanese",
+		"type": 1,
+		"filter_scale": 1,
+		"path": "lut/japanese.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"texture": {
+		"filter_name": "texture",
+		"type": 1,
+		"filter_scale": 1,
+		"path": "lut/texture.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"light_beauty": {
+		"filter_name": "light_beauty",
+		"type": 1,
+		"filter_scale": 1,
+		"path": "lut/light_beauty.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"strong_beauty": {
+		"filter_name": "strong_beauty",
+		"type": 1,
+		"filter_scale": 1,
+		"path": "lut/strong_beauty.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"ziran1": {
+		"filter_name": "ziran1",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/ziran1.png",
+		"filter_index": 45
+	},
+	"ziran2": {
+		"filter_name": "ziran2",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/ziran02.png",
+		"filter_index": 45
+	},
+	"ziran3": {
+		"filter_name": "ziran3",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/ziran03.png",
+		"filter_index": 45
+	},
+	"ziran4": {
+		"filter_name": "ziran4",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/ziran04.png",
+		"filter_index": 45
+	},
+	"ziran5": {
+		"filter_name": "ziran5",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/ziran05.png",
+		"filter_index": 45
+	},
+	"ziran6": {
+		"filter_name": "ziran6",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/ziran06.png",
+		"filter_index": 45
+	},
+	"ziran7": {
+		"filter_name": "ziran7",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/ziran07.png",
+		"filter_index": 45
+	},
+	"ziran8": {
+		"filter_name": "ziran8",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/ziran8.png",
+		"filter_index": 45
+	},
+	"mitao1": {
+		"filter_name": "mitao1",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/mitao1.png",
+		"filter_index": 46
+	},
+	"mitao2": {
+		"filter_name": "mitao2",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/mitao2.png",
+		"filter_index": 47
+	},
+	"mitao3": {
+		"filter_name": "mitao3",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/mitao3.png",
+		"filter_index": 48
+	},
+	"mitao4": {
+		"filter_name": "mitao4",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/mitao4.png",
+		"filter_index": 49
+	},
+	"mitao5": {
+		"filter_name": "mitao5",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/mitao5.png",
+		"filter_index": 50
+	},
+	"mitao6": {
+		"filter_name": "mitao6",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/mitao6.png",
+		"filter_index": 51
+	},
+	"mitao7": {
+		"filter_name": "mitao7",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/mitao7.png",
+		"filter_index": 52
+	},
+	"mitao8": {
+		"filter_name": "mitao8",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/mitao8.png",
+		"filter_index": 53
+	},
+	"zhiganhui1": {
+		"filter_name": "zhiganhui1",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/zhiganhui1.png",
+		"filter_index": 45
+	},
+	"zhiganhui2": {
+		"filter_name": "zhiganhui2",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/zhiganhui2.png",
+		"filter_index": 45
+	},
+	"zhiganhui3": {
+		"filter_name": "zhiganhui3",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/zhiganhui3.png",
+		"filter_index": 45
+	},
+	"zhiganhui4": {
+		"filter_name": "zhiganhui4",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/zhiganhui4.png",
+		"filter_index": 45
+	},
+	"zhiganhui5": {
+		"filter_name": "zhiganhui5",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/zhiganhui5.png",
+		"filter_index": 45
+	},
+	"zhiganhui6": {
+		"filter_name": "zhiganhui6",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/zhiganhui6.png",
+		"filter_index": 45
+	},
+	"zhiganhui7": {
+		"filter_name": "zhiganhui7",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/zhiganhui7.png",
+		"filter_index": 45
+	},
+	"zhiganhui8": {
+		"filter_name": "zhiganhui8",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/zhiganhui8.png",
+		"filter_index": 45
+	},
+	"fennen1": {
+		"filter_name": "fennen1",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/nailiangdelu1.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"fennen2": {
+		"filter_name": "fennen2",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/ziranqingxin1.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"fennen3": {
+		"filter_name": "fennen3",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/filter2.png",
+		"filter_index": 0
+	},
+	"fennen4": {
+		"filter_name": "fennen4",
+		"type": 0,
+		"filter_scale": 0.6,
+		"path": "lut/filter13.png",
+		"filter_index": 0
+	},
+	"fennen5": {
+		"filter_name": "fennen5",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/filter44.png",
+		"filter_index": 0
+	},
+	"fennen6": {
+		"filter_name": "fennen6",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/filter43.png",
+		"filter_index": 0
+	},
+	"fennen7": {
+		"filter_name": "fennen7",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/filter42.png",
+		"filter_index": 42
+	},
+	"fennen8": {
+		"filter_name": "fennen8",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/filter41.png",
+		"filter_index": 41
+	},
+	"bailiang1": {
+		"filter_name": "bailiang1",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/niunai1.png",
+		"filter_index": 0,
+		"filter_raw": 8,
+		"filter_col": 8,
+		"filter_dim": 64
+	},
+	"bailiang2": {
+		"filter_name": "bailiang2",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/filter1.png",
+		"filter_index": 0
+	},
+	"bailiang3": {
+		"filter_name": "bailiang3",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/filter3.png",
+		"filter_index": 0
+	},
+	"bailiang4": {
+		"filter_name": "bailiang4",
+		"type": 0,
+		"filter_scale": 0.5,
+		"path": "lut/filter18.png",
+		"filter_index": 0
+	},
+	"bailiang5": {
+		"filter_name": "bailiang5",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/filter29.png",
+		"filter_index": 0
+	},
+	"bailiang6": {
+		"filter_name": "bailiang6",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/filter40.png",
+		"filter_index": 0
+	},
+	"bailiang7": {
+		"filter_name": "bailiang7",
+		"type": 0,
+		"filter_scale": 1,
+		"path": "lut/filter45.png",
+		"filter_index": 0
+	}
+}

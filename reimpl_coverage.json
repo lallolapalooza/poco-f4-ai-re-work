@@ -1,0 +1,165 @@
+{
+  "date": "2026-10-26",
+  "summary": {
+    "model_artifacts_with_runnable_code": 50,
+    "apps_complete_pipeline": 6,
+    "apps_partial_pipeline": 3,
+    "note": "unique model/asset units; TikTok variants counted once"
+  },
+  "apps": [
+    {
+      "slug": "miui_securitycenter",
+      "extracted": "1 legacy model + dict/pattern",
+      "runnable_model_code": 1,
+      "app_pipeline": "complete",
+      "scope": "P1 SMS path",
+      "blockers": [
+        "new-engine TFLite 1.bin/2.bin/v.txt downloaded, not in APK",
+        "dh.c.i non-separator digit-run classifier collapsed in jadx; BankCard unreachable",
+        "assets/phish absent; phishing verdict unreachable"
+      ]
+    },
+    {
+      "slug": "miui_securitycoreadd",
+      "extracted": "1 TFLite (7 subgraphs)",
+      "runnable_model_code": 1,
+      "app_pipeline": "complete",
+      "scope": "inference + training",
+      "blockers": [
+        "backlight LUT/normalizer bounds are device display config",
+        "spline construction framework-side"
+      ]
+    },
+    {
+      "slug": "miui_mediaeditor",
+      "extracted": "33 usable TFLite + 5 encrypted; 22 bundles",
+      "runnable_model_code": 32,
+      "app_pipeline": "partial",
+      "scope": "photo beauty (landmark/parse/skin/LUT); video not implemented",
+      "blockers": [
+        "5 encrypted TFLite + 3 configs",
+        "1 model (human_detector_retinanet) not executable by stock LiteRT",
+        "YOLO detector head/anchor decode unrecovered",
+        "mask UV warp and full GL effect stack missing",
+        "video path missing"
+      ]
+    },
+    {
+      "slug": "miui_extraphoto",
+      "extracted": "1 SNPE DLC + 4 MACE caches + 5 embedded MACE blocks",
+      "runnable_model_code": 1,
+      "app_pipeline": "partial",
+      "scope": "document scan via DLC; relight/bokeh architecture-only",
+      "blockers": [
+        "MACE op graph not present in image; only names/tensors/weights extracted",
+        "ArcSoft/Megvii weights embedded/opaque"
+      ]
+    },
+    {
+      "slug": "miui_biometric",
+      "extracted": "8 encrypted STEF blobs",
+      "runnable_model_code": 0,
+      "app_pipeline": "none",
+      "blockers": [
+        "STEF payloads encrypted; runtime licence key"
+      ]
+    },
+    {
+      "slug": "miui_paymentservice",
+      "extracted": "2 LIBSVM models",
+      "runnable_model_code": 2,
+      "app_pipeline": "complete",
+      "blockers": []
+    },
+    {
+      "slug": "miui_remote",
+      "extracted": "1 VAD model",
+      "runnable_model_code": 1,
+      "app_pipeline": "complete",
+      "blockers": [
+        "cloud ASR/NLU/TTS stub",
+        "TTS decoder has no PCM sink in this build"
+      ]
+    },
+    {
+      "slug": "qcom_voiceactivation",
+      "extracted": "7 .uim + 16 EAI2 blobs",
+      "runnable_model_code": 1,
+      "app_pipeline": "partial",
+      "scope": "DNN VAD exact; keyword stages parsed but not numerically reproduced",
+      "blockers": [
+        "GRU/framer semantics unresolved",
+        "4 blobs refused by shipped runtime",
+        "VAD 160-dim front-end undefined"
+      ]
+    },
+    {
+      "slug": "mtb_modemtestbox",
+      "extracted": "1 TFLite",
+      "runnable_model_code": 1,
+      "app_pipeline": "complete",
+      "blockers": []
+    },
+    {
+      "slug": "snapchat",
+      "extracted": "no DNN; Haar/ERT/ORB/lenses",
+      "runnable_model_code": 4,
+      "app_pipeline": "complete",
+      "scope": "classical CV lens path",
+      "blockers": [
+        "AI Factory .dnn.enc downloaded",
+        "ML Kit via GmsCore",
+        "Memories server-side"
+      ]
+    },
+    {
+      "slug": "tiktok_musically",
+      "extracted": "3 .model bundles / 12 records",
+      "runnable_model_code": 6,
+      "app_pipeline": "none",
+      "scope": "model-level records; no VESDK app harness",
+      "blockers": [
+        "agenet auth_code missing (1/12)",
+        "Slice/Split multi-top layers unmodelled (base120/partface/iris/extra)",
+        "weight dequant scale missing; outputs not bit-exact"
+      ]
+    },
+    {
+      "slug": "tiktok_trill",
+      "extracted": "3 .model bundles / 12 records",
+      "runnable_model_code": 6,
+      "app_pipeline": "none",
+      "scope": "byte-identical to musically",
+      "blockers": [
+        "same as musically"
+      ]
+    },
+    {
+      "slug": "kwai_video",
+      "extracted": "none",
+      "runnable_model_code": 0,
+      "app_pipeline": "none",
+      "blockers": [
+        "YCNN models downloaded at runtime"
+      ]
+    },
+    {
+      "slug": "kwai_bulldog",
+      "extracted": "none",
+      "runnable_model_code": 0,
+      "app_pipeline": "none",
+      "blockers": [
+        "YCNN models downloaded at runtime"
+      ]
+    },
+    {
+      "slug": "kwai_live",
+      "extracted": "none",
+      "runnable_model_code": 0,
+      "app_pipeline": "none",
+      "blockers": [
+        "YCNN models downloaded at runtime"
+      ]
+    }
+  ]
+}

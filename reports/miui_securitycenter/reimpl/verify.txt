@@ -1,0 +1,212 @@
+# reimpl verification - miui_securitycenter (P1 legacy SMS filter)
+# interpreter: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python
+# cwd: reports/miui_securitycenter/
+
+#####################################################################
+# 1. model.py - cascade scoring with the real weights (pre-existing run)
+#    $PY reimpl/model.py models/assets_model        -> exit 0
+#####################################################################
+
+An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+model: models/assets_model
+jax 0.12.0.1  devices=[CpuDevice(id=0)]
+stages: 5
+  stage 0: n_feat=68 rules=9 chars=58 len_thr=39 tokens=8000 patterns=414 w(2, 68) token_w(8000, 2) pattern_w(414, 2) bias(2, 8)
+  stage 1: n_feat=23 rules=9 chars=13 len_thr=18 tokens=8000 patterns=292 w(2, 23) token_w(8000, 2) pattern_w(292, 2) bias(2, 8)
+  stage 2: n_feat=10 rules=9 chars=0 len_thr=24 tokens=5752 patterns=193 w(2, 10) token_w(5752, 2) pattern_w(193, 2) bias(2, 8)
+  stage 3: n_feat=10 rules=9 chars=0 len_thr=23 tokens=4759 patterns=139 w(2, 10) token_w(4759, 2) pattern_w(139, 2) bias(2, 8)
+  stage 4: n_feat=16 rules=9 chars=6 len_thr=104 tokens=2573 patterns=171 w(2, 16) token_w(2573, 2) pattern_w(171, 2) bias(2, 8)
+  stage 0 scores=[-35.1393, -32.5295] (feat_mask 1/68, tok_hit 3, pat_hit 0)
+  stage 1 scores=[-26.3793, -24.5133] (feat_mask 1/23, tok_hit 1, pat_hit 1)
+  stage 2 scores=[-35.2126, -30.551] (feat_mask 1/10, tok_hit 3, pat_hit 1)
+  stage 3 scores=[-26.0835, -24.0703] (feat_mask 1/10, tok_hit 3, pat_hit 0)
+  stage 4 scores=[-26.8456, -25.3695] (feat_mask 0/16, tok_hit 2, pat_hit 1)
+jax   verdict=0 early_exit=False trace=[-2.6098, -1.866, -4.6616, -2.0132, -1.4761]
+numpy verdict=0 early_exit=False trace=[-2.6098, -1.866, -4.6616, -2.0132, -1.4761]
+jax/numpy agree=True verdict_equal=True
+clean sample: jax verdict=0 numpy verdict=0 trace=[-9.323, -5.378, -11.36, -6.876]
+spam probe (30 tokens, e.g. ['真人', '百家乐', '现房', '娱乐城']): jax=1 numpy=1 stage0 d=136.83
+ham  probe (30 tokens, e.g. ['发给', '证监会', '给我发', '估计']): jax=0 numpy=0 stage0 d=-131.43
+ALL CHECKS PASS=True
+
+#####################################################################
+# 2. pipeline_sms.py --selftest - raw SMS -> dict segmentation -> masks
+#    -> 5-stage cascade; asserts + NumPy cross-check of model.py
+#    $PY reimpl/pipeline_sms.py --selftest           -> exit 0
+#####################################################################
+
+
+  PASS  dict parses to EOF               consumed=3639702 size=3639702
+  PASS  dict word count                  words=348982
+  PASS  dict sha256                      f99086243babe60f
+  PASS  char-class tables                [6857, 7439, 6409, 14519]
+  PASS  model stages/rules               stages=5 rules=9
+  PASS  pattern features                 features=19
+  PASS  segment partitions '晚上七点老地方见'    ['晚上', '七点', '老', '地方', '见', '，', '别', '迟到']
+  PASS  segment partitions '【京东】尊敬的用'    ['【', '京东', '】', '尊敬', '的', '用户', '，', '恭喜', '您', '中奖', '！', '点击', ' ']
+  PASS  segment partitions '混合abc中文d'    ['混合', 'abc', '中文', 'def', '测试']
+  PASS  segment partitions 'hello wo'    ['hello world 123']
+  PASS  segment word 京东/中奖/尊敬            ['【', '京东', '】', '尊敬', '的', '用户', '，', '恭喜', '您', '中奖', '！', '点击', ' ']
+  PASS  bh.a.f word lookup               中奖 in dict; qqqqzzz absent
+  PASS  ascii/non-ascii split            ['混合', 'abc', '中文', 'def', '测试']
+  PASS  ah.h.c de-obfuscation            '点击领取'
+  PASS  ah.h.c trailing trim             'hello'
+  PASS  ah.h.c passthrough               '正文。'
+  PASS  dh.a.d categories                {'13800138000': 0, '10086': 1, '95555': 5, '10690000': 2}
+  PASS  +86 strip                        10086
+  PASS  dh.j url split                   ['见 ', ' 领取']
+  PASS  dh.b email split                 [' 你好']
+  PASS  dh.c 010-12345678                counts=[0, 1, 0, 0, 0, 0, 0]
+  PASS  dh.c 100-1234567                 counts=[0, 0, 0, 1, 0, 0, 0]
+  PASS  dh.c 400-123-4567                counts=[0, 0, 0, 0, 1, 0, 0]
+  PASS  dh.c 13800138000                 counts=[0, 0, 0, 0, 0, 0, 0]
+  PASS  dh.c digit removal               ['a', 'c', 'def']
+  PASS  ah.i.b empty                     no pieces -> False
+  PASS  ah.i.b punctuation-heavy         True
+  PASS  ah.i.b prose                     False
+  PASS  ch.d.a/ch.d.b                    4 12
+  PASS  ah.e.g shift                     [29.80990942 10.0996249  19.62839039]
+  PASS  early-exit bit                   0x8000000
+  PASS  java length (astral)             emoji = 2 code units
+  PASS  length feature uses code units   True True False
+  PASS  verdict '【京东】尊敬的用户，'             got 2 want 2
+  PASS  block type '【京东】尊敬的用户，'          block_type=4 should_filter=2
+  PASS  numpy agreement '【京东】尊敬的用户，'     jax=[10.244287] numpy=[10.244287]
+  PASS  verdict '尊敬的用户，您有一笔'             got 2 want 2
+  PASS  block type '尊敬的用户，您有一笔'          block_type=4 should_filter=2
+  PASS  numpy agreement '尊敬的用户，您有一笔'     jax=[0.978715, -2.312243, 7.622502, 5.7444] numpy=[0.978715, -2.312243, 7.622502, 5.7444]
+  PASS  verdict '晚上七点老地方见，别'             got 0 want 0
+  PASS  block type '晚上七点老地方见，别'          block_type=None should_filter=0
+  PASS  pattern early exit '晚上七点老地方见，别'  pattern bit0 (allow)
+  PASS  verdict '会议改到下午三点，材'             got 0 want 0
+  PASS  block type '会议改到下午三点，材'          block_type=None should_filter=0
+  PASS  numpy agreement '会议改到下午三点，材'     jax=[-13.961717] numpy=[-13.961717]
+
+45/45 checks passed
+
+#####################################################################
+# 3. pipeline_sms.py --demo - 2 spam + 2 ham messages, per-stage trace
+#    $PY reimpl/pipeline_sms.py --demo               -> exit 0
+#####################################################################
+
+
+=== sender='13800138000' category=Common body='【京东】尊敬的用户，恭喜您中奖！点击 http://t.cn/Rx3k2f 领取手机一部，贷款免息，客服 400-123-4567，名额有限速速领取'
+    pieces=['【京东】尊敬的用户，恭喜您中奖！点击 ', ' 领取手机一部，贷款免息，客服 ', '，名额有限速速领取']
+    urls=['http://t.cn/Rx3k2f']
+    rule_counts={'url': 1, 'email': 0, 'BankCard': 0, 'Phone': 0, 'PhoneMobile': 0, 'Phone400': 0, 'Range': 1, 'Tag': 0, 'Confus': 0}
+    tokens(16)=['一部', '中奖', '京东', '免息', '名额有限', '客服', '尊敬', '恭喜', '您', '手机', '点击', '用户', '的', '贷款', '速速', '领取']
+    pattern_word=0x00000000 features=[] active=0 inactive=0
+    stage 0: d=+10.244 thr=[10.099625, -9.61066, -0.081894] feats=3 (chars=0, len=True) tokens=14 patterns=0 -> 1
+    verdict=2 blocked=True block_type=4 should_filter=2 expected=2
+
+=== sender='13800138000' category=Common body='尊敬的用户，您有一笔免息贷款待领取，额度最高50万元，点击 http://t.cn/A6xyz 立即申请'
+    pieces=['尊敬的用户，您有一笔免息贷款待领取，额度最高', '万元，点击 ', ' 立即申请']
+    urls=['http://t.cn/A6xyz']
+    rule_counts={'url': 1, 'email': 0, 'BankCard': 0, 'Phone': 0, 'PhoneMobile': 0, 'Phone400': 0, 'Range': 0, 'Tag': 0, 'Confus': 0}
+    tokens(16)=['一笔', '万元', '免息', '尊敬', '待', '您', '最高', '有', '点击', '用户', '申请', '的', '立即', '贷款', '领取', '额度']
+    pattern_word=0x00000000 features=[] active=0 inactive=0
+    stage 0: d=+0.979 thr=[10.099625, -9.61066, -0.081894] feats=2 (chars=0, len=True) tokens=13 patterns=1 -> vote
+    stage 1: d=-2.312 thr=[5.453194, -5.453194, 0.647298] feats=2 (chars=0, len=True) tokens=7 patterns=3 -> vote
+    stage 2: d=+7.623 thr=[13.208791, -11.359606, -1.939627] feats=2 (chars=0, len=True) tokens=12 patterns=2 -> vote
+    stage 3: d=+5.744 thr=[5.207687, -5.207687, -2.043938] feats=2 (chars=0, len=True) tokens=12 patterns=3 -> 1
+    verdict=2 blocked=True block_type=4 should_filter=2 expected=2
+
+=== sender='13800138000' category=Common body='晚上七点老地方见，别迟到'
+    pieces=['晚上七点老地方见，别迟到']
+    urls=[]
+    rule_counts={'url': 0, 'email': 0, 'BankCard': 0, 'Phone': 0, 'PhoneMobile': 0, 'Phone400': 0, 'Range': 0, 'Tag': 0, 'Confus': 0}
+    tokens(7)=['七点', '别', '地方', '晚上', '老', '见', '迟到']
+    pattern_word=0x00000101 features=['sms_body_length', 'all_chinese'] active=8 inactive=0
+    verdict=0 blocked=False block_type=None should_filter=0 expected=0
+
+=== sender='13800138000' category=Common body='会议改到下午三点，材料已经发你邮箱了'
+    pieces=['会议改到下午三点，材料已经发你邮箱了']
+    urls=[]
+    rule_counts={'url': 0, 'email': 0, 'BankCard': 0, 'Phone': 0, 'PhoneMobile': 0, 'Phone400': 0, 'Range': 0, 'Tag': 0, 'Confus': 0}
+    tokens(10)=['三点', '下午', '了', '会议', '你', '发', '已经', '改到', '材料', '邮箱']
+    pattern_word=0x00000100 features=['all_chinese'] active=8 inactive=0
+    stage 0: d=-13.962 thr=[49.520194, 29.809909, 39.338675] feats=0 (chars=0, len=False) tokens=6 patterns=0 -> 0
+    verdict=0 blocked=False block_type=None should_filter=0 expected=0
+
+expect verdicts [2, 2, 0, 0] got [2, 2, 0, 0] pass=True
+
+#####################################################################
+# 4. single message, JSON output (sender 10086 -> category 100+5 ->
+#    pattern bit 0x1000 shifts all three stage thresholds by +19.711)
+#    $PY reimpl/pipeline_sms.py --sender 10086 \
+#        --body '【中国移动】您本月话费余额为120元' --json    -> exit 0
+#####################################################################
+
+{
+ "body": "【中国移动】您本月话费余额为120元",
+ "number": "10086",
+ "category": 1,
+ "category_name": "100+5",
+ "pieces": [
+  "【中国移动】您本月话费余额为",
+  "元"
+ ],
+ "urls": [],
+ "structs": [],
+ "rule_counts": [
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0
+ ],
+ "tokens": [
+  "中国移动",
+  "为",
+  "余额",
+  "元",
+  "您",
+  "月话费",
+  "本"
+ ],
+ "pattern_word": "0x00001000",
+ "pattern_features": [
+  "important_phone"
+ ],
+ "active_bits": 4,
+ "inactive_bits": 0,
+ "stages": [
+  {
+   "stage": 0,
+   "scores": [
+    -83.198783,
+    -62.139653
+   ],
+   "d": -21.05913,
+   "thresholds": [
+    29.809909,
+    10.099625,
+    19.62839
+   ],
+   "feature_bits": 0,
+   "char_hits": 0,
+   "length_bit": false,
+   "token_hits": 7,
+   "pattern_hits": 4,
+   "decision": 0
+  }
+ ],
+ "votes": [],
+ "pos": 0,
+ "neg": 0,
+ "early_exit": null,
+ "verdict": 0,
+ "blocked": false,
+ "block_type": null,
+ "should_filter": 0,
+ "sender": "10086",
+ "provider": {
+  "uri": "content://antispam/sms_judge",
+  "query": "AntiSpamProvider.query() case 9 -> c(String[])",
+  "policy": "SmartSmsFilterPolicy.handleData -> policy.a.C0115a(type 8 = phishing, 4 = spam)"
+ }
+}

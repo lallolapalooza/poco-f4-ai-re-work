@@ -1,0 +1,16 @@
+== classes.dex: 5 referencing methods
+    Lcom/mibi/ocr/ui/CaptureFragment$b; onClick (Landroid/view/View;)V
+    Lcom/mibi/ocr/ui/CaptureFragment$d; onClick (Landroid/view/View;)V
+    Lcom/mibi/ocr/ui/CaptureFragment; E ()V
+    Lcom/mibi/ocr/ui/CaptureFragment; a (Lcom/mibi/ocr/ui/CaptureFragment;)Lcom/xiaomi/payment/entryData/CameraIntentData;
+    Lcom/mibi/ocr/ui/CaptureFragment; i (Z)V
+== classes2.dex: 9 referencing methods
+    Lcom/xiaomi/payment/channel/VoucherFragment; j0 ()V
+    Lcom/xiaomi/payment/entryData/CameraIntentData$a; createFromParcel (Landroid/os/Parcel;)Lcom/xiaomi/payment/entryData/CameraIntentData;
+    Lcom/xiaomi/payment/entryData/CameraIntentData$a; createFromParcel (Landroid/os/Parcel;)Ljava/lang/Object;
+    Lcom/xiaomi/payment/entryData/CameraIntentData$a; newArray (I)[Lcom/xiaomi/payment/entryData/CameraIntentData;
+    Lcom/xiaomi/payment/entryData/CameraIntentData$a; newArray (I)[Ljava/lang/Object;
+    Lcom/xiaomi/payment/entryData/CameraIntentData; <clinit> ()V
+    Lcom/xiaomi/payment/entryData/CameraIntentData; <init> (I Ljava/lang/String; Ljava/util/ArrayList;)V
+    Lcom/xiaomi/payment/entryData/CameraIntentData; <init> (Landroid/os/Parcel;)V
+    Lcom/xiaomi/payment/entryData/CameraIntentData; writeToParcel (Landroid/os/Parcel; I)V

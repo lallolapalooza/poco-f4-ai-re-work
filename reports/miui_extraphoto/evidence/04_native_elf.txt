@@ -1,0 +1,204 @@
+# ELF/JNI summary for native AI libraries (extracted APK members; big libs read from /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/xp)
+================ native/libmegvii_bokeh_jni.so
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_extraphoto/native/libmegvii_bokeh_jni.so
+==============================================================================
+size        : 260048 bytes (0.25 MiB)
+sha256      : 0515b7100830b70d30cab7be2c2565ac360a525a38d80d468ea7d67995a0e8d6
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x83e0   imagebase: 0x0
+build id    : fe60a4bf93f56b92d9078579012492e557e7187f
+android     : SDK 21, NDK r16b, build 4479499
+soname      : libmegvii_bokeh_jni.so
+  0x8a28       100      com.miui.extraphoto.refocus.manager.MegviiDualPhotoJni.initRefocus Java_com_miui_extraphoto_refocus_manager_MegviiDualPhotoJni_initRefocus
+  0x8a8c       432      com.miui.extraphoto.refocus.manager.MegviiDualPhotoJni.processRefocusWidthHandle Java_com_miui_extraphoto_refocus_manager_MegviiDualPhotoJni_processRefocusWidthHandle
+  0x8c3c       68       com.miui.extraphoto.refocus.manager.MegviiDualPhotoJni.releaseRefocus Java_com_miui_extraphoto_refocus_manager_MegviiDualPhotoJni_releaseRefocus
+================ native/libmialgo_portrait.so
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_extraphoto/native/libmialgo_portrait.so
+==============================================================================
+size        : 784608 bytes (0.75 MiB)
+sha256      : fc6c09e63fc6b3deb4705c195324298a7d58052cacc6b49629da3cbb1bfc8e24
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x3e140   imagebase: 0x0
+build id    : e1ac20c1799232f65885084e54357b7991bea61b
+android     : SDK 24, NDK r21e, build 7075529
+soname      : libmialgo_portrait.so
+================ native/libmialgo_utils_extraphoto.so
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_extraphoto/native/libmialgo_utils_extraphoto.so
+==============================================================================
+size        : 1051208 bytes (1.00 MiB)
+sha256      : 2b80c8aa72afc46f5000c7ba8984ad3c504424eecc9f2a239eaf04d5232627da
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x0   imagebase: 0x0
+build id    : 168312f698940f86381f3bd0148bd289d7d73262
+android     : SDK 23, NDK r19c, build 5345600
+soname      : libmialgo_utils.so
+================ native/libmibrain_relighting_jni.so
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_extraphoto/native/libmibrain_relighting_jni.so
+==============================================================================
+size        : 211088 bytes (0.20 MiB)
+sha256      : 5c914d8e0d658a245748cb4dee198b2072dd4a2367cfebef2b73cbb542b07d68
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0xe0e0   imagebase: 0x0
+build id    : c3291d122132fbdea104d23ffca6dace7407e8fa
+android     : SDK 21, NDK r20, build 5594570
+soname      : libmibrain_relighting_jni.so
+  0xe7a0       552      com.miui.extraphoto.refocus.manager.MiDualPhotoJni.initBrainRelightingEffect Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_initBrainRelightingEffect
+  0xe9c8       136      com.miui.extraphoto.refocus.manager.MiDualPhotoJni.setBrainRelightingLightSource Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_setBrainRelightingLightSource
+  0xea50       552      com.miui.extraphoto.refocus.manager.MiDualPhotoJni.enableBrainRelightingEffect Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_enableBrainRelightingEffect
+  0xec78       76       com.miui.extraphoto.refocus.manager.MiDualPhotoJni.releaseBrainRelightingHandle Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_releaseBrainRelightingHandle
+================ native/libmicamera_dual_bokeh_jni.so
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_extraphoto/native/libmicamera_dual_bokeh_jni.so
+==============================================================================
+size        : 219264 bytes (0.21 MiB)
+sha256      : 41de8b27556f8480402214b225818039c60db8c34b0688c9f756a1990acb0b4e
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0xf970   imagebase: 0x0
+build id    : 287ad3e197385a794115b8de69e874866dac9549
+android     : SDK 21, NDK r21e, build 7075529
+soname      : libmicamera_dual_bokeh_jni.so
+  0x1002c      336      com.miui.extraphoto.refocus.manager.MiDualPhotoJni.initMiCameraRefocus Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_initMiCameraRefocus
+  0x1017c      688      com.miui.extraphoto.refocus.manager.MiDualPhotoJni.processMiCameraRefocusWidthHandle Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_processMiCameraRefocusWidthHandle
+  0x1042c      132      com.miui.extraphoto.refocus.manager.MiDualPhotoJni.releaseMiCameraRefocus Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_releaseMiCameraRefocus
+  0x104b0      160      com.miui.extraphoto.refocus.manager.MiDualPhotoJni.generateNativeMaskImage Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_generateNativeMaskImage
+  0x10550      84       com.miui.extraphoto.refocus.manager.MiDualPhotoJni.releaseNativeMaskImage Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_releaseNativeMaskImage
+  0x10600      968      com.miui.extraphoto.refocus.manager.MiDualPhotoJni.initDynamicSpot Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_initDynamicSpot
+  0x10a60      212      com.miui.extraphoto.refocus.manager.MiDualPhotoJni.processFlickerSpot Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_processFlickerSpot
+  0x10b34      196      com.miui.extraphoto.refocus.manager.MiDualPhotoJni.processSpot Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_processSpot
+  0x10bf8      196      com.miui.extraphoto.refocus.manager.MiDualPhotoJni.releaseDynamicSpot Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_releaseDynamicSpot
+================ native/libmotion_photo_mace.so
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_extraphoto/native/libmotion_photo_mace.so
+==============================================================================
+size        : 3504680 bytes (3.34 MiB)
+sha256      : c064004bd5a52235cd6be0dc173879af22c45024dcbbcdf918f05262ee2ec489
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x4b100   imagebase: 0x0
+android     : SDK 21, NDK r18b, build 5063045
+soname      : libmace.so
+runpath     : $ORIGIN/../../_solib___Caarch64-linux-android-clang7.0.2-libcpp/:$ORIGIN/_solib___Caarch64-linux-android-clang7.0.2-libcpp/:external/androidndk/ndk/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/7.0.2/lib/linux/aarch64
+================ native/librefocus.so
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_extraphoto/native/librefocus.so
+==============================================================================
+size        : 219280 bytes (0.21 MiB)
+sha256      : 8a145d97338e9e318e934193c4cc8c9f8d00db7d41663c11e180c3b3f12144d6
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0xed10   imagebase: 0x0
+build id    : 4a2f3cf634ff9d043c982081cdd8a26dc8457887
+android     : SDK 21, NDK r20, build 5594570
+soname      : librefocus.so
+  0xf4a0       132      com.miui.extraphoto.refocus.manager.DualPhotoJni.initDynamicSpin Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_initDynamicSpin
+  0xf524       116      com.miui.extraphoto.refocus.manager.DualPhotoJni.initDynamicMotion Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_initDynamicMotion
+  0xf598       92       com.miui.extraphoto.refocus.manager.DualPhotoJni.processDynamicMotion Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_processDynamicMotion
+  0xf5f4       92       com.miui.extraphoto.refocus.manager.DualPhotoJni.processDynamicSpin Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_processDynamicSpin
+  0xf650       56       com.miui.extraphoto.refocus.manager.DualPhotoJni.copyImage Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_copyImage
+  0xf688       76       com.miui.extraphoto.refocus.manager.DualPhotoJni.releaseRefocusHandle Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_releaseRefocusHandle
+  0xf6d4       224      com.miui.extraphoto.refocus.manager.DualPhotoJni.processRefocusWithHandle Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_processRefocusWithHandle
+  0xf7b4       292      com.miui.extraphoto.refocus.manager.DualPhotoJni.processRefocus Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_processRefocus
+  0xf8d8       568      com.miui.extraphoto.refocus.manager.DualPhotoJni.configYUVData Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_configYUVData
+  0xfb10       140      com.miui.extraphoto.refocus.manager.DualPhotoJni.configBitmapByNativeImage Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_configBitmapByNativeImage
+  0xfb9c       432      com.miui.extraphoto.refocus.manager.DualPhotoJni.initRelightingEffect Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_initRelightingEffect
+  0xfd4c       112      com.miui.extraphoto.refocus.manager.DualPhotoJni.setRelightingLightSource Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_setRelightingLightSource
+  0xfdbc       320      com.miui.extraphoto.refocus.manager.DualPhotoJni.enableRelightingEffect Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_enableRelightingEffect
+  0xfefc       76       com.miui.extraphoto.refocus.manager.DualPhotoJni.releaseRelightingHandle Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_releaseRelightingHandle
+  0xff48       92       com.miui.extraphoto.refocus.manager.DualPhotoJni.generateNativeImage Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_generateNativeImage
+  0xffa4       60       com.miui.extraphoto.refocus.manager.DualPhotoJni.allocNativeImage Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_allocNativeImage
+  0xffe0       24       com.miui.extraphoto.refocus.manager.DualPhotoJni.releaseNativeImage Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_releaseNativeImage
+  0xfff8       100      com.miui.extraphoto.refocus.manager.DualPhotoJni.generateNativeData Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_generateNativeData
+  0x1005c      72       com.miui.extraphoto.refocus.manager.DualPhotoJni.copyNativeData Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_copyNativeData
+  0x100a4      16       com.miui.extraphoto.refocus.manager.DualPhotoJni.releaseNativeData Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_releaseNativeData
+================ native/librefocus_mibokeh.so
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_extraphoto/native/librefocus_mibokeh.so
+==============================================================================
+size        : 215184 bytes (0.21 MiB)
+sha256      : 86540c638516a01f60aba5e3ba4a08fad938b093f4f09142f33c71b764f75077
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0xdee0   imagebase: 0x0
+build id    : 61aa835cd33c877cae7736e45dfdbde6ca5c9bf2
+android     : SDK 21, NDK r20, build 5594570
+soname      : librefocus_mibokeh.so
+  0xf710       20       com.miui.extraphoto.refocus.manager.DualPhotoJni.processMiRefocus Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_processMiRefocus
+  0xf724       8        com.miui.extraphoto.refocus.manager.DualPhotoJni.processMiRawDepth Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_processMiRawDepth
+================ /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/xp/librelight_only_extraphoto.so (not copied; size 91925616)
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/xp/librelight_only_extraphoto.so
+==============================================================================
+size        : 91925616 bytes (87.67 MiB)
+sha256      : f98903b8c576cd382a25c9e97b8c71c67b9549654fed1792d84dad10bf120201
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x0   imagebase: 0x0
+build id    : a5a0493732b19d1c12e29920d0e3ba33a061cb9f
+android     : SDK 21, NDK r17-beta2, build 4698735
+soname      : librelight_only.so
+needed      : libGLESv3.so, libEGL.so, liblog.so, libc++_shared.so, libm.so, libdl.so, libc.so
+parser      : lief
+counts      : 846 exports, 416 imports, 12 JNI, 28 sections, 8 segments
+symtab/dynsym: 0 / 1266
+  0x72c24      1260     com.xiaomi.utils.MP4Utils.concateMP4FilesJni Java_com_xiaomi_utils_MP4Utils_concateMP4FilesJni
+  0x73234      1536     com.xiaomi.utils.MP4Utils.probeMP4VideoInfoJni Java_com_xiaomi_utils_MP4Utils_probeMP4VideoInfoJni
+  0x738a4      232      com.xiaomi.utils.PerformanceDetect.timeUsedToSmoothJni Java_com_xiaomi_utils_PerformanceDetect_timeUsedToSmoothJni
+  0x7398c      232      com.xiaomi.utils.PerformanceDetect.timeUsedToStickerRenderJni Java_com_xiaomi_utils_PerformanceDetect_timeUsedToStickerRenderJni
+  0x73a74      228      com.xiaomi.utils.PerformanceDetect.timeUsedToFilterJni Java_com_xiaomi_utils_PerformanceDetect_timeUsedToFilterJni
+  0x73b58      236      com.xiaomi.utils.PerformanceDetect.timeUsedToSmoothStickerRenderJni Java_com_xiaomi_utils_PerformanceDetect_timeUsedToSmoothStickerRenderJni
+  0x73c44      232      com.xiaomi.utils.PerformanceDetect.timeUsedToSmoothFilterJni Java_com_xiaomi_utils_PerformanceDetect_timeUsedToSmoothFilterJni
+  0x73d2c      232      com.xiaomi.utils.PerformanceDetect.timeUsedToStickerRenderFilterJni Java_com_xiaomi_utils_PerformanceDetect_timeUsedToStickerRenderFilterJni
+  0x73e14      236      com.xiaomi.utils.PerformanceDetect.timeUsedToSmoothStickerRenderFilterJni Java_com_xiaomi_utils_PerformanceDetect_timeUsedToSmoothStickerRenderFilterJni
+  0x7405c      668      com.xiaomi.utils.Logger.Log                Java_com_xiaomi_utils_Logger_Log
+  0x74b5c      772      com.xiaomi.MediaRecord.SystemUtil.Init     Java_com_xiaomi_MediaRecord_SystemUtil_Init
+  0x74e60      548      com.xiaomi.MediaRecord.SystemUtil.UnInit   Java_com_xiaomi_MediaRecord_SystemUtil_UnInit
+================ /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/xp/libwa_refocus_extraphoto.so (not copied; size 8919872)
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/xp/libwa_refocus_extraphoto.so
+==============================================================================
+size        : 8919872 bytes (8.51 MiB)
+sha256      : 222d7805ee722da018906db26209f2816340ffee4bfa333e0b84a376f5e35bf3
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x1f0000   imagebase: 0x0
+build id    : a7f552d8d2f23f1c76bd0fdd4bfada410d0daf71
+android     : SDK 26, NDK r20, build 5594570
+soname      : libwa_refocus.so
+needed      : libz.so, libdl.so, libm.so, liblog.so, libEGL.so, libGLESv3.so, libc.so
+parser      : lief
+counts      : 74 exports, 262 imports, 0 JNI, 27 sections, 9 segments
+symtab/dynsym: 0 / 338
+================ /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/xp/libdoc_photo_process.so (not copied; size 25029048)
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/xp/libdoc_photo_process.so
+==============================================================================
+size        : 25029048 bytes (23.87 MiB)
+sha256      : 71a1f3b9806823d8f9e31f56934aab02814ae19c625ea1f6747d75be4f2463cc
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x68b80   imagebase: 0x0
+build id    : cd71a5cf41568515517b803b65388ecf90838f53
+android     : SDK 21, NDK r18b, build 5063045
+soname      : libDocumentProcess.so
+runpath     : /home/mi/opt/android-ndk-r18b/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/7.0.2/lib/linux/aarch64
+needed      : liblog.so, libOpenCL.so, libjnigraphics.so, libc.so, libz.so, libdl.so, libm.so
+parser      : lief
+counts      : 27 exports, 201 imports, 20 JNI, 26 sections, 8 segments
+  0x7d6b8      392      com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeSupportFeatures Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeSupportFeatures
+  0x7d8dc      8        com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeIsAvailable Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeIsAvailable
+  0x7d8e4      36       com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeGetVersion Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeGetVersion
+  0x7d908      160      com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeGlobalInit Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeGlobalInit
+  0x7d9a8      304      com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeInitAndRun Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeInitAndRun
+  0x7dad8      356      com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeInit Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeInit
+  0x7dc3c      24       com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeRelease Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeRelease
+  0x7dc54      588      com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeScanDocumentBitmap Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeScanDocumentBitmap
+  0x7e1d0      824      com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeAlignDocumentBitmap Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeAlignDocumentBitmap
+  0x7e6cc      760      com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeRotateDocumentYUVScanPoints Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeRotateDocumentYUVScanPoints
+  0x7e9c4      644      com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeScanDocumentYUV Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeScanDocumentYUV
+  0x7ec48      736      com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeCropImageBitmap Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeCropImageBitmap
+  0x7efd0      660      com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeEnhanceBitmap Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeEnhanceBitmap
+  0x7f2c0      1252     com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeCropAndEnhanceBitmap Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeCropAndEnhanceBitmap
+  0x7f7a4      1448     com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeCropAndEnhanceYUV Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeCropAndEnhanceYUV
+  0x7fd4c      1200     com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeNormalizationPoints Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeNormalizationPoints
+  0x80420      560      com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeDewarpBitmap Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeDewarpBitmap
+  0x80650      636      com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeFingerRemoveBitmap Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeFingerRemoveBitmap
+  0x808cc      500      com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeHandwriteRemoveBitmap Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeHandwriteRemoveBitmap
+  0x80ac0      1140     com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeGetDelegateColor Java_com_xiaomi_ocr_sdk_imgprocess_DocumentProcessJNI_nativeGetDelegateColor

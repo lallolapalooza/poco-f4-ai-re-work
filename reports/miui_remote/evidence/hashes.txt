@@ -1,0 +1,29 @@
+# hashes — miui_remote artifacts
+
+## APK
+6a955dfc5ef67f1b7cd4094108ec019d419c9e9541546d3e249fdde9354eb9a6  /run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/data-app/XMRemoteController/XMRemoteController.apk
+
+## native libs (arm64-v8a, extracted)
+0d23a18ee9a568b922c979a273eaf04692a97e56587b40d53fa165db97c31488  inventory/libs/lib/arm64-v8a/libairkanopus-jni.so
+1ce5035c44d93f8e8261d24203a3533bb1edc27fe539f4165c6fe8cf65086d60  inventory/libs/lib/arm64-v8a/libmibraindec.so
+ba1caeee75d5b9d60ff1947b464b242152e4af22a9577f4efddced2cc83a8ba6  inventory/libs/lib/arm64-v8a/libmibrainjni.so
+370dd095079a88a4b1a7791df92996372cb8fb5fd6c2bfa920b2cb50620ba8dc  inventory/libs/lib/arm64-v8a/libmibrainsdk.so
+581cb0d699f0b9b6816e2b94d14a7350d0e86c89992f0a7eb21597ce2cb619ad  inventory/libs/lib/arm64-v8a/libmibrainvad2.so
+
+## model + IR
+5e4d9ff470f763883bb6a2c6043e009059b855f97da9aa73fe3c4bda55816c66  models/vad_2.1.0_0.binn
+bc6aeb167fdf2265cf06abd3350054de46578c602716ac8fae09a426afab4b6d  ir/vad_cmvn.json
+79996e2f9f8940cae6d9d463a09519c030f44b0f06e1fd4002f29c53fbaff410  ir/vad_config.json
+b38f7cd7facc5498c9876721dfc04735c37dfb6ba64b8a97da2d5841116410db  ir/vad_model_ir.json
+
+## reimpl
+c00a87e543085d4a1e4653dddb0b849a7a07fb0a2612d3a5709532110f0dc78a  reimpl/frontend.py
+0231f538890db9d3e055bc0a74fca1939893576c29d04a1a6fc0dd16946c7329  reimpl/pipeline.py
+84d95d2527c46b0cfec13308a9e966bf5a23ccf2af8521b3cde39cf8c3f0e628  reimpl/soil_binn.py
+b4090803a0709b116a84437b8967cb9d09803cea8298575fb0fc6a1a836c574c  reimpl/vad_model.py
+aa1e5b6593e96d902c0c241a5238183c70e95547253e3535caec7a4d3c18d9ef  reimpl/README.md
+28718ac6dd87a8873bf82441a1d612ff90200c91083974b6598188ed8668acc7  reimpl/verify.txt
+
+## reports
+693d7711a0efe24f28de7ddf941d45ab512918e3e5adfec9b25691fb1786488e  report.md
+30b8b5a0e27af74809906a6f03531bf802574ccdd463b3078a01b1e594ad6a63  findings.json

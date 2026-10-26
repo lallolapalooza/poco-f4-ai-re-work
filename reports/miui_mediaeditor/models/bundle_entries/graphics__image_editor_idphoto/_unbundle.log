@@ -1,0 +1,24 @@
+image_editor_idphoto.bundle: xor_key=0xca file=6111B entries=11
+  Id_photo/                                                  method=0 csize=        0 usize=        0 off=        0 ENCRYPTED-PREFIX
+  Id_photo/image_block_model_mask_fs.glsl                    method=8 csize=      555 usize=     1573 off=       39 ENCRYPTED-PREFIX
+  Id_photo/image_block_model_mask_vs.glsl                    method=8 csize=      172 usize=      351 off=      663 ENCRYPTED-PREFIX
+  Id_photo/image_tile_fs.glsl                                method=8 csize=      485 usize=     1342 off=      904 ENCRYPTED-PREFIX
+  Id_photo/image_tile_vs.glsl                                method=8 csize=      103 usize=      127 off=     1446
+  image_block_fs.glsl                                        method=8 csize=      141 usize=      291 off=     1606
+  image_block_vs.glsl                                        method=8 csize=      133 usize=      190 off=     1796
+  image_fs.glsl                                              method=8 csize=      199 usize=      558 off=     1978
+  image_vs.glsl                                              method=8 csize=      101 usize=      125 off=     2220
+  metadata.json                                              method=8 csize=       88 usize=       92 off=     2364
+  script.js                                                  method=8 csize=     2318 usize=    12895 off=     2495
+  CRC32 verified entries: 7 ok, 0 bad (4 skipped in encrypted prefix)
+  SKIP (encrypted prefix): Id_photo/
+  SKIP (encrypted prefix): Id_photo/image_block_model_mask_fs.glsl
+  SKIP (encrypted prefix): Id_photo/image_block_model_mask_vs.glsl
+  SKIP (encrypted prefix): Id_photo/image_tile_fs.glsl
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_editor_idphoto/image_tile_vs.glsl (127 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_editor_idphoto/image_block_fs.glsl (291 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_editor_idphoto/image_block_vs.glsl (190 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_editor_idphoto/image_fs.glsl (558 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_editor_idphoto/image_vs.glsl (125 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_editor_idphoto/metadata.json (92 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_editor_idphoto/script.js (12895 bytes)

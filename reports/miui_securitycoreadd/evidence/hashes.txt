@@ -1,0 +1,6 @@
+sha256(APK)   e87d13eb3f6ecb31b845027811f71707a0392a5737dbb19f3497f1870ece3761  /run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/SecurityCoreAdd/SecurityCoreAdd.apk
+sha256(model) f6d75f1411398fd1a4dee77bd43409d47ac0a011f979c831f9a3e6b7735146d3  assets/aiautobrt.tflite
+sha256(native/libtensorflowlite_flex_jni.so) d65d4c2641fbcf6aa60e485c65c0cd15ef461b9bbf6db914c91b5114ff2bcb10
+sha256(native/libtensorflowlite_jni.so) c402600f2cf171d8a712cfc3af5a2cb911d2ccee5d7a25475dab70813f0db6a2
+size(APK)    32473507
+size(model)  197836

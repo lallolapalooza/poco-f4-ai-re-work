@@ -1,0 +1,1252 @@
+{
+  "buffer_count": 34,
+  "description": "MLIR Converted.",
+  "file_size": 315520,
+  "format": "tflite_ir/1",
+  "model_version": 3,
+  "operator_codes": [
+    {
+      "builtin_code": 32,
+      "builtin_name": "CUSTOM",
+      "custom_code": "NGramHash",
+      "index": 0,
+      "version": 1
+    },
+    {
+      "builtin_code": 88,
+      "builtin_name": "UNPACK",
+      "custom_code": null,
+      "index": 1,
+      "version": 1
+    },
+    {
+      "builtin_code": 32,
+      "builtin_name": "CUSTOM",
+      "custom_code": "KmeansEmbeddingLookup",
+      "index": 2,
+      "version": 1
+    },
+    {
+      "builtin_code": 2,
+      "builtin_name": "CONCATENATION",
+      "custom_code": null,
+      "index": 3,
+      "version": 1
+    },
+    {
+      "builtin_code": 9,
+      "builtin_name": "FULLY_CONNECTED",
+      "custom_code": null,
+      "index": 4,
+      "version": 9
+    },
+    {
+      "builtin_code": 25,
+      "builtin_name": "SOFTMAX",
+      "custom_code": null,
+      "index": 5,
+      "version": 1
+    }
+  ],
+  "path": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/tflite_langid.tflite",
+  "signatures": [],
+  "subgraphs": [
+    {
+      "index": 0,
+      "inputs": [
+        0
+      ],
+      "name": "main",
+      "operators": [
+        {
+          "builtin_code": 32,
+          "custom_code": "NGramHash",
+          "custom_options_hex": "6d61785f73706c697473006e6772616d5f6c656e677468730004010203047365656400766f6361625f73697a6573000004007c157c15c832c832043b311f1b0005000100040080002e009f2a1a00052c052d0c2501",
+          "index": 0,
+          "inputs": [
+            0
+          ],
+          "intermediates": [],
+          "op": "CUSTOM",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {},
+          "options_type": null,
+          "outputs": [
+            16
+          ]
+        },
+        {
+          "builtin_code": 88,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 1,
+          "inputs": [
+            16
+          ],
+          "intermediates": [],
+          "op": "UNPACK",
+          "opcode_index": 1,
+          "opcode_version": 1,
+          "options": {
+            "Axis": 1,
+            "Num": 4
+          },
+          "options_type": "UnpackOptions",
+          "outputs": [
+            17,
+            18,
+            19,
+            20
+          ]
+        },
+        {
+          "builtin_code": 32,
+          "custom_code": "KmeansEmbeddingLookup",
+          "custom_options_hex": "00000100002401",
+          "index": 2,
+          "inputs": [
+            17,
+            3,
+            2
+          ],
+          "intermediates": [],
+          "op": "CUSTOM",
+          "opcode_index": 2,
+          "opcode_version": 1,
+          "options": {},
+          "options_type": null,
+          "outputs": [
+            21
+          ]
+        },
+        {
+          "builtin_code": 32,
+          "custom_code": "KmeansEmbeddingLookup",
+          "custom_options_hex": "00000100002401",
+          "index": 3,
+          "inputs": [
+            18,
+            5,
+            4
+          ],
+          "intermediates": [],
+          "op": "CUSTOM",
+          "opcode_index": 2,
+          "opcode_version": 1,
+          "options": {},
+          "options_type": null,
+          "outputs": [
+            22
+          ]
+        },
+        {
+          "builtin_code": 32,
+          "custom_code": "KmeansEmbeddingLookup",
+          "custom_options_hex": "00000100002401",
+          "index": 4,
+          "inputs": [
+            19,
+            7,
+            6
+          ],
+          "intermediates": [],
+          "op": "CUSTOM",
+          "opcode_index": 2,
+          "opcode_version": 1,
+          "options": {},
+          "options_type": null,
+          "outputs": [
+            23
+          ]
+        },
+        {
+          "builtin_code": 32,
+          "custom_code": "KmeansEmbeddingLookup",
+          "custom_options_hex": "00000100002401",
+          "index": 5,
+          "inputs": [
+            20,
+            9,
+            8
+          ],
+          "intermediates": [],
+          "op": "CUSTOM",
+          "opcode_index": 2,
+          "opcode_version": 1,
+          "options": {},
+          "options_type": null,
+          "outputs": [
+            24
+          ]
+        },
+        {
+          "builtin_code": 2,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 6,
+          "inputs": [
+            21,
+            22,
+            23,
+            24
+          ],
+          "intermediates": [],
+          "op": "CONCATENATION",
+          "opcode_index": 3,
+          "opcode_version": 1,
+          "options": {
+            "Axis": 1,
+            "FusedActivationFunction": "NONE"
+          },
+          "options_type": "ConcatenationOptions",
+          "outputs": [
+            25
+          ]
+        },
+        {
+          "builtin_code": 9,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 7,
+          "inputs": [
+            25,
+            13,
+            10
+          ],
+          "intermediates": [],
+          "op": "FULLY_CONNECTED",
+          "opcode_index": 4,
+          "opcode_version": 9,
+          "options": {
+            "AsymmetricQuantizeInputs": true,
+            "FusedActivationFunction": "RELU",
+            "KeepNumDims": false,
+            "QuantizedBiasType": 0,
+            "WeightsFormat": "DEFAULT"
+          },
+          "options_type": "FullyConnectedOptions",
+          "outputs": [
+            26
+          ]
+        },
+        {
+          "builtin_code": 9,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 8,
+          "inputs": [
+            26,
+            14,
+            11
+          ],
+          "intermediates": [],
+          "op": "FULLY_CONNECTED",
+          "opcode_index": 4,
+          "opcode_version": 9,
+          "options": {
+            "AsymmetricQuantizeInputs": true,
+            "FusedActivationFunction": "RELU",
+            "KeepNumDims": false,
+            "QuantizedBiasType": 0,
+            "WeightsFormat": "DEFAULT"
+          },
+          "options_type": "FullyConnectedOptions",
+          "outputs": [
+            27
+          ]
+        },
+        {
+          "builtin_code": 9,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 9,
+          "inputs": [
+            27,
+            15,
+            12
+          ],
+          "intermediates": [],
+          "op": "FULLY_CONNECTED",
+          "opcode_index": 4,
+          "opcode_version": 9,
+          "options": {
+            "AsymmetricQuantizeInputs": true,
+            "FusedActivationFunction": "NONE",
+            "KeepNumDims": false,
+            "QuantizedBiasType": 0,
+            "WeightsFormat": "DEFAULT"
+          },
+          "options_type": "FullyConnectedOptions",
+          "outputs": [
+            28
+          ]
+        },
+        {
+          "builtin_code": 25,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 10,
+          "inputs": [
+            28
+          ],
+          "intermediates": [],
+          "op": "SOFTMAX",
+          "opcode_index": 5,
+          "opcode_version": 1,
+          "options": {
+            "Beta": 1.0
+          },
+          "options_type": "SoftmaxOptions",
+          "outputs": [
+            29
+          ]
+        }
+      ],
+      "outputs": [
+        29,
+        28,
+        1
+      ],
+      "role": "inference",
+      "stateful": false,
+      "tensors": [
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 1,
+          "dtype": "STRING",
+          "index": 0,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "Placeholder",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1
+          ],
+          "shape_signature": [
+            1
+          ]
+        },
+        {
+          "buffer_bytes": 718,
+          "buffer_index": 2,
+          "dtype": "STRING",
+          "index": 1,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "pod/IndexToClassID",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            111
+          ],
+          "shape_signature": [
+            111
+          ]
+        },
+        {
+          "buffer_bytes": 4096,
+          "buffer_index": 3,
+          "constant_stats": {
+            "max": 3.3229739665985107,
+            "mean": 0.003668259529035822,
+            "min": -3.1921603679656982
+          },
+          "dtype": "FLOAT32",
+          "index": 2,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "pod/head_0_ngram_1/kmeans_compression/b_matrix",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            256,
+            4
+          ],
+          "shape_signature": [
+            256,
+            4
+          ]
+        },
+        {
+          "buffer_bytes": 33006,
+          "buffer_index": 4,
+          "constant_stats": {
+            "max": 255.0,
+            "mean": 134.05099072895837,
+            "min": 0.0
+          },
+          "dtype": "UINT8",
+          "index": 3,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "pod/head_0_ngram_1/kmeans_compression/c_matrix",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            5501,
+            6
+          ],
+          "shape_signature": [
+            5501,
+            6
+          ]
+        },
+        {
+          "buffer_bytes": 4096,
+          "buffer_index": 5,
+          "constant_stats": {
+            "max": 1.8862322568893433,
+            "mean": -0.004572526419053702,
+            "min": -1.7723151445388794
+          },
+          "dtype": "FLOAT32",
+          "index": 4,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "pod/head_0_ngram_2/kmeans_compression/b_matrix",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            256,
+            4
+          ],
+          "shape_signature": [
+            256,
+            4
+          ]
+        },
+        {
+          "buffer_bytes": 33006,
+          "buffer_index": 6,
+          "constant_stats": {
+            "max": 255.0,
+            "mean": 126.43486032842513,
+            "min": 0.0
+          },
+          "dtype": "UINT8",
+          "index": 5,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "pod/head_0_ngram_2/kmeans_compression/c_matrix",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            5501,
+            6
+          ],
+          "shape_signature": [
+            5501,
+            6
+          ]
+        },
+        {
+          "buffer_bytes": 4096,
+          "buffer_index": 7,
+          "constant_stats": {
+            "max": 1.491033911705017,
+            "mean": 0.008102683606807659,
+            "min": -1.6778079271316528
+          },
+          "dtype": "FLOAT32",
+          "index": 6,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "pod/head_0_ngram_3/kmeans_compression/b_matrix",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            256,
+            4
+          ],
+          "shape_signature": [
+            256,
+            4
+          ]
+        },
+        {
+          "buffer_bytes": 78006,
+          "buffer_index": 8,
+          "constant_stats": {
+            "max": 255.0,
+            "mean": 131.4840781478348,
+            "min": 0.0
+          },
+          "dtype": "UINT8",
+          "index": 7,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "pod/head_0_ngram_3/kmeans_compression/c_matrix",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            13001,
+            6
+          ],
+          "shape_signature": [
+            13001,
+            6
+          ]
+        },
+        {
+          "buffer_bytes": 4096,
+          "buffer_index": 9,
+          "constant_stats": {
+            "max": 1.3993574380874634,
+            "mean": 0.004205368989062208,
+            "min": -1.0763319730758667
+          },
+          "dtype": "FLOAT32",
+          "index": 8,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "pod/head_0_ngram_4/kmeans_compression/b_matrix",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            256,
+            4
+          ],
+          "shape_signature": [
+            256,
+            4
+          ]
+        },
+        {
+          "buffer_bytes": 78006,
+          "buffer_index": 10,
+          "constant_stats": {
+            "max": 255.0,
+            "mean": 127.49885906212343,
+            "min": 0.0
+          },
+          "dtype": "UINT8",
+          "index": 9,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "pod/head_0_ngram_4/kmeans_compression/c_matrix",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            13001,
+            6
+          ],
+          "shape_signature": [
+            13001,
+            6
+          ]
+        },
+        {
+          "buffer_bytes": 640,
+          "buffer_index": 11,
+          "constant_stats": {
+            "max": 2.115393877029419,
+            "mean": -0.36177940587513147,
+            "min": -2.8487088680267334
+          },
+          "dtype": "FLOAT32",
+          "index": 10,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "pod/Relu;pod/batch_norm/batch_norm_core/add_1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            160
+          ],
+          "shape_signature": [
+            160
+          ]
+        },
+        {
+          "buffer_bytes": 800,
+          "buffer_index": 12,
+          "constant_stats": {
+            "max": 2.323610782623291,
+            "mean": 0.7917095566214993,
+            "min": -1.9013934135437012
+          },
+          "dtype": "FLOAT32",
+          "index": 11,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "pod/Relu_1;pod/batch_norm_1/batch_norm_core/add_1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            200
+          ],
+          "shape_signature": [
+            200
+          ]
+        },
+        {
+          "buffer_bytes": 444,
+          "buffer_index": 13,
+          "constant_stats": {
+            "max": 5.799086570739746,
+            "mean": 2.111643005380625,
+            "min": -0.8036177158355713
+          },
+          "dtype": "FLOAT32",
+          "index": 12,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "pod/batch_norm_2/batch_norm_core/add_11",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            111
+          ],
+          "shape_signature": [
+            111
+          ]
+        },
+        {
+          "buffer_bytes": 15360,
+          "buffer_index": 14,
+          "constant_stats": {
+            "max": 127.0,
+            "mean": 0.5255859375,
+            "min": -119.0
+          },
+          "dtype": "INT8",
+          "index": 13,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "pod/batch_norm/batch_norm_core/mul_1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [
+              0.027866341173648834
+            ],
+            "scheme": "per_tensor",
+            "zero_point": [
+              0
+            ]
+          },
+          "shape": [
+            160,
+            96
+          ],
+          "shape_signature": [
+            160,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 32000,
+          "buffer_index": 15,
+          "constant_stats": {
+            "max": 70.0,
+            "mean": -1.377,
+            "min": -127.0
+          },
+          "dtype": "INT8",
+          "index": 14,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "pod/batch_norm_1/batch_norm_core/mul_1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [
+              0.011496654711663723
+            ],
+            "scheme": "per_tensor",
+            "zero_point": [
+              0
+            ]
+          },
+          "shape": [
+            200,
+            160
+          ],
+          "shape_signature": [
+            200,
+            160
+          ]
+        },
+        {
+          "buffer_bytes": 22200,
+          "buffer_index": 16,
+          "constant_stats": {
+            "max": 119.0,
+            "mean": -3.933063063063063,
+            "min": -127.0
+          },
+          "dtype": "INT8",
+          "index": 15,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "pod/batch_norm_2/batch_norm_core/mul_1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [
+              0.014155043289065361
+            ],
+            "scheme": "per_tensor",
+            "zero_point": [
+              0
+            ]
+          },
+          "shape": [
+            111,
+            200
+          ],
+          "shape_signature": [
+            111,
+            200
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 17,
+          "dtype": "INT32",
+          "index": 16,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "pod/NGramHash",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            4,
+            1
+          ],
+          "shape_signature": [
+            1,
+            4,
+            -1
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 18,
+          "dtype": "INT32",
+          "index": 17,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "pod/unstack",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            1
+          ],
+          "shape_signature": [
+            1,
+            -1
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 19,
+          "dtype": "INT32",
+          "index": 18,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "pod/unstack1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            1
+          ],
+          "shape_signature": [
+            1,
+            -1
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 20,
+          "dtype": "INT32",
+          "index": 19,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "pod/unstack2",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            1
+          ],
+          "shape_signature": [
+            1,
+            -1
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 21,
+          "dtype": "INT32",
+          "index": 20,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "pod/unstack3",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            1
+          ],
+          "shape_signature": [
+            1,
+            -1
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 22,
+          "dtype": "FLOAT32",
+          "index": 21,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "pod/head_0_ngram_1/KmeansEmbeddingLookup",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            24
+          ],
+          "shape_signature": [
+            1,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 23,
+          "dtype": "FLOAT32",
+          "index": 22,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "pod/head_0_ngram_2/KmeansEmbeddingLookup",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            24
+          ],
+          "shape_signature": [
+            1,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 24,
+          "dtype": "FLOAT32",
+          "index": 23,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "pod/head_0_ngram_3/KmeansEmbeddingLookup",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            24
+          ],
+          "shape_signature": [
+            1,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 25,
+          "dtype": "FLOAT32",
+          "index": 24,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "pod/head_0_ngram_4/KmeansEmbeddingLookup",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            24
+          ],
+          "shape_signature": [
+            1,
+            24
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 26,
+          "dtype": "FLOAT32",
+          "index": 25,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "pod/concat",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            96
+          ],
+          "shape_signature": [
+            1,
+            96
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 27,
+          "dtype": "FLOAT32",
+          "index": 26,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "pod/fully_connected/MatMul;pod/fully_connected/BiasAdd;pod/batch_norm/batch_norm_core/mul_1;pod/Relu;pod/batch_norm/batch_norm_core/add_1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            160
+          ],
+          "shape_signature": [
+            1,
+            160
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 28,
+          "dtype": "FLOAT32",
+          "index": 27,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "pod/fully_connected_1/MatMul;pod/fully_connected_1/BiasAdd;pod/batch_norm_1/batch_norm_core/mul_1;pod/Relu_1;pod/batch_norm_1/batch_norm_core/add_1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            200
+          ],
+          "shape_signature": [
+            1,
+            200
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 29,
+          "dtype": "FLOAT32",
+          "index": 28,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "pod/batch_norm_2/batch_norm_core/add_1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            111
+          ],
+          "shape_signature": [
+            1,
+            111
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 30,
+          "dtype": "FLOAT32",
+          "index": 29,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "pod/Softmax",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            111
+          ],
+          "shape_signature": [
+            1,
+            111
+          ]
+        }
+      ],
+      "unsupported_ops": [
+        {
+          "custom_code": "NGramHash",
+          "index": 0,
+          "op": "CUSTOM",
+          "reason": "custom op 'NGramHash' is not supported"
+        },
+        {
+          "custom_code": "KmeansEmbeddingLookup",
+          "index": 2,
+          "op": "CUSTOM",
+          "reason": "custom op 'KmeansEmbeddingLookup' is not supported"
+        },
+        {
+          "custom_code": "KmeansEmbeddingLookup",
+          "index": 3,
+          "op": "CUSTOM",
+          "reason": "custom op 'KmeansEmbeddingLookup' is not supported"
+        },
+        {
+          "custom_code": "KmeansEmbeddingLookup",
+          "index": 4,
+          "op": "CUSTOM",
+          "reason": "custom op 'KmeansEmbeddingLookup' is not supported"
+        },
+        {
+          "custom_code": "KmeansEmbeddingLookup",
+          "index": 5,
+          "op": "CUSTOM",
+          "reason": "custom op 'KmeansEmbeddingLookup' is not supported"
+        }
+      ]
+    }
+  ],
+  "supported_ops": [
+    "ABS",
+    "ADD",
+    "ARG_MAX",
+    "ARG_MIN",
+    "AVERAGE_POOL_2D",
+    "BATCH_MATMUL",
+    "CAST",
+    "CONCATENATION",
+    "CONV_2D",
+    "COS",
+    "DEPTHWISE_CONV_2D",
+    "DEPTH_TO_SPACE",
+    "DEQUANTIZE",
+    "DIV",
+    "ELU",
+    "EQUAL",
+    "EXP",
+    "EXPAND_DIMS",
+    "FILL",
+    "FLOOR",
+    "FLOOR_DIV",
+    "FULLY_CONNECTED",
+    "GATHER",
+    "GATHER_ND",
+    "GREATER",
+    "GREATER_EQUAL",
+    "HARD_SWISH",
+    "LEAKY_RELU",
+    "LESS",
+    "LESS_EQUAL",
+    "LOG",
+    "LOGICAL_AND",
+    "LOGICAL_NOT",
+    "LOGICAL_OR",
+    "LOGISTIC",
+    "MAXIMUM",
+    "MAX_POOL_2D",
+    "MEAN",
+    "MINIMUM",
+    "MUL",
+    "NEG",
+    "NOT_EQUAL",
+    "ONE_HOT",
+    "PACK",
+    "PAD",
+    "PADV2",
+    "POW",
+    "QUANTIZE",
+    "REDUCE_MAX",
+    "REDUCE_MIN",
+    "REDUCE_PROD",
+    "RELU",
+    "RELU6",
+    "RELU_N1_TO_1",
+    "RESHAPE",
+    "RESIZE_BILINEAR",
+    "RESIZE_NEAREST_NEIGHBOR",
+    "RSQRT",
+    "SELECT",
+    "SHAPE",
+    "SIN",
+    "SLICE",
+    "SOFTMAX",
+    "SPACE_TO_DEPTH",
+    "SQRT",
+    "SQUARE",
+    "SQUARED_DIFFERENCE",
+    "SQUEEZE",
+    "STRIDED_SLICE",
+    "SUB",
+    "SUM",
+    "TANH",
+    "TILE",
+    "TOPK_V2",
+    "TRANSPOSE",
+    "UNPACK",
+    "ZEROS_LIKE"
+  ]
+}

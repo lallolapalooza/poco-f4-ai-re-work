@@ -1,0 +1,45 @@
+{
+  "slug": "tiktok_musically",
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.zhiliaoapp.musically_100/partner-com.zhiliaoapp.musically_100.apk",
+  "size": 118824480,
+  "models": [
+    {
+      "name": "assets/model/ttfaceattrmodel/tt_face_attribute_age_v1.1.model",
+      "size": 203028,
+      "magic": "0d1c0c010f0f1b1a"
+    },
+    {
+      "name": "assets/model/ttfacemodel/tt_face_extra_v13.0.model",
+      "size": 573858,
+      "magic": "02040d0317070b01"
+    },
+    {
+      "name": "assets/model/ttfacemodel/tt_face_v10.0.model",
+      "size": 905491,
+      "magic": "12121d17090c1709"
+    }
+  ],
+  "libs": [
+    {
+      "name": "lib/arm64-v8a/libByteAIDT.so",
+      "size": 18264
+    },
+    {
+      "name": "lib/arm64-v8a/libByteAINN.so",
+      "size": 38808
+    },
+    {
+      "name": "lib/arm64-v8a/libgaia_lib.so",
+      "size": 415728
+    },
+    {
+      "name": "lib/arm64-v8a/libtailor.so",
+      "size": 55376
+    }
+  ],
+  "dex_markers": {
+    "tflite": 2,
+    "ByteAI": 2
+  },
+  "package": null
+}

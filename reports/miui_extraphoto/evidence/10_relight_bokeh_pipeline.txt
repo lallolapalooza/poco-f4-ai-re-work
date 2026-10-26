@@ -1,0 +1,208 @@
+# Relighting + bokeh pipelines — command transcript and evidence (patch round)
+
+## 0. Objects and hashes
+libmibrain_relighting_jni.so  211,088 B  sha256 5c914d8e...   (report §4.2)
+librelight_only_extraphoto.so 91,925,616 B                    (renderer, /tmp only)
+libmegvii_bokeh_jni.so        260,048 B  sha256 0515b710...   (report §5.2)
+libwa_refocus_extraphoto.so   8,919,872 B sha256 222d7805ee722da018906db26209f2816340ffee4bfa333e0b84a376f5e35bf3
+librefocus.so                 219,280 B  (ASVL/NV21 helpers + DualPhotoJni JNI)
+Ghidra imagebase 0x100000 => Ghidra FUN_00182f54 == vaddr 0x82f54.
+
+## 1. Relighting JNI (confirmed) — tools/disasm_elf.py --list-jni
+libmibrain_relighting_jni.so (4 exports):
+0xe7a0  Java_..._MiDualPhotoJni_initBrainRelightingEffect
+0xe9c8  Java_..._MiDualPhotoJni_setBrainRelightingLightSource
+0xea50  Java_..._MiDualPhotoJni_enableBrainRelightingEffect
+0xec78  Java_..._MiDualPhotoJni_releaseBrainRelightingHandle
+NEEDED: librelight_only.so, libjnigraphics.so, liblog.so, libc.so, libm.so, libdl.so
+Imports used: AILAB_PLI_{Init,PreProcess,SetLightSource,Process,GetLightSource,Uninit},
+              AndroidBitmap_{getInfo,lockPixels,unlockPixels},
+              local helpers getImageByPointer/convertBitmapToOffscreenData/
+              encodeyuv420sp/encodeyuvToRGBA/copyNv21.
+
+### initBrainRelightingEffect (0xe7a0) — exact behaviour
+Java: (int degree, long originImage, long depthData, int depthLen, int[] facePoint) -> long
+  x19 = facePoint jintArray
+  GetIntArrayElements(facePoint, null) -> int* (vtable +0x5d8, mode 0)
+  new int[3] (12 B) = {defaults}
+  degree mapping: 90->2, 180->4, 270->3, other->1   (0xe824..0xe860)
+  originImage -> getImageByPointer -> copy 0x40-byte ASVL descriptor:
+      +0x00 = 1 (pixel format NV21)
+      +0x04 = width, +0x08 = height, +0x0c = height
+      +0x10 = plane0 (Y), +0x18 = plane1 (VU)
+      +0x30/+0x34 = pitches
+  AILAB_PLI_Init(&handle, 0, width, height)          (0xe8fc)
+  AILAB_PLI_PreProcess(handle, &image, degree, int[3])  (0xe91c)
+  facePoint[0] = PreProcess result; facePoint[1..3] = int[3]
+  log "[RELIGHT] face center: %d x %d, radius %d"
+  return handle
+
+### setBrainRelightingLightSource (0xe9c8)
+Java: (long handle, int x, int y, int w, int h) -> long
+  stack struct at sp+8: {w, h, x, y}
+  AILAB_PLI_SetLightSource(handle, &struct)
+  log "[RELIGHT] AILAB_PLI_SetLightSource %d %d result %d"
+
+### enableBrainRelightingEffect (0xea50)
+Java: (long handle, int effectType, long blur, long effect, long origin,
+       long depth, int depthLen, int[] pointCache) -> void
+  GetIntArrayElements(pointCache)
+  build NV21 descriptors for blur (x4), effect (x5), origin (x6)
+  new struct 0x18: {int w, int h, long depthPtr}
+  new int: effectType
+  AILAB_PLI_Process(handle, &struct, &originImage, &effectType, &effectImage) -> int
+  new int[4]; AILAB_PLI_GetLightSource(handle, int[4])
+  pointCache[0] = out[2]; pointCache[1] = out[3]
+  ReleaseIntArrayElements(pointCache, elems, 0)
+  NOTE: depthLen is not used; depth pointer only.
+  NOTE: result and pointCache are ignored by the Java processor.
+
+### releaseBrainRelightingHandle (0xec78)
+  AILAB_PLI_Uninit / operator delete.
+
+## 2. Java light-source mapping (confirmed)
+RelightingOperatingFragment.setLightSource(f,f2):
+  mScale = DualPhotoNativeContext.getScale() = originBitmapWidth/processBitmapWidth
+  post SetLightSourceRunnable(round(f*scale), round(f2*scale)) on render handler
+  -> processor.setLightSource(provider,x,y)
+  -> processor.enableRelightingEffect(effectType, context)
+
+MiBrainRelightingProcessor (sources/refocus/classes/...):
+  setLightSource(...) { }                       <-- EMPTY
+  supportAdjustLightSource() { return false; }
+  getFaceX/Y() { return 0; }
+  getLightingSourceX/Y() { return 0; }
+  enableRelightingEffect(...):
+      MiDualPhotoJni.setBrainRelightingLightSource(handle, W/2, H/2, W, H);
+      MiDualPhotoJni.enableBrainRelightingEffect(handle, effectType, blurPtr,
+          effectPtr, originPtr, depthPtr, depthLen, pointCache);
+
+=> in this build the touch gesture never changes the light position; the JNI
+   always sets the image centre. The shader still supports moveLightPos.
+
+ArcSoft variant (sources/relight_core/classes/...ArcSoftRelightingProcessor.java):
+  setLightSource(provider,x,y):
+      DualPhotoJni.setRelightingLightSource(handle, x, y,
+          provider.getOriginBitmapWidth(), provider.getOriginBitmapHeight());
+  supportAdjustLightSource() = true;
+  doSave re-applies mLightingSource[0..1] then enableRelightingEffect.
+This is the only path that forwards real gesture coordinates.
+
+## 3. Buffer formats (confirmed)
+librefocus.so exported helpers (nm -D, demangled):
+  allocImage(ASVL_OFFSCREEN*, ASVL_OFFSCREEN*)
+  setOffScreen(ASVL_OFFSCREEN*, uchar*, int, int)
+  convertBitmapToOffscreenData(ASVL_OFFSCREEN*, JNIEnv*, jobject, int, int)
+  getPointerByImage(ASVL_OFFSCREEN*)
+  copyNv21(ASVL_OFFSCREEN*, ASVL_OFFSCREEN*)
+  encodeyuv420sp(int*, uchar*, int, int)
+  encodeyuvToRGBA(int*, uchar*, int, int)
+  encodeyuvToRGBACore(...)
+  releaseImageData(ASVL_OFFSCREEN*)
+
+DualPhotoJni.generateNativeImage (0xff48):
+  new 0x40 ASVL_OFFSCREEN; convertBitmapToOffscreenData(desc, env, bitmap, w, h);
+  return getPointerByImage(desc)
+
+DualPhotoJni.configBitmapByNativeImage (0xfb10):
+  getImageByPointer(ptr); getPixel(env, bitmap, &pixels) (lockPixels)
+  encodeyuvToRGBA(pixels, image->plane0, image->width, image->height)
+  AndroidBitmap_unlockPixels
+  => native image is NV21, Bitmap is RGBA8888
+
+DualPhotoJni.configYUVData (0xf8d8):
+  memcpy(dstY, image->plane0, w*h)
+  loop over w*h/2 UV pairs:
+      u[i] = byte at UV+2i      (second byte)
+      v[i] = byte at UV+2i-1    (first byte)
+  => interleaved plane is V,U (NV21); separate U/V arrays feed the GLES renderer.
+
+ASVL_OFFSCREEN layout used by all three paths:
+  +0x00 u32 pixel_format = 1 (NV21)
+  +0x04 s32 width
+  +0x08 s32 height
+  +0x10 u8* plane0 (Y)
+  +0x18 u8* plane1 (VU)
+  +0x30/+0x34 s32 pitch[0]/pitch[1]
+
+## 4. Relighting renderer (confirmed strings/shader)
+librelight_only_extraphoto.so exports exactly:
+  AILAB_PLI_Init, AILAB_PLI_Uninit, AILAB_PLI_PreProcess,
+  AILAB_PLI_SetLightSource, AILAB_PLI_GetLightSource, AILAB_PLI_Process
+Strings: "process effect_type_", "pLightParam->i32LightMode",
+  "AdjustLightPos max_width_offset", "light_width_", "light_height_",
+  "GPURelightFilter::Set current light source x:", "text_light", "noise_light",
+  "low_brightness", "m_3DFilterTexture", "GPURelightFilter::Process inDepthInfo
+  or pBlurImage is NULL".
+GLSL ES 3.0 fragment shader (native/relight_render_shader.glsl):
+  uniforms text_y,text_u,text_v,text_a,text_fliter,text_light,noise_light,
+           low_brightness,filter_rgb(sampler3D),moveLightPos,facePosition
+  pos = clamp(uv + moveLightPos, 0, 1); light = texture(text_light,pos)
+  screen(a,b) = 1-(1-a)*(1-b); out = blendSource(rgb,light)
+  optional 5x5 gaussian mix 0.5, noise, colour separation, 3D LUT
+  RGB2YUV matrix, outputColor/gl_FragColor.
+The 82,944,760 B .data payload (file offset 0x890000) holds the textures/LUTs;
+not decoded.
+
+## 5. Bokeh JNI (confirmed) — megvii_process.s
+MegviiDualPhotoJni.processRefocusWidthHandle:
+Java (long handle, long effect, long origin, long depth, int depthLen,
+      int focusX, int focusY, float fNumber, int depthW, int depthH, int portraitType)
+0x8a8c:
+  log focusX/focusY
+  wa::Image ctor #1 (origin):  w=[origin+4], h=[origin+8], data=[origin+0x10],
+      ImageType=6, DataType=0, Rotation=0            @sp+0x28
+  wa::Image ctor #2 (effect):  same                      @sp+0x18
+  depthW = depthW>0 ? depthW : origin.width
+  depthH = depthH>0 ? depthH : origin.height
+  wa::Image ctor #3 (depth): w=depthW,h=depthH,data=depthPtr,
+      ImageType=0, DataType=(portraitType!=1), Rotation=0   @sp+8
+  wa::Refocus::setImages(handle, &originImage, &depthImage)
+  wa::Refocus::run(handle, focusX, focusY, fNumber, &effectImage)
+  destructors for the three wa::Image
+Return value is logged, not propagated (Java void).
+
+libwa_refocus_extraphoto.so exports (demangled):
+  wa::Refocus::init(WRefocusConfig const&)        0x1f0510
+  wa::Refocus::setImages(const Image&, const Image&)   0x1f07c0
+  wa::Refocus::setImages(const Image&, const Image&, const Image&) 0x1f07d4
+  wa::Refocus::setFaces(WFace const*, int, Image::Rotation) 0x1f06e4
+  wa::Refocus::setBokehStyle(_WBokehStyle)        0x1f07fc
+  wa::Refocus::setBokehSpotType(_WBokehSpotType)  0x1f07e8
+  wa::Refocus::run(int,int,float,Image&)          0x1f082c
+  wa::Refocus::getVersion()/getFullVersion(int)
+wa::Refocus::run is a thin dispatch to an internal object (Ghidra
+wa_refocus_ghidra.c: guard *this, call internal impl at 0x1fe090, bool result).
+Library string "[RF] not support setModel anymore." => no DNN.
+
+## 6. Bokeh focus / f-number (confirmed)
+MegviiAdjustProcessor:
+  ratio = provider.getOriginBitmapWidth() / provider.getProcessWidth()
+  focusX = (int)(provider.getFocusX() / ratio); focusY likewise
+  index = findFValueIndex(provider.getBlurLevel())
+      F_VALUE[i] == blurLevel/10.0f, 25 entries 1.0..16.0
+  native fNumber = ALG_F_VALUE[index]
+      {1.0,1.0,1.4,1.4,1.4,2.0,2.0,2.0,2.8,2.8,2.8,4.0,4.0,4.0,
+       5.6,5.6,5.6,8.0,8.0,8.0,11,11,11,16,16}
+  prepareForExport: focusX = round(focusX * ratio); focusY likewise
+  portraitType = 1 for "megvii_portrait_google", else 0
+Threading:
+  AdjustOperatingFragment.processRefocus():
+      mDisplay.getRenderHandler().removeCallbacksAndMessages("refocus");
+      mDisplay.getRenderHandler().postAtTime(new RefocusRunnable(...), "refocus", 0);
+  onSave(): runOnRenderThread(new SaveRunnable(...))
+  SaveRunnable: XStorage.insert -> full-res decode -> generateNativeImage ->
+      processRefocusOnSave -> configBitmapByNativeImage -> rotate/mirror ->
+      DualPhotoFileUtils.writeBitmap -> triggerScanFile -> MediaStoreUtils.upsert
+      -> SaveFinishRunnable(...,"image",f-number string)
+
+## 7. Save encoders (confirmed)
+DualPhotoFileUtils.writeBitmap (relighting + bokeh):
+  EXIF copy, setMimeType(4), setThumbnailBytes(null),
+  ImageWidth/ImageLength set, XiaomiMakerNote kept,
+  clears XiaomiComment/UserComment/focusPoint/depthMapVersion/Xmp,
+  Orientation=null when Meitu post-process ran,
+  Optional watermark painter (relight path),
+  bitmap.compress(Bitmap.CompressFormat.JPEG, 100, exifWriterStream),
+  ICC profile for wide-gamut bitmaps.
+Document path uses DocPhotoUtils.exportJpegWithExif with quality 97.

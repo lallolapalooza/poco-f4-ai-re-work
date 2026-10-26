@@ -1,0 +1,94 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="android.uid.system" android:versionCode="34" android:versionName="14" android:compileSdkVersion="34" android:compileSdkVersionCodename="14" coreApp="true" package="com.xiaomi.mtb" platformBuildVersionCode="34" platformBuildVersionName="14">
+  <uses-sdk android:minSdkVersion="34" android:targetSdkVersion="34"/>
+  <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+  <uses-permission android:name="com.qualcomm.permission.USE_QCRIL_MSG_TUNNEL"/>
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+  <uses-permission android:name="android.permission.REBOOT"/>
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.CALL_PHONE"/>
+  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+  <uses-permission android:name="android.permission.CONTROL_INCALL_EXPERIENCE"/>
+  <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <application android:theme="@android:01030224" android:label="@7F090209" android:icon="@7F05000A" android:name="com.xiaomi.mtb.MtbApp" android:allowBackup="false" android:largeHeap="true" android:extractNativeLibs="false" android:directBootAware="true" android:appComponentFactory="android.support.v4.app.CoreComponentFactory" android:usesNonSdkApi="true">
+    <uses-library android:name="com.qualcomm.qcrilhook" android:exported="true" android:required="false"/>
+    <uses-library android:name="com.qti.extphone.extphonelib" android:exported="true" android:required="false"/>
+    <activity android:label="@7F090209" android:name="com.xiaomi.mtb.activity.ModemTestBoxMainActivity" android:exported="true" android:screenOrientation="1">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+      </intent-filter>
+    </activity>
+    <service android:name="com.xiaomi.mtb.MtbService"/>
+    <service android:name="com.xiaomi.mtb.modemdump.ModemDebugService"/>
+    <service android:name="com.xiaomi.mtb.modemdump.ModemDumpCollectService"/>
+    <service android:name="com.xiaomi.mtb.aiservices.AiWeakSignalForecastService" android:enabled="true" android:exported="true"/>
+    <activity android:theme="@android:01030237" android:label="@7F0901EA" android:name="com.xiaomi.mtb.activity.MtbRfDebugToolActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F0900B2" android:name="com.xiaomi.mtb.activity.MtbModemAutoCheckToolActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F09022B" android:name="com.xiaomi.mtb.activity.MtbRfAntDeviceDataConfigActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F0901B6" android:name="com.xiaomi.mtb.activity.MtbDiagCommandSetConfigActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F0901B5" android:name="com.xiaomi.mtb.activity.MtbDiagCommandConfigActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F090191" android:name="com.xiaomi.mtb.activity.MtbAtCommandSetConfigActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F090196" android:name="com.xiaomi.mtb.activity.MtbAtCommandConfigActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F0901E9" android:name="com.xiaomi.mtb.activity.MtbRfAntPortConfigActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F0901D6" android:name="com.xiaomi.mtb.activity.MtbMbnConfigActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F0901E1" android:name="com.xiaomi.mtb.activity.MtbNvEfsConfigActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F0901ED" android:name="com.xiaomi.mtb.activity.MtbSmartTestConfigActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F0901EE" android:name="com.xiaomi.mtb.activity.MtbSmartTestConfigExtendActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F090235" android:name="com.xiaomi.mtb.activity.MtbSarTestActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F09022C" android:name="com.xiaomi.mtb.activity.MtbRfAntDeviceConfigActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F09011E" android:name="com.xiaomi.mtb.activity.MtbDataBackupRecoveryActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F09010D" android:name="com.xiaomi.mtb.activity.MtbCarrierDemandActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F0900CB" android:name="com.xiaomi.mtb.activity.MtbAntTxRxModeActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F090205" android:name="com.xiaomi.mtb.activity.MtbUserPanelActivity" android:exported="true" android:screenOrientation="1">
+      <intent-filter>
+        <action android:name="com.xiaomi.mtb.USER"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+    <activity android:theme="@android:01030237" android:label="@7F09013C" android:name="com.xiaomi.mtb.activity.MtbDisplayMipiTestActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F09024C" android:name="com.xiaomi.mtb.activity.MtbSimTestActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F0901AC" android:name="com.xiaomi.mtb.activity.MtbDataDisplayActivity" android:process="com.android.phone" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F0900B2" android:name="com.xiaomi.mtb.activity.MtbMtkModemAutoCheckToolActivity" android:process="com.android.phone" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F0900C3" android:name="com.xiaomi.mtb.activity.MtbHookCommonDemoActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F090170" android:name="com.xiaomi.mtb.activity.MtbLogManagerActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F09021A" android:name="com.xiaomi.mtb.activity.MtbOneKeyAuthenticationActivity" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F09021A" android:name="com.xiaomi.mtb.activity.MtbOneKeyAuthenticationForPhoneActivity" android:process="com.android.phone" android:screenOrientation="1"/>
+    <activity android:theme="@android:01030237" android:label="@7F0901C7" android:name="com.xiaomi.mtb.activity.MtbHydraConfigActivity" android:screenOrientation="1"/>
+    <receiver android:name="com.xiaomi.mtb.MtbBroadcastReceiver" android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="xiaomi.intent.action.ACTION_MI_SERVER_CHECK"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="com.xiaomi.mtb.RFFE_TEST"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="com.xiaomi.mtb.aisignal.GAME_START"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="com.xiaomi.mtb.aisignal.GAME_EXIT"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="xiaomi.intent.action.ONLY_FOR_WAKEUP_MTB"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="android.provider.Telephony.SECRET_CODE"/>
+        <data android:scheme="android_secret_code" android:host="663368378"/>
+        <data android:scheme="android_secret_code" android:host="68276278"/>
+        <data android:scheme="android_secret_code" android:host="123456"/>
+        <data android:scheme="android_secret_code" android:host="663364636"/>
+        <data android:scheme="android_secret_code" android:host="73694364"/>
+        <data android:scheme="android_secret_code" android:host="717"/>
+        <data android:scheme="android_secret_code" android:host="284"/>
+        <data android:scheme="android_secret_code" android:host="686564"/>
+        <data android:scheme="android_secret_code" android:host="24744625"/>
+      </intent-filter>
+    </receiver>
+    <uses-library android:name="org.apache.http.legacy" android:required="true"/>
+  </application>
+</manifest>
+

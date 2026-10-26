@@ -1,0 +1,42 @@
+class: ELF64
+type: DYN
+machine: AARCH64
+entrypoint: 7256512
+imagebase: 0
+build_id: 37c27f90c1b9e13b1434158cca789e88bd54d6e3
+android: {'sdk': 21, 'ndk': 'r23b', 'ndk_build': '7779620'}
+needed: ['libandroid.so', 'libOpenSLES.so', 'libEGL.so', 'libjnigraphics.so', 'libm.so', 'liblog.so', 'libz.so', 'libdl.so', 'libGLESv2.so', 'libc.so']
+soname: libcamplat+.production.e6302221764648a97415467f3352d2c06a35bd64.so
+statistics: {'exports': 683, 'imports': 417, 'jni_entrypoints': 677, 'sections': 27, 'segments': 9}
+sections:
+                           addr=0x0 size=0 flags=-
+  .note.android.ident      addr=0x0 size=152 flags=A
+  .note.gnu.build-id       addr=0x0 size=36 flags=A
+  .dynsym                  addr=0x0 size=26784 flags=A
+  .gnu.version             addr=0x0 size=2232 flags=A
+  .gnu.version_r           addr=0x0 size=96 flags=A
+  .gnu.hash                addr=0x0 size=5476 flags=A
+  .hash                    addr=0x0 size=8936 flags=A
+  .dynstr                  addr=0x0 size=41757 flags=A
+  .rela.dyn                addr=0x0 size=2230560 flags=A
+  .rela.plt                addr=0x0 size=10152 flags=AI
+  .rodata                  addr=0x0 size=1791436 flags=AMS
+  .gcc_except_table        addr=0x0 size=751508 flags=A
+  .eh_frame_hdr            addr=0x0 size=440924 flags=A
+  .eh_frame                addr=0x0 size=1945828 flags=A
+  .text                    addr=0x0 size=21725904 flags=AX
+  .plt                     addr=0x0 size=6800 flags=AX
+  .data.rel.ro             addr=0x0 size=894048 flags=WA
+  .fini_array              addr=0x0 size=16 flags=WA
+  .init_array              addr=0x0 size=2544 flags=WA
+  .dynamic                 addr=0x0 size=560 flags=WA
+  .got                     addr=0x0 size=1552 flags=WA
+  .got.plt                 addr=0x0 size=3408 flags=WA
+  .data                    addr=0x0 size=16408 flags=WA
+  .bss                     addr=0x0 size=748632 flags=WA
+  .comment                 addr=0x0 size=277 flags=MS
+  .shstrtab                addr=0x0 size=260 flags=-
+exported symbols: 683
+imported symbols: 417
+jni entrypoints : 677
+string categories: {'tflite': 40, 'model': 20, 'nn_runtime': 239, 'face': 444, 'ocr': 0, 'asr': 35, 'segment': 209, 'model_name': 7}

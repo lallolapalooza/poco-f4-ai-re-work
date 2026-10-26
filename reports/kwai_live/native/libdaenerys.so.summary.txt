@@ -1,0 +1,389 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/live_scan/libs/libdaenerys.so
+==============================================================================
+size        : 2580368 bytes (2.46 MiB)
+sha256      : 3b0758bf5b7343f38e5ba7b3746896f13dbb3821e2b5bdd8752738f733b146ee
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x8bb70   imagebase: 0x0
+build id    : 917a688a69285b538b9974e4b181ec78f0786ac7
+android     : SDK 21, NDK r20b, build 5948944
+soname      : libdaenerys.so
+needed      : libyuv.so, libffmpeg.so, libprotobuf-lite.so, libandroid.so, liblog.so, libEGL.so, libOpenSLES.so, libGLESv2.so, libjnigraphics.so, libz.so, libksaudioprocesslib.so, libturbojpeg.so, libm.so, libc++_shared.so, libdl.so, libc.so
+parser      : lief
+counts      : 2373 exports, 407 imports, 138 JNI, 26 sections, 8 segments
+symtab/dynsym: 0 / 2790
+
+Sections (26)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        19380      0x228
+  .gnu.hash              GNU_HASH         A      0x4de0       19768      0x4de0
+  .dynsym                DYNSYM           A      0x9b18       66960      0x9b18
+  .dynstr                STRTAB           A      0x1a0a8      157060     0x1a0a8
+  .gnu.version           GNU_VERSYM       A      0x4062c      5580       0x4062c
+  .gnu.version_r         GNU_VERNEED      A      0x41bf8      160        0x41bf8
+  .rela.dyn              RELA             A      0x41c98      274176     0x41c98
+  .rela.plt              RELA             AI     0x84b98      17160      0x84b98
+  .plt                   PROGBITS         AX     0x88ea0      11472      0x88ea0
+  .text                  PROGBITS         AX     0x8bb70      1363892    0x8bb70
+  .rodata                PROGBITS         A      0x1d8b30     139089     0x1d8b30
+  .eh_frame_hdr          PROGBITS         A      0x1faa84     53572      0x1faa84
+  .eh_frame              PROGBITS         A      0x207bc8     223960     0x207bc8
+  .gcc_except_table      PROGBITS         A      0x23e6a0     108244     0x23e6a0
+  .note.android.ident    NOTE             A      0x258d74     152        0x258d74
+  .init_array            INIT_ARRAY       WA     0x269210     784        0x259210
+  .fini_array            FINI_ARRAY       WA     0x269520     16         0x259520
+  .data.rel.ro           PROGBITS         WA     0x269530     104384     0x259530
+  .dynamic               DYNAMIC          WA     0x282cf0     720        0x272cf0
+  .got                   PROGBITS         WA     0x282fc0     8256       0x272fc0
+  .data                  PROGBITS         WA     0x285000     1760       0x275000
+  .bss                   NOBITS           WA     0x2856e0     25504      0x2756e0
+  .comment               PROGBITS         MS     0x0          303        0x2756e0
+  .shstrtab              STRTAB           -      0x0          251        0x27580f
+
+JNI entry points (138)
+  0xcd56c        728        com.kwai.camerasdk.render.GlRenderer.nativeRenderDrawNative
+      Java_com_kwai_camerasdk_render_GlRenderer_nativeRenderDrawNative
+  0xd2570        272        com.kwai.camerasdk.preprocess.CpuPreProcessor.nativeCreateCpuPreProcessor
+      Java_com_kwai_camerasdk_preprocess_CpuPreProcessor_nativeCreateCpuPreProcessor
+  0xd2680        96         com.kwai.camerasdk.preprocess.CpuPreProcessor.nativeReleaseCpuPreProcessor
+      Java_com_kwai_camerasdk_preprocess_CpuPreProcessor_nativeReleaseCpuPreProcessor
+  0xd26e0        528        com.kwai.camerasdk.preprocess.GlPreProcessorGroup.nativeAddProcessor
+      Java_com_kwai_camerasdk_preprocess_GlPreProcessorGroup_nativeAddProcessor
+  0xd28f0        356        com.kwai.camerasdk.preprocess.GlPreProcessorGroup.nativeRemoveProcessor
+      Java_com_kwai_camerasdk_preprocess_GlPreProcessorGroup_nativeRemoveProcessor
+  0xd2a54        536        com.kwai.camerasdk.preprocess.GlPreProcessorGroup.nativeConnectToGroup
+      Java_com_kwai_camerasdk_preprocess_GlPreProcessorGroup_nativeConnectToGroup
+  0xd2c6c        596        com.kwai.camerasdk.preprocess.GlPreProcessorGroup.nativeDisconnetFromGroup
+      Java_com_kwai_camerasdk_preprocess_GlPreProcessorGroup_nativeDisconnetFromGroup
+  0xd2ec0        196        com.kwai.camerasdk.preprocess.GlPreProcessorGroup.nativeDisconnectFromAllGroups
+      Java_com_kwai_camerasdk_preprocess_GlPreProcessorGroup_nativeDisconnectFromAllGroups
+  0xd2f84        96         com.kwai.camerasdk.preprocess.GlPreProcessorGroup.nativeReleaseNativePreProcessorGroup
+      Java_com_kwai_camerasdk_preprocess_GlPreProcessorGroup_nativeReleaseNativePreProcessorGroup
+  0xd2fe4        164        com.kwai.camerasdk.preprocess.PipProcessor.nativeCreatePipProcessor
+      Java_com_kwai_camerasdk_preprocess_PipProcessor_nativeCreatePipProcessor
+  0xd3088        96         com.kwai.camerasdk.preprocess.PipProcessor.nativeReleasePipProcessor
+      Java_com_kwai_camerasdk_preprocess_PipProcessor_nativeReleasePipProcessor
+  0xd30e8        232        com.kwai.camerasdk.preprocess.PipProcessor.nativeSetWindowRect
+      Java_com_kwai_camerasdk_preprocess_PipProcessor_nativeSetWindowRect
+  0xd31d0        436        com.kwai.camerasdk.preprocess.PipProcessor.nativeOnVideoFrame
+      Java_com_kwai_camerasdk_preprocess_PipProcessor_nativeOnVideoFrame
+  0xd3384        156        com.kwai.camerasdk.preprocess.DataExtractProcessor.nativeCreateDataExtractProcessor
+      Java_com_kwai_camerasdk_preprocess_DataExtractProcessor_nativeCreateDataExtractProcessor
+  0xd3420        392        com.kwai.camerasdk.preprocess.DataExtractProcessor.nativeReleaseDataExtractProcessor
+      Java_com_kwai_camerasdk_preprocess_DataExtractProcessor_nativeReleaseDataExtractProcessor
+  0xd35a8        188        com.kwai.camerasdk.preprocess.DataExtractProcessor.nativeSetTriggerMode
+      Java_com_kwai_camerasdk_preprocess_DataExtractProcessor_nativeSetTriggerMode
+  0xd3664        184        com.kwai.camerasdk.preprocess.DataExtractProcessor.nativeExtractOneFrame
+      Java_com_kwai_camerasdk_preprocess_DataExtractProcessor_nativeExtractOneFrame
+  0xd371c        132        com.kwai.camerasdk.preprocess.DataExtractProcessor.nativeSetFrontMirror
+      Java_com_kwai_camerasdk_preprocess_DataExtractProcessor_nativeSetFrontMirror
+  0xd37a0        124        com.kwai.camerasdk.preprocess.ImageGlProcessor.nativeCreateImageGlProcessor
+      Java_com_kwai_camerasdk_preprocess_ImageGlProcessor_nativeCreateImageGlProcessor
+  0xd381c        416        com.kwai.camerasdk.preprocess.ImageGlProcessor.nativeSetShader
+      Java_com_kwai_camerasdk_preprocess_ImageGlProcessor_nativeSetShader
+  0xd39bc        296        com.kwai.camerasdk.preprocess.ImageGlProcessor.nativeSetGlParams
+      Java_com_kwai_camerasdk_preprocess_ImageGlProcessor_nativeSetGlParams
+  0xd3ae4        124        com.kwai.camerasdk.preprocess.CropAndFlipProcessor.nativeCreateCropAndFlipProcessor
+      Java_com_kwai_camerasdk_preprocess_CropAndFlipProcessor_nativeCreateCropAndFlipProcessor
+  0xd3b60        96         com.kwai.camerasdk.preprocess.CropAndFlipProcessor.nativeReleaseCropAndFlipProcessor
+      Java_com_kwai_camerasdk_preprocess_CropAndFlipProcessor_nativeReleaseCropAndFlipProcessor
+  0xd3bc0        200        com.kwai.camerasdk.preprocess.CropAndFlipProcessor.nativeSetShouleKeepMirror
+      Java_com_kwai_camerasdk_preprocess_CropAndFlipProcessor_nativeSetShouleKeepMirror
+  0xd3c88        200        com.kwai.camerasdk.preprocess.CropAndFlipProcessor.nativeSetShouldPreserveWidth
+      Java_com_kwai_camerasdk_preprocess_CropAndFlipProcessor_nativeSetShouldPreserveWidth
+  0xd3d50        200        com.kwai.camerasdk.preprocess.CropAndFlipProcessor.nativeSetShouldMaintainAspectRatio
+      Java_com_kwai_camerasdk_preprocess_CropAndFlipProcessor_nativeSetShouldMaintainAspectRatio
+  0xd3e18        200        com.kwai.camerasdk.preprocess.CropAndFlipProcessor.nativeSetShouldKeepVerticalFlip
+      Java_com_kwai_camerasdk_preprocess_CropAndFlipProcessor_nativeSetShouldKeepVerticalFlip
+  0xd3ee0        200        com.kwai.camerasdk.preprocess.CropAndFlipProcessor.nativeSetMirror
+      Java_com_kwai_camerasdk_preprocess_CropAndFlipProcessor_nativeSetMirror
+  0xd3fa8        208        com.kwai.camerasdk.preprocess.CropAndFlipProcessor.nativeSetMirrorWithFrontDirection
+      Java_com_kwai_camerasdk_preprocess_CropAndFlipProcessor_nativeSetMirrorWithFrontDirection
+  0xd4078        196        com.kwai.camerasdk.preprocess.CropAndFlipProcessor.nativeSetWidth
+      Java_com_kwai_camerasdk_preprocess_CropAndFlipProcessor_nativeSetWidth
+  0xd413c        192        com.kwai.camerasdk.preprocess.CropAndFlipProcessor.nativeSetAspectRatio
+      Java_com_kwai_camerasdk_preprocess_CropAndFlipProcessor_nativeSetAspectRatio
+  0xd41fc        200        com.kwai.camerasdk.preprocess.CropAndFlipProcessor.nativeSetVerticalFlip
+      Java_com_kwai_camerasdk_preprocess_CropAndFlipProcessor_nativeSetVerticalFlip
+  0xd42c4        208        com.kwai.camerasdk.preprocess.CropAndFlipProcessor.nativeSetVerticalFlipWithFrontDirection
+      Java_com_kwai_camerasdk_preprocess_CropAndFlipProcessor_nativeSetVerticalFlipWithFrontDirection
+  0xd4394        124        com.kwai.camerasdk.preprocess.WaterMarkProcessor.nativeCreateWaterMarkProcessor
+      Java_com_kwai_camerasdk_preprocess_WaterMarkProcessor_nativeCreateWaterMarkProcessor
+  0xd4410        96         com.kwai.camerasdk.preprocess.WaterMarkProcessor.nativeReleaseWaterMarkProcessor
+      Java_com_kwai_camerasdk_preprocess_WaterMarkProcessor_nativeReleaseWaterMarkProcessor
+  0xd4470        196        com.kwai.camerasdk.preprocess.WaterMarkProcessor.nativeSetUseRelativePosition
+      Java_com_kwai_camerasdk_preprocess_WaterMarkProcessor_nativeSetUseRelativePosition
+  0xd4534        196        com.kwai.camerasdk.preprocess.WaterMarkProcessor.nativeSetHidden
+      Java_com_kwai_camerasdk_preprocess_WaterMarkProcessor_nativeSetHidden
+  0xd45f8        192        com.kwai.camerasdk.preprocess.WaterMarkProcessor.nativeSetRotation
+      Java_com_kwai_camerasdk_preprocess_WaterMarkProcessor_nativeSetRotation
+  0xd46b8        188        com.kwai.camerasdk.preprocess.WaterMarkProcessor.nativeSetScale
+      Java_com_kwai_camerasdk_preprocess_WaterMarkProcessor_nativeSetScale
+  0xd4774        188        com.kwai.camerasdk.preprocess.WaterMarkProcessor.nativeSetStartPoint
+      Java_com_kwai_camerasdk_preprocess_WaterMarkProcessor_nativeSetStartPoint
+  0xd4830        204        com.kwai.camerasdk.preprocess.WaterMarkProcessor.nativeSetWaterMarkRegion
+      Java_com_kwai_camerasdk_preprocess_WaterMarkProcessor_nativeSetWaterMarkRegion
+  0xd48fc        196        com.kwai.camerasdk.preprocess.WaterMarkProcessor.nativeSetCanvasSize
+      Java_com_kwai_camerasdk_preprocess_WaterMarkProcessor_nativeSetCanvasSize
+  0xd49c0        436        com.kwai.camerasdk.preprocess.WaterMarkProcessor.nativeOnVideoFrame
+      Java_com_kwai_camerasdk_preprocess_WaterMarkProcessor_nativeOnVideoFrame
+  0xd4b74        272        com.kwai.camerasdk.preprocess.GlPreProcessor.nativeCreateGlPreProcessor
+      Java_com_kwai_camerasdk_preprocess_GlPreProcessor_nativeCreateGlPreProcessor
+  0xd4c84        96         com.kwai.camerasdk.preprocess.GlPreProcessor.nativeReleaseGlPreProcessor
+      Java_com_kwai_camerasdk_preprocess_GlPreProcessor_nativeReleaseGlPreProcessor
+  0xd4ce4        192        com.kwai.camerasdk.preprocess.GlPreProcessor.nativePostRunnableToGlThread
+      Java_com_kwai_camerasdk_preprocess_GlPreProcessor_nativePostRunnableToGlThread
+  0xd4da4        136        com.kwai.camerasdk.preprocess.GlPreProcessor.nativeSetExternalFilterEnabled
+      Java_com_kwai_camerasdk_preprocess_GlPreProcessor_nativeSetExternalFilterEnabled
+  0xd4e2c        200        com.kwai.camerasdk.preprocess.GlPreProcessor.nativeGetFrameWidth
+      Java_com_kwai_camerasdk_preprocess_GlPreProcessor_nativeGetFrameWidth
+  0xd4ef4        200        com.kwai.camerasdk.preprocess.GlPreProcessor.nativeGetFrameHeight
+      Java_com_kwai_camerasdk_preprocess_GlPreProcessor_nativeGetFrameHeight
+  0xd4fbc        148        com.kwai.camerasdk.preprocess.AudioProcessor.nativeCreateAudioProcessor
+      Java_com_kwai_camerasdk_preprocess_AudioProcessor_nativeCreateAudioProcessor
+  0xd5050        96         com.kwai.camerasdk.preprocess.AudioProcessor.nativeReleaseAudioProcessor
+      Java_com_kwai_camerasdk_preprocess_AudioProcessor_nativeReleaseAudioProcessor
+  0xd50b0        96         com.kwai.camerasdk.preprocess.AbstractGlProcessor.nativeReleaseGlProcessor
+      Java_com_kwai_camerasdk_preprocess_AbstractGlProcessor_nativeReleaseGlProcessor
+  0xd5110        148        com.kwai.camerasdk.preprocess.DynamicExtractFrameProcessor.nativeCreateDynamicExtractFrameProcessor
+      Java_com_kwai_camerasdk_preprocess_DynamicExtractFrameProcessor_nativeCreateDynamicExtractFrameProcessor
+  0xd51a4        96         com.kwai.camerasdk.preprocess.DynamicExtractFrameProcessor.nativeReleaseDynamicExtractFrameProcessor
+      Java_com_kwai_camerasdk_preprocess_DynamicExtractFrameProcessor_nativeReleaseDynamicExtractFrameProcessor
+  0xd71a8        64         com.kwai.camerasdk.render.NativeRenderThread.nativeCreateDisplayContext
+      Java_com_kwai_camerasdk_render_NativeRenderThread_nativeCreateDisplayContext
+  0xd71e8        148        com.kwai.camerasdk.render.NativeRenderThread.nativeBindRenderThread
+      Java_com_kwai_camerasdk_render_NativeRenderThread_nativeBindRenderThread
+  0xd727c        316        com.kwai.camerasdk.render.NativeRenderThread.nativeBindDisplayContext
+      Java_com_kwai_camerasdk_render_NativeRenderThread_nativeBindDisplayContext
+  0xd73b8        72         com.kwai.camerasdk.render.NativeRenderThread.nativeResizeView
+      Java_com_kwai_camerasdk_render_NativeRenderThread_nativeResizeView
+  0xd7400        24         com.kwai.camerasdk.render.NativeRenderThread.nativeUnbindDisplayContext
+      Java_com_kwai_camerasdk_render_NativeRenderThread_nativeUnbindDisplayContext
+  0xd7418        24         com.kwai.camerasdk.render.NativeRenderThread.nativeDestroyDisplayContext
+      Java_com_kwai_camerasdk_render_NativeRenderThread_nativeDestroyDisplayContext
+  0xd7430        68         com.kwai.camerasdk.render.NativeRenderThread.nativeSetDisplayLayout
+      Java_com_kwai_camerasdk_render_NativeRenderThread_nativeSetDisplayLayout
+  0xd7474        628        com.kwai.camerasdk.render.NativeRenderThread.nativeSetOnNextFrameRenderedCallback
+      Java_com_kwai_camerasdk_render_NativeRenderThread_nativeSetOnNextFrameRenderedCallback
+  0xd78f4        16         com.kwai.camerasdk.render.NativeRenderThread.nativeEnableSaveLastFrame
+      Java_com_kwai_camerasdk_render_NativeRenderThread_nativeEnableSaveLastFrame
+  0xd7904        16         com.kwai.camerasdk.render.NativeRenderThread.nativeDrawLastFrame
+      Java_com_kwai_camerasdk_render_NativeRenderThread_nativeDrawLastFrame
+  0xd7914        24         com.kwai.camerasdk.render.NativeRenderThread.nativeSetDisplayEnabled
+      Java_com_kwai_camerasdk_render_NativeRenderThread_nativeSetDisplayEnabled
+  0xd792c        24         com.kwai.camerasdk.render.NativeRenderThread.nativeSetGlBlendEnabled
+      Java_com_kwai_camerasdk_render_NativeRenderThread_nativeSetGlBlendEnabled
+  0xd7944        92         com.kwai.camerasdk.render.NativeRenderThread.nativeSetBackgroundColor
+      Java_com_kwai_camerasdk_render_NativeRenderThread_nativeSetBackgroundColor
+  0xd79a0        340        com.kwai.camerasdk.render.NativeRenderThread.nativeCaptureVideoFrame
+      Java_com_kwai_camerasdk_render_NativeRenderThread_nativeCaptureVideoFrame
+  0xd7af4        420        com.kwai.camerasdk.render.NativeRenderThread.nativeDrawFrame
+      Java_com_kwai_camerasdk_render_NativeRenderThread_nativeDrawFrame
+  0xd7c98        372        com.kwai.camerasdk.render.NativeRenderThread.nativeSetRenderThreadListener
+      Java_com_kwai_camerasdk_render_NativeRenderThread_nativeSetRenderThreadListener
+  0xd935c        68         com.kwai.camerasdk.render.GlDrawer.nativeCreateDrawer
+      Java_com_kwai_camerasdk_render_GlDrawer_nativeCreateDrawer
+  0xd93a0        480        com.kwai.camerasdk.render.GlDrawer.nativeDrawFrame
+      Java_com_kwai_camerasdk_render_GlDrawer_nativeDrawFrame
+  0xd9580        24         com.kwai.camerasdk.render.GlDrawer.nativeDestroy
+      Java_com_kwai_camerasdk_render_GlDrawer_nativeDestroy
+  0xdac68        432        com.kwai.camerasdk.log.Log.nativeLog
+      Java_com_kwai_camerasdk_log_Log_nativeLog
+  0xdae18        1200       com.kwai.camerasdk.log.Log.nativeSetLogParam
+      Java_com_kwai_camerasdk_log_Log_nativeSetLogParam
+  0xdb2c8        8          com.kwai.camerasdk.log.Log.nativeSetMemoryLogLevel
+      Java_com_kwai_camerasdk_log_Log_nativeSetMemoryLogLevel
+  0xdb6f0        472        com.kwai.camerasdk.render.view2.NativeRenderThread2.nativeCreateViewhandle
+      Java_com_kwai_camerasdk_render_view2_NativeRenderThread2_nativeCreateViewhandle
+  0xdb8c8        24         com.kwai.camerasdk.render.view2.NativeRenderThread2.nativeDestroyViewHandle
+      Java_com_kwai_camerasdk_render_view2_NativeRenderThread2_nativeDestroyViewHandle
+  0xdb8e0        16         com.kwai.camerasdk.render.view2.NativeRenderThread2.nativeBindSurface
+      Java_com_kwai_camerasdk_render_view2_NativeRenderThread2_nativeBindSurface
+  0xdb8f0        8          com.kwai.camerasdk.render.view2.NativeRenderThread2.nativeUnbindSurface
+      Java_com_kwai_camerasdk_render_view2_NativeRenderThread2_nativeUnbindSurface
+  0xdb8f8        16         com.kwai.camerasdk.render.view2.NativeRenderThread2.nativeResizeView
+      Java_com_kwai_camerasdk_render_view2_NativeRenderThread2_nativeResizeView
+  0xdb908        12         com.kwai.camerasdk.render.view2.NativeRenderThread2.nativeSetDisplayLayout
+      Java_com_kwai_camerasdk_render_view2_NativeRenderThread2_nativeSetDisplayLayout
+  0xdb914        420        com.kwai.camerasdk.render.view2.NativeRenderThread2.nativeDrawFrame
+      Java_com_kwai_camerasdk_render_view2_NativeRenderThread2_nativeDrawFrame
+  0xdbab8        8          com.kwai.camerasdk.render.view2.NativeRenderThread2.nativeSetBackGroundColor
+      Java_com_kwai_camerasdk_render_view2_NativeRenderThread2_nativeSetBackGroundColor
+  0xdbac0        12         com.kwai.camerasdk.render.view2.NativeRenderThread2.nativeBindViewToRenderThread
+      Java_com_kwai_camerasdk_render_view2_NativeRenderThread2_nativeBindViewToRenderThread
+  0xdbacc        12         com.kwai.camerasdk.render.view2.NativeRenderThread2.nativeUnbindViewFromRenderThread
+      Java_com_kwai_camerasdk_render_view2_NativeRenderThread2_nativeUnbindViewFromRenderThread
+  0xdbad8        628        com.kwai.camerasdk.render.view2.NativeRenderThread2.nativeSetOnNextFrameRenderedCallback
+      Java_com_kwai_camerasdk_render_view2_NativeRenderThread2_nativeSetOnNextFrameRenderedCallback
+  0xdbf50        16         com.kwai.camerasdk.render.view2.NativeRenderThread2.nativeEnableSaveLastFrame
+      Java_com_kwai_camerasdk_render_view2_NativeRenderThread2_nativeEnableSaveLastFrame
+  0xdbf60        16         com.kwai.camerasdk.render.view2.NativeRenderThread2.nativeDrawLastFrame
+      Java_com_kwai_camerasdk_render_view2_NativeRenderThread2_nativeDrawLastFrame
+  0xdbf70        24         com.kwai.camerasdk.render.view2.NativeRenderThread2.nativeSetDisplayEnabled
+      Java_com_kwai_camerasdk_render_view2_NativeRenderThread2_nativeSetDisplayEnabled
+  0xdbf88        24         com.kwai.camerasdk.render.view2.NativeRenderThread2.nativeSetGlBlendEnabled
+      Java_com_kwai_camerasdk_render_view2_NativeRenderThread2_nativeSetGlBlendEnabled
+  0xdbfa0        340        com.kwai.camerasdk.render.view2.NativeRenderThread2.nativeCaptureVideoFrame
+      Java_com_kwai_camerasdk_render_view2_NativeRenderThread2_nativeCaptureVideoFrame
+  0xdc0f4        492        com.kwai.camerasdk.render.view2.NativeRenderThread2.nativeSetRenderThreadListener
+      Java_com_kwai_camerasdk_render_view2_NativeRenderThread2_nativeSetRenderThreadListener
+  0xdd29c        336        com.kwai.camerasdk.monitor.FrameMonitor.nativeProcessReceiveFrame
+      Java_com_kwai_camerasdk_monitor_FrameMonitor_nativeProcessReceiveFrame
+  0xdd3ec        336        com.kwai.camerasdk.monitor.FrameMonitor.nativeProcessPublishFrame
+      Java_com_kwai_camerasdk_monitor_FrameMonitor_nativeProcessPublishFrame
+  0xdd53c        336        com.kwai.camerasdk.monitor.FrameMonitor.nativeProcessDropFrame
+      Java_com_kwai_camerasdk_monitor_FrameMonitor_nativeProcessDropFrame
+  0xdd68c        328        com.kwai.camerasdk.monitor.FrameMonitor.nativeSetEnabled
+      Java_com_kwai_camerasdk_monitor_FrameMonitor_nativeSetEnabled
+  0xdd7d4        308        com.kwai.camerasdk.monitor.FrameMonitor.nativeSaveFrameInfoToCSVFile
+      Java_com_kwai_camerasdk_monitor_FrameMonitor_nativeSaveFrameInfoToCSVFile
+  0xdde90        952        com.kwai.camerasdk.DaenerysUtils.nativeConvertToFormat
+      Java_com_kwai_camerasdk_DaenerysUtils_nativeConvertToFormat
+  0xde2a0        332        com.kwai.camerasdk.DaenerysUtils.nativeGetErrorMessage
+      Java_com_kwai_camerasdk_DaenerysUtils_nativeGetErrorMessage
+  0xde3ec        472        com.kwai.camerasdk.render.OpenGLAvailabilityChecker.nativeTestGlSyncAvailable
+      Java_com_kwai_camerasdk_render_OpenGLAvailabilityChecker_nativeTestGlSyncAvailable
+  0xdec6c        144        com.kwai.camerasdk.utils.ByteBufferUtils.nativeCopy
+      Java_com_kwai_camerasdk_utils_ByteBufferUtils_nativeCopy
+  0xdecfc        572        com.kwai.camerasdk.utils.ByteBufferUtils.nativeCopyPlane
+      Java_com_kwai_camerasdk_utils_ByteBufferUtils_nativeCopyPlane
+  0xdef38        408        com.kwai.camerasdk.utils.JpegDecoder.nativeInit
+      Java_com_kwai_camerasdk_utils_JpegDecoder_nativeInit
+  0xdf0d0        96         com.kwai.camerasdk.utils.JpegDecoder.nativeDestroy
+      Java_com_kwai_camerasdk_utils_JpegDecoder_nativeDestroy
+  0xdf130        192        com.kwai.camerasdk.utils.JpegDecoder.nativeGetWidth
+      Java_com_kwai_camerasdk_utils_JpegDecoder_nativeGetWidth
+  0xdf1f0        192        com.kwai.camerasdk.utils.JpegDecoder.nativeGetHeight
+      Java_com_kwai_camerasdk_utils_JpegDecoder_nativeGetHeight
+  0xdf2b0        424        com.kwai.camerasdk.utils.JpegDecoder.nativeDecode
+      Java_com_kwai_camerasdk_utils_JpegDecoder_nativeDecode
+  0xe1514        500        com.kwai.camerasdk.videoCapture.DaenerysFrameObserver.nativeCreateMediaSource
+      Java_com_kwai_camerasdk_videoCapture_DaenerysFrameObserver_nativeCreateMediaSource
+  0xe17b8        48         com.kwai.camerasdk.videoCapture.DaenerysFrameObserver.nativeDestroyMediaSource
+      Java_com_kwai_camerasdk_videoCapture_DaenerysFrameObserver_nativeDestroyMediaSource
+  0xe18d8        432        com.kwai.camerasdk.videoCapture.DaenerysFrameObserver.nativeOnVideoFrameCaptured
+      Java_com_kwai_camerasdk_videoCapture_DaenerysFrameObserver_nativeOnVideoFrameCaptured
+  0xe1a88        560        com.kwai.camerasdk.videoCapture.DaenerysFrameObserver.nativeOnAudioFrameCaptured
+      Java_com_kwai_camerasdk_videoCapture_DaenerysFrameObserver_nativeOnAudioFrameCaptured
+  0xe1cb8        60         com.kwai.camerasdk.videoCapture.FrameBuffer.nativeCreateByteBuffer
+      Java_com_kwai_camerasdk_videoCapture_FrameBuffer_nativeCreateByteBuffer
+  0xe1cf4        32         com.kwai.camerasdk.videoCapture.FrameBuffer.nativeFreeByteBuffer
+      Java_com_kwai_camerasdk_videoCapture_FrameBuffer_nativeFreeByteBuffer
+  0xe46dc        1256       com.kwai.camerasdk.mediarecorder.MediaRecorderImpl.nativeStartRecording
+      Java_com_kwai_camerasdk_mediarecorder_MediaRecorderImpl_nativeStartRecording
+  0xe4bc4        752        com.kwai.camerasdk.mediarecorder.MediaRecorderImpl.nativeStartRecordingAudio
+      Java_com_kwai_camerasdk_mediarecorder_MediaRecorderImpl_nativeStartRecordingAudio
+  0xe4eb4        16         com.kwai.camerasdk.mediarecorder.MediaRecorderImpl.nativeUpdateSpeed
+      Java_com_kwai_camerasdk_mediarecorder_MediaRecorderImpl_nativeUpdateSpeed
+  0xe4ec4        24         com.kwai.camerasdk.mediarecorder.MediaRecorderImpl.nativeUpdateAudioConfig
+      Java_com_kwai_camerasdk_mediarecorder_MediaRecorderImpl_nativeUpdateAudioConfig
+  0xe4edc        20         com.kwai.camerasdk.mediarecorder.MediaRecorderImpl.nativeStopRecording
+      Java_com_kwai_camerasdk_mediarecorder_MediaRecorderImpl_nativeStopRecording
+  0xe4ef0        556        com.kwai.camerasdk.mediarecorder.MediaRecorderImpl.nativeCaptureOneVideoFrame
+      Java_com_kwai_camerasdk_mediarecorder_MediaRecorderImpl_nativeCaptureOneVideoFrame
+  0xe511c        16         com.kwai.camerasdk.mediarecorder.MediaRecorderImpl.nativePrepareIfNeeded
+      Java_com_kwai_camerasdk_mediarecorder_MediaRecorderImpl_nativePrepareIfNeeded
+  0xe512c        16         com.kwai.camerasdk.mediarecorder.MediaRecorderImpl.nativeDestroyEncoderIfPrepared
+      Java_com_kwai_camerasdk_mediarecorder_MediaRecorderImpl_nativeDestroyEncoderIfPrepared
+  0xe513c        20         com.kwai.camerasdk.mediarecorder.MediaRecorderImpl.nativeSetTargetFps
+      Java_com_kwai_camerasdk_mediarecorder_MediaRecorderImpl_nativeSetTargetFps
+  0xe5f84        148        com.kwai.camerasdk.videoCapture.CameraControllerImpl.nativeCreateCameraController
+      Java_com_kwai_camerasdk_videoCapture_CameraControllerImpl_nativeCreateCameraController
+  0xe6018        96         com.kwai.camerasdk.videoCapture.CameraControllerImpl.nativeDestroyCameraController
+      Java_com_kwai_camerasdk_videoCapture_CameraControllerImpl_nativeDestroyCameraController
+  0xe6078        20         com.kwai.camerasdk.videoCapture.CameraControllerImpl.nativeUpdateTargetFps
+      Java_com_kwai_camerasdk_videoCapture_CameraControllerImpl_nativeUpdateTargetFps
+  0xe6250        24         com.kwai.camerasdk.MediaCallback.nativeSetFrontMirror
+      Java_com_kwai_camerasdk_MediaCallback_nativeSetFrontMirror
+  0xe6268        24         com.kwai.camerasdk.Daenerys.nativeSetSyncRenderThread
+      Java_com_kwai_camerasdk_Daenerys_nativeSetSyncRenderThread
+  0xec564        272        com.kwai.camerasdk.DaenerysLayoutManager.nativeGetDefaultLayout
+      Java_com_kwai_camerasdk_DaenerysLayoutManager_nativeGetDefaultLayout
+  0xec674        272        com.kwai.camerasdk.DaenerysLayoutManager.nativeGetDefaultDualScreenLayout
+      Java_com_kwai_camerasdk_DaenerysLayoutManager_nativeGetDefaultDualScreenLayout
+  0xec784        928        com.kwai.camerasdk.DaenerysLayoutManager.nativeSetVideoSourceLayout
+      Java_com_kwai_camerasdk_DaenerysLayoutManager_nativeSetVideoSourceLayout
+  0xecb24        468        com.kwai.camerasdk.DaenerysLayoutManager.nativeInputSubLayoutVideoFrame
+      Java_com_kwai_camerasdk_DaenerysLayoutManager_nativeInputSubLayoutVideoFrame
+  0xeccf8        232        com.kwai.camerasdk.DaenerysLayoutManager.nativeClearSubLayoutVideoFrames
+      Java_com_kwai_camerasdk_DaenerysLayoutManager_nativeClearSubLayoutVideoFrames
+  0xf0ca4        64         com.kwai.camerasdk.utils.GLSynchronizer.nativeCreateGlSyncObj
+      Java_com_kwai_camerasdk_utils_GLSynchronizer_nativeCreateGlSyncObj
+  0xf0ce4        24         com.kwai.camerasdk.utils.GLSynchronizer.nativeDestroyGlSyncObj
+      Java_com_kwai_camerasdk_utils_GLSynchronizer_nativeDestroyGlSyncObj
+  0xf0cfc        16         com.kwai.camerasdk.utils.GLSynchronizer.nativeAddFence
+      Java_com_kwai_camerasdk_utils_GLSynchronizer_nativeAddFence
+  0xf0d0c        16         com.kwai.camerasdk.utils.GLSynchronizer.nativeSync
+      Java_com_kwai_camerasdk_utils_GLSynchronizer_nativeSync
+  0xf0d1c        16         com.kwai.camerasdk.utils.GLSynchronizer.nativeWait
+      Java_com_kwai_camerasdk_utils_GLSynchronizer_nativeWait
+
+AI-relevant strings (1201217 bytes scanned in allocated data sections)
+  [model] 43 unique (first 20)
+    0x001d9e8f .rodata    ro.product.model
+    0x001f0bac .rodata    kuaishou.model.FaceDetectConfig.paramex
+    0x001f0bd4 .rodata    kuaishou.model.FaceDetectConfig
+    0x001f0fff .rodata    kuaishou.model.ProcessorStats
+    0x001f101d .rodata    kuaishou.model.PipeLineStats
+    0x001f103a .rodata    kuaishou.model.SessionStats
+    0x001f1056 .rodata    kuaishou.model.RecordingStats.path
+    0x001f1079 .rodata    kuaishou.model.RecordingStats
+    0x001f1097 .rodata    kuaishou.model.PreviewStats
+    0x001f10b3 .rodata    kuaishou.model.TakePictureStats
+    0x001f10d3 .rodata    kuaishou.model.CaptureImageProcessStats
+    0x001f10fb .rodata    kuaishou.model.CaptureImageStats
+    0x001f111c .rodata    kuaishou.model.CameraStats
+    0x001f1e6a .rodata    kuaishou.model.DaenerysCapturePresetConfig
+    0x001f1e95 .rodata    kuaishou.model.DaenerysCaptureConfig
+    0x001f1eba .rodata    kuaishou.model.DaenerysConfig.video_codec_config
+    0x001f1eeb .rodata    kuaishou.model.DaenerysConfig.stats_session_id
+    0x001f1f1a .rodata    kuaishou.model.DaenerysConfig
+    0x001f1f38 .rodata    kuaishou.model.Transform
+    0x001f1f51 .rodata    kuaishou.model.Point
+    ... 23 more
+  [face] 129 unique (first 20)
+    0x0001a0d4 .dynstr    _ZNKSt6__ndk16locale9use_facetERNS0_2idE
+    0x0001b233 .dynstr    _ZNSt6__ndk15alignEmmRPvRm
+    0x0001b9f1 .dynstr    _ZNKSt6__ndk16locale9has_facetERNS0_2idE
+    0x000208da .dynstr    _ZN6google8protobuf5Arena15AllocateAlignedEPKSt9type_infom
+    0x00025ca1 .dynstr    _ZN8kuaishou5model12FaceLandmarkC1Ev
+    0x00025cc6 .dynstr    _ZN8kuaishou5model27_FacePose_default_instance_E
+    0x00025cf7 .dynstr    _ZN8kuaishou5model31_FaceLandmark_default_instance_E
+    0x000277d3 .dynstr    _ZN8kuaishou5model35_FaceDetectConfig_default_instance_E
+    0x0002780c .dynstr    _ZN8kuaishou5model39protobuf_face_5fdetect_5fconfig_2eproto11TableStruct16InitDefaultsImplEv
+    0x00027869 .dynstr    _ZN8kuaishou5model39protobuf_face_5fdetect_5fconfig_2eproto11TableStruct3auxE
+    0x000278b7 .dynstr    _ZN8kuaishou5model39protobuf_face_5fdetect_5fconfig_2eproto11TableStruct6schemaE
+    0x00027908 .dynstr    _ZN8kuaishou5model39protobuf_face_5fdetect_5fconfig_2eproto11TableStruct7entriesE
+    0x0002795a .dynstr    _ZN8kuaishou5model39protobuf_face_5fdetect_5fconfig_2eproto11TableStruct8ShutdownEv
+    0x000279ae .dynstr    _ZN8kuaishou5model39protobuf_face_5fdetect_5fconfig_2eproto12InitDefaultsEv
+    0x000279fa .dynstr    _ZN8kuaishou5model39protobuf_face_5fdetect_5fconfig_2eproto14AddDescriptorsEv
+    0x0002d1fb .dynstr    _ZN8kuaishou5model12FaceLandmark10SharedCtorEv
+    0x0002d22a .dynstr    _ZN8kuaishou5model12FaceLandmark10SharedDtorEv
+    0x0002d259 .dynstr    _ZN8kuaishou5model12FaceLandmark12InternalSwapEPS1_
+    0x0002d28d .dynstr    _ZN8kuaishou5model12FaceLandmark16default_instanceEv
+    0x0002d2c2 .dynstr    _ZN8kuaishou5model12FaceLandmark18kPointsFieldNumberE
+    ... 109 more
+  [asr] 12 unique (first 12)
+    0x001db4eb .rodata    [Daenerys] Audio Codec Type %d
+    0x001db50a .rodata    [Daenerys] Video Codec Type %d
+    0x001dcd8e .rodata    (Lcom/kwai/camerasdk/audio/AudioFrame;)Lcom/kwai/camerasdk/audio/AudioFrame;
+    0x001e0884 .rodata    com/kwai/camerasdk/audio/AudioFrame
+    0x001ec977 .rodata    [AudioResampler] HandleAudio this:%p, audio input config changed: sample_rate: %d->%d, channel_num: %d->%d
+    0x001ece7b .rodata    Error while writing audio frame: %s
+    0x001ed2bb .rodata    [MediaRecorder] Audio Encoder Error %s
+    0x001efe5d .rodata    [AudioEncoderWorkshop] audio encoder encode failed %d..try reset...
+    0x001f011e .rodata    [AudioFfmpegEncoder] codec not supported:%d
+    0x001f01ef .rodata    Failed to open audio encoder.
+    0x001f04e9 .rodata    [VideoCodecManager] Failed to parse codec settings from json: %s
+    0x001f2e92 .rodata     Audio bitrate: 
+  [segment] 4 unique (first 4)
+    0x001dc8a3 .rodata    nativeSetSessionSegmentStatsCallbackEnabled
+    0x001f3587 .rodata    [Statistics] SetSessionSegmentStatsCallbackEnabled : %d
+    0x001f5ef8 .rodata    NSt6__ndk110__function6__funcIZN8kuaishou4stat10Statistics37SetSessionSegmentStatsCallbackEnabledEbE4$_43NS_9allocatorIS5_EEFvvEEE
+    0x001f5f7b .rodata    ZN8kuaishou4stat10Statistics37SetSessionSegmentStatsCallbackEnabledEbE4$_43
+  [model_name] 2 unique (first 2)
+    0x001d9e8f .rodata    ro.product.model
+    0x001f3016 .rodata    device_model
+
+JSON written to reports/kwai_live/native/libdaenerys.so.json

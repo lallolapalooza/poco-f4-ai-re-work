@@ -1,0 +1,84 @@
+# Kwai Live (com.kwai.kuaishou.video.live 6.0.20.524207) - command transcript
+# APK sha256 642f1cbfa4d4cfa4e9424e214f6295bf456cf7d220f74f9ca0bf5ba4743acbe9, 80280485 bytes
+# APK_ROOT="/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system"
+# WS=/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work
+# PY=/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python
+
+[1] inventory
+$PY $WS/tools/apk_inventory.py "$APK" --out $WS/reports/kwai_live/inventory \
+    --extract-models --extract-libs --max-file-mb 50 --max-total-mb 90
+-> "com.kwai.kuaishou.video.live 6.0.20.524207 entries=8130 ai_models=0 ai_libs=14 markers=4"
+   dex 16 / 53930092 B, native_libs 80 / 114312920 B, model_assets 0, configs 4246, assets 263
+   extracted 14 libraries (41487120 B)
+
+[2] variant diff (streaming sha256 of every lib/arm64-v8a/*.so in all three APKs)
+python3 ... (script writes evidence/variant_diff.txt)
+-> name sets identical (80 libs each); only lib/arm64-v8a/libcore.so differs
+   live=(30800, crc 2968102410) video=(30800, crc 83064215) bulldog=(30800, crc 813493443)
+   assets: 263 identical names, 3 content diffs (apk.json, video_yh_loading_icon.png,
+   water_animation.mp4); live lacks 4 branding drawables present in kwai_video
+   APK sha256: live 642f1cbf...; video a0050c58...; bulldog d18888e3...
+
+[3] dex class/string mining
+$PY $WS/tools/dex_find.py "$APK" --regex 'tensorflow|VisionEngine|visionengine|FaceMagicController|BodySlimming' --classes-only
+$PY $WS/tools/dex_find.py "$APK" --regex 'com\.kwai\.video\.westeros\.' --classes-only   # 554 classes
+$PY $WS/tools/dex_find.py "$APK" --regex 'com\.yxcorp\.gifshow\.live\.push\.' --classes-only
+$PY $WS/tools/strings_dex.py "$APK" --regex '(?i)\.tflite' --unique --format plain       # 1 hit
+$PY $WS/tools/strings_dex.py "$APK" --regex 'magic_(ycnn|ks|ai)|ycnn' --unique --format plain
+   -> evidence/ycnn_strings.txt (282 unique strings, 37 magic_ycnn_model_* names)
+$PY $WS/tools/strings_dex.py "$APK" --regex '(?i)ylab|nncc|dugu|ycnn|mmuplugin|dirty_?lens' ...
+   -> /rest/o/production/ycnn/models, /Ycnn/modelA, /facerecognition/ycnnmodel,
+      YCNNModel* enum names, "Ycnn model directory is empty", ycnn_ext_snpe,
+      tflite_mtk_static, duguModelPath, nnccModelPath, faceattrib/landmark/generalrecog modelpaths
+
+[4] class surfaces (methods/descriptors from DEX; evidence/class_surfaces.txt)
+$PY $WS/tools/dex_find.py "$APK" --regex 'FaceMagicController$|LivePrePushPrettifyPresenter$|YcnnPlugin$|
+    YcnnSoLoader$|MmuPlugin$|BodySlimmingAdjustType$|BeautifyVersion$' --limit 0 --max-methods-per-class 60
+
+[5] decompilation (jadx --single-class, one class per run)
+ok  com.yxcorp.gifshow.live.effect.LiveMagicEffectDownloader            (37.7 s)
+ok  com.kwai.video.westeros.v2.ycnn.YcnnSoLoader                       (93 s, direct jadx)
+ok  com.kwai.video.westeros.v2.ycnn.YcnnPluginUtils                    (direct jadx)
+ok  com.kwai.video.westeros.helpers.WesterosSoLoader                   (direct jadx)
+ok  com.kwai.video.westeros.models.VisionEngine                        (protobuf registry only)
+fail/timeout  com.kwai.video.westeros.v2.faceless.FaceMagicController, LivePrePushPrettifyPresenter,
+              MmuPlugin, YlabModelPathConfig, FMEffectLivePet, BeautyConfig
+              -> analysed from evidence/class_surfaces.txt + dex strings instead
+
+[6] native
+$PY $WS/tools/elf_info.py <lib>.so --json $WS/reports/kwai_live/native/<lib>.so.json --strings-limit 60
+    for: libFaceMagic, libfacedetectcontext, libfaceless-plugin, libksvisionengineplugin,
+         libvisionengine, libskwai, libkwsgmain, libkwaiaudio, libtensorflow-lite, libwesteros
+-> native/*.summary.txt, native/*.json ; evidence/jni_tables.txt (2373 JNI entry points)
+$PY $WS/tools/carve_models.py <lib>.so --json native/carve_<lib>.json
+    for the 7 AI libs -> no tflite/zip/caffe model; libtensorflow-lite.so only yields the
+    TFL3 literal (low confidence) + the string "debug.tflite"
+python3 + lief -> evidence/needed_map.txt (no library depends on libtensorflow-lite.so)
+
+[7] GLSL extraction (libFaceMagic.so rodata)
+python3 regex over "uniform ... }" bodies -> evidence/shaders/facemagic_{61815c,617dba,61b3c0,
+    61cfd4,61db59,62a8cb,62c985}.glsl (+ more inline in cmd output)
+
+[8] liquify disassembly + decompilation
+$PY $WS/tools/disasm_elf.py libFaceMagic.so --symbol _ZN2FM15FMLiquifyEffect7forward... -> native/liquify_forward.s
+    (FMLiquifyEffect::forward/updateMesh/restore/bloat are trampolines to CGE::CGELiquifyFilter)
+unzip libCGE.so libgorgeous.so libspine.so libwesteros.so -> native/libs/lib/arm64-v8a/
+flock $WS/logs/ghidra.lock -c "$WS/tools/ghidra_decompile.sh libCGE.so native/libCGE_liquify.c 'Liquify' \
+     --timeout 1500 --max-functions 40 --heap 3G"
+-> SUMMARY matched=32 attempted=32 decompiled=32 failed=0 timedout=0 (152 s)
+   native/libCGE_liquify.c (62873 B): forwardDeformMesh, bloatMeshWithPoint, wrinkleMeshWithPoint,
+   restoreMeshWithPoint, restoreMeshWithIntensity, initWithMesh, pushMesh, undo, redo
+
+[9] reimplementation
+cd $WS/reports/kwai_live/reimpl && $PY verify.py
+-> 10/10 checks passed, verify.txt written, exit 0
+   JAX vs NumPy G3 blend max_abs_err=7.451e-08; identity at zero intensity exact;
+   body-slim identity 1.851e-06 (f32 resample); warp max_uv_displacement=0.0507
+cd $WS/reports/kwai_live/reimpl && $PY pipeline.py
+-> params: 5 beauty presets; 7 body-slim op groups; Filter40p
+   input (256,144,3) -> output (256,144,4)
+
+[10] findings validation
+cd evidence && $PY validate_findings.py $WS/SCHEMA.json ../findings.json
+-> VALID: findings.json conforms to SCHEMA.json (features=9 models=0 unknowns=8
+   status=runs_unverified)

@@ -1,0 +1,83 @@
+STEF container probe — libstfaceunlockocl.so
+blob vaddr -> file offset = vaddr - 0x10000 (section .data)
+
+IM_RGB_Liveness_General_Full_FP32_10_1_65_half_compression_v2_origin
+  vaddr=0x4f2c460 offset=0x4f1c460 total=4106513 magic=b'STEF' ver_tag=b'VER' ver=3 flags=0
+  payload_size=4106240 (0x3ea800, %16=0) trailer=257B
+  payload entropy=7.999 zero_frac=0.00388 dup16blocks=0
+  standard codecs that accepted payload: none
+    xor md5(name)                -> entropy 7.997 (plaintext would be <<8)
+    xor md5(name+caffe_model)    -> entropy 7.997 (plaintext would be <<8)
+    xor md5(caffe_model)         -> entropy 7.997 (plaintext would be <<8)
+    xor md5(license-SN)          -> entropy 7.997 (plaintext would be <<8)
+M_Align_CalcPose_Ann_106_2_3_0
+  vaddr=0x5316da0 offset=0x5306da0 total=123153 magic=b'STEF' ver_tag=b'VER' ver=3 flags=0
+  payload_size=122880 (0x1e000, %16=0) trailer=257B
+  payload entropy=7.998 zero_frac=0.00374 dup16blocks=0
+  standard codecs that accepted payload: none
+    xor md5(name)                -> entropy 7.997 (plaintext would be <<8)
+    xor md5(name+caffe_model)    -> entropy 7.997 (plaintext would be <<8)
+    xor md5(caffe_model)         -> entropy 7.997 (plaintext would be <<8)
+    xor md5(license-SN)          -> entropy 7.997 (plaintext would be <<8)
+M_Align_Deepface_Eye_State_Analysis_3_7_8
+  vaddr=0x5334ee0 offset=0x5324ee0 total=1771793 magic=b'STEF' ver_tag=b'VER' ver=3 flags=0
+  payload_size=1771520 (0x1b0800, %16=0) trailer=257B
+  payload entropy=7.999 zero_frac=0.00394 dup16blocks=0
+  standard codecs that accepted payload: none
+    xor md5(name)                -> entropy 7.997 (plaintext would be <<8)
+    xor md5(name+caffe_model)    -> entropy 7.997 (plaintext would be <<8)
+    xor md5(caffe_model)         -> entropy 7.997 (plaintext would be <<8)
+    xor md5(license-SN)          -> entropy 7.997 (plaintext would be <<8)
+M_Align_occlusion_106_1_19_3
+  vaddr=0x54e5820 offset=0x54d5820 total=1782033 magic=b'STEF' ver_tag=b'VER' ver=3 flags=0
+  payload_size=1781760 (0x1b3000, %16=0) trailer=257B
+  payload entropy=7.999 zero_frac=0.00395 dup16blocks=0
+  standard codecs that accepted payload: none
+    xor md5(name)                -> entropy 7.997 (plaintext would be <<8)
+    xor md5(name+caffe_model)    -> entropy 7.997 (plaintext would be <<8)
+    xor md5(caffe_model)         -> entropy 7.997 (plaintext would be <<8)
+    xor md5(license-SN)          -> entropy 7.997 (plaintext would be <<8)
+M_Align_occlusion_106_360_1_7_1
+  vaddr=0x5698960 offset=0x5688960 total=2058513 magic=b'STEF' ver_tag=b'VER' ver=3 flags=0
+  payload_size=2058240 (0x1f6800, %16=0) trailer=257B
+  payload entropy=7.999 zero_frac=0.00391 dup16blocks=0
+  standard codecs that accepted payload: none
+    xor md5(name)                -> entropy 7.997 (plaintext would be <<8)
+    xor md5(name+caffe_model)    -> entropy 7.997 (plaintext would be <<8)
+    xor md5(caffe_model)         -> entropy 7.997 (plaintext would be <<8)
+    xor md5(license-SN)          -> entropy 7.997 (plaintext would be <<8)
+M_Attribute_MTNet_Quality_1_0_0
+  vaddr=0x588f2a0 offset=0x587f2a0 total=471313 magic=b'STEF' ver_tag=b'VER' ver=3 flags=0
+  payload_size=471040 (0x73000, %16=0) trailer=257B
+  payload entropy=7.999 zero_frac=0.00396 dup16blocks=0
+  standard codecs that accepted payload: none
+    xor md5(name)                -> entropy 7.997 (plaintext would be <<8)
+    xor md5(name+caffe_model)    -> entropy 7.998 (plaintext would be <<8)
+    xor md5(caffe_model)         -> entropy 7.997 (plaintext would be <<8)
+    xor md5(license-SN)          -> entropy 7.997 (plaintext would be <<8)
+M_Hunter_CommonFace_Gray_ppl_360_9_2_5_v2_origin
+  vaddr=0x59023e0 offset=0x58f23e0 total=983313 magic=b'STEF' ver_tag=b'VER' ver=3 flags=0
+  payload_size=983040 (0xf0000, %16=0) trailer=257B
+  payload entropy=7.999 zero_frac=0.00389 dup16blocks=0
+  standard codecs that accepted payload: none
+    xor md5(name)                -> entropy 7.997 (plaintext would be <<8)
+    xor md5(name+caffe_model)    -> entropy 7.997 (plaintext would be <<8)
+    xor md5(caffe_model)         -> entropy 7.997 (plaintext would be <<8)
+    xor md5(license-SN)          -> entropy 7.997 (plaintext would be <<8)
+M_Verify_MobileNetV2T6_Common_3_135_0_half_compression_v2_origin
+  vaddr=0x59f2520 offset=0x59e2520 total=5110033 magic=b'STEF' ver_tag=b'VER' ver=3 flags=0
+  payload_size=5109760 (0x4df800, %16=0) trailer=257B
+  payload entropy=7.999 zero_frac=0.00391 dup16blocks=0
+  standard codecs that accepted payload: none
+    xor md5(name)                -> entropy 7.997 (plaintext would be <<8)
+    xor md5(name+caffe_model)    -> entropy 7.997 (plaintext would be <<8)
+    xor md5(caffe_model)         -> entropy 7.997 (plaintext would be <<8)
+    xor md5(license-SN)          -> entropy 7.997 (plaintext would be <<8)
+
+known-plaintext tar test (assume repeating-16 XOR, first tar member 'meta.conf'):
+    name=b'meta.conf'   decoded tar magic @257 = b'K\xeb\xa8\xf5\x011\xb5\n'  (expected b'ustar  \0')
+    name=b'model.bin'   decoded tar magic @257 = b'A\xfb\xac\xb7L<\xb2\x02'  (expected b'ustar  \0')
+    name=b'/model.bin'  decoded tar magic @257 = b'C\xf0\xad\xbe\x0ep\xb9\x05'  (expected b'ustar  \0')
+
+conclusion: payload is encrypted with a proprietary cipher; no plaintext key/
+codec is present. Header 'STEF' + 'VER'3 is the only structured (plaintext) part.

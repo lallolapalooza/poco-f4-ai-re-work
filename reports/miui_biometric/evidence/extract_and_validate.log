@@ -1,0 +1,35 @@
+== models/extract_blobs.py ==
+extracted 8 blobs, 16406664 bytes (15.65 MiB)
+  IM_RGB_Liveness_General_Full_FP32_10_1_65_half_compression_v2_origin       4106513 @ off 0x4f1c460 payload  4106240 trailer 257 69366df2ae8c
+  M_Align_CalcPose_Ann_106_2_3_0                                              123153 @ off 0x5306da0 payload   122880 trailer 257 c8daf5eae905
+  M_Align_Deepface_Eye_State_Analysis_3_7_8                                  1771793 @ off 0x5324ee0 payload  1771520 trailer 257 e1d020a71d63
+  M_Align_occlusion_106_1_19_3                                               1782033 @ off 0x54d5820 payload  1781760 trailer 257 9b1a676565ca
+  M_Align_occlusion_106_360_1_7_1                                            2058513 @ off 0x5688960 payload  2058240 trailer 257 5f4fdb84262b
+  M_Attribute_MTNet_Quality_1_0_0                                             471313 @ off 0x587f2a0 payload   471040 trailer 257 50f64eb5abfc
+  M_Hunter_CommonFace_Gray_ppl_360_9_2_5_v2_origin                            983313 @ off 0x58f23e0 payload   983040 trailer 257 ed96a7464716
+  M_Verify_MobileNetV2T6_Common_3_135_0_half_compression_v2_origin           5110033 @ off 0x59e2520 payload  5109760 trailer 257 518b214184ad
+
+== findings.json validation ==
+VALID against SCHEMA.json
+
+== elf_info summary (stfaceunlockocl) ==
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so
+==============================================================================
+size        : 106744488 bytes (101.80 MiB)
+sha256      : ea711f433005fd1a2410c31339f0e1a1715b0e194abaf62403a0776ecdaabffc
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x89210   imagebase: 0x0
+soname      : libstfaceunlockocl.so
+needed      : libOpenCL.so, liblog.so, libm.so, libc.so, libdl.so
+parser      : lief
+counts      : 909 exports, 355 imports, 0 JNI, 32 sections, 6 segments
+symtab/dynsym: 41090 / 1475
+
+Sections (32)
+  name                   type             flags  address      size       offset
+  .hash                  HASH             A      0x190        10032      0x190
+  .dynsym                DYNSYM           A      0x28c0       35400      0x28c0
+  .dynstr                STRTAB           A      0xb308       67698      0xb308
+  .gnu.version           GNU_VERSYM       A      0x1bb7a      2950       0x1bb7a
+  .gnu.version_r         GNU_VERNEED      A      0x1c700      96         0x1c700

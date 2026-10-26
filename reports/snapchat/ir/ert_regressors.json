@@ -1,0 +1,37 @@
+{
+ "source": "LiteTrackingData_ert.lns (zstd entries)",
+ "format": "proprietary packed ERT regressor, first byte 0x53 ('S'), mixed int32/IEEE-754 doubles, no compression",
+ "decoded": false,
+ "files": {
+  "CandideRegressor.bin": {
+   "size": 17172,
+   "magic": "53",
+   "head": "53f16d1700c31ac86ce6c045a543d6d6",
+   "note": "high entropy; tag byte 0x53; double constants present"
+  },
+  "DenoiseRegressor.bin": {
+   "size": 1887,
+   "magic": "53",
+   "head": "53a1046f99a912741261a08213f7839f",
+   "note": "high entropy; tag byte 0x53; double constants present"
+  },
+  "CandidePespectiveRegressor.bin": {
+   "size": 99979,
+   "magic": "53",
+   "head": "53f71f664c2a0e2c292b804575c44b6a",
+   "note": "high entropy; tag byte 0x53; double constants present"
+  },
+  "EyesRegressor.bin": {
+   "size": 77137,
+   "magic": "53",
+   "head": "53dbdc563c92122012baadf0e8cd094d",
+   "note": "high entropy; tag byte 0x53; double constants present"
+  },
+  "FaceRegressor.bin": {
+   "size": 186452,
+   "magic": "53",
+   "head": "5358340b110112fd538e1c31cc5377b4",
+   "note": "high entropy; tag byte 0x53; double constants present"
+  }
+ }
+}

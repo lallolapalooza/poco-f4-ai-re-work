@@ -1,0 +1,74 @@
+{
+  "slug": "qcom_voiceactivation",
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/system_ext/priv-app/QualcommVoiceActivation/QualcommVoiceActivation.apk",
+  "size": 47391029,
+  "models": [
+    {
+      "name": "assets/ubm/general_UV_024.uim",
+      "size": 7304344,
+      "magic": "c80c18008c746f00"
+    },
+    {
+      "name": "assets/1.5_stage/63ff0ae5_en-US_002.uim",
+      "size": 452536,
+      "magic": "c80c1800ace70600"
+    },
+    {
+      "name": "assets/1st_stage/63ff0ae5_en-US_001.uim",
+      "size": 206792,
+      "magic": "c80c1800bc270300"
+    },
+    {
+      "name": "assets/1st_stage/63ff0ae5_en-US_036.uim",
+      "size": 208840,
+      "magic": "c80c1800bc2f0300"
+    },
+    {
+      "name": "assets/1st_stage/63ff0ae5_en-US_038.uim",
+      "size": 175560,
+      "magic": "c80c1800bcad0200"
+    },
+    {
+      "name": "assets/1st_stage/63ff0ae5_en-US_040.uim",
+      "size": 198088,
+      "magic": "c80c1800bc050300"
+    },
+    {
+      "name": "assets/ubm/general_UV_015.uim",
+      "size": 11099104,
+      "magic": null
+    }
+  ],
+  "libs": [
+    {
+      "name": "lib/arm64-v8a/libSNPE.so",
+      "size": 12684040
+    },
+    {
+      "name": "lib/arm64-v8a/libSnpeHtpV75Stub.so",
+      "size": 376312
+    },
+    {
+      "name": "lib/arm64-v8a/libdnnvad_jni.so",
+      "size": 19296
+    },
+    {
+      "name": "lib/arm64-v8a/libeai_floating.so",
+      "size": 190616
+    },
+    {
+      "name": "lib/arm64-v8a/libqvasml.so",
+      "size": 2378216
+    },
+    {
+      "name": "lib/arm64-v8a/libtensorflowlite_c.so",
+      "size": 2697384
+    },
+    {
+      "name": "lib/arm64-v8a/libwhisper_lib.so",
+      "size": 306232
+    }
+  ],
+  "dex_markers": {},
+  "package": null
+}

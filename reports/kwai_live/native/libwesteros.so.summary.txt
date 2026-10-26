@@ -1,0 +1,175 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/native/libs/lib/arm64-v8a/libwesteros.so
+==============================================================================
+size        : 1395688 bytes (1.33 MiB)
+sha256      : add716bd946fb63c46cd6e087028113e0dc5441cd8467f264fa1ae3f1372d305
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x349d0   imagebase: 0x0
+build id    : 609d35280cf96aab53396c7ffea99b0e9bbb99df
+android     : SDK 21, NDK r20b, build 5948944
+soname      : libwesteros.so
+needed      : libprotobuf-lite.so, libdaenerys.so, libandroid.so, liblog.so, libEGL.so, libjnigraphics.so, libOpenSLES.so, libGLESv2.so, libffmpeg.so, libz.so, libm.so, libc++_shared.so, libdl.so, libc.so
+parser      : lief
+counts      : 654 exports, 295 imports, 43 JNI, 26 sections, 8 segments
+symtab/dynsym: 0 / 959
+
+Sections (26)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        5928       0x228
+  .gnu.hash              GNU_HASH         A      0x1950       5228       0x1950
+  .dynsym                DYNSYM           A      0x2dc0       23016      0x2dc0
+  .dynstr                STRTAB           A      0x87a8       52767      0x87a8
+  .gnu.version           GNU_VERSYM       A      0x155c8      1918       0x155c8
+  .gnu.version_r         GNU_VERNEED      A      0x15d48      64         0x15d48
+  .rela.dyn              RELA             A      0x15d88      111792     0x15d88
+  .rela.plt              RELA             AI     0x31238      8520       0x31238
+  .plt                   PROGBITS         AX     0x33380      5712       0x33380
+  .text                  PROGBITS         AX     0x349d0      667736     0x349d0
+  .rodata                PROGBITS         A      0xd7a30      156206     0xd7a30
+  .eh_frame_hdr          PROGBITS         A      0xfdc60      26108      0xfdc60
+  .eh_frame              PROGBITS         A      0x104260     109144     0x104260
+  .gcc_except_table      PROGBITS         A      0x11ecb8     37836      0x11ecb8
+  .note.android.ident    NOTE             A      0x128084     152        0x128084
+  .init_array            INIT_ARRAY       WA     0x1390a8     208        0x1290a8
+  .fini_array            FINI_ARRAY       WA     0x139178     16         0x129178
+  .data.rel.ro           PROGBITS         WA     0x139188     40224      0x129188
+  .dynamic               DYNAMIC          WA     0x142ea8     688        0x132ea8
+  .got                   PROGBITS         WA     0x143158     3752       0x133158
+  .data                  PROGBITS         WA     0x144000     131936     0x134000
+  .bss                   NOBITS           WA     0x164360     5208       0x154360
+  .comment               PROGBITS         MS     0x0          264        0x154360
+  .shstrtab              STRTAB           -      0x0          251        0x154468
+
+JNI entry points (43)
+  0x3b480        220        com.kwai.video.westeros.CacheManager.nativeStartCacheSensorData
+      Java_com_kwai_video_westeros_CacheManager_nativeStartCacheSensorData
+  0x3b55c        220        com.kwai.video.westeros.CacheManager.nativeStopCacheSensorData
+      Java_com_kwai_video_westeros_CacheManager_nativeStopCacheSensorData
+  0x3b638        548        com.kwai.video.westeros.CacheManager.nativeSaveCacheSensorDataToFile
+      Java_com_kwai_video_westeros_CacheManager_nativeSaveCacheSensorDataToFile
+  0x3b85c        588        com.kwai.video.westeros.CacheManager.nativeLoadCacheSensorDataFromFile
+      Java_com_kwai_video_westeros_CacheManager_nativeLoadCacheSensorDataFromFile
+  0x3c35c        932        com.kwai.video.westeros.ResourceManager.nativeSetPath
+      Java_com_kwai_video_westeros_ResourceManager_nativeSetPath
+  0x3c700        672        com.kwai.video.westeros.ResourceManager.nativeSetYlabModelPathConfig
+      Java_com_kwai_video_westeros_ResourceManager_nativeSetYlabModelPathConfig
+  0x3cc78        448        com.kwai.video.westeros.ResourceManager.nativeSetDeformJsonPath
+      Java_com_kwai_video_westeros_ResourceManager_nativeSetDeformJsonPath
+  0x3ce38        412        com.kwai.video.westeros.ResourceManager.nativeSetAiDeformJsonPath
+      Java_com_kwai_video_westeros_ResourceManager_nativeSetAiDeformJsonPath
+  0x3cfd4        412        com.kwai.video.westeros.ResourceManager.nativeSetFace3DResourcesDir
+      Java_com_kwai_video_westeros_ResourceManager_nativeSetFace3DResourcesDir
+  0x3d170        412        com.kwai.video.westeros.ResourceManager.nativeSetDirtyLensDetectModelPath
+      Java_com_kwai_video_westeros_ResourceManager_nativeSetDirtyLensDetectModelPath
+  0x3d30c        252        com.kwai.video.westeros.ResourceManager.nativeSetModelIsBuiltIn
+      Java_com_kwai_video_westeros_ResourceManager_nativeSetModelIsBuiltIn
+  0x3dc1c        204        com.kwai.video.westeros.UIInteractionHandler.nativeCreate
+      Java_com_kwai_video_westeros_UIInteractionHandler_nativeCreate
+  0x3dce8        24         com.kwai.video.westeros.UIInteractionHandler.nativeDestroy
+      Java_com_kwai_video_westeros_UIInteractionHandler_nativeDestroy
+  0x3dd00        392        com.kwai.video.westeros.UIInteractionHandler.nativeOnUIResponse
+      Java_com_kwai_video_westeros_UIInteractionHandler_nativeOnUIResponse
+  0x3e5ac        148        com.kwai.video.westeros.processors.WesterosFrameAttributesDumpProcessor.nativeInit
+      Java_com_kwai_video_westeros_processors_WesterosFrameAttributesDumpProcessor_nativeInit
+  0x3e640        16         com.kwai.video.westeros.processors.WesterosFrameAttributesDumpProcessor.nativeStart
+      Java_com_kwai_video_westeros_processors_WesterosFrameAttributesDumpProcessor_nativeStart
+  0x3e650        16         com.kwai.video.westeros.processors.WesterosFrameAttributesDumpProcessor.nativeStop
+      Java_com_kwai_video_westeros_processors_WesterosFrameAttributesDumpProcessor_nativeStop
+  0x3e660        140        com.kwai.video.westeros.processors.WesterosFrameAttributesDumpProcessor.nativeSetDumpPath
+      Java_com_kwai_video_westeros_processors_WesterosFrameAttributesDumpProcessor_nativeSetDumpPath
+  0x3e784        212        com.kwai.video.westeros.v2.WesterosGlProcessor.nativeReleaseWesterosGlProcessor
+      Java_com_kwai_video_westeros_v2_WesterosGlProcessor_nativeReleaseWesterosGlProcessor
+  0x3e858        488        com.kwai.video.westeros.v2.WesterosGlProcessor.nativeGetDaenerysGlProcessor
+      Java_com_kwai_video_westeros_v2_WesterosGlProcessor_nativeGetDaenerysGlProcessor
+  0x3ea40        64         com.kwai.video.westeros.Westeros.nativeCreateWesteros
+      Java_com_kwai_video_westeros_Westeros_nativeCreateWesteros
+  0x3ea80        484        com.kwai.video.westeros.Westeros.nativeDestroyWesteros
+      Java_com_kwai_video_westeros_Westeros_nativeDestroyWesteros
+  0x3ec64        24         com.kwai.video.westeros.Westeros.nativeSetDaenerys
+      Java_com_kwai_video_westeros_Westeros_nativeSetDaenerys
+  0x3ec7c        20         com.kwai.video.westeros.Westeros.nativeUnsetDaenerys
+      Java_com_kwai_video_westeros_Westeros_nativeUnsetDaenerys
+  0x3ec90        2440       com.kwai.video.westeros.Westeros.nativeInit
+      Java_com_kwai_video_westeros_Westeros_nativeInit
+  0x3f79c        20         com.kwai.video.westeros.Westeros.nativeSetBusiness
+      Java_com_kwai_video_westeros_Westeros_nativeSetBusiness
+  0x3f7b0        20         com.kwai.video.westeros.Westeros.nativeSetSubBusiness
+      Java_com_kwai_video_westeros_Westeros_nativeSetSubBusiness
+  0x3f7c4        20         com.kwai.video.westeros.Westeros.nativeSetRenderUseNewModel
+      Java_com_kwai_video_westeros_Westeros_nativeSetRenderUseNewModel
+  0x3f7d8        724        com.kwai.video.westeros.Westeros.nativeSetStatsListener
+      Java_com_kwai_video_westeros_Westeros_nativeSetStatsListener
+  0x3fcb0        512        com.kwai.video.westeros.Westeros.nativeSetFeatureEnabled
+      Java_com_kwai_video_westeros_Westeros_nativeSetFeatureEnabled
+  0x3feb0        324        com.kwai.video.westeros.Westeros.nativeSetFaceDetectorContext
+      Java_com_kwai_video_westeros_Westeros_nativeSetFaceDetectorContext
+  0x3fff4        36         com.kwai.video.westeros.SensorUtils.nativeSensorUpdateQuaternion
+      Java_com_kwai_video_westeros_SensorUtils_nativeSensorUpdateQuaternion
+  0x40018        32         com.kwai.video.westeros.SensorUtils.nativeSensorUpdateRotationRate
+      Java_com_kwai_video_westeros_SensorUtils_nativeSensorUpdateRotationRate
+  0x40038        32         com.kwai.video.westeros.SensorUtils.nativeSensorUpdateAcceleration
+      Java_com_kwai_video_westeros_SensorUtils_nativeSensorUpdateAcceleration
+  0x40058        32         com.kwai.video.westeros.SensorUtils.nativeSensorUpdateOrientation
+      Java_com_kwai_video_westeros_SensorUtils_nativeSensorUpdateOrientation
+  0x40078        32         com.kwai.video.westeros.SensorUtils.nativeSensorUpdateMagnetic
+      Java_com_kwai_video_westeros_SensorUtils_nativeSensorUpdateMagnetic
+  0x40098        232        com.kwai.video.westeros.Westeros.nativeUpdateLowLightThreshold
+      Java_com_kwai_video_westeros_Westeros_nativeUpdateLowLightThreshold
+  0x40180        232        com.kwai.video.westeros.Westeros.nativeUpdateBacklightThreshold
+      Java_com_kwai_video_westeros_Westeros_nativeUpdateBacklightThreshold
+  0x40268        236        com.kwai.video.westeros.Westeros.nativeIgnoreSensorUpdate
+      Java_com_kwai_video_westeros_Westeros_nativeIgnoreSensorUpdate
+  0x40354        24         com.kwai.video.westeros.Westeros.nativeSetShouldApplyImageModeForImage
+      Java_com_kwai_video_westeros_Westeros_nativeSetShouldApplyImageModeForImage
+  0x4036c        248        com.kwai.video.westeros.Westeros.nativeApplyPlugin
+      Java_com_kwai_video_westeros_Westeros_nativeApplyPlugin
+  0x40464        248        com.kwai.video.westeros.Westeros.nativeRemovePlugin
+      Java_com_kwai_video_westeros_Westeros_nativeRemovePlugin
+  0x4055c        140        com.kwai.video.westeros.Westeros.nativeUpdateABTestKeyValuesJson
+      Java_com_kwai_video_westeros_Westeros_nativeUpdateABTestKeyValuesJson
+
+AI-relevant strings (715539 bytes scanned in allocated data sections)
+  [model] 23 unique (first 20)
+    0x000d955a .rodata    kuaishou.westeros.model.CacheSensorRotationData
+    0x000d958a .rodata    kuaishou.westeros.model.CacheSensorAccelerationData
+    0x000d95be .rodata    kuaishou.westeros.model.CacheSensorAttitudeData
+    0x000d95ee .rodata    kuaishou.westeros.model.CacheSensorRotationRateData
+    0x000d9622 .rodata    kuaishou.westeros.model.CacheSensorData
+    0x000da384 .rodata    kuaishou.westeros.model.ModuleStats
+    0x000da479 .rodata    kuaishou.westeros.model.Point
+    0x000da497 .rodata    kuaishou.westeros.model.UIInteractionResponse
+    0x000da4c5 .rodata    kuaishou.westeros.model.FeatureParams
+    0x000da4eb .rodata    kuaishou.westeros.model.Rect
+    0x000da508 .rodata    kuaishou.westeros.model.SalientInfo
+    0x000da52c .rodata    kuaishou.westeros.model.SalientData
+    0x000da550 .rodata    kuaishou.westeros.model.YlabModelPathConfig.MapEntry.key
+    0x000da589 .rodata    kuaishou.westeros.model.YlabModelPathConfig.MapEntry.value
+    0x000da5c4 .rodata    kuaishou.westeros.model.YlabModelPathConfig
+    0x000dfce0 .rodata         void calRowBlfWeight(in int loc, inout lowp float value, inout lowp float weight)                           
+    0x000e078f .rodata             weight = BLF_GAUSSIAN_K[GAUSSIAN_RADIUS+loc] * blfweight;                                               
+    0x000e18ee .rodata         void calColBlfWeight(in int loc, inout lowp float value, inout lowp float weight)                           
+    0x000ea6f2 .rodata    uniform sampler2D inputImageTexture; uniform highp float texelWidthOffset; varying highp vec2 textureCoordinate; const lowp int GAUSSIAN_SAMPLES = 5; const lowp int GAUSSIAN_RADIUS = 2; uniform lowp float GAUSSIAN_K[GAUSSIAN_SAMPLES]; uniform lowp float BLF_K[4]; uniform lowp float DIFF_V[3]; void calRowBlfWeight(in int loc, inout lowp float value, inout lowp float weight) { lowp vec3 centralColor; lowp vec3 sampleColor; lowp float diffColor = 0.0; lowp float alphavec1 = 0.0; lowp float alphavec2 = 0.0; lowp float alphavec3 = 0.0; lowp float blfweight = 0.0; highp vec2 blfCoordinate; highp float blfXStep = 0.0; centralColor = texture2D(inputImageTexture, textureCoordinate).rgb; blfXStep = float(loc) * texelWidthOffset; blfCoordinate = textureCoordinate + vec2(blfXStep, 0.0); sampleColor = texture2D(inputImageTexture, blfCoordinate).rgb; diffColor = abs(centralColor.r - sampleColor.r); alphavec1 = step(diffColor, DIFF_V[0]); alphavec2 = step(diffColor, DIFF_V[1]); alphavec3 = step(diffColor, DIFF_V[2]); blfweight = BLF_K[0] + BLF_K[1] * alphavec3 + BLF_K[2] * alphavec2 + BLF_K[3] * alphavec1; value = sampleColor.r * GAUSSIAN_K[GAUSSIAN_RADIUS + loc] * blfweight; weight = GAUSSIAN_K[GAUSSIAN_RADIUS + loc] * blfweight; } void main() { lowp vec3 centralColor; lowp float sum = 0.0; lowp float totalWeight = 0.0; lowp float value0 = 0.0; lowp float value1 = 0.0; lowp float value2 = 0.0; lowp float value3 = 0.0; lowp float value4 = 0.0; lowp float weight0 = 1.0; lowp float weight1 = 1.0; lowp float weight2 = 1.0; lowp float weight3 = 1.0; lowp float weight4 = 1.0; centralColor = texture2D(inputImageTexture, textureCoordinate).rgb; calRowBlfWeight(-2, value0, weight0); calRowBlfWeight(-1, value1, weight1); calRowBlfWeight(0, value2, weight2); calRowBlfWeight(1, value3, weight3); calRowBlfWeight(2, value4, weight4); sum += value0 + value1 + value2 + value3 + value4; totalWeight += weight0 + weight1 + weight2 + weight3 + weight4; gl_FragColor = vec4(sum / totalWeight, centralColor.gb, 1.0); }
+    0x000eaeea .rodata    uniform sampler2D inputImageTexture; uniform highp float texelHeightOffset; varying highp vec2 textureCoordinate; const lowp int GAUSSIAN_SAMPLES = 5; const lowp int GAUSSIAN_RADIUS = 2; uniform lowp float GAUSSIAN_K[GAUSSIAN_SAMPLES]; uniform lowp float BLF_K[4]; uniform lowp float DIFF_V[3]; void calColBlfWeight(in int loc, inout lowp float value, inout lowp float weight) { lowp vec3 centralColor; lowp vec3 sampleColor; lowp float diffColor = 0.0; lowp float alphavec1 = 0.0; lowp float alphavec2 = 0.0; lowp float alphavec3 = 0.0; lowp float blfweight = 0.0; highp vec2 blfCoordinate; highp float blfYStep = 0.0; centralColor = texture2D(inputImageTexture, textureCoordinate).rgb; blfYStep = float(loc) * texelHeightOffset; blfCoordinate = textureCoordinate + vec2(0.0, blfYStep); sampleColor = texture2D(inputImageTexture, blfCoordinate).rgb; diffColor = abs(centralColor.r - sampleColor.r); alphavec1 = step(diffColor, DIFF_V[0]); alphavec2 = step(diffColor, DIFF_V[1]); alphavec3 = step(diffColor, DIFF_V[2]); blfweight = BLF_K[0] + BLF_K[1] * alphavec3 + BLF_K[2] * alphavec2 + BLF_K[3] * alphavec1; value = sampleColor.r * GAUSSIAN_K[GAUSSIAN_RADIUS + loc] * blfweight; weight = GAUSSIAN_K[GAUSSIAN_RADIUS + loc] * blfweight; } void main() { lowp vec3 centralColor; lowp float sum = 0.0; lowp float totalWeight = 0.0; lowp float value0 = 0.0; lowp float value1 = 0.0; lowp float value2 = 0.0; lowp float value3 = 0.0; lowp float value4 = 0.0; lowp float weight0 = 1.0; lowp float weight1 = 1.0; lowp float weight2 = 1.0; lowp float weight3 = 1.0; lowp float weight4 = 1.0; centralColor = texture2D(inputImageTexture, textureCoordinate).rgb; calColBlfWeight(-2, value0, weight0); calColBlfWeight(-1, value1, weight1); calColBlfWeight(0, value2, weight2); calColBlfWeight(1, value3, weight3); calColBlfWeight(2, value4, weight4); sum += value0 + value1 + value2 + value3 + value4; totalWeight += weight0 + weight1 + weight2 + weight3 + weight4; gl_FragColor = vec4(sum / totalWeight, centralColor.gb, 1.0); }
+    ... 3 more
+  [face] 18 unique (first 18)
+    0x000088e4 .dynstr    _ZNKSt6__ndk16locale9use_facetERNS0_2idE
+    0x000091e0 .dynstr    _ZN6google8protobuf5Arena15AllocateAlignedEPKSt9type_infom
+    0x0000ca86 .dynstr    _ZN8kuaishou5model31_FaceLandmark_default_instance_E
+    0x0000cb1d .dynstr    _ZNKSt6__ndk16locale9has_facetERNS0_2idE
+    0x0000e778 .dynstr    _ZN8kuaishou8westeros3Any6CreateINS0_16Landmark3DConfigEEES1_T_
+    0x0000f09f .dynstr    _ZNK8kuaishou8westeros3Any4CastINS0_16Landmark3DConfigEEERKT_v
+    0x0000faa4 .dynstr    _ZN8kuaishou8westeros15WesterosContext19image_face_detectorEv
+    0x000100b8 .dynstr    _ZN8kuaishou5model27_FacePose_default_instance_E
+    0x00013d50 .dynstr    _ZNSt6__ndk15alignEmmRPvRm
+    0x000dabfc .rodata    FaceWhiteBalance
+    0x000dc88a .rodata    ^faceAttribute_data
+    0x000dc8bc .rodata    landmark
+    0x000dc8ce .rodata    faceAttribute
+    0x000e7daa .rodata    ShaderProgramCorrection::CreateProgram alloc aligned_mem_pool_ failed
+    0x000f7e27 .rodata    N8kuaishou8westeros8internal9SomeValueINS0_16Landmark3DConfigEEE
+    0x000f7e68 .rodata    N8kuaishou8westeros16Landmark3DConfigE
+    0x000f7e8f .rodata    NSt6__ndk120__shared_ptr_pointerIPN8kuaishou8westeros8internal9SomeValueINS2_16Landmark3DConfigEEENS_14default_deleteIS6_EENS_9allocatorIS6_EEEE
+    0x000f7f20 .rodata    NSt6__ndk114default_deleteIN8kuaishou8westeros8internal9SomeValueINS2_16Landmark3DConfigEEEEE
+
+JSON written to /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/native/libwesteros.so.json

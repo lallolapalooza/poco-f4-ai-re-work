@@ -1,0 +1,212 @@
+{
+  "slug": "mtb_modemtestbox",
+  "package": "com.xiaomi.mtb",
+  "app_name": "Rueban(MTB)V6.6.20240130",
+  "ai_summary": "Single TFLite model used by AiWeakSignalForecastService for weak-signal forecasting: every 100 ms it samples LTE/NR RSRP, RSRQ, SINR and a PCI-change flag; every 1 s it median-filters 100 samples per metric into a float32 [1,400,1] tensor and classifies the next state as WEAK or STRONG with a 2-class CNN+MLP. No audio processing or other AI features exist in the APK.",
+  "features": [
+    {
+      "name": "Weak-signal forecast (LTE/NR radio metrics -> WEAK/STRONG)",
+      "entrypoints": [
+        "com.xiaomi.mtb.MtbBroadcastReceiver.onReceive (SECRET_CODE host 24744625 / action com.xiaomi.mtb.aisignal.GAME_STATUS, QCOM hook type 2)",
+        "com.xiaomi.mtb.aiservices.AiWeakSignalForecastService.onStartCommand",
+        "com.xiaomi.mtb.aiservices.AiWeakSignalForecastService.onBind",
+        "com.xiaomi.mtb.aiservices.IAiWeakSignal.getForecastRes",
+        "broadcast com.xiaomi.mtb.aisignal.FORECAST_RES"
+      ],
+      "pipeline": [
+        "OemHookAgent.getLteMeasInfo/getNr5gMeasInfo every 100 ms; range-check RSRP [-150,-30] dBm, RSRQ [-40,10] dB, SINR [-20,40] dB",
+        "append infoItem(RSRP, RSRQ, SINR, PCI-changed?1:0) to a 100-entry ArrayDeque",
+        "every 1000 ms: medianFilter(RSRP,5) -> x[0..99], medianFilter(RSRQ,5) -> x[100..199], medianFilter(SINR,5) -> x[200..299], raw PCI-change flag -> x[300..399]",
+        "no normalization: raw dB values written into float32 input [1,400,1]",
+        "MtbTFLiteLoader.run(input, output) via org.tensorflow.lite Interpreter",
+        "output[0][1] < 0.5 ? WEAK : STRONG; broadcast extra FORECAST_RES / binder getForecastRes; Log.d tag forecastRes"
+      ],
+      "models": [
+        "assets/0.3_new_0410_less.tflite"
+      ],
+      "confidence": "confirmed",
+      "notes": "Only model call site in the APK. Voice/audio strings and the SAR AudioTrack tone are unrelated to the model. Class 1 = STRONG is inferred from the Java threshold branch; no label file exists."
+    }
+  ],
+  "models": [
+    {
+      "path": "assets/0.3_new_0410_less.tflite",
+      "format": "TFLite TFL3 flatbuffer (model version 3, MLIR converted, min_runtime_version 1.10.0)",
+      "size": 112544,
+      "io": {
+        "signature": "serving_default",
+        "inputs": [
+          {
+            "name": "input_1",
+            "tensor_name": "serving_default_input_1:0",
+            "index": 0,
+            "shape": [1, 400, 1],
+            "dtype": "FLOAT32",
+            "quantization": "none"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "dense_1",
+            "tensor_name": "StatefulPartitionedCall:0",
+            "index": 35,
+            "shape": [1, 2],
+            "dtype": "FLOAT32",
+            "quantization": "none",
+            "meaning": ["p(WEAK)", "p(STRONG) — inferred from Java threshold"]
+          }
+        ],
+        "tensor_count": 46,
+        "buffer_count": 39,
+        "operator_count": 28
+      },
+      "ops": [
+        "EXPAND_DIMS",
+        "DEQUANTIZE",
+        "CONV_2D",
+        "RESHAPE",
+        "MAX_POOL_2D",
+        "FULLY_CONNECTED",
+        "SOFTMAX"
+      ],
+      "weights": "extracted",
+      "jax_reimpl": "reports/mtb_modemtestbox/reimpl/model.py",
+      "verification": "verified: tflite2jax + ai_edge_litert, random max_abs 0; derived median-filtered series max_abs 1.49e-08; 58-case suite worst max_abs 1.416e-06 (tol 1e-4), 0 failures",
+      "confidence": "confirmed"
+    }
+  ],
+  "reimplementation": {
+    "path": "reports/mtb_modemtestbox/reimpl",
+    "run_command": "cd reports/mtb_modemtestbox/reimpl && python pipeline.py",
+    "status": "verified",
+    "limitations": "Model weights are fully real and numerically matched. The Java preprocessing is ported exactly in preprocess.py (median window 5 with clipped edge windows, raw dB values, 0/1 PCI-change flag). The model's training data and the semantics behind the WEAK/STRONG threshold are not present in the APK; class 1 = STRONG is inferred from the Java branch. The model is a radio-metric classifier, not an audio classifier, so the demo uses synthetic 100-sample measurement series rather than a waveform."
+  },
+  "data_pipelines": [
+    {
+      "id": "ai_weak_signal_forecast",
+      "name": "AI weak-signal forecast (LTE/NR radio metrics -> WEAK/STRONG)",
+      "contract_file": "reports/mtb_modemtestbox/PIPELINE.md",
+      "confidence": "confirmed",
+      "triggers": [
+        {
+          "surface": "dial *##*#24744625#*#*",
+          "mechanism": "android.provider.Telephony.SECRET_CODE (scheme android_secret_code, host 24744625) -> MtbBroadcastReceiver.onReceive -> AiWeakSignalForecastService.onAiSignalBcHandle (static-boolean toggle: startService / stopService+Toast)",
+          "component": "com.xiaomi.mtb.MtbBroadcastReceiver",
+          "exported": true,
+          "permission": null,
+          "ref": "evidence/manifest.xml receiver filters; sources/classes/com.xiaomi.mtb.MtbBroadcastReceiver.java:224-232; sources/classes/com.xiaomi.mtb.aiservices.AiWeakSignalForecastService.java:270-283",
+          "confidence": "confirmed"
+        },
+        {
+          "surface": "broadcast com.xiaomi.mtb.aisignal.GAME_STATUS (extra gameStatus; 0 = stop, non-zero = restart)",
+          "mechanism": "MtbBroadcastReceiver.onReceive -> AiWeakSignalForecastService.onAiSignalGameStatusBcHandle; started instance gets extra GAME_BroadCast=True, which enables the 1 Hz FORECAST_RES broadcast",
+          "component": "com.xiaomi.mtb.MtbBroadcastReceiver",
+          "exported": true,
+          "permission": null,
+          "ref": "sources/classes/com.xiaomi.mtb.MtbBroadcastReceiver.java:88-100,35; sources/classes/com.xiaomi.mtb.aiservices.AiWeakSignalForecastService.java:285-326",
+          "confidence": "confirmed",
+          "note": "The manifest declares GAME_START/GAME_EXIT, not GAME_STATUS, so only an explicit broadcast to the component reaches this handler; the declared GAME_START/GAME_EXIT actions are ignored by the code."
+        },
+        {
+          "surface": "external app startService/bindService + IAiWeakSignal.getForecastRes(String)",
+          "mechanism": "exported service with no permission; binder returns mForecastRes and ignores the argument; bind path never sets isfrombroadcast, so no broadcast is emitted for bind-only clients",
+          "component": "com.xiaomi.mtb.aiservices.AiWeakSignalForecastService",
+          "exported": true,
+          "permission": null,
+          "ref": "evidence/manifest.xml line 26; sources/classes/com.xiaomi.mtb.aiservices.IAiWeakSignal$Stub$Proxy.java onTransact (only enforceInterface); AiWeakSignalForecastService.java:97-102,410-418",
+          "confidence": "confirmed"
+        }
+      ],
+      "gate": "OemHookAgent.mHookType == 2 (QCOM); 1 (MTK) and 0 log and return",
+      "measurement_source": {
+        "kind": "polled pull, no callbacks",
+        "rate": "100 ms per sample (Executors.newScheduledThreadPool(10).scheduleAtFixedRate(..., 0, 100, MS))",
+        "selector": "TelephonyManager.getNetworkType(): 13 = LTE -> getLteMeasInfo(slot), 20 = NR -> getNr5gMeasInfo(slot), other types append a stale sample; slot = SubscriptionManager.getPhoneId(getActiveDataSubscriptionId()) mapped to 0 unless 1",
+        "stack": "com.xiaomi.modem.OemHookAgent (in APK) -> reflection into /system_ext/framework/mirilhook.jar com.xiaomi.mirilhook.MiRilHook -> HydraDataManager modem-stats DB",
+        "hook_readiness": "OemHookAgent.getHook() returns null until the qcrilhook callback onQcRilHookReady sets mMiRilHookReady; initService probes with getLteMeasInfo(0) in a catch(NullPointerException) and never retries",
+        "ref": "sources/classes/com.xiaomi.modem.OemHookAgent.java:135-136,189-205,278-345,566,810,1933-1952; sources/framework/com.xiaomi.mirilhook.MiRilHook.java:1011,1516",
+        "confidence": "confirmed (app side), unknown (Hydra field semantics)"
+      },
+      "transport": {
+        "record": "infoItem{String time; float RSRP, RSRQ, SINR, PCI} where PCI is a 0.0/1.0 PCI-change flag",
+        "units": "RSRP dBm (-150..-30 accepted), RSRQ dB (-40..10), SINR dB (-20..40), flag 0/1",
+        "timestamp": "new Timestamp(System.currentTimeMillis()).toString().substring(11) = HH:mm:ss.mmm; stored but never used by the pipeline",
+        "buffer_layout_lte": "ByteBuffer relative reads: get() @0, getInt() @1, 13x getFloat() @5..56, RSRP @57, RSRQ @61, SINR @65, PCI getInt() @69 (>=73 bytes)",
+        "buffer_layout_nr": "get() @0, 4x getFloat() @1..16, RSRQ @17, 4x getFloat() @21..36, PCI getInt() @37, RSRP @41, SINR @45 (>=49 bytes)",
+        "queue": "java.util.ArrayDeque, depth 100, drop-oldest; produced by the 10 Hz task, consumed by the 1 Hz task on a different thread from the same 10-thread pool with no synchronization",
+        "buffer_ownership": "a fresh ByteBuffer per call, consumed once by relative getters, never rewound/duplicated/cleared/reused",
+        "ref": "sources/classes/com.xiaomi.mtb.aiservices.AiWeakSignalForecastService.java:47,52-72,104-153,218-240,349-407",
+        "confidence": "confirmed (offsets, queue, thread pool), inferred (race consequences)"
+      },
+      "preprocessing": {
+        "steps": [
+          "copy deque into per-metric float[100] arrays in oldest->newest order; PCI-change flag written to input[0][300+i][0]",
+          "medianFilter(w=5) per metric: centred window, clipped at the edges (lengths 3,4,5 at the head and 5,4,3 at the tail), even-length windows averaged",
+          "write filtered RSRP -> input[0][0..99][0], RSRQ -> [100..199], SINR -> [200..299]; flag stays raw"
+        ],
+        "normalization": "none; raw dBm/dB and 0/1 written into float32",
+        "shape": "float32[1,400,1], reused buffer allocated once in initService",
+        "window": "100 samples x 100 ms = 10 s, stride 1 s (overlapping)",
+        "ref": "sources/classes/com.xiaomi.mtb.aiservices.AiWeakSignalForecastService.java:199-201,218-267; reimpl/preprocess.py",
+        "confidence": "confirmed"
+      },
+      "model": {
+        "path": "assets/0.3_new_0410_less.tflite",
+        "runtime": "bundled TFLite Java API (org.tensorflow.lite.e = Interpreter); zero-copy AssetFileDescriptor + FileChannel.map(READ_ONLY) into new e(MappedByteBuffer)",
+        "options": "none (no delegates, no thread count, no NNAPI/GPU)",
+        "cadence": "1 s; inference runs only when inputDeque.size() == 100; session created once per initService and never closed",
+        "ref": "sources/classes/com.xiaomi.mtb.MtbTFLiteLoader.java:19-29,36-109; AiWeakSignalForecastService.java:80-96,204-210",
+        "confidence": "confirmed"
+      },
+      "postprocessing": {
+        "decode": "output[0][1] used directly, output[0][0] ignored",
+        "threshold": "output[0][1] < 0.5f -> WEAK else STRONG (softmax already in-graph)",
+        "smoothing": "none; each second replaces mForecastRes",
+        "formatting": "literal strings WEAK / STRONG; default sentinel NOT Ready; no score/timestamp/window id exposed",
+        "ref": "sources/classes/com.xiaomi.mtb.aiservices.AiWeakSignalForecastService.java:48,86",
+        "confidence": "confirmed"
+      },
+      "consumers": [
+        {"kind": "log", "target": "Log.d tag forecastRes, 1 Hz", "ref": "AiWeakSignalForecastService.java:90-91", "confidence": "confirmed"},
+        {"kind": "broadcast", "target": "implicit com.xiaomi.mtb.aisignal.FORECAST_RES with String extra FORECAST_RES, sent every second only when started via GAME_STATUS", "ref": "AiWeakSignalForecastService.java:93-97,428-438", "confidence": "confirmed"},
+        {"kind": "binder", "target": "IAiWeakSignal.getForecastRes(String) returns mForecastRes (argument ignored), no caller permission", "ref": "AiWeakSignalForecastService.java:97-102; IAiWeakSignal$Stub$Proxy.java", "confidence": "confirmed"},
+        {"kind": "ui", "target": "none in-APK; only start/stop Toasts", "ref": "AiWeakSignalForecastService.java:270-326", "confidence": "confirmed"}
+      ],
+      "lifecycle": {
+        "start": "onStartCommand -> initService(intent) -> apply cloud switch, resolve hook, allocate [1,400,1]/[1,2], create interpreter, create 10-thread scheduler, schedule 100 ms + 1000 ms fixed-rate tasks; then read GAME_BroadCast extra; then isServiceRunning = true",
+        "bind": "onBind -> initService(intent) (isfrombroadcast stays false) -> return IAiWeakSignal.Stub",
+        "stop": "secret-code toggle or GAME_STATUS gameStatus==0 -> Context.stopService; onDestroy -> mExecutor.shutdown(); isServiceRunning = false",
+        "wake_locks": "none (no PowerManager/WifiLock/AlarmManager/JobScheduler); no foreground service or notification",
+        "cancellation": "only ExecutorService.shutdown(); no shutdownNow/Future.cancel; interpreter and mapped model are never closed",
+        "screen_off": "no wake lock -> sampling pauses with CPU; scheduleAtFixedRate catches up in a burst after resume (monotonic clock stops during suspend)",
+        "defects": [
+          "stopSelf() on cloud-control property == \"true\" is not followed by return, so the service stops and still schedules both tasks",
+          "an exception inside either Runnable (null hook, BufferUnderflow, null interpreter) permanently cancels that fixed-rate task; no retry or watchdog",
+          "START_STICKY restart with a null Intent: initService runs, then intent.getStringExtra(...) NPEs before isServiceRunning is set -> a second executor can be created while the first leaks",
+          "onDestroy calls mExecutor.shutdown() without a null check"
+        ],
+        "ref": "sources/classes/com.xiaomi.mtb.aiservices.AiWeakSignalForecastService.java:187-215,270-326,410-439; evidence/manifest.xml",
+        "confidence": "confirmed (code), inferred (executor/restart runtime effects)"
+      },
+      "failure_fallback": [
+        {"case": "hook not ready at initService", "effect": "NPE in getCurrentInfo kills the 100 ms sampler; label freezes", "fallback": "none", "confidence": "inferred from confirmed code"},
+        {"case": "null ByteBuffer or Hydra manager", "effect": "logged, previous field values re-appended as a fresh sample", "fallback": "none (silent staleness)", "confidence": "confirmed"},
+        {"case": "buffer shorter than layout", "effect": "BufferUnderflowException cancels the sampler", "fallback": "none", "confidence": "inferred"},
+        {"case": "model asset load failure", "effect": "loader swallows the exception, mTFLite stays null, run() NPEs and cancels the 1 Hz forecaster", "fallback": "none; mForecastRes stays NOT Ready", "confidence": "confirmed"},
+        {"case": "before 100 samples", "effect": "forecast skipped, but NOT Ready is still broadcast/bindable every second", "fallback": "sentinel string only", "confidence": "confirmed"}
+      ],
+      "unknowns": [
+        "Which external component consumes com.xiaomi.mtb.aisignal.FORECAST_RES (no in-APK receiver or UI).",
+        "Hydra/mirilhook field semantics and units behind the 73/49-byte structs.",
+        "Whether 2 (mHookType) maps to a specific QMI response struct version on other devices."
+      ]
+    }
+  ],
+  "unknowns": [
+    "Training corpus, label definitions and date for '0.3_new_0410_less' are not in the APK.",
+    "Whether the fixed 0.5 threshold was calibrated against the model's probability distribution.",
+    "Which component consumes the external broadcast com.xiaomi.mtb.aisignal.FORECAST_RES; no in-APK receiver or UI reads it.",
+    "Field semantics/units inside the LTE (>=73 B) and NR (>=49 B) measurement ByteBuffers produced by mirilhook.jar + Hydra.",
+    "No normalization is applied in Java; whether the model was trained on these raw dB scales is inferred from monotonic output behaviour, not proven."
+  ]
+}

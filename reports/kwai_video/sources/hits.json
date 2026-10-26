@@ -1,0 +1,366 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.kwai.video_33/partner-com.kwai.video_33.apk",
+  "regex": "westeros\\.v2\\.ycnn\\.|com\\.kwai\\.kve\\.Smart|com\\.kwai\\.camerasdk\\.face\\.FaceDetectorContext|westeros\\.models\\.VisionEngine",
+  "packages": [],
+  "max": 8,
+  "timeout": 240.0,
+  "jadx": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/jadx/bin/jadx",
+  "classes_scanned": 64308,
+  "candidates": [
+    {
+      "class": "com.kwai.camerasdk.face.FaceDetectorContext",
+      "dex": "classes15.dex",
+      "method_count": 58,
+      "access": 1,
+      "matched": [
+        "com.kwai.camerasdk.face.facedetectorcontext"
+      ],
+      "score": 1058,
+      "rank": 1,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.kwai.camerasdk.face.FaceDetectorContext.java",
+      "seconds": 22.41
+    },
+    {
+      "class": "com.kwai.kve.SmartEditTaskBuilder",
+      "dex": "classes16.dex",
+      "method_count": 56,
+      "access": 1,
+      "matched": [
+        "com.kwai.kve.smart"
+      ],
+      "score": 1056,
+      "rank": 2,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.kwai.kve.SmartEditTaskBuilder.java",
+      "seconds": 20.53
+    },
+    {
+      "class": "com.kwai.video.westeros.v2.ycnn.YcnnPlugin",
+      "dex": "classes13.dex",
+      "method_count": 35,
+      "access": 1,
+      "matched": [
+        "westeros.v2.ycnn."
+      ],
+      "score": 1035,
+      "rank": 3,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.kwai.video.westeros.v2.ycnn.YcnnPlugin.java",
+      "seconds": 25.26
+    },
+    {
+      "class": "com.kwai.kve.SmartEditTask",
+      "dex": "classes16.dex",
+      "method_count": 30,
+      "access": 1,
+      "matched": [
+        "com.kwai.kve.smart"
+      ],
+      "score": 1030,
+      "rank": 4,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.kwai.kve.SmartEditTask.java",
+      "seconds": 24.09
+    },
+    {
+      "class": "com.kwai.kve.SmartUploadAnalyzer",
+      "dex": "classes16.dex",
+      "method_count": 18,
+      "access": 1,
+      "matched": [
+        "com.kwai.kve.smart"
+      ],
+      "score": 1018,
+      "rank": 5,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.kwai.kve.SmartUploadAnalyzer.java",
+      "seconds": 17.26
+    },
+    {
+      "class": "com.kwai.kve.SmartGalleryTask",
+      "dex": "classes16.dex",
+      "method_count": 13,
+      "access": 1,
+      "matched": [
+        "com.kwai.kve.smart"
+      ],
+      "score": 1013,
+      "rank": 6,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.kwai.kve.SmartGalleryTask.java",
+      "seconds": 20.34
+    },
+    {
+      "class": "com.kwai.kve.SmartEditResult",
+      "dex": "classes16.dex",
+      "method_count": 9,
+      "access": 1,
+      "matched": [
+        "com.kwai.kve.smart"
+      ],
+      "score": 1009,
+      "rank": 7,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.kwai.kve.SmartEditResult.java",
+      "seconds": 18.86
+    },
+    {
+      "class": "com.kwai.kve.SmartCoverTask",
+      "dex": "classes16.dex",
+      "method_count": 7,
+      "access": 1,
+      "matched": [
+        "com.kwai.kve.smart"
+      ],
+      "score": 1007,
+      "rank": 8,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.kwai.kve.SmartCoverTask.java",
+      "seconds": 24.45
+    },
+    {
+      "class": "com.kwai.kve.SmartGalleryResult",
+      "dex": "classes16.dex",
+      "method_count": 7,
+      "access": 1,
+      "matched": [
+        "com.kwai.kve.smart"
+      ],
+      "score": 1007,
+      "rank": 9,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.kwai.kve.SmartCoverResult",
+      "dex": "classes16.dex",
+      "method_count": 6,
+      "access": 1,
+      "matched": [
+        "com.kwai.kve.smart"
+      ],
+      "score": 1006,
+      "rank": 10,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.kwai.kve.SmartGalleryTaskBuilder",
+      "dex": "classes16.dex",
+      "method_count": 5,
+      "access": 1,
+      "matched": [
+        "com.kwai.kve.smart"
+      ],
+      "score": 1005,
+      "rank": 11,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.kwai.video.westeros.models.VisionEngine",
+      "dex": "classes13.dex",
+      "method_count": 3,
+      "access": 17,
+      "matched": [
+        "westeros.models.visionengine"
+      ],
+      "score": 1003,
+      "rank": 12,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.kwai.video.westeros.v2.ycnn.YcnnSoLoader",
+      "dex": "classes13.dex",
+      "method_count": 3,
+      "access": 1,
+      "matched": [
+        "westeros.v2.ycnn."
+      ],
+      "score": 1003,
+      "rank": 13,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.kwai.camerasdk.face.FaceDetectorContext$a",
+      "dex": "classes15.dex",
+      "method_count": 3,
+      "access": 0,
+      "matched": [
+        "com.kwai.camerasdk.face.facedetectorcontext"
+      ],
+      "score": 1003,
+      "rank": 14,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.kwai.video.westeros.v2.ycnn.YcnnPluginUtils",
+      "dex": "classes13.dex",
+      "method_count": 3,
+      "access": 1,
+      "matched": [
+        "westeros.v2.ycnn."
+      ],
+      "score": 1003,
+      "rank": 15,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.kwai.kve.SmartCoverTaskBuilder",
+      "dex": "classes16.dex",
+      "method_count": 2,
+      "access": 1,
+      "matched": [
+        "com.kwai.kve.smart"
+      ],
+      "score": 1002,
+      "rank": 16,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.kwai.video.westeros.v2.ycnn.YcnnPlugin$uploadStatsCallBack",
+      "dex": "classes13.dex",
+      "method_count": 1,
+      "access": 1537,
+      "matched": [
+        "westeros.v2.ycnn."
+      ],
+      "score": 1001,
+      "rank": 17,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.kwai.camerasdk.face.FaceDetectorContext$UploadStatsListener",
+      "dex": "classes15.dex",
+      "method_count": 1,
+      "access": 1537,
+      "matched": [
+        "com.kwai.camerasdk.face.facedetectorcontext"
+      ],
+      "score": 1001,
+      "rank": 18,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.kwai.camerasdk.face.FaceDetectorContext$ModelMissingListener",
+      "dex": "classes15.dex",
+      "method_count": 1,
+      "access": 1537,
+      "matched": [
+        "com.kwai.camerasdk.face.facedetectorcontext"
+      ],
+      "score": 1001,
+      "rank": 19,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.kwai.video.westeros.v2.ycnn.YcnnPlugin$OnSalientDataListender",
+      "dex": "classes13.dex",
+      "method_count": 1,
+      "access": 1537,
+      "matched": [
+        "westeros.v2.ycnn."
+      ],
+      "score": 1001,
+      "rank": 20,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.kwai.video.westeros.v2.ycnn.YcnnPlugin$OnYcnnModelLoadFinishListener",
+      "dex": "classes13.dex",
+      "method_count": 1,
+      "access": 1537,
+      "matched": [
+        "westeros.v2.ycnn."
+      ],
+      "score": 1001,
+      "rank": 21,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.kwai.video.westeros.v2.ycnn.YcnnPlugin$OnYcnnGeneralRecogDetectionListener",
+      "dex": "classes13.dex",
+      "method_count": 1,
+      "access": 1537,
+      "matched": [
+        "westeros.v2.ycnn."
+      ],
+      "score": 1001,
+      "rank": 22,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.kwai.video.westeros.v2.ycnn.YcnnPlugin$OnYcnnFaceAttributeDetectionListener",
+      "dex": "classes13.dex",
+      "method_count": 1,
+      "access": 1537,
+      "matched": [
+        "westeros.v2.ycnn."
+      ],
+      "score": 1001,
+      "rank": 23,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    }
+  ],
+  "decompiled": 8,
+  "elapsed_sec": 175.18
+}

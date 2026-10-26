@@ -1,0 +1,146 @@
+ExtraPhotoGlobal (com.miui.extraphoto) JAX re-implementation
+python: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python
+jax 0.12.0.1 backend cpu
+cwd: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_extraphoto/reimpl
+
+===== document_hed: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python document_hed.py
+exit=0 elapsed=5.3s
+DLC: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_extraphoto/models/dlc_extract/model
+magic=0x20ad5 version=5 layers=100 tensors=100
+  [  1] const      (1,)                 truediv/y:0
+  [  2] elementwise_binary (1, 512, 512, 3)     truediv
+  [  3] conv2d     (1, 512, 512, 3)     hed/mobilenet_v2_skip/block0_0/conv2d/conv2d/Conv2D
+  [  4] activation (1, 512, 512, 3)     hed/mobilenet_v2_skip/block0_0/conv2d/Relu
+  [  5] conv2d     (1, 512, 512, 6)     hed/mobilenet_v2_skip/block0_1/conv2d/conv2d/Conv2D
+  [  6] activation (1, 512, 512, 6)     hed/mobilenet_v2_skip/block0_1/conv2d/Relu
+  [  7] conv2d     (1, 256, 256, 12)    hed/mobilenet_v2_skip/block0_2/conv2d/conv2d/Conv2D
+  [  8] activation (1, 256, 256, 12)    hed/mobilenet_v2_skip/block0_2/conv2d/Relu
+  [  9] conv2d     (1, 256, 256, 12)    _v2_skip/block1_0/expansion_1x1_conv2d/conv2d/Conv2D
+  [ 10] conv2d     (1, 256, 256, 6)     /mobilenet_v2_skip/block1_0/1x1_conv2d/conv2d/Conv2D
+  [ 11] activation (1, 256, 256, 12)    obilenet_v2_skip/block1_0/expansion_1x1_conv2d/Relu6
+  [ 12] conv2d     (1, 256, 256, 12)    /block1_0/depthwise_conv2d/SeparableConv2d/depthwise
+  [ 13] activation (1, 256, 256, 12)    ed/mobilenet_v2_skip/block1_0/depthwise_conv2d/Relu6
+  [ 14] conv2d     (1, 256, 256, 6)     v2_skip/block1_0/projection_1x1_conv2d/conv2d/Conv2D
+  [ 15] add        (1, 256, 256, 6)     hed/mobilenet_v2_skip/block1_0/add
+  [ 16] conv2d     (1, 256, 256, 36)    _v2_skip/block2_0/expansion_1x1_conv2d/conv2d/Conv2D
+  [ 17] activation (1, 256, 256, 36)    obilenet_v2_skip/block2_0/expansion_1x1_conv2d/Relu6
+  [ 18] conv2d     (1, 128, 128, 36)    /block2_0/depthwise_conv2d/SeparableConv2d/depthwise
+  [ 19] activation (1, 128, 128, 36)    ed/mobilenet_v2_skip/block2_0/depthwise_conv2d/Relu6
+  [ 20] conv2d     (1, 128, 128, 12)    v2_skip/block2_0/projection_1x1_conv2d/conv2d/Conv2D
+  [ 21] conv2d     (1, 128, 128, 72)    _v2_skip/block2_1/expansion_1x1_conv2d/conv2d/Conv2D
+  [ 22] activation (1, 128, 128, 72)    obilenet_v2_skip/block2_1/expansion_1x1_conv2d/Relu6
+  [ 23] conv2d     (1, 128, 128, 72)    /block2_1/depthwise_conv2d/SeparableConv2d/depthwise
+  [ 24] activation (1, 128, 128, 72)    ed/mobilenet_v2_skip/block2_1/depthwise_conv2d/Relu6
+  [ 25] conv2d     (1, 128, 128, 12)    v2_skip/block2_1/projection_1x1_conv2d/conv2d/Conv2D
+  [ 26] add        (1, 128, 128, 12)    hed/mobilenet_v2_skip/block2_1/add
+  [ 27] conv2d     (1, 128, 128, 72)    _v2_skip/block3_0/expansion_1x1_conv2d/conv2d/Conv2D
+  [ 28] activation (1, 128, 128, 72)    obilenet_v2_skip/block3_0/expansion_1x1_conv2d/Relu6
+  [ 29] conv2d     (1, 64, 64, 72)      /block3_0/depthwise_conv2d/SeparableConv2d/depthwise
+  [ 30] activation (1, 64, 64, 72)      ed/mobilenet_v2_skip/block3_0/depthwise_conv2d/Relu6
+  [ 31] conv2d     (1, 64, 64, 24)      v2_skip/block3_0/projection_1x1_conv2d/conv2d/Conv2D
+  [ 32] conv2d     (1, 64, 64, 144)     _v2_skip/block3_1/expansion_1x1_conv2d/conv2d/Conv2D
+  [ 33] activation (1, 64, 64, 144)     obilenet_v2_skip/block3_1/expansion_1x1_conv2d/Relu6
+  [ 34] conv2d     (1, 64, 64, 144)     /block3_1/depthwise_conv2d/SeparableConv2d/depthwise
+  [ 35] activation (1, 64, 64, 144)     ed/mobilenet_v2_skip/block3_1/depthwise_conv2d/Relu6
+  [ 36] conv2d     (1, 64, 64, 24)      v2_skip/block3_1/projection_1x1_conv2d/conv2d/Conv2D
+  [ 37] add        (1, 64, 64, 24)      hed/mobilenet_v2_skip/block3_1/add
+  [ 38] conv2d     (1, 64, 64, 144)     _v2_skip/block3_2/expansion_1x1_conv2d/conv2d/Conv2D
+  [ 39] activation (1, 64, 64, 144)     obilenet_v2_skip/block3_2/expansion_1x1_conv2d/Relu6
+  [ 40] conv2d     (1, 64, 64, 144)     /block3_2/depthwise_conv2d/SeparableConv2d/depthwise
+  [ 41] activation (1, 64, 64, 144)     ed/mobilenet_v2_skip/block3_2/depthwise_conv2d/Relu6
+  [ 42] conv2d     (1, 64, 64, 24)      v2_skip/block3_2/projection_1x1_conv2d/conv2d/Conv2D
+  [ 43] add        (1, 64, 64, 24)      hed/mobilenet_v2_skip/block3_2/add
+  [ 44] conv2d     (1, 64, 64, 144)     _v2_skip/block4_0/expansion_1x1_conv2d/conv2d/Conv2D
+  [ 45] activation (1, 64, 64, 144)     obilenet_v2_skip/block4_0/expansion_1x1_conv2d/Relu6
+  [ 46] conv2d     (1, 32, 32, 144)     /block4_0/depthwise_conv2d/SeparableConv2d/depthwise
+  [ 47] activation (1, 32, 32, 144)     ed/mobilenet_v2_skip/block4_0/depthwise_conv2d/Relu6
+  [ 48] conv2d     (1, 32, 32, 48)      v2_skip/block4_0/projection_1x1_conv2d/conv2d/Conv2D
+  [ 49] conv2d     (1, 32, 32, 288)     _v2_skip/block4_1/expansion_1x1_conv2d/conv2d/Conv2D
+  [ 50] activation (1, 32, 32, 288)     obilenet_v2_skip/block4_1/expansion_1x1_conv2d/Relu6
+  [ 51] conv2d     (1, 32, 32, 288)     /block4_1/depthwise_conv2d/SeparableConv2d/depthwise
+  [ 52] activation (1, 32, 32, 288)     ed/mobilenet_v2_skip/block4_1/depthwise_conv2d/Relu6
+  [ 53] conv2d     (1, 32, 32, 48)      v2_skip/block4_1/projection_1x1_conv2d/conv2d/Conv2D
+  [ 54] add        (1, 32, 32, 48)      hed/mobilenet_v2_skip/block4_1/add
+  [ 55] conv2d     (1, 32, 32, 288)     _v2_skip/block4_2/expansion_1x1_conv2d/conv2d/Conv2D
+  [ 56] activation (1, 32, 32, 288)     obilenet_v2_skip/block4_2/expansion_1x1_conv2d/Relu6
+  [ 57] conv2d     (1, 32, 32, 288)     /block4_2/depthwise_conv2d/SeparableConv2d/depthwise
+  [ 58] activation (1, 32, 32, 288)     ed/mobilenet_v2_skip/block4_2/depthwise_conv2d/Relu6
+  [ 59] conv2d     (1, 32, 32, 48)      v2_skip/block4_2/projection_1x1_conv2d/conv2d/Conv2D
+  [ 60] add        (1, 32, 32, 48)      hed/mobilenet_v2_skip/block4_2/add
+  [ 61] conv2d     (1, 32, 32, 288)     _v2_skip/block4_3/expansion_1x1_conv2d/conv2d/Conv2D
+  [ 62] activation (1, 32, 32, 288)     obilenet_v2_skip/block4_3/expansion_1x1_conv2d/Relu6
+  [ 63] conv2d     (1, 32, 32, 288)     /block4_3/depthwise_conv2d/SeparableConv2d/depthwise
+  [ 64] activation (1, 32, 32, 288)     ed/mobilenet_v2_skip/block4_3/depthwise_conv2d/Relu6
+  [ 65] conv2d     (1, 32, 32, 48)      v2_skip/block4_3/projection_1x1_conv2d/conv2d/Conv2D
+  [ 66] add        (1, 32, 32, 48)      hed/mobilenet_v2_skip/block4_3/add
+  [ 67] conv2d     (1, 32, 32, 64)      /mobilenet_v2_skip/block5_0/1x1_conv2d/conv2d/Conv2D
+  [ 68] conv2d     (1, 32, 32, 288)     _v2_skip/block5_0/expansion_1x1_conv2d/conv2d/Conv2D
+  [ 69] activation (1, 32, 32, 288)     obilenet_v2_skip/block5_0/expansion_1x1_conv2d/Relu6
+  [ 70] conv2d     (1, 32, 32, 288)     /block5_0/depthwise_conv2d/SeparableConv2d/depthwise
+  [ 71] activation (1, 32, 32, 288)     ed/mobilenet_v2_skip/block5_0/depthwise_conv2d/Relu6
+  [ 72] conv2d     (1, 32, 32, 64)      v2_skip/block5_0/projection_1x1_conv2d/conv2d/Conv2D
+  [ 73] add        (1, 32, 32, 64)      hed/mobilenet_v2_skip/block5_0/add
+  [ 74] conv2d     (1, 32, 32, 384)     _v2_skip/block5_1/expansion_1x1_conv2d/conv2d/Conv2D
+  [ 75] activation (1, 32, 32, 384)     obilenet_v2_skip/block5_1/expansion_1x1_conv2d/Relu6
+  [ 76] conv2d     (1, 32, 32, 384)     /block5_1/depthwise_conv2d/SeparableConv2d/depthwise
+  [ 77] activation (1, 32, 32, 384)     ed/mobilenet_v2_skip/block5_1/depthwise_conv2d/Relu6
+  [ 78] conv2d     (1, 32, 32, 64)      v2_skip/block5_1/projection_1x1_conv2d/conv2d/Conv2D
+  [ 79] add        (1, 32, 32, 64)      hed/mobilenet_v2_skip/block5_1/add
+  [ 80] conv2d     (1, 32, 32, 384)     _v2_skip/block5_2/expansion_1x1_conv2d/conv2d/Conv2D
+  [ 81] activation (1, 32, 32, 384)     obilenet_v2_skip/block5_2/expansion_1x1_conv2d/Relu6
+  [ 82] conv2d     (1, 32, 32, 384)     /block5_2/depthwise_conv2d/SeparableConv2d/depthwise
+  [ 83] activation (1, 32, 32, 384)     ed/mobilenet_v2_skip/block5_2/depthwise_conv2d/Relu6
+  [ 84] conv2d     (1, 32, 32, 64)      v2_skip/block5_2/projection_1x1_conv2d/conv2d/Conv2D
+  [ 85] add        (1, 32, 32, 64)      hed/mobilenet_v2_skip/block5_2/add
+  [ 86] deconv2d   (1, 64, 64, 24)      /mobilenet_v2_skip/conv2d_transpose/conv2d_transpose
+  [ 87] concat     (1, 64, 64, 48)      hed/mobilenet_v2_skip/concat
+  [ 88] conv2d     (1, 64, 64, 24)      hed/mobilenet_v2_skip/conv2d/Conv2D
+  [ 89] deconv2d   (1, 128, 128, 12)    obilenet_v2_skip/conv2d_transpose_1/conv2d_transpose
+  [ 90] concat     (1, 128, 128, 24)    hed/mobilenet_v2_skip/concat_1
+  [ 91] conv2d     (1, 128, 128, 12)    hed/mobilenet_v2_skip/conv2d_1/Conv2D
+  [ 92] deconv2d   (1, 256, 256, 6)     obilenet_v2_skip/conv2d_transpose_2/conv2d_transpose
+  [ 93] concat     (1, 256, 256, 12)    hed/mobilenet_v2_skip/concat_2
+  [ 94] conv2d     (1, 256, 256, 6)     hed/mobilenet_v2_skip/conv2d_2/Conv2D
+  [ 95] deconv2d   (1, 512, 512, 3)     obilenet_v2_skip/conv2d_transpose_3/conv2d_transpose
+  [ 96] concat     (1, 512, 512, 9)     hed/mobilenet_v2_skip/concat_3
+  [ 97] conv2d     (1, 512, 512, 3)     hed/mobilenet_v2_skip/conv2d_3/Conv2D
+  [ 98] conv2d     (1, 512, 512, 1)     hed/mobilenet_v2_skip/conv2d_4/Conv2D
+  [ 99] activation (1, 512, 512, 1)     Sigmoid
+input  (1, 512, 512, 3) float32 range=[0.0,255.0]
+output (1, 512, 512, 1) float32 range=[0.0000,0.2096] mean=0.0006
+graph trace: 99 layers, all declared shapes matched
+wrote doc_hed_output.pgm
+--- stderr
+An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+
+===== relighting: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python relighting.py
+exit=0 elapsed=2.8s
+origin (256, 320, 3) blur (256, 320, 3) depth (256, 320)
+light {'light_uv': (0.35, 0.4), 'moveLightPos': (-0.07500000000000001, -0.04999999999999999), 'effect': 'stage'}
+output (256, 320, 3) range=[0.129,0.996] mean=0.433
+  effect 0x03 (natural ) -> (256, 320, 3) mean=0.537
+  effect 0x10 (blinds  ) -> (256, 320, 3) mean=0.592
+  effect 0x12 (dots    ) -> (256, 320, 3) mean=0.506
+  effect 0x14 (leaves  ) -> (256, 320, 3) mean=0.441
+  effect 0x15 (rainbow ) -> (256, 320, 3) mean=0.503
+  effect 0x17 (movie   ) -> (256, 320, 3) mean=0.598
+  effect 0x18 (holi    ) -> (256, 320, 3) mean=0.564
+wrote relighting_output.ppm
+--- stderr
+An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+
+===== bokeh: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python bokeh.py
+exit=0 elapsed=12.8s
+image (256, 320, 3) depth (256, 320) focus=(160, 115) f/2.8
+focus depth 903.3 mm  coc 0.00..15.56 px
+output (256, 320, 3) range=[0.059,0.834] mean=0.440
+  f/1.4  coc max 24.00 px  mean 0.429
+  f/2.8  coc max 15.56 px  mean 0.440
+  f/5.6  coc max  7.78 px  mean 0.448
+  spot disk     mean 0.440
+  spot hexagon  mean 0.442
+wrote bokeh_output.ppm
+--- stderr
+An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+
+OVERALL: PASS

@@ -1,0 +1,65 @@
+# ELF / JNI facts (from tools/elf_info.py; full text in native/*.elf.txt)
+
+## libfuai.so
+size        : 7654224 bytes (7.30 MiB)
+sha256      : 3832b52706d77527adb1f6e4c5adb678c27ffa667cfeed0c3ac5256d08c42525
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x1cdf80   imagebase: 0x0
+build id    : 6f69324cb2368dd4e2bbec4fb11dbff2e722f47a
+android     : SDK 21, NDK r23c, build 8568313
+soname      : libfuai.so
+needed      : liblog.so, libz.so, libm.so, libdl.so, libc.so
+parser      : lief
+counts      : 674 exports, 189 imports, 0 JNI, 27 sections, 9 segments
+symtab/dynsym: 0 / 864
+
+## libCNamaSDK.so bundle-related dynamic symbols
+    0x000d21f5 .dynstr    _ZN11FuAIWrapper25GetFliteSwitchThreadValueEv
+    0x000d2223 .dynstr    _ZN11FuAIWrapper25SetFliteSwitchThreadValueEi
+    0x000b6923 .dynstr    _ZN11FuAIWrapper35FaceProcessorSetFaceLandmarkQualityEi
+    0x000d2251 .dynstr    _ZN11FuAIWrapper26SetMaxFaceForLandmarksRectEi
+    0x00114d76 .dynstr    _ZN11FuAIWrapper24GetHairSegmentationTexIdEv
+    0x00115151 .dynstr    _ZN11FuAIWrapper25NNLoadBackgroundSegmenterEN8DukValue9jscontextE
+    0x00115afd .dynstr    _ZN11FuAIWrapper30GetBackgroundSegmentationTexIdEv
+    0x00115c3a .dynstr    _ZN11FuAIWrapper30NNBackgroundSegmenterInferenceEN8DukValue9jscontextE
+    0x00115e93 .dynstr    _ZN11FuAIWrapper33NNUploadBackgroundSegmenterResultEN8DukValue9jscontextE
+    0x0011609f .dynstr    _ZN11FuAIWrapper35GetBackgroundSegmentationGreenTexIdEv
+
+## liblanguage_id_l2c_jni.so
+size        : 1035408 bytes (0.99 MiB)
+sha256      : 3d417a5e5f2d38bc082aae2b2707e33b6826df3f6b332443a15eed3a48f6a47e
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x0   imagebase: 0x0
+build id    : e536e4cd680d10ed0329fc946fc929e8
+android     : SDK 21, NDK r25, build 8775105
+soname      : liblanguage_id_l2c_jni.so
+needed      : libandroid.so, libm.so, liblog.so, libdl.so, libc.so
+parser      : lief
+counts      : 3 exports, 119 imports, 3 JNI, 29 sections, 9 segments
+symtab/dynsym: 0 / 130
+
+## libaiedit.so JNI
+JNI entry points (3)
+  0x3a34         344        com.milab.aieditsdk.AiEdit.init
+      Java_com_milab_aieditsdk_AiEdit_init
+  0x3b8c         52         com.milab.aieditsdk.AiEdit.release
+      Java_com_milab_aieditsdk_AiEdit_release
+  0x3bc0         320        com.milab.aieditsdk.AiEdit.process
+      Java_com_milab_aieditsdk_AiEdit_process
+
+AI-relevant strings (12513 bytes scanned in allocated data sections)
+
+## libinpaint_jni.so JNI
+JNI entry points (7)
+  0xdac          24         com.miui.gallery.editor.photo.app.remover.Inpaint.initialize
+      Java_com_miui_gallery_editor_photo_app_remover_Inpaint_initialize
+  0xfb4          4          com.miui.gallery.editor.photo.app.remover.Inpaint.inpaintBmp
+      Java_com_miui_gallery_editor_photo_app_remover_Inpaint_inpaintBmp
+  0x10c0         12         com.miui.gallery.editor.photo.app.remover.Inpaint.upsampleBmp
+      Java_com_miui_gallery_editor_photo_app_remover_Inpaint_upsampleBmp
+  0x10cc         476        com.miui.gallery.editor.photo.app.remover.Inpaint.inpaintBmpData
+      Java_com_miui_gallery_editor_photo_app_remover_Inpaint_inpaintBmpData
+  0x12a8         556        com.miui.gallery.editor.photo.app.remover.Inpaint.upsampleBmpData
+      Java_com_miui_gallery_editor_photo_app_remover_Inpaint_upsampleBmpData
+  0x14d4         44         com.miui.gallery.editor.photo.app.remover.Inpaint.releaseNNF
+      Java_com_miui_gallery_editor_photo_app_remover_Inpaint_releaseNNF

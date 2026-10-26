@@ -1,0 +1,32 @@
+{
+  "slug": "miui_remote",
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/data-app/XMRemoteController/XMRemoteController.apk",
+  "size": 35905205,
+  "models": [],
+  "libs": [
+    {
+      "name": "lib/arm64-v8a/libairkanopus-jni.so",
+      "size": 395096
+    },
+    {
+      "name": "lib/arm64-v8a/libmibraindec.so",
+      "size": 136912
+    },
+    {
+      "name": "lib/arm64-v8a/libmibrainjni.so",
+      "size": 46792
+    },
+    {
+      "name": "lib/arm64-v8a/libmibrainsdk.so",
+      "size": 1022800
+    },
+    {
+      "name": "lib/arm64-v8a/libmibrainvad2.so",
+      "size": 1509480
+    }
+  ],
+  "dex_markers": {
+    "mibrain": 34
+  },
+  "package": null
+}

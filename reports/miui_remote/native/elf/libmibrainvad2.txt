@@ -1,0 +1,74 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_remote/inventory/libs/lib/arm64-v8a/libmibrainvad2.so
+==============================================================================
+size        : 1509480 bytes (1.44 MiB)
+sha256      : 581cb0d699f0b9b6816e2b94d14a7350d0e86c89992f0a7eb21597ce2cb619ad
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0xdcb0   imagebase: 0x0
+build id    : fa8892b576a173d03000f7f3295141596e6f4084
+android     : SDK 21, NDK r16b, build 4479499
+soname      : libmibrainvad2.so
+needed      : libstdc++.so, libm.so, libc.so, libdl.so
+parser      : lief
+counts      : 584 exports, 76 imports, 5 JNI, 26 sections, 8 segments
+symtab/dynsym: 0 / 670
+
+Sections (26)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        4772       0x228
+  .dynsym                DYNSYM           A      0x14d0       16080      0x14d0
+  .dynstr                STRTAB           A      0x53a0       13492      0x53a0
+  .gnu.version           GNU_VERSYM       A      0x8854       1340       0x8854
+  .gnu.version_r         GNU_VERNEED      A      0x8d90       96         0x8d90
+  .rela.dyn              RELA             A      0x8df0       8400       0x8df0
+  .rela.plt              RELA             AI     0xaec0       7032       0xaec0
+  .plt                   PROGBITS         AX     0xca40       4720       0xca40
+  .text                  PROGBITS         AX     0xdcb0       244344     0xdcb0
+  test                   PROGBITS         AX     0x49800      1072       0x49800
+  .rodata                PROGBITS         A      0x49c30      1163933    0x49c30
+  .eh_frame_hdr          PROGBITS         A      0x165ed0     5580       0x165ed0
+  .eh_frame              PROGBITS         A      0x1674a0     27024      0x1674a0
+  .gcc_except_table      PROGBITS         A      0x16de30     440        0x16de30
+  .note.android.ident    NOTE             A      0x16dfe8     152        0x16dfe8
+  .init_array            INIT_ARRAY       WA     0x17e388     24         0x16e388
+  .fini_array            FINI_ARRAY       WA     0x17e3a0     16         0x16e3a0
+  .data.rel.ro           PROGBITS         WA     0x17e3b0     3920       0x16e3b0
+  .dynamic               DYNAMIC          WA     0x17f300     512        0x16f300
+  .got                   PROGBITS         WA     0x17f500     2816       0x16f500
+  .data                  PROGBITS         WA     0x180000     72         0x170000
+  .bss                   NOBITS           WA     0x180050     73520      0x170048
+  .comment               PROGBITS         MS     0x0          161        0x170048
+  .shstrtab              STRTAB           -      0x0          252        0x1700e9
+
+JNI entry points (5)
+  0xdd64         116        com.xiaomi.ai.mibrain.MibrainVad2.newVad
+      Java_com_xiaomi_ai_mibrain_MibrainVad2_newVad
+  0xddd8         20         com.xiaomi.ai.mibrain.MibrainVad2.createTask
+      Java_com_xiaomi_ai_mibrain_MibrainVad2_createTask
+  0xddec         292        com.xiaomi.ai.mibrain.MibrainVad2.hasVoice
+      Java_com_xiaomi_ai_mibrain_MibrainVad2_hasVoice
+  0xdf10         176        com.xiaomi.ai.mibrain.MibrainVad2.stopTask
+      Java_com_xiaomi_ai_mibrain_MibrainVad2_stopTask
+  0xdfc0         76         com.xiaomi.ai.mibrain.MibrainVad2.releaseVad
+      Java_com_xiaomi_ai_mibrain_MibrainVad2_releaseVad
+
+AI-relevant strings (1255737 bytes scanned in allocated data sections)
+  [tflite] 1 unique (first 1)
+    0x0004efc4 .rodata    tensorflow
+  [model] 5 unique (first 5)
+    0x0004e808 .rodata    weights->col == 1 && weights->channel == 1
+    0x0004e833 .rodata    input->row == weights->row
+    0x0004ecff .rodata    weights == NULL || weights->row == input->row
+    0x0004ed3e .rodata    weights == NULL
+    0x0004f251 .rodata    weights
+  [face] 3 unique (first 3)
+    0x0004cf84 .rodata    (local_dir_header_ofs & (pZip->m_file_offset_alignment - 1)) == 0
+    0x0004d045 .rodata    (zip->entry.header_offset & (pzip->m_file_offset_alignment - 1)) == 0
+    0x00165948 .rodata    alignof 
+  [asr] 3 unique (first 3)
+    0x00065706 .rodata    @: VAd}
+    0x000b4efe .rodata    Asr+@vD
+    0x0016480b .rodata    vad model version is: %s
+
+JSON written to native/elf/libmibrainvad2.json

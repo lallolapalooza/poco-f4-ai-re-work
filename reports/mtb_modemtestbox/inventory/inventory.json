@@ -1,0 +1,634 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/system_ext/app/ModemTestBox/ModemTestBox.apk",
+  "size": 2348152,
+  "sha256": "26b04faec0b6b01a9f08b373c4138121bd81d5bbb419a59ddcd3975266dac0c9",
+  "package": "com.xiaomi.mtb",
+  "version_name": "14",
+  "version_code": "34",
+  "label": "Rueban(MTB)V6.6.20240130",
+  "min_sdk": "34",
+  "target_sdk": "34",
+  "main_activity": null,
+  "abis": [],
+  "permissions": [
+    "android.permission.ACCESS_NETWORK_STATE",
+    "android.permission.BROADCAST_STICKY",
+    "android.permission.CALL_PHONE",
+    "android.permission.CONTROL_INCALL_EXPERIENCE",
+    "android.permission.INTERNET",
+    "android.permission.MODIFY_PHONE_STATE",
+    "android.permission.READ_EXTERNAL_STORAGE",
+    "android.permission.READ_PHONE_STATE",
+    "android.permission.REBOOT",
+    "android.permission.RECEIVE_BOOT_COMPLETED",
+    "android.permission.WRITE_EXTERNAL_STORAGE",
+    "com.qualcomm.permission.USE_QCRIL_MSG_TUNNEL"
+  ],
+  "declared_permissions": 0,
+  "components": {
+    "activities": 28,
+    "services": 4,
+    "receivers": 1,
+    "providers": 0
+  },
+  "features": [],
+  "counts": {
+    "entries": 104,
+    "dex": 1,
+    "native_libs": 0,
+    "model_assets": 1,
+    "configs": 63,
+    "other": 39
+  },
+  "groups": {
+    "dex": [
+      {
+        "name": "classes.dex",
+        "size": 1730304,
+        "compressed": 1730304
+      }
+    ],
+    "native_libs": [],
+    "model_assets": [
+      {
+        "name": "assets/0.3_new_0410_less.tflite",
+        "size": 112544,
+        "compressed": 112544,
+        "magic": "2800000054464c33",
+        "tflite": false,
+        "keywords": [
+          "tflite"
+        ]
+      }
+    ],
+    "configs": [
+      {
+        "name": "resources.arsc",
+        "size": 341172,
+        "compressed": 341172
+      },
+      {
+        "name": "AndroidManifest.xml",
+        "size": 15936,
+        "compressed": 3303
+      },
+      {
+        "name": "assets/atcommand.xml",
+        "size": 22614,
+        "compressed": 1937
+      },
+      {
+        "name": "assets/diag_command_data_format.xml",
+        "size": 34996,
+        "compressed": 2778
+      },
+      {
+        "name": "assets/diag_command_set.xml",
+        "size": 1706,
+        "compressed": 406
+      },
+      {
+        "name": "assets/nv_efs_template/common/nv_efs_data_format.xml",
+        "size": 239763,
+        "compressed": 26041
+      },
+      {
+        "name": "assets/nv_efs_template/de3.1/nv_efs_data_format.xml",
+        "size": 2090,
+        "compressed": 587
+      },
+      {
+        "name": "assets/nv_efs_template/legacy/nv_efs_data_format.xml",
+        "size": 1234,
+        "compressed": 534
+      },
+      {
+        "name": "res/drawable-v21/notification_action_background.xml",
+        "size": 1180,
+        "compressed": 465
+      },
+      {
+        "name": "res/drawable/notification_bg.xml",
+        "size": 532,
+        "compressed": 252
+      },
+      {
+        "name": "res/drawable/notification_bg_low.xml",
+        "size": 532,
+        "compressed": 252
+      },
+      {
+        "name": "res/drawable/notification_icon_background.xml",
+        "size": 372,
+        "compressed": 183
+      },
+      {
+        "name": "res/drawable/notification_tile_bg.xml",
+        "size": 304,
+        "compressed": 172
+      },
+      {
+        "name": "res/drawable/searchitems_click.xml",
+        "size": 464,
+        "compressed": 230
+      },
+      {
+        "name": "res/layout-v21/notification_action.xml",
+        "size": 1052,
+        "compressed": 483
+      },
+      {
+        "name": "res/layout-v21/notification_action_tombstone.xml",
+        "size": 1228,
+        "compressed": 533
+      },
+      {
+        "name": "res/layout-v21/notification_template_custom_big.xml",
+        "size": 2456,
+        "compressed": 786
+      },
+      {
+        "name": "res/layout-v21/notification_template_icon_group.xml",
+        "size": 988,
+        "compressed": 419
+      },
+      {
+        "name": "res/layout/check_dialog.xml",
+        "size": 1364,
+        "compressed": 537
+      },
+      {
+        "name": "res/layout/filedialogitem.xml",
+        "size": 1412,
+        "compressed": 506
+      },
+      {
+        "name": "res/layout/hook_common_demo.xml",
+        "size": 4924,
+        "compressed": 1115
+      },
+      {
+        "name": "res/layout/modem_ant_tx_rx_mode.xml",
+        "size": 2512,
+        "compressed": 779
+      },
+      {
+        "name": "res/layout/modem_at_command_config.xml",
+        "size": 4472,
+        "compressed": 1201
+      },
+      {
+        "name": "res/layout/modem_at_command_set_config.xml",
+        "size": 11116,
+        "compressed": 1946
+      },
+      {
+        "name": "res/layout/modem_auto_check_tool.xml",
+        "size": 2340,
+        "compressed": 736
+      },
+      {
+        "name": "res/layout/modem_carrier_demand.xml",
+        "size": 1408,
+        "compressed": 561
+      },
+      {
+        "name": "res/layout/modem_data_backup_recovery.xml",
+        "size": 7260,
+        "compressed": 1233
+      },
+      {
+        "name": "res/layout/modem_data_display.xml",
+        "size": 3808,
+        "compressed": 967
+      },
+      {
+        "name": "res/layout/modem_diag_command_config.xml",
+        "size": 4188,
+        "compressed": 1151
+      },
+      {
+        "name": "res/layout/modem_diag_command_set_config.xml",
+        "size": 7052,
+        "compressed": 1531
+      },
+      {
+        "name": "res/layout/modem_display_mipi_test.xml",
+        "size": 3884,
+        "compressed": 1021
+      },
+      {
+        "name": "res/layout/modem_hydra_config.xml",
+        "size": 7860,
+        "compressed": 1383
+      },
+      {
+        "name": "res/layout/modem_log_manager.xml",
+        "size": 5308,
+        "compressed": 1089
+      },
+      {
+        "name": "res/layout/modem_mbn_config.xml",
+        "size": 14680,
+        "compressed": 2141
+      },
+      {
+        "name": "res/layout/modem_mtk_one_key_authentication.xml",
+        "size": 5452,
+        "compressed": 991
+      },
+      {
+        "name": "res/layout/modem_mtk_sar_test.xml",
+        "size": 2084,
+        "compressed": 696
+      },
+      {
+        "name": "res/layout/modem_nv_efs_config.xml",
+        "size": 5468,
+        "compressed": 1343
+      },
+      {
+        "name": "res/layout/modem_one_key_authentication.xml",
+        "size": 7416,
+        "compressed": 1208
+      },
+      {
+        "name": "res/layout/modem_one_key_authentication_for_phone.xml",
+        "size": 2776,
+        "compressed": 757
+      },
+      {
+        "name": "res/layout/modem_rf_ant_device_config.xml",
+        "size": 1408,
+        "compressed": 561
+      },
+      {
+        "name": "res/layout/modem_rf_ant_device_data_config.xml",
+        "size": 1408,
+        "compressed": 561
+      },
+      {
+        "name": "res/layout/modem_rf_ant_test.xml",
+        "size": 1408,
+        "compressed": 561
+      },
+      {
+        "name": "res/layout/modem_rf_debug_tool.xml",
+        "size": 2804,
+        "compressed": 824
+      },
+      {
+        "name": "res/layout/modem_sar_test.xml",
+        "size": 5192,
+        "compressed": 1071
+      },
+      {
+        "name": "res/layout/modem_sim_test.xml",
+        "size": 6284,
+        "compressed": 1183
+      },
+      {
+        "name": "res/layout/modem_smart_test.xml",
+        "size": 10112,
+        "compressed": 1403
+      },
+      {
+        "name": "res/layout/modem_smart_test_extend.xml",
+        "size": 13308,
+        "compressed": 1709
+      },
+      {
+        "name": "res/layout/modem_test_box.xml",
+        "size": 1200,
+        "compressed": 532
+      },
+      {
+        "name": "res/layout/modem_user_panel.xml",
+        "size": 2880,
+        "compressed": 764
+      },
+      {
+        "name": "res/layout/mtk_modem_auto_check_tool.xml",
+        "size": 1708,
+        "compressed": 669
+      },
+      {
+        "name": "res/layout/multiline_spinner_dropdown_item.xml",
+        "size": 472,
+        "compressed": 275
+      },
+      {
+        "name": "res/layout/notification_media_action.xml",
+        "size": 564,
+        "compressed": 302
+      },
+      {
+        "name": "res/layout/notification_media_cancel_action.xml",
+        "size": 744,
+        "compressed": 374
+      },
+      {
+        "name": "res/layout/notification_template_big_media.xml",
+        "size": 1696,
+        "compressed": 641
+      },
+      {
+        "name": "res/layout/notification_template_big_media_custom.xml",
+        "size": 3044,
+        "compressed": 984
+      },
+      {
+        "name": "res/layout/notification_template_big_media_narrow.xml",
+        "size": 1824,
+        "compressed": 662
+      },
+      {
+        "name": "res/layout/notification_template_big_media_narrow_custom.xml",
+        "size": 3216,
+        "compressed": 1035
+      },
+      {
+        "name": "res/layout/notification_template_lines_media.xml",
+        "size": 2872,
+        "compressed": 804
+      },
+      {
+        "name": "res/layout/notification_template_media.xml",
+        "size": 1292,
+        "compressed": 508
+      },
+      {
+        "name": "res/layout/notification_template_media_custom.xml",
+        "size": 2756,
+        "compressed": 891
+      },
+      {
+        "name": "res/layout/notification_template_part_chronometer.xml",
+        "size": 440,
+        "compressed": 259
+      },
+      {
+        "name": "res/layout/notification_template_part_time.xml",
+        "size": 440,
+        "compressed": 262
+      },
+      {
+        "name": "res/layout/search_item.xml",
+        "size": 640,
+        "compressed": 314
+      }
+    ],
+    "other": [
+      {
+        "name": "res/drawable-hdpi-v4/app_background1.9.png",
+        "size": 866,
+        "compressed": 866
+      },
+      {
+        "name": "res/drawable-hdpi-v4/filedialog_file.png",
+        "size": 1097,
+        "compressed": 1097
+      },
+      {
+        "name": "res/drawable-hdpi-v4/filedialog_folder.png",
+        "size": 5898,
+        "compressed": 5898
+      },
+      {
+        "name": "res/drawable-hdpi-v4/filedialog_folder_up.png",
+        "size": 6632,
+        "compressed": 6632
+      },
+      {
+        "name": "res/drawable-hdpi-v4/filedialog_root.png",
+        "size": 7625,
+        "compressed": 7625
+      },
+      {
+        "name": "res/drawable-hdpi-v4/filedialog_wavfile.png",
+        "size": 5067,
+        "compressed": 5067
+      },
+      {
+        "name": "res/drawable-hdpi-v4/ic_action_search.png",
+        "size": 535,
+        "compressed": 535
+      },
+      {
+        "name": "res/drawable-hdpi-v4/ic_launcher.png",
+        "size": 1719,
+        "compressed": 1719
+      },
+      {
+        "name": "res/drawable-hdpi-v4/list_item_background.9.png",
+        "size": 215,
+        "compressed": 215
+      },
+      {
+        "name": "res/drawable-hdpi-v4/mbn.png",
+        "size": 1832,
+        "compressed": 1832
+      },
+      {
+        "name": "res/drawable-hdpi-v4/netencyclopedia_completeitems_bg.9.png",
+        "size": 1442,
+        "compressed": 1442
+      },
+      {
+        "name": "res/drawable-hdpi-v4/netencyclopedia_items_bg.9.png",
+        "size": 1041,
+        "compressed": 1041
+      },
+      {
+        "name": "res/drawable-hdpi-v4/netencyclopedia_search_bg.9.png",
+        "size": 1778,
+        "compressed": 1778
+      },
+      {
+        "name": "res/drawable-hdpi-v4/netencyclopedia_search_icon.png",
+        "size": 695,
+        "compressed": 695
+      },
+      {
+        "name": "res/drawable-hdpi-v4/notification_bg_low_normal.9.png",
+        "size": 212,
+        "compressed": 212
+      },
+      {
+        "name": "res/drawable-hdpi-v4/notification_bg_low_pressed.9.png",
+        "size": 225,
+        "compressed": 225
+      },
+      {
+        "name": "res/drawable-hdpi-v4/notification_bg_normal.9.png",
+        "size": 212,
+        "compressed": 212
+      },
+      {
+        "name": "res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png",
+        "size": 225,
+        "compressed": 225
+      },
+      {
+        "name": "res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png",
+        "size": 107,
+        "compressed": 107
+      },
+      {
+        "name": "res/drawable-ldpi-v4/ic_launcher.png",
+        "size": 828,
+        "compressed": 828
+      },
+      {
+        "name": "res/drawable-mdpi-v4/ic_action_search.png",
+        "size": 374,
+        "compressed": 374
+      },
+      {
+        "name": "res/drawable-mdpi-v4/ic_launcher.png",
+        "size": 1102,
+        "compressed": 1102
+      },
+      {
+        "name": "res/drawable-mdpi-v4/mbn.png",
+        "size": 1178,
+        "compressed": 1178
+      },
+      {
+        "name": "res/drawable-mdpi-v4/notification_bg_low_normal.9.png",
+        "size": 215,
+        "compressed": 215
+      },
+      {
+        "name": "res/drawable-mdpi-v4/notification_bg_low_pressed.9.png",
+        "size": 223,
+        "compressed": 223
+      },
+      {
+        "name": "res/drawable-mdpi-v4/notification_bg_normal.9.png",
+        "size": 215,
+        "compressed": 215
+      },
+      {
+        "name": "res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png",
+        "size": 223,
+        "compressed": 223
+      },
+      {
+        "name": "res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png",
+        "size": 98,
+        "compressed": 98
+      },
+      {
+        "name": "res/drawable-xhdpi-v4/ic_action_search.png",
+        "size": 681,
+        "compressed": 681
+      },
+      {
+        "name": "res/drawable-xhdpi-v4/ic_launcher.png",
+        "size": 2253,
+        "compressed": 2253
+      },
+      {
+        "name": "res/drawable-xhdpi-v4/mtb.png",
+        "size": 5700,
+        "compressed": 5700
+      },
+      {
+        "name": "res/drawable-xhdpi-v4/notification_bg_low_normal.9.png",
+        "size": 221,
+        "compressed": 221
+      },
+      {
+        "name": "res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png",
+        "size": 252,
+        "compressed": 252
+      },
+      {
+        "name": "res/drawable-xhdpi-v4/notification_bg_normal.9.png",
+        "size": 221,
+        "compressed": 221
+      },
+      {
+        "name": "res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png",
+        "size": 247,
+        "compressed": 247
+      },
+      {
+        "name": "res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png",
+        "size": 138,
+        "compressed": 138
+      },
+      {
+        "name": "META-INF/CERT.SF",
+        "size": 11616,
+        "compressed": 4548
+      },
+      {
+        "name": "META-INF/CERT.RSA",
+        "size": 1642,
+        "compressed": 1148
+      },
+      {
+        "name": "META-INF/MANIFEST.MF",
+        "size": 11504,
+        "compressed": 4372
+      }
+    ]
+  },
+  "ai": {
+    "model_assets": [
+      {
+        "name": "assets/0.3_new_0410_less.tflite",
+        "size": 112544,
+        "compressed": 112544,
+        "magic": "2800000054464c33",
+        "tflite": false,
+        "keywords": [
+          "tflite"
+        ]
+      }
+    ],
+    "libs": [],
+    "asset_hits": [],
+    "dex_markers": {
+      "Lorg/tensorflow/lite": 20,
+      "tflite": 1
+    },
+    "keyword_set": {
+      "model_name_re": "\\.(tflite|onnx|mnn|npubin|dlc|caffemodel|uim|bundle|model|pt|pth|smfb)$|(^|/)(model|classifier|segmenter|ranker)(/|$)",
+      "model_ext_re": "\\.(tflite|lite|onnx|mnn|npubin|dlc|caffemodel|pt|pth|pb|ai_model|bin|xmodel|kmodel|rknn|mlmodel|gguf|ort|uim|bundle|model|smfb|h5|paddle|ncnn|param|tflite\\.jpg)$",
+      "lib_re": "lib.*(tensorflow|tflite|litert|nnapi|neural|mllite|onnx|pytorch|caffe|snpe|qnn|mace|opencv|megvii|face|arcsoft|mibrain|aivs|miocr|inpaint|aiedit|fuai|scanner|vision|segment|matting|whisper|dnn|ocr|beaut|ai|ml).*\\.so$",
+      "asset_re": "(tflite|\\.mnn|\\.onnx|\\.dlc|\\.npubin|caffemodel|\\.pt$|mibrain|mllite|tensorflow|onnx|pytorch|snpe|qnn|neural|mediapipe|mlkit|vision|face|ocr|inpaint|aiedit|fuai|scanner|megvii|arcsoft|aivs|aivoice|ByteAI|bvtAI|mobais|hand|gesture|aiauto|model)",
+      "dex_markers": [
+        "Lorg/tensorflow/lite",
+        "Lcom/google/mlkit",
+        "Lcom/google/android/gms/vision",
+        "Lcom/xiaomi/aicr",
+        "Lcom/xiaomi/mibrain",
+        "mibrain",
+        "tflite",
+        "libtensorflowlite",
+        "com/qualcomm/snpe",
+        "com/qualcomm/qti/qnn",
+        "Lcom/arcsoft",
+        "Lcom/megvii",
+        "ByteAI",
+        "visionengine",
+        "FaceMagic",
+        "mediapipe"
+      ]
+    }
+  },
+  "extraction": {
+    "models": [],
+    "libs": [],
+    "skipped": [],
+    "bytes": 0,
+    "limits": {
+      "max_file_mb": 50.0,
+      "max_total_mb": 90.0
+    }
+  },
+  "elapsed_sec": 0.412
+}

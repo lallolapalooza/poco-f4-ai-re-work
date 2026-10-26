@@ -1,0 +1,161 @@
+# Video beauty path: libMiVideoSDK.so BeautyWapper (dlopen'd FaceUnity beauty lib)
+
+## needed libs / jni
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/me_libs/lib/arm64-v8a/libMiVideoSDK.so
+==============================================================================
+size        : 3877696 bytes (3.70 MiB)
+sha256      : 7242b861b47ee1102ba418b70181b27d5f43b9772f68bad15daf6a641b3cc892
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0xe72e0   imagebase: 0x0
+build id    : 3bd1b29cc9243fa6aba194d0e044cfb3db1c0b89
+android     : SDK 28, NDK r21e, build 7075529
+soname      : libMiVideoSDK.so
+needed      : liblog.so, libGLESv3.so, libEGL.so, libandroid.so, libmediandk.so, libjnigraphics.so, libOpenSLES.so, libmiffmpeg.so, libdl.so, libm.so, libc.so
+parser      : lief
+counts      : 7861 exports, 466 imports, 257 JNI, 25 sections, 8 segments
+symtab/dynsym: 0 / 8348
+
+Sections (25)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .gnu.hash              GNU_HASH         A      0x228        56120      0x228
+  .dynsym                DYNSYM           A      0xdd60       200352     0xdd60
+  .dynstr                STRTAB           A      0x3ec00      340211     0x3ec00
+  .gnu.version           GNU_VERSYM       A      0x91cf4      16696      0x91cf4
+  .gnu.version_r         GNU_VERNEED      A      0x95e30      128        0x95e30
+  .rela.dyn              RELA             A      0x95eb0      224568     0x95eb0
+  .rela.plt              RELA             AI     0xccbe8      64944      0xccbe8
+
+## Java API (jadx single-class)
+$ jadx --single-class com.xiaomi.milab.videosdk.XmsContext
+451-    }
+452-
+453:    public int setupBeauty(String str, String str2, String str3, int i10) {
+454:        if (checkNull("setupBeauty")) {
+455-            return -1;
+456-        }
+457-        return nativeSetupBeauty(getNativeObject(), str, str2, str3, i10);
+458-    }
+459-
+460-    public int setupDolbyVision(boolean z, String str) {
+461-        if (checkNull("setupDolbyVision")) {
+462-            return -1;
+
+## nativeSetupBeauty -> Context::setupBeauty -> BeautyWapper setup/setMaxFaces/... -> mlt_face_beauty_register
+$ disasm_elf.py libMiVideoSDK.so --addr 0xf4704
+; disasm_elf.py (capstone 5.0.7)
+; file    : /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/me_libs/lib/arm64-v8a/libMiVideoSDK.so
+; target  : address 0xed444
+; start   : 0xed444
+; size    : 0x500
+0x000ed4b0: 2a 00 00 14              b        #0xed558                   ; -> _ZN7Context11setupBeautyEPKcS1_S1_i+0x114
+0x000ed4c4: a7 c0 ff 97              bl       #0xdd760                   ; -> _ZN12BeautyWapperC1EPKc@plt
+0x000ed4d8: ce dd ff 97              bl       #0xe4c10                   ; -> _ZN12BeautyWapper5setupEPKcS1_i@plt
+0x000ed4e8: 92 cb ff 97              bl       #0xe0330                   ; -> _ZN12BeautyWapper35faceProcessorSetFaceLandmarkQualityEi@plt
+0x000ed4f4: 6f d0 ff 97              bl       #0xe16b0                   ; -> _ZN12BeautyWapper11setMaxFacesEi@plt
+0x000ed500: 50 ce ff 97              bl       #0xe0e40                   ; -> _ZN12BeautyWapper26setFaceProcessorDetectModeEi@plt
+0x000ed50c: 11 d2 ff 97              bl       #0xe1d50                   ; -> _ZN12BeautyWapper15enableVideoHashEb@plt
+0x000ed530: 20 d7 ff 97              bl       #0xe31b0                   ; -> mlt_properties_set_data@plt
+0x000ed538: ba c2 ff 97              bl       #0xde020                   ; -> mlt_face_beauty_register@plt
+0x000ed5ac: 65 db ff 97              bl       #0xe4340                   ; -> _ZN12BeautyWapperD1Ev@plt
+
+## BeautyWapper log format strings (function-pointer table it resolves after dlopen)
+ BeautyWapper [%s](%d) dlopen get error: %s
+BeautyWapper setupFunc.ptr %x setParamdFunc.ptr %x setParamsFunc.ptr %x renderFunc.ptr%x destoryFunc.ptr%x 
+debug__ Context setupBeauty, soPath %s bundle_path %s cachePath %s
+debug__ Context shutdownBeauty
+debug__ setupBeauty done %x
+debug__ shutdownBeauty done %x
+filter.face.beauty.backup
+filter.face.beauty.cache
+filter.face.beauty.cache.position
+filter.face.beauty.cache.texture
+filter.face.beauty.last.position
+filter.face.beauty.surface.height
+filter.face.beauty.surface.width
+filter.face.beauty.tex.render
+movit.filter.face.beauty
+/Users/xingdaming/AndroidStudioProjects/VideoSdkJni/videosdk/src/main/cpp/modules/plugin/beauty/BeautyWapper.cpp
+_Z12refreshParamP12BeautyWapperP16mlt_properties_sNSt6__ndk112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEE
+_Z15configFaceParamP12BeautyWapperP16mlt_properties_s
+_ZN12BeautyWapper10getVersionEv
+_ZN12BeautyWapper10isTrackingEv
+_ZN12BeautyWapper11setMaxFacesEi
+_ZN12BeautyWapper12setVideoHashEiPKci
+_ZN12BeautyWapper14onCameraChangeEv
+_ZN12BeautyWapper15enableVideoHashEb
+_ZN12BeautyWapper15setRenderParamdEPKcd
+_ZN12BeautyWapper15setRenderParamsEPKcS1_
+_ZN12BeautyWapper17setCacheDirectoryEPKc
+_ZN12BeautyWapper26setFaceProcessorDetectModeEi
+_ZN12BeautyWapper35faceProcessorSetFaceLandmarkQualityEi
+_ZN12BeautyWapper5setupEPKcS1_i
+_ZN12BeautyWapper6renderEiPviS0_iiiPiiiS0_
+_ZN12BeautyWapperC1EPKc
+_ZN12BeautyWapperC2EPKc
+_ZN12BeautyWapperD1Ev
+_ZN12BeautyWapperD2Ev
+_ZN7Context11setupBeautyEPKcS1_S1_i
+_ZN7Context14shutdownBeautyEv
+
+## Video decode (same lib)
+$ strings -a libMiVideoSDK.so | grep -E "AMediaCodec|libhevc"
+3/Users/xingdaming/AndroidStudioProjects/VideoSdkJni/videosdk/src/main/cpp/external/libhevc/decoder/ihevcd_fmt_conv.c
+AMediaCodec_configure
+AMediaCodec_configure() failed with error %i for format %u
+AMediaCodec_createDecoderByType
+AMediaCodec_createEncoderByType
+AMediaCodec_createInputSurface
+AMediaCodec_createInputSurface: Could not createInputSurface status %d
+AMediaCodec_createInputSurface: encoder createInputSurface successfully %p
+AMediaCodec_dequeueOutputBuffer
+/Users/xingdaming/AndroidStudioProjects/VideoSdkJni/videosdk/src/main/cpp/external/libhevc/decoder/ihevcd_bitstream.c
+/Users/xingdaming/AndroidStudioProjects/VideoSdkJni/videosdk/src/main/cpp/external/libhevc/decoder/ihevcd_cabac.c
+/Users/xingdaming/AndroidStudioProjects/VideoSdkJni/videosdk/src/main/cpp/external/libhevc/decoder/ihevcd_deblk.c
+/Users/xingdaming/AndroidStudioProjects/VideoSdkJni/videosdk/src/main/cpp/external/libhevc/decoder/ihevcd_decode.c
+/Users/xingdaming/AndroidStudioProjects/VideoSdkJni/videosdk/src/main/cpp/external/libhevc/decoder/ihevcd_inter_pred.c
+/Users/xingdaming/AndroidStudioProjects/VideoSdkJni/videosdk/src/main/cpp/external/libhevc/decoder/ihevcd_parse_headers.c
+/Users/xingdaming/AndroidStudioProjects/VideoSdkJni/videosdk/src/main/cpp/external/libhevc/decoder/ihevcd_parse_residual.c
+/Users/xingdaming/AndroidStudioProjects/VideoSdkJni/videosdk/src/main/cpp/external/libhevc/decoder/ihevcd_parse_slice.c
+/Users/xingdaming/AndroidStudioProjects/VideoSdkJni/videosdk/src/main/cpp/external/libhevc/decoder/ihevcd_parse_slice_header.c
+
+$ nm -D libMiVideoSDK.so | grep Java_.*FrameRetriever
+00000000001084f0 T Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeCreate
+0000000000108548 T Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeDestroy
+00000000001086e8 T Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeGetBitrate
+00000000001089d8 T Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeGetDataSource
+0000000000108628 T Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeGetDuration
+0000000000108728 T Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeGetFPS
+00000000001086a8 T Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeGetHeight
+0000000000108840 T Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeGetNextFrame
+0000000000108914 T Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeGetNextFrameData
+0000000000108668 T Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeGetWidth
+00000000001089d0 T Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeRelease
+00000000001087fc T Java_com_xiaomi_milab_videosdk_FrameRetriever_nativeSetAccurate
+
+## FaceUnity ABI: video-side beauty entry points referenced by the wrapper
+ BeautyWapper [%s](%d) dlopen get error: %s
+BeautyWapper setupFunc.ptr %x setParamdFunc.ptr %x setParamsFunc.ptr %x renderFunc.ptr%x destoryFunc.ptr%x 
+Java_com_xiaomi_milab_videosdk_XmsContext_nativeSetupBeauty
+mlt_face_beauty_register
+/Users/xingdaming/AndroidStudioProjects/VideoSdkJni/videosdk/src/main/cpp/modules/plugin/beauty/BeautyWapper.cpp
+_Z12refreshParamP12BeautyWapperP16mlt_properties_sNSt6__ndk112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEE
+_Z15configFaceParamP12BeautyWapperP16mlt_properties_s
+_ZN12BeautyWapper10getVersionEv
+_ZN12BeautyWapper10isTrackingEv
+_ZN12BeautyWapper11setMaxFacesEi
+_ZN12BeautyWapper12setVideoHashEiPKci
+_ZN12BeautyWapper14onCameraChangeEv
+_ZN12BeautyWapper15enableVideoHashEb
+_ZN12BeautyWapper15setRenderParamdEPKcd
+_ZN12BeautyWapper15setRenderParamsEPKcS1_
+_ZN12BeautyWapper17setCacheDirectoryEPKc
+_ZN12BeautyWapper26setFaceProcessorDetectModeEi
+_ZN12BeautyWapper35faceProcessorSetFaceLandmarkQualityEi
+_ZN12BeautyWapper5setupEPKcS1_i
+_ZN12BeautyWapper6renderEiPviS0_iiiPiiiS0_
+_ZN12BeautyWapperC1EPKc
+_ZN12BeautyWapperC2EPKc
+_ZN12BeautyWapperD1Ev
+_ZN12BeautyWapperD2Ev

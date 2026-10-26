@@ -1,0 +1,35 @@
+# commands run for the audio/response-path patch (2026-10-24)
+# cwd: $WS=/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work
+
+$PY tools/decompile_classes.py ... # (not used; jadx called directly, one class per call, -j 2)
+tools/jadx/bin/jadx --single-class <cls> --single-class-output reports/miui_remote/sources/classes/<cls>.java --show-bad-code --no-res -j 2 "$APK"
+  classes: com.xiaomi.ai.i com.xiaomi.ai.l com.xiaomi.ai.j com.xiaomi.ai.m com.xiaomi.ai.PCMInfo
+           com.xiaomi.ai.streamplayer.k com.xiaomi.ai.streamplayer.a com.xiaomi.ai.streamplayer.d
+           com.xiaomi.ai.streamplayer.f com.xiaomi.ai.streamplayer.g com.xiaomi.ai.streamplayer.h
+           com.xiaomi.ai.streamplayer.TTSDecoderConfig com.xiaomi.ai.utils.e com.xiaomi.ai.utils.n
+           com.xiaomi.ai.mibrain.MibrainMp3Decoder cg.a cg.b cg.f cg.g re.g ee.j vd.d
+
+$PY tools/dex_find.py "$APK" --regex "com\\.xiaomi\\.ai\\.streamplayer|com\\.xiaomi\\.ai\\.api\\.|^com\\.xiaomi\\.ai\\.[a-z]$" --classes-only
+$PY tools/dex_find.py "$APK" --regex "android\\.speech\\.tts|TextToSpeech|com\\.xiaomi\\.ai\\.PCMInfo" --classes-only
+$PY tools/dex_find.py "$APK" --regex "BluetoothGatt|writeCharacteristic|com\\.duokan.*\\.ble\\." --classes-only
+$PY tools/strings_dex.py "$APK" --regex "TextToSpeech|iflytek|iFly|ifly" --format plain --limit 40   # 0 hits
+
+# native: capstone scan of libmibrainsdk.so for adrp/add xrefs to the buffer strings,
+# then full decode of miBrainSdkAddDataInternal (0x13f74) into evidence/sdk_adddata_disasm.txt
+$PY tools/disasm_elf.py inventory/libs/lib/arm64-v8a/libmibrainsdk.so --range 0x14680:0x14860 -o -
+nm -D --defined-only inventory/libs/lib/arm64-v8a/libmibrainsdk.so | grep AddDataInternal
+#   -> miBrainSdkAddDataInternal 0x13f74, miBrainSdkAddDataRawInternal 0x13d78, miBrainSdkAddNlpDataInternal 0x148ac
+# const @0x148a8 = 32000.0f (bytes/s for 16 kHz s16le), @0x148a4 = 2.3f
+$PY tools/disasm_elf.py inventory/libs/lib/arm64-v8a/libmibrainjni.so --symbol Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_addData -o -
+#   -> 0x4094 tail-branch to mibrain_sdk_wrapper_addData
+$PY tools/disasm_elf.py inventory/libs/lib/arm64-v8a/libmibrainjni.so --symbol _Z27mibrain_sdk_wrapper_addDataP7_JNIEnvP8_jobjectxP11_jbyteArrayii -o -
+#   -> 0x7524: GetByteArrayElements -> miBrainSdkAddDataInternal(ctx, ptr, len=arg4, flag=arg5) -> ReleaseByteArrayElements
+
+# constant resolution (jadx single-class)
+  com.xiaomi.onetrack.api.b  -> I = "response"
+  rg.j.d                     -> f52974k = "error_msg"
+  com.xiaomi.mitv.phone.remotecontroller.remotecall.RemoteCallHandlerActivity -> f20304f = "query"
+  com.xiaomi.onetrack.OneTrack$Param -> SESSION_ID = "session_id"
+
+# JSON schema validation
+$PY evidence/validate_findings.py $WS/SCHEMA.json reports/miui_remote/findings.json

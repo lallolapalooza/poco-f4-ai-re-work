@@ -1,0 +1,24 @@
+; disasm_elf.py (capstone 5.0.7)
+; file    : /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libFaceMagic.so
+; target  : _ZN2FM15FMLiquifyEffect5bloatERKN3CGE3VecIfLi2EEES5_ff (0x3cfbec)
+; start   : 0x3cfbec
+; size    : 0x40
+; bytes   : 0x40   instructions: 16
+; generated: 2026-10-23T23:35:51
+
+0x003cfbec: f3 0f 1e f8              str      x19, [sp, #-0x20]!
+0x003cfbf0: fd 7b 01 a9              stp      x29, x30, [sp, #0x10]
+0x003cfbf4: fd 43 00 91              add      x29, sp, #0x10
+0x003cfbf8: f3 03 00 aa              mov      x19, x0
+0x003cfbfc: 00 30 40 f9              ldr      x0, [x0, #0x60]
+0x003cfc00: 23 1c a1 4e              mov      v3.16b, v1.16b
+0x003cfc04: 02 1c a0 4e              mov      v2.16b, v0.16b
+0x003cfc08: 20 04 40 2d              ldp      s0, s1, [x1]
+0x003cfc0c: 08 00 40 f9              ldr      x8, [x0]
+0x003cfc10: e1 03 02 aa              mov      x1, x2
+0x003cfc14: 08 4d 40 f9              ldr      x8, [x8, #0x98]
+0x003cfc18: 00 01 3f d6              blr      x8
+0x003cfc1c: 60 32 40 f9              ldr      x0, [x19, #0x60]
+0x003cfc20: fd 7b 41 a9              ldp      x29, x30, [sp, #0x10]
+0x003cfc24: f3 07 42 f8              ldr      x19, [sp], #0x20
+0x003cfc28: 96 45 f5 17              b        #0x121280                  ; -> _ZN3CGE16CGELiquifyFilter8pushMeshEv@plt

@@ -1,0 +1,426 @@
+[
+  {
+    "slug": "miui_aicr",
+    "name": "MIUIAICR",
+    "rel": "product/priv-app/MIUIAICR/MIUIAICR.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/MIUIAICR/MIUIAICR.apk",
+    "size": 74960801,
+    "sha256": "e28552ce51604142e4db540905582abfee241665bac5bdcefd6f6bc2f87317ae"
+  },
+  {
+    "slug": "miui_securitycenter",
+    "name": "MIUISecurityCenterGlobal",
+    "rel": "product/priv-app/MIUISecurityCenterGlobal/MIUISecurityCenterGlobal.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/MIUISecurityCenterGlobal/MIUISecurityCenterGlobal.apk",
+    "size": 93987501,
+    "sha256": "35eefc4d8bbf03bbf0b759199ab258b5113c4dfdba59188fa8136c2b187c56c6"
+  },
+  {
+    "slug": "miui_securitycoreadd",
+    "name": "SecurityCoreAdd",
+    "rel": "product/app/SecurityCoreAdd/SecurityCoreAdd.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/SecurityCoreAdd/SecurityCoreAdd.apk",
+    "size": 32473507,
+    "sha256": "e87d13eb3f6ecb31b845027811f71707a0392a5737dbb19f3497f1870ece3761"
+  },
+  {
+    "slug": "miui_screenshot",
+    "name": "MIUIScreenshot",
+    "rel": "product/app/MIUIScreenshot/MIUIScreenshot.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/MIUIScreenshot/MIUIScreenshot.apk",
+    "size": 8357863,
+    "sha256": "9ffba36ed0797f832915d8eabc5b626996acffc2836b65b1ac231eecfc05066d"
+  },
+  {
+    "slug": "miui_mediaeditor",
+    "name": "MIMediaEditorGlobal",
+    "rel": "product/data-app/MIMediaEditorGlobal/MIMediaEditorGlobal.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/data-app/MIMediaEditorGlobal/MIMediaEditorGlobal.apk",
+    "size": 216457464,
+    "sha256": "98e2ce9e30e21d47f1b912b14721bf85fae044c045105da9561b4778b54bd976"
+  },
+  {
+    "slug": "miui_extraphoto",
+    "name": "ExtraPhotoGlobal",
+    "rel": "product/priv-app/ExtraPhotoGlobal/ExtraPhotoGlobal.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/ExtraPhotoGlobal/ExtraPhotoGlobal.apk",
+    "size": 228682351,
+    "sha256": "35c602409bdb40614be77f49b483efabde09cfaafd207fe75a4c814213462b2b"
+  },
+  {
+    "slug": "miui_biometric",
+    "name": "Biometric",
+    "rel": "product/app/Biometric/Biometric.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/Biometric/Biometric.apk",
+    "size": 107301666,
+    "sha256": "7be477e2a28139d0ccd5c9c43e0f88d8afa8627cf4c8bd829af6bcde6bcee111"
+  },
+  {
+    "slug": "miui_paymentservice",
+    "name": "PaymentService_Global",
+    "rel": "product/app/PaymentService_Global/PaymentService_Global.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/PaymentService_Global/PaymentService_Global.apk",
+    "size": 36181276,
+    "sha256": "1b8e2bb07232021a635e031371b3370607c6dfdc6f11e4f01df5959f9c7927fd"
+  },
+  {
+    "slug": "miui_soundrecorder",
+    "name": "MIUISoundRecorder",
+    "rel": "product/data-app/MIUISoundRecorderTargetSdk30Global/MIUISoundRecorderTargetSdk30Global.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/data-app/MIUISoundRecorderTargetSdk30Global/MIUISoundRecorderTargetSdk30Global.apk",
+    "size": 15236019,
+    "sha256": "5cac9ae1036de8cb909eeec50b5c490859a624da86156d46171c37f3cb910905"
+  },
+  {
+    "slug": "miui_remote",
+    "name": "XMRemoteController",
+    "rel": "product/data-app/XMRemoteController/XMRemoteController.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/data-app/XMRemoteController/XMRemoteController.apk",
+    "size": 35905205,
+    "sha256": "6a955dfc5ef67f1b7cd4094108ec019d419c9e9541546d3e249fdde9354eb9a6"
+  },
+  {
+    "slug": "miui_smarthome",
+    "name": "SmartHome",
+    "rel": "product/data-app/SmartHome/SmartHome.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/data-app/SmartHome/SmartHome.apk",
+    "size": 102385161,
+    "sha256": "53b7b0202c72bb19fc84f6ce8b36dc288609d3cbc62133474c478013be51e141"
+  },
+  {
+    "slug": "qcom_voiceactivation",
+    "name": "QualcommVoiceActivation",
+    "rel": "system_ext/priv-app/QualcommVoiceActivation/QualcommVoiceActivation.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/system_ext/priv-app/QualcommVoiceActivation/QualcommVoiceActivation.apk",
+    "size": 47391029,
+    "sha256": "565f8818b189d4cc0c90ad383f068093292fe51ac89ca8c1cc1d9680a7a32863"
+  },
+  {
+    "slug": "mtb_modemtestbox",
+    "name": "ModemTestBox",
+    "rel": "system_ext/app/ModemTestBox/ModemTestBox.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/system_ext/app/ModemTestBox/ModemTestBox.apk",
+    "size": 2348152,
+    "sha256": "26b04faec0b6b01a9f08b373c4138121bd81d5bbb419a59ddcd3975266dac0c9"
+  },
+  {
+    "slug": "miui_milink",
+    "name": "MilinkCirculateGlobal",
+    "rel": "product/app/MilinkCirculateGlobal/MilinkCirculateGlobal.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/MilinkCirculateGlobal/MilinkCirculateGlobal.apk",
+    "size": 71373939,
+    "sha256": "f10cccb3cae6c24bb1191697795e98b543246e44cc390fcdf5f47fa64a09913e"
+  },
+  {
+    "slug": "miui_bluetooth_ext",
+    "name": "BluetoothExtension",
+    "rel": "system_ext/app/BluetoothExtension/BluetoothExtension.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/system_ext/app/BluetoothExtension/BluetoothExtension.apk",
+    "size": 21944649,
+    "sha256": "1b3c9e906a931359e3340e93c7c7672bfb60d32bc7a9413a9d56b2e28b9e27a7"
+  },
+  {
+    "slug": "miui_systemui_plugin",
+    "name": "MIUISystemUIPlugin",
+    "rel": "product/app/MIUISystemUIPlugin/MIUISystemUIPlugin.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/MIUISystemUIPlugin/MIUISystemUIPlugin.apk",
+    "size": 18692026,
+    "sha256": "15880349baa87b1ba6513cd576e45e286d2819d41ea6e6c552121b36026426c7"
+  },
+  {
+    "slug": "miui_aod",
+    "name": "MIUIAod",
+    "rel": "product/priv-app/MIUIAod/MIUIAod.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/MIUIAod/MIUIAod.apk",
+    "size": 45159063,
+    "sha256": "9936abccd316c8b45a0f7512dcccb98dc52f9c8d74ba0ff0b2b5b33696565dd6"
+  },
+  {
+    "slug": "miui_voice_hooks",
+    "name": "voice-integration-group",
+    "rel": "product/app/MIUIMiPicks/MIUIMiPicks.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/MIUIMiPicks/MIUIMiPicks.apk",
+    "size": 54506418,
+    "sha256": "8e127c44e94e9d28e547b69183d15435adaa363256cd54861387e3f9f94c8397"
+  },
+  {
+    "slug": "gms_core",
+    "name": "GmsCore",
+    "rel": "product/priv-app/GmsCore/GmsCore.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/GmsCore/GmsCore.apk",
+    "size": 148953047,
+    "sha256": "56101c98a1c767fcef2a7b635f01f6b176bf7d7f3e2175887aef32438b421c23"
+  },
+  {
+    "slug": "google_velvet",
+    "name": "Velvet",
+    "rel": "product/priv-app/Velvet/Velvet.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/Velvet/Velvet.apk",
+    "size": 252188991,
+    "sha256": "71f708bb94ec2bac070c02bd02519fb99294ad9d58ac19535c374125cb6e0ce3"
+  },
+  {
+    "slug": "google_dialer",
+    "name": "GoogleDialer",
+    "rel": "product/priv-app/GoogleDialer_arm64/GoogleDialer_arm64.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/GoogleDialer_arm64/GoogleDialer_arm64.apk",
+    "size": 70474490,
+    "sha256": "52831b499128f4f0cfa446c65f28ff2bd82171277087b55ad91d10cea28bbac0"
+  },
+  {
+    "slug": "google_messages",
+    "name": "Messages",
+    "rel": "product/priv-app/Messages_arm64_xxhdpi/Messages_arm64_xxhdpi.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/Messages_arm64_xxhdpi/Messages_arm64_xxhdpi.apk",
+    "size": 147743964,
+    "sha256": "ce8b96ba4d91dc18dcc1e448a3edaa82e9ac57336a09c8f6b0f91c45392293d9"
+  },
+  {
+    "slug": "google_photos",
+    "name": "Photos",
+    "rel": "product/data-app/Photos/Photos.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/data-app/Photos/Photos.apk",
+    "size": 117042676,
+    "sha256": "57539f82044ffc45b7bb5e81663d3d4f8081af691eb2e9c50d0b0ecf1f0e8110"
+  },
+  {
+    "slug": "google_drive",
+    "name": "Drive",
+    "rel": "product/data-app/Drive/Drive.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/data-app/Drive/Drive.apk",
+    "size": 49981740,
+    "sha256": "b182401d25d18968425f9cb4e83732b533f8c88f505635148999e8cc093d2235"
+  },
+  {
+    "slug": "google_latinime",
+    "name": "LatinImeGoogle",
+    "rel": "product/app/LatinImeGoogle/LatinImeGoogle.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/LatinImeGoogle/LatinImeGoogle.apk",
+    "size": 71683327,
+    "sha256": "8f4e9a1b6366d0c96f24dfb32cfb57b56c8d78bf52ffe129397bbc9db46c5cd7"
+  },
+  {
+    "slug": "google_turbo",
+    "name": "Turbo",
+    "rel": "product/priv-app/Turbo/Turbo.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/Turbo/Turbo.apk",
+    "size": 8091774,
+    "sha256": "1185e96d4bdf2ee5b0a00e02b95dfdc8612a9ed00e8f905193823f5aac2b1503"
+  },
+  {
+    "slug": "google_phonesky",
+    "name": "Phonesky",
+    "rel": "product/priv-app/Phonesky/Phonesky.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/Phonesky/Phonesky.apk",
+    "size": 83141852,
+    "sha256": "0334d66f895a7f3d2feb3679bc2add10847f96ac0b66089ddceba7ef0f983d43"
+  },
+  {
+    "slug": "google_asi",
+    "name": "AndroidSystemIntelligence",
+    "rel": "product/priv-app/AndroidSystemIntelligence_Infrastructure_arm64/AndroidSystemIntelligence_Infrastructure_arm64.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/AndroidSystemIntelligence_Infrastructure_arm64/AndroidSystemIntelligence_Infrastructure_arm64.apk",
+    "size": 30617068,
+    "sha256": "1a0e00c24378956e164600be863eee565a54c7699ddc4a8d40fabccd7ac2ed8c"
+  },
+  {
+    "slug": "google_pcs",
+    "name": "PrivateComputeServices",
+    "rel": "product/priv-app/PrivateComputeServices_arm64/PrivateComputeServices_arm64.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/PrivateComputeServices_arm64/PrivateComputeServices_arm64.apk",
+    "size": 21777717,
+    "sha256": "1324888545181a592392b3b1f8d879b560f40def7be39966b748951b93c89e4e"
+  },
+  {
+    "slug": "google_adservices",
+    "name": "AdServices",
+    "rel": "apex/com.android.adservices/priv-app/AdServicesApkGoogle@372038020/AdServicesApkGoogle.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/apex/com.android.adservices/priv-app/AdServicesApkGoogle@372038020/AdServicesApkGoogle.apk",
+    "size": 17745115,
+    "sha256": "0d64c273a60ccc21550d0808471aa1bab0626bc0dbb54ce14fc20bd521bc5f47"
+  },
+  {
+    "slug": "google_odp",
+    "name": "OnDevicePersonalization",
+    "rel": "apex/com.android.ondevicepersonalization/priv-app/OnDevicePersonalizationGoogle@372038020/OnDevicePersonalizationGoogle.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/apex/com.android.ondevicepersonalization/priv-app/OnDevicePersonalizationGoogle@372038020/OnDevicePersonalizationGoogle.apk",
+    "size": 2505922,
+    "sha256": "0364f3907ee35eca2536d07dcfa3df54dc73afacf9354fa900b89b5d262cc164"
+  },
+  {
+    "slug": "google_federated",
+    "name": "FederatedCompute",
+    "rel": "apex/com.android.ondevicepersonalization/app/FederatedComputeGoogle@372038020/FederatedComputeGoogle.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/apex/com.android.ondevicepersonalization/app/FederatedComputeGoogle@372038020/FederatedComputeGoogle.apk",
+    "size": 461519,
+    "sha256": "66725fd0e7461203f18ce9681c905f137e2b90d46529f599b8746a0841ce0bf0"
+  },
+  {
+    "slug": "google_switchaccess",
+    "name": "SwitchAccess",
+    "rel": "product/app/SwitchAccess/SwitchAccess.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/SwitchAccess/SwitchAccess.apk",
+    "size": 10232586,
+    "sha256": "25293b646f270dc277ed3fcc2e993283f5c28946a464038200b9f4d8256b8b53"
+  },
+  {
+    "slug": "google_talkback",
+    "name": "TalkBack",
+    "rel": "product/app/talkback/talkback.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/talkback/talkback.apk",
+    "size": 35570266,
+    "sha256": "99d0ed21ade48572d85e89981e190f00a6db61680216b7759a4823aae481b48f"
+  },
+  {
+    "slug": "google_maps",
+    "name": "Maps",
+    "rel": "product/app/Maps/Maps.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/Maps/Maps.apk",
+    "size": 97203856,
+    "sha256": "455292c2439d5afcd8ee1a718253f491584c8e7caa635b2b79258d4e2285aaef"
+  },
+  {
+    "slug": "google_chrome",
+    "name": "Chrome",
+    "rel": "product/app/Chrome64/Chrome64.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/Chrome64/Chrome64.apk",
+    "size": 39907932,
+    "sha256": "f688682b5ff292421cef9bea18c0293dbebe8f3879110711494d8470016ac231"
+  },
+  {
+    "slug": "google_webview",
+    "name": "WebView",
+    "rel": "product/app/WebViewGoogle64/WebViewGoogle64.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/WebViewGoogle64/WebViewGoogle64.apk",
+    "size": 74491666,
+    "sha256": "dc60ad7a489624714f2cb24009c9b83b0920e069e67621d2f3cef3280b3f5321"
+  },
+  {
+    "slug": "google_gmail",
+    "name": "Gmail",
+    "rel": "product/app/Gmail2/Gmail2.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/Gmail2/Gmail2.apk",
+    "size": 105936796,
+    "sha256": "74b013170e7c9324919083fd48995a138be9035ba99e50900b10624cd4851e3f"
+  },
+  {
+    "slug": "google_meet",
+    "name": "Meet",
+    "rel": "product/data-app/Meet/Meet.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/data-app/Meet/Meet.apk",
+    "size": 79141746,
+    "sha256": "91fac0574290d53a998394f4bc49915e34c62223ff7a02c03b8910ab9ab50dbe"
+  },
+  {
+    "slug": "google_assistant",
+    "name": "GoogleAssistant",
+    "rel": "product/priv-app/GoogleAssistant/GoogleAssistant.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/GoogleAssistant/GoogleAssistant.apk",
+    "size": 1168851,
+    "sha256": "f7a26a557b92d48c93d83aedc30c16297b22d07c53567a49e637e3fe5f7e7583"
+  },
+  {
+    "slug": "google_speech",
+    "name": "SpeechRecognitionAndSynthesis",
+    "rel": "product/app/SpeechRecognitionAndSynthesisFromGoogle/SpeechRecognitionAndSynthesisFromGoogle.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/SpeechRecognitionAndSynthesisFromGoogle/SpeechRecognitionAndSynthesisFromGoogle.apk",
+    "size": 74846244,
+    "sha256": "6802cf2db7794dbd48645bdf8f93e1a2b883e715f26eb154cf1015193664b16e"
+  },
+  {
+    "slug": "wps",
+    "name": "WPS Office",
+    "rel": "cust/app/customized/partner-cn.wps.moffice_eng_63/partner-cn.wps.moffice_eng_63.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-cn.wps.moffice_eng_63/partner-cn.wps.moffice_eng_63.apk",
+    "size": 104821731,
+    "sha256": "6cdb3c9720c7a5e7942acb8a3df008dc081d45b213b1e64007ce52e69f3e07fd"
+  },
+  {
+    "slug": "amazon_shopping",
+    "name": "Amazon Shopping",
+    "rel": "cust/app/customized/partner-com.amazon.mShop.android.shopping_41/partner-com.amazon.mShop.android.shopping_41.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.amazon.mShop.android.shopping_41/partner-com.amazon.mShop.android.shopping_41.apk",
+    "size": 65253468,
+    "sha256": "0a63ff00c229fafeb1966d4453ce1d318d85c2ff93d45143db86b8d8ec52d717"
+  },
+  {
+    "slug": "snapchat",
+    "name": "Snapchat",
+    "rel": "cust/app/customized/partner-com.snapchat.android_200/partner-com.snapchat.android_200.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.snapchat.android_200/partner-com.snapchat.android_200.apk",
+    "size": 92250637,
+    "sha256": "70147a34fd974522a43a142ad1a5c81a0698b74663a3933e88bde30846a50238"
+  },
+  {
+    "slug": "tiktok_musically",
+    "name": "TikTok (musically)",
+    "rel": "cust/app/customized/partner-com.zhiliaoapp.musically_100/partner-com.zhiliaoapp.musically_100.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.zhiliaoapp.musically_100/partner-com.zhiliaoapp.musically_100.apk",
+    "size": 118824480,
+    "sha256": "3a488bed7ae1b2da18a947161a94a312ae64ad01137339774d37d5847909f2f9"
+  },
+  {
+    "slug": "tiktok_trill",
+    "name": "TikTok (trill)",
+    "rel": "cust/app/customized/partner-com.ss.android.ugc.trill_101/partner-com.ss.android.ugc.trill_101.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.ss.android.ugc.trill_101/partner-com.ss.android.ugc.trill_101.apk",
+    "size": 118846600,
+    "sha256": "c6e9b326f424800373384076f2490553c25aa29a1b358081e8633b9e6d8b59cc"
+  },
+  {
+    "slug": "kwai_video",
+    "name": "Kwai",
+    "rel": "cust/app/customized/partner-com.kwai.video_33/partner-com.kwai.video_33.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.kwai.video_33/partner-com.kwai.video_33.apk",
+    "size": 80706484,
+    "sha256": "a0050c589bf6d748e2c721c86e5e0f5e254e594aa88822fe304810af9611f98e"
+  },
+  {
+    "slug": "kwai_bulldog",
+    "name": "Kwai Bulldog",
+    "rel": "cust/app/customized/partner-com.kwai.bulldog_112/partner-com.kwai.bulldog_112.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.kwai.bulldog_112/partner-com.kwai.bulldog_112.apk",
+    "size": 80257412,
+    "sha256": "d18888e3a450569b50769a9a550358e92e4bb158608f0ba04edaafa21c1f9c7d"
+  },
+  {
+    "slug": "kwai_live",
+    "name": "Kwai Live",
+    "rel": "cust/app/customized/partner-com.kwai.kuaishou.video.live_155/partner-com.kwai.kuaishou.video.live_155.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.kwai.kuaishou.video.live_155/partner-com.kwai.kuaishou.video.live_155.apk",
+    "size": 80280485,
+    "sha256": "642f1cbfa4d4cfa4e9424e214f6295bf456cf7d220f74f9ca0bf5ba4743acbe9"
+  },
+  {
+    "slug": "truecaller",
+    "name": "Truecaller",
+    "rel": "cust/app/customized/partner-com.truecaller_195/partner-com.truecaller_195.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.truecaller_195/partner-com.truecaller_195.apk",
+    "size": 107547986,
+    "sha256": "f6a1936718fdf1725f4e1c0014a5fdcc33b11561d11f87d5fb2c30b3ab559135"
+  },
+  {
+    "slug": "agoda",
+    "name": "Agoda",
+    "rel": "cust/app/customized/partner-com.agoda.mobile.consumer_110/partner-com.agoda.mobile.consumer_110.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.agoda.mobile.consumer_110/partner-com.agoda.mobile.consumer_110.apk",
+    "size": 102597071,
+    "sha256": "302a26653dabe82bd9c6554903e6d195e65280e1a47e0d2174d1d7146a529e23"
+  },
+  {
+    "slug": "zalo",
+    "name": "Zalo",
+    "rel": "cust/app/customized/partner-com.zing.zalo_172/partner-com.zing.zalo_172.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.zing.zalo_172/partner-com.zing.zalo_172.apk",
+    "size": 78443249,
+    "sha256": "e34e14a415c7e56ab97afb685e0a77c50a7d502f055ca4cd62b97b76c61b478b"
+  },
+  {
+    "slug": "video_like",
+    "name": "video.like",
+    "rel": "cust/app/customized/partner-video.like_111/partner-video.like_111.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-video.like_111/partner-video.like_111.apk",
+    "size": 87410050,
+    "sha256": "42a3050a5434c4a2c10652ad4e87322a7f7c95fa0ca466a21a5756917486df1e"
+  }
+]

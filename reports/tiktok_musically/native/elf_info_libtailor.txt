@@ -1,0 +1,47 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/tiktok_musically/native/libtailor.so
+==============================================================================
+size        : 55376 bytes (0.05 MiB)
+sha256      : ed7577673ca499b31a021e970830c877954b6553c91f9cd9e42793dbac84c4ed
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x2d60   imagebase: 0x0
+build id    : a9260cfc512128bd54e50f931341c2dc5cd248f2
+android     : SDK 21, NDK r21b, build 6352462
+soname      : libtailor.so
+needed      : liblog.so, libz.so, libm.so, libc++_shared.so, libdl.so, libc.so
+parser      : lief
+counts      : 61 exports, 54 imports, 0 JNI, 25 sections, 8 segments
+symtab/dynsym: 0 / 125
+
+Sections (25)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        896        0x228
+  .gnu.hash              GNU_HASH         A      0x5a8        620        0x5a8
+  .dynsym                DYNSYM           A      0x818        3000       0x818
+  .dynstr                STRTAB           A      0x13d0       2147       0x13d0
+  .gnu.version           GNU_VERSYM       A      0x1c34       250        0x1c34
+  .gnu.version_r         GNU_VERNEED      A      0x1d30       64         0x1d30
+  .rela.dyn              RELA             A      0x1d70       600        0x1d70
+  .rela.plt              RELA             AI     0x1fc8       2064       0x1fc8
+  .plt                   PROGBITS         AX     0x27e0       1408       0x27e0
+  .text                  PROGBITS         AX     0x2d60       29660      0x2d60
+  .rodata                PROGBITS         A      0xa140       2109       0xa140
+  .eh_frame_hdr          PROGBITS         A      0xa980       972        0xa980
+  .eh_frame              PROGBITS         A      0xad50       5544       0xad50
+  .gcc_except_table      PROGBITS         A      0xc2f8       100        0xc2f8
+  .note.android.ident    NOTE             A      0xc35c       152        0xc35c
+  .fini_array            FINI_ARRAY       WA     0xda78       16         0xca78
+  .data.rel.ro           PROGBITS         WA     0xda88       80         0xca88
+  .dynamic               DYNAMIC          WA     0xdad8       528        0xcad8
+  .got                   PROGBITS         WA     0xdce8       792        0xcce8
+  .data                  PROGBITS         WA     0xe000       64         0xd000
+  .bss                   NOBITS           WA     0xe040       1104       0xd040
+  .comment               PROGBITS         MS     0x0          220        0xd040
+  .shstrtab              STRTAB           -      0x0          239        0xd11c
+
+AI-relevant strings (20034 bytes scanned in allocated data sections)
+  [segment] 3 unique (first 3)
+    0x00001913 .dynstr    _Z24tailor_HEAP_DUMP_SEGMENTP6StreamS0_
+    0x0000a29d .rodata    Can NOT found the first load segment. %s
+    0x0000a2c6 .rodata    Can NOT found dynamic segment. %s

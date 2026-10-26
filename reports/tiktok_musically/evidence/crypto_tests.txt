@@ -1,0 +1,25 @@
+# Payload encoding tests (all negative on descriptor block and/or whole payload)
+Date: 2026-10-23/24. Files: the three extracted .model files (sha256 in hashes.txt).
+
+1. Magics: no TFL3; no valid BM at any of the 8/1/0 literal 'BM' offsets
+   (check: u32@+4 == size, u8@+3 in 1..5, esp. disassembleModelBuffer requires
+   'B','M' + u32@4==buffer size; none match).
+2. zlib/gzip/raw-deflate, lzma, bz2: decompression attempted at payload offsets
+   0..31 and on every B[4] descriptor block at offsets 0..7 -> all fail.
+3. AES-128/192/256 ECB/CBC/CTR on payload[0..len) and descriptor blocks:
+   keys = per-file A (32 B), A[0:16], A[16:32], md5/sha1/sha256 of A halves,
+   md5/sha1/sha256 of model name / "name.model" / "path/name.model" / file id /
+   header16 / d[8:24]; IV = 0, A halves, B halves, header16.  No plaintext hit
+   (printable score stayed <= 0.62 on a 16-byte test block; no 'BM').
+4. ChaCha20 with key A and nonces A[0:16]/A[16:32]/B halves/zeros: negative.
+5. bytenn XOR+inv-AES-Sbox cipher (libbytenn disassemble @0x42500/0x43418,
+   loop 0x42808-0x428cc, inv-Sbox table .rodata 0x184b32):
+   out[i] = inv_sbox[in[i] ^ key[i % 32]] and the reverse order, keys =
+   per-file A, per-record B, file-id16, header16, d[8:24], model name/hash,
+   with key also assumed embedded at payload offsets 0..512 (16/32/64 B) and
+   ciphertext offsets 0..512.  No printable/text hit; entropy rises to 7.9.
+   (Independently confirmed by the trill agent on the identical files.)
+6. Conclusion: payload descriptor block is dense binary (u32/u16 op+tensor
+   tables, internal offsets just below B[4], e.g. partface 5003/5012,
+   image 6639/6644, agenet 14253/14260), NOT encrypted.  The bytenn cipher is
+   for BM-format models and is not applied here.

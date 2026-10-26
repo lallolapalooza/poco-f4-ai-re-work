@@ -1,0 +1,293 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/qcom_voiceactivation/native/libs/libVoiceSdk.so
+==============================================================================
+size        : 1596264 bytes (1.52 MiB)
+sha256      : 011c68c4d00916ddd7fb70271da228f5266dc59155cd3798a4550cd5d5696f6d
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x245c0   imagebase: 0x0
+build id    : 392d75ab83e85f0f84640f272998b000ffe6d650
+android     : SDK 21, NDK r21d, build 6528147
+soname      : libVoiceSdk.so
+needed      : liblog.so, libdl.so, libEGL.so, libGLESv2.so, libGLESv3.so, libtensorflowlite_c.so, libm.so, libc.so
+parser      : lief
+counts      : 310 exports, 172 imports, 93 JNI, 26 sections, 8 segments
+symtab/dynsym: 0 / 492
+
+Sections (26)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        3028       0x228
+  .gnu.hash              GNU_HASH         A      0xe00        2592       0xe00
+  .dynsym                DYNSYM           A      0x1820       11808      0x1820
+  .dynstr                STRTAB           A      0x4640       19554      0x4640
+  .gnu.version           GNU_VERSYM       A      0x92a2       984        0x92a2
+  .gnu.version_r         GNU_VERNEED      A      0x9680       128        0x9680
+  .rela.dyn              RELA             A      0x9700       101280     0x9700
+  .rela.plt              RELA             AI     0x222a0      5376       0x222a0
+  .plt                   PROGBITS         AX     0x237a0      3616       0x237a0
+  .text                  PROGBITS         AX     0x245c0      1085824    0x245c0
+  .rodata                PROGBITS         A      0x12d740     62713      0x12d740
+  .eh_frame_hdr          PROGBITS         A      0x13cc3c     30716      0x13cc3c
+  .eh_frame              PROGBITS         A      0x144438     138120     0x144438
+  .gcc_except_table      PROGBITS         A      0x165fc0     84836      0x165fc0
+  .note.android.ident    NOTE             A      0x17ab24     152        0x17ab24
+  .init_array            INIT_ARRAY       WA     0x17c590     192        0x17b590
+  .fini_array            FINI_ARRAY       WA     0x17c650     16         0x17b650
+  .data.rel.ro           PROGBITS         WA     0x17c660     35376      0x17b660
+  .dynamic               DYNAMIC          WA     0x185090     592        0x184090
+  .got                   PROGBITS         WA     0x1852e0     3360       0x1842e0
+  .data                  PROGBITS         WA     0x186000     808        0x185000
+  .bss                   NOBITS           WA     0x186330     7600       0x185328
+  .shstrtab              STRTAB           -      0x0          257        0x185328
+  .gnu_debugdata         PROGBITS         -      0x0          188        0x185429
+
+JNI entry points (93)
+  0x2d2c0        440        net.idrnd.voicesdk.core.common.VoiceTemplate.saveToFile
+      Java_net_idrnd_voicesdk_core_common_VoiceTemplate_saveToFile
+  0x2d670        564        net.idrnd.voicesdk.core.common.VoiceTemplate.loadFromFile1
+      Java_net_idrnd_voicesdk_core_common_VoiceTemplate_loadFromFile1
+  0x2d9dc        628        net.idrnd.voicesdk.core.common.VoiceTemplate.serialize
+      Java_net_idrnd_voicesdk_core_common_VoiceTemplate_serialize
+  0x2dd84        160        net.idrnd.voicesdk.core.common.VoiceTemplate.isValid
+      Java_net_idrnd_voicesdk_core_common_VoiceTemplate_isValid
+  0x2de24        756        net.idrnd.voicesdk.core.common.VoiceTemplate.deserialize1
+      Java_net_idrnd_voicesdk_core_common_VoiceTemplate_deserialize1
+  0x2e2dc        192        net.idrnd.voicesdk.core.common.VoiceTemplate.getInitDataId
+      Java_net_idrnd_voicesdk_core_common_VoiceTemplate_getInitDataId
+  0x2e39c        308        net.idrnd.voicesdk.core.common.VoiceTemplate.getChannelType
+      Java_net_idrnd_voicesdk_core_common_VoiceTemplate_getChannelType
+  0x2e610        136        net.idrnd.voicesdk.core.common.VoiceTemplate.release
+      Java_net_idrnd_voicesdk_core_common_VoiceTemplate_release
+  0x2e698        188        net.idrnd.voicesdk.core.BuildInfo.get1
+      Java_net_idrnd_voicesdk_core_BuildInfo_get1
+  0x2e754        632        net.idrnd.voicesdk.core.WavUtils.readAsPCM16Bytes
+      Java_net_idrnd_voicesdk_core_WavUtils_readAsPCM16Bytes
+  0x2e9cc        632        net.idrnd.voicesdk.core.WavUtils.readAsPCM16Samples
+      Java_net_idrnd_voicesdk_core_WavUtils_readAsPCM16Samples
+  0x2ec44        632        net.idrnd.voicesdk.core.WavUtils.readAsFloatSamples
+      Java_net_idrnd_voicesdk_core_WavUtils_readAsFloatSamples
+  0x2eebc        632        net.idrnd.voicesdk.core.WavUtils.readAsFloatSamples16Bit
+      Java_net_idrnd_voicesdk_core_WavUtils_readAsFloatSamples16Bit
+  0x2f134        616        net.idrnd.voicesdk.core.WavUtils.readAsPCM16Bytes1
+      Java_net_idrnd_voicesdk_core_WavUtils_readAsPCM16Bytes1
+  0x2f39c        616        net.idrnd.voicesdk.core.WavUtils.readAsPCM16Samples1
+      Java_net_idrnd_voicesdk_core_WavUtils_readAsPCM16Samples1
+  0x2f604        616        net.idrnd.voicesdk.core.WavUtils.readAsFloatSamples1
+      Java_net_idrnd_voicesdk_core_WavUtils_readAsFloatSamples1
+  0x2f86c        616        net.idrnd.voicesdk.core.WavUtils.readAsFloatSamples16Bit1
+      Java_net_idrnd_voicesdk_core_WavUtils_readAsFloatSamples16Bit1
+  0x2fad4        628        net.idrnd.voicesdk.core.WavUtils.readWaveData
+      Java_net_idrnd_voicesdk_core_WavUtils_readWaveData
+  0x2fd48        612        net.idrnd.voicesdk.core.WavUtils.convertPcm16ToFloats1
+      Java_net_idrnd_voicesdk_core_WavUtils_convertPcm16ToFloats1
+  0x2ffac        612        net.idrnd.voicesdk.core.WavUtils.convertPcm16ToFloats2
+      Java_net_idrnd_voicesdk_core_WavUtils_convertPcm16ToFloats2
+  0x30210        612        net.idrnd.voicesdk.core.WavUtils.convertFloatsToPcm16
+      Java_net_idrnd_voicesdk_core_WavUtils_convertFloatsToPcm16
+  0x30474        472        net.idrnd.voicesdk.core.WavUtils.getAudioInfo
+      Java_net_idrnd_voicesdk_core_WavUtils_getAudioInfo
+  0x3064c        444        net.idrnd.voicesdk.core.WavUtils.getAudioInfo1
+      Java_net_idrnd_voicesdk_core_WavUtils_getAudioInfo1
+  0x30808        32         net.idrnd.voicesdk.core.Settings.setNumThreads
+      Java_net_idrnd_voicesdk_core_Settings_setNumThreads
+  0x30828        12         net.idrnd.voicesdk.core.Settings.setAllowMobileNNAPI
+      Java_net_idrnd_voicesdk_core_Settings_setAllowMobileNNAPI
+  0x30834        12         net.idrnd.voicesdk.core.Settings.setAllowMobileGPU
+      Java_net_idrnd_voicesdk_core_Settings_setAllowMobileGPU
+  0x30840        580        net.idrnd.voicesdk.core.common.AudioInput.init1
+      Java_net_idrnd_voicesdk_core_common_AudioInput_init1
+  0x30bbc        580        net.idrnd.voicesdk.core.common.AudioInput.init2
+      Java_net_idrnd_voicesdk_core_common_AudioInput_init2
+  0x30e00        580        net.idrnd.voicesdk.core.common.AudioInput.init3
+      Java_net_idrnd_voicesdk_core_common_AudioInput_init3
+  0x31044        604        net.idrnd.voicesdk.core.common.AudioInput.init4
+      Java_net_idrnd_voicesdk_core_common_AudioInput_init4
+  0x312a0        136        net.idrnd.voicesdk.core.common.AudioInput.release
+      Java_net_idrnd_voicesdk_core_common_AudioInput_release
+  0x3c908        596        net.idrnd.voicesdk.media.SNRComputer.init
+      Java_net_idrnd_voicesdk_media_SNRComputer_init
+  0x3cc94        564        net.idrnd.voicesdk.media.SNRComputer.init1
+      Java_net_idrnd_voicesdk_media_SNRComputer_init1
+  0x3cec8        136        net.idrnd.voicesdk.media.SNRComputer.release
+      Java_net_idrnd_voicesdk_media_SNRComputer_release
+  0x3cf50        444        net.idrnd.voicesdk.media.SNRComputer.compute1
+      Java_net_idrnd_voicesdk_media_SNRComputer_compute1
+  0x3d304        444        net.idrnd.voicesdk.media.SNRComputer.compute2
+      Java_net_idrnd_voicesdk_media_SNRComputer_compute2
+  0x3d4c0        444        net.idrnd.voicesdk.media.SNRComputer.compute3
+      Java_net_idrnd_voicesdk_media_SNRComputer_compute3
+  0x3d67c        508        net.idrnd.voicesdk.media.SNRComputer.compute4
+      Java_net_idrnd_voicesdk_media_SNRComputer_compute4
+  0x3e090        388        net.idrnd.voicesdk.media.SpeechEndpointDetector.init
+      Java_net_idrnd_voicesdk_media_SpeechEndpointDetector_init
+  0x3e34c        192        net.idrnd.voicesdk.media.SpeechEndpointDetector.reset
+      Java_net_idrnd_voicesdk_media_SpeechEndpointDetector_reset
+  0x3e604        412        net.idrnd.voicesdk.media.SpeechEndpointDetector.addSamples1
+      Java_net_idrnd_voicesdk_media_SpeechEndpointDetector_addSamples1
+  0x3e7a0        412        net.idrnd.voicesdk.media.SpeechEndpointDetector.addSamples2
+      Java_net_idrnd_voicesdk_media_SpeechEndpointDetector_addSamples2
+  0x3e93c        412        net.idrnd.voicesdk.media.SpeechEndpointDetector.addSamples3
+      Java_net_idrnd_voicesdk_media_SpeechEndpointDetector_addSamples3
+  0x3ead8        196        net.idrnd.voicesdk.media.SpeechEndpointDetector.isSpeechEnded
+      Java_net_idrnd_voicesdk_media_SpeechEndpointDetector_isSpeechEnded
+  0x3eb9c        136        net.idrnd.voicesdk.media.SpeechEndpointDetector.release
+      Java_net_idrnd_voicesdk_media_SpeechEndpointDetector_release
+  0x3f4e0        596        net.idrnd.voicesdk.media.SpeechSummaryEngine.init
+      Java_net_idrnd_voicesdk_media_SpeechSummaryEngine_init
+  0x3f86c        564        net.idrnd.voicesdk.media.SpeechSummaryEngine.init1
+      Java_net_idrnd_voicesdk_media_SpeechSummaryEngine_init1
+  0x3faa0        136        net.idrnd.voicesdk.media.SpeechSummaryEngine.release
+      Java_net_idrnd_voicesdk_media_SpeechSummaryEngine_release
+  0x3fb28        548        net.idrnd.voicesdk.media.SpeechSummaryEngine.getSpeechSummary1
+      Java_net_idrnd_voicesdk_media_SpeechSummaryEngine_getSpeechSummary1
+  0x40100        548        net.idrnd.voicesdk.media.SpeechSummaryEngine.getSpeechSummary2
+      Java_net_idrnd_voicesdk_media_SpeechSummaryEngine_getSpeechSummary2
+  0x40324        548        net.idrnd.voicesdk.media.SpeechSummaryEngine.getSpeechSummary3
+      Java_net_idrnd_voicesdk_media_SpeechSummaryEngine_getSpeechSummary3
+  0x40548        560        net.idrnd.voicesdk.media.SpeechSummaryEngine.getSpeechSummary4
+      Java_net_idrnd_voicesdk_media_SpeechSummaryEngine_getSpeechSummary4
+  0x40778        448        net.idrnd.voicesdk.media.SpeechSummaryEngine.createStream
+      Java_net_idrnd_voicesdk_media_SpeechSummaryEngine_createStream
+  0x40a70        408        net.idrnd.voicesdk.media.SpeechSummaryStream.addSamples1
+      Java_net_idrnd_voicesdk_media_SpeechSummaryStream_addSamples1
+  0x40e00        404        net.idrnd.voicesdk.media.SpeechSummaryStream.addSamples2
+      Java_net_idrnd_voicesdk_media_SpeechSummaryStream_addSamples2
+  0x40f94        404        net.idrnd.voicesdk.media.SpeechSummaryStream.addSamples3
+      Java_net_idrnd_voicesdk_media_SpeechSummaryStream_addSamples3
+  0x41128        324        net.idrnd.voicesdk.media.SpeechSummaryStream.getTotalSpeechSummary
+      Java_net_idrnd_voicesdk_media_SpeechSummaryStream_getTotalSpeechSummary
+  0x4126c        192        net.idrnd.voicesdk.media.SpeechSummaryStream.getCurrentBackgroundLength
+      Java_net_idrnd_voicesdk_media_SpeechSummaryStream_getCurrentBackgroundLength
+  0x4132c        240        net.idrnd.voicesdk.media.SpeechSummaryStream.getTotalSpeechInfo
+      Java_net_idrnd_voicesdk_media_SpeechSummaryStream_getTotalSpeechInfo
+  0x4141c        192        net.idrnd.voicesdk.media.SpeechSummaryStream.reset
+      Java_net_idrnd_voicesdk_media_SpeechSummaryStream_reset
+  0x414dc        136        net.idrnd.voicesdk.media.SpeechSummaryStream.release
+      Java_net_idrnd_voicesdk_media_SpeechSummaryStream_release
+  0x41564        192        net.idrnd.voicesdk.media.SpeechSummaryStream.finalizeStream
+      Java_net_idrnd_voicesdk_media_SpeechSummaryStream_finalizeStream
+  0x41624        196        net.idrnd.voicesdk.media.SpeechSummaryStream.hasSpeechEvents
+      Java_net_idrnd_voicesdk_media_SpeechSummaryStream_hasSpeechEvents
+  0x416e8        300        net.idrnd.voicesdk.media.SpeechSummaryStream.getSpeechEvent
+      Java_net_idrnd_voicesdk_media_SpeechSummaryStream_getSpeechEvent
+  0x4ed7c        560        net.idrnd.voicesdk.verify.VoiceTemplateFactory.init
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateFactory_init
+  0x4f0e4        564        net.idrnd.voicesdk.verify.VoiceTemplateFactory.init1
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateFactory_init1
+  0x4f318        796        net.idrnd.voicesdk.verify.VoiceTemplateFactory.createVoiceTemplate1
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateFactory_createVoiceTemplate1
+  0x4f82c        788        net.idrnd.voicesdk.verify.VoiceTemplateFactory.createVoiceTemplate2
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateFactory_createVoiceTemplate2
+  0x4fb40        788        net.idrnd.voicesdk.verify.VoiceTemplateFactory.createVoiceTemplate3
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateFactory_createVoiceTemplate3
+  0x4fe54        788        net.idrnd.voicesdk.verify.VoiceTemplateFactory.createVoiceTemplate4
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateFactory_createVoiceTemplate4
+  0x502e4        928        net.idrnd.voicesdk.verify.VoiceTemplateFactory.mergeVoiceTemplates1
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateFactory_mergeVoiceTemplates1
+  0x50684        260        net.idrnd.voicesdk.verify.VoiceTemplateFactory.getEstimatedMergedTemplateSize
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateFactory_getEstimatedMergedTemplateSize
+  0x50788        192        net.idrnd.voicesdk.verify.VoiceTemplateFactory.getInitDataId
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateFactory_getInitDataId
+  0x50848        160        net.idrnd.voicesdk.verify.VoiceTemplateFactory.getMinimumAudioSampleRate
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateFactory_getMinimumAudioSampleRate
+  0x508e8        960        net.idrnd.voicesdk.verify.VoiceTemplateFactory.checkQuality1
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateFactory_checkQuality1
+  0x50da0        956        net.idrnd.voicesdk.verify.VoiceTemplateFactory.checkQuality2
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateFactory_checkQuality2
+  0x5115c        956        net.idrnd.voicesdk.verify.VoiceTemplateFactory.checkQuality3
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateFactory_checkQuality3
+  0x51518        956        net.idrnd.voicesdk.verify.VoiceTemplateFactory.checkQuality4
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateFactory_checkQuality4
+  0x518d4        136        net.idrnd.voicesdk.verify.VoiceTemplateFactory.release
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateFactory_release
+  0x5195c        560        net.idrnd.voicesdk.verify.VoiceTemplateMatcher.init
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateMatcher_init
+  0x51cc4        564        net.idrnd.voicesdk.verify.VoiceTemplateMatcher.init1
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateMatcher_init1
+  0x51ef8        348        net.idrnd.voicesdk.verify.VoiceTemplateMatcher.matchVoiceTemplates
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateMatcher_matchVoiceTemplates
+  0x5224c        192        net.idrnd.voicesdk.verify.VoiceTemplateMatcher.getInitDataId
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateMatcher_getInitDataId
+  0x5230c        136        net.idrnd.voicesdk.verify.VoiceTemplateMatcher.release
+      Java_net_idrnd_voicesdk_verify_VoiceTemplateMatcher_release
+  0x52394        1016       net.idrnd.voicesdk.verify.VoiceVerifyStream.init
+      Java_net_idrnd_voicesdk_verify_VoiceVerifyStream_init
+  0x528c4        408        net.idrnd.voicesdk.verify.VoiceVerifyStream.addSamples1
+      Java_net_idrnd_voicesdk_verify_VoiceVerifyStream_addSamples1
+  0x52c54        404        net.idrnd.voicesdk.verify.VoiceVerifyStream.addSamples2
+      Java_net_idrnd_voicesdk_verify_VoiceVerifyStream_addSamples2
+  0x52de8        404        net.idrnd.voicesdk.verify.VoiceVerifyStream.addSamples3
+      Java_net_idrnd_voicesdk_verify_VoiceVerifyStream_addSamples3
+  0x52f7c        192        net.idrnd.voicesdk.verify.VoiceVerifyStream.reset
+      Java_net_idrnd_voicesdk_verify_VoiceVerifyStream_reset
+  0x5303c        192        net.idrnd.voicesdk.verify.VoiceVerifyStream.finalizeStream
+      Java_net_idrnd_voicesdk_verify_VoiceVerifyStream_finalizeStream
+  0x530fc        196        net.idrnd.voicesdk.verify.VoiceVerifyStream.hasVerifyResults
+      Java_net_idrnd_voicesdk_verify_VoiceVerifyStream_hasVerifyResults
+  0x531c0        404        net.idrnd.voicesdk.verify.VoiceVerifyStream.getVerifyResult
+      Java_net_idrnd_voicesdk_verify_VoiceVerifyStream_getVerifyResult
+  0x53354        136        net.idrnd.voicesdk.verify.VoiceVerifyStream.release
+      Java_net_idrnd_voicesdk_verify_VoiceVerifyStream_release
+
+AI-relevant strings (501667 bytes scanned in allocated data sections)
+  [tflite] 35 unique (first 20)
+    0x00008b1f .dynstr    TfLiteInterpreterAllocateTensors
+    0x00008b40 .dynstr    TfLiteInterpreterCreate
+    0x00008b58 .dynstr    TfLiteInterpreterDelete
+    0x00008b70 .dynstr    TfLiteInterpreterGetInputTensor
+    0x00008b90 .dynstr    TfLiteInterpreterGetInputTensorCount
+    0x00008bb5 .dynstr    TfLiteInterpreterGetOutputTensor
+    0x00008bd6 .dynstr    TfLiteInterpreterGetOutputTensorCount
+    0x00008bfc .dynstr    TfLiteInterpreterInvoke
+    0x00008c14 .dynstr    TfLiteInterpreterOptionsAddDelegate
+    0x00008c38 .dynstr    TfLiteInterpreterOptionsCreate
+    0x00008c57 .dynstr    TfLiteInterpreterOptionsDelete
+    0x00008c76 .dynstr    TfLiteInterpreterOptionsSetNumThreads
+    0x00008c9c .dynstr    TfLiteModelCreate
+    0x00008cae .dynstr    TfLiteModelDelete
+    0x00008cc0 .dynstr    TfLiteXNNPackDelegateCreate
+    0x00008cdc .dynstr    TfLiteXNNPackDelegateDelete
+    0x00008cf8 .dynstr    TfLiteXNNPackDelegateOptionsDefault
+    0x00008d90 .dynstr    libtensorflowlite_c.so
+    0x0012e9b4 .rodata    VOICESDK_NUM_THREADS_TFLITE
+    0x0012f1e0 .rodata    FlatBuffers 1.12.0
+    ... 15 more
+  [model] 9 unique (first 9)
+    0x00130a47 .rodata    weight
+    0x001320fb .rodata    XvectorFactoryMethod: number of weights is not equal to number of templates
+    0x00132147 .rodata    XvectorFactoryMethod: weights sum is zero
+    0x00133766 .rodata    invalid number of inputs, must be 2 (audio input tensor + last embedding weight tensor) or 1 (audio input tensor only)
+    0x00133839 .rodata    invalid leftover weight input type, must be kDataTypeFloat
+    0x00133874 .rodata    invalid shape of leftover weight tensor
+    0x00133d75 .rodata    invalid number of inputs, must be 1 (only nnet input tensor is set) or 2 (nnet input + weight for the last window)
+    0x001343fc .rodata    invalid number of inputs, must be 2 (nnet output tensor + last embedding weight tensor) or 1 (nnet output tensor only)
+    0x001344c8 .rodata    invalid leftover weight value, must be in [0; 1]
+  [face] 2 unique (first 2)
+    0x00008b03 .dynstr    posix_memalign
+    0x0013b728 .rodata    alignof (
+  [asr] 25 unique (first 20)
+    0x0012d775 .rodata    AudioBufferBuilder: empty input audio buffer
+    0x0012d8bf .rodata    AudioFileUtils: failed to read samples from audio file: 
+    0x0012d916 .rodata    AudioFileReader: empty audio file: 
+    0x0012f3b5 .rodata    SpeechEndpointDetector: internal error while resampling input audio signal
+    0x0012f400 .rodata    SpeechEndpointDetector: input audio signal is too short, at least 32 ms are required
+    0x001300bb .rodata    QualityChecker: internal error while checking audio quality
+    0x0013024c .rodata    VoiceVerifyStream: input audio sample rate is lower than minimal: 
+    0x00130625 .rodata    VoiceTemplateFactory: input audio sample rate is lower than minimal: 
+    0x00133028 .rodata    invalid number of inputs, must be 1 (audio samples) or 2 (audio samples + speech intervals)
+    0x00133084 .rodata    invalid audio input type, must be kDataTypeFloat
+    0x001330b5 .rodata    invalid audio input shape size, must be 1
+    0x001330df .rodata    invalid speech intervals input type, must be kDataTypeSize
+    0x0013311a .rodata    invalid speech intervals input shape
+    0x00133165 .rodata    invalid speech intervals
+    0x00133766 .rodata    invalid number of inputs, must be 2 (audio input tensor + last embedding weight tensor) or 1 (audio input tensor only)
+    0x001337dd .rodata    invalid audio input tensor type, must be kDataTypeFloat
+    0x00133815 .rodata    invalid shape of audio input tensor
+    0x00133e41 .rodata    invalid audio input tensor size
+    0x00134d90 .rodata    cannot create VAD
+    0x00134dbb .rodata    no speech intervals of length at least 
+    ... 5 more
+  [segment] 1 unique (first 1)
+    0x00134d68 .rodata    min_segment_speech_length_ms
+
+JSON written to reports/qcom_voiceactivation/native/elfinfo/libVoiceSdk.so.json

@@ -1,0 +1,74 @@
+{
+  "error": null,
+  "max_abs": 254.8432159423828,
+  "model": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/tflite/model__ai_human_processor_beautybody_mb__FULLBODY_POFH2D_20210302_0001_e1604_q.tflite",
+  "model_file": "model__ai_human_processor_beautybody_mb__FULLBODY_POFH2D_20210302_0001_e1604_q.tflite",
+  "ok": false,
+  "reference": "ai_edge_litert Interpreter with reference kernels (no XNNPACK delegate)",
+  "rows": [
+    {
+      "dtype": "UINT8",
+      "dtype_ok": true,
+      "jax_dtype": "uint8",
+      "kind": "dequantized",
+      "max_abs": 254.8432159423828,
+      "name": "Output_hms",
+      "ok": false,
+      "ref_dtype": "uint8",
+      "shape": [
+        1,
+        64,
+        48,
+        31
+      ],
+      "tensor_index": 2,
+      "tol": 0.02
+    },
+    {
+      "dtype": "UINT8",
+      "dtype_ok": true,
+      "jax_dtype": "uint8",
+      "kind": "dequantized",
+      "max_abs": 1.6905384054407477,
+      "name": "Output_pofs",
+      "ok": false,
+      "ref_dtype": "uint8",
+      "shape": [
+        1,
+        64,
+        48,
+        78
+      ],
+      "tensor_index": 3,
+      "tol": 0.02
+    },
+    {
+      "dtype": "UINT8",
+      "dtype_ok": true,
+      "jax_dtype": "uint8",
+      "kind": "dequantized",
+      "max_abs": 93.79172757267952,
+      "name": "Output_bbfs",
+      "ok": false,
+      "ref_dtype": "uint8",
+      "shape": [
+        1,
+        8,
+        6,
+        192
+      ],
+      "tensor_index": 1,
+      "tol": 0.02
+    }
+  ],
+  "selection_reason": "subgraph 0 (model has no signature defs)",
+  "signature_key": null,
+  "status": "fail",
+  "subgraph_index": 0,
+  "subgraph_name": null,
+  "tolerances": {
+    "float16": 0.01,
+    "float32": 0.0001,
+    "quantized_dequantized": 0.02
+  }
+}

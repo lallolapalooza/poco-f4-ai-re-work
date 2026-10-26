@@ -1,0 +1,65 @@
+# VideoFrame -> VideoRawFrame JNI contract (libdaenerys.so, bulldog)
+# Source of truth: Java field/method lookups decoded from
+#   _ZN8kuaishou7android20VideoRawFrameFromJniEP7_JNIEnvP8_jobject
+#   address 0xece3c, size 6048 B, in lib/arm64-v8a/libdaenerys.so
+#   disassembly: native/daenerys_VideoRawFrameFromJni.s
+# Class descriptor loaded at 0xece84: "com/kwai/camerasdk/video/VideoFrame"
+#   (rodata file offset 0x1e0720)
+
+OFFSETS = .rodata file offsets in libdaenerys.so. Resolved with adrp+add tracking;
+see evidence/gap_pipeline/cmd.txt section 5.
+
+## Frame-type dispatch (w21 = VideoFrame.type, read via Get<int>("type"), rodata 0x1f327b)
+0xeceb4  Get<int>("type")          0x1f327b
+0xecec0  Get<int>("yuv_format")    0x1e08a8      (always read, before dispatch)
+0xececc  cmp w21, #1  -> b.eq 0xed084
+0xeced4  cmp w21, #3  -> b.eq 0xed07c
+0xecedc  cmp w21, #4  -> b.eq 0xecee4   (Bitmap branch)
+0xecee0  otherwise    -> 0xed0a0       (GL texture branch)
+
+0xed07c  type == 3:  w22 = 0x26 (38)                       -> 0xed420
+0xed084  type == 1..3: w22 = table[type-1]                 -> 0xed420
+         table @0x1e0f74 (4 x u32): 0x23, 0x24, 0x26  => 35, 36, 38
+         (MediaDataType ids handed to kuaishou::VideoRawFrame)
+0xecee4  type == 4:  Bitmap frame
+         Get<jobject>("bitmap", "Landroid/graphics/Bitmap;") 0x1e091d / 0x1e1e35
+         -> VideoRawFrame(MediaDataType, shared_ptr<media::Bitmap>, width,height,
+                          timestamp, attributes)  [symbol
+                          _ZN8kuaishou13VideoRawFrameC2ENS_13MediaDataTypeENSt6__ndk110shared_ptrINS_5media6BitmapEEEjjm]
+0xed0a0  default:    texture frame
+         Get("textureNotUsedRunnable", "Ljava/lang/Runnable;") 0x1e08b3 / 0x1e08ca
+         Get<int>("textureId")        0x1e08df
+         Get<unsigned char>("isOesTexture") 0x1e08e9
+         -> VideoRawFrame(MediaDataType, shared_ptr<render::gl::Texture>, w,h,ts,attrs)
+
+## Metadata read for every non-texture frame (0xed288..)
+0xed288  Get<int>("width")                     0x1f3400
+0xed29c  Get<int>("height")                    0x1f340e
+0xed2b0  Get<long>("timestamp")                0x1e08f6
+0xed2d0  Call("getSerializedAttributes", "()[B") 0x1e0900 / 0x1e0918
+         -> kuaishou.model.VideoFrameAttributes proto (see proto_shapes.txt)
+
+## Raw byte planes (0xed428.., YUV/I420-family frames)
+0xed428  Get("data", "Lcom/kwai/camerasdk/videoCapture/FrameBuffer;") 0x1e0948 / 0x1e094d
+         class "com/kwai/camerasdk/videoCapture/FrameBuffer"           0x1e097b
+0xed4a0  Call("isDirect", "()Z")          0x1e09a7
+0xed4c8  Get("byteBuffer", "Ljava/nio/ByteBuffer;") 0x1e09b0 / 0x1e09c4
+0xed604  Call("getByteArray", "()[B")     0x1e09bb
+0xed9cc  Call("release", "()V")           0x1e09c8   (both heap and direct paths)
+0xedcdc  Get("originalFrame", "Lcom/kwai/camerasdk/video/VideoFrame;") 0x1e0876 / 0x1e079a
+
+## Resulting C++ object
+kuaishou::VideoRawFrame, constructed as
+  (MediaDataType, shared_ptr<render::gl::Texture>|shared_ptr<media::Bitmap>|pixelbuffer,
+   width u32, height u32, timestamp u64, const kuaishou::model::VideoFrameAttributes&)
+Export names observed in .dynstr:
+  _ZN8kuaishou13VideoRawFrameC2ENS_13MediaDataTypeENSt6__ndk110shared_ptrINS_6render2gl7TextureEEEjjmONS_5model20VideoFrameAttributesE  0x20952
+  _ZN8kuaishou13VideoRawFrameC2ENS_13MediaDataTypeENSt6__ndk110shared_ptrINS_5media6BitmapEEEjjmRKNS_5model20VideoFrameAttributesE   0x24d97
+  _ZN8kuaishou13VideoRawFrame13nv12or21_copyENS_5model10ColorSpaceE / i420_copy* / ExtractPixelbufferTextures
+
+## Confirmed / inferred
+confirmed: field names, signatures, dispatch values (1/2/3 -> MediaDataType 35/36/38, 4 -> Bitmap,
+           other -> GL texture), timestamp + attributes plumbing, FrameBuffer access pattern.
+inferred : the human-readable names of MediaDataType 35/36/38 (NV21/NV12/I420 family) - only the
+           numeric ids are reachable without the daenerys headers.
+unknown  : the Java class body of VideoFrame (defined in no DEX of this APK; see report section 9.1).

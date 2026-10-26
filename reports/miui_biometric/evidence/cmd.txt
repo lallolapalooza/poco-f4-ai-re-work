@@ -1,0 +1,52 @@
+# miui_biometric — command transcript (all executed from the workspace)
+WS=/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work
+PY=/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python
+R=$WS/reports/miui_biometric
+APK="/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/Biometric/Biometric.apk"
+
+## inventory
+$PY $WS/tools/apk_inventory.py "$APK" --out $R/inventory
+# -> package com.miui.face 1.37.4-A140026, 17 entries, 1 dex, 0 components, 3 AI libs
+
+## dex
+$PY $WS/tools/dex_find.py "$APK" --regex '.' --classes-only --no-refs --max-methods-per-class 0 > $R/evidence/dex_classes.jsonl
+$PY $WS/tools/strings_dex.py "$APK" --regex '' --format plain --min-len 3 --unique > $R/evidence/dex_strings.txt
+
+## java decompilation (single-class jadx)
+$PY $WS/tools/decompile_classes.py "$APK" --regex 'com\.ts\.faceauth' --out $R/sources/faceauth --max 30 --timeout 240
+$PY $WS/tools/decompile_classes.py "$APK" --regex 'com\.android\.keyguard|com\.miui\.face\.MiuiFaceService|com\.miui\.image\.Yuv' --out $R/sources/faceunlock --max 25 --timeout 240
+$PY $WS/tools/decompile_classes.py "$APK" --regex 'com\.miui\.face\.MiuiBioApp$' --out $R/sources/faceunlock_app --max 2 --timeout 180
+
+## native ELF facts
+$PY $WS/tools/elf_info.py $WS/samples/android/libjni_stfaceunlock_api.so > $R/native/elf_jni_api.txt
+$PY $WS/tools/elf_info.py $WS/samples/android/libjni_stfaceunlock_api.so --json $R/native/elf_jni_api.json
+$PY $WS/tools/elf_info.py $WS/samples/android/libstfaceunlockocl.so --json $R/native/elf_stfaceunlockocl.json --strings-limit 200 > $R/native/elf_stfaceunlockocl.txt
+$PY $WS/tools/elf_info.py $R/native/libjni_faceunlock.so > $R/native/elf_jni_faceunlock.txt   # extracted from the APK (md5 e00a755ef998ccfbc3e7bd460b8b1bcc)
+$PY $WS/tools/carve_models.py $WS/samples/android/libstfaceunlockocl.so --json $R/evidence/carve_stface.json
+
+## disassembly (capstone, no Ghidra)
+for f in createFaceAuth enroll auth evaluate; do
+  $PY $WS/tools/disasm_elf.py $WS/samples/android/libjni_stfaceunlock_api.so \
+      --symbol Java_com_ts_faceauth_FaceAuthNative_$f --out $R/native/Java_com_ts_faceauth_FaceAuthNative_$f.s
+done
+$PY $WS/tools/disasm_elf.py $WS/samples/android/libstfaceunlockocl.so --symbol __app_protect_decipher --out $R/native/app_protect_decipher.s
+$PY $WS/tools/disasm_elf.py $WS/samples/android/libstfaceunlockocl.so --symbol __appProtect_cv_common_calcpose_106_create_fill --out $R/native/appProtect_calcpose_fill.s
+$PY $WS/tools/disasm_elf.py $WS/samples/android/libstfaceunlockocl.so --symbol _Z26sdk_protector_fast_decryptPjPKhPhi --out $R/native/sdk_protector_fast_decrypt.s
+$PY $WS/tools/disasm_elf.py $WS/samples/android/libstfaceunlockocl.so --addr 0x2b83c0 --size 0x1d4 -o $R/native/loader_0x2b83c0.s
+$PY $WS/tools/disasm_elf.py $WS/samples/android/libstfaceunlockocl.so --addr 0x2b78f4 --size 0xacc -o $R/native/loader_sharedptr.s
+
+## DWARF of the JNI shim (types + prototypes)
+readelf --debug-dump=info $WS/samples/android/libjni_stfaceunlock_api.so > $R/native/dwarf_info.txt
+python3 /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/dwarf_dump.py $WS/samples/android/libjni_stfaceunlock_api.so > $R/native/dwarf_types_funcs.txt
+
+## models
+$PY $R/models/extract_blobs.py            # 8 STEF/v3 blobs -> models/*.bin + manifest.json
+
+## ghidra (attempted, timed out)
+flock $WS/logs/ghidra.lock -c "$WS/tools/ghidra_decompile.sh $WS/samples/android/libstfaceunlockocl.so \
+  $R/native/ghidra_model_loader.c 'ModelLoader|ModelResource|fast_decrypt|app_protect_decipher|builtInModel|GenerateModel|LoadByCaffeName' \
+  --timeout 1500 --max-functions 40 --heap 3G"
+# -> TIMEOUT after 584 s (auto-analysis of the 101.8 MiB binary); no output produced
+
+## reimplementation
+cd $R/reimpl && $PY pipeline.py

@@ -1,0 +1,54 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/qcom_voiceactivation/native/libs/libqvarnn.so
+==============================================================================
+size        : 174360 bytes (0.17 MiB)
+sha256      : 5819d982eb26ea7322588ce19d0ba027925a48fabe81fb9e9e81e624d6487f5f
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x0   imagebase: 0x0
+build id    : b796906ad5e0cbbdc9f15a8c7f9cecea
+soname      : libqvarnn.so
+needed      : libstdc++.so, liblog.so, libc.so, libm.so, libdl.so
+parser      : lief
+counts      : 2 exports, 16 imports, 0 JNI, 26 sections, 12 segments
+symtab/dynsym: 0 / 19
+
+Sections (26)
+  name                   type             flags  address      size       offset
+  .note.android.ident    NOTE             A      0x2e0        24         0x2e0
+  .note.gnu.build-id     NOTE             A      0x2f8        32         0x2f8
+  .note.gnu.property     NOTE             A      0x318        32         0x318
+  .dynsym                DYNSYM           A      0x338        456        0x338
+  .gnu.version           GNU_VERSYM       A      0x500        38         0x500
+  .gnu.version_r         GNU_VERNEED      A      0x528        64         0x528
+  .gnu.hash              GNU_HASH         A      0x568        36         0x568
+  .hash                  HASH             A      0x58c        160        0x58c
+  .dynstr                STRTAB           A      0x62c        257        0x62c
+  .relr.dyn              ANDROID_RELR     A      0x730        48         0x730
+  .rela.plt              RELA             AI     0x760        384        0x760
+  .rodata                PROGBITS         AMS    0x8e0        8192       0x8e0
+  .eh_frame_hdr          PROGBITS         A      0x28e0       2548       0x28e0
+  .eh_frame              PROGBITS         A      0x32d8       15972      0x32d8
+  .text                  PROGBITS         AX     0x8000       124388     0x8000
+  .plt                   PROGBITS         AX     0x265f0      416        0x265f0
+  .data.rel.ro           PROGBITS         WA     0x27000      88         0x27000
+  .fini_array            FINI_ARRAY       WA     0x27058      16         0x27058
+  .dynamic               DYNAMIC          WA     0x27068      448        0x27068
+  .got                   PROGBITS         WA     0x27228      16         0x27228
+  .got.plt               PROGBITS         WA     0x27238      152        0x27238
+  .data                  PROGBITS         WA     0x282d0      8560       0x272d0
+  .bss                   NOBITS           WA     0x2a440      4          0x29440
+  .shstrtab              STRTAB           -      0x0          255        0x29440
+  .gnu_debugdata         PROGBITS         -      0x0          3416       0x2953f
+
+AI-relevant strings (37523 bytes scanned in allocated data sections)
+  [model] 3 unique (first 3)
+    0x000015d8 .rodata    DIM_C(weight) == 1
+    0x0000173b .rodata    DIM_H(weight) == rnn->num_nodes && DIM_W(weight) == rnn->num_nodes+rnn->num_inputs
+    0x00001fd4 .rodata    conv->weight->ndim == 2
+  [face] 4 unique (first 4)
+    0x00000cd8 .rodata    IS_ALIGNED(*buffer_double_ptr, 8)
+    0x00001308 .rodata    IS_ALIGNED(buffer, 8)
+    0x00001952 .rodata    The axis to do concat should be byte-aligned!
+    0x00001bb9 .rodata    Align mismatch %d <=> %d
+
+JSON written to reports/qcom_voiceactivation/native/elfinfo/libqvarnn.so.json

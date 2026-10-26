@@ -1,0 +1,191 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/Biometric/Biometric.apk",
+  "size": 107301666,
+  "sha256": "7be477e2a28139d0ccd5c9c43e0f88d8afa8627cf4c8bd829af6bcde6bcee111",
+  "package": "com.miui.face",
+  "version_name": "1.37.4-A140026",
+  "version_code": "1370400",
+  "label": "Biometric",
+  "min_sdk": "33",
+  "target_sdk": "34",
+  "main_activity": null,
+  "abis": [
+    "arm64-v8a"
+  ],
+  "permissions": [],
+  "declared_permissions": 0,
+  "components": {
+    "activities": 0,
+    "services": 0,
+    "receivers": 0,
+    "providers": 0
+  },
+  "features": [],
+  "counts": {
+    "entries": 17,
+    "dex": 1,
+    "native_libs": 5,
+    "model_assets": 0,
+    "configs": 8,
+    "other": 3
+  },
+  "groups": {
+    "dex": [
+      {
+        "name": "classes.dex",
+        "size": 154880,
+        "compressed": 154880
+      }
+    ],
+    "native_libs": [
+      {
+        "name": "lib/arm64-v8a/libOpenCL.so",
+        "size": 115112,
+        "compressed": 115112
+      },
+      {
+        "name": "lib/arm64-v8a/libjni_faceunlock.so",
+        "size": 5760,
+        "compressed": 5760,
+        "matched": "face"
+      },
+      {
+        "name": "lib/arm64-v8a/libjni_stfaceunlock_api.so",
+        "size": 131336,
+        "compressed": 131336,
+        "matched": "face"
+      },
+      {
+        "name": "lib/arm64-v8a/libmievent.so",
+        "size": 4440,
+        "compressed": 4440
+      },
+      {
+        "name": "lib/arm64-v8a/libstfaceunlockocl.so",
+        "size": 106744488,
+        "compressed": 106744488,
+        "matched": "face"
+      }
+    ],
+    "model_assets": [],
+    "configs": [
+      {
+        "name": "META-INF/com/android/build/gradle/app-metadata.properties",
+        "size": 56,
+        "compressed": 56
+      },
+      {
+        "name": "resources.arsc",
+        "size": 4344,
+        "compressed": 4344
+      },
+      {
+        "name": "AndroidManifest.xml",
+        "size": 3440,
+        "compressed": 1032
+      },
+      {
+        "name": "res/0K.xml",
+        "size": 448,
+        "compressed": 221
+      },
+      {
+        "name": "res/0w.xml",
+        "size": 5696,
+        "compressed": 987
+      },
+      {
+        "name": "res/BW.xml",
+        "size": 448,
+        "compressed": 221
+      },
+      {
+        "name": "res/Fd.xml",
+        "size": 752,
+        "compressed": 336
+      },
+      {
+        "name": "res/Qr.xml",
+        "size": 1572,
+        "compressed": 704
+      }
+    ],
+    "other": [
+      {
+        "name": "META-INF/CERT.SF",
+        "size": 1481,
+        "compressed": 821
+      },
+      {
+        "name": "META-INF/CERT.RSA",
+        "size": 1642,
+        "compressed": 1149
+      },
+      {
+        "name": "META-INF/MANIFEST.MF",
+        "size": 1346,
+        "compressed": 701
+      }
+    ]
+  },
+  "ai": {
+    "model_assets": [],
+    "libs": [
+      {
+        "name": "lib/arm64-v8a/libjni_faceunlock.so",
+        "size": 5760,
+        "compressed": 5760,
+        "matched": "face"
+      },
+      {
+        "name": "lib/arm64-v8a/libjni_stfaceunlock_api.so",
+        "size": 131336,
+        "compressed": 131336,
+        "matched": "face"
+      },
+      {
+        "name": "lib/arm64-v8a/libstfaceunlockocl.so",
+        "size": 106744488,
+        "compressed": 106744488,
+        "matched": "face"
+      }
+    ],
+    "asset_hits": [],
+    "dex_markers": {},
+    "keyword_set": {
+      "model_name_re": "\\.(tflite|onnx|mnn|npubin|dlc|caffemodel|uim|bundle|model|pt|pth|smfb)$|(^|/)(model|classifier|segmenter|ranker)(/|$)",
+      "model_ext_re": "\\.(tflite|lite|onnx|mnn|npubin|dlc|caffemodel|pt|pth|pb|ai_model|bin|xmodel|kmodel|rknn|mlmodel|gguf|ort|uim|bundle|model|smfb|h5|paddle|ncnn|param|tflite\\.jpg)$",
+      "lib_re": "lib.*(tensorflow|tflite|litert|nnapi|neural|mllite|onnx|pytorch|caffe|snpe|qnn|mace|opencv|megvii|face|arcsoft|mibrain|aivs|miocr|inpaint|aiedit|fuai|scanner|vision|segment|matting|whisper|dnn|ocr|beaut|ai|ml).*\\.so$",
+      "asset_re": "(tflite|\\.mnn|\\.onnx|\\.dlc|\\.npubin|caffemodel|\\.pt$|mibrain|mllite|tensorflow|onnx|pytorch|snpe|qnn|neural|mediapipe|mlkit|vision|face|ocr|inpaint|aiedit|fuai|scanner|megvii|arcsoft|aivs|aivoice|ByteAI|bvtAI|mobais|hand|gesture|aiauto|model)",
+      "dex_markers": [
+        "Lorg/tensorflow/lite",
+        "Lcom/google/mlkit",
+        "Lcom/google/android/gms/vision",
+        "Lcom/xiaomi/aicr",
+        "Lcom/xiaomi/mibrain",
+        "mibrain",
+        "tflite",
+        "libtensorflowlite",
+        "com/qualcomm/snpe",
+        "com/qualcomm/qti/qnn",
+        "Lcom/arcsoft",
+        "Lcom/megvii",
+        "ByteAI",
+        "visionengine",
+        "FaceMagic",
+        "mediapipe"
+      ]
+    }
+  },
+  "extraction": {
+    "models": [],
+    "libs": [],
+    "skipped": [],
+    "bytes": 0,
+    "limits": {
+      "max_file_mb": 50.0,
+      "max_total_mb": 90.0
+    }
+  },
+  "elapsed_sec": 0.658
+}

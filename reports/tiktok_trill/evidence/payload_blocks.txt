@@ -1,0 +1,18 @@
+# payload = [descriptor block of size blob2+4][rest]; (size-4)%16==0 for every record
+# entropy/printable of the block vs the remainder
+
+== models/tt_face_v10.0.model
+  detect      payload= 19140 block= 4708 (%16=0) ent=7.95 pr=0.37 | rest= 14432 ent=5.93 pr=0.05 | block tail=e62517f908f90904d507344a293e68fd
+  base120     payload=363732 block= 6932 (%16=0) ent=7.97 pr=0.37 | rest=356800 ent=7.69 pr=0.39 | block tail=7c3a8abb38f0b76bbc880aa8b1a6ed8b
+  base120det  payload=156292 block= 5140 (%16=0) ent=7.95 pr=0.38 | rest=151152 ent=6.77 pr=0.25 | block tail=07000700070007000500070007000600
+  pout        payload=  7149 block=  676 (%16=0) ent=7.71 pr=0.36 | rest=  6473 ent=6.68 pr=0.11 | block tail=07defe170c3517212eff0d08fed8e110
+  eyecls      payload=  7149 block=  676 (%16=0) ent=7.67 pr=0.35 | rest=  6473 ent=6.72 pr=0.11 | block tail=0b2417203d1a212b081515e2f511f507
+  partface    payload=156165 block= 5012 (%16=0) ent=7.96 pr=0.37 | rest=151153 ent=6.79 pr=0.26 | block tail=02000200020003000300040008000500
+  image       payload= 88508 block= 6644 (%16=0) ent=7.96 pr=0.37 | rest= 81864 ent=5.03 pr=0.13 | block tail=0400f3ff0b000c00f9fff9ff03000100
+  slowimage   payload= 98940 block= 6660 (%16=0) ent=7.96 pr=0.37 | rest= 92280 ent=5.63 pr=0.15 | block tail=c6ffbcffb1ff97ff62ff6effdcffb2ff
+  mean        payload=  7632 block=   20 (%16=0) ent=3.78 pr=0.30 | rest=  7612 ent=7.20 pr=0.51 | block tail=8941f04197909342e78cf0411361ad42
+== models/tt_face_extra_v13.0.model
+  iris        payload= 25864 block= 3556 (%16=0) ent=7.93 pr=0.36 | rest= 22308 ent=6.61 pr=0.24 | block tail=f9fff6009dffcafffa00a1ff16009700
+  extra       payload=547800 block=11236 (%16=0) ent=7.98 pr=0.36 | rest=536564 ent=7.68 pr=0.38 | block tail=83a88c8328178b57897f08e07bc7c38e
+== models/tt_face_attribute_age_v1.1.model
+  agenet      payload=202892 block=14260 (%16=0) ent=7.98 pr=0.37 | rest=188632 ent=7.50 pr=0.36 | block tail=023701000090577083d8cc7177bb8bf6

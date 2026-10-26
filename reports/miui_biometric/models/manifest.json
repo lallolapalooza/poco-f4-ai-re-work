@@ -1,0 +1,166 @@
+{
+  "source": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so",
+  "container_format": "STEF/v3",
+  "models": [
+    {
+      "name": "IM_RGB_Liveness_General_Full_FP32_10_1_65_half_compression_v2_origin",
+      "file": "IM_RGB_Liveness_General_Full_FP32_10_1_65_half_compression_v2_origin.bin",
+      "symbol": "__res_IM_RGB_Liveness_General_Full_FP32_10_1_65_half_compression_v2_origin",
+      "vaddr": "0x4f2c460",
+      "file_offset": "0x4f1c460",
+      "section": ".data",
+      "size": 4106513,
+      "sha256": "69366df2ae8ce328131f9bac977616c29c225fd91ecb6c50696d936565b948d0",
+      "header": {
+        "magic": "STEF",
+        "payload_size": 4106240,
+        "ver_tag": "VER",
+        "version": 3,
+        "flags": 0,
+        "payload_offset": 16,
+        "trailer_size": 257
+      },
+      "payload_encrypted": true
+    },
+    {
+      "name": "M_Align_CalcPose_Ann_106_2_3_0",
+      "file": "M_Align_CalcPose_Ann_106_2_3_0.bin",
+      "symbol": "__res_M_Align_CalcPose_Ann_106_2_3_0",
+      "vaddr": "0x5316da0",
+      "file_offset": "0x5306da0",
+      "section": ".data",
+      "size": 123153,
+      "sha256": "c8daf5eae9051f68c857fa9131b296d39a82bdd3ec15c9cadb7bd15bd8040074",
+      "header": {
+        "magic": "STEF",
+        "payload_size": 122880,
+        "ver_tag": "VER",
+        "version": 3,
+        "flags": 0,
+        "payload_offset": 16,
+        "trailer_size": 257
+      },
+      "payload_encrypted": true
+    },
+    {
+      "name": "M_Align_Deepface_Eye_State_Analysis_3_7_8",
+      "file": "M_Align_Deepface_Eye_State_Analysis_3_7_8.bin",
+      "symbol": "__res_M_Align_Deepface_Eye_State_Analysis_3_7_8",
+      "vaddr": "0x5334ee0",
+      "file_offset": "0x5324ee0",
+      "section": ".data",
+      "size": 1771793,
+      "sha256": "e1d020a71d63a2ada5d917aaea94d56b224967672e42ad607d0a20af752d82b0",
+      "header": {
+        "magic": "STEF",
+        "payload_size": 1771520,
+        "ver_tag": "VER",
+        "version": 3,
+        "flags": 0,
+        "payload_offset": 16,
+        "trailer_size": 257
+      },
+      "payload_encrypted": true
+    },
+    {
+      "name": "M_Align_occlusion_106_1_19_3",
+      "file": "M_Align_occlusion_106_1_19_3.bin",
+      "symbol": "__res_M_Align_occlusion_106_1_19_3",
+      "vaddr": "0x54e5820",
+      "file_offset": "0x54d5820",
+      "section": ".data",
+      "size": 1782033,
+      "sha256": "9b1a676565cad212e455bff19abe59fbb46936e539eaf3017c38947af6df3a2a",
+      "header": {
+        "magic": "STEF",
+        "payload_size": 1781760,
+        "ver_tag": "VER",
+        "version": 3,
+        "flags": 0,
+        "payload_offset": 16,
+        "trailer_size": 257
+      },
+      "payload_encrypted": true
+    },
+    {
+      "name": "M_Align_occlusion_106_360_1_7_1",
+      "file": "M_Align_occlusion_106_360_1_7_1.bin",
+      "symbol": "__res_M_Align_occlusion_106_360_1_7_1",
+      "vaddr": "0x5698960",
+      "file_offset": "0x5688960",
+      "section": ".data",
+      "size": 2058513,
+      "sha256": "5f4fdb84262bea085150c3caad160eda9193734582b3cb13be4540a413152861",
+      "header": {
+        "magic": "STEF",
+        "payload_size": 2058240,
+        "ver_tag": "VER",
+        "version": 3,
+        "flags": 0,
+        "payload_offset": 16,
+        "trailer_size": 257
+      },
+      "payload_encrypted": true
+    },
+    {
+      "name": "M_Attribute_MTNet_Quality_1_0_0",
+      "file": "M_Attribute_MTNet_Quality_1_0_0.bin",
+      "symbol": "__res_M_Attribute_MTNet_Quality_1_0_0",
+      "vaddr": "0x588f2a0",
+      "file_offset": "0x587f2a0",
+      "section": ".data",
+      "size": 471313,
+      "sha256": "50f64eb5abfc3d41b5bef1bbe639bc16641c8be22b6c32e8b1acc4254aa322e5",
+      "header": {
+        "magic": "STEF",
+        "payload_size": 471040,
+        "ver_tag": "VER",
+        "version": 3,
+        "flags": 0,
+        "payload_offset": 16,
+        "trailer_size": 257
+      },
+      "payload_encrypted": true
+    },
+    {
+      "name": "M_Hunter_CommonFace_Gray_ppl_360_9_2_5_v2_origin",
+      "file": "M_Hunter_CommonFace_Gray_ppl_360_9_2_5_v2_origin.bin",
+      "symbol": "__res_M_Hunter_CommonFace_Gray_ppl_360_9_2_5_v2_origin",
+      "vaddr": "0x59023e0",
+      "file_offset": "0x58f23e0",
+      "section": ".data",
+      "size": 983313,
+      "sha256": "ed96a7464716f55b4770983682e75efc3ca6b188f630968265e18cd7405102d2",
+      "header": {
+        "magic": "STEF",
+        "payload_size": 983040,
+        "ver_tag": "VER",
+        "version": 3,
+        "flags": 0,
+        "payload_offset": 16,
+        "trailer_size": 257
+      },
+      "payload_encrypted": true
+    },
+    {
+      "name": "M_Verify_MobileNetV2T6_Common_3_135_0_half_compression_v2_origin",
+      "file": "M_Verify_MobileNetV2T6_Common_3_135_0_half_compression_v2_origin.bin",
+      "symbol": "__res_M_Verify_MobileNetV2T6_Common_3_135_0_half_compression_v2_origin",
+      "vaddr": "0x59f2520",
+      "file_offset": "0x59e2520",
+      "section": ".data",
+      "size": 5110033,
+      "sha256": "518b214184adc39a108718dde0d53e4ffefbd57215c6eef84a7751b7326e244f",
+      "header": {
+        "magic": "STEF",
+        "payload_size": 5109760,
+        "ver_tag": "VER",
+        "version": 3,
+        "flags": 0,
+        "payload_offset": 16,
+        "trailer_size": 257
+      },
+      "payload_encrypted": true
+    }
+  ]
+}

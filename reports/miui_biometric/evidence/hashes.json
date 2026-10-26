@@ -1,0 +1,112 @@
+{
+  "files": {
+    "apk": {
+      "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/Biometric/Biometric.apk",
+      "size": 107301666,
+      "sha256": "7be477e2a28139d0ccd5c9c43e0f88d8afa8627cf4c8bd829af6bcde6bcee111"
+    },
+    "lib_stfaceunlockocl": {
+      "path": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so",
+      "size": 106744488,
+      "sha256": "ea711f433005fd1a2410c31339f0e1a1715b0e194abaf62403a0776ecdaabffc"
+    },
+    "lib_jni_stfaceunlock_api": {
+      "path": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libjni_stfaceunlock_api.so",
+      "size": 131336,
+      "sha256": "07c04cc5910cf02b115092bfa14967efd7c13d6be4f1574138260f42d90249e6"
+    },
+    "lib_jni_faceunlock": {
+      "path": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_biometric/native/libjni_faceunlock.so",
+      "size": 5760,
+      "sha256": "51f0dfde45a813afbb96eca952513daefe2d32192ba53641b1e720ed0ba51263"
+    }
+  },
+  "model_blobs": {
+    "IM_RGB_Liveness_General_Full_FP32_10_1_65_half_compression_v2_origin": {
+      "file": "IM_RGB_Liveness_General_Full_FP32_10_1_65_half_compression_v2_origin.bin",
+      "size": 4106513,
+      "sha256": "69366df2ae8ce328131f9bac977616c29c225fd91ecb6c50696d936565b948d0",
+      "vaddr": "0x4f2c460",
+      "file_offset": "0x4f1c460"
+    },
+    "M_Align_CalcPose_Ann_106_2_3_0": {
+      "file": "M_Align_CalcPose_Ann_106_2_3_0.bin",
+      "size": 123153,
+      "sha256": "c8daf5eae9051f68c857fa9131b296d39a82bdd3ec15c9cadb7bd15bd8040074",
+      "vaddr": "0x5316da0",
+      "file_offset": "0x5306da0"
+    },
+    "M_Align_Deepface_Eye_State_Analysis_3_7_8": {
+      "file": "M_Align_Deepface_Eye_State_Analysis_3_7_8.bin",
+      "size": 1771793,
+      "sha256": "e1d020a71d63a2ada5d917aaea94d56b224967672e42ad607d0a20af752d82b0",
+      "vaddr": "0x5334ee0",
+      "file_offset": "0x5324ee0"
+    },
+    "M_Align_occlusion_106_1_19_3": {
+      "file": "M_Align_occlusion_106_1_19_3.bin",
+      "size": 1782033,
+      "sha256": "9b1a676565cad212e455bff19abe59fbb46936e539eaf3017c38947af6df3a2a",
+      "vaddr": "0x54e5820",
+      "file_offset": "0x54d5820"
+    },
+    "M_Align_occlusion_106_360_1_7_1": {
+      "file": "M_Align_occlusion_106_360_1_7_1.bin",
+      "size": 2058513,
+      "sha256": "5f4fdb84262bea085150c3caad160eda9193734582b3cb13be4540a413152861",
+      "vaddr": "0x5698960",
+      "file_offset": "0x5688960"
+    },
+    "M_Attribute_MTNet_Quality_1_0_0": {
+      "file": "M_Attribute_MTNet_Quality_1_0_0.bin",
+      "size": 471313,
+      "sha256": "50f64eb5abfc3d41b5bef1bbe639bc16641c8be22b6c32e8b1acc4254aa322e5",
+      "vaddr": "0x588f2a0",
+      "file_offset": "0x587f2a0"
+    },
+    "M_Hunter_CommonFace_Gray_ppl_360_9_2_5_v2_origin": {
+      "file": "M_Hunter_CommonFace_Gray_ppl_360_9_2_5_v2_origin.bin",
+      "size": 983313,
+      "sha256": "ed96a7464716f55b4770983682e75efc3ca6b188f630968265e18cd7405102d2",
+      "vaddr": "0x59023e0",
+      "file_offset": "0x58f23e0"
+    },
+    "M_Verify_MobileNetV2T6_Common_3_135_0_half_compression_v2_origin": {
+      "file": "M_Verify_MobileNetV2T6_Common_3_135_0_half_compression_v2_origin.bin",
+      "size": 5110033,
+      "sha256": "518b214184adc39a108718dde0d53e4ffefbd57215c6eef84a7751b7326e244f",
+      "vaddr": "0x59f2520",
+      "file_offset": "0x59e2520"
+    }
+  },
+  "patch_2026_10_24": {
+    "note": "artifacts produced by the data-path patch; see evidence/cmd_patch.txt",
+    "PIPELINE.md": {"size": 25237, "sha256": "9a591b2a6e679e3f529912ce0fcb0c22bebd0b9f41adc34a297938b83d3f2c51"},
+    "native/jni_all.c": {"size": 40057, "sha256": "a35ee60108eee9344511ce307ad4cea9d4bad12104dd9e61203ede6b56ba7fe6", "note": "Ghidra 12.1.2 pseudocode, 37/37 functions"},
+    "native/api_prototypes.txt": {"size": 2964, "sha256": "570cae45b63025d870e1a068f2f8aff7989c2dcc8f4326c1a2f9e285019809a5", "note": ".rodata 0x7520c0-0x752a80"},
+    "native/jni_signatures.txt": {"size": 11827, "sha256": "384cde1b4605a3a1dcb79a42278ffdaca1c992808986dd37394f00cbecba2291"},
+    "native/big_st_auth_init.s": {"size": 32594, "sha256": "3b9a103d792d3ac6e8813737d6fbca5c491c1c3d25549100f5e9326230226a39"},
+    "native/big_st_auth_pre_init.s": {"size": 21126, "sha256": "e317d9bb6767ce7d3a74c002e300bec1461c5d04797acae84411fef5fbe7b547"},
+    "native/big_st_auth_unlock.s": {"size": 2897, "sha256": "cdc09a59f24513f89ffd5f3a975f134744ede2ff96c143e5ca87644115d3ced2"},
+    "native/big_st_auth_enroll.s": {"size": 2784, "sha256": "fbf96c2d85e982f4e7dde9078b9f2a14bad94a79fd450a18aab43e6a3a957bf6"},
+    "native/big_st_auth_deinit.s": {"size": 5672, "sha256": "d8e7bb284268d433f388850656c9be1de5cdfe26729c2d6ea6f88edf359edc99"},
+    "native/big_st_auth_set_facedetect_callback.s": {"size": 4543, "sha256": "8c23e95b8c11b4dabb2ba3408d32c8afa4ad3e2b5c245d7626f4c5b85a8abe96"},
+    "native/big_st_face_init_license.s": {"size": 1855, "sha256": "b8f2d5ab044219ff98adac3fe5179a79ca39d082d85fb8c8c23fa5fa12a421e5"},
+    "native/big_SetTemplateFilePath.s": {"size": 5611, "sha256": "28ae557ed255fbaedec8ea549c4a24fa05321f72d10b498405b642edd77bb8d5"},
+    "native/big_AuthUseId.s": {"size": 58958, "sha256": "b4607b0ca6e6b34d69057d10e936a0f508575fe40b228bf21fc294558bdda87d"},
+    "native/big_Enroll.s": {"size": 80677, "sha256": "0783af168cd8694f03967724e6716b8910d7fa9133140d1a15097f8e7dc27ebc"},
+    "native/big_CheckFaceInfo.s": {"size": 47133, "sha256": "a022f9bc9655aec66fc8b74cf8d6f8afdcf2346264eace8906394f452bbe220b"},
+    "native/big_FaceDetectionClass_Detect.s": {"size": 47475, "sha256": "e5e5c7b181f5ef041ebfea0fbb0ad96052e2aa0d103f19f3b7fd09d48b458915"},
+    "native/big_FaceDetectManager_Detect.s": {"size": 1657, "sha256": "e0832124b252593c919017ae7e6a257a357e8ad5aa963ca9aeeec6188c2ac4ad"},
+    "native/big_StartThread.s": {"size": 14805, "sha256": "136f49b605720b68be6d66ab3bbe137743fd57e54568953583697e68b1d3504d"},
+    "native/big_FeatureManager_Unlock.s": {"size": 11985, "sha256": "d5d4098f0e668dd54fe9189122b7e759ccc3d761847d8173fa98f4a6902d10d7"},
+    "native/big_FaceVerify_CompareFeature.s": {"size": 5323, "sha256": "0cd7b9c96c69ea9746b0c1ced2a50f6799e7be25a36c54ce0b2adfa9374b2737"},
+    "native/big_VerifyManager_CompareFeature.s": {"size": 1470, "sha256": "571ee23f246c54f5ad733e64f8467b5b2a4331de6bf9a9f1e33d5e15dbc8f134"},
+    "native/cv_cmp_get_distance.s": {"size": 33987, "sha256": "0d3ba4e50c855ca5604722a870714bf5cd0b06820f9dddc4aa7113ac23fca47c"},
+    "native/cv_cmp_normalize.s": {"size": 1967, "sha256": "56307b37375ca489756e8424e1c6d23d51b9ebd36d1e5a0e5d3daf9827419e0c"},
+    "native/stsdk_FeatureCmp_normalizeScore.s": {"size": 1000, "sha256": "0061fcffd9d53ccf9f59e669fd5e272d9afd7afe9b016671ef8a94d3c1aee7fa"},
+    "evidence/resources_arrays.txt": {"size": 1570, "sha256": "1855ed7550a7ddeb0d1f2d2a494b3d20655aafc154905409f06b2411c2e16c95"},
+    "evidence/manifest_strings.txt": {"size": 799, "sha256": "8b2cefa429309fd395aebbd6ff917ed49f56d4742d79a91a968212f2f4cfbedb"},
+    "evidence/cmd_patch.txt": {"size": 11574, "sha256": "d4f9fd93de01a0053e573857e108715c9ab83cc60def5a5ff9e429a684753e47"}
+  }
+}

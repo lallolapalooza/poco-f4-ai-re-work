@@ -1,0 +1,48 @@
+
+{
+    "blend_type_tex_blusher": 0,
+    "blend_type_tex_blusher2": 0,
+    "makeup_blusher_color": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "tex_blusher": "sh.png",
+    "makeup_intensity_blusher": 0.74,
+    "makeup_name": "Group_1_13",
+    "blend_type_tex_highlight": 2,
+    "makeup_highlight_color": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "tex_highlight": "ggpgj.png",
+    "makeup_intensity_highlight": 0.0,
+    "blend_type_tex_lip": 0,
+    "makeup_lip_color": [
+        0.9490196108818054,
+        0.7647058963775635,
+        0.7098039388656616,
+        1.0
+    ],
+    "is_two_color": 0,
+    "tex_lip_mask_zz": "mask2.png",
+    "tex_lip_mask_bz": "mask1.png",
+    "lip_type": 0,
+    "makeup_intensity_lip": 2.0,
+    "blend_type_tex_brown": 0,
+    "makeup_eyeBrow_color": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "tex_eyeBrow": "brow_mask.png",
+    "brow_warp": 0.0,
+    "brow_warp_type": 0,
+    "use_brow_v2": 0,
+    "makeup_intensity_eyeBrow": 0.74,
+    "use_eye_v2": 0
+}

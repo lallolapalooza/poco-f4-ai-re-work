@@ -1,0 +1,22 @@
+{
+  "slug": "miui_securitycoreadd",
+  "extracted": "1 TFLite (7 subgraphs)",
+  "runnable_model_code": 1,
+  "app_pipeline": "complete",
+  "blockers": [
+    "getBrightnessFromNit backlight LUT and normalizer bounds are device display-config values (U)",
+    "spline construction (smoothCurve/isMonotonicModel) is framework-side Java, not reimplemented",
+    "shipped flatbuffer's new_model_infer (dnn_model_1/*) is an untrained student; serving path is old_model_infer"
+  ],
+  "files": [
+    "reimpl/pipeline_lux.py",
+    "reimpl/verify_lux.txt",
+    "reimpl/verify.txt",
+    "reimpl/GAP_CLOSURE.md"
+  ],
+  "verify": {
+    "command": "$PY reports/miui_securitycoreadd/reimpl/pipeline_lux.py",
+    "exit_code": 0,
+    "result": "PASS: 8/8 inputs finite nits (3.858 .. 944.371 nits), input float32 (1,3), output 1 float, nits->normalized with caller bounds; interpreter cross-check 1.8e-4 nits"
+  }
+}

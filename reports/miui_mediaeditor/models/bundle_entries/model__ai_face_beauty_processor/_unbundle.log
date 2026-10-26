@@ -1,0 +1,30 @@
+ai_face_beauty_processor.bundle: xor_key=0x4a file=21870544B entries=14
+  acne_mole_acnenet_1206_3x24x24_quat.tflite                 method=8 csize=   127084 usize=   190824 off=        0 ENCRYPTED-PREFIX
+  config.json                                                method=8 csize=     4073 usize=    17992 off=   127156
+  face_mask_del_spot_protect_mask_0815A.data                 method=8 csize=    88833 usize=   518412 off=   131270
+  face_mask_mapper_face_mask.json                            method=8 csize=     2363 usize=     7721 off=   220175
+  face_mask_mapper_skin_mask.data                            method=8 csize=    88833 usize=   518412 off=   222599
+  Fprs.0003.Exp007e33_quan1_sm.tflite                        method=8 csize=   550167 usize=  1196952 off=   311493
+  FprsTeeth.0001.Exp002pe99_quan1_sm.tflite                  method=8 csize=   198632 usize=   598456 off=   861725
+  hair_1209a_acnenet_crop0.1pos0.1_3x24x24_quat.tflite       method=8 csize=    91586 usize=   117360 off=  1060428
+  highlight_1209a_acnenet_crop0.2pos0.1_3x24x24_quat.tflite  method=8 csize=    93982 usize=   116640 off=  1152096
+  lines_1209a_acnenet_crop0.1pos0.1_3x24x24_quat.tflite      method=8 csize=    81512 usize=   117360 off=  1246165
+  mobile_spade_256_ch16_from16_40000_ft16_ftsave_yunfu.tflite method=8 csize=  9256289 usize=  9968196 off=  1327760
+  mobile_spade_256_ch16_from16_ftsevere_lr0.0001_117_16001.tflite method=8 csize=  9282064 usize=  9968400 off= 10584138
+  mole_seg_24x24x3_1206_quat.tflite                          method=8 csize=   124907 usize=   144408 off= 19866295
+  skin_model_expand_supply_pta18000_quant_resizetrain_seg153.tflite method=8 csize=  1877795 usize=  2433488 off= 19991265
+  CRC32 verified entries: 13 ok, 0 bad (1 skipped in encrypted prefix)
+  SKIP (encrypted prefix): acne_mole_acnenet_1206_3x24x24_quat.tflite
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_beauty_processor/config.json (17992 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_beauty_processor/face_mask_del_spot_protect_mask_0815A.data (518412 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_beauty_processor/face_mask_mapper_face_mask.json (7721 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_beauty_processor/face_mask_mapper_skin_mask.data (518412 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_beauty_processor/Fprs.0003.Exp007e33_quan1_sm.tflite (1196952 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_beauty_processor/FprsTeeth.0001.Exp002pe99_quan1_sm.tflite (598456 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_beauty_processor/hair_1209a_acnenet_crop0.1pos0.1_3x24x24_quat.tflite (117360 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_beauty_processor/highlight_1209a_acnenet_crop0.2pos0.1_3x24x24_quat.tflite (116640 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_beauty_processor/lines_1209a_acnenet_crop0.1pos0.1_3x24x24_quat.tflite (117360 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_beauty_processor/mobile_spade_256_ch16_from16_40000_ft16_ftsave_yunfu.tflite (9968196 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_beauty_processor/mobile_spade_256_ch16_from16_ftsevere_lr0.0001_117_16001.tflite (9968400 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_beauty_processor/mole_seg_24x24x3_1206_quat.tflite (144408 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_beauty_processor/skin_model_expand_supply_pta18000_quant_resizetrain_seg153.tflite (2433488 bytes)

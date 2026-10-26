@@ -1,0 +1,24 @@
+liti.bundle: xor_key=0x0d file=231584B entries=11
+  brow_mask_2.png                                            method=8 csize=    53591 usize=    56486 off=        0 ENCRYPTED-PREFIX
+  eye_jiemao_12.png                                          method=8 csize=    57039 usize=    61185 off=    53636
+  eye__4.png                                                 method=8 csize=    25948 usize=    29931 off=   110722
+  eye___2.png                                                method=8 csize=     4999 usize=     7257 off=   136710
+  face_yy.png                                                method=8 csize=    32687 usize=    36475 off=   141750
+  ltgg_3.png                                                 method=8 csize=    31331 usize=    35632 off=   174478
+  makeup_config.json                                         method=8 csize=      440 usize=     1990 off=   205849
+  mask1.png                                                  method=8 csize=     4394 usize=     5574 off=   206337
+  mask2.png                                                  method=8 csize=     5008 usize=     5912 off=   210770
+  script.js                                                  method=8 csize=      429 usize=     1116 off=   215817
+  wr_sh_yqj_2.png                                            method=8 csize=    14088 usize=    18495 off=   216285
+  CRC32 verified entries: 10 ok, 0 bad (1 skipped in encrypted prefix)
+  SKIP (encrypted prefix): brow_mask_2.png
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__liti/eye_jiemao_12.png (61185 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__liti/eye__4.png (29931 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__liti/eye___2.png (7257 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__liti/face_yy.png (36475 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__liti/ltgg_3.png (35632 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__liti/makeup_config.json (1990 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__liti/mask1.png (5574 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__liti/mask2.png (5912 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__liti/script.js (1116 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__liti/wr_sh_yqj_2.png (18495 bytes)

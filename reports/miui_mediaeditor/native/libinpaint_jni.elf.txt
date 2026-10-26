@@ -1,0 +1,57 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/inventory/libs/lib/arm64-v8a/libinpaint_jni.so
+==============================================================================
+size        : 10008 bytes (0.01 MiB)
+sha256      : bf14ac4b60b3743ee1aa3a6a41c284a3a01db11fd398e125e8b55b219da374e2
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0xd70   imagebase: 0x0
+build id    : 0345380ed2f66c1f7d963ac183fb603e207de477
+android     : SDK 21, NDK r19c, build 5345600
+soname      : libinpaint_jni.so
+needed      : libinpaint.so, libvis.so, libc++_shared.so, liblog.so, libjnigraphics.so, libc.so, libm.so, libdl.so
+parser      : lief
+counts      : 10 exports, 15 imports, 7 JNI, 21 sections, 8 segments
+symtab/dynsym: 0 / 35
+
+Sections (21)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        216        0x228
+  .dynsym                DYNSYM           A      0x300        840        0x300
+  .dynstr                STRTAB           A      0x648        936        0x648
+  .gnu.version           GNU_VERSYM       A      0x9f0        70         0x9f0
+  .gnu.version_r         GNU_VERNEED      A      0xa38        32         0xa38
+  .rela.dyn              RELA             A      0xa58        72         0xa58
+  .rela.plt              RELA             AI     0xaa0        408        0xaa0
+  .plt                   PROGBITS         AX     0xc40        304        0xc40
+  .text                  PROGBITS         AX     0xd70        1940       0xd70
+  .rodata                PROGBITS         AMS    0x1504       81         0x1504
+  .eh_frame_hdr          PROGBITS         A      0x1558       92         0x1558
+  .eh_frame              PROGBITS         A      0x15b8       368        0x15b8
+  .note.android.ident    NOTE             A      0x1728       152        0x1728
+  .fini_array            FINI_ARRAY       WA     0x11d28      16         0x1d28
+  .dynamic               DYNAMIC          WA     0x11d38      544        0x1d38
+  .got                   PROGBITS         WA     0x11f58      168        0x1f58
+  .data                  PROGBITS         WA     0x12000      8          0x2000
+  .comment               PROGBITS         MS     0x0          263        0x2008
+  .shstrtab              STRTAB           -      0x0          199        0x210f
+
+JNI entry points (7)
+  0xdac          24         com.miui.gallery.editor.photo.app.remover.Inpaint.initialize
+      Java_com_miui_gallery_editor_photo_app_remover_Inpaint_initialize
+  0xfb4          4          com.miui.gallery.editor.photo.app.remover.Inpaint.inpaintBmp
+      Java_com_miui_gallery_editor_photo_app_remover_Inpaint_inpaintBmp
+  0x10c0         12         com.miui.gallery.editor.photo.app.remover.Inpaint.upsampleBmp
+      Java_com_miui_gallery_editor_photo_app_remover_Inpaint_upsampleBmp
+  0x10cc         476        com.miui.gallery.editor.photo.app.remover.Inpaint.inpaintBmpData
+      Java_com_miui_gallery_editor_photo_app_remover_Inpaint_inpaintBmpData
+  0x12a8         556        com.miui.gallery.editor.photo.app.remover.Inpaint.upsampleBmpData
+      Java_com_miui_gallery_editor_photo_app_remover_Inpaint_upsampleBmpData
+  0x14d4         44         com.miui.gallery.editor.photo.app.remover.Inpaint.releaseNNF
+      Java_com_miui_gallery_editor_photo_app_remover_Inpaint_releaseNNF
+  0x1500         4          com.miui.gallery.editor.photo.app.remover.Inpaint.release
+      Java_com_miui_gallery_editor_photo_app_remover_Inpaint_release
+
+AI-relevant strings (4039 bytes scanned in allocated data sections)
+
+JSON written to reports/miui_mediaeditor/native/libinpaint_jni.elf.json

@@ -1,0 +1,204 @@
+{
+  "/": "Depth parameters",
+  "StructB1": {
+    "paramS1": 2,
+    "paramS2": 2,
+    "paramA": 31,
+    "paramB": 17,
+    "paramC": -36,
+    "paramD": 128,
+    "paramG": 0,
+    "paramT": 200,
+    "paramM-1": 9,
+    "paramM-2": 15
+  },
+  "StructB2": {
+    "paramS1": 4,
+    "paramS2": 4,
+    "paramA": 31,
+    "paramB": 31,
+    "paramC": -18,
+    "paramD": 64,
+    "paramG": 0,
+    "paramT": 500,
+    "paramM-1": 7,
+    "paramM-2": 20
+  },
+  "StructDS": {
+    "paramB": 0,
+    "paramB2": 1,
+    "paramIC": 0,
+    "paramRR": 30,
+    "paramXV": 190,
+    "paramNV": 50
+  },
+  "StructI": {
+    "paramB": 1,
+    "paramU": 1,
+    "paramI": 0,
+    "paramW": 7,
+    "paramS": 5,
+    "paramR": 0.1,
+    "paramGT": 220,
+    "paramT": 128,
+    "paramBF": 1,
+    "paramWR": 0.19,
+    "paramAR": 0.05
+  },
+  "StructF1": {
+    "paramSR": 1,
+    "paramLF": 1,
+    "paramSC": 4,
+    "paramLFS": 9,
+    "paramLFU": 20,
+    "paramU":180,
+    "paramV1": 105,
+    "paramV2": 125
+  },
+  "StructF2": {
+    "paramSR": 1,
+    "paramLF": 0,
+    "paramSC": 2,
+    "paramLFS": 9,
+    "paramLFU": 30,
+    "paramU":180,
+    "paramV1": 105,
+    "paramV2": 125
+  },
+  "StructP": {
+    "paramL0": 0,
+    "paramL1": 1,
+    "paramL2": 1,
+    "paramI": 2
+  },
+  "StructC1": {
+    "paramT": 1,
+    "paramD": 4,
+    "paramS": 5,
+    "paramL0": 4,
+    "paramL1": 4,
+    "paramL2": 4,
+    "paramL3": 1,
+    "paramL4": 1,
+    "paramL": 48.0
+  },
+  "StructC2": {
+    "paramT": 1,
+    "paramD": 4,
+    "paramS": 4,
+    "paramL0": 4,
+    "paramL1": 4,
+    "paramL2": 4,
+    "paramL3": 1,
+    "paramL4": 1,
+    "paramL": 48.0
+  },
+  "//": "Calib parameters",
+  "StructM": {
+    "paramA": 1,
+    "paramB": 1,
+    "paramC": 2,
+    "paramD": 0
+  },
+  "StructO": {
+    "paramA": 0,
+    "paramB": 1.05,
+    "paramC": 400,
+    "paramD": 4.0,
+    "paramX": 0.1,
+    "paramE": 0.1,
+    "paramF": 0,
+    "paramDS": 1,
+    "paramG": 21,
+    "paramH": 3,
+    "paramI": 0.01,
+    "paramT": 2
+  },
+  "///": "BokehEffect parameters",
+  "StructE": {
+    "paramA": 1,
+    "paramB": 1,
+    "paramC": 2,
+    "paramD": 6,
+    "paramE": 7,
+    "paramF": 0
+  },
+  "StructD": {
+    "paramA": {
+      "paramA": 2,
+      "paramB": 1
+    },
+    "paramB": {
+      "paramA": 2,
+      "paramB": 1
+    },
+    "paramC": {
+      "paramA": 1,
+      "paramB": 1
+    },
+    "paramD": {
+      "paramA": {
+        "paramA": 0.007,
+        "paramB": 0.92,
+        "paramC": 0.8
+      },
+      "paramB": {
+        "paramA": 0.008,
+        "paramB": 1,
+        "paramC": 0.5
+      },
+      "paramC": 28,
+      "paramD": 15,
+      "paramE": 38
+    },
+    "paramE": {
+      "paramA": 0.7,
+      "paramB": 0.95,
+      "paramC": 3,
+      "paramD": 10,
+      "paramE": 20
+    },
+    "paramF": {
+      "paramA": {
+        "paramA": 0.01,
+        "paramB": 4.88
+      },
+      "paramB": {
+        "paramA": 0.016,
+        "paramB": 5
+      },
+      "paramC": {
+        "paramA": 0.02,
+        "paramB": 5.6
+      },
+      "paramD": {
+        "paramA": 0.02,
+        "paramB": 7.2
+      }
+    }
+  },
+  "StructS": {
+    "D_F": 1,
+    "I_T": 65,
+    "S_P":{
+      "MI_B": 220,
+      "E_R": 6,
+      "C_H": 0
+    },
+    "H_P":{
+      "MI_B": 240,
+      "E_R": 255,
+      "C_H": 0,
+      "MA_C_A": 1000,
+      "MI_C_A": 25,
+      "MA_A": 20,
+      "MI_A": 0,
+      "MI_G_M": 30,
+      "MA_G_C": 0.55,
+      "MA_E": 0.7,
+      "MA_E_E": 0.1,
+      "MI_F_R": 0.9,
+      "MA_A_V": 0.6
+    }
+  }
+}

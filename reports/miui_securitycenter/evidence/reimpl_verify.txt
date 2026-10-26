@@ -1,0 +1,21 @@
+An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+model: models/assets_model
+jax 0.12.0.1  devices=[CpuDevice(id=0)]
+stages: 5
+  stage 0: n_feat=68 rules=9 chars=58 len_thr=39 tokens=8000 patterns=414 w(2, 68) token_w(8000, 2) pattern_w(414, 2) bias(2, 8)
+  stage 1: n_feat=23 rules=9 chars=13 len_thr=18 tokens=8000 patterns=292 w(2, 23) token_w(8000, 2) pattern_w(292, 2) bias(2, 8)
+  stage 2: n_feat=10 rules=9 chars=0 len_thr=24 tokens=5752 patterns=193 w(2, 10) token_w(5752, 2) pattern_w(193, 2) bias(2, 8)
+  stage 3: n_feat=10 rules=9 chars=0 len_thr=23 tokens=4759 patterns=139 w(2, 10) token_w(4759, 2) pattern_w(139, 2) bias(2, 8)
+  stage 4: n_feat=16 rules=9 chars=6 len_thr=104 tokens=2573 patterns=171 w(2, 16) token_w(2573, 2) pattern_w(171, 2) bias(2, 8)
+  stage 0 scores=[-35.1393, -32.5295] (feat_mask 1/68, tok_hit 3, pat_hit 0)
+  stage 1 scores=[-26.3793, -24.5133] (feat_mask 1/23, tok_hit 1, pat_hit 1)
+  stage 2 scores=[-35.2126, -30.551] (feat_mask 1/10, tok_hit 3, pat_hit 1)
+  stage 3 scores=[-26.0835, -24.0703] (feat_mask 1/10, tok_hit 3, pat_hit 0)
+  stage 4 scores=[-26.8456, -25.3695] (feat_mask 0/16, tok_hit 2, pat_hit 1)
+jax   verdict=0 early_exit=False trace=[-2.6098, -1.866, -4.6616, -2.0132, -1.4761]
+numpy verdict=0 early_exit=False trace=[-2.6098, -1.866, -4.6616, -2.0132, -1.4761]
+jax/numpy agree=True verdict_equal=True
+clean sample: jax verdict=0 numpy verdict=0 trace=[-9.323, -5.378, -11.36, -6.876]
+spam probe (30 tokens, e.g. ['真人', '百家乐', '现房', '娱乐城']): jax=1 numpy=1 stage0 d=136.83
+ham  probe (30 tokens, e.g. ['发给', '证监会', '给我发', '估计']): jax=0 numpy=0 stage0 d=-131.43
+ALL CHECKS PASS=True

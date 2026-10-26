@@ -1,0 +1,158 @@
+# JNI surface of com.ts.faceauth.FaceAuthNative
+#
+# Source of truth:
+#   - DWARF from libjni_stfaceunlock_api.so (.debug_info) -> native/dwarf_info.txt,
+#     native/dwarf_types_funcs.txt
+#   - Ghidra 12.1.2 headless pseudocode for all 25 exports + helpers ->
+#     native/jni_all.c (SUMMARY matched=37 decompiled=37)
+#   - capstone disassembly -> native/Java_com_ts_faceauth_FaceAuthNative_*.s
+#   - Java declaration -> sources/faceauth/classes/com.ts.faceauth.FaceAuthNative.java
+#
+# libjni_stfaceunlock_api.so  size=131336  sha256=07c04cc5910cf02b115092bfa14967efd7c13d6be4f1574138260f42d90249e6
+# libstfaceunlockocl.so       size=106744488 sha256=ea711f433005fd1a2410c31339f0e1a1715b0e194abaf62403a0776ecdaabffc
+# loader: FaceAuthNative <clinit> -> System.loadLibrary("jni_stfaceunlock_api")
+#         libjni_stfaceunlock_api.so DT_NEEDED libstfaceunlockocl.so
+# binding: exported names (no RegisterNatives); register_fields() resolves the
+#          Java field/method IDs listed at the bottom via FindClass/GetFieldID.
+
+## 1. Exported JNI functions (exact C prototype from DWARF; addr = .text vaddr)
+
+addr     C prototype                                                                            -> native callee
+0x2e50   jstring Java_..._getAlgoInfo(JNIEnv*, jobject)                                          -> st_face_algorithm_info()
+0x2ea0   jstring Java_..._getSDKVersion(JNIEnv*, jobject)                                        -> st_auth_get_version()
+0x2ef0   jint   Java_..._initLicense(JNIEnv*, jobject, jstring _license)                        -> st_face_init_license(GetStringUTFChars(_license))
+0x2f64   void   Java_..._createFaceAuth(JNIEnv*, jobject, jstring j_dir_path, jint config, jintArray _resultcode)
+                                                                                                 -> st_auth_init(dir_utf, config); *rc = ret
+0x3050   void   Java_..._releaseFaceAuth(JNIEnv*, jobject)                                       -> st_auth_deinit()
+0x30a4   void   Java_..._setRoi(JNIEnv*, jobject, jobject facerect, jintArray _resultcode)      -> st_auth_set_roi(&rect|NULL); *rc = ret
+0x3178   void   Java_..._setIdentifier(JNIEnv*, jobject, jstring j_identifier, jintArray _resultcode)
+                                                                                                 -> st_auth_set_identifier(utf); *rc = ret
+0x3258   void   Java_..._setOrientation(JNIEnv*, jobject, jint orientation, jintArray _resultcode)
+                                                                                                 -> st_auth_set_face_orientation(orientation); *rc = ret
+0x32ec   jint   Java_..._setEnrollNumberForFace(JNIEnv*, jobject, jint number)                   -> st_auth_set_faceid_image_number(number)
+0x32f4   jint   Java_..._enroll(JNIEnv*, jobject, jobject stimage, jint config, jintArray _resultcode)
+                                                                                                 -> (see note A) st_auth_enroll(&img, config, &user_id);
+                                                                                                    *rc = st_auth_enroll return; JNI return = user_id
+0x3530   void   Java_..._auth(JNIEnv*, jobject, jobject stimage, jint config, jintArray faceids, jintArray _resultcode)
+                                                                                                 -> (see note B) st_auth_unlock(&img, config, faceids_ptr,
+                                                                                                    GetArrayLength(faceids) or 0); *rc = ret
+0x36cc   jint   Java_..._deleteFace(JNIEnv*, jobject, jint faceid)                               -> st_auth_delete_face(faceid)
+0x36d4   jint   Java_..._deleteAllFace(JNIEnv*, jobject)                                         -> st_auth_delete_all_face()
+0x36d8   jint   Java_..._resetFaceAuth(JNIEnv*, jobject)                                         -> st_auth_reset()
+0x36dc   jint   Java_..._evaluate(JNIEnv*, jobject, jstring inputPath, jstring outputPath, jint imageFormat,
+                                  jint width, jint height, jint orientation, jint faceauth_mode)
+                                                                                                 -> st_auth_evaluate(in, out, fmt, w, h, orient, mode);
+                                                                                                    returns -1 if either path is null
+0x37a0   jint   Java_..._setFaceAuthMode(JNIEnv*, jobject, jint mode)                            -> st_auth_set_faceauth_mode(mode)
+0x37a8   jint   Java_..._setAreaCode(JNIEnv*, jobject, jint area_code)                            -> st_auth_set_threshold_by_international_code(area_code)
+0x37b0   jobjectArray Java_..._getFaceIDInfoInTemplate(JNIEnv*, jobject, jintArray _resultcode)  -> st_auth_get_template_info(&info);
+                                                                                                    returns FaceIDInfo[]; *rc = ret
+0x3898   jint   Java_..._setTeeCommunicationFunc(JNIEnv*, jobject)                               -> dlopen("libst_client.so", RTLD_NOW);
+                                                                                                    dlsym("tee_communication_func"); on success
+                                                                                                    st_auth_set_tee_communication_func(fn);
+                                                                                                    if dlopen/dlsym fails -> -4 (ST_E_FAIL)
+0x3920   jint   Java_..._setTeeCommunicationFuncAddr(JNIEnv*, jobject, jlong teeCommunicationFunc)
+                                                                                                 -> st_auth_set_tee_communication_func((void*)addr)
+0x3958   void   Java_..._setLogLevel(JNIEnv*, jobject, jint log_level)                           -> st_face_open_log(log_level)
+0x3960   void   Java_..._setGPUPriority(JNIEnv*, jobject, jint priority)                         -> st_auth_set_gpu_priority(priority)
+0x3968   void   Java_..._setStandByMode(JNIEnv*, jobject)                                        -> st_auth_set_standby_mode()
+0x396c   jint   Java_..._getLastUnlockID(JNIEnv*, jobject, jintArray _resultcode)                -> st_auth_get_last_unlock_id(&id);
+                                                                                                    *rc = ret; JNI return = id
+0x3a1c   void   Java_..._enableFaceDetectCallback(JNIEnv*, jobject, jboolean isEnable)           -> g_enable_facedetect_callback = isEnable
+
+# Note A (enroll, native/jni_all.c:701): local user_id = -1; st_image_t zero-init
+#   (pixel_format=ST_PIX_FMT_GRAY8); if g_enable_facedetect_callback ->
+#   st_auth_set_facedetect_callback(FaceDetectCallBack) first; then
+#   java_stimage_to_st_image_t() pins the Java byte[] with GetByteArrayElements,
+#   st_auth_enroll(&img, config, &user_id), ReleaseByteArrayElements(..., 0),
+#   *rc = result code.  The int RETURNED to Java is user_id (face id), NOT the
+#   status; FaceAuthManager stores it as EnrollResult.mFaceId and maps *rc[0]
+#   through stFaceAuthStatusToFaceAuthResult -> EnrollResult.mEnrollStatus.
+#   st_auth_enroll also passes a 4th register (x4 = 0) to
+#   FaceUnlock2DInterFace::Enroll(img, cfg, status*, /*template out*/ 0).
+# Note B (auth, native/jni_all.c:822): faceids may be NULL -> st_auth_unlock
+#   receives (list=NULL, n=0).  The Java layer always passes null in the
+#   FaceUnlockManager path, i.e. "try every enrolled id".  *rc[0] carries the
+#   status (201 = unlock ok); the array is NOT filled in this build path.
+
+## 2. C structs crossing JNI (DWARF, aarch64 LP64; byte sizes verified)
+
+struct st_image_t (24 B)          // DWARF 0x5614
+  +0   unsigned char *data         // pinned Java byte[] (GetByteArrayElements)
+  +8   st_pixel_format pixel_format// enum, 4 B
+  +12  int width
+  +16  int height
+  +20  int stride                  // Java getStride(): w*3 BGR888/RGB888, w*4 BGRA/RGBA, else w
+
+enum st_pixel_format              // DWARF 0x9eef, decl_file com_ts_faceauth_FaceAuthNative.cpp:58
+  0 GRAY8  1 YUV420P  2 NV12  3 NV21  4 BGRA8888  5 BGR888  6 RGBA8888  7 RGB888
+  8 GRAY16 9 RGB565  10 ABGR8888
+  (Java CvPixelFormat only exposes 0..7; app default is NV21 = 3)
+
+struct st_rect_t (16 B)           // DWARF 0x5536
+  +0 int left  +4 int top  +8 int right  +12 int bottom
+
+enum st_face_orientation          // DWARF 0x9ec8 = BITMASK
+  1 ST_FACE_UP | 2 ST_FACE_LEFT | 4 ST_FACE_DOWN | 8 ST_FACE_RIGHT | 15 ST_FACE_UNKNOWN
+  (Java FaceOrientation mirrors it: UP=1 LEFT=2 DOWN=4 RIGHT=8 UNKNOWN=15)
+
+enum st_faceauth_mode             // DWARF 0x9f3a
+  0 ST_FACEAUTH_MODE_NORMAL  1 ST_FACEAUTH_MODE_FAST
+
+struct st_detect_t (20 B)         // DWARF 0x55e2 - detect-callback payload
+  +0  bool has_face
+  +4  st_rect_t face_rect
+
+struct st_face_id_info_t (16 B)   // DWARF 0x558f
+  +0 int face_id  +4 int feature_count  +8 st_keypoint_info_t *keypoints_info
+
+struct st_template_info_t         // DWARF (see native/dwarf_types_funcs.txt)
+  +0  int face_id_count
+  +4  int verify_model_version
+  +8  char *identifier
+  +16 st_face_id_info_t *st_per_face_id_info
+
+## 3. Java field/method IDs resolved by register_fields() (offsets inside `struct fields_t`)
+
++0   Rect.left        +8  Rect.top      +16 Rect.right     +24 Rect.bottom
++32  Rect.<init>      +40 STImage.mImageData  +48 STImage.mFormat
++56  STImage.mWidth   +64 STImage.mHeight     +72 STImage.mStride
++80  FaceIDInfo.mFaceID  +88 FaceIDInfo.mFeatureCountOfFace
++96  FaceIDInfo.<init>
++104 FaceDetectedInfo.mIsDetected  +112 FaceDetectedInfo.mFaceRect
++120 FaceDetectedInfo.<init>
++128 FaceAuthNative.onFaceDetected(FaceDetectedInfo)   // static void
+  (helpers: find_fields(), register_fields(), java_rect_to_st_rect_t(),
+   java_stimage_to_st_image_t(), st_detect_to_java_face_detected_info(),
+   st_faceid_info_array_to_java_faceidinfo())
+
+## 4. Detect callback path (st_auth_set_facedetect_callback)
+
+Java  FaceAuthManager.setCallback(cb)            sources/faceauth/.../FaceAuthManager.java
+  -> FaceAuthNative.enableFaceDetectCallback(true)   (0x3a1c: sets g_enable_facedetect_callback)
+  -> on every enroll()/auth() call the JNI layer does
+       st_auth_set_facedetect_callback(g_enable ? FaceDetectCallBack : NULL)
+  -> st_auth_set_facedetect_callback (libstfaceunlockocl 0x10dfd8) wraps the raw
+     fn pointer in std::function<void(st_detect_t*)> and forwards to
+     stfaceunlock::FaceUnlock2DInterFace::SetFaceDetectCallback (0x1483e0)
+  -> fired from the native detect stage on a native worker thread, so
+     FaceDetectCallBack (0x3420) does GetEnv(JNI_VERSION_1_6) and
+     AttachCurrentThread when needed, converts st_detect_t ->
+     FaceDetectedInfo(mIsDetected, mFaceRect) and calls
+     FaceAuthNative.onFaceDetected(...) via CallStaticVoidMethod.
+  Note: no caller of FaceAuthManager.setCallback exists among the decompiled
+  integration classes (FaceUnlockManager, FaceEnrollHelper, FaceAuthenHelper,
+  MiuiFaceService); in the FaceUnlockManager/FaceEnrollHelper paths the pointer
+  therefore stays NULL and no Java detect callback is delivered.
+
+## 5. Return/status conventions (confirmed)
+
+- st_result_t 0            = ST_OK
+- 201 ST_FACE_AUTH_STATUS_UNLOCK_OK   -> FaceAuthManager maps to app code 0
+- 202 ST_FACE_AUTH_STATUS_UNLOCK_FAILED -> app code 12
+- 1   ST_FACE_AUTH_STATUS_DETECT_NO_FACE -> app code 5 (FaceUnlockManager treats
+      "compare() != 5" as "a face was present" for the failure message)
+- -2  ST_E_HANDLE          -> app code 2 (handle not initialised)
+- -1008/-1001 TEMPLATE_FILE_UPPER_LIMIT / DAMAGED -> app codes 35 / 34
+- the *rc[0] out-parameter always receives the raw native status; the JNI int
+  return is a payload (face id / unlock id) or the status for pass-through calls.

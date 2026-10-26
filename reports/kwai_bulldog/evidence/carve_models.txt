@@ -1,0 +1,58 @@
+#### libtensorflow-lite
+==============================================================================
+carve_models.py: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_bulldog/native/libs/libtensorflow-lite.so (3446232 bytes)
+==============================================================================
+kind           offset       size         confidence note
+tflite         0x002f7c25  unknown      low       TFLite flatbuffer (root table did not validate); size unknown (flatbuffer has no length prefix)
+model_string   0x00306670  0xc          string    model-name string 'debug.tflite'
+
+counts: model_string=1, tflite=1
+
+dd commands for extractable candidates (GNU coreutils; substitute OUT):
+  dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_bulldog/native/libs/libtensorflow-lite.so' of='OUT' bs=1M iflag=skip_bytes skip=3111973 status=none
+#### libFaceMagic
+==============================================================================
+carve_models.py: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_bulldog/native/libs/libFaceMagic.so (7722568 bytes)
+==============================================================================
+no model candidates found
+#### libfaceless-plugin
+==============================================================================
+carve_models.py: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_bulldog/native/libs/libfaceless-plugin.so (1792128 bytes)
+==============================================================================
+kind           offset       size         confidence note
+model_string   0x001645ec  0x17         string    model-name string 'kuaishou.westeros.model' [x139]
+
+counts: model_string=1
+
+dd commands for extractable candidates (GNU coreutils; substitute OUT):
+  (none)
+#### libskwai
+==============================================================================
+carve_models.py: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_bulldog/native/libs/libskwai.so (6515760 bytes)
+==============================================================================
+kind           offset       size         confidence note
+model_string   0x00505aeb  0xe          string    model-name string 'instance_model'
+model_string   0x00505e5d  0x9          string    model-name string 'ear_model'
+model_string   0x00505e67  0xa          string    model-name string 'hair_model'
+model_string   0x00505e84  0x15         string    model-name string 'human_key_point_model'
+model_string   0x00505e9a  0x10         string    model-name string 'human_mesh_model'
+model_string   0x00505eab  0x11         string    model-name string 'animal_face_model'
+model_string   0x00505ebd  0x12         string    model-name string 'ar_hand_pose_model'
+model_string   0x00505f5a  0xb          string    model-name string 'TOUCH_MODEL'
+model_string   0x0050a58e  0xa          string    model-name string 'base_model'
+model_string   0x0052bf7b  0x10         string    model-name string 'SUBSURFACE_MODEL'
+
+counts: model_string=10
+
+dd commands for extractable candidates (GNU coreutils; substitute OUT):
+  (none)
+#### libvisionengine
+==============================================================================
+carve_models.py: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_bulldog/native/libs/libvisionengine.so (2108736 bytes)
+==============================================================================
+no model candidates found
+#### libfacedetectcontext
+==============================================================================
+carve_models.py: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_bulldog/native/libs/libfacedetectcontext.so (191728 bytes)
+==============================================================================
+no model candidates found

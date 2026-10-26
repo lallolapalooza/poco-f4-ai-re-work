@@ -1,0 +1,20 @@
+wenrou.bundle: xor_key=0x9f file=196743B entries=9
+  brow_mask.png                                              method=8 csize=    35481 usize=    38568 off=        0 ENCRYPTED-PREFIX
+  eye_jiemao_11.png                                          method=8 csize=    50701 usize=    54869 off=    35524
+  eye__7.png                                                 method=8 csize=    56118 usize=    58303 off=    86272
+  makeup_config.json                                         method=8 csize=      448 usize=     1672 off=   142430
+  mask1.png                                                  method=8 csize=     4394 usize=     5574 off=   142926
+  mask2.png                                                  method=8 csize=     5008 usize=     5912 off=   147359
+  script.js                                                  method=8 csize=      429 usize=     1116 off=   152406
+  wrgg.png                                                   method=8 csize=    28697 usize=    33756 off=   152874
+  wr_sh_xpf_3.png                                            method=8 csize=    14113 usize=    18479 off=   181609
+  CRC32 verified entries: 8 ok, 0 bad (1 skipped in encrypted prefix)
+  SKIP (encrypted prefix): brow_mask.png
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__wenrou/eye_jiemao_11.png (54869 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__wenrou/eye__7.png (58303 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__wenrou/makeup_config.json (1672 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__wenrou/mask1.png (5574 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__wenrou/mask2.png (5912 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__wenrou/script.js (1116 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__wenrou/wrgg.png (33756 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__wenrou/wr_sh_xpf_3.png (18479 bytes)

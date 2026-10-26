@@ -1,0 +1,44 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/inventory/libs/lib/arm64-v8a/libinpaint.so
+==============================================================================
+size        : 75824 bytes (0.07 MiB)
+sha256      : 334cbd2300af72d655def1d53ab028621a2b82866a515187a73ef215cc218cb8
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x25e0   imagebase: 0x0
+build id    : 454100da98a049da246100d87b728181c8cf1095
+android     : SDK 21, NDK r19c, build 5345600
+soname      : libinpaint.so
+needed      : libvis.so, libc++_shared.so, liblog.so, libc.so, libm.so, libdl.so
+parser      : lief
+counts      : 60 exports, 40 imports, 0 JNI, 24 sections, 8 segments
+symtab/dynsym: 0 / 110
+
+Sections (24)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        836        0x228
+  .dynsym                DYNSYM           A      0x570        2640       0x570
+  .dynstr                STRTAB           A      0xfc0        2582       0xfc0
+  .gnu.version           GNU_VERSYM       A      0x19d6       220        0x19d6
+  .gnu.version_r         GNU_VERNEED      A      0x1ab8       96         0x1ab8
+  .rela.dyn              RELA             A      0x1b18       288        0x1b18
+  .rela.plt              RELA             AI     0x1c38       1464       0x1c38
+  .plt                   PROGBITS         AX     0x21f0       1008       0x21f0
+  .text                  PROGBITS         AX     0x25e0       54064      0x25e0
+  .rodata                PROGBITS         A      0xf910       377        0xf910
+  .eh_frame_hdr          PROGBITS         A      0xfa8c       732        0xfa8c
+  .eh_frame              PROGBITS         A      0xfd68       4800       0xfd68
+  .gcc_except_table      PROGBITS         A      0x11028      1292       0x11028
+  .note.android.ident    NOTE             A      0x11534      152        0x11534
+  .init_array            INIT_ARRAY       WA     0x21b88      8          0x11b88
+  .fini_array            FINI_ARRAY       WA     0x21b90      16         0x11b90
+  .dynamic               DYNAMIC          WA     0x21ba0      544        0x11ba0
+  .got                   PROGBITS         WA     0x21dc0      576        0x11dc0
+  .data                  PROGBITS         WA     0x22000      24         0x12000
+  .bss                   NOBITS           WA     0x22020      10640      0x12018
+  .comment               PROGBITS         MS     0x0          302        0x12018
+  .shstrtab              STRTAB           -      0x0          234        0x12146
+
+AI-relevant strings (16683 bytes scanned in allocated data sections)
+
+JSON written to reports/miui_mediaeditor/native/libinpaint.elf.json

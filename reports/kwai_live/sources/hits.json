@@ -1,0 +1,29 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.kwai.kuaishou.video.live_155/partner-com.kwai.kuaishou.video.live_155.apk",
+  "regex": "^com\\.kwai\\.video\\.westeros\\.v2\\.ycnn\\.YcnnSoLoader$",
+  "packages": [],
+  "max": 1,
+  "timeout": 240.0,
+  "jadx": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/jadx/bin/jadx",
+  "classes_scanned": 64294,
+  "candidates": [
+    {
+      "class": "com.kwai.video.westeros.v2.ycnn.YcnnSoLoader",
+      "dex": "classes13.dex",
+      "method_count": 3,
+      "access": 1,
+      "matched": [
+        "com.kwai.video.westeros.v2.ycnn.ycnnsoloader"
+      ],
+      "score": 1003,
+      "rank": 1,
+      "selected": true,
+      "status": "failed",
+      "error": "jadx exit -9",
+      "file": null,
+      "seconds": 93.14
+    }
+  ],
+  "decompiled": 0,
+  "elapsed_sec": 102.98
+}

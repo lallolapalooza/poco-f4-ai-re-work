@@ -1,0 +1,289 @@
+{
+  "buffer_count": 6,
+  "conversion": {
+    "inputs": [
+      {
+        "dtype": "FLOAT32",
+        "name": "input_1",
+        "quantization": {
+          "max": [],
+          "min": [],
+          "quantized_dimension": 0,
+          "scale": [],
+          "scheme": "none",
+          "zero_point": []
+        },
+        "shape": [
+          1,
+          126
+        ],
+        "tensor_index": 0
+      }
+    ],
+    "model": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/work/bundles/ai_face_processor_detect_landmark/head.tflite",
+    "model_file": "model.py",
+    "outputs": [
+      {
+        "dtype": "FLOAT32",
+        "name": "Identity",
+        "quantization": {
+          "max": [],
+          "min": [],
+          "quantized_dimension": 0,
+          "scale": [],
+          "scheme": "none",
+          "zero_point": []
+        },
+        "shape": [
+          1,
+          14
+        ],
+        "tensor_index": 3
+      }
+    ],
+    "params_file": "params.npz",
+    "selection_reason": "subgraph 0 (model has no signature defs)",
+    "signature_key": null,
+    "status": "ok",
+    "subgraph_index": 0,
+    "subgraph_name": "main",
+    "subgraph_role": "inference"
+  },
+  "description": "MLIR Converted.",
+  "file_size": 7804,
+  "format": "tflite_ir/1",
+  "model_version": 3,
+  "operator_codes": [
+    {
+      "builtin_code": 9,
+      "builtin_name": "FULLY_CONNECTED",
+      "custom_code": null,
+      "index": 0,
+      "version": 1
+    }
+  ],
+  "path": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/work/bundles/ai_face_processor_detect_landmark/head.tflite",
+  "signatures": [],
+  "subgraphs": [
+    {
+      "index": 0,
+      "inputs": [
+        0
+      ],
+      "name": "main",
+      "operators": [
+        {
+          "builtin_code": 9,
+          "custom_code": null,
+          "custom_options_hex": null,
+          "index": 0,
+          "inputs": [
+            0,
+            2,
+            1
+          ],
+          "intermediates": [],
+          "op": "FULLY_CONNECTED",
+          "opcode_index": 0,
+          "opcode_version": 1,
+          "options": {
+            "AsymmetricQuantizeInputs": false,
+            "FusedActivationFunction": "NONE",
+            "KeepNumDims": false,
+            "QuantizedBiasType": 0,
+            "WeightsFormat": "DEFAULT"
+          },
+          "options_type": "FullyConnectedOptions",
+          "outputs": [
+            3
+          ]
+        }
+      ],
+      "outputs": [
+        3
+      ],
+      "role": "inference",
+      "stateful": false,
+      "tensors": [
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 1,
+          "dtype": "FLOAT32",
+          "index": 0,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "input_1",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            126
+          ],
+          "shape_signature": [
+            1,
+            126
+          ]
+        },
+        {
+          "buffer_bytes": 56,
+          "buffer_index": 2,
+          "dtype": "FLOAT32",
+          "index": 1,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/dense/BiasAdd/ReadVariableOp/resource",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            14
+          ],
+          "shape_signature": [
+            14
+          ]
+        },
+        {
+          "buffer_bytes": 7056,
+          "buffer_index": 3,
+          "dtype": "FLOAT32",
+          "index": 2,
+          "is_constant": true,
+          "is_variable": false,
+          "name": "model/dense/MatMul",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            14,
+            126
+          ],
+          "shape_signature": [
+            14,
+            126
+          ]
+        },
+        {
+          "buffer_bytes": 0,
+          "buffer_index": 4,
+          "dtype": "FLOAT32",
+          "index": 3,
+          "is_constant": false,
+          "is_variable": false,
+          "name": "Identity",
+          "quantization": {
+            "max": [],
+            "min": [],
+            "quantized_dimension": 0,
+            "scale": [],
+            "scheme": "none",
+            "zero_point": []
+          },
+          "shape": [
+            1,
+            14
+          ],
+          "shape_signature": [
+            1,
+            14
+          ]
+        }
+      ],
+      "unsupported_ops": []
+    }
+  ],
+  "supported_ops": [
+    "ABS",
+    "ADD",
+    "ARG_MAX",
+    "ARG_MIN",
+    "AVERAGE_POOL_2D",
+    "BATCH_MATMUL",
+    "CAST",
+    "CONCATENATION",
+    "CONV_2D",
+    "COS",
+    "DEPTHWISE_CONV_2D",
+    "DEPTH_TO_SPACE",
+    "DEQUANTIZE",
+    "DIV",
+    "ELU",
+    "EQUAL",
+    "EXP",
+    "EXPAND_DIMS",
+    "FILL",
+    "FLOOR",
+    "FLOOR_DIV",
+    "FULLY_CONNECTED",
+    "GATHER",
+    "GATHER_ND",
+    "GREATER",
+    "GREATER_EQUAL",
+    "HARD_SWISH",
+    "LEAKY_RELU",
+    "LESS",
+    "LESS_EQUAL",
+    "LOG",
+    "LOGICAL_AND",
+    "LOGICAL_NOT",
+    "LOGICAL_OR",
+    "LOGISTIC",
+    "MAXIMUM",
+    "MAX_POOL_2D",
+    "MEAN",
+    "MINIMUM",
+    "MUL",
+    "NEG",
+    "NOT_EQUAL",
+    "ONE_HOT",
+    "PACK",
+    "PAD",
+    "PADV2",
+    "POW",
+    "QUANTIZE",
+    "REDUCE_MAX",
+    "REDUCE_MIN",
+    "REDUCE_PROD",
+    "RELU",
+    "RELU6",
+    "RELU_N1_TO_1",
+    "RESHAPE",
+    "RESIZE_BILINEAR",
+    "RESIZE_NEAREST_NEIGHBOR",
+    "RSQRT",
+    "SELECT",
+    "SHAPE",
+    "SIN",
+    "SLICE",
+    "SOFTMAX",
+    "SPACE_TO_DEPTH",
+    "SQRT",
+    "SQUARE",
+    "SQUARED_DIFFERENCE",
+    "SQUEEZE",
+    "STRIDED_SLICE",
+    "SUB",
+    "SUM",
+    "TANH",
+    "TILE",
+    "TOPK_V2",
+    "TRANSPOSE",
+    "UNPACK",
+    "ZEROS_LIKE"
+  ]
+}

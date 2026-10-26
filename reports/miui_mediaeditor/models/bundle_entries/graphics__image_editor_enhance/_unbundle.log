@@ -1,0 +1,136 @@
+image_editor_enhance.bundle: xor_key=0x8a file=3994454B entries=67
+  black.jpg                                                  method=8 csize=      465 usize=      679 off=        0 ENCRYPTED-PREFIX
+  dehaze_clarity/                                            method=0 csize=        0 usize=        0 off=      504 ENCRYPTED-PREFIX
+  dehaze_clarity/image_box_blur_fs.glsl                      method=8 csize=      301 usize=      555 off=      549 ENCRYPTED-PREFIX
+  dehaze_clarity/image_covip_fs.glsl                         method=8 csize=      187 usize=      401 off=      917 ENCRYPTED-PREFIX
+  dehaze_clarity/image_darkchannel_1_fs.glsl                 method=8 csize=      204 usize=      413 off=     1168
+  dehaze_clarity/image_darkchannel_2_fs.glsl                 method=8 csize=      207 usize=      392 off=     1444
+  dehaze_clarity/image_dehaze_fs.glsl                        method=8 csize=      134 usize=      267 off=     1723
+  dehaze_clarity/image_guide_step1_fs.glsl                   method=8 csize=      187 usize=      582 off=     1922
+  dehaze_clarity/image_guide_step2_fs.glsl                   method=8 csize=      145 usize=      341 off=     2179
+  dehaze_clarity/image_minus_fs.glsl                         method=8 csize=      131 usize=      194 off=     2394
+  dehaze_clarity/image_min_fs.glsl                           method=8 csize=      297 usize=      890 off=     2589
+  dehaze_clarity/image_mulab_fs.glsl                         method=8 csize=      184 usize=      428 off=     2948
+  dehaze_clarity/image_mul_fs.glsl                           method=8 csize=      132 usize=      219 off=     3196
+  dehaze_clarity/image_mul_fs1.glsl                          method=8 csize=      111 usize=      135 off=     3390
+  dehaze_clarity/image_test_blur_fs.glsl                     method=8 csize=     1028 usize=     3625 off=     3564
+  dehaze_clarity/image_test_blur_merge_fs.glsl               method=8 csize=      121 usize=      157 off=     4660
+  dehaze_clarity/image_test_blur_vs.glsl                     method=8 csize=      228 usize=      469 off=     4855
+  denoise/                                                   method=0 csize=        0 usize=        0 off=     5151
+  denoise/image_denoise1_fs.glsl                             method=8 csize=      312 usize=      624 off=     5189
+  denoise/image_denoise2_fs.glsl                             method=8 csize=      325 usize=      673 off=     5561
+  image_block_fs.glsl                                        method=8 csize=      141 usize=      291 off=     5946
+  image_block_vs.glsl                                        method=8 csize=      133 usize=      190 off=     6136
+  image_color_fs.glsl                                        method=8 csize=      826 usize=     2464 off=     6318
+  image_curve_fs.glsl                                        method=8 csize=      159 usize=      442 off=     7193
+  image_dispers_fs.glsl                                      method=8 csize=     1265 usize=     4952 off=     7401
+  image_effect_fs.glsl                                       method=8 csize=     1701 usize=     7822 off=     8717
+  image_fs.glsl                                              method=8 csize=      199 usize=      558 off=    10468
+  image_gen_grain_fs.glsl                                    method=8 csize=      475 usize=     1040 off=    10710
+  image_gen_noise_fs.glsl                                    method=8 csize=      455 usize=     1050 off=    11238
+  image_global_enhance_fs.glsl                               method=8 csize=     1643 usize=     6697 off=    11746
+  image_global_gaussian_fs.glsl                              method=8 csize=      308 usize=      768 off=    13447
+  image_global_gaussian_vs.glsl                              method=8 csize=      207 usize=      354 off=    13814
+  image_hsl_fs.glsl                                          method=8 csize=     3154 usize=    21347 off=    14080
+  image_noise_fs.glsl                                        method=8 csize=      244 usize=      515 off=    17281
+  image_sharpen_fs.glsl                                      method=8 csize=      209 usize=      556 off=    17574
+  image_show_mask_fs.glsl                                    method=8 csize=      149 usize=      242 off=    17834
+  image_texture_fs.glsl                                      method=8 csize=     1096 usize=     3738 off=    18036
+  image_tintsplit_fs.glsl                                    method=8 csize=      919 usize=     5249 off=    19183
+  image_vs.glsl                                              method=8 csize=      101 usize=      125 off=    20155
+  light_perecption/                                          method=0 csize=        0 usize=        0 off=    20299
+  light_perecption/nlut.png                                  method=8 csize=     1750 usize=     3282 off=    20346
+  light_perecption/plut.png                                  method=8 csize=     1594 usize=     3320 off=    22151
+  local/                                                     method=0 csize=        0 usize=        0 off=    23800
+  local/image_circle_fs.glsl                                 method=8 csize=      311 usize=      677 off=    23836
+  local/image_color_local_fs.glsl                            method=8 csize=      337 usize=      771 off=    24203
+  local/image_line_fs.glsl                                   method=8 csize=      364 usize=      924 off=    24601
+  local/image_luminance_local_fs.glsl                        method=8 csize=      412 usize=      959 off=    25019
+  local/image_sobel_fs.glsl                                  method=8 csize=      313 usize=      558 off=    25496
+  metadata.json                                              method=8 csize=       88 usize=       92 off=    25864
+  noise.png                                                  method=0 csize=  3914038 usize=  3914038 off=    25995
+  script.js                                                  method=8 csize=     2316 usize=    12897 off=  3940072
+  stroke/                                                    method=0 csize=        0 usize=        0 off=  3942427
+  stroke/image_circle_stroke_fs.glsl                         method=8 csize=      155 usize=      230 off=  3942464
+  stroke/image_region_combine_fs.glsl                        method=8 csize=      173 usize=      333 off=  3942683
+  stroke/image_stroke_copy_fs.glsl                           method=8 csize=      170 usize=      348 off=  3942921
+  stroke/image_stroke_fs.glsl                                method=8 csize=      367 usize=      871 off=  3943153
+  stroke/image_stroke_inverse_for_ai_fs.glsl                 method=8 csize=      147 usize=      274 off=  3943577
+  stroke/image_stroke_inverse_fs.glsl                        method=8 csize=      109 usize=      128 off=  3943796
+  stroke/image_stroke_over_fs.glsl                           method=8 csize=      231 usize=      557 off=  3943970
+  stroke/image_stroke_over_only_fs.glsl                      method=8 csize=      313 usize=     1038 off=  3944263
+  stroke/image_stroke_test_for_ai_fs.glsl                    method=8 csize=      128 usize=      200 off=  3944643
+  stroke/image_stroke_undoredo_fs.glsl                       method=8 csize=      184 usize=      452 off=  3944840
+  stroke/image_stroke_vs.glsl                                method=8 csize=      143 usize=      272 off=  3945090
+  stroke/image_update_manual_mask_fs.glsl                    method=8 csize=      134 usize=      229 off=  3945290
+  white.jpg                                                  method=8 csize=      454 usize=      643 off=  3945493
+  white_black/                                               method=0 csize=        0 usize=        0 off=  3945986
+  white_black/white100.jpeg                                  method=8 csize=    40988 usize=    57642 off=  3946028
+  CRC32 verified entries: 63 ok, 0 bad (4 skipped in encrypted prefix)
+  SKIP (encrypted prefix): black.jpg
+  SKIP (directory): dehaze_clarity/
+  SKIP (encrypted prefix): dehaze_clarity/image_box_blur_fs.glsl
+  SKIP (encrypted prefix): dehaze_clarity/image_covip_fs.glsl
+  wrote models/bundle_entries/graphics__image_editor_enhance/dehaze_clarity/image_darkchannel_1_fs.glsl (413 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/dehaze_clarity/image_darkchannel_2_fs.glsl (392 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/dehaze_clarity/image_dehaze_fs.glsl (267 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/dehaze_clarity/image_guide_step1_fs.glsl (582 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/dehaze_clarity/image_guide_step2_fs.glsl (341 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/dehaze_clarity/image_minus_fs.glsl (194 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/dehaze_clarity/image_min_fs.glsl (890 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/dehaze_clarity/image_mulab_fs.glsl (428 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/dehaze_clarity/image_mul_fs.glsl (219 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/dehaze_clarity/image_mul_fs1.glsl (135 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/dehaze_clarity/image_test_blur_fs.glsl (3625 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/dehaze_clarity/image_test_blur_merge_fs.glsl (157 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/dehaze_clarity/image_test_blur_vs.glsl (469 bytes)
+  SKIP (directory): denoise/
+  wrote models/bundle_entries/graphics__image_editor_enhance/denoise/image_denoise1_fs.glsl (624 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/denoise/image_denoise2_fs.glsl (673 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/image_block_fs.glsl (291 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/image_block_vs.glsl (190 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/image_color_fs.glsl (2464 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/image_curve_fs.glsl (442 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/image_dispers_fs.glsl (4952 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/image_effect_fs.glsl (7822 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/image_fs.glsl (558 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/image_gen_grain_fs.glsl (1040 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/image_gen_noise_fs.glsl (1050 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/image_global_enhance_fs.glsl (6697 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/image_global_gaussian_fs.glsl (768 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/image_global_gaussian_vs.glsl (354 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/image_hsl_fs.glsl (21347 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/image_noise_fs.glsl (515 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/image_sharpen_fs.glsl (556 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/image_show_mask_fs.glsl (242 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/image_texture_fs.glsl (3738 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/image_tintsplit_fs.glsl (5249 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/image_vs.glsl (125 bytes)
+  SKIP (directory): light_perecption/
+  wrote models/bundle_entries/graphics__image_editor_enhance/light_perecption/nlut.png (3282 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/light_perecption/plut.png (3320 bytes)
+  SKIP (directory): local/
+  wrote models/bundle_entries/graphics__image_editor_enhance/local/image_circle_fs.glsl (677 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/local/image_color_local_fs.glsl (771 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/local/image_line_fs.glsl (924 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/local/image_luminance_local_fs.glsl (959 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/local/image_sobel_fs.glsl (558 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/metadata.json (92 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/noise.png (3914038 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/script.js (12897 bytes)
+  SKIP (directory): stroke/
+  wrote models/bundle_entries/graphics__image_editor_enhance/stroke/image_circle_stroke_fs.glsl (230 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/stroke/image_region_combine_fs.glsl (333 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/stroke/image_stroke_copy_fs.glsl (348 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/stroke/image_stroke_fs.glsl (871 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/stroke/image_stroke_inverse_for_ai_fs.glsl (274 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/stroke/image_stroke_inverse_fs.glsl (128 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/stroke/image_stroke_over_fs.glsl (557 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/stroke/image_stroke_over_only_fs.glsl (1038 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/stroke/image_stroke_test_for_ai_fs.glsl (200 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/stroke/image_stroke_undoredo_fs.glsl (452 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/stroke/image_stroke_vs.glsl (272 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/stroke/image_update_manual_mask_fs.glsl (229 bytes)
+  wrote models/bundle_entries/graphics__image_editor_enhance/white.jpg (643 bytes)
+  SKIP (directory): white_black/
+  wrote models/bundle_entries/graphics__image_editor_enhance/white_black/white100.jpeg (57642 bytes)

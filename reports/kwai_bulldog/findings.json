@@ -1,0 +1,352 @@
+{
+  "slug": "kwai_bulldog",
+  "package": "com.kwai.bulldog",
+  "app_name": "Snack Video (Kwai partner variant, 6.0.20.524206)",
+  "ai_summary": "Kwai's on-device vision stack: a custom ycnnnet v3/v4 inference runtime in libykit.so (CPU/OpenCL, TFLite and SNPE/MTK-APU shims) drives camera face detection/landmarks (libfacedetectcontext.so), the FaceMagic beauty/effect engine (libFaceMagic.so + libskwai.so), and the KVE video-analysis engine (libvisionengine.so, Halide). The APK contains no model weights: 102 KSModel*.model names and model families are compiled into libykit.so, but the actual model files and the voice-detection TFLite model (voice_detect_mode.tflite) are downloaded per resource key from config-driven CDN URLs into <cache>/magic_effect_resource/<resourceKey>/ (or <cache>/.magic_model/magic_model/<resourceKey>/) and validated against check.json MD5 lists. JAX reimplementation is therefore ARCHITECTURE_ONLY with recovered I/O contracts.",
+  "features": [
+    {
+      "name": "Camera face detection and landmarks (YCNN)",
+      "entrypoints": [
+        "com.kwai.camerasdk.face.FaceDetectorContext (nativeInit, nativeSetData, nativeDetectFacesFromFrame)",
+        "Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeDetectFacesFromFrame@0x1a19c (libfacedetectcontext.so)",
+        "com.kwai.kscnnrenderlib.KSJNILib.createModel/renderModel/updateModelOut (libykit.so)"
+      ],
+      "pipeline": [
+        "NV21/NV12 camera frame -> VideoRawFrameFromJni -> kuaishou::model::FaceData",
+        "FaceDetectorContext.setData(type, modelPath) supplies the ycnn detector model path at runtime",
+        "libfacedetectcontext.so -> virtual SetData(int,std::string), then ycnn detector via libykit.so (CPU NEON or OpenCL)",
+        "detectFacesFromFrame returns protobuf FaceData[] (rect, landmark points, score) to Java"
+      ],
+      "models": [
+        "downloaded magic_ycnn_model_* resource (face detect / landmark, KSModelLandmark01..15 family)"
+      ],
+      "confidence": "confirmed",
+      "notes": "Wiring and JNI names confirmed; the exact KSModel file used per model_type is inside stripped YCNNGetConfig2Model and remains inferred."
+    },
+    {
+      "name": "FaceMagic camera beauty / makeup / 3D / segmentation effects",
+      "entrypoints": [
+        "com.kwai.video.westeros.v2.faceless.FaceMagicController (nativeInitController, nativeSetEffect, nativeUpdateEffectControl)",
+        "com.kwai.video.westeros.v2.faceless.FacelessPlugin.nativeCreateFacelessPlugin",
+        "com.kwai.FaceMagic.AE2.* (SWIG, AE2WesterosWrapperCreator_1Resource_1ycnnModelPath_1set)"
+      ],
+      "pipeline": [
+        "FaceMagicController.nativeSetExternalBuiltinPath / nativeSetBeautifyExternalBuiltinPath point at the downloaded effect resource dir",
+        "AE2 Resource exposes ycnnModelPath / ycnnModelPathMap / dirtyLensProcessorModelPath / mmuModelPath to libFaceMagic.so",
+        "FMBeautifyEffectInterface::setBeautifyExternalModelPath and FMEffectAsyncProcessor::setSkinColorDetectModelPath load auxiliary models",
+        "GL/CGE/skwai renders warp, smoothing, makeup, and Face/Body/Cloth/Hair/Hand/Ground/Depth segmentation masks"
+      ],
+      "models": [
+        "ycnn models inside each downloaded MagicFace effect package (magic_ycnn_model_*, bg_model.bin, fg_model.bin)"
+      ],
+      "confidence": "confirmed",
+      "notes": "Exported JNI and rodata strings confirm model-path handoff; the internal layout of an effect package is not observable statically."
+    },
+    {
+      "name": "YCNN plugin analyses (salient region, face attributes, general recognition)",
+      "entrypoints": [
+        "com.kwai.video.westeros.v2.ycnn.YcnnPlugin (nativeStartProvideSalientData, nativeStartProvideFaceAttributeData, nativeStartProvideGeneralRecogData, nativeSetParamInfo)",
+        "Java_com_kwai_video_westeros_v2_ycnn_YcnnPlugin_nativeCreateYcnnPlugin@0x144bc (libykit_core_plugin.so)",
+        "Java_com_kwai_video_westeros_v2_ycnn_YcnnPluginUtils_nativeGetFaceData@0x15910 (libykit_core_plugin.so)"
+      ],
+      "pipeline": [
+        "Westeros plugin frame stream -> ycnn model (libykit) -> protobuf results",
+        "SalientData / YcnnFaceAttributeResult parseFrom(byte[]) callbacks to Java",
+        "model directory supplied via JSON param attr_local_path"
+      ],
+      "models": [
+        "magic_ycnn_model_salient*.model, magic_ycnn_model_face_attributes*, magic_ycnn_model_general_recogn*"
+      ],
+      "confidence": "inferred",
+      "notes": "Java JNI surface and result protobufs confirmed; plugin implementation lives in dynamically loaded westeros/ve plugins, so per-call model selection is inferred from resource keys."
+    },
+    {
+      "name": "KVE smart edit / smart cover / gallery / upload analysis",
+      "entrypoints": [
+        "com.kwai.kve.VisionEngine.createSmartEditTaskBuilder / createSmartCoverTaskBuilder / createSmartGalleryTaskBuilder",
+        "com.kwai.kve.SmartEditTask.createSmartEditTask",
+        "com.kwai.kve.SmartUploadAnalyzer.openWithModelTypeNative",
+        "com.kwai.kve.SmartCoverTask.createHighlightAnalyzer"
+      ],
+      "pipeline": [
+        "Video/image assets -> libvisionengine.so Halide pipelines",
+        "features: kSharpness, kColorfulness, kLowLight, kJunk, kNoTexture, kSceneChange, kSceneClass, kSaliencyPortion, kHumanVoice, face metrics (kFaceNumber/kFaceSharpness/kEyeOpenness/kFaceSmile...)",
+        "scene classification + salient/face score DAGs (face_score_dag, face_laplacian_dag, compute_saliency_area)",
+        "ranking/selection for smart edit, cover, duplicate removal"
+      ],
+      "models": [
+        "none bundled; voice stage uses downloaded voice_detect_mode.tflite"
+      ],
+      "confidence": "confirmed",
+      "notes": "Feature enum and JNI names confirmed from libvisionengine.so; individual formula weights/thresholds are compiled Halide code."
+    },
+    {
+      "name": "AI edit GAN and MMU avatar models (memoji/animoji/face blend)",
+      "entrypoints": [
+        "com.kwai.video.westeros.aiedit.AIEditPlugin.nativeCreateAIEditPlugin (libykit_module_plugin.so 0x14f50)",
+        "com.kwai.video.westeros.mmuplugin.MmuPlugin.nativeCreateMmuPlugin (libykit_module_plugin.so 0x15e58)",
+        "com.kwai.video.westeros.v2.yar.YarPlugin.nativeCreateYarPlugin (0x18f8c)"
+      ],
+      "pipeline": [
+        "effect package supplies aiedit.pbs.AIEditParamGan model_path / model_dir / landmark_model_path",
+        "MMU avatar resources magic_mmu_model_* downloaded through the same MagicModel resource path",
+        "libykit_module.so / libykit.so run the GAN or avatar model; output composited by FaceMagic/CGE"
+      ],
+      "models": [
+        "magic_mmu_model_animoji1, magic_mmu_model_basewhite, magic_mmu_model_ear, magic_mmu_model_faceblend, magic_mmu_model_faceprop, magic_mmu_model_memoji"
+      ],
+      "confidence": "inferred",
+      "notes": "JNI entrypoints and protobuf field names confirmed; mapping of each effect to a specific model bundle is not statically observable."
+    },
+    {
+      "name": "Editor voice detection (TFLite)",
+      "entrypoints": [
+        "com.kwai.video.editorsdk2.kve.EditorKveVoiceDetectParam.setModelPath",
+        "com.yxcorp.gifshow.util.resource.model.a$c.getResourceName() -> voice_detect_mode.tflite"
+      ],
+      "pipeline": [
+        "resource key voice_detect_mode -> config response field voice_detect_mode_v1",
+        "download + unzip to <magic root>/voice_detect_mode/ -> check.json MD5 validation",
+        "model path passed to editor KVE native voice detector backed by libtensorflow-lite.so"
+      ],
+      "models": [
+        "voice_detect_mode.tflite (remote resource, not in APK)"
+      ],
+      "confidence": "confirmed",
+      "notes": "Model name, resource route, and path handoff confirmed; the file itself and its tensor signature are unavailable."
+    }
+  ],
+  "models": [
+    {
+      "path": "remote:KSModel*.model registry in lib/arm64-v8a/libykit.so (102 names, 19 cfg families)",
+      "format": "ycnnnet v3/v4 binary or JSON model (.model + *_cfg.txt)",
+      "io": {
+        "input": "NV21/NV12/grey/rgb/bgr float image planes; net_w, net_h, inputMeanVals from per-model config",
+        "output": "typed outputs: face rect+landmarks, matting alpha, segmentation masks, human pose, scene class, generic blobs",
+        "jni": "com.kwai.kscnnrenderlib.KSJNILib.createModel/renderModel/updateModelOut/YCNNGetConfig2Model"
+      },
+      "ops": [],
+      "weights": "unavailable",
+      "jax_reimpl": "reimpl/pipeline.py (detector stage, architecture only)",
+      "verification": "no model bytes in APK; carve_models.py found no TFLite/zip/caffe container in any AI lib",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "remote:voice_detect_mode.tflite (resource key voice_detect_mode)",
+      "format": "TFLite flatbuffer",
+      "io": {
+        "input": "audio window (shape unknown)",
+        "output": "voice/non-voice score (shape unknown)"
+      },
+      "ops": [],
+      "weights": "unavailable",
+      "jax_reimpl": "none",
+      "verification": "no .tflite member in APK; TFL3 magic appears only as the TFLite schema string in libtensorflow-lite.so at 0x2f7c25",
+      "confidence": "confirmed"
+    }
+  ],
+  "reimplementation": {
+    "path": "reports/kwai_bulldog/reimpl/pipeline.py",
+    "run_command": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python reports/kwai_bulldog/reimpl/pipeline.py --net 128 --width 640 --height 480",
+    "status": "architecture_only",
+    "limitations": "No weights or per-model graph exist in the APK; all ycnn model files are downloaded resources. Detector graph, landmark semantics and preprocessing means are model-specific and unavailable. Implemented stages: NV21/NV12->RGB (BT.601 limited), crop/resize/mean preprocessing, ycnn-style heatmap+landmark detector with deterministic random init, and KVE feature statistics. Numeric parity cannot be claimed."
+  },
+  "unknowns": [
+    "ycnnnet .model container layout (header/quantised layer blocks) and per-model graph",
+    "mapping from YCNNModelConfig model_type/model_sub_type to a specific KSModel*.model file",
+    "per-model net_w/net_h, inputMeanVals, landmark count (68-point config table is embedded; other counts exist in Kwai builds)",
+    "whether dynamic plugin APKs (westeros/ve) ship additional pre-baked models for this device image",
+    "exact CDN URL host/prefix composition for model resources (config response carries suffix/url; base host resolved at runtime)",
+    "real layout of a downloaded MagicFace effect package (which files are ycnn models, shaders, params)",
+    "whether Unity/libcore.so difference affects any AI feature (not in the AI lib set)",
+    "class that supplies com.kwai.camerasdk.video.VideoFrame at runtime in bulldog (defined in kwai_video classes15.dex, absent from every bulldog DEX)",
+    "human-readable names of kuaishou MediaDataType values 35/36/38 used by VideoRawFrameFromJni",
+    "names of FaceData float fields 1 and 2 (wire types confirmed, Java exposes no accessor)",
+    "rotation arithmetic inside the stripped kuaishou::face::FaceDetectorContextInterface implementation (only SensorManager::GetOrientation90 import + VideoFrameAttributes.Transform are visible)",
+    "queue depth / drop counters in the libdaenerys media graph"
+  ],
+  "data_pipelines": [
+    {
+      "id": "bulldog.camera_face_detect",
+      "name": "Camera frame -> YCNN face detect -> FaceData protobuf -> Java",
+      "applies_to": "com.kwai.bulldog (native identical to kwai_video; Java VideoFrame class absent here)",
+      "trigger": {
+        "kind": "camera frame callback / explicit detect call",
+        "java": "com.kwai.camerasdk.face.FaceDetectorContext.detectFacesFromFrame(VideoFrame, FaceDetectorName) [classes15.dex]",
+        "native": "Java_com_kwai_camerasdk_face_FaceDetectorContext_nativeDetectFacesFromFrame @ libfacedetectcontext.so 0x1a19c (1312 B); detect is the C++ virtual [ctx iface vtable+0x68] at 0x1a24c",
+        "lifecycle": "nativeInit 0x184b0 -> nativeSetData 0x18e28 -> nativePrepare 0x1af34 -> per-frame detect -> nativeDestroy 0x18b10"
+      },
+      "producer": {
+        "who": "libdaenerys.so camera media source",
+        "jni": "Java_com_kwai_camerasdk_videoCapture_DaenerysFrameObserver_nativeOnVideoFrameCaptured @ libdaenerys.so 0xe18d8",
+        "object": "com.kwai.camerasdk.video.VideoFrame {type,yuv_format,width,height,timestamp,data:FrameBuffer|textureId+isOesTexture|bitmap,originalFrame,getSerializedAttributes()}",
+        "marshalling": "kuaishou::android::VideoRawFrameFromJni @ libdaenerys.so 0xece3c (6048 B)"
+      },
+      "transport": {
+        "frame_types": "YUV=1, TEXTURE=2, RGBA=3, BITMAP=4 (VideoFrame constants); None=0",
+        "native_dispatch": "type 1 -> FrameBuffer bytes, MediaDataType 35; type 3 -> bytes, MediaDataType 38; type 4 -> Bitmap ctor; type 2 -> GL texture ctor (libdaenerys.so 0xececc-0xed0a0)",
+        "format": "NV21/NV12/I420-family CPU planes or OES/2D GL texture; yuv_format int carried in VideoFrame",
+        "dimensions": "VideoFrame.width/height (raw); effective size = crop_*_frac of Transform, rotated, rounded to multiple of 4 (VideoFrame.transformedWidth/Height)",
+        "rotation": "kuaishou.model.VideoFrameAttributes.transform.rotation (+mirror, crop fracs); detector also uses kuaishou::SensorManager::GetOrientation90 (libdaenerys.so exports, libfacedetectcontext.so imports)",
+        "timestamp": "VideoFrame.timestamp (long) -> VideoRawFrame ctor arg 5",
+        "thread": "caller thread, serialized by FaceDetectorContext.lock (synchronized)"
+      },
+      "preprocessing": [
+        "VideoRawFrame::nv12or21_copy*/i420_copy* normalise the CPU layout (libdaenerys.so 0x1f459-0x1f990)",
+        "VideoRawFrame::NeedReconvertYUVForColorSpace when colour space mismatches (0x1f79b)",
+        "ycnn::YCNNCropDataMatrix crop+convert; ycnn accepts only grey/nv21/nv12 or rgb/bgr/*-norm/yuv0 (libykit.so rodata 0x83af40/0x83ad59)",
+        "per-model inputMeanVals subtraction and net_w/net_h resize from the downloaded model config",
+        "rotate/flipHor applied from YCNNModelIn (or detector config) before inference"
+      ],
+      "model_invocation": {
+        "engine": "ycnnnet v3/v4 in libykit.so (CPU NEON / OpenCL; TFLite + SNPE shims)",
+        "session": "KSJNILib.createModel @ libykit.so 0xc81e8 with YCNNModelConfig{model_type,model_sub_type,model_files,model_path,param,asset_manager}; model_type 21=Detector, 5=Landmarks",
+        "binding": "KSJNILib.renderModel(Object,byte[]) @ 0xc8360 reads KSRenderObj.mKSJNIRenderObj(J), mModelIn fields colorType/rotate/flipHor/width/height/frame_time/single_image/normOut/normRotate/normFlipHor/normFlipVer; pixels = byte[] arg",
+        "cadence": "KSLandmarksParam defaults maxFaceNum=4, minFaceSize=50, detectIntervals=5, detectMode=4 (SuperFast), useImageTrack=2 (TRACK_128)",
+        "model_path": "downloaded resource dir, handed in by FaceDetectorContext.setData(type,path); gated by vendor flag com.kwai.camerasdk.videoCapture.cameras.camera2.vendor.a.f23915h"
+      },
+      "postprocessing": [
+        "FaceData::SerializeToString per face (libfacedetectcontext.so 0x1a6f8) -> NewByteArray JNI#176 (env+0x580, 0x1a71c) -> SetByteArrayRegion JNI#208 (env+0x680, 0x1a75c) -> SetObjectArrayElement JNI#174 (env+0x570, 0x1a390) into the array created by NewObjectArray JNI#172 (env+0x560, 0x1a30c)",
+        "kuaishou.model.FaceData wire: 1 float, 2 float, 3 float confidence, 4 rect, 5 pose(yaw,pitch,roll), 6 landmark(points/bytes/extra/flipped), 7 original_rect, 8 gender enum (libdaenerys.so serializer 0x179520)",
+        "Java parse: mo.g0.f(byte[]) (FaceData.parseFrom), classes15.dex",
+        "coordinate transform: ycnn::TransLandmarksImageToView (.dynstr symbol 0x2f0c0); KSRectfInter/KSRectfCombine 0x2dec3/0x2e047 (.dynstr)"
+      ],
+      "consumer": [
+        "application code: FaceData list drives overlays/effects; the only DEX method descriptor in this APK that mentions Lcom/kwai/camerasdk/video/VideoFrame; is com.kwai.video.ksmedialivekit.LivePushClient$1.onVideoFrame (classes8.dex)"
+      ],
+      "threading": [
+        "detector runs on the calling thread under Java lock",
+        "async init supported (FaceDetectInitType Auto/Sync/Async; BaseFaceDetector is_async_init + Runloop, libfacedetectcontext.so rodata 0x2408a/0x23fb8)"
+      ],
+      "failure_fallback": [
+        "setData is a no-op when vendor flag f23915h is false -> detector stays without a model",
+        "missing model file: '[YcnnFaceDetector] Ycnn model missing %s' (libfacedetectcontext.so 0x244be) -> onModelMissingCallback(int,String) 0x249fd -> Java ModelMissingListener.onModelMissing",
+        "model bytes are read through Java com.kwai.camerasdk.utils.ResourceLoader.loadData(String,boolean)[B (rodata 0x239a9/0x23ac4); file://asset/ accepted (0x243bd)"
+      ],
+      "confidence": "confirmed",
+      "evidence": [
+        "native/facedetect_detectFaces.s",
+        "native/facedetect_nativeSetData.s",
+        "native/daenerys_VideoRawFrameFromJni.s",
+        "evidence/gap_pipeline/videoframe_jni_contract.txt",
+        "evidence/gap_pipeline/proto_shapes.txt",
+        "sources/classes/com.kwai.camerasdk.face.FaceDetectorContext.java",
+        "sources/classes/mo.g0.java",
+        "sources/classes/mo.h0.java"
+      ],
+      "variant_diff": "libfacedetectcontext.so byte-identical to kwai_video (sha256 6238b612...); com.kwai.camerasdk.video.VideoFrame is defined in kwai_video classes15.dex but defined:false in every bulldog DEX",
+      "unknowns": [
+        "names of MediaDataType 35/36/38",
+        "FaceData float fields 1-2",
+        "class supplying VideoFrame at runtime in bulldog",
+        "rotation arithmetic inside the stripped FaceDetectorContextInterface impl"
+      ]
+    },
+    {
+      "id": "bulldog.faceless_effect_render",
+      "name": "Camera/player frame -> FMGlProcessor ycnn detect -> FM::FMFaceData -> FaceMagic GL render -> encoder",
+      "applies_to": "com.kwai.bulldog",
+      "trigger": {
+        "java": "com.kwai.video.westeros.v2.faceless.FacelessPlugin.<init> -> new FaceMagicController(nativePlugin,true) (classes13.dex)",
+        "native": "FaceMagicController.nativeInitController @ libfaceless-plugin.so 0x3d49c; nativeGetGlProcessor 0x3d6f0",
+        "per_frame": "FM::FMGlProcessor::OnDraw() / update(effectTime,duration,frameTime) on the GL render thread (libfaceless-plugin.so rodata)"
+      },
+      "producer": {
+        "who": "westeros render graph: daenerys camera/src texture -> GlProcessor chain",
+        "native": "FaceMagicController extends WesterosGlProcessor; frame is a GL texture in the graph (no Java per-frame call)",
+        "size_hint": "FaceMagicController.nativeSetInitialVideoFrameSize(long,int,int) @ 0x3e17c"
+      },
+      "transport": {
+        "format": "GL texture (2D/OES) inside the westeros/CGE graph; CPU path only for one-shot image detect",
+        "dimensions": "from VideoFrame.width/height + Transform crop/rotation (transformedWidth/Height)",
+        "thread": "GL render thread; async effect worker FM::FMEffectAsyncProcessor (libFaceMagic.so 0x384d9)",
+        "drop_policy": "VideoFrame.canDrop() = !attributes.undroppable; FMGlProcessor has a frame-skip guard"
+      },
+      "preprocessing": [
+        "frame texture sampled by FMGlProcessor; FMDataExchanger::setTransFaceData(bool,vector<int>,vector<float>) (libFaceMagic.so 0x342ff) for user-supplied transforms",
+        "detector modes FaceDataWithFastMode/RobustMode/Robust3DMode/ImageMode (libFaceMagic.so 0x587b77-0x587de7) mirror FaceDetectMode"
+      ],
+      "model_invocation": {
+        "engine": "ycnn via libykit.so (libfaceless-plugin.so DT_NEEDED libykit.so + libFaceMagic.so)",
+        "models": "effect-package ycnn models + magic_ycnn_beautify_* (skin color, assets) loaded from the downloaded effect dir",
+        "paths": "nativeSetExternalBuiltinPath 0x3e228, nativeSetBeautifyExternalBuiltinPath 0x3e564, AE2 Resource.ycnnModelPath/*Map, mmuModelPath, dirtyLensProcessorModelPath"
+      },
+      "postprocessing": [
+        "FM::FMEffectHandler/FM3DEffect/FMBeautifyEffectInterface consume FMFaceData{rect_left/top/right/bottom, pose_yaw/pitch/roll, points, index}",
+        "kuaishou::westeros::FaceData accessors verified in libfaceless-plugin.so (.dynstr 0x8642-0xcc7f)"
+      ],
+      "consumer": [
+        "GL composite (CGE/libskwai/libgorgeous) rendered into the preview surface and into the encoder",
+        "native encode: MediaRecorderImpl.nativeStartRecording 0xe46dc / nativeCaptureOneVideoFrame 0xe4ef0 / nativeSetTargetFps 0xe513c in libdaenerys.so"
+      ],
+      "threading": [
+        "render thread: OnDraw/OnRenderThreadDestroy",
+        "callbacks to Java: onCallCaptureTexture, expression/portrait/bokeh/body-slimming listeners"
+      ],
+      "failure_fallback": [
+        "FaceMagicController.isResourceValid(dir) = existence of params.txt",
+        "FMGlProcessor publishes WESTEROS_EVENT_MODEL_MISSING -> FaceMagicLoadEffectFailedListener",
+        "native log 'SetEffect() Effect Config Error , effect load fail' / 'Effect is empty , do nothing'"
+      ],
+      "confidence": "confirmed",
+      "evidence": [
+        "native/libs/libfaceless-plugin.so (JNI table via tools/disasm_elf.py --list-jni)",
+        "sources/classes/com.kwai.video.westeros.v2.faceless.FaceMagicController.java",
+        "sources/classes/com.kwai.video.westeros.v2.faceless.FacelessPlugin.java",
+        "PIPELINE.md section 6"
+      ],
+      "variant_diff": "libfaceless-plugin.so and libFaceMagic.so byte-identical to kwai_video; FaceMagicController/KSJNILib defined in the same dexes (13/14) in both variants",
+      "unknowns": [
+        "queue depth/back-pressure in the westeros graph",
+        "exact ycnn model file per effect"
+      ]
+    },
+    {
+      "id": "bulldog.ycnn_plugin_providers",
+      "name": "Westeros plugin providers: salient region / face attributes / general recognition",
+      "applies_to": "com.kwai.bulldog",
+      "trigger": {
+        "java": "com.kwai.video.westeros.v2.ycnn.YcnnPlugin.startProvideSalientData / startProvideFaceAttribute / startProvideGeneralRecog (classes13.dex)",
+        "native": "libykit_core_plugin.so 0x144bc nativeCreateYcnnPlugin, 0x14598/0x151fc/0x14818 start providers, 0x16640 nativeSetParamInfo"
+      },
+      "producer": {
+        "who": "westeros render graph (the plugin is a WesterosPlugin; no Java frame is passed)",
+        "config": "setAttrLocalPath -> nativeSetParamInfo({\"attr_local_path\": ...}); setSaveLogInfoPath, device_portrait_info"
+      },
+      "transport": {
+        "frame": "pulled from the render graph by the plugin, texture/CPU inside libykit",
+        "results": "byte[] protobuf callbacks: SalientData.parseFrom, YcnnFaceAttributeResult.parseFrom; general recog returns a JSON String"
+      },
+      "preprocessing": [
+        "inside libykit_core_plugin.so + libykit.so; not separately observable"
+      ],
+      "model_invocation": {
+        "engine": "libykit.so ycnn",
+        "models": "magic_ycnn_model_salient*, magic_ycnn_model_face_attributes*, magic_ycnn_model_general_recog* (resource keys, downloaded)"
+      },
+      "postprocessing": [
+        "protobuf parse in Java (YcnnPlugin.onSalientData / onYcnnFaceAttributeResult)",
+        "model-load status callback OnYcnnModelLoadFinish(String) via nativeSetOnYcnnModelLoadFinish"
+      ],
+      "consumer": [
+        "application effect/UI callbacks registered as listeners on YcnnPlugin"
+      ],
+      "threading": [
+        "native provider threads started/stopped by nativeStartProvide*/nativeStopProvide*"
+      ],
+      "failure_fallback": [
+        "model load status reported through OnYcnnModelLoadFinish; missing models listed in ykit status JSON {\"missing_models\":[...]}"
+      ],
+      "confidence": "inferred",
+      "evidence": [
+        "sources/classes/com.kwai.video.westeros.v2.ycnn.YcnnPlugin.java",
+        "native/libs/libykit_core_plugin.so JNI table (report section 4.1)"
+      ],
+      "variant_diff": "identical libs in both variants; class in classes13.dex in both",
+      "unknowns": [
+        "per-provider model file selection",
+        "provider cadence"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+ "path": "tt_face_extra_v13.0.model",
+ "file_size": 573858,
+ "sha256": "d0f4e9f9d874ece8c1fab66141880cd0e33b7ad45507ab71f3f93e1d84828d92",
+ "file_id_16": "02040d0317070b01742ef3fde9f9f5ff",
+ "version": "v13.0",
+ "record_count": 2,
+ "key_a_hex": "03c60fe32c99e7f4b92095a86a02b96f25c676c8820dd360a5710d6453aa72da",
+ "key_a_repeats": 2,
+ "records": [
+  {
+   "name": "iris",
+   "name_offset": 33,
+   "record_offset": 33,
+   "key_a_sha256": "20f5c81545d32e4f117d386918f7345fcf88fe8f158256779203932e313f7ced",
+   "blob_b_hex": "09162416e40d0000d1802b788b4eb4385ab29b92cf35eff29f693a773aed200b",
+   "b_size_field": 3556,
+   "b_size_minus4_mod16": 0,
+   "payload_offset": 113,
+   "payload_len": 25864,
+   "payload_sha256": "81e8ca1a3178194267bd8a85c0538ff1ba5c385be4f5405d7aeba5011ce65777",
+   "section_entropy": 7.934,
+   "rest_entropy": 5.335,
+   "rest_mod4_float_plausible": 0.625,
+   "rest_fp16_plausible": 0.688,
+   "rest_int8_zero_fraction": 0.141,
+   "descriptor_tail_small_u16_ratio": 0.38,
+   "descriptor_internal_offsets": [
+    3545
+   ]
+  },
+  {
+   "name": "extra",
+   "name_offset": 25977,
+   "record_offset": 25977,
+   "key_a_sha256": "20f5c81545d32e4f117d386918f7345fcf88fe8f158256779203932e313f7ced",
+   "blob_b_hex": "e2c5fe88e42b00009c90f12d1aa78e1fa1e2ef9952035cc550fba74b52050927",
+   "b_size_field": 11236,
+   "b_size_minus4_mod16": 0,
+   "payload_offset": 26058,
+   "payload_len": 547800,
+   "payload_sha256": "1e327a88c2c942846183141fd0a5dc61d0c80bf6130b48f06a77a5f984fce9fa",
+   "section_entropy": 7.978,
+   "rest_entropy": 5.695,
+   "rest_mod4_float_plausible": 0.562,
+   "rest_fp16_plausible": 0.688,
+   "rest_int8_zero_fraction": 0.047,
+   "descriptor_tail_small_u16_ratio": 0.12,
+   "descriptor_internal_offsets": [
+    11223
+   ]
+  }
+ ],
+ "invariants": {
+  "declared_size_matches": true,
+  "all_const36": true,
+  "all_const32": true,
+  "key_a_repeats_equal_count": true,
+  "all_b_size_4_mod16": true,
+  "records_contiguous": true
+ }
+}

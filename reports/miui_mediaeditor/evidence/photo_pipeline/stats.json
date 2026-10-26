@@ -1,0 +1,152 @@
+{
+ "stages": {
+  "decode": {
+   "input": "stored 512x512 ct=2 exif_orientation=6 -> decoded 512x512x3",
+   "shape": [
+    512,
+    512,
+    3
+   ],
+   "exif_orientation": 6,
+   "equals_source": true
+  },
+  "detect": {
+   "box": [
+    139,
+    204,
+    374,
+    486
+   ],
+   "method": "ycbcr_skin_chroma"
+  },
+  "landmark": {
+   "input_shape": [
+    1,
+    64,
+    64,
+    1
+   ],
+   "input_range": [
+    19.33333396911621,
+    246.0
+   ],
+   "input_normalization": "gray 0..255 (graph op0 = SUB(127.5))",
+   "output_shape": [
+    1,
+    154
+   ],
+   "output_range": [
+    3.4786887168884277,
+    55.375587463378906
+   ],
+   "image_bbox": [
+    151.57601928710938,
+    206.76075744628906,
+    350.91546630859375,
+    447.91290283203125
+   ],
+   "points": 77,
+   "output_std": 13.290218353271484
+  },
+  "parsing": {
+   "input_shape": [
+    512,
+    384,
+    3
+   ],
+   "input_normalization": "RGB 0..255 (graph op0 QUANTIZE scale=1.0 zp=-128)",
+   "output_shape": [
+    512,
+    384,
+    15
+   ],
+   "class_histogram": {
+    "background": 193079,
+    "skin": 2011,
+    "nose": 707,
+    "eye_g": 0,
+    "l_eye": 341,
+    "r_eye": 470,
+    "l_brow": 0,
+    "r_brow": 0,
+    "l_ear": 0,
+    "r_ear": 0,
+    "mouth": 0,
+    "u_lip": 0,
+    "l_lip": 0,
+    "hair": 0,
+    "neck": 0
+   },
+   "skin_ch1_mean": 0.016922354698181152,
+   "hair_fraction": 0.0,
+   "label_map_meaning": "argmax over 15 softmax channels; u8 label texture"
+  },
+  "skin_seg": {
+   "input_shape": [
+    320,
+    320,
+    3
+   ],
+   "input_normalization": "RGB 0..1 (graph op0 QUANTIZE scale=1/128 zp=-1)",
+   "output_shape": [
+    320,
+    320
+   ],
+   "output_range": [
+    0.0,
+    0.99609375
+   ],
+   "threshold": 0.6,
+   "keep_block_radio": 0.01,
+   "coverage_after_cc": 0.2664453125,
+   "components": 6,
+   "components_dropped": 4
+  },
+  "blend": {
+   "lut_shape": [
+    512,
+    512,
+    4
+   ],
+   "mask_sources": {
+    "skin_seg_net_mean_in_quad": 0.7149040751540797,
+    "parsing_ch1_mean_in_quad": 0.06245127397908893,
+    "combined_mask_mean_in_quad": 0.7198747157480792
+   },
+   "alpha_mean_in_quad": 0.560313263132405,
+   "quad_pixels": 58520,
+   "hair_pixels_zeroed": 0,
+   "strength": 0.7,
+   "luma_before": 0.5737330913543701,
+   "luma_after": 0.6125051621678569,
+   "luma_delta": 0.03877214143536565,
+   "output": "evidence/photo_pipeline/rendered.png"
+  }
+ },
+ "encrypted_models_used": [],
+ "asset_sha256": {
+  "face_landmark_mb360_64.tflite": "a587d7c0005dfe6be83b4940a2d819539ee59f5c32fcfea43385381dd37d019f",
+  "Fprs.0003.Exp007e33_quan1_sm.tflite": "519c846392b7b0a7269cf2859144162a13f4dabb56f799362920b1ebb86bc2d5",
+  "model__ai_face_beauty_processor__skin_model_expand_supply_pta18000_quant_resizetrain_seg153.tflite": "b2f0dd1e6c1f48e4606889f5c44e0a94fefff65e3deb8425835ee0d751ccda46",
+  "skin_white.png": "936451240fa80ce7be436a6982de5757a91c5cd8bb715a5fa69a5fbb42284ead"
+ },
+ "models": {
+  "landmark": "models/bundles/face_landmark_mb360_64.tflite",
+  "parsing": "models/bundles/Fprs.0003.Exp007e33_quan1_sm.tflite",
+  "skin_seg": "models/tflite/model__ai_face_beauty_processor__skin_model_expand_supply_pta18000_quant_resizetrain_seg153.tflite",
+  "lut": "models/bundle_entries/graphics__image_beauty_facebeauty/lut/skin_white.png"
+ },
+ "parsing_rect": [
+  62.62960031337953,
+  -80.90422875723903,
+  442.82996680546734,
+  515.3619936504526
+ ],
+ "face_quad": [
+  141.60903930664062,
+  194.70314025878906,
+  360.8824462890625,
+  459.97052001953125
+ ],
+ "status": "PASS"
+}

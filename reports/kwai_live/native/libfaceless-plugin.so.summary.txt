@@ -1,0 +1,202 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libfaceless-plugin.so
+==============================================================================
+size        : 1792128 bytes (1.71 MiB)
+sha256      : 727d44695b971ae7add4bb931b480b149159316587096fc557a3c3241b9f204c
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x38e20   imagebase: 0x0
+build id    : 0339fd18bd2b600e3e8c124df2340364fb1f5471
+android     : SDK 21, NDK r21e, build 7075529
+soname      : libfaceless-plugin.so
+needed      : libykit.so, libwesteros.so, libFaceMagic.so, libprotobuf-lite.so, libCGE.so, libopencv_world.so, liblog.so, libGLESv2.so, libEGL.so, libjnigraphics.so, libm.so, libc++_shared.so, libdl.so, libc.so
+parser      : lief
+counts      : 134 exports, 517 imports, 44 JNI, 26 sections, 8 segments
+symtab/dynsym: 0 / 661
+
+Sections (26)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        4736       0x228
+  .gnu.hash              GNU_HASH         A      0x14a8       1204       0x14a8
+  .dynsym                DYNSYM           A      0x1960       15864      0x1960
+  .dynstr                STRTAB           A      0x5758       38338      0x5758
+  .gnu.version           GNU_VERSYM       A      0xed1a       1322       0xed1a
+  .gnu.version_r         GNU_VERNEED      A      0xf248       64         0xf248
+  .rela.dyn              RELA             A      0xf288       151872     0xf288
+  .rela.plt              RELA             AI     0x343c8      11400      0x343c8
+  .plt                   PROGBITS         AX     0x37050      7632       0x37050
+  .text                  PROGBITS         AX     0x38e20      1134972    0x38e20
+  .rodata                PROGBITS         A      0x14dfa0     115014     0x14dfa0
+  .eh_frame_hdr          PROGBITS         A      0x16a0e8     36564      0x16a0e8
+  .eh_frame              PROGBITS         A      0x172fc0     150304     0x172fc0
+  .gcc_except_table      PROGBITS         A      0x197ae0     57612      0x197ae0
+  .note.android.ident    NOTE             A      0x1a5bec     152        0x1a5bec
+  .init_array            INIT_ARRAY       WA     0x1a7a10     136        0x1a6a10
+  .fini_array            FINI_ARRAY       WA     0x1a7a98     16         0x1a6a98
+  .data.rel.ro           PROGBITS         WA     0x1a7aa8     53464      0x1a6aa8
+  .dynamic               DYNAMIC          WA     0x1b4b80     688        0x1b3b80
+  .got                   PROGBITS         WA     0x1b4e30     4560       0x1b3e30
+  .data                  PROGBITS         WA     0x1b6000     16         0x1b5000
+  .bss                   NOBITS           WA     0x1b6010     9080       0x1b5010
+  .comment               PROGBITS         MS     0x0          242        0x1b5010
+  .shstrtab              STRTAB           -      0x0          251        0x1b5102
+
+JNI entry points (44)
+  0x3d49c        596        com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeInitController
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeInitController
+  0x3d6f0        336        com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeGetGlProcessor
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeGetGlProcessor
+  0x3d840        24         com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeDestroyController
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeDestroyController
+  0x3d858        376        com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSetEffect
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetEffect
+  0x3d9d0        40         com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeDisableEffect
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeDisableEffect
+  0x3d9f8        336        com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeDisableEffect2
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeDisableEffect2
+  0x3db48        52         com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSetEffectEnable
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetEffectEnable
+  0x3db7c        272        com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeUpdateEffectControl
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeUpdateEffectControl
+  0x3dc8c        272        com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSendEffectCommand
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSendEffectCommand
+  0x3dd9c        272        com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSendEffectCommandSync
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSendEffectCommandSync
+  0x3deac        272        com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSendBatchEffectCommand
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSendBatchEffectCommand
+  0x3dfbc        272        com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSetUserInfo
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetUserInfo
+  0x3e0cc        136        com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSetPickedFaceImage
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetPickedFaceImage
+  0x3e154        8          com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeGetRedPacketScore
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeGetRedPacketScore
+  0x3e15c        16         com.kwai.video.westeros.FaceMagicController.nativeUpdateEffectUsingFramePts
+      Java_com_kwai_video_westeros_FaceMagicController_nativeUpdateEffectUsingFramePts
+  0x3e16c        16         com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeUpdateEffectUsingFramePts
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeUpdateEffectUsingFramePts
+  0x3e17c        56         com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSetInitialVideoFrameSize
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetInitialVideoFrameSize
+  0x3e1b4        52         com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSetEnableDeformGradient
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetEnableDeformGradient
+  0x3e1e8        12         com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeEnableMagicFileCheckCallback
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeEnableMagicFileCheckCallback
+  0x3e1f4        52         com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSetAioSafe
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetAioSafe
+  0x3e228        168        com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSetExternalBuiltinPath
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetExternalBuiltinPath
+  0x3e2d0        228        com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSetRunningKeyandValue
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetRunningKeyandValue
+  0x3e3b4        264        com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSetDynamicRunningKeyandValue
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetDynamicRunningKeyandValue
+  0x3e4bc        168        com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSetAppKey
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetAppKey
+  0x3e564        4          com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSetBeautifyExternalBuiltinPath
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetBeautifyExternalBuiltinPath
+  0x3e568        168        com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSetExtraCommand
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetExtraCommand
+  0x3e610        224        com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSetABTestJson
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetABTestJson
+  0x3e6f0        852        com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSetOnExpressionChangedCallback
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetOnExpressionChangedCallback
+  0x3ea44        264        com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSetIsValidPortraitCallback
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetIsValidPortraitCallback
+  0x3eb4c        52         com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSetTimeControl
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetTimeControl
+  0x3eb80        24         com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeEnableAlertBox
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeEnableAlertBox
+  0x3eb98        264        com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSetReportBeautifyLogCallback
+      Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetReportBeautifyLogCallback
+  0x3ef24        124        com.kwai.video.westeros.v2.faceless.FacelessPlugin.nativeCreateFacelessPlugin
+      Java_com_kwai_video_westeros_v2_faceless_FacelessPlugin_nativeCreateFacelessPlugin
+  0x3efa0        96         com.kwai.video.westeros.v2.faceless.FacelessPlugin.nativeDestroyFacelessPlugin
+      Java_com_kwai_video_westeros_v2_faceless_FacelessPlugin_nativeDestroyFacelessPlugin
+  0x3f074        780        com.kwai.video.westeros.helpers.GiftEffectDrawer.nativeCreateNativeEffectDrawer
+      Java_com_kwai_video_westeros_helpers_GiftEffectDrawer_nativeCreateNativeEffectDrawer
+  0x3f380        24         com.kwai.video.westeros.helpers.GiftEffectDrawer.nativeDestroyNativeEffectDrawer
+      Java_com_kwai_video_westeros_helpers_GiftEffectDrawer_nativeDestroyNativeEffectDrawer
+  0x3f398        436        com.kwai.video.westeros.helpers.GiftEffectDrawer.nativeSetEffect
+      Java_com_kwai_video_westeros_helpers_GiftEffectDrawer_nativeSetEffect
+  0x3f54c        16         com.kwai.video.westeros.helpers.GiftEffectDrawer.nativeOnSizeChanged
+      Java_com_kwai_video_westeros_helpers_GiftEffectDrawer_nativeOnSizeChanged
+  0x3f55c        20         com.kwai.video.westeros.helpers.GiftEffectDrawer.nativeOnDrawWithFBO
+      Java_com_kwai_video_westeros_helpers_GiftEffectDrawer_nativeOnDrawWithFBO
+  0x3f570        96         com.kwai.video.westeros.helpers.GiftEffectDrawer.nativeCheckCurrentRenderContext
+      Java_com_kwai_video_westeros_helpers_GiftEffectDrawer_nativeCheckCurrentRenderContext
+  0x3f5d0        272        com.kwai.video.westeros.helpers.GiftEffectDrawer.nativeOnUIResponse
+      Java_com_kwai_video_westeros_helpers_GiftEffectDrawer_nativeOnUIResponse
+  0x3f6e0        264        com.kwai.video.westeros.helpers.GiftEffectDrawer.nativeSetTransFaceData
+      Java_com_kwai_video_westeros_helpers_GiftEffectDrawer_nativeSetTransFaceData
+  0x3f7e8        16         com.kwai.video.westeros.helpers.GiftEffectDrawer.nativeSetStreamRectInRender
+      Java_com_kwai_video_westeros_helpers_GiftEffectDrawer_nativeSetStreamRectInRender
+  0x3f7f8        212        com.kwai.video.westeros.helpers.GiftEffectDrawer.nativeSetRequestJson
+      Java_com_kwai_video_westeros_helpers_GiftEffectDrawer_nativeSetRequestJson
+
+AI-relevant strings (643362 bytes scanned in allocated data sections)
+  [model] 139 unique (first 20)
+    0x001645ec .rodata    kuaishou.westeros.model.EffectResource.asset_dir
+    0x0016461d .rodata    kuaishou.westeros.model.EffectResource.index_file
+    0x0016464f .rodata    kuaishou.westeros.model.EffectResource.index_file_720
+    0x00164685 .rodata    kuaishou.westeros.model.EffectResource.custom_image
+    0x001646b9 .rodata    kuaishou.westeros.model.EffectResource.FaceMagicTypeDescriptionMapEntry.key
+    0x00164705 .rodata    kuaishou.westeros.model.EffectResource.FaceMagicTypeDescriptionMapEntry.value
+    0x00164753 .rodata    kuaishou.westeros.model.EffectResource.extract_frame_lua
+    0x0016478c .rodata    kuaishou.westeros.model.EffectResource.language_short_name
+    0x001647c7 .rodata    kuaishou.westeros.model.EffectResource
+    0x001647ee .rodata    kuaishou.westeros.model.EffectError
+    0x00164812 .rodata    kuaishou.westeros.model.File.path
+    0x00164834 .rodata    kuaishou.westeros.model.File
+    0x00164851 .rodata    kuaishou.westeros.model.RelightingConfig.materialPath
+    0x00164887 .rodata    kuaishou.westeros.model.RelightingConfig.face3dLightContent
+    0x001648c3 .rodata    kuaishou.westeros.model.RelightingConfig
+    0x001648ec .rodata    kuaishou.westeros.model.EffectControl
+    0x00164912 .rodata    kuaishou.westeros.model.HairClipConfig
+    0x00164939 .rodata    kuaishou.westeros.model.MakeupColor
+    0x0016495d .rodata    kuaishou.westeros.model.PickingVideoConfig.jsonExtraSettings
+    0x0016499a .rodata    kuaishou.westeros.model.PickingVideoConfig
+    ... 40 more
+  [face] 190 unique (first 20)
+    0x00005c7e .dynstr    Java_com_kwai_video_westeros_FaceMagicController_nativeUpdateEffectUsingFramePts
+    0x00005ccf .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeDestroyController
+    0x00005d24 .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeDisableEffect
+    0x00005d75 .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeDisableEffect2
+    0x00005dc7 .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeEnableAlertBox
+    0x00005e19 .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeEnableMagicFileCheckCallback
+    0x00005e79 .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeGetGlProcessor
+    0x00005ecb .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeGetRedPacketScore
+    0x00005f20 .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeInitController
+    0x00005f72 .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSendBatchEffectCommand
+    0x00005fcc .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSendEffectCommand
+    0x00006021 .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSendEffectCommandSync
+    0x0000607a .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetABTestJson
+    0x000060cb .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetAioSafe
+    0x00006119 .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetAppKey
+    0x00006166 .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetBeautifyExternalBuiltinPath
+    0x000061c8 .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetDynamicRunningKeyandValue
+    0x00006228 .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetEffect
+    0x00006275 .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetEffectEnable
+    0x000062c8 .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetEnableDeformGradient
+    ... 40 more
+  [segment] 52 unique (first 20)
+    0x0000642c .dynstr    Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetIsValidPortraitCallback
+    0x0014e23e .rodata    onReceiveValidPortrait
+    0x0014f683 .rodata    NSt6__ndk110__function6__funcIZ93Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetIsValidPortraitCallbackE3$_1NS_9allocatorIS2_EEFvbEEE
+    0x0014f745 .rodata    Z93Java_com_kwai_video_westeros_v2_faceless_FaceMagicController_nativeSetIsValidPortraitCallbackE3$_1
+    0x0015061c .rodata    DevicePortraitInfo
+    0x0015062f .rodata    [FMGPUProcessor] setRunningKeyandValue DevicePortraitInfo accepted! value(%s)
+    0x00154f69 .rodata    NSt6__ndk110__function6__funcIZN8kuaishou8westeros19FaceMagicController26SetIsValidPortraitCallbackENS_8functionIFvbEEEE4$_47NS_9allocatorIS8_EEFvvEEE
+    0x00155000 .rodata    ZN8kuaishou8westeros19FaceMagicController26SetIsValidPortraitCallbackENSt6__ndk18functionIFvbEEEE4$_47
+    0x00155f5c .rodata    ykit_matting_old_new_interface
+    0x00155fb9 .rodata    get_matting
+    0x00155fc5 .rodata    get_matting_outalphamultiply
+    0x00155fe2 .rodata    get_matting_outcutvalid
+    0x00155ffa .rodata    get_matting_outgetvalidrange
+    0x00156072 .rodata    human_matting_param
+    0x00156b20 .rodata    Invalid segmentation config %s, content: %s
+    0x00157363 .rodata    ykit_human_matting_cpu
+    0x0015737a .rodata    human_matting_cpuout
+    0x001573ab .rodata    ykit_human_matting_gpu
+    0x001573c2 .rodata    human_matting_gpuout
+    0x001573f7 .rodata    matting_post_texID
+    ... 32 more
+
+JSON written to /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/native/libfaceless-plugin.so.json

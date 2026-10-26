@@ -1,0 +1,339 @@
+{
+  "slug": "miui_securitycoreadd",
+  "package": "com.miui.securitycore",
+  "app_name": "System features plug-in",
+  "ai_summary": "MIUI individual (personalized) auto-brightness plug-in. A single 197,836-byte TFLite flatbuffer (assets/aiautobrt.tflite) contains two 3->3->128->64->1 ReLU MLPs ('dnn_model' teacher and 'dnn_model_1' student) plus the full TF1 training graph. The exported AIDL service com.miui.aiautobrt.service.IndividualModelService answers predictBrightness() with the 'old_model_infer' signature, fed with [ln(ambientLux+1), ln(ambientLuxSpan+1), ln(appCategoryId+1)]; the result is the predicted screen brightness. Every onEventChanged() call appends a row to the Room table brightness_model_event. A JobScheduler job (93197, 24 h, idle) runs TrainJobService -> i3.a, which trains the student for up to 5 epochs of batch 128 on a 90/10 split with loss = 0.9*MAPE(label, student) + 0.1*MAPE(teacher, student) and a TF1 AdamOptimizer (lr 0.001, beta1 0.9, beta2 0.999, eps 1e-7); if the student beats the teacher on the held-out 10 % it is written to filesDir/checkpoint under both variable name sets ('save_for_replace') and restored, and it is promoted only if it is not worse than the stock brightness curve in all four brightness buckets (<8, 8-50, 50-200, >=200). Weights are plain float32 constants in the flatbuffer's CALL_ONCE init subgraph - extracted byte-exact and matched numerically by a JAX reimplementation (max relative error 4.8e-7). The device-side half was also recovered (miui-services.jar / miui-framework.jar): system_server builds the event with raw physical units (lux, lux bucket 0..44, app category 0..9, brightness in nits), calls the service through five all-oneway AIDL transactions, and uses the predicted nits only to rebuild a per-app-category lux->backlight spline after training; the live brightness path interpolates that persisted spline, so the model is never invoked per brightness change.",
+  "features": [
+    {
+      "name": "Individual auto-brightness prediction (serving path)",
+      "entrypoints": [
+        "com.miui.aiautobrt.service.IndividualModelService.onBind -> IIndividualBrightnessService.Stub",
+        "IndividualModelService$a.predictBrightness(IndividualModelEvent)",
+        "f3.c.a(IndividualModelEvent)",
+        "f3.d.<init> (mmap assets/aiautobrt.tflite, filesDir/checkpoint)",
+        "g3.a.a(\"old_model_infer\", h3.a) -> org.tensorflow.lite.a.a(map,map2,key)",
+        "IIndividualCallback.onPredictFinished(ambientLux, appCategoryId, brightness)"
+      ],
+      "pipeline": [
+        "framework binds service action com.miui.aiautobrt.service.AiService and calls provideInterfaceVersion(int)",
+        "predictBrightness(event) is ignored (event brightness returned) unless interface version >= 2",
+        "f3.c.a builds h3.a: ln(lux+1), ln(luxSpan+1), ln(appCategoryId+1), ln(mixedOrientationApp+1), cur_brt, cur_brt_span, curve_brt",
+        "g3.a.a copies only the first three values into float[1][3] and runs signature 'old_model_infer' with output 'pre' (FloatBuffer(1))",
+        "on IllegalArgumentException the helper returns -1.0f and the caller falls back to event.getCurrentBrightness()",
+        "prediction is logged and returned via onPredictFinished(ambientLux, appCategoryId, brightness)"
+      ],
+      "models": [
+        "assets/aiautobrt.tflite#subgraph1 old_model_infer"
+      ],
+      "confidence": "confirmed",
+      "notes": "Only the old_model_infer signature serves predictions; new_model_infer is used only for validation inside the training job."
+    },
+    {
+      "name": "Brightness event logging (training data collection)",
+      "entrypoints": [
+        "IndividualModelService$a.onEventChanged(IndividualModelEvent)",
+        "f3.c.f(IndividualModelEvent)",
+        "h3.c.b(h3.a...) Room insert"
+      ],
+      "pipeline": [
+        "onEventChanged is accepted only when interface version >= 2",
+        "event -> h3.a (8 fields) and inserted into Room table brightness_model_event",
+        "the DAO keeps at most 50000 rows (deletes 10000 oldest per trim) and resets sqlite_sequence on clear"
+      ],
+      "models": [],
+      "confidence": "confirmed",
+      "notes": "DB file AiBrightnessModel.db (gb.c.g(Room.databaseBuilder)); schema brightness_model_event(mId, ambient_lux, ambient_lux_span, orientation_and_app_industry, app_code, cur_brt, cur_brt_span, curve_brt), all REAL except mId INTEGER PK."
+    },
+    {
+      "name": "On-device re-training and model replacement",
+      "entrypoints": [
+        "com.miui.aiautobrt.service.TrainJobService.onStartJob (JobScheduler id 93197, periodic 24 h, requires idle)",
+        "i3.a.run()",
+        "g3.a / org.tensorflow.lite.a signatures 'train', 'save_for_replace', 'restore'",
+        "f3.c.b() (clear DB after successful promotion)"
+      ],
+      "pipeline": [
+        "training requires interface version >= 2 and >= 10000 new events (or force_train_enable=1 and >= 1000)",
+        "events split 90/10 train/validation after shuffling; up to 5 epochs, batches of 128",
+        "each batch: x[128,3] = [ln(lux+1), ln(luxSpan+1), ln(appCat+1)], y[128,1] = cur_brt; signature 'train' returns loss",
+        "loss = 0.9*MAPE(train_y, student) + 0.1*MAPE(teacher, student), MAPE = mean(100*|(t-p)/max(|t|,1e-7)|)",
+        "optimizer = TF1 unfused Adam (lr 0.001, beta1 0.9, beta2 0.999, eps 1e-7, lr_t bias-corrected, iter incremented after the step); gradients only for dnn_model_1/*",
+        "validation MAPE vs cur_brt: if student < teacher -> 'save_for_replace' writes the student weights under all 16 checkpoint keys, then 'restore' reloads them",
+        "promotion also requires student MAPE <= stock curve MAPE in all four brightness buckets (8/50/200) or debug.miui.display.dbg bit 128",
+        "on promotion: onTrainFinished callback, DB cleared, offset reset; onTrainIndicatorsFinished(IndividualTrainEvent) always fired"
+      ],
+      "models": [
+        "assets/aiautobrt.tflite#subgraph5 train",
+        "assets/aiautobrt.tflite#subgraph4 save_for_replace",
+        "assets/aiautobrt.tflite#subgraph2 restore"
+      ],
+      "confidence": "confirmed",
+      "notes": "The 'save' signature (subgraph 3) is never called by this APK's Java code."
+    },
+    {
+      "name": "AB-test / experiment hook for the brightness feature",
+      "entrypoints": [
+        "f3.b (HandlerThread 'BrightnessABTest', 2 h period)",
+        "f3.c.e(int,int) -> IIndividualCallback.onAbTestExperimentUpdated"
+      ],
+      "pipeline": [
+        "y6/z6 AB-test SDK polled with app name '<ro.product.mod_device>_individual'",
+        "result passed to f3.c.e, which forwards Settings.Secure custom_brightness_mode as the value override when non-zero"
+      ],
+      "models": [],
+      "confidence": "inferred",
+      "notes": "No model/graph involvement; included because it can override the brightness value handed to the framework."
+    },
+    {
+      "name": "Two-stage model activation via framework-side spline reconstruction",
+      "entrypoints": [
+        "system_server: IndividualBrightnessEngine.onTrainFinished -> CustomBrightnessModeController.validateModelMonotonicity",
+        "system_server: uploadValidatedEventToModel -> predictBrightness x (mDefaultLuxLevels x categories 0,1,2)",
+        "system_server: onValidatedBrightness -> isMonotonicModel -> setModelValid(true, 'train_finished') -> CustomPersistentDataStore.storeIndividualSpline",
+        "system_server: AutomaticBrightnessController.updateAutoBrightness -> CustomBrightnessModeController.getIndividualBrightness"
+      ],
+      "pipeline": [
+        "training_accepted -> onTrainFinished callback",
+        "sweep predictBrightness over a device lux grid for app categories 0/1/2 (200 ms pacing, 200 ms timeout per point)",
+        "smoothCurve: clamp to [mMinBrightness, mNormalMaxBrightness], max ratio ((lux+0.25)/(prevLux+0.25)), min step 0.004 backlight",
+        "checks: monotonic, >= minimum brightness spline, slope >= 100/(hbmMinLux-1)",
+        "Spline.createSpline(luxLevels, nits) per category + persist to /data/system/displayconfig/custom_brightness_backup.xml",
+        "live: spline.interpolate(lux) -> getBrightnessFromNit -> clampScreenBrightness -> mScreenAutoBrightness"
+      ],
+      "models": [
+        "assets/aiautobrt.tflite#subgraph1 old_model_infer"
+      ],
+      "confidence": "confirmed",
+      "notes": "The predicted brightness is not applied per event. It is converted into a per-app-category lux->backlight curve that the AOSP auto-brightness loop interpolates. A manual brightness adjustment invalidates the model (reason 'user_operate') until the next successful training. Verified in miui-services.dex / services.dex, not in the APK."
+    }
+  ],
+  "models": [
+    {
+      "path": "reports/miui_securitycoreadd/models/aiautobrt.tflite",
+      "format": "tflite (TFL3 flatbuffer, version 3, 7 subgraphs, 6 signatures)",
+      "size": 197836,
+      "io": {
+        "new_model_infer": {
+          "input": "x float32 [-1,3]",
+          "output": "pre float32 [-1,1]"
+        },
+        "old_model_infer": {
+          "input": "x float32 [-1,3]",
+          "output": "pre float32 [-1,1]"
+        },
+        "restore": {
+          "input": "checkpoint_path string",
+          "output": "16 tensors (variable values)"
+        },
+        "save": {
+          "input": "checkpoint_path string",
+          "output": "checkpoint_path string"
+        },
+        "save_for_replace": {
+          "input": "checkpoint_path string",
+          "output": "checkpoint_path string"
+        },
+        "train": {
+          "input": "x float32 [-1,3], y float32 [-1,1]",
+          "output": "loss float32 scalar"
+        }
+      },
+      "ops": [
+        "CALL_ONCE",
+        "VAR_HANDLE",
+        "READ_VARIABLE",
+        "ASSIGN_VARIABLE",
+        "TRANSPOSE",
+        "FULLY_CONNECTED",
+        "ADD",
+        "RESHAPE",
+        "CUSTOM(FlexRestore)",
+        "CUSTOM(FlexSave)",
+        "CAST",
+        "POW",
+        "SHAPE",
+        "ABS",
+        "MAXIMUM",
+        "CUSTOM(FlexBroadcastGradientArgs)",
+        "SUB",
+        "DIV",
+        "CUSTOM(FlexSign), CUSTOM(FlexReluGrad)",
+        "UNPACK",
+        "PACK",
+        "REDUCE_PROD",
+        "MEAN",
+        "SUM",
+        "MUL",
+        "EQUAL",
+        "SELECT",
+        "TILE",
+        "FILL",
+        "NEG",
+        "ADD_N",
+        "SQUARE",
+        "SQRT",
+        "FLOOR_DIV"
+      ],
+      "weights": "extracted",
+      "jax_reimpl": "reports/miui_securitycoreadd/reimpl/model.py",
+      "verification": "Inference (subgraphs 0 and 1) matches ai_edge_litert over 256 app-domain + 128 wide-range + single-row + zero inputs: max relative error 4.8e-7 (new) and 3.6e-7 (old); exported old-model output range 3.86 (lux 0) .. 1734.9 (lux 50000). Training step cross-checked against an independent NumPy transcription (weights agree to 1.5e-8 after 8 steps) and float64 central differences (max |d| 1.6e-9); it cannot be run through ai_edge_litert 2.3.0 because subgraph 5 needs FlexBroadcastGradientArgs/FlexSign/FlexReluGrad from libtensorflowlite_flex_jni.so.",
+      "confidence": "confirmed"
+    }
+  ],
+  "reimplementation": {
+    "path": "reports/miui_securitycoreadd/reimpl",
+    "run_command": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python reimpl/verify.py",
+    "status": "verified",
+    "limitations": "Inference is numerically verified against the LiteRT interpreter with the byte-exact flatbuffer weights. The train subgraph is reimplemented (loss, backprop, TF1-Adam) and cross-checked against a NumPy transcription plus finite differences, but not against the reference interpreter because ai_edge_litert 2.3.0 lacks the Select-TF (Flex) delegate required by FlexBroadcastGradientArgs/FlexSign/FlexReluGrad; no TensorFlow package is available offline. Subgraphs 2/3/4 (FlexRestore/FlexSave checkpoint I/O) are documented but not reimplemented."
+  },
+  "unknowns": [
+    "The com.xiaomi.aiautobrt AIDL types are not in the APK, but they were recovered from the device image (system_ext/framework/miui-framework.jar): transactions are 1 onEventChanged, 2 predictBrightness, 3 attach, 4 detach, 5 provideInterfaceVersion, all oneway. `IIndividualBrightnessService` is resolved; see PIPELINE.md section P1.2 and evidence/framework_paths.txt.",
+    "Field semantics were resolved on the framework side (BrightnessDataProcessor.createModelEvent): ambient_lux = physical lux (ring-buffer weighted sensor mean); ambient_lux_span = bucket index 0..44 from getAmbientLuxSpanIndex; app_code = appCategoryId 0..9 (AppClassifier); cur_brt = nits via getNitsFromBacklight; cur_brt_span = bucket index 0..44 from getBrightnessSpanByNit; curve_brt = nits from the stock/config spline; orientation_and_app_industry = getMixedOrientApp in {0,1,2} and is not fed to the model. Still unknown: the exact numerical value of the framework-res horizons/light-sensor rate and the lux grid used by the post-training validation sweep.",
+    "Whether production builds ever set the debug props force_train_enable / debug.miui.display.dbg and what the AB-test payload (f3.c.e) actually controls.",
+    "Device-specific checkpoint contents: the packaged asset contains an untrained student (zero biases, zero Adam slots); a device that has trained holds different weights in filesDir/checkpoint, which is not part of the APK.",
+    "Why the shipped teacher's first layer is 3->3 (bottleneck) - no documentation in the APK.",
+    "Whether the hard-coded job id 93197 / 24 h period is overridden by MIUI power-management policy at runtime."
+  ],
+  "data_pipelines": [
+    {
+      "name": "P1 individual auto-brightness inference (serving)",
+      "kind": "inference",
+      "confidence": "confirmed",
+      "doc": "PIPELINE.md#p1--inference--serving",
+      "entrypoints": [
+        "system_server: BrightnessDataProcessor.notifyBrightnessEventIfNeeded (miui-services.dex:339) -> debounceBrightnessEvent(3000) -> readyToReportEvent -> onBrightnessModelEvent",
+        "system_server: IndividualBrightnessEngine.preparePredictBrightness -> IIndividualBrightnessService.predictBrightness (txn 2, oneway)",
+        "app: com.miui.aiautobrt.service.IndividualModelService$a.predictBrightness",
+        "system_server: IIndividualCallback.onPredictFinished (txn 2, oneway) -> CustomBrightnessModeController.onPredictFinished / onValidatedBrightness"
+      ],
+      "transport": {
+        "kind": "Android Binder, AIDL",
+        "interface": "com.xiaomi.aiautobrt.IIndividualBrightnessService (descriptor identical)",
+        "transactions": {
+          "onEventChanged": 1,
+          "predictBrightness": 2,
+          "attach": 3,
+          "detach": 4,
+          "provideInterfaceVersion": 5
+        },
+        "mode": "oneway for all five (Proxy: transact(code, data, null, 1))",
+        "payload": "IndividualModelEvent Parcelable: curBrt, curBrtSpan, lux, luxSpan, defaultConfigBrt, appCategoryId, orientation, mixedOrientationApp, timeStamp",
+        "binding": "action com.miui.aiautobrt.service.AiService via bindServiceAsUser(currentUser, flags=67108865 = BIND_AUTO_CREATE|BIND_FOREGROUND_SERVICE); attach(cb) + provideInterfaceVersion(2); linkToDeath",
+        "threading": "caller system_server display thread; callee runs TFLite synchronously on the Binder thread (no queue/worker); callback re-posted to mBgHandler"
+      },
+      "input": {
+        "description": "float[1][3] = [ln(ambientLux+1), ln(ambientLuxSpan+1), ln(appCategoryId+1)]",
+        "builder": "f3.c.a(IndividualModelEvent) -> h3.a; g3.a.a(sig, h3.a) copies fields c, f4046d, f4048f",
+        "ambientLux": "physical lux, mAmbientLux of AOSP AutomaticBrightnessController (ring-buffer weighted mean)",
+        "ambientLuxSpan": "integer bucket 0..44, BrightnessDataProcessor.getAmbientLuxSpanIndex",
+        "appCategoryId": "0..9, AppClassifier.getAppCategoryId from displayconfig/app_brightness_category.xml",
+        "unused_fields": "currentBrightness (nits), currentBrightnessSpan (bucket), defaultConfigBrightness (nits), orientation, mixedOrientationApp are carried but not model inputs",
+        "cadence": "event-driven: every settled brightness change of type 1/2, 3000 ms debounce; no periodic sampling",
+        "units": "log of physical units; no normalization on the model path (normalizeLux/normalizeNit unused)"
+      },
+      "model": {
+        "path": "assets/aiautobrt.tflite",
+        "signature": "old_model_infer",
+        "io": {
+          "x": "float32[1][3]",
+          "pre": "float32[1][1]"
+        },
+        "runtime": "TFLite Interpreter over an mmapped asset, one session per process",
+        "weights": "subgraph-6 CALL_ONCE constants, optionally overwritten by filesDir/checkpoint restore"
+      },
+      "output": {
+        "description": "predicted brightness in nits (label domain: cur_brt = getNitsFromBacklight)",
+        "app_postprocessing": "raw pre[0]; error sentinel -1.0f -> event.getCurrentBrightness() fallback",
+        "framework_postprocessing": "reject NaN/<0; getBrightnessFromNit; sweep over mDefaultLuxLevels x categories {0,1,2} at 200 ms; smoothCurve (clamp + max slope ratio 1.0 + min step 0.004); monotonicity, minimum-spline and minimum-slope checks; Spline.createSpline per category",
+        "consumer": "CustomBrightnessModeController.getIndividualBrightness -> spline.interpolate(lux) nits -> getBrightnessFromNit -> AutomaticBrightnessController.clampScreenBrightness -> mScreenAutoBrightness -> mCallbacks.updateBrightness()",
+        "note": "the model is NOT invoked per live brightness change; only the derived spline is used, so the predicted value reaches the display through a per-category lux->backlight curve",
+        "persistence": "/data/system/displayconfig/custom_brightness_backup.xml (AtomicFile, enabled flags + 3 spline arrays), restored at boot without the APK",
+        "user_selection": "Settings.Secure custom_brightness_mode via getIntForUser(...,-2): 0 off, 1 custom curve, 2 individual model"
+      },
+      "fallback": {
+        "model_missing": "g3.a logs and marks itself invalid; stub returns event.getCurrentBrightness()",
+        "inference_error": "IllegalArgumentException -> -1.0f sentinel -> currentBrightness",
+        "interface_version": "app requires f3605e >= 2, else returns the event brightness",
+        "service_unbound": "event is dropped and a bind is attempted",
+        "validation": "200 ms per-point timeout or non-monotonic / below-minimum curve -> model not promoted, previous curve kept",
+        "no_spline": "getCustomBrightness falls through to the custom curve, then to the stock/config mapper"
+      },
+      "evidence": [
+        "sources/framework/classes/IIndividualBrightnessService.java",
+        "sources/framework/classes/com.android.server.display.aiautobrt.IndividualBrightnessEngine.java",
+        "sources/framework/classes/com.android.server.display.aiautobrt.CustomBrightnessModeController.java",
+        "sources/framework/classes/BrightnessDataProcessor.java",
+        "sources/framework/classes/AutomaticBrightnessController.java",
+        "sources/controller/f3.c.java",
+        "sources/controller/g3.a.java",
+        "evidence/framework_paths.txt"
+      ]
+    },
+    {
+      "name": "P2 on-device training job",
+      "kind": "training",
+      "confidence": "confirmed",
+      "doc": "PIPELINE.md#p2--training",
+      "entrypoints": [
+        "com.miui.aiautobrt.service.TrainJobService.onCreate -> c.c(getApplicationContext())",
+        "TrainJobService.onStartJob (job 93197) -> new Thread(new i3.a(this, params)).start()",
+        "i3.a.run: query -> split -> 5 epochs x 128 -> validate -> save_for_replace/restore -> bucket check -> callbacks"
+      ],
+      "transport": {
+        "kind": "in-process",
+        "batches": "float[128][3] x = {c, f4046d, f4048f}; float[128][1] y = cur_brt (nits); output loss FloatBuffer(1)",
+        "signature": "train (x, y -> loss), one Adam step per call",
+        "thread": "plain Thread started by onStartJob; jobFinished(params, false) at the end"
+      },
+      "input": {
+        "source": "Room table brightness_model_event in AiBrightnessModel.db (schema v1, 8 columns)",
+        "query": "SELECT * FROM brightness_model_event LIMIT -1 OFFSET <f3604d> (no ORDER BY)",
+        "trigger": "new rows >= 10000, or Settings.Secure force_train_enable == 1 with >= 1000 new rows",
+        "split": "Collections.shuffle(all); first 90% train, last 10% validation",
+        "preprocessing": "ln(x+1) features are already materialised at ingestion; training reuses the stored values"
+      },
+      "model": {
+        "path": "assets/aiautobrt.tflite#subgraph5 train",
+        "io": {
+          "x": "float32[128][3]",
+          "y": "float32[128][1]",
+          "loss": "float32[1]"
+        },
+        "hyperparameters": "<= 5 epochs, batch 128, tail batch re-uses the last 128 samples, TF1 Adam lr 0.001 beta1 0.9 beta2 0.999 eps 1e-7",
+        "loss": "0.9*MAPE(y, student) + 0.1*MAPE(teacher, student)",
+        "updated_variables": "dnn_model_1/* only (teacher is a constant)"
+      },
+      "output": {
+        "validation": "newMAPE vs oldMAPE on the held-out 10%",
+        "checkpoint": "save_for_replace writes all 16 TF keys from the 8 student variables, then restore reloads them (filesDir/checkpoint prefix)",
+        "bucket_check": "|cur - defaultConfigBrt| vs |cur - old_pred| accumulated in 4 cur_brt buckets {<8, 8-50, 50-200, >=200}; accept iff not worse in all four, or debug.miui.display.dbg bit 128",
+        "accept_callbacks": "IIndividualCallback.onTrainFinished() then DB wipe (DELETE + sqlite_sequence.seq = 0); always onTrainIndicatorsFinished(IndividualTrainEvent)",
+        "activation": "two-stage: weights swap in-process at restore; the user-visible curve changes only after the framework sweep passes and setModelValid(true, 'train_finished') persists the splines"
+      },
+      "fallback": {
+        "below_threshold": "no training, offset unchanged, jobFinished(false)",
+        "model_unavailable": "Lite model is not available! -> skip",
+        "train_error": "IllegalArgumentException per batch -> loss 1.0, batch skipped",
+        "worse_than_teacher": "no save_for_replace, no promotion",
+        "bucket_reject": "no onTrainFinished, weights remain swapped in the app process but the framework keeps the old curve",
+        "job_stopped": "onStopJob returns false (no retry); the training thread is not interrupted"
+      },
+      "persistence": {
+        "checkpoint": "<filesDir>/checkpoint prefix (TF checkpoint; .index/.data-* siblings inferred)",
+        "events": "AiBrightnessModel.db / brightness_model_event",
+        "derived": "/data/system/displayconfig/custom_brightness_backup.xml",
+        "versioning": "none: AIDL interface version 2, Room schema 1, freshness = in-memory row offset f3604d"
+      },
+      "evidence": [
+        "sources/train/i3.a.java",
+        "sources/controller/f3.d.java",
+        "sources/controller/g3.a.java",
+        "sources/classes/com.miui.aiautobrt.service.TrainJobService.java",
+        "sources/classes/com.miui.aiautobrt.service.IndividualModelService.java",
+        "sources/threshold/j8.m.java",
+        "ir/ops_sg5.txt",
+        "evidence/framework_paths.txt"
+      ]
+    }
+  ]
+}

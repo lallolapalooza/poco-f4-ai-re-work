@@ -1,0 +1,387 @@
+{
+  "slug": "kwai_live",
+  "package": "com.kwai.kuaishou.video.live",
+  "app_name": "Kwai Live",
+  "ai_summary": "Kwai Live 6.0.20.524207 ships the same AI stack as kwai_video/kwai_bulldog (all 14 AI libraries and libCGE are byte-identical; only libcore.so differs). On-device AI is the FaceMagic/westeros effect engine: libFaceMagic.so (beautify, face deform, makeup, bokeh, hair, MMU), libfaceless-plugin.so (FaceMagicController JNI), libfacedetectcontext.so (YCNN face detector), libskwai.so (AR), libvisionengine.so (KVE smart edit/quality/voice detect) and libkwaiaudio.so (Stannis VAD/voice FX). Everything learned is downloaded: 0 model files are bundled, tools/carve_models.py finds no embedded flatbuffer, and YcnnSoLoader loads ycnn/hiai/snpe/tflite_mtk backends at runtime from an external download. The only bundled TFLite model name is voice_detect_mode.tflite (KVE voice detector); libtensorflow-lite.so is a stock TFLite 2.4.1 (NNAPI + XNNPACK, no custom ops) loaded by name. Real shipped parameters (assets/beauty_list presets, assets/BodySlimming/{Filter28p,Filter40p}/*.params) plus the embedded GLSL and the Ghidra-recovered CGE liquify math permitted a runnable JAX reimplementation of the beauty blend and the body-slimming warp (10/10 checks).",
+  "features": [
+    {
+      "name": "Live beauty (skin smoothing, bright, sharpness, face deform)",
+      "entrypoints": [
+        "com.yxcorp.gifshow.live.push.prepush.presenter.LivePrePushPrettifyPresenter.onEvent(BeautyChangeEvent)",
+        "com.yxcorp.gifshow.product.prettify.PrettifyFragment",
+        "com.kwai.video.westeros.v2.faceless.FaceMagicController.nativeSetEffect / nativeUpdateEffectControl",
+        "assets/beauty_list"
+      ],
+      "pipeline": [
+        "GL frame from westeros pipeline (libwesteros.so)",
+        "libfaceless-plugin.so FaceMagicController native bridge",
+        "libFaceMagic.so FMGorgeousBeautify -> FMBeautifyG3Effect / FMBeautifyG3seEffect",
+        "blur pass (3x3 mean + variance), G3 blend program (skin mask, soften mask, bright LUT, teeth LUT)",
+        "GL composite back into the live preview"
+      ],
+      "models": [
+        "ycnn face_seg",
+        "ycnn skin_seg",
+        "ycnn landmark"
+      ],
+      "confidence": "confirmed",
+      "notes": "Parameters: assets/beauty_list (5 presets, smoothSkin.beauty/bright, faceDeform, makeup). Shaders recovered verbatim from libFaceMagic.so rodata (evidence/shaders/). Segmentation/landmark models are downloaded, not bundled."
+    },
+    {
+      "name": "Face detection and landmarks",
+      "entrypoints": [
+        "com.kwai.camerasdk.face.FaceDetectorContext.nativeDetectFacesFromFrame",
+        "com.kwai.video.westeros.v2.ycnn.YcnnPluginUtils.getFaceData",
+        "com.kwai.video.westeros.Westeros.nativeSetFaceDetectorContext"
+      ],
+      "pipeline": [
+        "Bitmap/ByteBuffer -> nativeGetFaceData(w, h, pixels, YCNNResourceConfig, ctx)",
+        "kuaishou::face::YcnnFaceDetector in libfacedetectcontext.so",
+        "YCNNFaces protobuf parsed in Java"
+      ],
+      "models": [
+        "ycnn magic_ycnn_model_landmark",
+        "ycnn ycnn_face_detect"
+      ],
+      "confidence": "confirmed",
+      "notes": "26 JNI entry points in libfacedetectcontext.so; model path supplied through YCNNResourceConfig.getYcnnModelPath()."
+    },
+    {
+      "name": "Portrait segmentation / matting / bokeh",
+      "entrypoints": [
+        "com.kwai.FaceMagic.nativePort.FMEffectHandler.nativeRequireBodySegmentation",
+        "com.kwai.FaceMagic.nativePort.FMEffectHandler.nativeUpdateSegmentation",
+        "com.kwai.FaceMagic.nativePort.FMBokehDepthEffect.nativeUpdateSegmentationData",
+        "libFaceMagic.so bg_model.bin / fg_model.bin"
+      ],
+      "pipeline": [
+        "YCNN face/skin/human-matting inference",
+        "segmentation + depth masks uploaded as GL textures (BG_MASK, ORI_MASK, depthTexture)",
+        "libFaceMagic.so bokeh/background-blur shader (faceArea, meanDepth, maskRatio)"
+      ],
+      "models": [
+        "ycnn magic_ycnn_model_face_seg",
+        "ycnn magic_ycnn_model_skin_seg",
+        "ycnn magic_ycnn_model_matting",
+        "ycnn magic_ycnn_model_depth",
+        "bg_model.bin / fg_model.bin (effect package assets)"
+      ],
+      "confidence": "confirmed",
+      "notes": "Strings ykit_human_matting_cpu/gpu, human_matting_param, matting_post_texID in libfaceless-plugin.so."
+    },
+    {
+      "name": "Makeup and MMU (3D face / animoji)",
+      "entrypoints": [
+        "com.kwai.video.westeros.mmuplugin.MmuPlugin.setFeatureEnabled",
+        "com.kwai.video.westeros.models.MakeupResource / MakeupColor",
+        "com.yxcorp.gifshow.product.prettify.makeup.MakeupDownloadHelper"
+      ],
+      "pipeline": [
+        "makeup resource download (assets + LUT/UV maps)",
+        "libFaceMagic.so FMMakeupEffectWrapper / FMGorgeousMakeup",
+        "makeup3duv1.bin / makeup3duv2.bin UV maps",
+        "FMM2UEffectHandler for MMU face props"
+      ],
+      "models": [
+        "ycnn magic_ycnn_model_face_attributes",
+        "ycnn makeup assets",
+        "mmu model (YlabModelPathConfig.mmuModelPath)"
+      ],
+      "confidence": "confirmed",
+      "notes": "Model paths arrive through AE2WesterosWrapperCreator_Resource_{mmuModelPath,ycnnModelPath,ycnnModelPathMap,dirtyLensProcessorModelPath}."
+    },
+    {
+      "name": "Body slimming (landmark-driven liquify warp)",
+      "entrypoints": [
+        "com.kwai.video.westeros.models.BodySlimmingAdjustType (WAIST, HIP, BREAST, HEAD, NECK, SHOULDER, LEG, ALL)",
+        "com.kwai.video.westeros.v2.faceless.FaceMagicController.OnBodySlimmingStatusChanged",
+        "assets/BodySlimming/Filter28p/*.params",
+        "assets/BodySlimming/Filter40p/*.params"
+      ],
+      "pipeline": [
+        "body keypoints from YCNN human keypoint model",
+        "FMGorgeousBodySlim::setIntensity(type, value)",
+        "FMLiquifyEffect::forward/restore/bloat/wrinkle",
+        "CGE::CGELiquifyFilter mesh warp (forwardDeformMesh, restoreMeshWithPoint, bloatMeshWithPoint, wrinkleMeshWithPoint, restoreMeshWithIntensity)",
+        "GL render of the warped mesh"
+      ],
+      "models": [
+        "ycnn magic_ycnn_model_human_keypoint",
+        "ycnn magic_ycnn_model_human_mesh"
+      ],
+      "confidence": "confirmed",
+      "notes": "Transfer functions recovered from libCGE.so with Ghidra (native/libCGE_liquify.c); op lists use landmark indices up to 62, intensity 0.02..0.6, radius 0.2..1.23."
+    },
+    {
+      "name": "Live AR stickers / magic effects",
+      "entrypoints": [
+        "com.yxcorp.gifshow.live.push.ui.LiveMagicEmojiPresenter",
+        "com.yxcorp.gifshow.live.sticker.widget.LiveTextStickerContainer",
+        "com.yxcorp.gifshow.live.effect.LiveMagicEffectDownloader",
+        "com.yxcorp.gifshow.live.push.event.LiveFaceMagicHiddenEvent"
+      ],
+      "pipeline": [
+        "MagicDownloadPlugin.downloadMagicFace(effect package)",
+        "FaceMagicController.nativeSetEffect + nativeSendEffectCommand",
+        "libFaceMagic.so AE2 runtime (AE2* SWIG API)",
+        "libskwai.so SKwai::VirtualFaceProcessor for AR models"
+      ],
+      "models": [
+        "skwai instance_model / hair_model / human_key_point_model / human_mesh_model / animal_face_model / ar_hand_pose_model",
+        "ycnn magic_ycnn_model_ar, _ar_detect_seg, _face_3d_resource"
+      ],
+      "confidence": "confirmed",
+      "notes": "Effect packages and their models are downloaded per sticker/effect; none are in the APK."
+    },
+    {
+      "name": "Live audio AI (VAD, voice change, KTV reverb, spatial audio)",
+      "entrypoints": [
+        "com.kwai.video.stannis.AudioProcess.nativeAudioVoiceDetectInterface / nativeAudioVoiceDetectProcess",
+        "com.kwai.video.stannis.Stannis.nativeSetVoiceEffectOption / nativeSetVoiceRoleOption",
+        "com.yxcorp.gifshow.live.push.ui.LiveAudioEffectFragment",
+        "com.yxcorp.gifshow.live.music.LivePushSoundEffectFragment"
+      ],
+      "pipeline": [
+        "libkwaiaudio.so Stannis audio engine (295 JNI)",
+        "VAD / active-speaker detection, voice effects, HRTF and KTV model paths",
+        "libksaudioprocesslib.so preprocessing"
+      ],
+      "models": [
+        "HRTF model (nativeSetHrtfModelPath)",
+        "KTP/karaoke model (nativeSetKtpModelPath)"
+      ],
+      "confidence": "confirmed",
+      "notes": "Model files are supplied by path at runtime; no audio model is bundled."
+    },
+    {
+      "name": "Video quality assessment / smart edit (KVE)",
+      "entrypoints": [
+        "com.kwai.kve.VisionEngine",
+        "com.kwai.video.editorsdk2.kve.EditorKveAnalyzeTask / EditorKveEnhanceTask / EditorKveStabilizationTask",
+        "assets/demo_vision_feature_response_v2.txt"
+      ],
+      "pipeline": [
+        "libvisionengine.so task pipeline (95 JNI: SmartEditTask, SmartCoverTask, SmartGalleryTask)",
+        "libksvisionengineplugin.so bridges editor tasks (21 JNI)",
+        "features: blocky, blur, colorfulness, defocus, HDR, full-reference"
+      ],
+      "models": [
+        "KVE enhancement/analysis models (downloaded)"
+      ],
+      "confidence": "confirmed",
+      "notes": "demo_vision_feature_response_v2.txt is a captured API response showing the feature set and version=5."
+    },
+    {
+      "name": "Voice detection via TFLite (smart cut)",
+      "entrypoints": [
+        "com.kwai.video.editorsdk2.kve.EditorKveVoiceDetector.newNativeVoiceDetector / detectVoiceNative",
+        "com.kwai.kve.VoiceDetectorCallback.getVoiceDetectorResult(VoiceDetectorParam)",
+        "com.yxcorp.gifshow.aicut.logic.AICutProject.observableDownloadVoiceDetect",
+        "string ks://download_voice_detect_mode (classes5.dex)"
+      ],
+      "pipeline": [
+        "AICut downloads voice_detect_mode.tflite into the app cache",
+        "EditorKveVoiceDetector native methods (dynamically registered, no Java_* export)",
+        "libvisionengine.so calls back into com.kwai.kve.VoiceDetectorCallback",
+        "org.tensorflow.lite.Interpreter over libtensorflow-lite.so 2.4.1"
+      ],
+      "models": [
+        "voice_detect_mode.tflite (not bundled)"
+      ],
+      "confidence": "inferred",
+      "notes": "voice_detect_mode.tflite / voice_detect_mode_v1 / ks://download_voice_detect_mode are string constants in classes5.dex; EditorKveVoiceDetector declares the native methods and libvisionengine.so looks up com/kwai/kve/VoiceDetectorCallback, so natives are registered at JNI_OnLoad. TFLite is not used by the live beauty/effect path."
+    }
+  ],
+  "models": [],
+  "reimplementation": {
+    "path": "reports/kwai_live/reimpl",
+    "run_command": "cd reports/kwai_live/reimpl && python verify.py",
+    "status": "runs_unverified",
+    "limitations": "No model weights exist in the APK (0 model assets, no carved flatbuffer, YCNN runtime and models are downloaded), so every learned stage is ARCHITECTURE_ONLY. The runnable stages are the weight-free ones recovered from the binary: (1) the FaceMagic G3 beautify blend transcribed from the embedded GLSL (3x3 mean/variance passes + teeth/bright/clarity/sharpen/skin-blend/LUT), with presets from assets/beauty_list; (2) the body-slimming liquify warp using the CGE::CGELiquifyFilter transfer functions recovered with Ghidra and the op lists from assets/BodySlimming/*.params, applied on a dense displacement field instead of the GPU vertex mesh (equal up to mesh-cell interpolation). Verification is a NumPy cross-check of the same GLSL (max abs err 7.5e-08) plus invariants; it is not a comparison against a device GL render, and masks/landmarks are synthetic stand-ins for the missing YCNN outputs."
+  },
+  "unknowns": [
+    "YCNN model architectures and weights: never shipped, downloaded from /rest/o/production/ycnn/models at runtime; no ONNX/TFLite equivalent available offline.",
+    "The ycnn/vendor inference backends (ycnn, ycnn2, hiai_*, tflite_mtk_static, SNPE, ycnn_ext_snpe) are absent from the APK and loaded by name at runtime.",
+    "Which exact model file backs each magic_ycnn_model_* resource name, and the ycnn container format itself.",
+    "Body landmark layout: op indices reach 62 but the 28p/40p keypoint semantics and their mapping to the YCNN human keypoint output are not documented in the APK.",
+    "Mesh cell size passed by FM to CGELiquifyFilter::initWithMesh, and whether useGradient selects pushLeftDeformMesh.",
+    "Java component that instantiates org.tensorflow.lite.Interpreter (only the KVE VoiceDetector surface and the voice_detect_mode.tflite string exist).",
+    "AE2 effect-package format details (index files, .mmu bundles) and the FaceMagic AE2 asset protocol.",
+    "textureShift[0..5] offset ordering: the GLSL vertex shader is not embedded as text in libFaceMagic.so.",
+    "Live TX sample rate (44100 vs 48000) and the exact resampler chain for the live stream out.",
+    "Enumeration/units of Arya VideoFrameAttribute.rotation and .csp (YUV matrix for the live encoder).",
+    "Arya video input queue depth and pre-encoder drop policy.",
+    "Which resolution slot of DaenerysConfigBuilder (resolutionRequest.a/b/c) is preview vs encoder capture.",
+    "Role of the westeros AudioPlugin bridge (libaudioplugin.so -> libksaudioprocesslib.so) in the live push; it is present in the APK but no live call site was found."
+  ],
+  "data_pipelines": [
+    {
+      "id": "live_video_capture_effect_push",
+      "name": "Live video: Daenerys camera → westeros GL (face detect + FaceMagic) → Arya RTMP",
+      "sources": [
+        "UI: LivePushActivity.K0 extras livePushConfig/livePushBeautyConfig/livePushFILTERConfig/liveFrontCamera/streamType (sources/classes/live/com.yxcorp.gifshow.live.push.LivePushActivity.java:33)",
+        "preview: com.yxcorp.gifshow.live.push.prepush.presenter.g → CameraView → VideoSurfaceView (g.java:330-343)",
+        "capture: com.kwai.camerasdk.Daenerys → libdaenerys.so (138 JNI) → CameraControllerImpl",
+        "start: stream.LivePushClient.S0() → KSMediaLiveKit.startPush(daenerys, VOICE=2|NORMAL=1) (:638-642); ksmedialivekit.LivePushClient.startPush(Daenerys) (:391-419)"
+      ],
+      "transport": {
+        "video": "GL texture in the pipeline; YUV ByteBuffer at the encoder tap",
+        "capture_config": "DaenerysConfigBuilder.defaultCaptureConfigBuilder(): 30 fps, YUV output (kCameraOutputDataTypeYuv=0), size pair y0()=720/v0()=1280, audio 44100/1ch/16bit",
+        "encoder_tap": "Daenerys.setMediaCallback(fps,maxWidth,maxHeight,downSampleType,MediaCallback) → nativeSetMediaCallback (Daenerys.java:503,747)",
+        "frame_attribute": "Arya.VideoFrameAttribute(format,width,height,timestamp,rotation=attributes.f().m(),csp=attributes.b(),sourceId) → nativeInputRawVideoByteBuffer (Arya$AryaConfig.java:2288)",
+        "encoder_params": "nativeSetLiveStreamVideoEncodeParam(w,h,fps,maxBitrate,resumeOnRtcStop); nativeSetLiveStreamRtmpUrl (Arya$AryaConfig.java:1443); defaults 360x640@15fps, kf 4s, min 200 kbps, hwEnc=false",
+        "preview_output": "NativeRenderThread.nativeDrawFrame(VideoFrame) on the EGL display context (NativeRenderThread.java:36)",
+        "threads": "Daenerys native render thread; GlPreProcessor.onDraw on GL thread, post()→nativePostRunnableToGlThread; MediaCallback invoked from the pipeline"
+      },
+      "preprocessing": [
+        "camera session crop/mirror (CameraControllerImpl.resetSize, mirrorFrontCamera)",
+        "GL pre-processor group (nativeAddGLPreProcessorAtGroup / nativeInsertGLPreProcessorGroupAtSlot)",
+        "Westeros graph bound to Daenerys (nativeSetDaenerys) with WesterosGlProcessor.toDaenerysProcessor()",
+        "face detection: FaceDetectorContext registered to Daenerys.X() and Westeros.nativeSetFaceDetectorContext (Westeros.java:341-350)",
+        "FaceMagic effect processor from libfaceless-plugin.so on the same frame, results (bokeh mask, memoji icon) returned to Java callbacks",
+        "YUV readback for the encoder with downSamplerType from Daenerys.c0()"
+      ],
+      "model": {
+        "engine": "YCNN (downloaded backends: ycnn/ycnn2/hiai_*/tflite_mtk_static/SNPE) for detect+landmarks+seg; libFaceMagic.so (AE2) for beauty/makeup/AR/MMU",
+        "binding": "FaceDetectorContext.nativeInit/nativeSetData/nativeDetectFacesFromFrame; FaceMagicController.nativeInitController/nativeSetEffect(byte[],int,int); ResourceManager.nativeSetYlabModelPathConfig",
+        "weights_in_apk": "none (0 model assets, no carved flatbuffer)"
+      },
+      "postprocessing": [
+        "libfacedetectcontext returns byte[][] serialized YCNNFaces protobuf",
+        "FaceMagicController callbacks: onReceivedBokehMask([B,int,int), onReceivedBokehStatus(int), onReceivedMemojiIcon(ByteBuffer,int,int), onEffectDescriptionFromNative, onEffectHintFromNative, onEffectPlayCompleted(int,int)",
+        "results drive rendering only; nothing is re-serialized for the network"
+      ],
+      "consumer": [
+        "Arya.inputRawVideo(ByteBuffer, VideoFrameAttribute) → nativeInputRawVideoByteBuffer (libkwaivoip.so, 107 Arya JNI)",
+        "live-stream encoder → RTMP URL (nativeSetLiveStreamRtmpUrl) or RTC channel (startRtc/nativeStartCall)"
+      ],
+      "fallback": [
+        "Camera2 auth/open failure → one-shot reopen with kAndroidCamera1 (CameraControllerImpl.java:882-886), RetryStartPreviewHelper",
+        "push failure → handlePushFailed → RETRYING(3) → PushDestinationStrategy; app retryWhen 2 s bounded, fatal 1016013014/1016013015",
+        "black frames → BlackImageCheckerCallback",
+        "background pause / foreground resume (s0/t0)",
+        "GPU levels from GPUPerformance (0/50/100/200/500 cut points); optional YCNN NPU backends absent from APK"
+      ],
+      "confidence": "confirmed",
+      "unknowns": [
+        "rotation units and csp enum of VideoFrameAttribute",
+        "which config slot is preview vs encoder resolution (resolutionRequest.a/b/c mapping)",
+        "Arya video input queue depth and drop policy"
+      ],
+      "evidence": [
+        "evidence/live_push_trace.md",
+        "evidence/live_cmd.txt",
+        "sources/classes/live/com.kwai.video.ksmedialivekit.LivePushClient.java",
+        "sources/classes/live/com.kwai.camerasdk.Daenerys.java",
+        "sources/classes/live/com.yxcorp.gifshow.live.push.stream.LivePushClient.java",
+        "sources/classes/live/com.kwai.video.arya.Arya$AryaConfig.java",
+        "sources/classes/live/com.kwai.video.westeros.Westeros.java",
+        "native/libdaenerys.so.json"
+      ]
+    },
+    {
+      "id": "live_audio_stannis_push",
+      "name": "Live audio: mic → Stannis (libkwaiaudio) 3A/VAD/voice-FX → Arya TX",
+      "sources": [
+        "Arya.startLiveStream(LiveStreamParam,url) → nativeStartLiveStream (libkwaivoip.so)",
+        "AryaAudioEngineProxyImp (extends com.kwai.video.arya.a) proxies to Stannis.getInstance() (AryaAudioEngineProxyImp.java:11-19,220)",
+        "Stannis scenes kLiveStream=512 / kLiveStreamWithChat=1792 (Stannis.java:144-145)",
+        "camera-SDK alternative capture: AudioControllerImpl (AudioRecord MIC, 48000/mono/16-bit/10 ms)"
+      ],
+      "transport": {
+        "format": "16-bit signed PCM (byte[] on JNI; short[] for post-effect/watermark)",
+        "frame": "10 ms exactly: byteLength = sample_rate*channel_num*2/100 (Stannis.java:322-331); getSamplePerFrame()=sr*ch/100 (:314)",
+        "channels": "2 for live (AryaAudioEngineProxyImp.java:1159-1161); 1 in camera capture config",
+        "sample_rate": "runtime: 44100 in DaenerysConfigBuilder capture config; 48000 in AudioControllerImpl default and Stannis.startAudioInnerCap; live TX rate only logged (kAudioTxLiveStreamSampleRate=%d)",
+        "device": "Oboe/AAudio with OpenSLES fallback inside libkwaiaudio.so ([AndroidAudioEngineOboe] InitRecorder sample_rate=%d, channels=%d, buffer_size=%d)",
+        "sync": "native audio engine clock; LiveStreamBgmOffsetCb + SpkVocalBgmSyncWorkshop first-frame offset for BGM/KTV"
+      },
+      "preprocessing": [
+        "AEC (device preferred, soft fallback) on 10 ms packets: ringbuf_10ms_pkgs / nearend_delay_10ms_pkgs",
+        "NS + AGC (nativeNsProcess/nativeAgcProcess, agc level/target; nativeAgcGetVadStatus)",
+        "VAD: SetEnableDeepVad(model) or simple VAD; AudioVadInfoCollector hang_over_ms=500",
+        "voice change kVeo* 0-15, reverb kReverb* 0-18, post effect kPostEffect* 0-5 via nativeDspSetParameters/nativeAudioPostEffectSetOption/nativeSetVoiceEffectOption",
+        "resample with FFmpegSwrAudioResampler / libsamplerate 0.1.9"
+      ],
+      "model": {
+        "engine": "no NN bundled in libkwaiaudio.so; VAD/denoise/3D-voice models are path+MD5 parameters (SetEnableDeepVad:%d, model:%s; Voice3D Model Path: %s GET_MODEL_MD5: %s; nativeSetKtpModelPath)",
+        "voicedetect": "AudioVoiceDetectInterface(sample_rate, channel_num, modelPath) → nativeAudioVoiceDetectInterface @0x12a49c; process(byte[],len) → nativeAudioVoiceDetectProcess @0x12a56c",
+        "weights_in_apk": "none"
+      },
+      "postprocessing": [
+        "AudioVoiceDetectResult{result_available:int, backgroud_prob:float, speech_prob:float, music_prob:float} (3 floats written natively at [obj],[obj+4],[obj+8])",
+        "AudioVadInfoCollector active-speaker list → MediaLiveActiveSpeakerListener.onActiveSpeakerChanged(Map)"
+      ],
+      "consumer": [
+        "Arya TX live stream (LiveStreamOut in libkwaiaudio.so) → RTC/RTMP muxer in libkwaivoip.so",
+        "BGM mixing, KTV reverb, headphone monitor, mute controls via KSMediaLiveKit"
+      ],
+      "fallback": [
+        "OnPerformanceInsufficient → closes common NS and audio quality estimation",
+        "resampler inserted on sample-rate/channel mismatch",
+        "OpenSLES path when AAudio is unavailable",
+        "Stannis.restartRecord/startAudioDevice retry on device errors"
+      ],
+      "confidence": "confirmed",
+      "unknowns": [
+        "live TX sample rate (44100 vs 48000) and resampler chain",
+        "VAD/denoise model file names and formats",
+        "whether live audio ever uses AudioControllerImpl or exclusively Stannis",
+        "Role of the westeros AudioPlugin bridge (libaudioplugin.so -> libksaudioprocesslib.so) in the live push; it is present in the APK but no live call site was found."
+      ],
+      "evidence": [
+        "sources/classes/live/com.kwai.video.stannis.AudioProcess.java",
+        "sources/classes/live/com.kwai.video.stannis.Stannis.java",
+        "sources/classes/live/com.kwai.video.arya.AryaAudioEngineProxyImp.java",
+        "sources/classes/live/com.kwai.camerasdk.audioCapture.AudioControllerImpl.java",
+        "native/audio_voicedetect_interface.s",
+        "native/audio_voicedetect_process.s",
+        "evidence/kwaiaudio_strings.txt"
+      ]
+    },
+    {
+      "id": "live_effect_model_binding",
+      "name": "Live effect/model binding and how it differs from the recorded-video path",
+      "sources": [
+        "LiveMagicEmojiPresenter / LiveMagicEffectDownloader.downloadMagicFace (LiveMagicEffectDownloader.java:332,367)",
+        "LivePrePushPrettifyPresenter.onEvent(BeautyChangeEvent) → beautify presets",
+        "Ylab model config: GET /rest/o/production/ycnn/models → YlabModelPathConfig → nativeSetYlabModelPathConfig"
+      ],
+      "transport": {
+        "effect_package": "zip AE2 bundle + assets, passed as byte[] to FaceMagicController.nativeSetEffect(byte[],int,int)/nativeSendEffectCommand, or as a directory path (nativeSetExternalBuiltinPath, ResourceManager.nativeSetPath)",
+        "model": "paths only over JNI: ResourceManager.nativeSetYlabModelPathConfig(byte[]), nativeSetDirtyLensDetectModelPath, nativeSetFace3DResourcesDir",
+        "beauty_params": "protobuf commands EffectControl / EffectCommand / BeautifyVersion / BodySlimmingAdjustType"
+      },
+      "preprocessing": [
+        "download → MD5 verify → unzip → addToMagicModelsResourceList",
+        "bind paths before first frame; nativeInitController; nativeSetEffect on selection change",
+        "optional backends loaded by YcnnSoLoader/WesterosSoLoader (ycnn, ycnn2, hiai_*, tflite_mtk_static, SNPE when CpuInfoChecker.supportSNPE())"
+      ],
+      "model": {
+        "live": "YCNN detector/landmarks/seg + FaceMagic AE2 effects, driven per frame by the Daenerys GL pipeline",
+        "recorded": "same catalogue, driven by MediaRecorderImpl + MediaCodecEncoder (surface input) and bitmap-based YcnnPluginUtils.getFaceData(Bitmap,…) in the editor"
+      },
+      "postprocessing": [
+        "same FaceMagic callbacks; live consumes them for rendering, record/editor additionally serializes frame attributes (getSerializedAttributes, WesterosFrameAttributesDumpProcessor)"
+      ],
+      "consumer": [
+        "live: effect visible in preview and encoded stream; record: baked into the output file"
+      ],
+      "fallback": [
+        "missing model dir strings (Ycnn model directory is empty/not a directory/not exists), ycnn_download_failed, {\"missing_models\":[...]}",
+        "FaceMagicLoadEffectFailedListener / onLoadFileError(String,int)",
+        "BeautifyVersion negotiation (getSupportMakeupVersion/getUnSupportVersion)"
+      ],
+      "confidence": "confirmed",
+      "unknowns": [
+        "AE2 package index format details",
+        "exact model file behind each magic_ycnn_model_* name"
+      ],
+      "evidence": [
+        "PIPELINE.md#pipeline-c",
+        "sources/classes/com.yxcorp.gifshow.live.effect.LiveMagicEffectDownloader.java",
+        "reports/_shared_kwai_sdk.md §3-§5"
+      ]
+    }
+  ]
+}

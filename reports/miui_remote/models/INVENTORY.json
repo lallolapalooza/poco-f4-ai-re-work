@@ -1,0 +1,12 @@
+{
+  "slug": "miui_remote",
+  "apk": "VAD model (1,132,916 B) embedded in libmibrainvad2.so (mdata_vad, vad_2.1.0_0)",
+  "local_files": 1,
+  "bytes": 1132916,
+  "tflite": 0,
+  "bundles": 0,
+  "absent": [
+    "Classic VAD in libmibrainsdk has no model file; cloud ASR/NLU/TTS models are remote."
+  ],
+  "notes": "VAD weights extracted to models/vad_2.1.0_0.binn; JAX runs."
+}

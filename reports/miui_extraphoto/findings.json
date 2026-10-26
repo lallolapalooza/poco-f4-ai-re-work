@@ -1,0 +1,592 @@
+{
+  "slug": "miui_extraphoto",
+  "package": "com.miui.extraphoto",
+  "app_name": "ExtraPhotoGlobal (Bokeh)",
+  "ai_summary": "MIUI gallery photo-AI plugin (version 1.8.7.4.0-global) exposing four families of on-device algorithms: (1) MiBrain portrait relighting rendered by a GLES light-map shader inside librelight_only_extraphoto.so, driven through libmibrain_relighting_jni.so and the AILAB_PLI_* C API; (2) depth-based dual-camera bokeh via Megvii wa::Refocus (classical CoC/matting/blur, no DNN), MiAlgo and MediaTek variants; (3) ArcSoft portrait-lighting/dual-cam libraries; (4) document-photo scan/enhance/dewarp/handwrite removal via libdoc_photo_process.so (MACE + OpenCL) with a shipped Snapdragon SNPE DLC asset (document_model.dlc) whose full 512x512x3->512x512x1 HED/mobilenet_v2_skip graph and 314,289 bytes of uint8 weights were decoded. The DLC graph is executed end-to-end in JAX with the real dequantised weights; relighting and bokeh are reimplemented at the documented architecture level.",
+  "features": [
+    {
+      "name": "Portrait relighting (brain relighting), 8 effects (plus none) relightingType 0x03..0x18",
+      "entrypoints": [
+        "com.miui.extraphoto.refocus.core.relighting.RelightingOperatingFragment.setLightSource",
+        "com.miui.extraphoto.refocus.core.relighting.RelightingOperatingFragment$ChangeEffectRunnable",
+        "com.miui.extraphoto.refocus.core.relighting.MiBrainRelightingProcessor.initProcessor/enableRelightingEffect/doSave",
+        "com.miui.extraphoto.refocus.manager.MiDualPhotoJni.initBrainRelightingEffect/setBrainRelightingLightSource/enableBrainRelightingEffect",
+        "Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_* (libmibrain_relighting_jni.so)",
+        "AILAB_PLI_Init/PreProcess/SetLightSource/Process/GetLightSource/Uninit (librelight_only_extraphoto.so)"
+      ],
+      "pipeline": [
+        "touch gesture -> light source (x,y) scaled by DualPhotoNativeContext.getScale()",
+        "initBrainRelightingEffect(orientation, originImage, depthData, depthLen, facePoint[4])",
+        "JNI shim -> AILAB_PLI_Init(handle,0,W,H) + AILAB_PLI_PreProcess(origin,orientation) -> face centre/radius",
+        "setBrainRelightingLightSource(handle,x,y,W,H) -> AILAB_PLI_SetLightSource",
+        "enableBrainRelightingEffect(effectType, blurImage, effectImage, originImage, depthData, pointCache)",
+        "AILAB_PLI_Process(handle,{W,H,depth,blur},origin,&effectType,effect) then AILAB_PLI_GetLightSource -> pointCache",
+        "GPURelightFilter (GLES3) fragment shader: base = origin mixed 50% with 5x5 gaussian; light = texture(text_light, uv+moveLightPos); out = screen(base, light); optional noise/colour-separation/3D-LUT; YUV matrix output"
+      ],
+      "models": [
+        "librelight_only_extraphoto.so opaque .data payload (82,944,760 B; light-pattern textures / 3D lighting tables, not decoded)",
+        "assets/refocus/relighting/*/config.json (effect parameters, relightingType, cameraDefinedType)"
+      ],
+      "confidence": "confirmed",
+      "notes": "JNI disassembly at native/initBrain.s, enableBrain.s, setBrainLight.s; renderer shader extracted to native/relight_render_shader.glsl. AILAB_PLI_PreProcess/Process internals and the per-effect light textures are not decoded."
+    },
+    {
+      "name": "Movie relighting, 9 effects relightingType 0x20..0x28",
+      "entrypoints": [
+        "com.miui.extraphoto.refocus.core.relighting.MovieRelightingPresenter",
+        "com.miui.extraphoto.refocus.manager.AlgoManager.supportMovieRelighting",
+        "MiDualPhotoJni.enableBrainRelightingEffect"
+      ],
+      "pipeline": [
+        "same MiBrain relight backend as photo relighting",
+        "effect parameters from assets/refocus/movie_relighting/*/config.json (relightingType 0x20..0x28, cameraDefinedType 9..17)"
+      ],
+      "models": [
+        "librelight_only_extraphoto.so + libmibrain_relighting_jni.so"
+      ],
+      "confidence": "confirmed",
+      "notes": "AlgoManager.supportMovieRelighting requires the selected bokeh backend AND sMiBrainRelighting; config files enumerate the effects."
+    },
+    {
+      "name": "Dual-camera bokeh (MiCamera profile)",
+      "entrypoints": [
+        "com.miui.extraphoto.refocus.manager.MiDualPhotoJni.initMiCameraRefocus/processMiCameraRefocusWidthHandle",
+        "Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_* (libmicamera_dual_bokeh_jni.so)",
+        "com.miui.extraphoto.refocus.manager.AlgoManager$MiCameraDualBokehAlgo"
+      ],
+      "pipeline": [
+        "initMiCameraRefocus(w,h,assets/refocus/micamera_dual_bokeh/dualcam_bokeh_params.json)",
+        "processMiCameraRefocusWidthHandle(handle, target, origin, mask?, focusX, focusY, afCode, blurLevel, iso, tof, depthData, depthLen, flag)",
+        "libmialgo_utils_extraphoto -> libmiphone_refocus_bokeh / libmiphone_bokeh_*"
+      ],
+      "models": [
+        "assets/refocus/micamera_dual_bokeh/dualcam_bokeh_params.json (CoC/calibration/bokeh-effect parameters)"
+      ],
+      "confidence": "confirmed",
+      "notes": "No DNN model asset; depth-of-field segmentation, SGBM block match, scatter blur, spot processing and edge refinement inside libmiphone_refocus_bokeh.so."
+    },
+    {
+      "name": "Dual-camera bokeh (Megvii wa::Refocus)",
+      "entrypoints": [
+        "com.miui.extraphoto.refocus.core.adjuest.MegviiAdjustProcessor.processRefocus",
+        "com.miui.extraphoto.refocus.manager.MegviiDualPhotoJni.initRefocus/processRefocusWidthHandle/releaseRefocus",
+        "wa::Refocus::setImages / setFaces / setBokehStyle / setBokehSpotType / run"
+      ],
+      "pipeline": [
+        "ALG_F_VALUE f-number ladder (1.0..16.0), findFValueIndex(blurLevel)",
+        "JNI builds three wa::Image objects (target, origin, depth) and calls setImages + run(focusX,focusY,fNumber,out)",
+        "wa::Refocus interno: ComputeCocDepth/AndDisp, SGBM + WLS disparity, AlphaRefineKepler matting, ApertureCpu::RenderBokehColor/RenderYBokeh, BlurWorker, ImgMergerKepler"
+      ],
+      "models": [],
+      "confidence": "confirmed",
+      "notes": "Strings '[RF] not support setModel anymore.' and 'cpu model' show the pipeline is classical CV, not a network."
+    },
+    {
+      "name": "Single-camera bokeh 'soft-portrait-enc'",
+      "entrypoints": [
+        "com.miui.extraphoto.refocus.core.relighting.MiBrainRelightingProcessorSoftEncrypted.getBlurImage",
+        "com.miui.extraphoto.refocus.manager.DualPhotoJni.processMiRefocus",
+        "com.miui.extraphoto.refocus.manager.DualPhotoJni.processMiRawDepth",
+        "com.miui.extraphoto.refocus.manager.AlgoManager$MiBrainSingleBokehAlgo"
+      ],
+      "pipeline": [
+        "processMiRawDepth(depthData) then processMiRefocus(dst, src, depth, blurLevel, filterId)",
+        "library librefocus_mibokeh.so (or _mtk)"
+      ],
+      "models": [],
+      "confidence": "confirmed",
+      "notes": "Native model/weights not identified; no model asset in the APK."
+    },
+    {
+      "name": "MiAlgo portrait bokeh",
+      "entrypoints": [
+        "com.miui.extraphoto.refocus.manager.AlgoManager$MiAlgoBokeh.load",
+        "libmialgo_portrait.so MIALGO_CaptureBokehEffectProc_Album / MIALGO_CaptureInitEachPic_Album"
+      ],
+      "pipeline": [
+        "libmialgo_utils_extraphoto + libmialgo_portrait + (qualcomm) miphone_bokeh_gpf/effect/proc (mtk: *_mtk variants)",
+        "JNI wrapper AlgoBokehInterface with bitmap/offscreen conversion"
+      ],
+      "models": [],
+      "confidence": "confirmed",
+      "notes": "Bokeh parameters likely from vendor tuning data; no model asset."
+    },
+    {
+      "name": "ArcSoft portrait lighting / dual-camera refocus",
+      "entrypoints": [
+        "com.miui.extraphoto.refocus.manager.AlgoManager$ArcSoftAlgo.load",
+        "com.miui.extraphoto.refocus.manager.DualPhotoJni.initRelightingEffect",
+        "libgallery_arcsoft_portrait_lighting.so: PortraitLight_Init/Process/SetFaceInfo/SetStyle/SetSource/SetIntensity/SetMask/GetStyle/GetVersion",
+        "libgallery_arcsoft_dualcam_refocus.so: ARC_DCIR_SetArtBokehDegree/SetArtBokehMask"
+      ],
+      "pipeline": [
+        "ArcSoft_PortraitLighting_2.0.125235020.83 and ArcSoft_PortraitRefocus_1.6.12023.0",
+        "loaded behind librefocus.so for the 'portrait' profile"
+      ],
+      "models": [],
+      "confidence": "confirmed",
+      "notes": "API and versions confirmed by strings; no carveable model container found in the 15.6 MB / 11.7 MB libs, weights not extracted."
+    },
+    {
+      "name": "Document photo scan / crop / dewarp / enhance / de-handwrite (ID card, PPT, demoire)",
+      "entrypoints": [
+        "com.miui.extraphoto.docphoto.manager.DocProcessor.SafeProcessor.init",
+        "com.miui.extraphoto.docphoto.manager.DocProcessor.doScan/doCropAndEnhance/doDeHandwrite",
+        "com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.nativeInit/nativeScanDocumentBitmap/nativeCropAndEnhanceBitmap/nativeDewarpBitmap/nativeEnhanceBitmap/nativeHandwriteRemoveBitmap",
+        "assets/common/doc_photo/doc_model/dlc/document_model.dlc"
+      ],
+      "pipeline": [
+        "copy assets/common/doc_photo/doc_model/dlc -> filesDir/doc_model/dlc; copy per-SoC cache -> filesDir/doc_model/cache",
+        "DocumentProcessJNI.nativeInit(cacheDir, modelDir); first run nativeInitAndRun(cacheDir, modelDir)",
+        "libdoc_photo_process.so (MACE + OpenCL) runs embedded EdgeDet graph hed_model: hed_input 1x384x384x3 -> img_output 1x384x384x2",
+        "scan returns 4 corner points; crop/correct; enhance mode RAW/COLOR/BIN/GRAY/FILTER_ID_CARD/DEMOIRE; dewarp coarse+fine; inpaint; handwrite removal",
+        "SNPE DLC variant of the same HED task: hed_input 1x512x512x3 -> img_output 1x512x512x1 (truediv 255 + mobilenet_v2_skip encoder + 4 deconv skip decoder + conv3x3 + conv1x1 + sigmoid)"
+      ],
+      "models": [
+        "assets/common/doc_photo/doc_model/dlc/document_model.dlc",
+        "assets/{spes,spesn,xun,yunluo}/doc_photo/doc_model/cache/mace_cl_compiled_program.bin",
+        "embedded MACE model names: hed_model, enhance_model, dewarp_coarse_model, dewarp_fine_model, demoiring_model, segment_model, inpaint_coarse_model, inpaint_fine_model, handwrite_model"
+      ],
+      "confidence": "confirmed",
+      "notes": "DLC format and full graph confirmed; which component consumes the .dlc on this build is unknown because libdoc_photo_process.so contains no SNPE/DLC parser strings (MACE only)."
+    },
+    {
+      "name": "Dynamic/motion refocus effects (non-ML)",
+      "entrypoints": [
+        "com.miui.extraphoto.refocus.core.dynamic.DynamicOperatingFragment",
+        "com.miui.extraphoto.refocus.core.dynamic.MiCameraDualDynamicManager"
+      ],
+      "pipeline": [
+        "GLES renderer animates masks/shapes from assets/refocus/dynamic/* (icon.png, mask.png, config.json)"
+      ],
+      "models": [],
+      "confidence": "confirmed",
+      "notes": "No neural model; included for feature completeness."
+    },
+    {
+      "name": "Motion photo MACE runtime",
+      "entrypoints": [
+        "lib/arm64-v8a/libmotion_photo_mace.so"
+      ],
+      "pipeline": [
+        "MACE engine (Create MaceEngine from model pb) mmaps a model data file at runtime",
+        "no model file is shipped in the APK"
+      ],
+      "models": [],
+      "confidence": "inferred",
+      "notes": "Strings 'Failed to open model data file' / 'model_data != MAP_FAILED' show runtime file loading; model unavailable."
+    }
+  ],
+  "models": [
+    {
+      "path": "assets/common/doc_photo/doc_model/dlc/document_model.dlc",
+      "format": "ZIP archive: dlc.metadata (227 B, snpe-tensorflow-to-dlc 1.22.0.212) + model (357151 B: u32 magic 0x00020AD5, u32 version 5, protobuf DLC graph)",
+      "size": 357758,
+      "io": {
+        "hed_input:0": [
+          1,
+          512,
+          512,
+          3
+        ],
+        "img_output:0": [
+          1,
+          512,
+          512,
+          1
+        ],
+        "output_range": "[0,1] sigmoid edge probability"
+      },
+      "ops": [
+        "input",
+        "const",
+        "elementwise div (/255)",
+        "Conv2D",
+        "depthwise Conv2D",
+        "ReLU",
+        "ReLU6",
+        "Sigmoid",
+        "Add",
+        "Concat(axis=3)",
+        "Conv2DTranspose(4x4,stride2)",
+        "truediv",
+        "Sigmoid"
+      ],
+      "weights": "extracted",
+      "jax_reimpl": "reimpl/document_hed.py",
+      "verification": "Parsed 100 tensors / 100 layers; 53 weighted layers, 314289 uint8 bytes; dequantisation x=step*(q+offset) verified for all 107 quantizers; JAX execution reproduces the declared output shape of all 99 executed layers and produces finite output in [0,1]. No SNPE runtime available for a numeric reference.",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "models/dlc_extract/model",
+      "format": "SNPE DLC protobuf payload (extracted from document_model.dlc)",
+      "size": 357151,
+      "io": {
+        "hed_input:0": [
+          1,
+          512,
+          512,
+          3
+        ],
+        "img_output:0": [
+          1,
+          512,
+          512,
+          1
+        ]
+      },
+      "ops": [
+        "conv2d",
+        "deconv2d",
+        "activation",
+        "add",
+        "concat",
+        "elementwise_binary",
+        "const"
+      ],
+      "weights": "extracted",
+      "jax_reimpl": "reimpl/document_hed.py",
+      "verification": "ir/dlc.py + reimpl/document_hed.py; graph dump in evidence/03_dlc_graph.txt; dequantised weights in models/document_model_weights.npz",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "assets/spes|spesn|xun|yunluo/doc_photo/doc_model/cache/mace_cl_compiled_program.bin",
+      "format": "MACE OpenCL compiled-program cache (protobuf, nested 'CLCC' blob with Adreno MBSX/MBS2 binary); kernel source strings e.g. 'Tactivation -DCMD_DATA_TYPE=f ...'",
+      "size": 534518,
+      "io": {},
+      "ops": [],
+      "weights": "none",
+      "jax_reimpl": "",
+      "verification": "Header/strings inspected only; this is a runtime cache, not model weights.",
+      "confidence": "confirmed"
+    },
+    {
+      "path": "lib/arm64-v8a/libdoc_photo_process.so (embedded EdgeDet/hed_model MACE graph)",
+      "format": "ELF64-AArch64 (25 MB) statically linking MACE + OpenCL; model names and EdgeDet/ASPP graph tensor names at file offsets 0x436fec and 0x160a038..0x160c599",
+      "size": 25029048,
+      "io": {
+        "hed_input": [
+          1,
+          384,
+          384,
+          3
+        ],
+        "img_output": [
+          1,
+          384,
+          384,
+          2
+        ]
+      },
+      "ops": [
+        "Conv2D",
+        "DepthwiseConv2d",
+        "BatchNorm(fused)",
+        "Relu",
+        "Concat",
+        "ResizeBilinear",
+        "ASPP"
+      ],
+      "weights": "unavailable",
+      "jax_reimpl": "",
+      "verification": "Only names/dims and MACE version strings observed; model weights not extracted or executed.",
+      "confidence": "inferred"
+    },
+    {
+      "path": "lib/arm64-v8a/librelight_only_extraphoto.so (.data payload)",
+      "format": "ELF64-AArch64 with GLESv3/EGL relight renderer; 82,944,760 B .data payload at file offset 0x890000; no model container magic (TFL3/ZIP/ELF/PNG) and no carve_models hit",
+      "size": 91925616,
+      "io": {},
+      "ops": [],
+      "weights": "unavailable",
+      "jax_reimpl": "reimpl/relighting.py",
+      "verification": "Exports AILAB_PLI_* and GLSL shader recovered (native/relight_render_shader.glsl); .data contents not decoded.",
+      "confidence": "unknown"
+    },
+    {
+      "path": "lib/arm64-v8a/libwa_refocus_extraphoto.so + libmegvii_bokeh_jni.so",
+      "format": "ELF64-AArch64 classical CV library (OpenCV 4.2 based); no model format/weights",
+      "size": 8919872,
+      "io": {
+        "images": "wa::Image (width,height,ptr,type=6,rotation)",
+        "run_params": "focusX int, focusY int, fNumber float, out Image"
+      },
+      "ops": [
+        "ComputeCocDepth",
+        "ComputeCocDepthAndDisp",
+        "SGBM",
+        "WLS filter",
+        "AlphaRefineKepler matting",
+        "ApertureCpu::RenderBokehColor",
+        "ApertureCpu::RenderYBokeh",
+        "BlurWorker rotate/zoom/disk",
+        "ImgMergerKepler"
+      ],
+      "weights": "none",
+      "jax_reimpl": "reimpl/bokeh.py",
+      "verification": "JNI disassembly + exported C++ API; algorithm reimplemented architecturally in reimpl/bokeh.py (runs).",
+      "confidence": "confirmed"
+    }
+  ],
+  "reimplementation": {
+    "path": "reports/miui_extraphoto/reimpl",
+    "run_command": "cd reports/miui_extraphoto/reimpl && /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python run_all.py",
+    "status": "runs_unverified",
+    "limitations": "document_hed.py executes the full decoded SNPE DLC graph with real dequantised weights and matches all declared shapes, but no SNPE runtime exists on this host for numeric comparison. relighting.py and bokeh.py are ARCHITECTURE_ONLY: the GLES relight renderer math is taken from the extracted shader, but light-pattern textures and AILAB_PLI preprocessing are opaque; the bokeh pipeline implements thin-lens CoC + aperture-spot depth-bin blur, while the vendor's calibrated CoC curve, SGBM/WLS disparity and Kepler matting are not reimplemented. No bit-exactness is claimed. The JAX document model reproduces the shipped SNPE DLC export (1x512x512x3 -> 1x512x512x1); the shipping MACE scan model used by libdoc_photo_process.so is 1x384x384x3 -> 1x384x384x2 and its weights remain embedded in the library. Relighting has no gesture-driven light movement in this build (setLightSource is a no-op; the JNI always centres the light), and bokeh focus/f-number mapping is reproduced from the Java tables while the vendor CoC calibration is unavailable."
+  },
+  "unknowns": [
+    "Which component consumes document_model.dlc on this build: libdoc_photo_process.so is a MACE runtime with no SNPE/.dlc parser strings; the DLC is copied to filesDir/doc_model/dlc and passed to DocumentProcessJNI.nativeInit, so the SNPE consumer may be absent from this build or implemented without string signatures.",
+    "MACE document model files (hed_model, enhance_model, dewarp_coarse/fine, demoiring, segment, inpaint_coarse/fine, handwrite) are not shipped as files in the APK; only names and parts of the EdgeDet graph are embedded. Weights not extracted.",
+    "librelight_only_extraphoto.so 82.9 MB .data payload: role (light-pattern textures / precomputed 3D portrait lighting tables) and format not decoded; no container magic or carve hit.",
+    "AILAB_PLI_Init/PreProcess/Process internals: face/depth analysis, light-source mapping (AdjustLightPos) and per-effect light textures are not recovered.",
+    "Relighting effect texture assets for relightingType 0x03..0x18 / movie 0x20..0x28 are not present as image assets in the APK (only icon.png/config.json).",
+    "Megvii/MTK bokeh calibrated CoC curve and calibration constants (StructD/StructO/paramL) plus SGBM/WLS disparity and AlphaRefineKepler matting parameters are undocumented and not reimplemented.",
+    "ArcSoft portrait lighting / dual-cam refocus model or compiled-in weights were not extracted (no carveable container in the 15.6 MB / 11.7 MB libs).",
+    "libmotion_photo_mace.so mmaps an external model data file that is not shipped in the APK.",
+    "libmibokeh_gallery.so references a MACE bokeh engine (bokeh_mace: engine_=) but no bokeh model asset is shipped; model path/format unknown.",
+    "No SNPE, MACE or wa::Refocus runtime is available on this host, so none of the vendor pipelines could be numerically cross-checked.",
+    "Document scan model in the shipping MACE runtime is 1x384x384x3 -> 1x384x384x2 (descriptors at file offsets 0x437000/0x437028), while the shipped SNPE DLC is 1x512x512x3 -> 1x512x512x1; the DLC's 512 spatial size matches the EnhanceModel input, and no SNPE/DLC consumer is observable in libdoc_photo_process.so.",
+    "Brain relighting does not apply the touch light-source gesture in this build: MiBrainRelightingProcessor.setLightSource is empty, supportAdjustLightSource() returns false, and the JNI always calls setBrainRelightingLightSource(W/2,H/2,W,H). Only the ArcSoft processors forward real gesture coordinates."
+  ],
+  "data_pipelines": [
+    {
+      "name": "Document photo (scan -> crop/warp -> enhance/dewarp/de-handwrite -> JPEG)",
+      "source": {
+        "trigger": "DocPhotoActivity.onCheckPermissionSucceed -> Storage.fromIntent -> DocPhotoManager.parsePhotoAsync; DocPhotoPostProcessingActivity for raw capture post-processing",
+        "entry_classes": [
+          "com.miui.extraphoto.docphoto.document.DocPhotoActivity",
+          "com.miui.extraphoto.docphoto.document.DocPhotoPostProcessingActivity",
+          "com.miui.extraphoto.docphoto.manager.DocPhotoManager",
+          "com.miui.extraphoto.docphoto.manager.DocProcessor",
+          "com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI"
+        ],
+        "input_format": "JPEG/HEIF via ContentResolver InputStream; EXIF orientation; document state in XMP (docPhoto version/enhanceType/cropPoints/rawLength/privacyWatermark) and EXIF docPhoto=1",
+        "confidence": "confirmed",
+        "evidence": "sources/docphoto_flow/classes/...DocPhotoActivity.java:231-255; ...DocPhotoManager.java:376-700; ...DocPhotoMetaData.java; ...PhotoMetaData.java"
+      },
+      "transport": {
+        "format": "Android Bitmap, ARGB_8888 only (native rejects format != ANDROID_BITMAP_FORMAT_RGBA_8888=1); native staging is RGB 3 bytes/pixel (R,G,B order); output is a new ARGB_8888 Bitmap with alpha 0xFF and the source ColorSpace",
+        "native_image": "cv::Mat CV_8UC3 over the RGB staging buffer",
+        "yuv_variant": "exported nativeScanDocumentYUV / nativeCropAndEnhanceYUV take a byte[] (NV21: Y plane + interleaved VU) plus width/height; not declared in this APK's DocumentProcessJNI dex class",
+        "threads": "AsyncTask.THREAD_POOL_EXECUTOR for parse/preview; ExportTask AsyncTask for save; DocProcessor.SafeProcessor serialises native calls on mLock; release on a raw new Thread",
+        "confidence": "confirmed",
+        "evidence": "native/doc_get_bitmap_info.s (0x78a00); native/doc_rgba_to_rgb.s (0x7884c); native/doc_rgb_to_rgba.s (0x78904); native/doc_bitmap_create.s (0x78ce4); sources/docphoto_flow/.../PhotoManager.java ParseTask/PreviewTask"
+      },
+      "preprocessing": [
+        "BitmapFactory.decodeStream with inSampleSize from ImageUtils.computeInSampleInfo (preview) or BigBitmapLoadUtils.calculateInSampleSize memory budget (save), then EXIF rotation",
+        "Scan points returned in delegate-bitmap space; MatrixUtils.mapPoints(points, inverse(delegateMatrix)) converts them to raw full-resolution un-rotated pixel space before crop",
+        "Native RGBA8888 -> RGB (ld4/st3, alpha dropped) -> cv::Mat CV_8UC3",
+        "doEdgeDet resizes to 384x384 (mov w8,#0x180) with cv::resize (0x383520) and pads; normalisation to [0,1] is inside the MACE graph (inferred from the DLC's leading Div 255)",
+        "Crop validates the 4-point polygon (30.0f angle threshold), computes output size from quad + cached aspect ratio, warps with cv::getPerspectiveTransform/warpPerspective"
+      ],
+      "jni_methods": [
+        "nativeInit(String cacheDir, String modelDir) -> long : (Ljava/lang/String;Ljava/lang/String;)J",
+        "nativeInitAndRun(String cacheDir, String modelDir) -> void : (Ljava/lang/String;Ljava/lang/String;)V",
+        "nativeRelease(long) -> void : (J)V",
+        "nativeScanDocumentBitmap(long handle, Bitmap bmp, int documentType, float[] points, int mode) -> int : (JLandroid/graphics/Bitmap;I[FI)I",
+        "nativeCropImageBitmap(long, Bitmap, float[] points, int documentType) -> Bitmap : (JLandroid/graphics/Bitmap;[FI)Landroid/graphics/Bitmap;",
+        "nativeCropAndEnhanceBitmap(long, Bitmap, float[] points, int enhanceType, int documentType, boolean) -> Bitmap : (JLandroid/graphics/Bitmap;[FIIZ)Landroid/graphics/Bitmap;",
+        "nativeEnhanceBitmap(long, Bitmap, int enhanceType, boolean) -> int : (JLandroid/graphics/Bitmap;IZ)I",
+        "nativeDewarpBitmap(long, Bitmap) -> int : (JLandroid/graphics/Bitmap;)I",
+        "nativeHandwriteRemoveBitmap(long, Bitmap, Bitmap) -> int : (JLandroid/graphics/Bitmap;Landroid/graphics/Bitmap;)I",
+        "nativeGetDelegateColor(long, Bitmap, int[3]) -> int : (JLandroid/graphics/Bitmap;[I)I"
+      ],
+      "model": {
+        "runtime": "MACE + OpenCL, models embedded in libdoc_photo_process.so (25,029,048 B)",
+        "models": [
+          "hed_model / ScanModel: hed_input 1x384x384x3 -> img_output 1x384x384x2 (descriptor at file offset 0x436fe2, dims at 0x437000/0x437028)",
+          "enhance_model / EnhanceModel: img_input 1x512x512x3 (offset 0x437b61, dims at 0x437b80)",
+          "dewarp_coarse_model, dewarp_fine_model (193/385 blocks), demoiring_model, segment_model, inpaint_coarse_model, inpaint_fine_model, handwrite_model"
+        ],
+        "engine_owner": "single native engine object returned by nativeInit; vtable at .data.rel.ro 0x17c3488 (slot 2 scan 0x82f54, slot 3 crop+enhance 0x83798, slot 4 enhance 0x83eb4, slot 11 clamp 0x85118)",
+        "opencl_cache": "filesDir/doc_model/cache/mace_cl_compiled_program.bin; nativeInitAndRun warms/compiles when no per-SoC cache asset exists",
+        "dlc_asset": "assets/common/doc_photo/doc_model/dlc/document_model.dlc is SNPE 1x512x512x3 -> 1x512x512x1 (metadata out_node img_output); no SNPE/DLC parser strings in the MACE lib, so its consumer is unobserved",
+        "confidence": "confirmed (names/dims/engine), inferred (embedded weights, normalisation), unknown (DLC consumer)",
+        "evidence": "native/doc_scan_model_init.s (0x89084); native/doc_model_descriptors.txt; native/doc_core_ghidra.c; evidence/03_dlc_graph.txt"
+      },
+      "postprocessing": [
+        "EdgeDet output (2 channels) scaled by 255.0 (0x436dc0) to 8-bit, combined with 0.5/1.0 constants",
+        "mask -> quad via calcQuad/calcCorners/minAreaQuad/IOU normalisation (strings; FUN_00182a80); ScanModel params 0.85,0.7,0.15,0.1,-90.0 at 0x437054",
+        "float[8] returned (4 corners); empty result falls back to full-image rectangle; every point clamped to [0,w-1]x[0,h-1] (0x85118)",
+        "crop/warp produces a new RGB buffer at out_w/out_h; enhance runs in place; RGB -> ARGB_8888 Bitmap with alpha 255 and source colour space"
+      ],
+      "consumer": {
+        "preview": "PhotoManager.PreviewTask -> DocPhotoManager.renderPreview (crop/rotate/dehandwrite/undistort/enhance/demoire/watermark) -> Bitmap delivered on UI thread",
+        "save": "ExportTask -> DocPhotoManager.render full-res -> DocPhotoUtils.exportJpegWithExif (JPEG quality 97, EXIF copy, MIME 4, orientation 1, depth/focus/Xmp cleared, ICC for wide gamut) -> XStorage insert -> MediaStore scan/update -> setResult(uri, image/jpeg, extra_photo_editor_type_doc_photo)",
+        "reedit_metadata": "DocPhotoExporter writes EXIF docPhoto=0x01 and XMP docPhoto{version,enhanceType,cropPoints,rawLength,privacyWatermark} and appends the original raw JPEG after the enhanced JPEG",
+        "confidence": "confirmed",
+        "evidence": "sources/docphoto_flow/.../DocPhotoUtils.java; .../DocPhotoManager.java PhotoExporter/DocPhotoExporter; .../ExportTask.java; .../DocPhotoActivity.java onExport"
+      },
+      "failure_fallback": [
+        "Bitmap not RGBA8888 / lockPixels failure -> JNI returns null or status 1",
+        "engine init failure -> nativeInit returns 0, subsequent calls fail",
+        "empty quad -> full-image corners then clamp",
+        "parse failure -> doc_photo_not_support toast and exit",
+        "export failure -> ExportCallback.onError -> exit",
+        "released processor -> returns input bitmap unchanged"
+      ],
+      "confidence": "confirmed",
+      "evidence_files": [
+        "PIPELINE.md (section A, document photo)",
+        "native/doc_jni_ghidra.c",
+        "native/doc_core_ghidra.c",
+        "native/doc_model_descriptors.txt",
+        "evidence/09_doc_pipeline.txt",
+        "sources/docphoto_flow/"
+      ]
+    },
+    {
+      "name": "Portrait relighting (brain relighting / AILAB_PLI GLES renderer)",
+      "source": {
+        "trigger": "RelightingOperatingFragment effect selection (ChangeEffectRunnable) / touch (setLightSource) / save (SaveRunnable); MovieRelightingPresenter for movie effects",
+        "entry_classes": [
+          "com.miui.extraphoto.refocus.core.relighting.RelightingOperatingFragment",
+          "com.miui.extraphoto.refocus.core.relighting.MiBrainRelightingProcessor",
+          "com.miui.extraphoto.refocus.manager.MiDualPhotoJni",
+          "com.miui.extraphoto.refocus.manager.DualPhotoNativeContext"
+        ],
+        "input": "origin ASVL_OFFSCREEN NV21 image at process resolution + raw depth NativeData + optional blur image",
+        "confidence": "confirmed",
+        "evidence": "sources/relight_ui/classes/...RelightingOperatingFragment.java:257-410; sources/refocus/classes/...MiBrainRelightingProcessor.java:66-105"
+      },
+      "transport": {
+        "format": "ASVL_OFFSCREEN descriptor over NV21 (Y plane w*h + interleaved VU w*h/2). Descriptor: +0 format=1, +4 width, +8 height, +0x10 plane0, +0x18 plane1, +0x30/+0x34 pitches",
+        "depth": "raw depth byte buffer with length (NativeData), plus degree/width/height from PhotoInfoProvider",
+        "display": "configYUVData copies Y and splits the VU pair into separate U/V byte[] planes for the GLES YUV renderer",
+        "threads": "all relight calls on the display render handler (postAtTime token_set_light_source; runOnRenderThread for save)",
+        "confidence": "confirmed",
+        "evidence": "native/refocus_config_yuv.s (0xf8d8); native/refocus_config_bitmap.s (0xfb10); native/refocus_generate_image.s (0xff48); nm -D librefocus.so (encodeyuv420sp/copyNv21/encodeyuvToRGBA/convertBitmapToOffscreenData)"
+      },
+      "preprocessing": [
+        "DualPhotoNativeContext.generateNativeImage: mScale=originBitmapWidth/processBitmapWidth; focus/blurLevel divided by mScale; allocates origin+effect NV21 images",
+        "initBrainRelightingEffect maps degree to AILAB orientation: 90->2, 180->4, 270->3, else 1",
+        "AILAB_PLI_Init(handle,0,w,h); AILAB_PLI_PreProcess(handle,image,degree,int[3]) returns face cx,cy,radius into facePoint[1..3] and status into facePoint[0]",
+        "blur image rendered by processMiCameraRefocus (MiCamera profile) or DualPhotoJni.processRefocus (portrait profile) before relighting",
+        "light source packed as {w,h,x,y} for AILAB_PLI_SetLightSource"
+      ],
+      "jni_methods": [
+        "initBrainRelightingEffect(int degree, long originImage, long depthData, int depthLen, int[] facePoint) -> long : (IJJI[I)J",
+        "setBrainRelightingLightSource(long handle, int x, int y, int w, int h) -> long : (JIIII)J",
+        "enableBrainRelightingEffect(long handle, int effectType, long blurImage, long effectImage, long originImage, long depthData, int depthLen, int[] pointCache) -> void : (JIJJJJI[I)V",
+        "releaseBrainRelightingHandle(long) -> void : (J)V"
+      ],
+      "model": {
+        "runtime": "AILAB_PLI_* C API in librelight_only_extraphoto.so (91,925,616 B) + GLES3/EGL renderer; no DNN weights extracted",
+        "calls": [
+          "AILAB_PLI_Init(handle*, mode=0, w, h)",
+          "AILAB_PLI_PreProcess(handle, image*, degree, int out[3])",
+          "AILAB_PLI_SetLightSource(handle, struct{int w,h,x,y}*)",
+          "AILAB_PLI_Process(handle, struct{int w,h; long depth}, origin*, int* effectType, effect*) -> int",
+          "AILAB_PLI_GetLightSource(handle, int out[4]) -> pointCache[0..1] from out[2..3]",
+          "AILAB_PLI_Uninit(handle)"
+        ],
+        "renderer": "GLSL ES 3.0 fragment shader with text_y/text_u/text_v, text_light, noise_light, low_brightness, filter_rgb (3D LUT), moveLightPos; screen blend 1-(1-a)(1-b), 5x5 gaussian mix 0.5, optional colour separation/noise/video filter, RGB2YUV output matrix",
+        "confidence": "confirmed (API/shader), unknown (PreProcess/Process internals and 82.9 MB .data payload)",
+        "evidence": "native/initBrain.s; native/enableBrain.s; native/setBrainLight.s; native/relight_render_shader.glsl; native/librelight_exports.txt"
+      },
+      "postprocessing": [
+        "AILAB_PLI_Process writes NV21 into the effect image",
+        "preview: configYUVData splits VU into U/V display planes (no RGB round trip)",
+        "save: configBitmapByNativeImage -> encodeyuvToRGBA -> Bitmap; orientation/mirror applied; movie black borders filled; JPEG quality 100 with EXIF",
+        "light-source gesture is a no-op in the brain path: MiBrainRelightingProcessor.setLightSource is empty, supportAdjustLightSource()=false, JNI always calls setBrainRelightingLightSource(W/2,H/2,W,H). Only the ArcSoft processors forward real gesture coordinates (DualPhotoJni.setRelightingLightSource(handle,x,y,originW,originH))"
+      ],
+      "consumer": {
+        "preview": "refreshDisplay -> DualPhotoNativeContext.configDisplayData -> configYUVData(effectImage,y,u,v) -> GLES YUV renderer",
+        "save": "SaveRunnable on render thread -> XStorage.insert -> full-res re-init/render -> DualPhotoFileUtils.writeBitmap (JPEG 100, EXIF copied, focusPoint/depthMapVersion/Xmp cleared, watermark painter) -> triggerScanFile + MediaStoreUtils.upsert -> SaveFinishRunnable",
+        "confidence": "confirmed",
+        "evidence": "sources/relight_ui/classes/...RelightingOperatingFragment.java:350-392; sources/refocus_core/classes/...DualPhotoFileUtils.java"
+      },
+      "failure_fallback": [
+        "initProcessor returns true even if the handle is 0 -> effect silently does not change",
+        "PreProcess status stored in facePoint[0] but ignored by Java",
+        "null blur image accepted (0 pointer), native logs GPURelightFilter::Process inDepthInfo or pBlurImage is NULL",
+        "init-fail UI disables save; device codename gate RefocusAccessUtils.isBrianRelight; effect 0x3 hidden for soft images, 0x18 outside India"
+      ],
+      "confidence": "confirmed",
+      "evidence_files": [
+        "PIPELINE.md (section B, portrait relighting)",
+        "native/initBrain.s",
+        "native/enableBrain.s",
+        "native/setBrainLight.s",
+        "native/relight_render_shader.glsl",
+        "evidence/10_relight_bokeh_pipeline.txt"
+      ]
+    },
+    {
+      "name": "Dual-camera bokeh (Megvii wa::Refocus)",
+      "source": {
+        "trigger": "AdjustOperatingFragment blur-level slider -> processRefocus() -> RefocusRunnable on render handler; save -> SaveRunnable via runOnRenderThread",
+        "entry_classes": [
+          "com.miui.extraphoto.refocus.core.adjuest.AdjustOperatingFragment",
+          "com.miui.extraphoto.refocus.core.adjuest.MegviiAdjustProcessor",
+          "com.miui.extraphoto.refocus.manager.MegviiDualPhotoJni"
+        ],
+        "input": "origin + effect ASVL_OFFSCREEN NV21 images (process or full resolution) + raw depth NativeData",
+        "confidence": "confirmed",
+        "evidence": "sources/refocus_core/classes/...AdjustOperatingFragment.java:216-300; sources/relight_ui/classes/...MegviiAdjustProcessor.java"
+      },
+      "transport": {
+        "format": "three wa::Image objects over the ASVL NV21 buffers: origin/effect ImageType=6 DataType=0 Rotation=0; depth ImageType=0 DataType=(portraitType!=1) Rotation=0. Depth w/h fall back to origin size when <=0",
+        "focus_space": "process-bitmap pixel coordinates, top-left origin (focusX = provider.focusX / (originW/processW)); save multiplies back and runs at full resolution",
+        "threads": "preview and save on the display render handler; handle created lazily and released/recreated around save",
+        "confidence": "confirmed (constants/JNI), inferred (enum labels NV21/8-16-bit depth)",
+        "evidence": "native/megvii_process.s (0x8a8c); sources/refocus_core/classes/...DualPhotoNativeContext.java; ...MegviiAdjustProcessor.java"
+      },
+      "preprocessing": [
+        "focusX/focusY scaled into process pixel space on init, scaled back for export",
+        "f-number: index = findFValueIndex(blurLevel) comparing F_VALUE[i] == blurLevel/10.0f on a 25-entry 1.0..16.0 ladder; native receives ALG_F_VALUE[index] (9 distinct apertures 1.0,1.4,2.0,2.8,4.0,5.6,8.0,11.0,16.0)",
+        "portraitType: 1 for megvii_portrait_google else 0",
+        "no colour conversion or resize in Java; native consumes the NV21 buffers directly"
+      ],
+      "jni_methods": [
+        "initRefocus() -> long : ()J",
+        "processRefocusWidthHandle(long handle, long effectImage, long originImage, long depthData, int depthLen, int focusX, int focusY, float fNumber, int depthW, int depthH, int portraitType) -> void : (JJJJIIIFIII)V",
+        "releaseRefocus(long) -> void : (J)V",
+        "processRefocus(long,long,long,int,int,int,float,int,int,int) -> void : init+process+release convenience wrapper"
+      ],
+      "model": {
+        "runtime": "wa::Refocus classical computer vision in libwa_refocus_extraphoto.so (8,919,872 B); no neural network ('[RF] not support setModel anymore.')",
+        "calls": [
+          "wa::Refocus::setImages(const Image&, const Image&) at 0x1f07c0",
+          "wa::Refocus::run(int focusX, int focusY, float fNumber, Image& out) at 0x1f082c"
+        ],
+        "algorithm_modules": [
+          "ComputeCocDepth / ComputeCocDepthAndDisp",
+          "SGBM block matching + WLS filter",
+          "AlphaRefineKepler matting",
+          "ApertureCpu::RenderBokehColor / RenderYBokeh",
+          "BlurWorker",
+          "ImgMergerKepler",
+          "shared matting",
+          "bokeh style/spot enums"
+        ],
+        "confidence": "confirmed (exports/strings/flow), unknown (calibration constants and CoC curve)",
+        "evidence": "native/wa_refocus_ghidra.c; nm -D libwa_refocus_extraphoto.so; evidence/04_native_elf.txt"
+      },
+      "postprocessing": [
+        "wa::Refocus::run writes the result into the Java effect NV21 buffer (output Image passed by reference)",
+        "DualPhotoJni.configBitmapByNativeImage -> encodeyuvToRGBA -> ARGB_8888 Bitmap",
+        "JPEG quality 100 via DualPhotoFileUtils.writeBitmap with EXIF copy and focusPoint/depthMapVersion/Xmp cleared"
+      ],
+      "consumer": {
+        "preview": "RefocusRunnable -> configBitmapByNativeImage or YUV display path on the render thread; previous frame retained on failure",
+        "save": "XStorage.insert -> full-res decode/generateNativeImage -> processRefocusOnSave -> configBitmapByNativeImage -> rotate/mirror -> JPEG 100 -> scan/MediaStoreUtils.upsert -> SaveFinishRunnable",
+        "confidence": "confirmed",
+        "evidence": "sources/refocus_core/classes/...AdjustOperatingFragment.java:235-300; sources/refocus_core/classes/...DualPhotoFileUtils.java"
+      },
+      "failure_fallback": [
+        "missing effect/origin image or depth -> processRefocus returns immediately",
+        "wa::Refocus::run failure return ignored -> previous effect buffer remains",
+        "initRefocus returns 0 -> run with null handle returns false, no effect",
+        "device gate RefocusAccessUtils.isMegvii; backend falls back to MiCamera/MiAlgo/ArcSoft processors"
+      ],
+      "confidence": "confirmed",
+      "evidence_files": [
+        "PIPELINE.md (section C, Megvii bokeh)",
+        "native/megvii_process.s",
+        "native/wa_refocus_ghidra.c",
+        "evidence/10_relight_bokeh_pipeline.txt"
+      ]
+    }
+  ]
+}

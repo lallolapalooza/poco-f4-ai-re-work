@@ -1,0 +1,89 @@
+Command transcripts (paths abbreviated; every command was run from
+$WS = /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work)
+
+APK="$APK_ROOT/product/app/SecurityCoreAdd/SecurityCoreAdd.apk"
+PY=/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python
+R=$WS/reports/miui_securitycoreadd
+
+## 1. inventory
+$PY tools/apk_inventory.py "$APK" --out $R/inventory
+  -> inventory: com.miui.securitycore 1.4.2-15-240924 entries=2804 ai_models=1
+     ai_libs=2 markers=3   (2.2 s)
+  -> assets/aiautobrt.tflite 197836 B, magic TFLite, TFL3 yes
+  -> lib/arm64-v8a/libtensorflowlite_flex_jni.so 10604944 B
+     lib/arm64-v8a/libtensorflowlite_jni.so 1642560 B
+
+## 2. class discovery
+$PY tools/dex_find.py "$APK" --regex 'aiautobrt|Brightness' --classes-only
+  -> 6 defined classes (IndividualModelService, IndividualModelService$a,
+     TrainJobService, BrightnessModelDatabase, _Impl, _Impl$a) + 6 dex refs to
+     com.xiaomi.aiautobrt.* (framework)
+
+$PY tools/dex_find.py "$APK" --regex '^f3\.' --classes-only      -> 8 classes
+$PY tools/dex_find.py "$APK" --regex '^i3\.' --classes-only      -> i3.a (the train runnable)
+$PY tools/dex_find.py "$APK" --regex '^j8\.m$' --classes-only    -> j8.m (bucket thresholds)
+$PY tools/strings_dex.py "$APK" --regex 'save_for_replace|checkpoint|aiautobrt' --format plain
+  -> checkpoint, checkpoint_path, save_for_replace, aiautobrt.tflite, IndividualBrt-* tags
+
+## 3. decompilation (jadx --single-class, one class per invocation)
+$PY tools/decompile_classes.py "$APK" --regex 'aiautobrt|Brightness|tensorflow' \
+      --out $R/sources --max 14 --timeout 180
+  -> 14/14 ok (101 s)
+$PY tools/decompile_classes.py "$APK" --regex '^f3\.|^g3\.|^h3\.|^t9\.|IIndividual|BrightnessModelDao' \
+      --out $R/sources2 --max 22 --timeout 180
+  -> 19/19 ok (125 s)
+$PY tools/decompile_classes.py "$APK" --regex 'TrainJobService\$a|IndividualModelService\$' \
+      --out $R/sources3 --max 6 --timeout 120        -> 1/1 (the service stub)
+$PY tools/decompile_classes.py "$APK" --regex '^i3\.' --out $R/sources4 --max 8   -> i3.a
+$PY tools/decompile_classes.py "$APK" --regex '^j8\.m$' --out $R/sources5 --max 3  -> j8.m
+$PY tools/decompile_classes.py "$APK" --regex '^gb\.c$' --out $R/sources6 --max 2   -> gb.c (DB name)
+  (sources2..6 were merged into sources/ afterwards; see sources/index.md)
+
+## 4. manifest facts (androguard APK object)
+$PY - <<'EOF' (androguard)
+  -> service com.miui.aiautobrt.service.IndividualModelService exported=True
+     action=com.miui.aiautobrt.service.AiService
+  -> service com.miui.aiautobrt.service.TrainJobService (not exported)
+EOF
+
+## 5. model IR + weights
+$PY tools/tflite_ir.py $R/models/aiautobrt.tflite --out $R/ir/aiautobrt.ir.json
+  -> version=3 subgraphs=7 signatures=6
+$PY tools/tflite_ir.py $R/models/aiautobrt.tflite --summary
+  -> sg0 new_model_infer 29 ops, sg1 old_model_infer 29 ops, sg2 restore 49,
+     sg3 save 34, sg4 save_for_replace 26, sg5 train 355, sg6 NoOp 66
+$PY $R/ir/extract_weights.py
+  -> ops_sg0..6.txt, tensor_table.json, weights.npz (33 variables), weights.json
+     dnn_model_1/* biases are exactly 0, Adam slots 0, Adam/iter 0
+
+$PY - <<'EOF' (flatbuffer string tensors of sg2/3/4)
+  -> restore keys: dnn_model/dense/kernel:0 ... dnn_model_1/dense_7/bias:0 (16)
+  -> save / save_for_replace names: the same 16 keys
+  -> FlexSave in sg4 takes 16 value inputs, all read from the 8 dnn_model_1 vars
+
+## 6. native
+unzip -o -j "$APK" 'lib/arm64-v8a/*.so' -d $R/native/
+$PY tools/elf_info.py $R/native/libtensorflowlite_jni.so \
+      --json $R/native/libtensorflowlite_jni.elfinfo.json > $R/native/libtensorflowlite_jni.elfinfo.txt
+$PY tools/elf_info.py $R/native/libtensorflowlite_flex_jni.so \
+      --json $R/native/libtensorflowlite_flex_jni.elfinfo.json > $R/native/libtensorflowlite_flex_jni.elfinfo.txt
+  -> jni: 25 Java_org_tensorflow_lite_NativeInterpreterWrapper_* entry points
+  -> flex: 3 Java_org_tensorflow_lite_flex_FlexDelegate_* entry points,
+     NDK r21b, aarch64, 10.6 MB
+
+## 7. interpreter reference outputs
+$PY $R/evidence/reference_outputs.py > $R/evidence/interpreter_reference.txt
+  -> signatures ['new_model_infer','old_model_infer','restore','save',
+                  'save_for_replace','train']
+  -> old model 3.858 (lux 0) ... 1734.93 (lux 50000)
+  -> new model 0.000 ... 3.466 (untrained student)
+
+## 8. JAX reimplementation + verification
+$PY $R/reimpl/model.py
+  -> new_model_infer [0.2089428]  old_model_infer [27.061157]  loss 98.9825
+$PY $R/reimpl/verify.py        (exit 0, writes reimpl/verify.txt)
+  -> A inference max|rel| 4.768e-07 (new) / 3.554e-07 (old)
+  -> B train signature: RuntimeError "Select TensorFlow op(s) ... not supported
+        ... Node number 84 (FlexBroadcastGradientArgs) failed to prepare."
+  -> C 8 JAX train steps vs NumPy: weight max|d| 1.490e-08
+  -> D gradient vs central differences: max|d| 1.640e-09

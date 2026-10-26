@@ -1,0 +1,29 @@
+op_index	op	version	inputs	outputs	options
+0	EXPAND_DIMS	1	[0, 8]	[18]	{}
+1	DEQUANTIZE	2	[11]	[40]	{}
+2	DEQUANTIZE	2	[5]	[43]	{}
+3	CONV_2D	1	[18, 40, 43]	[19]	{"DilationHFactor": 1, "DilationWFactor": 1, "FusedActivationFunction": "RELU", "Padding": "SAME", "QuantizedBiasType": 0, "StrideH": 1, "StrideW": 1}
+4	RESHAPE	1	[19, 14]	[20]	{}
+5	EXPAND_DIMS	1	[20, 6]	[21]	{}
+6	MAX_POOL_2D	1	[21]	[22]	{"FilterHeight": 3, "FilterWidth": 1, "FusedActivationFunction": "NONE", "Padding": "SAME", "StrideH": 2, "StrideW": 1}
+7	RESHAPE	1	[22, 15]	[23]	{}
+8	EXPAND_DIMS	1	[23, 8]	[24]	{}
+9	DEQUANTIZE	2	[12]	[36]	{}
+10	DEQUANTIZE	2	[4]	[37]	{}
+11	CONV_2D	1	[24, 36, 37]	[25]	{"DilationHFactor": 1, "DilationWFactor": 1, "FusedActivationFunction": "RELU", "Padding": "SAME", "QuantizedBiasType": 0, "StrideH": 1, "StrideW": 1}
+12	RESHAPE	1	[25, 16]	[26]	{}
+13	EXPAND_DIMS	1	[26, 6]	[27]	{}
+14	MAX_POOL_2D	1	[27]	[28]	{"FilterHeight": 3, "FilterWidth": 1, "FusedActivationFunction": "NONE", "Padding": "SAME", "StrideH": 2, "StrideW": 1}
+15	RESHAPE	1	[28, 17]	[29]	{}
+16	EXPAND_DIMS	1	[29, 8]	[30]	{}
+17	DEQUANTIZE	2	[13]	[38]	{}
+18	DEQUANTIZE	2	[3]	[44]	{}
+19	CONV_2D	1	[30, 38, 44]	[31]	{"DilationHFactor": 1, "DilationWFactor": 1, "FusedActivationFunction": "RELU", "Padding": "SAME", "QuantizedBiasType": 0, "StrideH": 1, "StrideW": 1}
+20	RESHAPE	1	[31, 7]	[32]	{}
+21	DEQUANTIZE	2	[2]	[42]	{}
+22	DEQUANTIZE	2	[9]	[45]	{}
+23	FULLY_CONNECTED	1	[32, 45, 42]	[33]	{"AsymmetricQuantizeInputs": false, "FusedActivationFunction": "RELU", "KeepNumDims": false, "QuantizedBiasType": 0, "WeightsFormat": "DEFAULT"}
+24	DEQUANTIZE	2	[10]	[39]	{}
+25	DEQUANTIZE	2	[1]	[41]	{}
+26	FULLY_CONNECTED	1	[33, 39, 41]	[34]	{"AsymmetricQuantizeInputs": false, "FusedActivationFunction": "NONE", "KeepNumDims": false, "QuantizedBiasType": 0, "WeightsFormat": "DEFAULT"}
+27	SOFTMAX	1	[34]	[35]	{"Beta": 1.0}

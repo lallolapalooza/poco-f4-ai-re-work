@@ -1,0 +1,42 @@
+# DEX-side evidence (class counts + bundle path strings)
+
+$ python tools/dex_find.py $APK --regex 'com\.faceunity' --classes-only   # defined classes
+80
+
+$ python tools/dex_find.py $APK --regex 'com\.miui\.mediaeditor' --classes-only   # defined classes
+2664
+
+$ python tools/dex_find.py $APK --regex 'com\.xiaomi\.milab\.videosdk\.[A-Z]' --classes-only   # defined classes
+91
+
+$ python tools/dex_find.py $APK --regex 'com\.miui\.gallery\.editor_common\.library' --classes-only   # defined classes
+47
+
+$ python tools/strings_dex.py $APK --regex "\.bundle$|^model/|^graphics/|^makeup/" --unique --format plain
+-> evidence/dex_bundle_paths.txt (28 strings)
+
+## compiled classes with no caller in the APK (checked with dex_find)
+$ dex_find --regex "setupBeauty|VideoBeauty|videoBeauty"
+{"kind":"method","class":"com.xiaomi.milab.videosdk.XmsContext","method":"nativeSetupBeauty","descriptor":"(JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)I","access":266,"dex":"classes2.dex","defined":true,"via":"method"}
+{"kind":"method","class":"com.xiaomi.milab.videosdk.XmsContext","method":"setupBeauty","descriptor":"(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)I","access":1,"dex":"classes2.dex","defined":true,"via":"method"}
+
+$ dex_find --regex "makeup|Makeup|MakeUp"  (only com.faceunity.wrapper.Faceunity methods)
+com.faceunity.wrapper.Faceunity -> fuImageBeautyMakeupTransferLoadCache
+com.faceunity.wrapper.Faceunity -> fuImageBeautyMakeupTransferSaveCache
+com.faceunity.wrapper.Faceunity -> fuImageBeautyMakeupTransferWithBitmap
+com.faceunity.wrapper.Faceunity -> fuImageBeautySetMakeupTransferCacheDir
+com.faceunity.wrapper.Faceunity -> fuSetMakeupCoverResource
+
+$ python tools/dex_find.py $APK --regex 'fuImageBeauty...|fuRenderImg|fuLoadAIModelFromPackage|...'
+## exact Java descriptors (com.faceunity.wrapper.Faceunity)
+fuCreateItemFromPackage ([B)I
+fuImageBeautyConvertRGBA2NV21WithBitmap (Landroid/graphics/Bitmap;II[B)I
+fuImageBeautyCreateTextureCoverPreview (III[BI[BI[BIF)I
+fuImageBeautyGetResultBitmap (II[I)Landroid/graphics/Bitmap;
+fuImageBeautyPreProcess (IIII[BI[BI[BI[IIIIF)I
+fuImageBeautyPreProcessWithBitmap (Landroid/graphics/Bitmap;[IIIIF)I
+fuImageBeautyPreview ([I)I
+fuImageBeautySetParam ([ILjava/lang/String;Ljava/lang/String;)I
+fuImageGetImageInfo (Landroid/graphics/Bitmap;II)[F
+fuLoadAIModelFromPackage ([BI)I
+fuRenderImg (III[II[BIII[B)I

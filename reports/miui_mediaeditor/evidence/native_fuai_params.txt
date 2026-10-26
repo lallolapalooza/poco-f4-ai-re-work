@@ -1,0 +1,242 @@
+# Native evidence: FuAI / CNamaSDK parameter + config schema
+# libs extracted from lib/arm64-v8a of MIMediaEditorGlobal.apk
+b949df2f4ada01f4042f1302c1c067ed  /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/me_libs/lib/arm64-v8a/libCNamaSDK.so
+52a59a7eccdf94e005e0d1cba86da3f9  /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/me_libs/lib/arm64-v8a/libfuai.so
+534090742b65dcd9afbfb3dae07254dd  /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/me_libs/lib/arm64-v8a/libMiVideoSDK.so
+c0834efa0c5fe8c34fcd71484afebe0c  /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/me_libs/lib/arm64-v8a/libinpaint.so
+9ee29fab81e875800a51ea13555e60d9  /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/me_libs/lib/arm64-v8a/libinpaint_jni.so
+
+## 1. image-beauty param names accepted by fuItemSetParam/fuImageBeautySetParam
+$ strings -a libCNamaSDK.so | grep -E "^p_[a-z0-9_]+$" | sort -u
+p_bdyscores
+p_bs_padd_ranges
+p_chin
+p_chinleft
+p_chinleft_u
+p_chinright
+p_chinright_u
+p_do_face_beauty
+p_eyea
+p_eyea_s_eye_brighten_shader
+p_eyeb
+p_eyeb_s_eye_brighten_shader
+p_faceleft
+p_faceleft_d
+p_faceright
+p_faceright_d
+p_jointscores
+p_left
+p_nose
+p_order
+p_pofdirpoints
+p_pofdirscores
+p_rect
+p_right
+p_type
+p_value
+p_vec
+
+## 2. landmark / mesh / mask keys
+ar_mesh
+armesh_ebo
+armesh_face_num
+armesh_faces
+armesh_trans_mat
+armesh_uvs
+armeshv2_ebo:{}
+armeshV2_shader
+armeshv2_vbo:{}
+armesh_vbo
+armesh_vertex_num
+armesh_vertices
+BeautificationController::FilterImage params_landmarks size equal 0
+  By virtue of my perceptive intelligence, I declare the mesh Delaunay.
+  Checking consistency of mesh...
+  Checking Delaunay property of mesh...
+checkmesh
+drawcall combined from more than one mesh is not allow to combine again: {}
+face_uv
+face_uv2
+face_uv3_extra
+face_uv_bz
+face_uv_extra_standard
+face_uv_eye
+face_uv_eye_standard_bz
+face_uv_standard
+face_uv_standard_bz
+face_uv_standard_bz_mouth
+face_uv_standard_video
+face_uv_standard_zz
+face_uv_zz
+FUAI_FaceProcessorGetArmeshVerticesFromResult
+GetLipMaskTexture: please set landmarks array!!!
+g_grid_mesh
+g_triangle_mesh
+hdr/image_do_exposure_fs.glsl
+image_do_exposure_fs
+image_do_manual
+image_do_perpare_wrinkle
+image_face_data
+  In my studied opinion, the mesh appears to be consistent.
+KIT_SDKControllerDZY image_face_data {}
+landmarks
+landmarks_ar
+landmarks_flipy
+landmarks_new
+landmarks_offset.json
+landmarks_origin
+landmarks_ref size != 478
+landmarks_ref size != 496
+landmarks_type
+liquify_mesh
+liufei get error landmark size:{}
+mesh
+mesh_bone_indice0
+mesh_bone_indice1
+mesh_bone_weight0
+mesh_bone_weight1
+meshes
+meshes.json
+
+## 3. config.json schema keys understood by libfuai (FuAI 8.2.0)
+$ strings -a libfuai.so | grep -E "<schema keys>" | sort -u
+bbox_expand_scale
+cate_mask_order
+estimate_mode
+estimate_size
+heatmap_height
+heatmap_integral_scale
+heatmap_peak
+heatmap_width
+image_channels
+image_height
+image_height_eye
+image_height_eyebrow
+image_height_hp
+image_height_iris
+image_height_mouth
+image_width
+image_width_eye
+image_width_eyebrow
+image_width_hp
+image_width_iris
+image_width_mouth
+local_region_key_area_kps_of_kps75
+mask_threshold
+mean_shape
+mean_shape75_.size(): 
+mean_shape_eye
+mean_shape_eyebrow
+mean_shape_height
+mean_shape_iris
+mean_shape_mouth
+mean_shape_pts5
+mean_shape_pts6
+mean_shape_width
+netin_channels
+netin_height
+netin_image_expand_udlr_ratio
+netin_width
+netout_channels
+netout_height
+netout_width
+netout_with_softmax
+out_mask_scale
+rect_expand_size
+rect_expand_size_pofb
+sigma
+tflite_gpu_param
+tflite_gpu_use_serialization
+tflite_inference_priority1_max_precision
+tflite_init_create_gpu_close
+tflite_invoke_
+tflite_mode_init
+tflite_model_param
+tflite_model_token
+tflite_mode_reInit
+tflite_name
+tflite_release_tmp_memory
+tflite_release_tmp_memory:
+tflite_use_coreml
+tflite_use_dsp
+tflite_use_gpu
+tflite_use_xnnpack
+
+## 4. TFLite runtime backends present in libfuai.so
+CreateGPUDelegate
+failed to create XNNPACK runtime
+failed to create XNNPACK subgraph
+failed to create XNNPACK Value for tensor %d
+failed to get XNNPACK profile information.
+failed to invoke XNNPACK runtime
+failed to setup XNNPACK runtime
+FUAI_TfliteHexagonInitWithPath
+FUAI_TfliteHexagonTearDown
+/home/gitlab-runner/builds/fTJm8zLM/0/chenliang/tensorflow/tensorflow/lite/delegates/xnnpack/xnnpack_delegate.cc
+/home/gitlab-runner/builds/fTJm8zLM/0/chenliang/tensorflow/tensorflow/lite/delegates/xnnpack/xnnpack_delegate.cc 169 Created TensorFlow Lite XNNPACK delegate for CPU.
+mismatching number of quantization parameters %d and outer dimension %d for INT8 tensor %d in XNNPACK delegate
+mismatching number of scale (%d) and zero point (%d) quantization parameters for INT32 tensor %d in XNNPACK delegate
+mismatching number of scale (%d) and zero point (%d) quantization parameters for INT8 tensor %d in XNNPACK delegate
+missing scale quantization parameters for INT32 tensor %d in XNNPACK delegate
+missing scale quantization parameters for INT8 tensor %d in XNNPACK delegate
+missing scale quantization parameters for UINT8 tensor %d in XNNPACK delegate
+missing zero point quantization parameters for INT32 tensor %d in XNNPACK delegate
+missing zero point quantization parameters for INT8 tensor %d in XNNPACK delegate
+missing zero point quantization parameters for UINT8 tensor %d in XNNPACK delegate
+tflite_use_coreml
+tflite_use_dsp
+tflite_use_gpu
+tflite_use_xnnpack
+TfLiteXNNPackDelegate
+tflite xnnpack Delegate create failed!
+tflite xnnpack not support!
+tflite xnnpack not support! 
+unsupported datatype (%s) of tensor %d in XNNPACK delegate
+unsupported number (%d) of scale quantization parameters for UINT8 tensor %d in XNNPACK delegate
+
+## 5. libCNamaSDK FUAI_* processor / TFLite ABI (exported, demangled)
+
+total FUAI_* exports: 40
+
+address | symbol
+---|---
+0x0000000000649fac | FUAI_BackgroundSegmenterGetResultMaskWarp(std::__ndk1::vector<float, std::__ndk1::allocator<float> >&, FUAI_BackgroundSegmenter const*, int*, int*)
+0x000000000064a084 | FUAI_SkinSegmenterGetResultMaskWarp(std::__ndk1::vector<float, std::__ndk1::allocator<float> >&, int, int)
+0x000000000064a158 | FUAI_HumanProcessorGetResultHandRectWarp(std::__ndk1::vector<float, std::__ndk1::allocator<float> >&, FUAI_HumanProcessorResult const*, int)
+0x000000000064a350 | FUAI_HandProcessorGetResultHandRectWarp(std::__ndk1::vector<float, std::__ndk1::allocator<float> >&, FUAI_HandProcessorResult const*, int)
+0x000000000064a400 | FUAI_HumanProcessorGetResultRectWarp(std::__ndk1::vector<float, std::__ndk1::allocator<float> >&, FUAI_HumanProcessorResult const*, int)
+0x000000000064a524 | FUAI_HumanProcessorGetResultJoint2dsWarp(std::__ndk1::vector<float, std::__ndk1::allocator<float> >&, FUAI_HumanProcessorResult const*, int, int*, bool)
+0x000000000064a608 | FUAI_HumanProcessorGetResultJoint3dsWarp(std::__ndk1::vector<float, std::__ndk1::allocator<float> >&, FUAI_HumanProcessorResult const*, int, int*)
+0x000000000064a618 | FUAI_HumanProcessorGetResultPofJoint2dsWarp(std::__ndk1::vector<float, std::__ndk1::allocator<float> >&, FUAI_HumanProcessorResult const*, int, int*, bool)
+0x000000000064a6fc | FUAI_HumanProcessorGetResultHumanMaskWarp(std::__ndk1::vector<float, std::__ndk1::allocator<float> >&, FUAI_HumanProcessorResult const*, int, int*, int*)
+0x000000000064a7e8 | FUAI_FaceProcessorGetResultRectWarp(std::__ndk1::vector<float, std::__ndk1::allocator<float> >&, FUAI_FaceProcessorResult const*, int, bool, bool)
+0x000000000064a8f8 | FUAI_FaceProcessorGetResultLandmarksExtraWarp(std::__ndk1::vector<float, std::__ndk1::allocator<float> >&, FUAI_FaceProcessorResult const*, int, int*, bool)
+0x000000000064a9c4 | FUAI_FaceProcessorGetResultAllLandmarksWarp(std::__ndk1::vector<float, std::__ndk1::allocator<float> >&, FUAI_FaceProcessorResult const*, int, int*, int, bool)
+0x000000000064aabc | FUAI_FaceProcessorGetResultExpressionWarp(std::__ndk1::vector<float, std::__ndk1::allocator<float> >&, FUAI_FaceProcessorResult const*, int, int*, bool)
+0x000000000064ab84 | FUAI_FaceProcessorGetResultTongueExpressionWarp(std::__ndk1::vector<float, std::__ndk1::allocator<float> >&, FUAI_FaceProcessorResult const*, int, int*, bool)
+0x000000000064ac48 | FUAI_FaceProcessorGetResultHairMaskWarp(std::__ndk1::vector<float, std::__ndk1::allocator<float> >&, FUAI_FaceProcessorResult const*, int, int*, int*)
+0x000000000064ad34 | FUAI_FaceProcessorGetResultHeadMaskWarp(std::__ndk1::vector<float, std::__ndk1::allocator<float> >&, FUAI_FaceProcessorResult const*, int, int*, int*)
+0x00000000003786c4 | typeinfo name for std::__ndk1::__shared_ptr_pointer<FUAI_BackgroundSegmenterWrapper*, std::__ndk1::default_delete<FUAI_BackgroundSegmenterWrapper>, std::__ndk1::allocator<FUAI_BackgroundSegmenterWrapper> >
+0x0000000000378736 | typeinfo name for std::__ndk1::default_delete<FUAI_BackgroundSegmenterWrapper>
+0x0000000000378775 | typeinfo name for FUAI_BackgroundSegmenterWrapper
+0x000000000064da00 | FuAIWrapper::PhotoEditingGetIDMaskResult(int&, int&, int&, FUAI_ImageFormat&)
+0x000000000064db28 | FuAIWrapper::PhotoEditingGetArtsMaskResult(int&, int&, int&, FUAI_ImageFormat&)
+0x0000000000650f3c | FuAIWrapper::ConfigCameraView(FUAI_CameraView*, unsigned char*, int, int, int, int, int)
+0x000000000065bea0 | FuAIWrapper::FUAI_VLogSetLevelWrapper(DukValue::jscontext)
+0x0000000000671c0c | FuAIWrapper::HumanProcessorGet3DResult(int, int&, FUAI_SceneState&, std::__ndk1::vector<float, std::__ndk1::allocator<float> >&, std::__ndk1::vector<int, std::__ndk1::allocator<int> >&, std::__ndk1::vector<int, std::__ndk1::allocator<int> >&)
+0x0000000000676240 | std::__ndk1::__shared_ptr_pointer<FUAI_BackgroundSegmenterWrapper*, std::__ndk1::default_delete<FUAI_BackgroundSegmenterWrapper>, std::__ndk1::allocator<FUAI_BackgroundSegmenterWrapper> >::~__shared_ptr_pointer()
+0x0000000000676264 | std::__ndk1::__shared_ptr_pointer<FUAI_BackgroundSegmenterWrapper*, std::__ndk1::default_delete<FUAI_BackgroundSegmenterWrapper>, std::__ndk1::allocator<FUAI_BackgroundSegmenterWrapper> >::__on_zero_shared()
+0x00000000006762a0 | std::__ndk1::__shared_ptr_pointer<FUAI_BackgroundSegmenterWrapper*, std::__ndk1::default_delete<FUAI_BackgroundSegmenterWrapper>, std::__ndk1::allocator<FUAI_BackgroundSegmenterWrapper> >::__get_deleter(std::type_info const&) const
+0x00000000006762bc | std::__ndk1::__shared_ptr_pointer<FUAI_BackgroundSegmenterWrapper*, std::__ndk1::default_delete<FUAI_BackgroundSegmenterWrapper>, std::__ndk1::allocator<FUAI_BackgroundSegmenterWrapper> >::__on_zero_shared_weak()
+0x00000000006762c0 | void dukglue::types::DukType<std::__ndk1::shared_ptr<FUAI_BackgroundSegmenterWrapper> >::push<std::__ndk1::shared_ptr<FUAI_BackgroundSegmenterWrapper> >(duk_hthread*, std::__ndk1::shared_ptr<FUAI_BackgroundSegmenterWrapper> const&)
+0x00000000006763c8 | dukglue::types::DukType<std::__ndk1::shared_ptr<FUAI_BackgroundSegmenterWrapper> >::shared_ptr_finalizer(duk_hthread*)
+0x0000000000677cc8 | FUAI_VLogSetLevelWrapper(DukValue::jscontext)
+0x00000000006799d4 | FUAI_module_init
+0x000000000067bbd8 | FUAI_module_destory
+0x000000000067db48 | FuAIPipeline::ConfigImageView(FUAI_ImageView*, int, int, int, int, unsigned char*, int, unsigned char*, int, unsigned char*, int)
+0x0000000000683844 | FuAIPipeline::HumanProcessorSetSceneState(FUAI_SceneState)
+0x0000000000686158 | FuAIPipeline::FaceProcessorSetDetectMode(FUAI_FaceDetectMode)
+0x0000000000686414 | FuAIPipeline::HumanProcessorSetDetectMode(FUAI_HumanDetectMode)
+0x0000000000d89148 | vtable for std::__ndk1::__shared_ptr_pointer<FUAI_BackgroundSegmenterWrapper*, std::__ndk1::default_delete<FUAI_BackgroundSegmenterWrapper>, std::__ndk1::allocator<FUAI_BackgroundSegmenterWrapper> >
+0x0000000000d89180 | typeinfo for std::__ndk1::__shared_ptr_pointer<FUAI_BackgroundSegmenterWrapper*, std::__ndk1::default_delete<FUAI_BackgroundSegmenterWrapper>, std::__ndk1::allocator<FUAI_BackgroundSegmenterWrapper> >
+0x0000000000d89198 | typeinfo for FUAI_BackgroundSegmenterWrapper

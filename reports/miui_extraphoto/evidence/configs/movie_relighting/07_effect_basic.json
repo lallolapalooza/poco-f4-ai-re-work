@@ -1,0 +1,10 @@
+{
+  "name": "斑斓",
+  "type": "MOVIE_RELIGHTING",
+  "icon": "icon.png",
+  "relightingType": "0x26",
+  "cameraDefinedType": 15,
+  "startColor": "#74BCEE",
+  "endColor": "#74BCEE",
+  "nameResName": "refocus_movie_banlan"
+}

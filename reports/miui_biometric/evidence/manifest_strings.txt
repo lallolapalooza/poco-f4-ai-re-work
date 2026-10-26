@@ -1,0 +1,44 @@
+# AndroidManifest.xml (binary AXML) UTF-16 string pool - com.miui.face / Biometric.apk
+# command: unzip -p "$APK" AndroidManifest.xml > /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/bioman.xml; strings -a -el /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/bioman.xml
+label
+icon
+name
+sharedUserId
+persistent
+value
+minSdkVersion
+versionCode
+versionName
+targetSdkVersion
+required
+extractNativeLibs
+	roundIcon
+compileSdkVersion
+compileSdkVersionCodename
+1.37.4-A140026
+android
+android.uid.system
+application
+com.miui.face
+com.miui.face.MiuiBioApp
+devicebaseinfo
+*http://schemas.android.com/apk/res/android
+ld-android.so
+libOpenCL.so
+libbase.so
+	libc++.so
+libcgrouprc.so
+libcutils.so
+libdl_android.so
+libhardware.so
+libhidlbase.so
+libprocessgroup.so
+libutils.so
+libvndksupport.so
+manifest
+	meta-data
+package
+platformBuildVersionCode
+platformBuildVersionName
+uses-native-library
+uses-sdk

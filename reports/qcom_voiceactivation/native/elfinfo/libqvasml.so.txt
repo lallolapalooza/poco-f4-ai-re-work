@@ -1,0 +1,100 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/qcom_voiceactivation/inventory/libs/lib/arm64-v8a/libqvasml.so
+==============================================================================
+size        : 2378216 bytes (2.27 MiB)
+sha256      : ee2890c9296a8afbb171daa23b28cea458a0976c3e56e4f07593ca8b0b44f5d1
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x0   imagebase: 0x0
+build id    : a7ac2ca9f8144b014126a2c546a9c851
+soname      : libqvasml.so
+needed      : libeai_floating.so, libVoiceSdk.so, libtensorflowlite_c.so, libstdc++.so, liblog.so, libc.so, libm.so, libdl.so
+parser      : lief
+counts      : 577 exports, 68 imports, 0 JNI, 27 sections, 12 segments
+symtab/dynsym: 0 / 649
+
+Sections (27)
+  name                   type             flags  address      size       offset
+  .note.android.ident    NOTE             A      0x2e0        24         0x2e0
+  .note.gnu.build-id     NOTE             A      0x2f8        32         0x2f8
+  .note.gnu.property     NOTE             A      0x318        32         0x318
+  .dynsym                DYNSYM           A      0x338        15576      0x338
+  .gnu.version           GNU_VERSYM       A      0x4010       1298       0x4010
+  .gnu.version_r         GNU_VERNEED      A      0x4524       128        0x4524
+  .gnu.hash              GNU_HASH         A      0x45a8       3940       0x45a8
+  .hash                  HASH             A      0x550c       5200       0x550c
+  .dynstr                STRTAB           A      0x695c       27113      0x695c
+  .rela.dyn              ANDROID_RELA     A      0xd348       663        0xd348
+  .relr.dyn              ANDROID_RELR     A      0xd5e0       112        0xd5e0
+  .rela.plt              RELA             AI     0xd650       9144       0xd650
+  .rodata                PROGBITS         AMS    0xfa10       224562     0xfa10
+  .eh_frame_hdr          PROGBITS         A      0x46744      12020      0x46744
+  .eh_frame              PROGBITS         A      0x49638      75548      0x49638
+  .text                  PROGBITS         AX     0x5c000      744028     0x5c000
+  .plt                   PROGBITS         AX     0x111a60     9176       0x111a60
+  .data.rel.ro           PROGBITS         WA     0x114000     768        0x114000
+  .fini_array            FINI_ARRAY       WA     0x114300     16         0x114300
+  .dynamic               DYNAMIC          WA     0x114310     544        0x114310
+  .got                   PROGBITS         WA     0x114530     368        0x114530
+  .got.plt               PROGBITS         WA     0x1146a0     3072       0x1146a0
+  .data                  PROGBITS         WA     0x1162a0     1229512    0x1152a0
+  .bss                   NOBITS           WA     0x242568     28         0x241568
+  .shstrtab              STRTAB           -      0x0          265        0x241568
+  .gnu_debugdata         PROGBITS         -      0x0          11444      0x241671
+
+AI-relevant strings (1609672 bytes scanned in allocated data sections)
+  [tflite] 1 unique (first 1)
+    0x0000d317 .dynstr    libtensorflowlite_c.so
+  [model] 3 unique (first 3)
+    0x00013b4c .rodata    DIM_C(weight) == 1
+    0x00013e81 .rodata    DIM_H(weight) == rnn->num_nodes && DIM_W(weight) == rnn->num_nodes+rnn->num_inputs
+    0x0001631d .rodata    conv->weight->ndim == 2
+  [face] 6 unique (first 6)
+    0x00011170 .rodata    IS_ALIGNED(*buffer_double_ptr, 8)
+    0x00012c93 .rodata    IS_ALIGNED(buffer, 8)
+    0x00014710 .rodata    The axis to do concat should be byte-aligned!
+    0x00015547 .rodata    Align mismatch %d <=> %d
+    0x0001710b .rodata    [Audio-Systems] - [File : %s] [API: %s] [LINE: %d] [ERROR - EAI_INVALID_ALIGNMENT].
+    0x00017fce .rodata    invalid alignment
+  [asr] 144 unique (first 20)
+    0x000085c4 .dynstr    _ZN28VoiceWakeupFeatureExtractionC2Ev
+    0x000085ea .dynstr    _ZTV28VoiceWakeupFeatureExtraction
+    0x0000860d .dynstr    _ZN28VoiceWakeupFeatureExtractionD2Ev
+    0x00008633 .dynstr    _ZN28VoiceWakeupFeatureExtraction7ReleaseEv
+    0x0000865f .dynstr    _ZN28VoiceWakeupFeatureExtractionD0Ev
+    0x00008685 .dynstr    _ZN28VoiceWakeupFeatureExtractionD1Ev
+    0x000086ab .dynstr    _ZN28VoiceWakeupFeatureExtraction4InitEv
+    0x000086d4 .dynstr    _ZN28VoiceWakeupFeatureExtraction14ExtractFeatureEPsiPS0_
+    0x0000870e .dynstr    _ZN28VoiceWakeupFeatureExtraction18ExtractionFeaturesEPsiiS0_
+    0x0000874c .dynstr    _ZN28VoiceWakeupFeatureExtraction18ExtractionFeaturesERK19ListenUserRecordingi
+    0x0000879b .dynstr    _ZN28VoiceWakeupFeatureExtractionC1Ev
+    0x0000ad78 .dynstr    _ZN16VoiceWakeup2CoreC2Ev
+    0x0000ad92 .dynstr    _ZTV16VoiceWakeup2Core
+    0x0000ada9 .dynstr    _ZN16VoiceWakeup2CoreD2Ev
+    0x0000adc3 .dynstr    _ZN16VoiceWakeup2Core7cleanupEv
+    0x0000ade3 .dynstr    _ZN16VoiceWakeup2CoreD0Ev
+    0x0000adfd .dynstr    _ZN16VoiceWakeup2CoreD1Ev
+    0x0000ae17 .dynstr    _ZN3sml22releaseVoiceWakeupDataEPP27_VoiceWakeupMultiKWDataType
+    0x0000ae57 .dynstr    _ZN3sml23releaseVoiceWakeupParamEP28_VoiceWakeupMultiKWParamType
+    0x0000ae98 .dynstr    _ZN3sml24releaseVoiceWakeupReportEP29_VoiceWakeupMultiKWReportType
+    ... 124 more
+  [segment] 14 unique (first 14)
+    0x00007fd7 .dynstr    _ZN17EndPointDetection24PopSegmentPositionsBatchEPiS0_Pf
+    0x00008010 .dynstr    _ZN17EndPointDetection25PopSegmentPositionsOnlineEPiS0_Pf
+    0x00008089 .dynstr    _ZN26ListenUserRecordingSegmentC2Ev
+    0x000080ca .dynstr    _ZN26ListenUserRecordingSegmentC2E19ListenUserRecordingf
+    0x00008123 .dynstr    _ZN26ListenUserRecordingSegmentC2E19ListenUserRecordingfiiii
+    0x00008160 .dynstr    _ZN26ListenUserRecordingSegmentD2Ev
+    0x000081a1 .dynstr    _ZN26ListenUserRecordingSegment6selectEjj
+    0x0000824c .dynstr    _ZN26ListenUserRecordingSegmentD1Ev
+    0x00008290 .dynstr    _ZN26ListenUserRecordingSegmentC1E19ListenUserRecordingfiiii
+    0x000082cd .dynstr    _ZN26ListenUserRecordingSegmentC1Ev
+    0x000082f1 .dynstr    _ZN26ListenUserRecordingSegmentC1E19ListenUserRecordingf
+    0x0000b7bc .dynstr    _Z15getSegmentStatsRK19ListenUserRecordingP25segmentedRecordingStats_t
+    0x0001105e .rodata    sml_min_keyword_length_to_enable_segmentation
+    0x00015818 .rodata    enable_stage2_udk_input_segmentation
+  [model_name] 3 unique (first 3)
+    0x00014904 .rodata    ti_voiceprint_get_param_model
+    0x000170ad .rodata    stage2_uv_wrapper_decode_model
+    0x000170de .rodata    ti_voiceprint_v1_embedding_forward_top_model
+
+JSON written to reports/qcom_voiceactivation/native/elfinfo/libqvasml.so.json

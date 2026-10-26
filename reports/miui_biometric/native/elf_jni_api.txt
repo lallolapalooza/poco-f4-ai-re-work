@@ -1,0 +1,124 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libjni_stfaceunlock_api.so
+==============================================================================
+size        : 131336 bytes (0.13 MiB)
+sha256      : 07c04cc5910cf02b115092bfa14967efd7c13d6be4f1574138260f42d90249e6
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x2590   imagebase: 0x0
+build id    : 9f5b5f611c6e1294dc93461a6b70e29642ea5e42
+android     : SDK 21, NDK r21, build 6113669
+soname      : libjni_stfaceunlock_api.so
+needed      : libstfaceunlockocl.so, liblog.so, libm.so, libdl.so, libc.so
+parser      : lief
+counts      : 41 exports, 40 imports, 25 JNI, 32 sections, 8 segments
+symtab/dynsym: 204 / 84
+
+Sections (32)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        612        0x228
+  .gnu.hash              GNU_HASH         A      0x490        420        0x490
+  .dynsym                DYNSYM           A      0x638        2016       0x638
+  .dynstr                STRTAB           A      0xe18        2646       0xe18
+  .gnu.version           GNU_VERSYM       A      0x186e       168        0x186e
+  .gnu.version_r         GNU_VERNEED      A      0x1918       64         0x1918
+  .rela.dyn              RELA             A      0x1958       1488       0x1958
+  .rela.plt              RELA             AI     0x1f28       960        0x1f28
+  .plt                   PROGBITS         AX     0x22f0       672        0x22f0
+  .text                  PROGBITS         AX     0x2590       5592       0x2590
+  .rodata                PROGBITS         AMS    0x3b68       972        0x3b68
+  .eh_frame_hdr          PROGBITS         A      0x3f34       292        0x3f34
+  .eh_frame              PROGBITS         A      0x4058       1216       0x4058
+  .note.android.ident    NOTE             A      0x4518       152        0x4518
+  .fini_array            FINI_ARRAY       WA     0x5ab0       16         0x4ab0
+  .data.rel.ro           PROGBITS         WA     0x5ac0       424        0x4ac0
+  .dynamic               DYNAMIC          WA     0x5c68       512        0x4c68
+  .got                   PROGBITS         WA     0x5e68       408        0x4e68
+  .bss                   NOBITS           WA     0x6000       192        0x5000
+  .comment               PROGBITS         MS     0x0          180        0x5000
+  .debug_info            PROGBITS         -      0x0          47941      0x50b4
+  .debug_abbrev          PROGBITS         -      0x0          1587       0x10bf9
+  .debug_line            PROGBITS         -      0x0          6665       0x1122c
+  .debug_str             PROGBITS         MS     0x0          22929      0x12c35
+  .debug_loc             PROGBITS         -      0x0          17839      0x185c6
+  .debug_macinfo         PROGBITS         -      0x0          2          0x1cb75
+  .debug_ranges          PROGBITS         -      0x0          3104       0x1cb77
+  .shstrtab              STRTAB           -      0x0          320        0x1f7c2
+  .symtab                SYMTAB           -      0x0          4896       0x1d798
+  .strtab                STRTAB           -      0x0          3338       0x1eab8
+
+JNI entry points (25)
+  0x2e50         80         com.ts.faceauth.FaceAuthNative.getAlgoInfo
+      Java_com_ts_faceauth_FaceAuthNative_getAlgoInfo
+  0x2ea0         80         com.ts.faceauth.FaceAuthNative.getSDKVersion
+      Java_com_ts_faceauth_FaceAuthNative_getSDKVersion
+  0x2ef0         116        com.ts.faceauth.FaceAuthNative.initLicense
+      Java_com_ts_faceauth_FaceAuthNative_initLicense
+  0x2f64         236        com.ts.faceauth.FaceAuthNative.createFaceAuth
+      Java_com_ts_faceauth_FaceAuthNative_createFaceAuth
+  0x3050         84         com.ts.faceauth.FaceAuthNative.releaseFaceAuth
+      Java_com_ts_faceauth_FaceAuthNative_releaseFaceAuth
+  0x30a4         212        com.ts.faceauth.FaceAuthNative.setRoi
+      Java_com_ts_faceauth_FaceAuthNative_setRoi
+  0x3178         224        com.ts.faceauth.FaceAuthNative.setIdentifier
+      Java_com_ts_faceauth_FaceAuthNative_setIdentifier
+  0x3258         148        com.ts.faceauth.FaceAuthNative.setOrientation
+      Java_com_ts_faceauth_FaceAuthNative_setOrientation
+  0x32ec         8          com.ts.faceauth.FaceAuthNative.setEnrollNumberForFace
+      Java_com_ts_faceauth_FaceAuthNative_setEnrollNumberForFace
+  0x32f4         300        com.ts.faceauth.FaceAuthNative.enroll
+      Java_com_ts_faceauth_FaceAuthNative_enroll
+  0x3530         412        com.ts.faceauth.FaceAuthNative.auth
+      Java_com_ts_faceauth_FaceAuthNative_auth
+  0x36cc         8          com.ts.faceauth.FaceAuthNative.deleteFace
+      Java_com_ts_faceauth_FaceAuthNative_deleteFace
+  0x36d4         4          com.ts.faceauth.FaceAuthNative.deleteAllFace
+      Java_com_ts_faceauth_FaceAuthNative_deleteAllFace
+  0x36d8         4          com.ts.faceauth.FaceAuthNative.resetFaceAuth
+      Java_com_ts_faceauth_FaceAuthNative_resetFaceAuth
+  0x36dc         196        com.ts.faceauth.FaceAuthNative.evaluate
+      Java_com_ts_faceauth_FaceAuthNative_evaluate
+  0x37a0         8          com.ts.faceauth.FaceAuthNative.setFaceAuthMode
+      Java_com_ts_faceauth_FaceAuthNative_setFaceAuthMode
+  0x37a8         8          com.ts.faceauth.FaceAuthNative.setAreaCode
+      Java_com_ts_faceauth_FaceAuthNative_setAreaCode
+  0x37b0         232        com.ts.faceauth.FaceAuthNative.getFaceIDInfoInTemplate
+      Java_com_ts_faceauth_FaceAuthNative_getFaceIDInfoInTemplate
+  0x3898         136        com.ts.faceauth.FaceAuthNative.setTeeCommunicationFunc
+      Java_com_ts_faceauth_FaceAuthNative_setTeeCommunicationFunc
+  0x3920         56         com.ts.faceauth.FaceAuthNative.setTeeCommunicationFuncAddr
+      Java_com_ts_faceauth_FaceAuthNative_setTeeCommunicationFuncAddr
+  0x3958         8          com.ts.faceauth.FaceAuthNative.setLogLevel
+      Java_com_ts_faceauth_FaceAuthNative_setLogLevel
+  0x3960         8          com.ts.faceauth.FaceAuthNative.setGPUPriority
+      Java_com_ts_faceauth_FaceAuthNative_setGPUPriority
+  0x3968         4          com.ts.faceauth.FaceAuthNative.setStandByMode
+      Java_com_ts_faceauth_FaceAuthNative_setStandByMode
+  0x396c         176        com.ts.faceauth.FaceAuthNative.getLastUnlockID
+      Java_com_ts_faceauth_FaceAuthNative_getLastUnlockID
+  0x3a1c         24         com.ts.faceauth.FaceAuthNative.enableFaceDetectCallback
+      Java_com_ts_faceauth_FaceAuthNative_enableFaceDetectCallback
+
+AI-relevant strings (12402 bytes scanned in allocated data sections)
+  [face] 52 unique (first 20)
+    0x00000ee0 .dynstr    _Z36st_detect_to_java_face_detected_infoP7_JNIEnvP11st_detect_t
+    0x00000f20 .dynstr    _Z39st_faceid_info_array_to_java_faceidinfoP7_JNIEnvP17st_face_id_info_tii
+    0x00000fc5 .dynstr    mFaceAuthNativeClass
+    0x00000ff1 .dynstr    mFaceIDInfoClass
+    0x00001018 .dynstr    Java_com_ts_faceauth_FaceAuthNative_auth
+    0x00001041 .dynstr    Java_com_ts_faceauth_FaceAuthNative_createFaceAuth
+    0x00001074 .dynstr    Java_com_ts_faceauth_FaceAuthNative_deleteAllFace
+    0x000010a6 .dynstr    Java_com_ts_faceauth_FaceAuthNative_deleteFace
+    0x000010d5 .dynstr    Java_com_ts_faceauth_FaceAuthNative_enableFaceDetectCallback
+    0x00001112 .dynstr    Java_com_ts_faceauth_FaceAuthNative_enroll
+    0x0000113d .dynstr    Java_com_ts_faceauth_FaceAuthNative_evaluate
+    0x0000116a .dynstr    Java_com_ts_faceauth_FaceAuthNative_getAlgoInfo
+    0x0000119a .dynstr    Java_com_ts_faceauth_FaceAuthNative_getFaceIDInfoInTemplate
+    0x000011d6 .dynstr    Java_com_ts_faceauth_FaceAuthNative_getLastUnlockID
+    0x0000120a .dynstr    Java_com_ts_faceauth_FaceAuthNative_getSDKVersion
+    0x0000123c .dynstr    Java_com_ts_faceauth_FaceAuthNative_initLicense
+    0x0000126c .dynstr    Java_com_ts_faceauth_FaceAuthNative_releaseFaceAuth
+    0x000012a0 .dynstr    Java_com_ts_faceauth_FaceAuthNative_resetFaceAuth
+    0x000012d2 .dynstr    Java_com_ts_faceauth_FaceAuthNative_setAreaCode
+    0x00001302 .dynstr    Java_com_ts_faceauth_FaceAuthNative_setEnrollNumberForFace
+    ... 32 more

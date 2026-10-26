@@ -1,0 +1,58 @@
+$ /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python reports/miui_mediaeditor/reimpl/photo_pipeline.py
+==============================================================================
+miui_mediaeditor photo pipeline (FaceUnity FuAI photo path)
+==============================================================================
+landmark : /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundles/face_landmark_mb360_64.tflite  (346788 B)
+parsing  : /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundles/Fprs.0003.Exp007e33_quan1_sm.tflite  (1196952 B)
+skin-seg : /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/tflite/model__ai_face_beauty_processor__skin_model_expand_supply_pta18000_quant_resizetrain_seg153.tflite  (2433488 B)
+lut      : /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_facebeauty/lut/skin_white.png  (124795 B)
+config   : config_ai_face_beauty_processor.json (parsing 384x512, skin 320x320, mask_threshold=0.6, keep_block_radio=0.01)
+    sha256 a587d7c0005dfe6b  face_landmark_mb360_64.tflite
+    sha256 519c846392b7b0a7  Fprs.0003.Exp007e33_quan1_sm.tflite
+    sha256 b2f0dd1e6c1f48e4  model__ai_face_beauty_processor__skin_model_expand_supply_pta18000_quant_resizetrain_seg153.tflite
+    sha256 936451240fa80ce7  skin_white.png
+
+[1] decode / EXIF orientation
+    stored 512x512 ct=2 exif_orientation=6 -> decoded 512x512x3
+
+[2] face quad (skin-chroma stand-in for the YOLO detector nets)
+    box=(139, 204, 374, 486)  size=235x282
+
+[3] face_landmark_mb360_64
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+    input  (1, 64, 64, 1) f32 [19.3,246.0] (graph first op subtracts 127.5 -> gray 0..255)
+    output (1, 154) f32  [3.48,55.38] = 77 2-D points, crop-pixel coords
+    image-space landmark bbox = (151.6,206.8)-(350.9,447.9)
+
+[4] Fprs.0003.Exp007e33_quan1_sm (15-class face parsing)
+    crop   mean-shape bbox fit -> x=62.6..442.8, y=-80.9..515.4
+    input  (512, 384, 3) f32 [14.0,248.0] (graph op0 QUANTIZE scale 1.0 zp -128 -> raw 0..255)
+    output (512, 384, 15) f32 sum=[0.988,1.008]
+    argmax class histogram background=193079, skin=2011, nose=707, l_eye=341, r_eye=470
+    channel 1 (skin) mean=0.0169  channel 13 (hair) pixels=0 (0.00%)
+
+[5] skin_model_expand_supply_pta18000_quant_resizetrain_seg153
+    input  (320, 320, 3) f32 [0.067,0.973] (graph op0 QUANTIZE scale 1/128 zp -1 -> RGB 0..1)
+    output (320, 320) f32 [0.000,0.996] mean=0.274
+    threshold 0.6 -> coverage 26.64% ; components=6, dropped(<1% area)=4
+
+[6] mask -> image space + skin_white LUT alpha blend
+    mask   skin-seg in quad=0.7149 + parsing ch1=0.0625 -> 0.7199
+    lut    (512, 512, 4) ct=6 (8x8x64 tiles)
+    alpha  shape=(512, 512) mean(in quad)=0.560 pixels=58520 (22.3% of image)
+    quad   x=[141,361) y=[194,460)  hair pixels zeroed=0
+    luma   mean before=0.5737 after=0.6125 delta=+0.0388
+
+------------------------------------------------------------------------------
+    source                 evidence/photo_pipeline/source_exif.png  (396888 B)
+    decoded upright        evidence/photo_pipeline/decoded_upright.png  (342449 B)
+    landmark crop          evidence/photo_pipeline/face_crop_landmark64.png  (1782 B)
+    landmarks              evidence/photo_pipeline/landmarks.png  (343956 B)
+    parsing crop           evidence/photo_pipeline/parsing_crop_384x512.png  (176357 B)
+    parsing labels         evidence/photo_pipeline/parsing_labels.png  (1390 B)
+    skin mask              evidence/photo_pipeline/mask_skin.png  (2018 B)
+    rendered               evidence/photo_pipeline/rendered.png  (346751 B)
+    stats                  evidence/photo_pipeline/stats.json  (3463 B)
+RESULT: PASS
+
+exit_code=0

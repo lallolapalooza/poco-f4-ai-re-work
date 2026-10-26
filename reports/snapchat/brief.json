@@ -1,0 +1,13 @@
+{
+  "slug": "snapchat",
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.snapchat.android_200/partner-com.snapchat.android_200.apk",
+  "size": 92250637,
+  "models": [],
+  "libs": [],
+  "dex_markers": {
+    "Lcom/google/mlkit": 12,
+    "Lcom/google/android/gms/vision": 4,
+    "tflite": 1
+  },
+  "package": null
+}

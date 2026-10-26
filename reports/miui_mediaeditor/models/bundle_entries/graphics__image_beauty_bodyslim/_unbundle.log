@@ -1,0 +1,20 @@
+image_beauty_bodyslim.bundle: xor_key=0x5f file=18457B entries=9
+  body/                                                      method=0 csize=        0 usize=        0 off=        0 ENCRYPTED-PREFIX
+  body/body_beautify_first.glsl                              method=8 csize=    12610 usize=    75139 off=       35 ENCRYPTED-PREFIX
+  body/body_beautify_ps.glsl                                 method=8 csize=      405 usize=     2904 off=    12704
+  body/body_frag.glsl                                        method=8 csize=      162 usize=      259 off=    13165
+  body/body_fragLine.glsl                                    method=0 csize=       87 usize=       87 off=    13376
+  body/body_vert.glsl                                        method=8 csize=      101 usize=      120 off=    13516
+  body/body_vertLine.glsl                                    method=0 csize=       79 usize=       79 off=    13666
+  metadata.json                                              method=8 csize=       88 usize=       92 off=    13798
+  script.js                                                  method=8 csize=     3455 usize=    17257 off=    13929
+  CRC32 verified entries: 7 ok, 0 bad (2 skipped in encrypted prefix)
+  SKIP (encrypted prefix): body/
+  SKIP (encrypted prefix): body/body_beautify_first.glsl
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_bodyslim/body_beautify_ps.glsl (2904 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_bodyslim/body_frag.glsl (259 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_bodyslim/body_fragLine.glsl (87 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_bodyslim/body_vert.glsl (120 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_bodyslim/body_vertLine.glsl (79 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_bodyslim/metadata.json (92 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_bodyslim/script.js (17257 bytes)

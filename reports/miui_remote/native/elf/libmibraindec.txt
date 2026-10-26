@@ -1,0 +1,58 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_remote/inventory/libs/lib/arm64-v8a/libmibraindec.so
+==============================================================================
+size        : 136912 bytes (0.13 MiB)
+sha256      : 1ce5035c44d93f8e8261d24203a3533bb1edc27fe539f4165c6fe8cf65086d60
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x2230   imagebase: 0x0
+build id    : 70aae4aa3650df08fcaf9571a9f836ce03c4abf8
+android     : SDK 21, NDK r16b, build 4479499
+soname      : libmibraindec.so
+needed      : libm.so, libc.so, libdl.so
+parser      : lief
+counts      : 53 exports, 27 imports, 5 JNI, 23 sections, 8 segments
+symtab/dynsym: 0 / 90
+
+Sections (23)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        636        0x228
+  .dynsym                DYNSYM           A      0x4a8        2160       0x4a8
+  .dynstr                STRTAB           A      0xd18        1319       0xd18
+  .gnu.version           GNU_VERSYM       A      0x1240       180        0x1240
+  .gnu.version_r         GNU_VERNEED      A      0x12f8       32         0x12f8
+  .rela.dyn              RELA             A      0x1318       1632       0x1318
+  .rela.plt              RELA             AI     0x1978       1320       0x1978
+  .plt                   PROGBITS         AX     0x1ea0       912        0x1ea0
+  .text                  PROGBITS         AX     0x2230       39944      0x2230
+  .rodata                PROGBITS         A      0xbe40       76952      0xbe40
+  .eh_frame_hdr          PROGBITS         A      0x1ead8      628        0x1ead8
+  .eh_frame              PROGBITS         A      0x1ed50      3920       0x1ed50
+  .note.android.ident    NOTE             A      0x1fca0      152        0x1fca0
+  .init_array            INIT_ARRAY       WA     0x308e8      8          0x208e8
+  .fini_array            FINI_ARRAY       WA     0x308f0      16         0x208f0
+  .data.rel.ro           PROGBITS         WA     0x30900      776        0x20900
+  .dynamic               DYNAMIC          WA     0x30c08      496        0x20c08
+  .got                   PROGBITS         WA     0x30df8      512        0x20df8
+  .data                  PROGBITS         WA     0x31000      8          0x21000
+  .comment               PROGBITS         MS     0x0          39         0x21008
+  .shstrtab              STRTAB           -      0x0          224        0x2102f
+
+JNI entry points (5)
+  0xb9bc         52         com.xiaomi.ai.mibrain.MibrainMp3Decoder.newInstance
+      Java_com_xiaomi_ai_mibrain_MibrainMp3Decoder_newInstance
+  0xb9f0         32         com.xiaomi.ai.mibrain.MibrainMp3Decoder.deleteInstance
+      Java_com_xiaomi_ai_mibrain_MibrainMp3Decoder_deleteInstance
+  0xba10         16         com.xiaomi.ai.mibrain.MibrainMp3Decoder.cancel
+      Java_com_xiaomi_ai_mibrain_MibrainMp3Decoder_cancel
+  0xba20         232        com.xiaomi.ai.mibrain.MibrainMp3Decoder.start
+      Java_com_xiaomi_ai_mibrain_MibrainMp3Decoder_start
+  0xbb08         12         com.xiaomi.ai.mibrain.MibrainMp3Decoder.stop
+      Java_com_xiaomi_ai_mibrain_MibrainMp3Decoder_stop
+
+AI-relevant strings (90783 bytes scanned in allocated data sections)
+  [asr] 2 unique (first 2)
+    0x0001e0b0 .rodata    bad audio data length
+    0x0001ea50 .rodata    MPEG Audio Decoder 0.15.1 (beta)
+
+JSON written to native/elf/libmibraindec.json

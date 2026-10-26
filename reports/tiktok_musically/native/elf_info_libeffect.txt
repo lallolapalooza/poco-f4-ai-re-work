@@ -1,0 +1,303 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/ttlibs/libeffect.so
+==============================================================================
+size        : 19280928 bytes (18.39 MiB)
+sha256      : dad4778a98808a2614a4e70d1a7753d4b3dfca8e988a1c52b65a7d4241e76c35
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x0   imagebase: 0x0
+build id    : 73deb791cfad92b2fc06f71e4c12cdba8591cf9d
+android     : SDK 21, NDK r21b, build 6352462
+soname      : libeffect.so
+needed      : libttffmpeg.so, libOpenSLES.so, libbytenn.so, libaudioeffect.so, libiesapplogger.so, libjazz.so, libbytevc0.so, liblog.so, libz.so, libGLESv2.so, libEGL.so, libdl.so, libjnigraphics.so, libandroid.so, libnapi.so, libAGFX.so, libgaia_lib.so, libm.so, libc++_shared.so, libc.so
+parser      : lief
+counts      : 612 exports, 1168 imports, 71 JNI, 29 sections, 8 segments
+symtab/dynsym: 0 / 1781
+
+Sections (29)
+  name                   type             flags  address      size       offset
+  .note.android.ident    NOTE             A      0x200        152        0x200
+  .note.gnu.build-id     NOTE             A      0x298        36         0x298
+  .dynsym                DYNSYM           A      0x2c0        42744      0x2c0
+  .dynstr                STRTAB           A      0xa9b8       73364      0xa9b8
+  .gnu.hash              GNU_HASH         A      0x1c850      5060       0x1c850
+  .hash                  HASH             A      0x1dc18      11256      0x1dc18
+  .gnu.version           GNU_VERSYM       A      0x20810      3562       0x20810
+  .gnu.version_d         GNU_VERDEF       A      0x215fc      28         0x215fc
+  .gnu.version_r         GNU_VERNEED      A      0x21618      128        0x21618
+  .rela.dyn              RELA             A      0x21698      2741016    0x21698
+  .rela.plt              RELA             AI     0x2be9b0     27072      0x2be9b0
+  .plt                   PROGBITS         AX     0x2c5370     18080      0x2c5370
+  .text                  PROGBITS         AX     0x2c9a20     10260404   0x2c9a20
+  .rodata                PROGBITS         A      0xc929e0     1636961    0xc929e0
+  .gcc_except_table      PROGBITS         A      0xe22444     189416     0xe22444
+  .eh_frame              PROGBITS         A      0xe50830     2433048    0xe50830
+  .eh_frame_hdr          PROGBITS         A      0x10a2848    697036     0x10a2848
+  .data.rel.ro           PROGBITS         WA     0x114dfc8    961328     0x114cfc8
+  .fini_array            FINI_ARRAY       WA     0x1238af8    16         0x1237af8
+  .init_array            INIT_ARRAY       WA     0x1238b08    3024       0x1237b08
+  .dynamic               DYNAMIC          WA     0x12396d8    832        0x12386d8
+  .got                   PROGBITS         WA     0x1239a18    656        0x1238a18
+  .got.plt               PROGBITS         WA     0x1239ca8    9048       0x1238ca8
+  .data                  PROGBITS         WA     0x123c000    162128     0x123b000
+  .bss                   NOBITS           WA     0x1263950    494224     0x1262950
+  .comment               PROGBITS         MS     0x0          582        0x1262950
+  .note.gnu.gold-version NOTE             -      0x0          28         0x1262b98
+  .shstrtab              STRTAB           -      0x0          298        0x1262bb4
+
+JNI entry points (71)
+  0x2ea8e8       120        com.bef.effectsdk.EffectApplicationInfo.nativeSetHomeDir
+      Java_com_bef_effectsdk_EffectApplicationInfo_nativeSetHomeDir
+  0x2ea960       60         com.bef.effectsdk.BEFEffectNative.nativeGetEffectSDKVersion
+      Java_com_bef_effectsdk_BEFEffectNative_nativeGetEffectSDKVersion
+  0x2ea960       60         com.bef.effectsdk.EffectSDKUtils.nativeGetSdkVersion
+      Java_com_bef_effectsdk_EffectSDKUtils_nativeGetSdkVersion
+  0x2ea99c       92         com.bef.effectsdk.BEFEffectNative.nativeCreateHandle
+      Java_com_bef_effectsdk_BEFEffectNative_nativeCreateHandle
+  0x2ea9f8       24         com.bef.effectsdk.BEFEffectNative.nativeDestroyHandle
+      Java_com_bef_effectsdk_BEFEffectNative_nativeDestroyHandle
+  0x2eaa10       180        com.bef.effectsdk.BEFEffectNative.nativeInitResourceFinder
+      Java_com_bef_effectsdk_BEFEffectNative_nativeInitResourceFinder
+  0x2eaaf8       92         com.bef.effectsdk.BEFEffectNative.nativeReleaseResourceFinder
+      Java_com_bef_effectsdk_BEFEffectNative_nativeReleaseResourceFinder
+  0x2eab8c       72         com.bef.effectsdk.BEFEffectNative.nativeSetStickerPath
+      Java_com_bef_effectsdk_BEFEffectNative_nativeSetStickerPath
+  0x2eabd4       148        com.bef.effectsdk.BEFEffectNative.nativeProcessAlgorithm
+      Java_com_bef_effectsdk_BEFEffectNative_nativeProcessAlgorithm
+  0x2eac68       64         com.bef.effectsdk.BEFEffectNative.nativeProcessFrame
+      Java_com_bef_effectsdk_BEFEffectNative_nativeProcessFrame
+  0x2eaca8       100        com.bef.effectsdk.BEFEffectNative.nativeSendMessage
+      Java_com_bef_effectsdk_BEFEffectNative_nativeSendMessage
+  0x2ead0c       56         com.bef.effectsdk.BEFEffectNative.nativeSetCameraPosition
+      Java_com_bef_effectsdk_BEFEffectNative_nativeSetCameraPosition
+  0x2ead44       12         com.bef.effectsdk.BEFEffectNative.nativeSetOrientation
+      Java_com_bef_effectsdk_BEFEffectNative_nativeSetOrientation
+  0x2ead50       12         com.bef.effectsdk.BEFEffectNative.nativeSetFrameOrientation
+      Java_com_bef_effectsdk_BEFEffectNative_nativeSetFrameOrientation
+  0x2ead5c       344        com.bef.effectsdk.BEFEffectNative.nativeTouchEvent
+      Java_com_bef_effectsdk_BEFEffectNative_nativeTouchEvent
+  0x2eaee8       200        com.bef.effectsdk.game.NativeInterface.nativeCreateHandle
+      Java_com_bef_effectsdk_game_NativeInterface_nativeCreateHandle
+  0x2eafb0       396        com.bef.effectsdk.game.NativeInterface.nativeInit
+      Java_com_bef_effectsdk_game_NativeInterface_nativeInit
+  0x2eb13c       832        com.bef.effectsdk.game.NativeInterface.nativeSetStickerPath
+      Java_com_bef_effectsdk_game_NativeInterface_nativeSetStickerPath
+  0x2eb47c       192        com.bef.effectsdk.game.NativeInterface.nativeSetSize
+      Java_com_bef_effectsdk_game_NativeInterface_nativeSetSize
+  0x2eb53c       352        com.bef.effectsdk.game.NativeInterface.nativeProcess
+      Java_com_bef_effectsdk_game_NativeInterface_nativeProcess
+  0x2eb69c       88         com.bef.effectsdk.game.NativeInterface.nativePause
+      Java_com_bef_effectsdk_game_NativeInterface_nativePause
+  0x2eb6f4       88         com.bef.effectsdk.game.NativeInterface.nativeResume
+      Java_com_bef_effectsdk_game_NativeInterface_nativeResume
+  0x2eb74c       400        com.bef.effectsdk.game.NativeInterface.nativeDestroy
+      Java_com_bef_effectsdk_game_NativeInterface_nativeDestroy
+  0x2eba84       116        com.bef.effectsdk.game.NativeInterface.nativeTouchesBegin
+      Java_com_bef_effectsdk_game_NativeInterface_nativeTouchesBegin
+  0x2ebaf8       116        com.bef.effectsdk.game.NativeInterface.nativeTouchesMove
+      Java_com_bef_effectsdk_game_NativeInterface_nativeTouchesMove
+  0x2ebb6c       116        com.bef.effectsdk.game.NativeInterface.nativeTouchesEnd
+      Java_com_bef_effectsdk_game_NativeInterface_nativeTouchesEnd
+  0x2ebbe0       460        com.bef.effectsdk.game.NativeInterface.nativePostMessage
+      Java_com_bef_effectsdk_game_NativeInterface_nativePostMessage
+  0x2ebdac       368        com.bef.effectsdk.game.NativeInterface.nativeAddMessageListener
+      Java_com_bef_effectsdk_game_NativeInterface_nativeAddMessageListener
+  0x2ec318       236        com.bef.effectsdk.game.NativeInterface.nativeRemoveMessageListener
+      Java_com_bef_effectsdk_game_NativeInterface_nativeRemoveMessageListener
+  0x2ec404       44         com.bef.effectsdk.algorithm.RectDocDet.nativeCreate
+      Java_com_bef_effectsdk_algorithm_RectDocDet_nativeCreate
+  0x2ec430       80         com.bef.effectsdk.algorithm.RectDocDet.nativeInit
+      Java_com_bef_effectsdk_algorithm_RectDocDet_nativeInit
+  0x2ec480       116        com.bef.effectsdk.algorithm.RectDocDet.nativeInitWithPath
+      Java_com_bef_effectsdk_algorithm_RectDocDet_nativeInitWithPath
+  0x2ec4f4       44         com.bef.effectsdk.algorithm.RectDocDet.nativeSetParamF
+      Java_com_bef_effectsdk_algorithm_RectDocDet_nativeSetParamF
+  0x2ec520       260        com.bef.effectsdk.algorithm.RectDocDet.nativeProcess
+      Java_com_bef_effectsdk_algorithm_RectDocDet_nativeProcess
+  0x2ec658       44         com.bef.effectsdk.algorithm.RectDocDet.nativeDestroy
+      Java_com_bef_effectsdk_algorithm_RectDocDet_nativeDestroy
+  0x2ecb5c       120        com.bef.effectsdk.algorithm.GeneralObjDetector.nativeCreate
+      Java_com_bef_effectsdk_algorithm_GeneralObjDetector_nativeCreate
+  0x2ecbd4       80         com.bef.effectsdk.algorithm.GeneralObjDetector.nativeInit
+      Java_com_bef_effectsdk_algorithm_GeneralObjDetector_nativeInit
+  0x2ecc24       112        com.bef.effectsdk.algorithm.GeneralObjDetector.nativeInitWithPath
+      Java_com_bef_effectsdk_algorithm_GeneralObjDetector_nativeInitWithPath
+  0x2ecc94       272        com.bef.effectsdk.algorithm.GeneralObjDetector.nativeProcess
+      Java_com_bef_effectsdk_algorithm_GeneralObjDetector_nativeProcess
+  0x2ecda4       44         com.bef.effectsdk.algorithm.GeneralObjDetector.nativeDestroy
+      Java_com_bef_effectsdk_algorithm_GeneralObjDetector_nativeDestroy
+  0x2ecdd0       40         com.bef.effectsdk.algorithm.GeneralObjDetector.nativeSetParamF
+      Java_com_bef_effectsdk_algorithm_GeneralObjDetector_nativeSetParamF
+  0x2ecdf8       100        com.bef.effectsdk.algorithm.GeneralObjDetector.nativeSetParamS
+      Java_com_bef_effectsdk_algorithm_GeneralObjDetector_nativeSetParamS
+  0x2ece5c       1008       com.bef.effectsdk.GeneralParam.nativeSetParams
+      Java_com_bef_effectsdk_GeneralParam_nativeSetParams
+  0x2ed2b8       224        com.bef.effectsdk.GeneralParam.nativeSetParamWithKey
+      Java_com_bef_effectsdk_GeneralParam_nativeSetParamWithKey
+  0x2ed398       228        com.bef.effectsdk.GeneralParam.nativeGetParamByKey
+      Java_com_bef_effectsdk_GeneralParam_nativeGetParamByKey
+  0x2ed47c       4          com.bef.effectsdk.ImgporcUtils.nativeCorrectPerspective
+      Java_com_bef_effectsdk_ImgporcUtils_nativeCorrectPerspective
+  0x2ed480       4          com.bef.effectsdk.ImgporcUtils.nativeCalculateAspectRatio
+      Java_com_bef_effectsdk_ImgporcUtils_nativeCalculateAspectRatio
+  0x2ed484       1096       com.bef.effectsdk.ModelnamesAssigner.nativeSetAssignedModelNames
+      Java_com_bef_effectsdk_ModelnamesAssigner_nativeSetAssignedModelNames
+  0x2ed8cc       1280       com.bef.effectsdk.ModelnamesAssigner.nativeSetAssignedModelNamesWithPriority
+      Java_com_bef_effectsdk_ModelnamesAssigner_nativeSetAssignedModelNamesWithPriority
+  0x2eddcc       464        com.bef.effectsdk.RequirementResourceMapper.nativePeekResourcesNeededByRequirements
+      Java_com_bef_effectsdk_RequirementResourceMapper_nativePeekResourcesNeededByRequirements
+  0x2ee0e0       76         com.bef.effectsdk.FileResourceFinder.nativeCreateFileResourceFinder
+      Java_com_bef_effectsdk_FileResourceFinder_nativeCreateFileResourceFinder
+  0x2ee12c       396        com.bef.effectsdk.AssetResourceFinder.nativeCreateAssetResourceFinder
+      Java_com_bef_effectsdk_AssetResourceFinder_nativeCreateAssetResourceFinder
+  0x2ee60c       380        com.bef.effectsdk.AssetResourceFinder.nativeReleaseAssetResourceFinder
+      Java_com_bef_effectsdk_AssetResourceFinder_nativeReleaseAssetResourceFinder
+  0x2eea18       924        com.bef.effectsdk.view.ViewControllerInterface.nativeCreateHandle
+      Java_com_bef_effectsdk_view_ViewControllerInterface_nativeCreateHandle
+  0x2eef6c       588        com.bef.effectsdk.view.ViewControllerInterface.nativeInit
+      Java_com_bef_effectsdk_view_ViewControllerInterface_nativeInit
+  0x2ef434       40         com.bef.effectsdk.view.ViewControllerInterface.nativeAttachEffect
+      Java_com_bef_effectsdk_view_ViewControllerInterface_nativeAttachEffect
+  0x2ef45c       72         com.bef.effectsdk.view.ViewControllerInterface.nativeSetStickerPath
+      Java_com_bef_effectsdk_view_ViewControllerInterface_nativeSetStickerPath
+  0x2ef4a4       8          com.bef.effectsdk.view.ViewControllerInterface.nativeOnResume
+      Java_com_bef_effectsdk_view_ViewControllerInterface_nativeOnResume
+  0x2ef4ac       8          com.bef.effectsdk.view.ViewControllerInterface.nativeOnPause
+      Java_com_bef_effectsdk_view_ViewControllerInterface_nativeOnPause
+  0x2ef4b4       4260       com.bef.effectsdk.view.ViewControllerInterface.nativeProcess
+      Java_com_bef_effectsdk_view_ViewControllerInterface_nativeProcess
+  0x2f0558       512        com.bef.effectsdk.view.ViewControllerInterface.nativeDestroy
+      Java_com_bef_effectsdk_view_ViewControllerInterface_nativeDestroy
+  0x2f0758       364        com.bef.effectsdk.view.ViewControllerInterface.nativeTouchEvent
+      Java_com_bef_effectsdk_view_ViewControllerInterface_nativeTouchEvent
+  0x2f08c4       212        com.bef.effectsdk.view.ViewControllerInterface.nativePostMessage
+      Java_com_bef_effectsdk_view_ViewControllerInterface_nativePostMessage
+  0x2f0998       220        com.bef.effectsdk.view.ViewControllerInterface.nativeAddMessageListener
+      Java_com_bef_effectsdk_view_ViewControllerInterface_nativeAddMessageListener
+  0x2f0b34       168        com.bef.effectsdk.view.ViewControllerInterface.nativeRemoveMessageListener
+      Java_com_bef_effectsdk_view_ViewControllerInterface_nativeRemoveMessageListener
+  0x2f0bdc       24         com.bef.effectsdk.view.ViewControllerInterface.nativeCreateTexture
+      Java_com_bef_effectsdk_view_ViewControllerInterface_nativeCreateTexture
+  0x2f0bf4       8          com.bef.effectsdk.view.ViewControllerInterface.nativeDeleteTexture
+      Java_com_bef_effectsdk_view_ViewControllerInterface_nativeDeleteTexture
+  0x2f0bfc       520        com.bef.effectsdk.view.ViewControllerInterface.nativeSetRenderCacheData
+      Java_com_bef_effectsdk_view_ViewControllerInterface_nativeSetRenderCacheData
+  0x2f0e04       624        com.bef.effectsdk.view.ViewControllerInterface.nativeSetRenderCacheTexture
+      Java_com_bef_effectsdk_view_ViewControllerInterface_nativeSetRenderCacheTexture
+  0x2f1074       696        com.bef.effectsdk.view.ViewControllerInterface.nativeSetRenderCacheTextureWithBuffer
+      Java_com_bef_effectsdk_view_ViewControllerInterface_nativeSetRenderCacheTextureWithBuffer
+  0x2f132c       244        com.bef.effectsdk.view.ViewControllerInterface.nativeSetResourceFinder
+      Java_com_bef_effectsdk_view_ViewControllerInterface_nativeSetResourceFinder
+
+AI-relevant strings (8997911 bytes scanned in allocated data sections)
+  [model] 167 unique (first 20)
+    0x00c9e59a .rodata    videoclsmodel/tt_videoCls_v4.0.model
+    0x00c9e5bf .rodata    video_transition/tt_videoTrans_v1.0.model
+    0x00cd796e .rodata    %s [%s %d] DeviceInfoCap: calib_cam_paras.model parses by Json type failed.
+    0x00cd9e7a .rodata    sami_aed_model/kws_eng_v1.2.model
+    0x00cd9e9c .rodata    sami_aed_model/kws_chn_pinyin_v1.2.model
+    0x00cd9ec5 .rodata    sami_aed_model/kws_chn_hanzi_v1.2.model
+    0x00cd9eed .rodata    sami_aed_model/bt_streaming_espresso_v1.1.model
+    0x00cd9f1d .rodata    sami_aed_model/aed_pets_v1.0.model
+    0x00cd9f40 .rodata    ttfaceattrmodel/tt_face_attribute_v7.2.model
+    0x00cdf76b .rodata    sami_aed_model/aed_pets_debug_rmtail_v1.0.model
+    0x00cef042 .rodata            float weight = 0.368*exp(-x);
+    0x00cef068 .rodata            sum += weight*other_color;
+    0x00cef08b .rodata            weight_sum += weight;
+    0x00d00c81 .rodata            float weight = 0.0;
+    0x00d00dea .rodata                weight = pow(dis_eye1 / eyeRadius, 0.16);
+    0x00d00e20 .rodata                newCoord.x = p_eyea.x +(newCoord.x - p_eyea.x) * weight;
+    0x00d00e65 .rodata                newCoord.y = p_eyea.y +(newCoord.y - p_eyea.y) * weight;
+    0x00d00f79 .rodata                weight = pow(dis_eye2 / eyeRadius,0.16);
+    0x00d00fae .rodata                newCoord.x = p_eyeb.x +(newCoord.x - p_eyeb.x) * weight;
+    0x00d00ff3 .rodata                newCoord.y = p_eyeb.y +(newCoord.y - p_eyeb.y) * weight;
+    ... 147 more
+  [nn_runtime] 1 unique (first 1)
+    0x00da6b9f .rodata    Gpu API call
+  [face] 1674 unique (first 20)
+    0x0000c8eb .dynstr    _ZNKSt6__ndk16locale9use_facetERNS0_2idE
+    0x0000f751 .dynstr    bef_effect_set_reshape_face
+    0x0000f786 .dynstr    bef_effect_update_reshape_face_intensity
+    0x0000fddb .dynstr    bef_effect_get_face_detect_result
+    0x0000fdfd .dynstr    bef_effect_get_face_attrs_detect_result
+    0x000100f7 .dynstr    bef_effect_use_TT_facedetect
+    0x00010a8a .dynstr    bef_effect_set_external_FaceMakeup_Opacity
+    0x0001346f .dynstr    _ZNKSt6__ndk16locale9has_facetERNS0_2idE
+    0x000197f0 .dynstr    _ZN13AmazingEngine10Matrix4x4f13alignAxisWithEiRKNS_8Vector3fE
+    0x00c9b691 .rodata    %s [%s %d] %s %d: face_106  path is %s
+    0x00c9b6b8 .rodata    bef_effect_algorithm_face.cpp
+    0x00c9b6eb .rodata    %s [%s %d] %s %d: face_106  path is
+    0x00c9d4db .rodata    %s [%s %d] Error in func bef_effect_video_after_effect_create load face model.
+    0x00c9d5b4 .rodata    %s [%s %d] Error in func bef_effect_video_after_effect_create load face attr model.
+    0x00c9fb28 .rodata    bef_effect_update_reshape_face
+    0x00c9ffa1 .rodata    IAsynProto.bef_effect_set_reshape_face
+    0x00c9ffc8 .rodata    IAsynProto.bef_effect_update_reshape_face
+    0x00c9fff2 .rodata    IAsynProto.bef_effect_update_reshape_face_intensity
+    0x00ca0876 .rodata    algorithm_result_face_similar_two_st
+    0x00ca089b .rodata    algorithm_result_face_similar_one_st
+    ... 180 more
+  [asr] 50 unique (first 20)
+    0x00c9b7d0 .rodata    %s [%s %d] Unknown type of audio status!
+    0x00cd77c8 .rodata    %s [%s %d] AudioProcessCap >> check audio alg with composer, push_back audio config
+    0x00cd7830 .rodata    %s [%s %d] AudioProcessCap >> set audio config, path = %s
+    0x00cd786a .rodata    %s [%s %d] AudioProcessCap >> clear audio config suc
+    0x00cdaaee .rodata    %s [%s %d] %s: create effect audio player.
+    0x00cdab19 .rodata    %s [%s %d] %s: audio player %d setDataSource %s
+    0x00cdab49 .rodata    %s [%s %d] %s: audio player %d setLoop %d
+    0x00cdab73 .rodata    %s [%s %d] %s: audio player %d set mute
+    0x00cdab9b .rodata    %s [%s %d] %s: audio player %d set volume %f
+    0x00cdabc8 .rodata    %s [%s %d] %s: audio player %d set loop %d
+    0x00cdabf3 .rodata    %s [%s %d] %s: audio player %d startPlay
+    0x00cdac1c .rodata    %s [%s %d] %s: audio player %d pause
+    0x00cdac41 .rodata    %s [%s %d] %s: audio player %d restartPlay
+    0x00cdac78 .rodata    %s [%s %d] %s: delete effect audio player.
+    0x00cdf33e .rodata    %s [%s %d] Unexpected input Audio Processor type %lx
+    0x00cdf384 .rodata    %s [%s %d] duplicate Audio Processor id %d
+    0x00cdf3c0 .rodata    %s [%s %d] invalid Audio Processor pos %d
+    0x00cdf3ea .rodata    %s [%s %d] add duplicate Audio Processor by type %lx
+    0x00cdf41f .rodata    %s [%s %d] invalid Audio Processor by type %lx
+    0x00cdf44e .rodata    %s [%s %d] no avalible Audio Processor by type %lx
+    ... 30 more
+  [segment] 410 unique (first 20)
+    0x0000c368 .dynstr    bef_Portrait_Matting_CreateHandle
+    0x0000c38a .dynstr    bef_Portrait_Matting_Resource_Handle
+    0x0000c3af .dynstr    bef_Portrait_Matting_InitModelFromBuf
+    0x0000c3e5 .dynstr    bef_Portrait_Matting_GetParam
+    0x0000c403 .dynstr    bef_MP_DoPortraitMattingRect
+    0x0000c420 .dynstr    bef_Portrait_Matting_CreateBlendHandle
+    0x0000c447 .dynstr    bef_Portrait_Matting_Blend
+    0x0000c476 .dynstr    bef_Portrait_Matting_ReleaseHandle
+    0x0000c499 .dynstr    bef_Portrait_Matting_ReleaseBlendHandle
+    0x0000fb8f .dynstr    bef_effect_set_default_makeup_segmentation
+    0x00010f4d .dynstr    bef_swing_segment_create
+    0x00010f66 .dynstr    bef_swing_segment_destroy
+    0x00010f80 .dynstr    bef_swing_segment_remove
+    0x00010f99 .dynstr    bef_swing_segment_add_to_track
+    0x00010fb8 .dynstr    bef_swing_segment_set_params
+    0x00010fd5 .dynstr    bef_swing_segment_get_params
+    0x00010ff2 .dynstr    bef_swing_segment_set_time_range
+    0x00011013 .dynstr    bef_swing_segment_set_relative_time_range
+    0x0001103d .dynstr    bef_swing_segment_set_enabled
+    0x0001105b .dynstr    bef_swing_segment_create_key_frame
+    ... 180 more
+  [model_name] 24 unique (first 20)
+    0x00ca2151 .rodata    effect_event_load_model
+    0x00cd3b72 .rodata    ASSET_TYPE_MODEL
+    0x00d4c710 .rodata    te_effect_load_model
+    0x00d635c2 .rodata    calib_cam_paras_v1.0.model
+    0x00d65db7 .rodata    tt_face_v10.0.model
+    0x00d65e10 .rodata    tt_face_extra_v13.0.model
+    0x00d65e5c .rodata    tt_face_extra_fast_v13.0.model
+    0x00d8df7d .rodata    face_use_face_mask_model
+    0x00d8e24d .rodata    face_mask_model
+    0x00d91f3d .rodata    foot_model
+    0x00d9271f .rodata    tt_facefitting845_v2.1.model
+    0x00d9273c .rodata    tt_facefitting1220_v2.0.model
+    0x00d9275a .rodata    tt_facefitting1256_v2.0.model
+    0x00d93086 .rodata    tt_human_parsing_v1.0.model
+    0x00d93907 .rodata    tt_earseg_kp_v1.0.model
+    0x00d9391f .rodata    tt_earseg_v2.0.model
+    0x00d9815e .rodata    ttslammodel_v5.0.model
+    0x00d99663 .rodata    food_feature_model
+    0x00d9ebcf .rodata    ro.product.model
+    0x00da1074 .rodata    quantization_model
+    ... 4 more

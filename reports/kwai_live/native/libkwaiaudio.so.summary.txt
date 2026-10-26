@@ -1,0 +1,700 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libkwaiaudio.so
+==============================================================================
+size        : 1829120 bytes (1.74 MiB)
+sha256      : 01419e63fbb254921a67320f4ca183a0cc50589315c465143c9cc1c2d8f65a98
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x40490   imagebase: 0x0
+build id    : 6f8194ade681bd94c9b8965093210a5915f10833
+android     : SDK 21, NDK r20, build 5594570
+soname      : libkwaiaudio.so
+needed      : libffmpeg.so, libksaudioprocesslib.so, libandroid.so, liblog.so, libEGL.so, libGLESv2.so, libOpenSLES.so, libz.so, libm.so, libc++_shared.so, libdl.so, libc.so
+parser      : lief
+counts      : 393 exports, 266 imports, 295 JNI, 26 sections, 8 segments
+symtab/dynsym: 0 / 669
+
+Sections (26)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        4768       0x228
+  .gnu.hash              GNU_HASH         A      0x14c8       3152       0x14c8
+  .dynsym                DYNSYM           A      0x2118       16056      0x2118
+  .dynstr                STRTAB           A      0x5fd0       30389      0x5fd0
+  .gnu.version           GNU_VERSYM       A      0xd686       1338       0xd686
+  .gnu.version_r         GNU_VERNEED      A      0xdbc0       96         0xdbc0
+  .rela.dyn              RELA             A      0xdc20       197040     0xdc20
+  .rela.plt              RELA             AI     0x3ddd0      5928       0x3ddd0
+  .plt                   PROGBITS         AX     0x3f500      3984       0x3f500
+  .text                  PROGBITS         AX     0x40490      1034932    0x40490
+  .rodata                PROGBITS         A      0x13cf50     158285     0x13cf50
+  .eh_frame_hdr          PROGBITS         A      0x1639a0     41940      0x1639a0
+  .eh_frame              PROGBITS         A      0x16dd78     168704     0x16dd78
+  .gcc_except_table      PROGBITS         A      0x197078     78404      0x197078
+  .note.android.ident    NOTE             A      0x1aa2bc     152        0x1aa2bc
+  .init_array            INIT_ARRAY       WA     0x1bae38     112        0x1aae38
+  .fini_array            FINI_ARRAY       WA     0x1baea8     16         0x1aaea8
+  .data.rel.ro           PROGBITS         WA     0x1baeb8     74192      0x1aaeb8
+  .dynamic               DYNAMIC          WA     0x1cd088     656        0x1bd088
+  .got                   PROGBITS         WA     0x1cd318     3304       0x1bd318
+  .data                  PROGBITS         WA     0x1ce000     80         0x1be000
+  .bss                   NOBITS           WA     0x1ce050     4912       0x1be050
+  .comment               PROGBITS         MS     0x0          303        0x1be050
+  .shstrtab              STRTAB           -      0x0          251        0x1be17f
+
+JNI entry points (295)
+  0x1147a4       432        com.kwai.video.stannis.utils.Log.nativeLog
+      Java_com_kwai_video_stannis_utils_Log_nativeLog
+  0x114954       1704       com.kwai.video.stannis.utils.Log.nativeSetLogParam
+      Java_com_kwai_video_stannis_utils_Log_nativeSetLogParam
+  0x1154cc       172        com.kwai.video.stannis.Stannis.nativeGetStannisVersion
+      Java_com_kwai_video_stannis_Stannis_nativeGetStannisVersion
+  0x115578       184        com.kwai.video.stannis.Stannis.nativeGetAryaVersionExt
+      Java_com_kwai_video_stannis_Stannis_nativeGetAryaVersionExt
+  0x115630       96         com.kwai.video.stannis.Stannis.nativeCreateStannis
+      Java_com_kwai_video_stannis_Stannis_nativeCreateStannis
+  0x115690       24         com.kwai.video.stannis.Stannis.nativeInitStannis
+      Java_com_kwai_video_stannis_Stannis_nativeInitStannis
+  0x1156a8       20         com.kwai.video.stannis.Stannis.nativeUninitStannis
+      Java_com_kwai_video_stannis_Stannis_nativeUninitStannis
+  0x1156bc       48         com.kwai.video.stannis.Stannis.nativeIsStannisInited
+      Java_com_kwai_video_stannis_Stannis_nativeIsStannisInited
+  0x1156ec       3140       com.kwai.video.stannis.Stannis.nativeGetQosInfo
+      Java_com_kwai_video_stannis_Stannis_nativeGetQosInfo
+  0x1163cc       180        com.kwai.video.stannis.Stannis.nativeGetMicrophoneInfo
+      Java_com_kwai_video_stannis_Stannis_nativeGetMicrophoneInfo
+  0x116480       156        com.kwai.video.stannis.Stannis.nativeGetTips
+      Java_com_kwai_video_stannis_Stannis_nativeGetTips
+  0x11651c       404        com.kwai.video.stannis.Stannis.nativeGetActiveSpeakers
+      Java_com_kwai_video_stannis_Stannis_nativeGetActiveSpeakers
+  0x1166b0       32         com.kwai.video.stannis.Stannis.nativeGetVoiceEnergy
+      Java_com_kwai_video_stannis_Stannis_nativeGetVoiceEnergy
+  0x1166d0       24         com.kwai.video.stannis.Stannis.nativeRemoveTxVoiceEnergy
+      Java_com_kwai_video_stannis_Stannis_nativeRemoveTxVoiceEnergy
+  0x1166e8       24         com.kwai.video.stannis.Stannis.nativeAddTxVoiceEnergy
+      Java_com_kwai_video_stannis_Stannis_nativeAddTxVoiceEnergy
+  0x116700       148        com.kwai.video.stannis.Stannis.nativeGetCpuPercent
+      Java_com_kwai_video_stannis_Stannis_nativeGetCpuPercent
+  0x116794       148        com.kwai.video.stannis.Stannis.nativeGetMemoryKBytes
+      Java_com_kwai_video_stannis_Stannis_nativeGetMemoryKBytes
+  0x116828       140        com.kwai.video.stannis.Stannis.nativeGetDeviceModel
+      Java_com_kwai_video_stannis_Stannis_nativeGetDeviceModel
+  0x1168b4       28         com.kwai.video.stannis.Stannis.nativeSetReverbLevel
+      Java_com_kwai_video_stannis_Stannis_nativeSetReverbLevel
+  0x1168d0       28         com.kwai.video.stannis.Stannis.nativeSetVoiceEffectOption
+      Java_com_kwai_video_stannis_Stannis_nativeSetVoiceEffectOption
+  0x1168ec       28         com.kwai.video.stannis.Stannis.nativeSetVoiceRoleOption
+      Java_com_kwai_video_stannis_Stannis_nativeSetVoiceRoleOption
+  0x116908       28         com.kwai.video.stannis.Stannis.nativeSetVoiceVocal
+      Java_com_kwai_video_stannis_Stannis_nativeSetVoiceVocal
+  0x116924       28         com.kwai.video.stannis.Stannis.nativeSetMuteMicrophone
+      Java_com_kwai_video_stannis_Stannis_nativeSetMuteMicrophone
+  0x116940       32         com.kwai.video.stannis.Stannis.nativeSetMuteSpeaker
+      Java_com_kwai_video_stannis_Stannis_nativeSetMuteSpeaker
+  0x116960       24         com.kwai.video.stannis.Stannis.nativeSetAudioInputVolume
+      Java_com_kwai_video_stannis_Stannis_nativeSetAudioInputVolume
+  0x116978       24         com.kwai.video.stannis.Stannis.nativeSetSpeakerOutputVolume
+      Java_com_kwai_video_stannis_Stannis_nativeSetSpeakerOutputVolume
+  0x116990       32         com.kwai.video.stannis.Stannis.nativeSetMuteChatOutBgm
+      Java_com_kwai_video_stannis_Stannis_nativeSetMuteChatOutBgm
+  0x1169b0       32         com.kwai.video.stannis.Stannis.nativeSetMuteLiveStreamOutBgm
+      Java_com_kwai_video_stannis_Stannis_nativeSetMuteLiveStreamOutBgm
+  0x1169d0       32         com.kwai.video.stannis.Stannis.nativeSetBgmAutoSeekEnable
+      Java_com_kwai_video_stannis_Stannis_nativeSetBgmAutoSeekEnable
+  0x1169f0       32         com.kwai.video.stannis.Stannis.nativeGetBgmOffsetByRecordPts
+      Java_com_kwai_video_stannis_Stannis_nativeGetBgmOffsetByRecordPts
+  0x116a10       28         com.kwai.video.stannis.Stannis.nativeSetBgmGuidanceType
+      Java_com_kwai_video_stannis_Stannis_nativeSetBgmGuidanceType
+  0x116a2c       28         com.kwai.video.stannis.Stannis.nativeSetAudioRxVolume
+      Java_com_kwai_video_stannis_Stannis_nativeSetAudioRxVolume
+  0x116a48       168        com.kwai.video.stannis.Stannis.nativeSetEnableDeepNs
+      Java_com_kwai_video_stannis_Stannis_nativeSetEnableDeepNs
+  0x116af0       168        com.kwai.video.stannis.Stannis.nativeSetEnableDeepDereverb
+      Java_com_kwai_video_stannis_Stannis_nativeSetEnableDeepDereverb
+  0x116b98       168        com.kwai.video.stannis.Stannis.nativeSetEnableCommonDenoise
+      Java_com_kwai_video_stannis_Stannis_nativeSetEnableCommonDenoise
+  0x116c40       32         com.kwai.video.stannis.audio.StannisAudioCommon.nativeSetIsDeviceAecOn
+      Java_com_kwai_video_stannis_audio_StannisAudioCommon_nativeSetIsDeviceAecOn
+  0x116c60       24         com.kwai.video.stannis.Stannis.nativeSetRemoteMixVolume
+      Java_com_kwai_video_stannis_Stannis_nativeSetRemoteMixVolume
+  0x116c78       28         com.kwai.video.stannis.Stannis.nativeSetSoftAecMode
+      Java_com_kwai_video_stannis_Stannis_nativeSetSoftAecMode
+  0x116c94       268        com.kwai.video.stannis.Stannis.nativeSetEnableAudioQualityEstimation
+      Java_com_kwai_video_stannis_Stannis_nativeSetEnableAudioQualityEstimation
+  0x116da0       32         com.kwai.video.stannis.Stannis.nativeSetEnableNoiseSuppression
+      Java_com_kwai_video_stannis_Stannis_nativeSetEnableNoiseSuppression
+  0x116dc0       28         com.kwai.video.stannis.Stannis.nativeSetAgcMode
+      Java_com_kwai_video_stannis_Stannis_nativeSetAgcMode
+  0x116ddc       24         com.kwai.video.stannis.Stannis.nativeSetAecFarendCompressorGain
+      Java_com_kwai_video_stannis_Stannis_nativeSetAecFarendCompressorGain
+  0x116df4       28         com.kwai.video.stannis.Stannis.nativeSetHowlingSuppressionMode
+      Java_com_kwai_video_stannis_Stannis_nativeSetHowlingSuppressionMode
+  0x116e10       32         com.kwai.video.stannis.Stannis.nativeSetHowlingSuppressionMultipleDevice
+      Java_com_kwai_video_stannis_Stannis_nativeSetHowlingSuppressionMultipleDevice
+  0x116e30       32         com.kwai.video.stannis.Stannis.nativeSetMuteRemote
+      Java_com_kwai_video_stannis_Stannis_nativeSetMuteRemote
+  0x116e50       28         com.kwai.video.stannis.Stannis.nativeSetAudioTeamConference
+      Java_com_kwai_video_stannis_Stannis_nativeSetAudioTeamConference
+  0x116e6c       2972       com.kwai.video.stannis.Stannis.nativeStartBgm
+      Java_com_kwai_video_stannis_Stannis_nativeStartBgm
+  0x117b40       56         com.kwai.video.stannis.Stannis.nativeUpdateBgmIndex
+      Java_com_kwai_video_stannis_Stannis_nativeUpdateBgmIndex
+  0x117b78       24         com.kwai.video.stannis.Stannis.nativeStopBgm
+      Java_com_kwai_video_stannis_Stannis_nativeStopBgm
+  0x117b90       24         com.kwai.video.stannis.Stannis.nativePauseBgm
+      Java_com_kwai_video_stannis_Stannis_nativePauseBgm
+  0x117ba8       24         com.kwai.video.stannis.Stannis.nativeResumeBgm
+      Java_com_kwai_video_stannis_Stannis_nativeResumeBgm
+  0x117bc0       24         com.kwai.video.stannis.Stannis.nativeSetBgmVolume
+      Java_com_kwai_video_stannis_Stannis_nativeSetBgmVolume
+  0x117bd8       24         com.kwai.video.stannis.Stannis.nativeSetRemoteBgmVolume
+      Java_com_kwai_video_stannis_Stannis_nativeSetRemoteBgmVolume
+  0x117bf0       24         com.kwai.video.stannis.Stannis.nativeSetGuidanceVolume
+      Java_com_kwai_video_stannis_Stannis_nativeSetGuidanceVolume
+  0x117c08       32         com.kwai.video.stannis.Stannis.nativeSetMuteBgm
+      Java_com_kwai_video_stannis_Stannis_nativeSetMuteBgm
+  0x117c28       28         com.kwai.video.stannis.Stannis.nativeSeekBgm
+      Java_com_kwai_video_stannis_Stannis_nativeSeekBgm
+  0x117c44       28         com.kwai.video.stannis.Stannis.nativeSetBgmPitch
+      Java_com_kwai_video_stannis_Stannis_nativeSetBgmPitch
+  0x117c60       24         com.kwai.video.stannis.Stannis.nativeSetBgmLocalFadeGain
+      Java_com_kwai_video_stannis_Stannis_nativeSetBgmLocalFadeGain
+  0x117c78       24         com.kwai.video.stannis.Stannis.nativeSetBgmRemoteFadeGain
+      Java_com_kwai_video_stannis_Stannis_nativeSetBgmRemoteFadeGain
+  0x117c90       28         com.kwai.video.stannis.audio.StannisAudioCommon.nativeSetRoundTripLatency
+      Java_com_kwai_video_stannis_audio_StannisAudioCommon_nativeSetRoundTripLatency
+  0x117cac       148        com.kwai.video.stannis.Stannis.nativeLoadSoundEffectCache
+      Java_com_kwai_video_stannis_Stannis_nativeLoadSoundEffectCache
+  0x117d40       24         com.kwai.video.stannis.Stannis.nativeCleanSoundEffectCache
+      Java_com_kwai_video_stannis_Stannis_nativeCleanSoundEffectCache
+  0x117d58       568        com.kwai.video.stannis.Stannis.nativePlaySoundEffect
+      Java_com_kwai_video_stannis_Stannis_nativePlaySoundEffect
+  0x117f90       24         com.kwai.video.stannis.Stannis.nativeStopAllSoundEffects
+      Java_com_kwai_video_stannis_Stannis_nativeStopAllSoundEffects
+  0x117fa8       24         com.kwai.video.stannis.Stannis.nativeSetSoundEffectVolume
+      Java_com_kwai_video_stannis_Stannis_nativeSetSoundEffectVolume
+  0x117fc0       32         com.kwai.video.stannis.Stannis.nativeSetMuteSoundEffect
+      Java_com_kwai_video_stannis_Stannis_nativeSetMuteSoundEffect
+  0x117fe0       684        com.kwai.video.stannis.Stannis.nativePlayAudioBuffer
+      Java_com_kwai_video_stannis_Stannis_nativePlayAudioBuffer
+  0x11828c       24         com.kwai.video.stannis.Stannis.nativePauseAudioBuffer
+      Java_com_kwai_video_stannis_Stannis_nativePauseAudioBuffer
+  0x1182a4       148        com.kwai.video.stannis.Stannis.nativeClearAudioBuffer
+      Java_com_kwai_video_stannis_Stannis_nativeClearAudioBuffer
+  0x118338       24         com.kwai.video.stannis.Stannis.nativeClearAllAudioBuffer
+      Java_com_kwai_video_stannis_Stannis_nativeClearAllAudioBuffer
+  0x118350       32         com.kwai.video.stannis.Stannis.nativeResumeAudioBuffer
+      Java_com_kwai_video_stannis_Stannis_nativeResumeAudioBuffer
+  0x118370       72         com.kwai.video.stannis.Stannis.nativeStartPcmPlay
+      Java_com_kwai_video_stannis_Stannis_nativeStartPcmPlay
+  0x1183b8       24         com.kwai.video.stannis.Stannis.nativeStopPcmPlay
+      Java_com_kwai_video_stannis_Stannis_nativeStopPcmPlay
+  0x1183d0       224        com.kwai.video.stannis.Stannis.nativeInputPcmPlay
+      Java_com_kwai_video_stannis_Stannis_nativeInputPcmPlay
+  0x1184b0       24         com.kwai.video.stannis.Stannis.nativeResetPcmPlay
+      Java_com_kwai_video_stannis_Stannis_nativeResetPcmPlay
+  0x1184c8       24         com.kwai.video.stannis.Stannis.nativeSetPcmPlayVolume
+      Java_com_kwai_video_stannis_Stannis_nativeSetPcmPlayVolume
+  0x1184e0       4          com.kwai.video.stannis.Stannis.nativeOnBackground
+      Java_com_kwai_video_stannis_Stannis_nativeOnBackground
+  0x1184e4       4          com.kwai.video.stannis.Stannis.nativeOnForeground
+      Java_com_kwai_video_stannis_Stannis_nativeOnForeground
+  0x1184e8       128        com.kwai.video.stannis.audio.AudioDeviceJavaAudioRecord.nativeSetRecorderConfig
+      Java_com_kwai_video_stannis_audio_AudioDeviceJavaAudioRecord_nativeSetRecorderConfig
+  0x118568       204        com.kwai.video.stannis.audio.AudioDeviceJavaAudioRecord.nativeDataIsRecorded
+      Java_com_kwai_video_stannis_audio_AudioDeviceJavaAudioRecord_nativeDataIsRecorded
+  0x118634       164        com.kwai.video.stannis.audio.AudioDeviceJavaAudioTrack.nativeSetPlayerConfig
+      Java_com_kwai_video_stannis_audio_AudioDeviceJavaAudioTrack_nativeSetPlayerConfig
+  0x1186d8       20         com.kwai.video.stannis.audio.AudioDeviceJavaAudioTrack.nativeGetPlayoutData
+      Java_com_kwai_video_stannis_audio_AudioDeviceJavaAudioTrack_nativeGetPlayoutData
+  0x1186ec       56         com.kwai.video.stannis.audio.AudioDeviceOboe.nativeInit
+      Java_com_kwai_video_stannis_audio_AudioDeviceOboe_nativeInit
+  0x118724       104        com.kwai.video.stannis.audio.AudioDeviceOboe.nativeInitRecording
+      Java_com_kwai_video_stannis_audio_AudioDeviceOboe_nativeInitRecording
+  0x11878c       212        com.kwai.video.stannis.audio.AudioDeviceOboe.nativeStartRecording
+      Java_com_kwai_video_stannis_audio_AudioDeviceOboe_nativeStartRecording
+  0x118860       44         com.kwai.video.stannis.audio.AudioDeviceOboe.nativeStopRecording
+      Java_com_kwai_video_stannis_audio_AudioDeviceOboe_nativeStopRecording
+  0x11888c       132        com.kwai.video.stannis.audio.AudioDeviceOboe.nativeInitPlayout
+      Java_com_kwai_video_stannis_audio_AudioDeviceOboe_nativeInitPlayout
+  0x118910       44         com.kwai.video.stannis.audio.AudioDeviceOboe.nativeStartPlayout
+      Java_com_kwai_video_stannis_audio_AudioDeviceOboe_nativeStartPlayout
+  0x11893c       44         com.kwai.video.stannis.audio.AudioDeviceOboe.nativeStopPlayout
+      Java_com_kwai_video_stannis_audio_AudioDeviceOboe_nativeStopPlayout
+  0x118968       44         com.kwai.video.stannis.audio.AudioDeviceOboe.nativeIsRecording
+      Java_com_kwai_video_stannis_audio_AudioDeviceOboe_nativeIsRecording__J
+  0x118994       44         com.kwai.video.stannis.audio.AudioDeviceOboe.nativeIsPlaying
+      Java_com_kwai_video_stannis_audio_AudioDeviceOboe_nativeIsPlaying
+  0x1189c0       8          com.kwai.video.stannis.audio.AudioDeviceOpenSL.nativeInit
+      Java_com_kwai_video_stannis_audio_AudioDeviceOpenSL_nativeInit
+  0x1189c8       68         com.kwai.video.stannis.audio.AudioDeviceOpenSL.nativeInitRecording
+      Java_com_kwai_video_stannis_audio_AudioDeviceOpenSL_nativeInitRecording
+  0x118a0c       212        com.kwai.video.stannis.audio.AudioDeviceOpenSL.nativeStartRecording
+      Java_com_kwai_video_stannis_audio_AudioDeviceOpenSL_nativeStartRecording
+  0x118ae0       20         com.kwai.video.stannis.audio.AudioDeviceOpenSL.nativeStopRecording
+      Java_com_kwai_video_stannis_audio_AudioDeviceOpenSL_nativeStopRecording
+  0x118af4       96         com.kwai.video.stannis.audio.AudioDeviceOpenSL.nativeInitPlayout
+      Java_com_kwai_video_stannis_audio_AudioDeviceOpenSL_nativeInitPlayout
+  0x118b54       44         com.kwai.video.stannis.audio.AudioDeviceOpenSL.nativeStartPlayout
+      Java_com_kwai_video_stannis_audio_AudioDeviceOpenSL_nativeStartPlayout
+  0x118b80       44         com.kwai.video.stannis.audio.AudioDeviceOpenSL.nativeStopPlayout
+      Java_com_kwai_video_stannis_audio_AudioDeviceOpenSL_nativeStopPlayout
+  0x118bac       44         com.kwai.video.stannis.audio.AudioDeviceOpenSL.nativeIsRecording
+      Java_com_kwai_video_stannis_audio_AudioDeviceOpenSL_nativeIsRecording__J
+  0x118bd8       44         com.kwai.video.stannis.audio.AudioDeviceOpenSL.nativeIsPlaying
+      Java_com_kwai_video_stannis_audio_AudioDeviceOpenSL_nativeIsPlaying
+  0x118c04       68         com.kwai.video.stannis.audio.StannisAudioCommon.nativeEnableHeadphoneMonitor
+      Java_com_kwai_video_stannis_audio_StannisAudioCommon_nativeEnableHeadphoneMonitor
+  0x118c48       40         com.kwai.video.stannis.audio.StannisAudioCommon.nativeSetHeadphoneMonitorVolume
+      Java_com_kwai_video_stannis_audio_StannisAudioCommon_nativeSetHeadphoneMonitorVolume
+  0x118c70       420        com.kwai.video.stannis.audio.StannisAudioCommon.nativeUploadDeviceInfo
+      Java_com_kwai_video_stannis_audio_StannisAudioCommon_nativeUploadDeviceInfo
+  0x118e14       28         com.kwai.video.stannis.Stannis.nativeUploadSpeakerDeviceVolume
+      Java_com_kwai_video_stannis_Stannis_nativeUploadSpeakerDeviceVolume
+  0x118e30       520        com.kwai.video.stannis.Stannis.nativeStartPlayAudioSegment
+      Java_com_kwai_video_stannis_Stannis_nativeStartPlayAudioSegment
+  0x119038       24         com.kwai.video.stannis.Stannis.nativeStopPlayAudioSegment
+      Java_com_kwai_video_stannis_Stannis_nativeStopPlayAudioSegment
+  0x119050       32         com.kwai.video.stannis.Stannis.nativeEnableMixingAudioSegment
+      Java_com_kwai_video_stannis_Stannis_nativeEnableMixingAudioSegment
+  0x119070       1584       com.kwai.video.stannis.Stannis.nativeGetConfig
+      Java_com_kwai_video_stannis_Stannis_nativeGetConfig
+  0x1196a0       3240       com.kwai.video.stannis.Stannis.nativeUpdateServerConfig
+      Java_com_kwai_video_stannis_Stannis_nativeUpdateServerConfig
+  0x11a348       364        com.kwai.video.stannis.Stannis.nativeStartLiveStream
+      Java_com_kwai_video_stannis_Stannis_nativeStartLiveStream
+  0x11a4b4       444        com.kwai.video.stannis.Stannis.nativeStartLiveStreamWithNativeReceiver
+      Java_com_kwai_video_stannis_Stannis_nativeStartLiveStreamWithNativeReceiver
+  0x11a670       364        com.kwai.video.stannis.Stannis.nativeStartChat
+      Java_com_kwai_video_stannis_Stannis_nativeStartChat
+  0x11a7dc       444        com.kwai.video.stannis.Stannis.nativeStartChatWithNativeReceiver
+      Java_com_kwai_video_stannis_Stannis_nativeStartChatWithNativeReceiver
+  0x11a998       24         com.kwai.video.stannis.Stannis.nativeStopAllStream
+      Java_com_kwai_video_stannis_Stannis_nativeStopAllStream
+  0x11a9b0       396        com.kwai.video.stannis.Stannis.nativeAddRxStream
+      Java_com_kwai_video_stannis_Stannis_nativeAddRxStream
+  0x11ab3c       476        com.kwai.video.stannis.Stannis.nativeAddRxStreamWithNativeDataProvider
+      Java_com_kwai_video_stannis_Stannis_nativeAddRxStreamWithNativeDataProvider
+  0x11ad18       28         com.kwai.video.stannis.Stannis.nativeRemoveRxStream
+      Java_com_kwai_video_stannis_Stannis_nativeRemoveRxStream
+  0x11ad34       36         com.kwai.video.stannis.Stannis.nativeSetRxStreamMixerGain
+      Java_com_kwai_video_stannis_Stannis_nativeSetRxStreamMixerGain
+  0x11ad58       24         com.kwai.video.stannis.Stannis.nativePause
+      Java_com_kwai_video_stannis_Stannis_nativePause
+  0x11ad70       24         com.kwai.video.stannis.Stannis.nativeResume
+      Java_com_kwai_video_stannis_Stannis_nativeResume
+  0x11ad88       128        com.kwai.video.stannis.Stannis.nativeGetIsLiveStreamEnable
+      Java_com_kwai_video_stannis_Stannis_nativeGetIsLiveStreamEnable
+  0x11ae08       128        com.kwai.video.stannis.Stannis.nativeGetIsAudioChatEnable
+      Java_com_kwai_video_stannis_Stannis_nativeGetIsAudioChatEnable
+  0x11ae88       24         com.kwai.video.stannis.Stannis.nativeStopAllLiveChat
+      Java_com_kwai_video_stannis_Stannis_nativeStopAllLiveChat
+  0x11aea0       32         com.kwai.video.stannis.Stannis.nativeEnableAecDump
+      Java_com_kwai_video_stannis_Stannis_nativeEnableAecDump
+  0x11aec0       364        com.kwai.video.stannis.Stannis.nativeAddLiveChatMixBgmStream
+      Java_com_kwai_video_stannis_Stannis_nativeAddLiveChatMixBgmStream
+  0x11b02c       444        com.kwai.video.stannis.Stannis.nativeAddLiveChatMixBgmStreamWithNativeReceiver
+      Java_com_kwai_video_stannis_Stannis_nativeAddLiveChatMixBgmStreamWithNativeReceiver
+  0x11b1e8       28         com.kwai.video.stannis.Stannis.nativeRemoveLiveChatMixBgmStream
+      Java_com_kwai_video_stannis_Stannis_nativeRemoveLiveChatMixBgmStream
+  0x11b204       24         com.kwai.video.stannis.Stannis.nativeStopAudioRenderThread
+      Java_com_kwai_video_stannis_Stannis_nativeStopAudioRenderThread
+  0x11b21c       744        com.kwai.video.stannis.audio.StannisAudioCommon.nativeGetCurrentAudioDeviceConfig
+      Java_com_kwai_video_stannis_audio_StannisAudioCommon_nativeGetCurrentAudioDeviceConfig
+  0x11b504       960        com.kwai.video.stannis.Stannis.nativeStartKaraokeScore
+      Java_com_kwai_video_stannis_Stannis_nativeStartKaraokeScore
+  0x11b8c4       24         com.kwai.video.stannis.Stannis.nativeStopKaraokeScore
+      Java_com_kwai_video_stannis_Stannis_nativeStopKaraokeScore
+  0x11b8dc       404        com.kwai.video.stannis.Stannis.nativeGetKaraokeLastScore
+      Java_com_kwai_video_stannis_Stannis_nativeGetKaraokeLastScore
+  0x11ba70       28         com.kwai.video.stannis.Stannis.nativeGetKaraokeTotalScore
+      Java_com_kwai_video_stannis_Stannis_nativeGetKaraokeTotalScore
+  0x11ba8c       28         com.kwai.video.stannis.Stannis.nativeGetKaraokeScorePitch
+      Java_com_kwai_video_stannis_Stannis_nativeGetKaraokeScorePitch
+  0x11baa8       52         com.kwai.video.stannis.Stannis.nativeSetKaraokeScorePitch
+      Java_com_kwai_video_stannis_Stannis_nativeSetKaraokeScorePitch
+  0x11badc       28         com.kwai.video.stannis.Stannis.nativeGetKaraokeScoreMidi
+      Java_com_kwai_video_stannis_Stannis_nativeGetKaraokeScoreMidi
+  0x11baf8       28         com.kwai.video.stannis.Stannis.nativeGetKaraokeAverageScore
+      Java_com_kwai_video_stannis_Stannis_nativeGetKaraokeAverageScore
+  0x11bb14       148        com.kwai.video.stannis.Stannis.nativeStartKaraokeVad
+      Java_com_kwai_video_stannis_Stannis_nativeStartKaraokeVad
+  0x11bba8       24         com.kwai.video.stannis.Stannis.nativeStopKaraokeVad
+      Java_com_kwai_video_stannis_Stannis_nativeStopKaraokeVad
+  0x11bbc0       180        com.kwai.video.stannis.Stannis.nativeKaraokeVadGetResult
+      Java_com_kwai_video_stannis_Stannis_nativeKaraokeVadGetResult
+  0x11bc74       56         com.kwai.video.stannis.Stannis.nativeKaraokeVadRowJump
+      Java_com_kwai_video_stannis_Stannis_nativeKaraokeVadRowJump
+  0x11bcac       180        com.kwai.video.stannis.Stannis.nativeGetKaraokeVadDurationResult
+      Java_com_kwai_video_stannis_Stannis_nativeGetKaraokeVadDurationResult
+  0x11bd60       172        com.kwai.video.stannis.Stannis.nativeInputRawAudio
+      Java_com_kwai_video_stannis_Stannis_nativeInputRawAudio
+  0x11be0c       224        com.kwai.video.stannis.Stannis.nativeFetchRawAudio
+      Java_com_kwai_video_stannis_Stannis_nativeFetchRawAudio
+  0x11beec       1644       com.kwai.video.stannis.Stannis.nativeStartRecordFile
+      Java_com_kwai_video_stannis_Stannis_nativeStartRecordFile
+  0x11c558       248        com.kwai.video.stannis.Stannis.nativeStopRecordFile
+      Java_com_kwai_video_stannis_Stannis_nativeStopRecordFile
+  0x11c650       28         com.kwai.video.stannis.Stannis.nativeGetRecordDelay
+      Java_com_kwai_video_stannis_Stannis_nativeGetRecordDelay
+  0x11c66c       340        com.kwai.video.stannis.Stannis.nativeAddBypassDataReadyObserver
+      Java_com_kwai_video_stannis_Stannis_nativeAddBypassDataReadyObserver
+  0x11c7c0       24         com.kwai.video.stannis.Stannis.nativeRemoveBypassDataReadyObserver
+      Java_com_kwai_video_stannis_Stannis_nativeRemoveBypassDataReadyObserver
+  0x11c7d8       340        com.kwai.video.stannis.Stannis.nativeStartMultipleStreamMix
+      Java_com_kwai_video_stannis_Stannis_nativeStartMultipleStreamMix
+  0x11c92c       24         com.kwai.video.stannis.Stannis.nativeStopMultipleStreamMix
+      Java_com_kwai_video_stannis_Stannis_nativeStopMultipleStreamMix
+  0x11c944       28         com.kwai.video.stannis.Stannis.nativeAddMixTrack
+      Java_com_kwai_video_stannis_Stannis_nativeAddMixTrack
+  0x11c960       28         com.kwai.video.stannis.Stannis.nativeRemoveMixTrack
+      Java_com_kwai_video_stannis_Stannis_nativeRemoveMixTrack
+  0x11c97c       184        com.kwai.video.stannis.Stannis.nativeInputTrackData
+      Java_com_kwai_video_stannis_Stannis_nativeInputTrackData
+  0x11ca34       48         com.kwai.video.stannis.Stannis.nativeIsRenderMute
+      Java_com_kwai_video_stannis_Stannis_nativeIsRenderMute
+  0x11ca64       24         com.kwai.video.stannis.audio.StannisAudioCommon.nativeResetAudioProcess
+      Java_com_kwai_video_stannis_audio_StannisAudioCommon_nativeResetAudioProcess
+  0x11ca7c       560        com.kwai.video.stannis.Stannis.nativeStartFingerprint
+      Java_com_kwai_video_stannis_Stannis_nativeStartFingerprint
+  0x11ccac       24         com.kwai.video.stannis.Stannis.nativeStopFingerprint
+      Java_com_kwai_video_stannis_Stannis_nativeStopFingerprint
+  0x11ccc4       24         com.kwai.video.stannis.Stannis.nativeStartSilenceGenerator
+      Java_com_kwai_video_stannis_Stannis_nativeStartSilenceGenerator
+  0x11ccdc       24         com.kwai.video.stannis.Stannis.nativeStopSilenceGenerator
+      Java_com_kwai_video_stannis_Stannis_nativeStopSilenceGenerator
+  0x11ccf4       32         com.kwai.video.stannis.Stannis.nativeSetEnableAutoMixProcess
+      Java_com_kwai_video_stannis_Stannis_nativeSetEnableAutoMixProcess
+  0x11cd14       404        com.kwai.video.stannis.Stannis.nativeGetAutoMixBgmFeature
+      Java_com_kwai_video_stannis_Stannis_nativeGetAutoMixBgmFeature
+  0x11cea8       404        com.kwai.video.stannis.Stannis.nativeGetAutoMixVocalFeature
+      Java_com_kwai_video_stannis_Stannis_nativeGetAutoMixVocalFeature
+  0x11d03c       148        com.kwai.video.stannis.Stannis.nativeStartVocalBgmSync
+      Java_com_kwai_video_stannis_Stannis_nativeStartVocalBgmSync
+  0x11d0d0       220        com.kwai.video.stannis.Stannis.nativeStartVocalBgmSyncByData
+      Java_com_kwai_video_stannis_Stannis_nativeStartVocalBgmSyncByData
+  0x11d1ac       24         com.kwai.video.stannis.Stannis.nativeStopVocalBgmSync
+      Java_com_kwai_video_stannis_Stannis_nativeStopVocalBgmSync
+  0x11d1c4       28         com.kwai.video.stannis.Stannis.nativeGetVocalBgmShiftMs
+      Java_com_kwai_video_stannis_Stannis_nativeGetVocalBgmShiftMs
+  0x11d1e0       424        com.kwai.video.stannis.Stannis.nativeGetPitchSequence
+      Java_com_kwai_video_stannis_Stannis_nativeGetPitchSequence
+  0x11d388       24         com.kwai.video.stannis.Stannis.nativeStartAutoTune
+      Java_com_kwai_video_stannis_Stannis_nativeStartAutoTune
+  0x11d3a0       24         com.kwai.video.stannis.Stannis.nativeStopAutoTune
+      Java_com_kwai_video_stannis_Stannis_nativeStopAutoTune
+  0x11d3b8       424        com.kwai.video.stannis.Stannis.nativeGetAutoTuneFeatures
+      Java_com_kwai_video_stannis_Stannis_nativeGetAutoTuneFeatures
+  0x11d560       548        com.kwai.video.stannis.Stannis.nativeRegisterAudioInfoObserver
+      Java_com_kwai_video_stannis_Stannis_nativeRegisterAudioInfoObserver
+  0x11d784       32         com.kwai.video.stannis.Stannis.nativeSetRegisterAudioInfoObserver
+      Java_com_kwai_video_stannis_Stannis_nativeSetRegisterAudioInfoObserver
+  0x11d7a4       1480       com.kwai.video.stannis.Stannis.nativeRegisterAudioFrameObserver
+      Java_com_kwai_video_stannis_Stannis_nativeRegisterAudioFrameObserver
+  0x11dd6c       60         com.kwai.video.stannis.Stannis.nativeSetRecordingAudioFrameParameters
+      Java_com_kwai_video_stannis_Stannis_nativeSetRecordingAudioFrameParameters
+  0x11dda8       60         com.kwai.video.stannis.Stannis.nativeSetPlaybackAudioFrameParameters
+      Java_com_kwai_video_stannis_Stannis_nativeSetPlaybackAudioFrameParameters
+  0x11dde4       60         com.kwai.video.stannis.Stannis.nativeSetMixedAudioFrameParameters
+      Java_com_kwai_video_stannis_Stannis_nativeSetMixedAudioFrameParameters
+  0x11de20       224        com.kwai.video.stannis.Stannis.nativeInputSpeakerData
+      Java_com_kwai_video_stannis_Stannis_nativeInputSpeakerData
+  0x11df00       16         com.kwai.video.stannis.Stannis.nativeAudioProcessCreateAgcInterface
+      Java_com_kwai_video_stannis_Stannis_nativeAudioProcessCreateAgcInterface
+  0x11df10       12         com.kwai.video.stannis.Stannis.nativeAudioProcessCreateDspInterface
+      Java_com_kwai_video_stannis_Stannis_nativeAudioProcessCreateDspInterface
+  0x11df1c       12         com.kwai.video.stannis.Stannis.nativeAudioProcessCreateTimbreInterface
+      Java_com_kwai_video_stannis_Stannis_nativeAudioProcessCreateTimbreInterface
+  0x11df28       24         com.kwai.video.stannis.Stannis.nativeAudioProcessDestroyAgcInterface
+      Java_com_kwai_video_stannis_Stannis_nativeAudioProcessDestroyAgcInterface
+  0x11df40       24         com.kwai.video.stannis.Stannis.nativeAudioProcessDestroyDspInterface
+      Java_com_kwai_video_stannis_Stannis_nativeAudioProcessDestroyDspInterface
+  0x11df58       24         com.kwai.video.stannis.Stannis.nativeAudioProcessDestroyTimbreInterface
+      Java_com_kwai_video_stannis_Stannis_nativeAudioProcessDestroyTimbreInterface
+  0x11df70       128        com.kwai.video.stannis.Stannis.nativeAudioProcessSetAgcParam
+      Java_com_kwai_video_stannis_Stannis_nativeAudioProcessSetAgcParam
+  0x11dff0       68         com.kwai.video.stannis.Stannis.nativeAudioProcessSetDspParam
+      Java_com_kwai_video_stannis_Stannis_nativeAudioProcessSetDspParam
+  0x11e034       1204       com.kwai.video.stannis.Stannis.nativeAudioProcessSetVcoParameters
+      Java_com_kwai_video_stannis_Stannis_nativeAudioProcessSetVcoParameters
+  0x11e4e8       20         com.kwai.video.stannis.Stannis.nativeAudioProcessSetVocalParam
+      Java_com_kwai_video_stannis_Stannis_nativeAudioProcessSetVocalParam
+  0x11e4fc       196        com.kwai.video.stannis.Stannis.nativeAudioProcessData
+      Java_com_kwai_video_stannis_Stannis_nativeAudioProcessData
+  0x11e5c0       1828       com.kwai.video.stannis.Stannis.nativeGetCpuInfo
+      Java_com_kwai_video_stannis_Stannis_nativeGetCpuInfo
+  0x11ece4       12         com.kwai.video.stannis.Stannis.nativeAudioProcessCreateTempoInterface
+      Java_com_kwai_video_stannis_Stannis_nativeAudioProcessCreateTempoInterface
+  0x11ecf0       72         com.kwai.video.stannis.Stannis.nativeAudioProcessTempoProcess
+      Java_com_kwai_video_stannis_Stannis_nativeAudioProcessTempoProcess
+  0x11ed38       72         com.kwai.video.stannis.Stannis.nativeAudioProcessBpmDetect
+      Java_com_kwai_video_stannis_Stannis_nativeAudioProcessBpmDetect
+  0x11ed80       16         com.kwai.video.stannis.Stannis.nativeAudioProcessSetTempo
+      Java_com_kwai_video_stannis_Stannis_nativeAudioProcessSetTempo
+  0x11ed90       16         com.kwai.video.stannis.Stannis.nativeAudioProcessSetTempoRate
+      Java_com_kwai_video_stannis_Stannis_nativeAudioProcessSetTempoRate
+  0x11eda0       24         com.kwai.video.stannis.Stannis.nativeAudioProcessDestroyTempoInterface
+      Java_com_kwai_video_stannis_Stannis_nativeAudioProcessDestroyTempoInterface
+  0x11edb8       12         com.kwai.video.stannis.AudioProcess.nativeAudioPostEffectInterface
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioPostEffectInterface
+  0x11edc4       24         com.kwai.video.stannis.AudioProcess.nativeAudioPostEffectDestroy
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioPostEffectDestroy
+  0x11eddc       208        com.kwai.video.stannis.AudioProcess.nativeAudioPostEffectProcess
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioPostEffectProcess
+  0x11eeac       52         com.kwai.video.stannis.AudioProcess.nativeAudioPostEffectSetOption
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioPostEffectSetOption
+  0x11eee0       32         com.kwai.video.stannis.AudioProcess.nativeAudioPostEffectSetPitch
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioPostEffectSetPitch
+  0x11ef00       32         com.kwai.video.stannis.AudioProcess.nativeAudioPostEffectSetHeadsetMode
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioPostEffectSetHeadsetMode
+  0x11ef20       32         com.kwai.video.stannis.AudioProcess.nativeAudioPostEffectSetOutputChannel
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioPostEffectSetOutputChannel
+  0x11ef40       24         com.kwai.video.stannis.AudioProcess.nativeAudioPostEffectClear
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioPostEffectClear
+  0x11ef58       156        com.kwai.video.stannis.AudioProcess.nativeAudioWatermarkInterface
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioWatermarkInterface
+  0x11eff4       24         com.kwai.video.stannis.AudioProcess.nativeAudioWatermarkDestroy
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioWatermarkDestroy
+  0x11f00c       208        com.kwai.video.stannis.AudioProcess.nativeAudioWatermarkAddProcess
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioWatermarkAddProcess
+  0x11f0dc       208        com.kwai.video.stannis.AudioProcess.nativeAudioWatermarkFetchRestAduioData
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioWatermarkFetchRestAduioData
+  0x11f1ac       12         com.kwai.video.stannis.AudioProcess.nativeAudioWatermarkDecodeInterface
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioWatermarkDecodeInterface
+  0x11f1b8       24         com.kwai.video.stannis.AudioProcess.nativeAudioWatermarkDecodeDestroy
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioWatermarkDecodeDestroy
+  0x11f1d0       152        com.kwai.video.stannis.AudioProcess.nativeAudioWatermarkDecodeProcess
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioWatermarkDecodeProcess
+  0x11f268       204        com.kwai.video.stannis.AudioProcess.nativeAudioWatermarkDecodeGetWaterMark
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioWatermarkDecodeGetWaterMark
+  0x11f334       32         com.kwai.video.stannis.Stannis.nativeSetAudioTunnel
+      Java_com_kwai_video_stannis_Stannis_nativeSetAudioTunnel
+  0x11f354       32         com.kwai.video.stannis.Stannis.nativeSetAudioRecvRange
+      Java_com_kwai_video_stannis_Stannis_nativeSetAudioRecvRange
+  0x11f374       40         com.kwai.video.stannis.Stannis.nativeEnableAttenuation
+      Java_com_kwai_video_stannis_Stannis_nativeEnableAttenuation
+  0x11f39c       40         com.kwai.video.stannis.Stannis.nativeEnableSpatializer
+      Java_com_kwai_video_stannis_Stannis_nativeEnableSpatializer
+  0x11f3c4       240        com.kwai.video.stannis.Stannis.nativeUpdateSelfPosition
+      Java_com_kwai_video_stannis_Stannis_nativeUpdateSelfPosition
+  0x11f4b4       24         com.kwai.video.stannis.Stannis.nativeSetHrtfMode
+      Java_com_kwai_video_stannis_Stannis_nativeSetHrtfMode
+  0x11f4cc       152        com.kwai.video.stannis.Stannis.nativeSetHrtfModelPath
+      Java_com_kwai_video_stannis_Stannis_nativeSetHrtfModelPath
+  0x11f564       28         com.kwai.video.stannis.Stannis.nativeSetSelfAudioTeamId
+      Java_com_kwai_video_stannis_Stannis_nativeSetSelfAudioTeamId
+  0x11f580       48         com.kwai.video.stannis.Stannis.nativeIsEnableCommonDenoise
+      Java_com_kwai_video_stannis_Stannis_nativeIsEnableCommonDenoise
+  0x11f5b0       48         com.kwai.video.stannis.Stannis.nativeIsEnableAudioQualityEstimation
+      Java_com_kwai_video_stannis_Stannis_nativeIsEnableAudioQualityEstimation
+  0x11f5e0       476        com.kwai.video.stannis.Stannis.nativeAddRxStreamWithNativeDataProviderWithType
+      Java_com_kwai_video_stannis_Stannis_nativeAddRxStreamWithNativeDataProviderWithType
+  0x11f7bc       128        com.kwai.video.stannis.Stannis.nativeGetRoundTripLatency
+      Java_com_kwai_video_stannis_Stannis_nativeGetRoundTripLatency
+  0x11f83c       128        com.kwai.video.stannis.audio.AudioDeviceJavaAudioInnerRecord.nativeSetInnerRecorderConfig
+      Java_com_kwai_video_stannis_audio_AudioDeviceJavaAudioInnerRecord_nativeSetInnerRecorderConfig
+  0x11f8bc       204        com.kwai.video.stannis.audio.AudioDeviceJavaAudioInnerRecord.nativeInnerDataIsRecorded
+      Java_com_kwai_video_stannis_audio_AudioDeviceJavaAudioInnerRecord_nativeInnerDataIsRecorded
+  0x11f988       36         com.kwai.video.stannis.Stannis.nativeSetEnableSpeakerInput
+      Java_com_kwai_video_stannis_Stannis_nativeSetEnableSpeakerInput
+  0x11f9ac       24         com.kwai.video.stannis.audio.StannisAudioCommon.nativeSetInnerCapDataVolume
+      Java_com_kwai_video_stannis_audio_StannisAudioCommon_nativeSetInnerCapDataVolume
+  0x128860       12         com.kwai.video.stannis.AudioProcess.nativeTempoCreate
+      Java_com_kwai_video_stannis_AudioProcess_nativeTempoCreate
+  0x12886c       140        com.kwai.video.stannis.AudioProcess.nativeTempoProcess
+      Java_com_kwai_video_stannis_AudioProcess_nativeTempoProcess
+  0x1288f8       140        com.kwai.video.stannis.AudioProcess.nativeTempoBpmDetect
+      Java_com_kwai_video_stannis_AudioProcess_nativeTempoBpmDetect
+  0x128984       16         com.kwai.video.stannis.AudioProcess.nativeTempoSetTempo
+      Java_com_kwai_video_stannis_AudioProcess_nativeTempoSetTempo
+  0x128994       16         com.kwai.video.stannis.AudioProcess.nativeTempoSetRate
+      Java_com_kwai_video_stannis_AudioProcess_nativeTempoSetRate
+  0x1289a4       40         com.kwai.video.stannis.AudioProcess.nativeTempoGetBeatsNum
+      Java_com_kwai_video_stannis_AudioProcess_nativeTempoGetBeatsNum
+  0x1289cc       224        com.kwai.video.stannis.AudioProcess.nativeTempoGetBeatsResult
+      Java_com_kwai_video_stannis_AudioProcess_nativeTempoGetBeatsResult
+  0x128aac       24         com.kwai.video.stannis.AudioProcess.nativeTempoDestroy
+      Java_com_kwai_video_stannis_AudioProcess_nativeTempoDestroy
+  0x128ac4       12         com.kwai.video.stannis.AudioProcess.nativeDspCreate
+      Java_com_kwai_video_stannis_AudioProcess_nativeDspCreate
+  0x128ad0       24         com.kwai.video.stannis.AudioProcess.nativeDspDestroy
+      Java_com_kwai_video_stannis_AudioProcess_nativeDspDestroy
+  0x128ae8       144        com.kwai.video.stannis.AudioProcess.nativeDspProcess
+      Java_com_kwai_video_stannis_AudioProcess_nativeDspProcess
+  0x128b78       20         com.kwai.video.stannis.AudioProcess.nativeDspSetVeoMode
+      Java_com_kwai_video_stannis_AudioProcess_nativeDspSetVeoMode
+  0x128b8c       20         com.kwai.video.stannis.AudioProcess.nativeDspSetVcoMode
+      Java_com_kwai_video_stannis_AudioProcess_nativeDspSetVcoMode
+  0x128ba0       1636       com.kwai.video.stannis.AudioProcess.nativeDspSetParameters
+      Java_com_kwai_video_stannis_AudioProcess_nativeDspSetParameters
+  0x129204       412        com.kwai.video.stannis.AudioProcess.nativeDspGetParameters
+      Java_com_kwai_video_stannis_AudioProcess_nativeDspGetParameters
+  0x1293a0       20         com.kwai.video.stannis.AudioProcess.nativeDspSetOutChannels
+      Java_com_kwai_video_stannis_AudioProcess_nativeDspSetOutChannels
+  0x1293b4       16         com.kwai.video.stannis.AudioProcess.nativeDspSetPitch
+      Java_com_kwai_video_stannis_AudioProcess_nativeDspSetPitch
+  0x1293c4       372        com.kwai.video.stannis.AudioProcess.nativeDspGetPitch
+      Java_com_kwai_video_stannis_AudioProcess_nativeDspGetPitch
+  0x129538       16         com.kwai.video.stannis.AudioProcess.nativeDspInitPitch
+      Java_com_kwai_video_stannis_AudioProcess_nativeDspInitPitch
+  0x129548       16         com.kwai.video.stannis.AudioProcess.nativeDspFreePitch
+      Java_com_kwai_video_stannis_AudioProcess_nativeDspFreePitch
+  0x129558       1204       com.kwai.video.stannis.AudioProcess.nativeDspSetVcoParameters
+      Java_com_kwai_video_stannis_AudioProcess_nativeDspSetVcoParameters
+  0x129a0c       16         com.kwai.video.stannis.AudioProcess.nativeDspClear
+      Java_com_kwai_video_stannis_AudioProcess_nativeDspClear
+  0x129a1c       12         com.kwai.video.stannis.AudioProcess.nativePitchChangeCreate
+      Java_com_kwai_video_stannis_AudioProcess_nativePitchChangeCreate
+  0x129a28       140        com.kwai.video.stannis.AudioProcess.nativePitchChangeProcess
+      Java_com_kwai_video_stannis_AudioProcess_nativePitchChangeProcess
+  0x129ab4       40         com.kwai.video.stannis.AudioProcess.nativePitchChangeSetPitch
+      Java_com_kwai_video_stannis_AudioProcess_nativePitchChangeSetPitch
+  0x129adc       16         com.kwai.video.stannis.AudioProcess.nativePitchChangeClear
+      Java_com_kwai_video_stannis_AudioProcess_nativePitchChangeClear
+  0x129aec       24         com.kwai.video.stannis.AudioProcess.nativePitchChangeDestroy
+      Java_com_kwai_video_stannis_AudioProcess_nativePitchChangeDestroy
+  0x129b04       12         com.kwai.video.stannis.AudioProcess.nativeTimbreChangeCreate
+      Java_com_kwai_video_stannis_AudioProcess_nativeTimbreChangeCreate
+  0x129b10       140        com.kwai.video.stannis.AudioProcess.nativeTimbreChangeProcess
+      Java_com_kwai_video_stannis_AudioProcess_nativeTimbreChangeProcess
+  0x129b9c       40         com.kwai.video.stannis.AudioProcess.nativeTimbreChangeSetTimbre
+      Java_com_kwai_video_stannis_AudioProcess_nativeTimbreChangeSetTimbre
+  0x129bc4       16         com.kwai.video.stannis.AudioProcess.nativeTimbreChangeClear
+      Java_com_kwai_video_stannis_AudioProcess_nativeTimbreChangeClear
+  0x129bd4       24         com.kwai.video.stannis.AudioProcess.nativeTimbreChangeDestroy
+      Java_com_kwai_video_stannis_AudioProcess_nativeTimbreChangeDestroy
+  0x129bec       12         com.kwai.video.stannis.AudioProcess.nativeAudioMixerCreate
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioMixerCreate
+  0x129bf8       284        com.kwai.video.stannis.AudioProcess.nativeAudioMixerProcess
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioMixerProcess
+  0x129d14       36         com.kwai.video.stannis.AudioProcess.nativeAudioMixerSetGain
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioMixerSetGain
+  0x129d38       16         com.kwai.video.stannis.AudioProcess.nativeAudioMixerClear
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioMixerClear
+  0x129d48       24         com.kwai.video.stannis.AudioProcess.nativeAudioMixerDestroy
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioMixerDestroy
+  0x129d60       16         com.kwai.video.stannis.AudioProcess.nativeAgcCreate
+      Java_com_kwai_video_stannis_AudioProcess_nativeAgcCreate
+  0x129d70       24         com.kwai.video.stannis.AudioProcess.nativeAgcDestroy
+      Java_com_kwai_video_stannis_AudioProcess_nativeAgcDestroy
+  0x129d88       24         com.kwai.video.stannis.AudioProcess.nativeAgcSetNsEnable
+      Java_com_kwai_video_stannis_AudioProcess_nativeAgcSetNsEnable
+  0x129da0       20         com.kwai.video.stannis.AudioProcess.nativeAgcSetNsLevel
+      Java_com_kwai_video_stannis_AudioProcess_nativeAgcSetNsLevel
+  0x129db4       28         com.kwai.video.stannis.AudioProcess.nativeAgcSetAgcLevel
+      Java_com_kwai_video_stannis_AudioProcess_nativeAgcSetAgcLevel
+  0x129dd0       196        com.kwai.video.stannis.AudioProcess.nativeAgcProcess
+      Java_com_kwai_video_stannis_AudioProcess_nativeAgcProcess
+  0x129e94       196        com.kwai.video.stannis.AudioProcess.nativeNsProcess
+      Java_com_kwai_video_stannis_AudioProcess_nativeNsProcess
+  0x129f58       16         com.kwai.video.stannis.AudioProcess.nativeAgcGetVadStatus
+      Java_com_kwai_video_stannis_AudioProcess_nativeAgcGetVadStatus
+  0x129f68       20         com.kwai.video.stannis.AudioProcess.nativeAgcSetQuality
+      Java_com_kwai_video_stannis_AudioProcess_nativeAgcSetQuality
+  0x129f7c       88         com.kwai.video.stannis.AudioProcess.nativeCreateSpectrumInterface
+      Java_com_kwai_video_stannis_AudioProcess_nativeCreateSpectrumInterface
+  0x129fd4       24         com.kwai.video.stannis.AudioProcess.nativeSpectrumDestroy
+      Java_com_kwai_video_stannis_AudioProcess_nativeSpectrumDestroy
+  0x129fec       284        com.kwai.video.stannis.AudioProcess.nativeSpectrumProcess
+      Java_com_kwai_video_stannis_AudioProcess_nativeSpectrumProcess
+  0x12a108       12         com.kwai.video.stannis.AudioProcess.nativeCreatePreciseVadInterface
+      Java_com_kwai_video_stannis_AudioProcess_nativeCreatePreciseVadInterface
+  0x12a114       24         com.kwai.video.stannis.AudioProcess.nativePreciseVadDestroy
+      Java_com_kwai_video_stannis_AudioProcess_nativePreciseVadDestroy
+  0x12a12c       140        com.kwai.video.stannis.AudioProcess.nativePreciseVadProcess
+      Java_com_kwai_video_stannis_AudioProcess_nativePreciseVadProcess
+  0x12a1b8       12         com.kwai.video.stannis.AudioProcess.nativeCreateBeatsTrackInterface
+      Java_com_kwai_video_stannis_AudioProcess_nativeCreateBeatsTrackInterface
+  0x12a1c4       152        com.kwai.video.stannis.AudioProcess.nativeBeatsTrackProcess
+      Java_com_kwai_video_stannis_AudioProcess_nativeBeatsTrackProcess
+  0x12a25c       352        com.kwai.video.stannis.AudioProcess.nativeBeatsTrackGetBeats
+      Java_com_kwai_video_stannis_AudioProcess_nativeBeatsTrackGetBeats
+  0x12a3bc       24         com.kwai.video.stannis.AudioProcess.nativeBeatsTrackDestroy
+      Java_com_kwai_video_stannis_AudioProcess_nativeBeatsTrackDestroy
+  0x12a3d4       12         com.kwai.video.stannis.AudioProcess.nativeAudioGainControlInterface
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioGainControlInterface__IIF
+  0x12a3e0       12         com.kwai.video.stannis.AudioProcess.nativeAudioGainControlInterface
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioGainControlInterface__IIFF
+  0x12a3ec       24         com.kwai.video.stannis.AudioProcess.nativeAudioGainControlDestroy
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioGainControlDestroy
+  0x12a404       152        com.kwai.video.stannis.AudioProcess.nativeAudioGainControlProcess
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioGainControlProcess
+  0x12a49c       208        com.kwai.video.stannis.AudioProcess.nativeAudioVoiceDetectInterface
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioVoiceDetectInterface
+  0x12a56c       296        com.kwai.video.stannis.AudioProcess.nativeAudioVoiceDetectProcess
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioVoiceDetectProcess
+  0x12a694       48         com.kwai.video.stannis.AudioProcess.nativeAudioVoiceDetectDestroy
+      Java_com_kwai_video_stannis_AudioProcess_nativeAudioVoiceDetectDestroy
+  0x12a6c4       12         com.kwai.video.stannis.AudioProcess.nativeAutuTuneInterface
+      Java_com_kwai_video_stannis_AudioProcess_nativeAutuTuneInterface
+  0x12a6d0       324        com.kwai.video.stannis.AudioProcess.nativeAutuTuneGetResult
+      Java_com_kwai_video_stannis_AudioProcess_nativeAutuTuneGetResult
+  0x12a814       296        com.kwai.video.stannis.AudioProcess.nativeAutuTuneGetResultByData
+      Java_com_kwai_video_stannis_AudioProcess_nativeAutuTuneGetResultByData
+  0x12a93c       24         com.kwai.video.stannis.AudioProcess.nativeAutoTuneDestroy
+      Java_com_kwai_video_stannis_AudioProcess_nativeAutoTuneDestroy
+
+AI-relevant strings (784648 bytes scanned in allocated data sections)
+  [model] 1 unique (first 1)
+    0x0013e78d .rodata    ro.product.model
+  [face] 13 unique (first 13)
+    0x00006519 .dynstr    _ZNKSt6__ndk16locale9use_facetERNS0_2idE
+    0x00006eb5 .dynstr    _ZNKSt6__ndk16locale9has_facetERNS0_2idE
+    0x000074f6 .dynstr    _ZN5boost10filesystem6detail18utf8_codecvt_facet15get_octet_countEh
+    0x0000753a .dynstr    _ZN5boost10filesystem6detail18utf8_codecvt_facetC1Em
+    0x0000756f .dynstr    _ZN5boost10filesystem6detail18utf8_codecvt_facetC2Em
+    0x000075a4 .dynstr    _ZNK5boost10filesystem6detail18utf8_codecvt_facet24get_cont_octet_out_countEw
+    0x000075f2 .dynstr    _ZNK5boost10filesystem6detail18utf8_codecvt_facet5do_inER9mbstate_tPKcS6_RS6_PwS8_RS8_
+    0x00007649 .dynstr    _ZNK5boost10filesystem6detail18utf8_codecvt_facet6do_outER9mbstate_tPKwS6_RS6_PcS8_RS8_
+    0x000076a1 .dynstr    _ZNK5boost10filesystem6detail18utf8_codecvt_facet9do_lengthERK9mbstate_tPKcS7_m
+    0x0000776d .dynstr    _ZTIN5boost10filesystem6detail18utf8_codecvt_facetE
+    0x000077c7 .dynstr    _ZTSN5boost10filesystem6detail18utf8_codecvt_facetE
+    0x000077fb .dynstr    _ZTVN5boost10filesystem6detail18utf8_codecvt_facetE
+    0x0013ee6c .rodata    N5boost10filesystem6detail18utf8_codecvt_facetE
+  [asr] 36 unique (first 20)
+    0x001403b0 .rodata    [AudioEngineImpl] NotifyObserver OnPerformanceInsufficient: %d will close commmon ns and audio quality estimation
+    0x0014fe7a .rodata     vad:
+    0x0015313b .rodata    [FFmpegSwrAudioResampler] HandleAudio this:%p, audio input config changed: sample_rate: %d->%d, channel_num: %d->%d
+    0x0015a195 .rodata    SetAudioTunnel curtunnel %d newtunnel %d audio id %d
+    0x0015a1ca .rodata    SameAudioTunnel %d,audio id %d, not need set sr = %d ch = %d audio id %d
+    0x0015a213 .rodata    SetAudioTunnel Destroy 3d instance thetunnel %d sr = %d ch = %d 3dsr %d 3dch %d audio id %d 
+    0x0015a270 .rodata    SetAudioTunnel Create new 3d instance thenewtunnel %d audio id %d 
+    0x0015a2b3 .rodata    SetAudioTunnel %d,audio id %d rval = %d
+    0x0015a2db .rodata    cur_audio_tunnel %d EnableRangeAudio %s,audioTunnel %d,audio id %d
+    0x0015a31e .rodata    cur_audio_tunnel %d EnableRangeAudio %s,audioTunnel %d,audio id %d rval = %d
+    0x0015a36b .rodata    cur_audio_tunnel %d SetAudioRecvRange %d audio id %d
+    0x0015a3a0 .rodata    cur_audio_tunnel %d SetAudioRecvRange %d audio id %d rval = %d
+    0x0015a3df .rodata    cur_audio_tunnel %d EnableSpatializer %s audioTunnel %d audio id %d
+    0x0015a423 .rodata    cur_audio_tunnel %d EnableSpatializer %s audioTunnel %d audio id %d rval = %d
+    0x0015a4ba .rodata    cur_audio_tunnel %d SetHrtfMode %d audio id %d
+    0x0015a4e9 .rodata    cur_audio_tunnel %d SetHrtfMode %d audio id %d rval = %d
+    0x0015a522 .rodata    cur_audio_tunnel %d SetHrtfModePath %s audio id %d
+    0x0015a555 .rodata    cur_audio_tunnel %d SetHrtfModePath %s audio id %d rval = %d
+    0x0015ca75 .rodata    Audio Secen: 
+    0x0015cb8f .rodata    Audio Device Headphone: 
+    ... 16 more
+  [segment] 34 unique (first 20)
+    0x000095bc .dynstr    Java_com_kwai_video_stannis_Stannis_nativeEnableMixingAudioSegment
+    0x0000b2a5 .dynstr    Java_com_kwai_video_stannis_Stannis_nativeStartPlayAudioSegment
+    0x0000b65a .dynstr    Java_com_kwai_video_stannis_Stannis_nativeStopPlayAudioSegment
+    0x00140422 .rodata    [AudioEngine] StartPlayAudioSegment vc_id: %s, url: %s
+    0x00140459 .rodata    [AudioEngine] StopPlayAudioSegment
+    0x0014047c .rodata    [AudioEngine] EnableMixingAudioSegment:%d
+    0x0014725f .rodata    NSt6__ndk110__function6__funcIZN8kuaishou11audioengine15AudioEngineImpl21StartPlayAudioSegmentERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESC_NS_10shared_ptrINS3_26AudioSegmentPlayerObserverEEEE5$_100NS8_ISG_EEFvvEEE
+    0x00147348 .rodata    ZN8kuaishou11audioengine15AudioEngineImpl21StartPlayAudioSegmentERKNSt6__ndk112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEESA_NS2_10shared_ptrINS0_26AudioSegmentPlayerObserverEEEE5$_100
+    0x0014740d .rodata    NSt6__ndk110__function6__funcIZN8kuaishou11audioengine15AudioEngineImpl20StopPlayAudioSegmentEvE5$_101NS_9allocatorIS5_EEFvvEEE
+    0x0014748d .rodata    ZN8kuaishou11audioengine15AudioEngineImpl20StopPlayAudioSegmentEvE5$_101
+    0x001474d6 .rodata    NSt6__ndk110__function6__funcIZN8kuaishou11audioengine15AudioEngineImpl24EnableMixingAudioSegmentEbE5$_102NS_9allocatorIS5_EEFvvEEE
+    0x0014755a .rodata    ZN8kuaishou11audioengine15AudioEngineImpl24EnableMixingAudioSegmentEbE5$_102
+    0x0014fdbd .rodata    [segment] mix:
+    0x0015343c .rodata    [AudioSegmentPlayer] StartPlay
+    0x0015345b .rodata    [AudioSegmentPlayer] StartPlay failed, NOT SetAudioFormat
+    0x00153495 .rodata    [AudioSegmentPlayer] Reset Player
+    0x001534b7 .rodata    StannisSegmentDec
+    0x001534c9 .rodata    [AudioSegmentPlayer] RegisterSource %d
+    0x001534f0 .rodata    [AudioSegmentPlayer] StopPlay
+    0x0015350e .rodata    [AudioSegmentPlayer] UnRegisterSource %d
+    ... 14 more
+  [model_name] 1 unique (first 1)
+    0x0013e78d .rodata    ro.product.model
+
+JSON written to /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/native/libkwaiaudio.so.json

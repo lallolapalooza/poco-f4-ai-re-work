@@ -1,0 +1,103 @@
+{
+  "build_errors": [
+    {
+      "index": 177,
+      "op": "RESHAPE",
+      "reason": "RESHAPE requires a constant new shape (input 1, tensor 447) but it is dynamic"
+    },
+    {
+      "index": 178,
+      "op": "ADD",
+      "reason": "tensor 448 (model_1/reshape/Reshape) is read before it is produced"
+    },
+    {
+      "index": 181,
+      "op": "RESHAPE",
+      "reason": "RESHAPE requires a constant new shape (input 1, tensor 451) but it is dynamic"
+    },
+    {
+      "index": 182,
+      "op": "ADD",
+      "reason": "tensor 452 (model_1/reshape_1/Reshape) is read before it is produced"
+    },
+    {
+      "index": 185,
+      "op": "RESHAPE",
+      "reason": "RESHAPE requires a constant new shape (input 1, tensor 455) but it is dynamic"
+    },
+    {
+      "index": 186,
+      "op": "ADD",
+      "reason": "tensor 456 (model_1/reshape_2/Reshape) is read before it is produced"
+    },
+    {
+      "index": 189,
+      "op": "RESHAPE",
+      "reason": "RESHAPE requires a constant new shape (input 1, tensor 459) but it is dynamic"
+    },
+    {
+      "index": 190,
+      "op": "ADD",
+      "reason": "tensor 460 (model_1/reshape_3/Reshape) is read before it is produced"
+    },
+    {
+      "index": 193,
+      "op": "RESHAPE",
+      "reason": "RESHAPE requires a constant new shape (input 1, tensor 463) but it is dynamic"
+    },
+    {
+      "index": 194,
+      "op": "ADD",
+      "reason": "tensor 464 (model_1/reshape_4/Reshape) is read before it is produced"
+    }
+  ],
+  "hint": "An op requires a compile-time constant (shape/axes/slice bounds) that is computed dynamically in this graph.",
+  "model": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/tflite/model__ai_beauty_type_processor__s3.tflite",
+  "model_conversion": {
+    "reason": "subgraph 0 'main' needs dynamic parameters: op 177 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 447) but it is dynamic; op 178 (ADD): tensor 448 (model_1/reshape/Reshape) is read before it is produced; op 181 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 451) but it is dynamic; op 182 (ADD): tensor 452 (model_1/reshape_1/Reshape) is read before it is produced; op 185 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 455) but it is dynamic; op 186 (ADD): tensor 456 (model_1/reshape_2/Reshape) is read before it is produced; op 189 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 459) but it is dynamic; op 190 (ADD): tensor 460 (model_1/reshape_3/Reshape) is read before it is produced; ... 2 more",
+    "signature_key": null,
+    "status": "unsupported",
+    "subgraph_index": 0
+  },
+  "reason": "subgraph 0 'main' needs dynamic parameters: op 177 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 447) but it is dynamic; op 178 (ADD): tensor 448 (model_1/reshape/Reshape) is read before it is produced; op 181 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 451) but it is dynamic; op 182 (ADD): tensor 452 (model_1/reshape_1/Reshape) is read before it is produced; op 185 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 455) but it is dynamic; op 186 (ADD): tensor 456 (model_1/reshape_2/Reshape) is read before it is produced; op 189 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 459) but it is dynamic; op 190 (ADD): tensor 460 (model_1/reshape_3/Reshape) is read before it is produced; ... 2 more",
+  "signature_key": null,
+  "stateful": false,
+  "status": "unsupported_params",
+  "subgraph_index": 0,
+  "subgraph_name": "main",
+  "subgraph_role": "inference",
+  "subgraphs": [
+    {
+      "index": 0,
+      "inputs": [
+        "inputs_le",
+        "inputs_leb",
+        "inputs_re",
+        "inputs_reb",
+        "inputs_mouth",
+        "ht_le",
+        "ht_leb",
+        "ht_re",
+        "ht_reb",
+        "ht_mouth",
+        "lm_le",
+        "lm_leb",
+        "lm_re",
+        "lm_reb",
+        "lm_mouth"
+      ],
+      "name": "main",
+      "outputs": [
+        "Identity",
+        "Identity_1",
+        "Identity_2",
+        "Identity_3",
+        "Identity_4"
+      ],
+      "role": "inference",
+      "stateful": false,
+      "unsupported_ops": []
+    }
+  ],
+  "unsupported_ops": []
+}

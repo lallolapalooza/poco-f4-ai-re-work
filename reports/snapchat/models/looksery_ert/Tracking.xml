@@ -1,0 +1,17 @@
+<DependencyGraph>
+    <FaceDetectorStage Output="Faces"/>
+
+    <TrackingStage Name="Main" Output="FaceLandmarks68Unblurred" TrackingSession.DstShapeId="0" DependsOn="Faces" RegressorPath="FaceRegressor.bin" ConfidenceThreshold="0.76" InitializeAsync="True"/>
+    <TrackingStage Output="EyeLandmarks" TrackingSession.SrcShapeId="0" TrackingSession.DstShapeId="0" DependsOn="FaceLandmarks68Unblurred" RegressorPath="EyesRegressor.bin" InitializeAsync="True"/>
+    <TrackingStage Output="FaceLandmarks68" TrackingSession.SrcShapeId="0" TrackingSession.DstShapeId="0" DependsOn="EyeLandmarks" RegressorPath="DenoiseRegressor.bin" InitializeAsync="True"/>
+    <TrackingStage Output="Candide" TrackingSession.DstShapeId="1" DependsOn="FaceLandmarks68" RegressorPath="CandideRegressor.bin" InitializeAsync="True"/>
+    <TrackingStage Output="CandidePerspective" TrackingSession.DstShapeId="2" DependsOn="FaceLandmarks68" RegressorPath="CandidePespectiveRegressor.bin" InitializeAsync="True"/>
+
+    <PipelineStage Output="FaceLandmarks68Unblurred"/>
+    <PipelineStage Output="FaceLandmarks68"/>
+    <PipelineStage Output="FaceLandmarks98"/>
+    <PipelineStage Output="EyeLandmarks"/>
+    <PipelineStage Output="Candide"/>
+    <PipelineStage Output="CandidePerspective"/>
+</DependencyGraph>
+

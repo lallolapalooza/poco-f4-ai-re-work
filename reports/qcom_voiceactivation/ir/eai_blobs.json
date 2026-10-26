@@ -1,0 +1,117 @@
+{
+ "note": "EAI2 super-blobs carved from assets/*.uim and assets/speech_float.eai; size taken from the container's u32 at +0x10",
+ "blobs": [
+  {
+   "file": "63ff0ae5_en-US_001_198088.eai",
+   "size": 8492,
+   "sha256": "72e95e900d6778370cd80951717b85a7df80c832857ed648d612aaf7f617d05a",
+   "fmt": "2.2",
+   "kind": "4.3"
+  },
+  {
+   "file": "63ff0ae5_en-US_001_58312.eai",
+   "size": 6076,
+   "sha256": "fd5707ea3b2ce38ea8c09e3806f8ee83fdfc76b58d478d8cf17ba147eccf51e5",
+   "fmt": "2.2",
+   "kind": "12.2"
+  },
+  {
+   "file": "63ff0ae5_en-US_001_64968.eai",
+   "size": 132752,
+   "sha256": "90aa71dd5fe7a9e6673a2b695ced8dee1b310a14e0a21c9c43c7eec6fd3a346c",
+   "fmt": "2.2",
+   "kind": "4.3"
+  },
+  {
+   "file": "63ff0ae5_en-US_001_968.eai",
+   "size": 56928,
+   "sha256": "750ec697b054b952dcd669a86091eb342a68ab3ae0d37ff4ebfbcedc3125851b",
+   "fmt": "2.2",
+   "kind": "12.2"
+  },
+  {
+   "file": "63ff0ae5_en-US_002_1208.eai",
+   "size": 408936,
+   "sha256": "ac6c0351c9f29b374f2033d66688dc2839f51a6092481dfb96eabfc213f65d17",
+   "fmt": "2.2",
+   "kind": "4.3"
+  },
+  {
+   "file": "63ff0ae5_en-US_002_410552.eai",
+   "size": 41772,
+   "sha256": "3457fe77688c3f25c1d38b537c142aac4d9daed7336dbdce92d09c053065e446",
+   "fmt": "2.2",
+   "kind": "4.3"
+  },
+  {
+   "file": "63ff0ae5_en-US_036_200136.eai",
+   "size": 8492,
+   "sha256": "72e95e900d6778370cd80951717b85a7df80c832857ed648d612aaf7f617d05a",
+   "fmt": "2.2",
+   "kind": "4.3"
+  },
+  {
+   "file": "63ff0ae5_en-US_036_67016.eai",
+   "size": 132752,
+   "sha256": "90aa71dd5fe7a9e6673a2b695ced8dee1b310a14e0a21c9c43c7eec6fd3a346c",
+   "fmt": "2.2",
+   "kind": "4.3"
+  },
+  {
+   "file": "63ff0ae5_en-US_038_1224.eai",
+   "size": 41508,
+   "sha256": "dce2f9a91b6db138ec65b018407641ac2aa53f7b4539e8655313f73e589c7f85",
+   "fmt": "2.2",
+   "kind": "4.3"
+  },
+  {
+   "file": "63ff0ae5_en-US_038_161736.eai",
+   "size": 13708,
+   "sha256": "d06182871df82f21607cddd55e23a7b8ed9efd62f2b8abffce68b9dc26367d2a",
+   "fmt": "2.2",
+   "kind": "4.3"
+  },
+  {
+   "file": "63ff0ae5_en-US_038_43208.eai",
+   "size": 5820,
+   "sha256": "055e2828d0828cfaabc1b7d6be43fb05bab8deadeebe495dd4a026e518cf56c9",
+   "fmt": "2.2",
+   "kind": "4.3"
+  },
+  {
+   "file": "63ff0ae5_en-US_038_49864.eai",
+   "size": 111372,
+   "sha256": "1aabf8c82b672ee227e0ea5d59800e5300189a9b7aa67cdc65313f6315993782",
+   "fmt": "2.2",
+   "kind": "4.3"
+  },
+  {
+   "file": "63ff0ae5_en-US_040_189384.eai",
+   "size": 8492,
+   "sha256": "72e95e900d6778370cd80951717b85a7df80c832857ed648d612aaf7f617d05a",
+   "fmt": "2.2",
+   "kind": "4.3"
+  },
+  {
+   "file": "63ff0ae5_en-US_040_56264.eai",
+   "size": 132752,
+   "sha256": "90aa71dd5fe7a9e6673a2b695ced8dee1b310a14e0a21c9c43c7eec6fd3a346c",
+   "fmt": "2.2",
+   "kind": "4.3"
+  },
+  {
+   "file": "general_UV_015_526296.eai",
+   "size": 10572796,
+   "sha256": "c46fcec1ce3f3ff2ade3cd8f40bc3b5f2c8cba5ea75b0f3bd3e975c79b8168a7",
+   "fmt": "2.2",
+   "kind": "4.3"
+  },
+  {
+   "file": "speech_float_speech_0.eai",
+   "size": 36632,
+   "sha256": "e548360ccd51641f62c02d12f2b11bc9955b43ca87cbd52d6ec6c8777190cdf9",
+   "fmt": "2.2",
+   "kind": "4.3"
+  }
+ ]
+}

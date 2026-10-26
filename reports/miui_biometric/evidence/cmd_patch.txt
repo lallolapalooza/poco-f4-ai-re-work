@@ -1,0 +1,189 @@
+# Patch session 2026-10-24 — commands and observed output (miui_biometric)
+#
+# All commands run from $WS=/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work
+# PY=/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python
+# R=$WS/reports/miui_biometric
+# SAMPLES: $WS/samples/android/libstfaceunlockocl.so (106744488 B,
+#          sha256 ea711f433005fd1a2410c31339f0e1a1715b0e194abaf62403a0776ecdaabffc)
+#          $WS/samples/android/libjni_stfaceunlock_api.so (131336 B,
+#          sha256 07c04cc5910cf02b115092bfa14967efd7c13d6be4f1574138260f42d90249e6)
+
+## 1. Decompile the camera / client classes (single-class jadx, 13/16 ok)
+
+$PY $WS/tools/decompile_classes.py "$APK" \
+  --regex 'com\.miui\.face\.util\.(DeviceUtils|ClientMonitor|SharedPrefUtil|MiSightCompat)|com\.android\.keyguard\.faceunlock\.(IPreviewCallback|FaceUnlockCallback|BaseFaceEnrollHelper)|com\.ts\.faceauth\.data\.(FaceDetectedCallback|StFaceFunctionConfig|StFaceAuthMode)|com\.ts\.faceauth\.FaceDetectedCallback|com\.miui\.image\.Yuv' \
+  --out $R/sources/faceunlock_extra --max 20 --timeout 180
+
+[1/16] com.miui.face.util.ClientMonitor: ok (1.4s)
+[2/16] com.miui.image.Yuv: ok (1.3s)
+[3/16] com.miui.face.util.SharedPrefUtil: ok (1.4s)
+[4/16] com.miui.face.util.DeviceUtils: ok (1.5s)
+...
+decompile: candidates=16 chosen=16 ok=13 -> .../sources/faceunlock_extra (21.49s)
+
+## 2. Ghidra 12.1.2 decompile of the whole JNI shim (3 GB heap, shared lock)
+
+flock $WS/logs/ghidra.lock -c "$WS/tools/ghidra_decompile.sh \
+  $WS/samples/android/libjni_stfaceunlock_api.so $R/native/jni_all.c \
+  'Java_.*|FaceDetectCallBack|register_fields|find_fields|java_stimage_to_st_image_t|java_rect_to_st_rect_t|st_detect_to_java_face_detected_info|st_faceid_info_array_to_java_faceidinfo' \
+  --timeout 900 --max-functions 0"
+
+[ghidra_decompile] functions in output: 37 (56s, 40057 bytes)
+DecompileSelected.java> SUMMARY matched=37 attempted=37 decompiled=37 failed=0 timedout=0
+
+## 3. Symbol addresses used in report.md / PIPELINE.md
+
+$ nm -C -n --defined-only $WS/samples/android/libstfaceunlockocl.so
+
+000000000010c450 T st_auth_set_gpu_priority
+000000000010c7a4 T st_auth_deinit
+000000000010c908 T st_auth_set_identifier
+000000000010c984 T st_auth_set_roi
+000000000010ca00 T st_auth_set_face_orientation
+000000000010ca7c T st_auth_enroll
+000000000010cb18 T st_auth_unlock
+000000000010cbbc T st_auth_set_faceid_image_number
+000000000010cc38 T st_auth_reset
+000000000010cdd0 T st_auth_evaluate
+000000000010d378 T st_auth_generate_template
+000000000010d438 T st_auth_get_template_info
+000000000010d51c T st_auth_set_threshold_by_international_code
+000000000010d5bc T st_auth_get_last_unlock_id
+000000000010d66c T st_auth_set_standby_mode
+000000000010dfd8 T st_auth_set_facedetect_callback
+000000000010e3e8 T st_auth_init
+000000000010eb20 T st_auth_pre_init
+00000000000fc800 T st_face_init_license
+000000000014b3a8 t stfaceunlock::FaceUnlock2DInterFace::AuthUseId(st_image_t*, unsigned int, int*, int)
+00000000001496ec t stfaceunlock::FaceUnlock2DInterFace::Enroll(st_image_t*, unsigned int, int*, st_template_t**)
+0000000000147264 t stfaceunlock::FaceUnlock2DInterFace::CheckFaceInfo(st_image_t*, st_face_orientation&, unsigned int, st_face_t**, int&, bool)
+0000000000146340 t stfaceunlock::FaceUnlock2DInterFace::CheckOcularInfo(st_image_t*, unsigned int, st_face_t*, bool)
+0000000000145704 t stfaceunlock::FaceUnlock2DInterFace::CreateDetectHandle(...)
+0000000000145a40 t stfaceunlock::FaceUnlock2DInterFace::CreatehacknessHandle(...)
+0000000000145be0 t stfaceunlock::FaceUnlock2DInterFace::CreateOcularHandle(...)
+00000000001458a4 t stfaceunlock::FaceUnlock2DInterFace::CreateVeriyfHandle(...)
+00000000001483e0 t stfaceunlock::FaceUnlock2DInterFace::SetFaceDetectCallback(std::function<void (st_detect_t*)>)
+00000000001484a0 t stfaceunlock::FaceUnlock2DInterFace::StartThread()
+00000000001358ec t stfaceunlock::FeatureManager::Unlock(st_feature_t*, std::string const&, float, std::shared_ptr<FaceVerifyManager> const&, int*, int, float&, int&)
+0000000000126064 t stfaceunlock::FaceVerifyManager::CompareFeature(st_feature_t const*, st_feature_t const*, float*)
+0000000000123bd0 t stfaceunlock::FaceVerify::CompareFeature(st_feature_t const*, st_feature_t const*, float*)
+000000000011cea8 t stfaceunlock::FaceHackness2D::HacknessDetect(st_image_t const*, st_face_t const*, st_face_orientation, float*)
+0000000000140ee8 t stfaceunlock::ImageHepler::GetCvImageFromStImage(st_image_t const*, cv_image_t&)
+0000000000140d1c t stfaceunlock::ImageHepler::ShouldResize(int, int, unsigned int, int&, int&, float&)
+0000000000140c08 t stfaceunlock::ImageHepler::ResizeImage(...)
+000000000014154c t stfaceunlock::ImageHepler::RotateImage(...)
+0000000000143398 t stfaceunlock::CommonFun::GetMean(unsigned char*, int, int, int, cv_pixel_format, cv_landmarks_t const*, float*, float*)
+0000000000129528 t stfaceunlock::FaceAlignManager::Align(...)
+0000000000129a68 t stfaceunlock::FaceCalcPose::CalcPose(st_pointf_t const*, int, float*, float*, float*, float*)
+000000000017c798 t stfaceunlock::FaceAttributeQuality::GetAttribute(st_image_t*, st_face_t*, float*)
+0000000000231190 t stsdk::FeatureCmp::set_compare_threshold(float)
+0000000000231170 t stsdk::FeatureCmp::get_compare_threshold() const
+00000000002311b8 t stsdk::CosineDistance::~CosineDistance()
+0000000000259e94 t verif_engine::Engine::Normalize(float*, int)
+000000000025a37c t verif_engine::Engine::GetPCAFeature(std::vector<float> const&, std::vector<float>&)
+00000000002cee4c t protector::NormModel::Run(float&)
+
+## 4. Disassembly of the wrappers and stage functions (capstone)
+
+$PY $WS/tools/disasm_elf.py $WS/samples/android/libstfaceunlockocl.so --symbol <sym> --out $R/native/<file>
+
+st_auth_unlock                  -> native/big_st_auth_unlock.s     (0x10cb18, 0xa4 B)
+  tail-calls FaceUnlock2DInterFace::AuthUseId(img,cfg,faceIds,n)
+st_auth_enroll                  -> native/big_st_auth_enroll.s     (0x10ca7c, 0x9c B)
+  tail-calls FaceUnlock2DInterFace::Enroll(img,cfg,&status,0)
+st_auth_set_facedetect_callback -> native/big_st_auth_set_facedetect_callback.s
+  wraps the fn pointer in std::function<void(st_detect_t*)> -> SetFaceDetectCallback
+st_face_init_license            -> native/big_st_face_init_license.s
+  LicenseLoader ctor -> InitLicense(const char*) -> dtor
+st_auth_init                    -> native/big_st_auth_init.s     (0x10e3e8)
+  AlgoManager::InitAlgorithmInfo, Create{Detect,hackness,Veriyf,Ocular}Handle,
+  SetVerifyThrehold/SetLivenessThrehold, SetTemplateFilePath, StartThread, pthread_create
+st_auth_pre_init                -> native/big_st_auth_pre_init.s  (same, no CreateDetectHandle; no JNI caller)
+st_auth_deinit                  -> native/big_st_auth_deinit.s
+AuthUseId                       -> native/big_AuthUseId.s        (0x14b3a8, 0xd34 B)
+  CheckFaceInfo -> BlockingQueue push x2 + condition_variable -> CheckOcularInfo
+  -> FaceVerifyManager::ReleaseFeature -> FeatureManager::Unlock
+Enroll                          -> native/big_Enroll.s           (0x1496ec, 0x118c B)
+  CheckFaceInfo -> queue -> CheckOcularInfo -> SerializeFeature -> FeatureManager::AddUser
+CheckFaceInfo                   -> native/big_CheckFaceInfo.s    (0x147264)
+  FaceDetectManager::Detect -> RotateRect -> FaceAttributeQuality::GetAttribute
+FaceDetectionClass::Detect      -> native/big_FaceDetectionClass_Detect.s (0x144be8)
+  GetCvImageFromStImage -> ShouldResize/ResizeImage -> RotateImage
+  -> FaceDetectionManager::Detect -> FaceAlignManager::Align -> GetOcclusionStatus
+  -> FaceCalcPose::CalcPose
+FaceDetectManager::Detect       -> native/big_FaceDetectManager_Detect.s
+StartThread                     -> native/big_StartThread.s
+  2 detached std::thread: ThreadManager<FaceVerifyManager::ExtractFeature>,
+                          ThreadManager<FaceHacknessManager::HacknessDetect>
+FeatureManager::Unlock          -> native/big_FeatureManager_Unlock.s (0x1358ec)
+  ReadFeature -> FaceVerifyManager::CompareFeature -> fcmpe s0,s8 / fcmpe s9,s8
+VerifyManager::CompareFeature   -> native/big_VerifyManager_CompareFeature.s
+FaceVerify::CompareFeature      -> native/big_FaceVerify_CompareFeature.s (0x123bd0)
+  cv_common_feature_comparator_get_distance -> _normalize_score_by_model
+cv_common_feature_comparator_get_distance -> native/cv_cmp_get_distance.s
+  Eigen dot product (fmadd), Q16 fast path: fmul by literal 0x230d04 = 2^-16
+stsdk::FeatureCmp::normalizeScore -> native/stsdk_FeatureCmp_normalizeScore.s
+  -> protector::NormModel::Run(float&)
+SetTemplateFilePath             -> native/big_SetTemplateFilePath.s
+  CommonFun::CreateDir + string assign (dir only; filename is native-internal)
+
+## 5. Constants read straight out of the ELF
+
+.text/.rodata have vaddr == file offset; .data maps at vaddr-0x10000.
+(PY struct.unpack little-endian float)
+
+DEFAULT_OCULAR_THRESHOLD  0x4f2c080  00001041  9.0
+FASTAUTH_HACKNESS_THRESHOLD 0x4f2c084 6666663f  0.8999999761581421
+FASTAUTH_VERIFY_THRESHOLD 0x4f2c088  14ae673f  0.9049999713897705
+DEFAULT_LIVENESS_THRESHOLD 0x4f2c08c 6666663f  0.8999999761581421
+DEFAULT_VERIFY_THRESHOLD  0x4f2c090  14ae673f  0.9049999713897705
+ptr 0x4f2a210 -> 0x4f2c090   (used by st_auth_init -> SetVerifyThrehold)
+ptr 0x4f29c30 -> 0x4f2c08c   (used by st_auth_init -> SetLivenessThrehold)
+
+## 6. Embedded C API prototype strings (saved verbatim in native/api_prototypes.txt)
+
+$ strings -a -t x $WS/samples/android/libstfaceunlockocl.so | grep -E "st_auth_|st_face_"
+
+  752180 void st_auth_deinit()
+  7521d0 st_result_t st_auth_set_roi(const st_rect_t*)
+  752200 st_result_t st_auth_set_face_orientation(st_face_orientation)
+  752240 st_result_t st_auth_enroll(st_image_t*, unsigned int, int*)
+  752280 st_result_t st_auth_unlock(st_image_t*, unsigned int, int*, int)
+  752390 st_result_t st_auth_evaluate(const char*, const char*, st_pixel_format, int, int, st_face_orientation, st_faceauth_mode)
+  7528b0 int st_auth_set_facedetect_callback(DetectCallBack)
+  7528f0 st_result_t st_auth_init(const char*, unsigned int)
+  752930 st_result_t st_auth_pre_init(const char*, unsigned int)
+  (full table: native/api_prototypes.txt)
+
+Filter names (template + version strings):
+$ strings -a $WS/samples/android/libstfaceunlockocl.so | grep -i "stfaceunlock"
+STFACEUNLOCK
+1.0.1
+1.0.0
+$ strings -a -t x ... | grep template_file.data
+ 762278 template_file.data
+
+## 7. resources.arsc arrays (evidence/resources_arrays.txt)
+
+# minimal ARSC parser (/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/arsc_min.py) reading the default config arrays
+$PY /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/arsc_min.py > $R/evidence/resources_arrays.txt
+
+== type: array
+   device_need_operating_mode = [... 'munch' present, 90 entries ...]
+   get_frame_nonsequence     = ['sunny','mojito','curtana','secret','maltose','joyeuse',
+                                'excalibur','ares','ginkgo','biloba','iris','XIG02','lilac',
+                                'selene','eos','cupid','light','thunder','evergo','evergreen',
+                                'viva','vida','fleur','miel','yunluo','earth','fire','gale']
+   need_more_stream_in_auth  = []
+   virtual_light_device      = ['xun']
+
+=> on Poco F4 (Build.DEVICE "munch"): isNeedOperatingMode()=true, isNeedGetFrameNonsequence()=false,
+   isNeedMoreStreamInAuth()=false, isVirtualLightDevice()=false
+
+## 8. Validation of the deliverables
+
+$PY -c "import json; d=json.load(open('$R/findings.json')); print(list(d))"
+['slug','package','app_name','ai_summary','features','models','reimplementation','data_pipelines','unknowns']
+data_pipelines ids: ['auth','enroll']
+SCHEMA.json required keys all present (jsonschema not installed in the venv,
+checked manually against the required list).

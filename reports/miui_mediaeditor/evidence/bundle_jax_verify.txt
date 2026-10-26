@@ -1,0 +1,47 @@
+# bundle model -> JAX conversion + LiteRT numerical verification
+# cmd: python tools/tflite2jax.py <model> --out reimpl/bundles/<name>
+#      python tools/verify_tflite_jax.py <model>
+
+## Fprs.0003.Exp007e33_quan1_sm
+Fprs.0003.Exp007e33_quan1_sm.tflite  subgraph=0 signature=serving_default  FAIL
+  output   shape              dtype    max_abs   tol       result
+  softmax  (1, 512, 384, 15)  FLOAT32  0.175781  1.00e-04  FAIL
+  1 output(s), max_abs=0.175781, status=fail
+
+## face_landmark_mb360_64
+face_landmark_mb360_64.tflite  subgraph=0 signature=None  PASS
+  output  shape     dtype    max_abs   tol       result
+  add_7   (1, 154)  FLOAT32  1.53e-05  1.00e-04  PASS
+  1 output(s), max_abs=1.53e-05, status=pass
+
+## facecheck40_dense_2000000_regress
+facecheck40_dense_2000000_regress.tflite  subgraph=0 signature=None  PASS
+  output  shape   dtype    max_abs  tol       result
+  detect  (1, 1)  FLOAT32  0        1.00e-04  PASS
+  1 output(s), max_abs=0, status=pass
+
+## hair_1209a_acnenet_crop0.1pos0.1_3x24x24_quat
+hair_1209a_acnenet_crop0.1pos0.1_3x24x24_quat.tflite  subgraph=0 signature=None  PASS
+  output    shape   dtype    max_abs  tol       result
+  Identity  (1, 2)  FLOAT32  0        1.00e-04  PASS
+  1 output(s), max_abs=0, status=pass
+
+## head
+head.tflite  subgraph=0 signature=None  PASS
+  output    shape    dtype    max_abs   tol       result
+  Identity  (1, 14)  FLOAT32  2.09e-07  1.00e-04  PASS
+  1 output(s), max_abs=2.09e-07, status=pass
+
+## mole_seg_24x24x3_1206_quat
+mole_seg_24x24x3_1206_quat.tflite  subgraph=0 signature=None  PASS
+  output    shape           dtype    max_abs   tol       result
+  Identity  (1, 24, 24, 1)  FLOAT32  3.76e-06  1.00e-04  PASS
+  1 output(s), max_abs=3.76e-06, status=pass
+
+## s1
+s1.tflite  subgraph=0 signature=None  PASS
+  output      shape    dtype    max_abs   tol       result
+  Identity    (91, 2)  FLOAT32  1.91e-05  1.00e-04  PASS
+  Identity_1  (2,)     FLOAT32  5.31e-08  1.00e-04  PASS
+  2 output(s), max_abs=1.91e-05, status=pass
+

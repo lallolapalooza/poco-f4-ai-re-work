@@ -1,0 +1,37 @@
+{
+  "error": null,
+  "max_abs": 0.17578125,
+  "model": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/work/bundles/ai_face_beauty_processor/Fprs.0003.Exp007e33_quan1_sm.tflite",
+  "model_file": "Fprs.0003.Exp007e33_quan1_sm.tflite",
+  "ok": false,
+  "reference": "ai_edge_litert Interpreter with reference kernels (no XNNPACK delegate)",
+  "rows": [
+    {
+      "dtype": "FLOAT32",
+      "jax_dtype": "float32",
+      "kind": "absolute",
+      "max_abs": 0.17578125,
+      "name": "softmax",
+      "ok": false,
+      "ref_dtype": "float32",
+      "shape": [
+        1,
+        512,
+        384,
+        15
+      ],
+      "tensor_index": 267,
+      "tol": 0.0001
+    }
+  ],
+  "selection_reason": "primary signature 'serving_default' (subgraph 0)",
+  "signature_key": "serving_default",
+  "status": "fail",
+  "subgraph_index": 0,
+  "subgraph_name": "main",
+  "tolerances": {
+    "float16": 0.01,
+    "float32": 0.0001,
+    "quantized_dequantized": 0.02
+  }
+}

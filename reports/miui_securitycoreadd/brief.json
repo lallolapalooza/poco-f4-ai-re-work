@@ -1,0 +1,29 @@
+{
+  "slug": "miui_securitycoreadd",
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/SecurityCoreAdd/SecurityCoreAdd.apk",
+  "size": 32473507,
+  "models": [
+    {
+      "name": "assets/aiautobrt.tflite",
+      "size": 197836,
+      "magic": "TFLite",
+      "extracted": "models/aiautobrt.tflite"
+    }
+  ],
+  "libs": [
+    {
+      "name": "lib/arm64-v8a/libtensorflowlite_flex_jni.so",
+      "size": 10604944
+    },
+    {
+      "name": "lib/arm64-v8a/libtensorflowlite_jni.so",
+      "size": 1642560
+    }
+  ],
+  "dex_markers": {
+    "Lorg/tensorflow/lite": 10,
+    "mibrain": 1,
+    "tflite": 1
+  },
+  "package": null
+}

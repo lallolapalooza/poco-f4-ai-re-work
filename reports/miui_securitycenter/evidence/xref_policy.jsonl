@@ -1,0 +1,5 @@
+{"dex": "classes2.dex", "callee_class": "Lcom/miui/antispam/policy/SmartSmsFilterPolicy;", "callee_method": "initSmsEngine", "caller_class": "Lcom/miui/antispam/db/AntiSpamProvider;", "caller_method": "call"}
+{"dex": "classes2.dex", "callee_class": "Lcom/miui/antispam/policy/SmartSmsFilterPolicy;", "callee_method": "shouldFilter", "caller_class": "Lcom/miui/antispam/policy/SmartSmsFilterPolicy;", "caller_method": "handleData"}
+{"dex": "classes2.dex", "callee_class": "Lcom/miui/antispam/policy/SmartSmsFilterPolicy;", "callee_method": "isMiuiPattern", "caller_class": "Lcom/miui/antispam/policy/SmartSmsFilterPolicy;", "caller_method": "shouldFilter"}
+{"dex": "classes2.dex", "callee_class": "Lcom/miui/antispam/policy/SmartSmsFilterPolicy;", "callee_method": "isInSmsWhiteList", "caller_class": "Lcom/miui/antispam/policy/SmartSmsFilterPolicy;", "caller_method": "shouldFilter"}
+{"dex": "classes2.dex", "callee_class": "Lcom/miui/antispam/policy/SmartSmsFilterPolicy;", "callee_method": "getName", "caller_class": "Lcom/miui/antispam/policy/SmartSmsFilterPolicy;", "caller_method": "shouldFilter"}

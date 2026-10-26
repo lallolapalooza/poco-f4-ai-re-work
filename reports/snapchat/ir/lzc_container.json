@@ -1,0 +1,60 @@
+{
+ "path": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/snapchat/models/looksery/core/LiteTrackingData_ert.lns",
+ "version": 1,
+ "count": 6,
+ "name_table_size": 290,
+ "flags": [
+  1,
+  1
+ ],
+ "uncompressed_size": 383911,
+ "compressed_size": 302059,
+ "trailer": {
+  "unknown": 1,
+  "compressed_size": 302059
+ },
+ "payload_offset": 298,
+ "payload_len": 302059,
+ "entries": [
+  {
+   "name": "/Tracking.xml",
+   "size": 1284,
+   "offset": 0
+  },
+  {
+   "name": "/FaceRegressor.bin",
+   "size": 186452,
+   "offset": 1284
+  },
+  {
+   "name": "/CandideRegressor.bin",
+   "size": 17172,
+   "offset": 187736
+  },
+  {
+   "name": "/DenoiseRegressor.bin",
+   "size": 1887,
+   "offset": 204908
+  },
+  {
+   "name": "/CandidePespectiveRegressor.bin",
+   "size": 99979,
+   "offset": 206795
+  },
+  {
+   "name": "/EyesRegressor.bin",
+   "size": 77137,
+   "offset": 306774
+  }
+ ],
+ "ct_offsets_cumulative_ok": true,
+ "payload_is_zstd": true,
+ "source": "assets/looksery/core/LiteTrackingData_ert.lns",
+ "container": {
+  "magic": "LZC\\0",
+  "header_bytes": 72,
+  "record": "u32 namelen, name, 4 pad, u32 size, u32 offset",
+  "trailer": "u32 unknown(=1), u32 compressed_size",
+  "payload": "single zstd frame"
+ }
+}

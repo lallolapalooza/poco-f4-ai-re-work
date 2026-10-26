@@ -1,0 +1,29 @@
+$ python pipeline.py
+input frame : nv21 640x480 (460800 bytes)
+stage0 rgb  : (480, 640, 3) float32 range=(0.000,1.000)
+stage1 input: (1, 128, 128, 3) float32 mean=[0.6443517208099365, 0.562549889087677, 0.43210747838020325]
+stage2 score   : (1, 16, 16, 1) float32
+stage2 landmark: (1, 16, 16, 136) float32
+stage2 decode: valid=True score=0.5002 cell=(12, 4) landmarks=68
+stage3 kve  : kSharpness=0.1948 kColorfulness=0.0762 kLowLight=0.1008 kPureColor=0.0000 kIntraEntropy=7.5227 kJunk=0.0419 kSceneChange=0.1206
+STATUS: ARCHITECTURE_ONLY (no weights present in APK; contracts recovered)
+exit=0
+
+$ python pipeline.py --net 96 --width 320 --height 240 --seed 7 --json  (tail)
+    0.2083333283662796,
+    0.9583333134651184
+   ]
+  ]
+ },
+ "kve_features": {
+  "kSharpness": 0.19374997913837433,
+  "kColorfulness": 0.0763256847858429,
+  "kLowLight": 0.0791536495089531,
+  "kPureColor": 0.0,
+  "kIntraEntropy": 7.485905170440674,
+  "kJunk": 0.04192274436354637,
+  "kSceneChange": 0.12033440172672272
+ }
+}
+STATUS: ARCHITECTURE_ONLY (no weights present in APK; contracts recovered)
+exit=0

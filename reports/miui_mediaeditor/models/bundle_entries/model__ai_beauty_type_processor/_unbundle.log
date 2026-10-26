@@ -1,0 +1,42 @@
+ai_beauty_type_processor.bundle: xor_key=0xb9 file=10299493B entries=20
+  config.json                                                method=8 csize=     3631 usize=    21835 off=        0 ENCRYPTED-PREFIX
+  dense_eb.tflite                                            method=8 csize=   400403 usize=   436824 off=     3672
+  dense_eye_iris.tflite                                      method=8 csize=   457264 usize=   504020 off=   404120
+  dense_iris.tflite                                          method=8 csize=   173796 usize=   200152 off=   861435
+  dense_mouth.tflite                                         method=8 csize=   410620 usize=   453380 off=  1035278
+  face_landmark_lite_210818_360.tflite                       method=8 csize=   444912 usize=   484264 off=  1445946
+  model_hair.tflite                                          method=8 csize=  2578445 usize=  2791684 off=  1890924
+  mouth_checker_14.tflite                                    method=8 csize=    28567 usize=    32332 off=  4469416
+  n-0.5_416_0.05_4aspect6.tflite                             method=8 csize=  1617355 usize=  1864936 off=  4498036
+  n-small_256_0.05_only_a5.tflite                            method=8 csize=    64877 usize=   101380 off=  6115451
+  retina_base_anchor_256_small.txt                           method=8 csize=       40 usize=      118 off=  6180389
+  retina_base_anchor_416.txt                                 method=8 csize=       79 usize=      248 off=  6180491
+  s1_112_98.tflite                                           method=8 csize=  1941404 usize=  2106152 off=  6180626
+  s2.tflite                                                  method=8 csize=   540258 usize=   594960 off=  8122076
+  s3.tflite                                                  method=8 csize=   855260 usize=   987788 off=  8662373
+  tex_coords.bin                                             method=8 csize=    13167 usize=    19644 off=  9517672
+  triangles.bin                                              method=8 csize=    18313 usize=    53212 off=  9530883
+  triangles_bind.bin                                         method=8 csize=    18284 usize=    53212 off=  9549239
+  v3_contour_lines.bin                                       method=8 csize=     1304 usize=     2884 off=  9567571
+  v3_db.bin                                                  method=8 csize=   729094 usize=   869110 off=  9568925
+  CRC32 verified entries: 19 ok, 0 bad (1 skipped in encrypted prefix)
+  SKIP (encrypted prefix): config.json
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_beauty_type_processor/dense_eb.tflite (436824 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_beauty_type_processor/dense_eye_iris.tflite (504020 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_beauty_type_processor/dense_iris.tflite (200152 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_beauty_type_processor/dense_mouth.tflite (453380 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_beauty_type_processor/face_landmark_lite_210818_360.tflite (484264 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_beauty_type_processor/model_hair.tflite (2791684 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_beauty_type_processor/mouth_checker_14.tflite (32332 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_beauty_type_processor/n-0.5_416_0.05_4aspect6.tflite (1864936 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_beauty_type_processor/n-small_256_0.05_only_a5.tflite (101380 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_beauty_type_processor/retina_base_anchor_256_small.txt (118 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_beauty_type_processor/retina_base_anchor_416.txt (248 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_beauty_type_processor/s1_112_98.tflite (2106152 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_beauty_type_processor/s2.tflite (594960 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_beauty_type_processor/s3.tflite (987788 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_beauty_type_processor/tex_coords.bin (19644 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_beauty_type_processor/triangles.bin (53212 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_beauty_type_processor/triangles_bind.bin (53212 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_beauty_type_processor/v3_contour_lines.bin (2884 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_beauty_type_processor/v3_db.bin (869110 bytes)

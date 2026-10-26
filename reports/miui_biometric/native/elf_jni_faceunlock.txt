@@ -1,0 +1,45 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_biometric/native/libjni_faceunlock.so
+==============================================================================
+size        : 5760 bytes (0.01 MiB)
+sha256      : 51f0dfde45a813afbb96eca952513daefe2d32192ba53641b1e720ed0ba51263
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x630   imagebase: 0x0
+build id    : 881d13d0e60e24de3f9dd2ef52d2e57c17f62d71
+android     : SDK 28, NDK r21d, build 6528147
+soname      : libjni_faceunlock.so
+needed      : libc.so, libm.so, libstdc++.so, libdl.so
+parser      : lief
+counts      : 1 exports, 4 imports, 1 JNI, 20 sections, 8 segments
+symtab/dynsym: 0 / 15
+
+Sections (20)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .gnu.hash              GNU_HASH         A      0x228        68         0x228
+  .dynsym                DYNSYM           A      0x270        360        0x270
+  .dynstr                STRTAB           A      0x3d8        249        0x3d8
+  .gnu.version           GNU_VERSYM       A      0x4d2        30         0x4d2
+  .gnu.version_r         GNU_VERNEED      A      0x4f0        48         0x4f0
+  .rela.dyn              RELA             A      0x520        72         0x520
+  .rela.plt              RELA             AI     0x568        96         0x568
+  .plt                   PROGBITS         AX     0x5d0        96         0x5d0
+  .text                  PROGBITS         AX     0x630        84         0x630
+  .note.android.ident    NOTE             A      0x684        152        0x684
+  .eh_frame_hdr          PROGBITS         A      0x71c        20         0x71c
+  .eh_frame              PROGBITS         A      0x730        48         0x730
+  .fini_array            FINI_ARRAY       WA     0x1dc8       16         0xdc8
+  .data.rel.ro           PROGBITS         WA     0x1dd8       8          0xdd8
+  .dynamic               DYNAMIC          WA     0x1de0       480        0xde0
+  .got                   PROGBITS         WA     0x1fc0       64         0xfc0
+  .comment               PROGBITS         MS     0x0          181        0x1000
+  .shstrtab              STRTAB           -      0x0          202        0x10b5
+
+JNI entry points (1)
+  0x678          12         com.android.keyguard.faceunlock.FaceUnlockJni.nativeMallopt
+      Java_com_android_keyguard_faceunlock_FaceUnlockJni_nativeMallopt
+
+AI-relevant strings (1747 bytes scanned in allocated data sections)
+  [face] 2 unique (first 2)
+    0x00000407 .dynstr    Java_com_android_keyguard_faceunlock_FaceUnlockJni_nativeMallopt
+    0x000004b0 .dynstr    libjni_faceunlock.so

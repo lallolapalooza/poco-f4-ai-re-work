@@ -1,0 +1,54 @@
+{"dex": "classes2.dex", "s": "AISUBTITLE"}
+{"dex": "classes2.dex", "s": "AiSubTitleUtils"}
+{"dex": "classes2.dex", "s": "Lorg/tensorflow/lite/b;"}
+{"dex": "classes2.dex", "s": "ULTRACLEAR"}
+{"dex": "classes2.dex", "s": "aisubtitle"}
+{"dex": "classes2.dex", "s": "aisubtitle_activities"}
+{"dex": "classes2.dex", "s": "aisubtitle_support_activity_list.json"}
+{"dex": "classes2.dex", "s": "beauty_face"}
+{"dex": "classes2.dex", "s": "beauty_face_support_activity_list.json"}
+{"dex": "classes2.dex", "s": "category_key_beauty_face"}
+{"dex": "classes2.dex", "s": "checkAISubtitle Result = "}
+{"dex": "classes2.dex", "s": "close AiSubTitles. channel = "}
+{"dex": "classes2.dex", "s": "loadCloudAisubtitleActivity"}
+{"dex": "classes2.dex", "s": "loadCloudAisubtitleActivity failed : "}
+{"dex": "classes2.dex", "s": "loadCloudAisubtitleActivity: "}
+{"dex": "classes2.dex", "s": "loadCloudUltraclearActivity"}
+{"dex": "classes2.dex", "s": "loadCloudUltraclearActivity failed : "}
+{"dex": "classes2.dex", "s": "loadCloudUltraclearActivity: "}
+{"dex": "classes2.dex", "s": "pref_aisubtitle_app"}
+{"dex": "classes2.dex", "s": "pref_ultraclear_app"}
+{"dex": "classes2.dex", "s": "pref_ultraclear_mode"}
+{"dex": "classes2.dex", "s": "preference_key_beauty_face"}
+{"dex": "classes2.dex", "s": "redmi_performance_mode/Ai-Model.json"}
+{"dex": "classes2.dex", "s": "redmi_performance_mode/images"}
+{"dex": "classes2.dex", "s": "start AiSubTitles. channel = "}
+{"dex": "classes2.dex", "s": "startAiSubtitlesWindow"}
+{"dex": "classes2.dex", "s": "ultraclear"}
+{"dex": "classes2.dex", "s": "ultraclear_activities"}
+{"dex": "classes2.dex", "s": "ultraclear_support_activity_list.json"}
+{"dex": "classes3.dex", "s": "com.xiaomi.mibrain.speech"}
+{"dex": "classes4.dex", "s": "Cannot convert between a TensorFlowLite tensor with type %s and a Java object of type %s (which is compatible with the TensorFlowLite type %s)."}
+{"dex": "classes4.dex", "s": "Cannot copy from a TensorFlowLite tensor (%s) with %d bytes to a Java Buffer with %d bytes."}
+{"dex": "classes4.dex", "s": "Cannot copy from a TensorFlowLite tensor (%s) with shape %s to a Java object with shape %s."}
+{"dex": "classes4.dex", "s": "Cannot copy to a TensorFlowLite tensor (%s) with %d bytes from a Java Buffer with %d bytes."}
+{"dex": "classes4.dex", "s": "Cannot copy to a TensorFlowLite tensor (%s) with shape %s from a Java object with shape %s."}
+{"dex": "classes4.dex", "s": "Failed to load native TensorFlow Lite methods. Check that the correct native libraries are present, and, if using a custom native library, have been properly loaded via System.loadLibrary():\n  "}
+{"dex": "classes4.dex", "s": "Lorg/tensorflow/lite/NativeInterpreterWrapper;"}
+{"dex": "classes4.dex", "s": "Lorg/tensorflow/lite/NativeInterpreterWrapperExperimental;"}
+{"dex": "classes4.dex", "s": "Lorg/tensorflow/lite/TensorFlowLite;"}
+{"dex": "classes4.dex", "s": "Lorg/tensorflow/lite/TensorImpl;"}
+{"dex": "classes4.dex", "s": "Lorg/tensorflow/lite/XnnpackDelegate;"}
+{"dex": "classes4.dex", "s": "Lorg/tensorflow/lite/a$a;"}
+{"dex": "classes4.dex", "s": "Lorg/tensorflow/lite/a;"}
+{"dex": "classes4.dex", "s": "Lorg/tensorflow/lite/annotations/UsedByReflection;"}
+{"dex": "classes4.dex", "s": "Lorg/tensorflow/lite/b$a;"}
+{"dex": "classes4.dex", "s": "Lorg/tensorflow/lite/b;"}
+{"dex": "classes4.dex", "s": "Lorg/tensorflow/lite/c$a;"}
+{"dex": "classes4.dex", "s": "Lorg/tensorflow/lite/c;"}
+{"dex": "classes4.dex", "s": "Lorg/tensorflow/lite/nnapi/NnApiDelegate$a;"}
+{"dex": "classes4.dex", "s": "Lorg/tensorflow/lite/nnapi/NnApiDelegate;"}
+{"dex": "classes4.dex", "s": "[Lorg/tensorflow/lite/TensorImpl;"}
+{"dex": "classes4.dex", "s": "org.tensorflow.lite.flex.FlexDelegate"}
+{"dex": "classes4.dex", "s": "tensorflowlite_jni"}
+{"dex": "classes4.dex", "s": "tensorflowlite_jni_stable"}

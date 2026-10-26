@@ -1,0 +1,3 @@
+{"dex": "classes2.dex", "string": "sms_judge", "class": "Lcom/miui/antispam/db/AntiSpamProvider;", "method": "<clinit>", "unit_off": 20}
+{"dex": "classes2.dex", "string": "call_judge", "class": "Lcom/miui/antispam/db/AntiSpamProvider;", "method": "<clinit>", "unit_off": 34}
+{"dex": "classes2.dex", "string": "service_num_judge", "class": "Lcom/miui/antispam/db/AntiSpamProvider;", "method": "<clinit>", "unit_off": 62}

@@ -1,0 +1,98 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/work/x/lib/arm64-v8a/liblanguage_id_l2c_jni.so
+==============================================================================
+size        : 1035408 bytes (0.99 MiB)
+sha256      : 3d417a5e5f2d38bc082aae2b2707e33b6826df3f6b332443a15eed3a48f6a47e
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x0   imagebase: 0x0
+build id    : e536e4cd680d10ed0329fc946fc929e8
+android     : SDK 21, NDK r25, build 8775105
+soname      : liblanguage_id_l2c_jni.so
+needed      : libandroid.so, libm.so, liblog.so, libdl.so, libc.so
+parser      : lief
+counts      : 3 exports, 119 imports, 3 JNI, 29 sections, 9 segments
+symtab/dynsym: 0 / 130
+
+Sections (29)
+  name                   type             flags  address      size       offset
+  .note.android.ident    NOTE             A      0x238        152        0x238
+  .note.gnu.build-id     NOTE             A      0x2d0        32         0x2d0
+  .dynsym                DYNSYM           A      0x2f0        3120       0x2f0
+  .gnu.version           GNU_VERSYM       A      0xf20        260        0xf20
+  .gnu.version_d         GNU_VERDEF       A      0x1024       56         0x1024
+  .gnu.version_r         GNU_VERNEED      A      0x105c       96         0x105c
+  .gnu.hash              GNU_HASH         A      0x10c0       48         0x10c0
+  .hash                  HASH             A      0x10f0       1048       0x10f0
+  .dynstr                STRTAB           A      0x1508       1870       0x1508
+  .rela.dyn              RELA             A      0x1c58       50304      0x1c58
+  .rela.plt              RELA             AI     0xe0d8       2952       0xe0d8
+  .rodata                PROGBITS         AMS    0xec60       56332      0xec60
+  .gcc_except_table      PROGBITS         A      0x1c86c      12636      0x1c86c
+  .eh_frame_hdr          PROGBITS         A      0x1f9c8      23292      0x1f9c8
+  .eh_frame              PROGBITS         A      0x254c8      85900      0x254c8
+  .text                  PROGBITS         AX     0x3a460      749588     0x3a460
+  malloc_hook            PROGBITS         AX     0xf1474      344        0xf1474
+  .plt                   PROGBITS         AX     0xf15d0      2000       0xf15d0
+  .data.rel.ro           PROGBITS         WA     0xf4000      15800      0xf4000
+  .fini_array            FINI_ARRAY       WA     0xf7db8      16         0xf7db8
+  .init_array            INIT_ARRAY       WA     0xf7dc8      48         0xf7dc8
+  .dynamic               DYNAMIC          WA     0xf7df8      512        0xf7df8
+  .got                   PROGBITS         WA     0xf7ff8      2328       0xf7ff8
+  .got.plt               PROGBITS         WA     0xf8910      1008       0xf8910
+  .data                  PROGBITS         WA     0xfcd00      13944      0xf8d00
+  .bss                   NOBITS           WA     0x100380     93216      0xfc378
+  .comment               PROGBITS         MS     0x0          184        0xfc378
+  .shstrtab              STRTAB           -      0x0          287        0xfc430
+
+JNI entry points (3)
+  0x3a64c        256        com.google.mlkit.nl.languageid.bundled.internal.ThickLanguageIdentifier.nativeInitFromBuffer
+      Java_com_google_mlkit_nl_languageid_bundled_internal_ThickLanguageIdentifier_nativeInitFromBuffer
+  0x3a74c        672        com.google.mlkit.nl.languageid.bundled.internal.ThickLanguageIdentifier.nativeIdentifyPossibleLanguages
+      Java_com_google_mlkit_nl_languageid_bundled_internal_ThickLanguageIdentifier_nativeIdentifyPossibleLanguages
+  0x3ac54        28         com.google.mlkit.nl.languageid.bundled.internal.ThickLanguageIdentifier.nativeDestroy
+      Java_com_google_mlkit_nl_languageid_bundled_internal_ThickLanguageIdentifier_nativeDestroy
+
+AI-relevant strings (271754 bytes scanned in allocated data sections)
+  [tflite] 81 unique (first 20)
+    0x0001103f .rodata    kTfLiteAffineQuantization
+    0x00011066 .rodata    filter->type == kTfLiteInt8 || filter->type == kTfLiteInt4
+    0x000112e9 .rodata    third_party/tensorflow/lite/util.cc BytesRequired number of elements overflowed.
+    0x00011849 .rodata    learning/expander/pod/deep_pod/tflite_handlers/expected_value.cc
+    0x00011912 .rodata    kTfLiteInt32
+    0x00011a3a .rodata    third_party/tensorflow/lite/util.cc
+    0x00011cd0 .rodata    TFL3
+    0x00011e8e .rodata    third_party/tensorflow/lite/kernels/activations.cc
+    0x00011f45 .rodata    input->type == kTfLiteUInt8 || input->type == kTfLiteInt8 || input->type == kTfLiteInt16
+    0x00012024 .rodata    third_party/tensorflow/lite/kernels/pad.cc INT64 padding overflow. Only support value between INT32_MIN and INT32_MAX.
+    0x0001219b .rodata    t->buffer_handle != kTfLiteNullBufferHandle
+    0x000126bf .rodata    kTfLiteFloat32
+    0x00012a6c .rodata    Initialized TensorFlow Lite runtime.
+    0x00012b41 .rodata    third_party/tensorflow/lite/util.cc BytesRequired number of bytes overflowed.
+    0x00012ea8 .rodata    num_threads should be >=0 or just -1 to let TFLite runtime set the value.
+    0x00012f7a .rodata    Didn't find op for builtin opcode '%s' version '%d'. An older version of this builtin might be supported. Are you using an old TFLite binary with a newer model?
+    0x000132a3 .rodata    params->activation == kTfLiteActNone || params->activation == kTfLiteActRelu || params->activation == kTfLiteActReluN1To1 || params->activation == kTfLiteActRelu6
+    0x000135bb .rodata    output->type == kTfLiteUInt8 || output->type == kTfLiteInt8 || output->type == kTfLiteInt16
+    0x000138c9 .rodata    kTfLiteUInt8
+    0x00013931 .rodata    third_party/tensorflow/lite/kernels/conv.cc
+    ... 61 more
+  [model] 6 unique (first 6)
+    0x00011cdd .rodata    Unhandled fully-connected weights format.
+    0x00011f17 .rodata    Weight type %s (%d) not supported for filter.
+    0x00011fcb .rodata    Quantized and sparse fully-connected format supports symmetric weight quantization only.
+    0x000126ce .rodata    Unhandled fully-connected weights format
+    0x00013d2c .rodata    debug.tflite.trace
+    0x000177d2 .rodata    Unsupported sparse fully-connected weight format.
+  [nn_runtime] 1 unique (first 1)
+    0x0001a0f5 .rodata    j?$Dsp
+  [face] 3 unique (first 3)
+    0x000017ab .dynstr    posix_memalign
+    0x00016b7c .rodata    DW_EH_PE_aligned pointer encoding not supported
+    0x000179e7 .rodata    alignment <= underlying_buffer_.GetAlignment()
+  [segment] 5 unique (first 5)
+    0x00011989 .rodata    UNSORTED_SEGMENT_PROD
+    0x0001199f .rodata    UNSORTED_SEGMENT_SUM
+    0x00012ad2 .rodata    UNSORTED_SEGMENT_MIN
+    0x0001469a .rodata    UNSORTED_SEGMENT_MAX
+    0x0001681f .rodata    SEGMENT_SUM
+
+JSON written to reports/miui_mediaeditor/native/liblanguage_id.elf.json

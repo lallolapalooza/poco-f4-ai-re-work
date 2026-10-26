@@ -1,0 +1,485 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/system_ext/priv-app/QualcommVoiceActivation/QualcommVoiceActivation.apk",
+  "size": 47391029,
+  "sha256": "565f8818b189d4cc0c90ad383f068093292fe51ac89ca8c1cc1d9680a7a32863",
+  "package": "com.quicinc.voice.activation",
+  "version_name": "6.0.10",
+  "version_code": "600010",
+  "label": "Qualcomm Voice Assist",
+  "min_sdk": "29",
+  "target_sdk": "34",
+  "main_activity": null,
+  "abis": [
+    "arm64-v8a"
+  ],
+  "permissions": [
+    "android.permission.CAPTURE_AUDIO_HOTWORD",
+    "android.permission.CHANGE_DEVICE_IDLE_TEMP_WHITELIST",
+    "android.permission.FORCE_STOP_PACKAGES",
+    "android.permission.FOREGROUND_SERVICE",
+    "android.permission.FOREGROUND_SERVICE_MICROPHONE",
+    "android.permission.MODIFY_AUDIO_SETTINGS",
+    "android.permission.RECEIVE_BOOT_COMPLETED",
+    "android.permission.RECORD_AUDIO",
+    "android.permission.START_ACTIVITIES_FROM_BACKGROUND",
+    "android.permission.WAKE_LOCK"
+  ],
+  "declared_permissions": 0,
+  "components": {
+    "activities": 1,
+    "services": 16,
+    "receivers": 1,
+    "providers": 0
+  },
+  "features": [
+    "com.quicinc.voice.assist",
+    "com.quicinc.voice.assist.asr",
+    "com.quicinc.voice.assist.uvr"
+  ],
+  "counts": {
+    "entries": 37,
+    "dex": 1,
+    "native_libs": 15,
+    "model_assets": 7,
+    "configs": 7,
+    "other": 7
+  },
+  "groups": {
+    "dex": [
+      {
+        "name": "classes.dex",
+        "size": 615428,
+        "compressed": 615428
+      }
+    ],
+    "native_libs": [
+      {
+        "name": "lib/arm64-v8a/libSNPE.so",
+        "size": 12684040,
+        "compressed": 12684040,
+        "matched": "snpe"
+      },
+      {
+        "name": "lib/arm64-v8a/libSnpeHtpV75Stub.so",
+        "size": 376312,
+        "compressed": 376312,
+        "matched": "snpe"
+      },
+      {
+        "name": "lib/arm64-v8a/libVoiceSdk.so",
+        "size": 1596264,
+        "compressed": 1596264
+      },
+      {
+        "name": "lib/arm64-v8a/libc++_shared.so",
+        "size": 6783104,
+        "compressed": 6783104
+      },
+      {
+        "name": "lib/arm64-v8a/libdnnvad_jni.so",
+        "size": 19296,
+        "compressed": 19296,
+        "matched": "dnn"
+      },
+      {
+        "name": "lib/arm64-v8a/libeai_floating.so",
+        "size": 190616,
+        "compressed": 190616,
+        "matched": "ai"
+      },
+      {
+        "name": "lib/arm64-v8a/libqvajni.so",
+        "size": 138872,
+        "compressed": 138872
+      },
+      {
+        "name": "lib/arm64-v8a/libqvapdk.so",
+        "size": 200384,
+        "compressed": 200384
+      },
+      {
+        "name": "lib/arm64-v8a/libqvapdkxs.so",
+        "size": 71328,
+        "compressed": 71328
+      },
+      {
+        "name": "lib/arm64-v8a/libqvarnn.so",
+        "size": 174360,
+        "compressed": 174360
+      },
+      {
+        "name": "lib/arm64-v8a/libqvasml.so",
+        "size": 2378216,
+        "compressed": 2378216,
+        "matched": "ml"
+      },
+      {
+        "name": "lib/arm64-v8a/libqvauv.so",
+        "size": 746648,
+        "compressed": 746648
+      },
+      {
+        "name": "lib/arm64-v8a/libqvavad.so",
+        "size": 106560,
+        "compressed": 106560
+      },
+      {
+        "name": "lib/arm64-v8a/libtensorflowlite_c.so",
+        "size": 2697384,
+        "compressed": 2697384,
+        "matched": "tensorflow"
+      },
+      {
+        "name": "lib/arm64-v8a/libwhisper_lib.so",
+        "size": 306232,
+        "compressed": 306232,
+        "matched": "whisper"
+      }
+    ],
+    "model_assets": [
+      {
+        "name": "assets/ubm/general_UV_024.uim",
+        "size": 7304344,
+        "compressed": 7304344,
+        "magic": "c80c18008c746f00",
+        "tflite": false,
+        "keywords": []
+      },
+      {
+        "name": "assets/1.5_stage/63ff0ae5_en-US_002.uim",
+        "size": 452536,
+        "compressed": 396404,
+        "magic": "c80c1800ace70600",
+        "tflite": false,
+        "keywords": []
+      },
+      {
+        "name": "assets/1st_stage/63ff0ae5_en-US_001.uim",
+        "size": 206792,
+        "compressed": 157770,
+        "magic": "c80c1800bc270300",
+        "tflite": false,
+        "keywords": []
+      },
+      {
+        "name": "assets/1st_stage/63ff0ae5_en-US_036.uim",
+        "size": 208840,
+        "compressed": 157501,
+        "magic": "c80c1800bc2f0300",
+        "tflite": false,
+        "keywords": []
+      },
+      {
+        "name": "assets/1st_stage/63ff0ae5_en-US_038.uim",
+        "size": 175560,
+        "compressed": 136280,
+        "magic": "c80c1800bcad0200",
+        "tflite": false,
+        "keywords": []
+      },
+      {
+        "name": "assets/1st_stage/63ff0ae5_en-US_040.uim",
+        "size": 198088,
+        "compressed": 156235,
+        "magic": "c80c1800bc050300",
+        "tflite": false,
+        "keywords": []
+      },
+      {
+        "name": "assets/ubm/general_UV_015.uim",
+        "size": 11099104,
+        "compressed": 9880805,
+        "magic": "c80c1800d45ba900",
+        "tflite": false,
+        "keywords": []
+      }
+    ],
+    "configs": [
+      {
+        "name": "resources.arsc",
+        "size": 3084,
+        "compressed": 3084
+      },
+      {
+        "name": "AndroidManifest.xml",
+        "size": 9472,
+        "compressed": 2302
+      },
+      {
+        "name": "assets/qvaconfig_v4.xml",
+        "size": 20751,
+        "compressed": 2060
+      },
+      {
+        "name": "res/drawable-hdpi-v4/app_icon_svg.xml",
+        "size": 2040,
+        "compressed": 813
+      },
+      {
+        "name": "res/drawable-xhdpi-v4/app_icon_svg.xml",
+        "size": 2112,
+        "compressed": 850
+      },
+      {
+        "name": "res/drawable-xxhdpi-v4/app_icon_svg.xml",
+        "size": 2136,
+        "compressed": 871
+      },
+      {
+        "name": "res/drawable-xxxhdpi-v4/app_icon_svg.xml",
+        "size": 2176,
+        "compressed": 872
+      }
+    ],
+    "other": [
+      {
+        "name": "assets/license/license.qti",
+        "size": 3196,
+        "compressed": 1815
+      },
+      {
+        "name": "assets/speech_float.eai",
+        "size": 36632,
+        "compressed": 33181
+      },
+      {
+        "name": "assets/ubm/LICENSE",
+        "size": 232,
+        "compressed": 169
+      },
+      {
+        "name": "assets/ubm/NOTICE",
+        "size": 12517,
+        "compressed": 3207
+      },
+      {
+        "name": "META-INF/12BF2580.SF",
+        "size": 3586,
+        "compressed": 1679
+      },
+      {
+        "name": "META-INF/12BF2580.RSA",
+        "size": 1415,
+        "compressed": 1128
+      },
+      {
+        "name": "META-INF/MANIFEST.MF",
+        "size": 3482,
+        "compressed": 1612
+      }
+    ]
+  },
+  "ai": {
+    "model_assets": [
+      {
+        "name": "assets/ubm/general_UV_024.uim",
+        "size": 7304344,
+        "compressed": 7304344,
+        "magic": "c80c18008c746f00",
+        "tflite": false,
+        "keywords": []
+      },
+      {
+        "name": "assets/1.5_stage/63ff0ae5_en-US_002.uim",
+        "size": 452536,
+        "compressed": 396404,
+        "magic": "c80c1800ace70600",
+        "tflite": false,
+        "keywords": []
+      },
+      {
+        "name": "assets/1st_stage/63ff0ae5_en-US_001.uim",
+        "size": 206792,
+        "compressed": 157770,
+        "magic": "c80c1800bc270300",
+        "tflite": false,
+        "keywords": []
+      },
+      {
+        "name": "assets/1st_stage/63ff0ae5_en-US_036.uim",
+        "size": 208840,
+        "compressed": 157501,
+        "magic": "c80c1800bc2f0300",
+        "tflite": false,
+        "keywords": []
+      },
+      {
+        "name": "assets/1st_stage/63ff0ae5_en-US_038.uim",
+        "size": 175560,
+        "compressed": 136280,
+        "magic": "c80c1800bcad0200",
+        "tflite": false,
+        "keywords": []
+      },
+      {
+        "name": "assets/1st_stage/63ff0ae5_en-US_040.uim",
+        "size": 198088,
+        "compressed": 156235,
+        "magic": "c80c1800bc050300",
+        "tflite": false,
+        "keywords": []
+      },
+      {
+        "name": "assets/ubm/general_UV_015.uim",
+        "size": 11099104,
+        "compressed": 9880805,
+        "magic": "c80c1800d45ba900",
+        "tflite": false,
+        "keywords": []
+      }
+    ],
+    "libs": [
+      {
+        "name": "lib/arm64-v8a/libSNPE.so",
+        "size": 12684040,
+        "compressed": 12684040,
+        "matched": "snpe"
+      },
+      {
+        "name": "lib/arm64-v8a/libSnpeHtpV75Stub.so",
+        "size": 376312,
+        "compressed": 376312,
+        "matched": "snpe"
+      },
+      {
+        "name": "lib/arm64-v8a/libdnnvad_jni.so",
+        "size": 19296,
+        "compressed": 19296,
+        "matched": "dnn"
+      },
+      {
+        "name": "lib/arm64-v8a/libeai_floating.so",
+        "size": 190616,
+        "compressed": 190616,
+        "matched": "ai"
+      },
+      {
+        "name": "lib/arm64-v8a/libqvasml.so",
+        "size": 2378216,
+        "compressed": 2378216,
+        "matched": "ml"
+      },
+      {
+        "name": "lib/arm64-v8a/libtensorflowlite_c.so",
+        "size": 2697384,
+        "compressed": 2697384,
+        "matched": "tensorflow"
+      },
+      {
+        "name": "lib/arm64-v8a/libwhisper_lib.so",
+        "size": 306232,
+        "compressed": 306232,
+        "matched": "whisper"
+      }
+    ],
+    "asset_hits": [],
+    "dex_markers": {},
+    "keyword_set": {
+      "model_name_re": "\\.(tflite|onnx|mnn|npubin|dlc|caffemodel|uim|bundle|model|pt|pth|smfb)$|(^|/)(model|classifier|segmenter|ranker)(/|$)",
+      "model_ext_re": "\\.(tflite|lite|onnx|mnn|npubin|dlc|caffemodel|pt|pth|pb|ai_model|bin|xmodel|kmodel|rknn|mlmodel|gguf|ort|uim|bundle|model|smfb|h5|paddle|ncnn|param|tflite\\.jpg)$",
+      "lib_re": "lib.*(tensorflow|tflite|litert|nnapi|neural|mllite|onnx|pytorch|caffe|snpe|qnn|mace|opencv|megvii|face|arcsoft|mibrain|aivs|miocr|inpaint|aiedit|fuai|scanner|vision|segment|matting|whisper|dnn|ocr|beaut|ai|ml).*\\.so$",
+      "asset_re": "(tflite|\\.mnn|\\.onnx|\\.dlc|\\.npubin|caffemodel|\\.pt$|mibrain|mllite|tensorflow|onnx|pytorch|snpe|qnn|neural|mediapipe|mlkit|vision|face|ocr|inpaint|aiedit|fuai|scanner|megvii|arcsoft|aivs|aivoice|ByteAI|bvtAI|mobais|hand|gesture|aiauto|model)",
+      "dex_markers": [
+        "Lorg/tensorflow/lite",
+        "Lcom/google/mlkit",
+        "Lcom/google/android/gms/vision",
+        "Lcom/xiaomi/aicr",
+        "Lcom/xiaomi/mibrain",
+        "mibrain",
+        "tflite",
+        "libtensorflowlite",
+        "com/qualcomm/snpe",
+        "com/qualcomm/qti/qnn",
+        "Lcom/arcsoft",
+        "Lcom/megvii",
+        "ByteAI",
+        "visionengine",
+        "FaceMagic",
+        "mediapipe"
+      ]
+    }
+  },
+  "extraction": {
+    "models": [
+      {
+        "name": "assets/ubm/general_UV_024.uim",
+        "size": 7304344,
+        "file": "models/assets/ubm/general_UV_024.uim"
+      },
+      {
+        "name": "assets/1.5_stage/63ff0ae5_en-US_002.uim",
+        "size": 452536,
+        "file": "models/assets/1.5_stage/63ff0ae5_en-US_002.uim"
+      },
+      {
+        "name": "assets/1st_stage/63ff0ae5_en-US_001.uim",
+        "size": 206792,
+        "file": "models/assets/1st_stage/63ff0ae5_en-US_001.uim"
+      },
+      {
+        "name": "assets/1st_stage/63ff0ae5_en-US_036.uim",
+        "size": 208840,
+        "file": "models/assets/1st_stage/63ff0ae5_en-US_036.uim"
+      },
+      {
+        "name": "assets/1st_stage/63ff0ae5_en-US_038.uim",
+        "size": 175560,
+        "file": "models/assets/1st_stage/63ff0ae5_en-US_038.uim"
+      },
+      {
+        "name": "assets/1st_stage/63ff0ae5_en-US_040.uim",
+        "size": 198088,
+        "file": "models/assets/1st_stage/63ff0ae5_en-US_040.uim"
+      },
+      {
+        "name": "assets/ubm/general_UV_015.uim",
+        "size": 11099104,
+        "file": "models/assets/ubm/general_UV_015.uim"
+      }
+    ],
+    "libs": [
+      {
+        "name": "lib/arm64-v8a/libSNPE.so",
+        "size": 12684040,
+        "file": "libs/lib/arm64-v8a/libSNPE.so"
+      },
+      {
+        "name": "lib/arm64-v8a/libSnpeHtpV75Stub.so",
+        "size": 376312,
+        "file": "libs/lib/arm64-v8a/libSnpeHtpV75Stub.so"
+      },
+      {
+        "name": "lib/arm64-v8a/libdnnvad_jni.so",
+        "size": 19296,
+        "file": "libs/lib/arm64-v8a/libdnnvad_jni.so"
+      },
+      {
+        "name": "lib/arm64-v8a/libeai_floating.so",
+        "size": 190616,
+        "file": "libs/lib/arm64-v8a/libeai_floating.so"
+      },
+      {
+        "name": "lib/arm64-v8a/libqvasml.so",
+        "size": 2378216,
+        "file": "libs/lib/arm64-v8a/libqvasml.so"
+      },
+      {
+        "name": "lib/arm64-v8a/libtensorflowlite_c.so",
+        "size": 2697384,
+        "file": "libs/lib/arm64-v8a/libtensorflowlite_c.so"
+      },
+      {
+        "name": "lib/arm64-v8a/libwhisper_lib.so",
+        "size": 306232,
+        "file": "libs/lib/arm64-v8a/libwhisper_lib.so"
+      }
+    ],
+    "skipped": [],
+    "bytes": 38297360,
+    "limits": {
+      "max_file_mb": 60.0,
+      "max_total_mb": 120.0
+    }
+  },
+  "elapsed_sec": 0.69
+}

@@ -1,0 +1,5 @@
+$ python3 validate_findings.py $WS/SCHEMA.json ../findings.json
+VALID: findings.json conforms to SCHEMA.json
+  features=9 models=0 unknowns=8 status=runs_unverified
+$ /usr/bin/python3 -c 'jsonschema.Draft202012Validator(...).validate(...)'
+VALID: findings.json conforms to SCHEMA.json (jsonschema 4.26.0, draft 2020-12)

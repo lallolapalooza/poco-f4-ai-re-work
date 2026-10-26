@@ -1,0 +1,49 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libkwsgmain.so
+==============================================================================
+size        : 757000 bytes (0.72 MiB)
+sha256      : 48aae030c926bbabc3d2183298db7f7ffbebc339fe693b39f56e89554d6a8fce
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0xa980   imagebase: 0x0
+build id    : 78218e3f379c16a7c9def1b2b328845b6acc5b89
+android     : SDK 21, NDK r20b, build 5948944
+soname      : libkwsgmain.so
+needed      : liblog.so, libandroid.so, libz.so, libm.so, libc++_shared.so, libdl.so, libc.so
+parser      : lief
+counts      : 274 exports, 136 imports, 0 JNI, 26 sections, 8 segments
+symtab/dynsym: 0 / 420
+
+Sections (26)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        2740       0x228
+  .gnu.hash              GNU_HASH         A      0xce0        2420       0xce0
+  .dynsym                DYNSYM           A      0x1658       10080      0x1658
+  .dynstr                STRTAB           A      0x3db8       7689       0x3db8
+  .gnu.version           GNU_VERSYM       A      0x5bc2       840        0x5bc2
+  .gnu.version_r         GNU_VERNEED      A      0x5f10       96         0x5f10
+  .rela.dyn              RELA             A      0x5f70       13320      0x5f70
+  .rela.plt              RELA             AI     0x9378       3360       0x9378
+  .plt                   PROGBITS         AX     0xa0a0       2272       0xa0a0
+  .text                  PROGBITS         AX     0xa980       594604     0xa980
+  .rodata                PROGBITS         A      0x9bc30      53025      0x9bc30
+  .eh_frame_hdr          PROGBITS         A      0xa8b54      7868       0xa8b54
+  .eh_frame              PROGBITS         A      0xaaa10      31536      0xaaa10
+  .gcc_except_table      PROGBITS         A      0xb2540      12260      0xb2540
+  .note.android.ident    NOTE             A      0xb5524      152        0xb5524
+  .init_array            INIT_ARRAY       WA     0xb6d30      64         0xb5d30
+  .fini_array            FINI_ARRAY       WA     0xb6d70      16         0xb5d70
+  .data.rel.ro           PROGBITS         WA     0xb6d80      2656       0xb5d80
+  .dynamic               DYNAMIC          WA     0xb77e0      576        0xb67e0
+  .got                   PROGBITS         WA     0xb7a20      1504       0xb6a20
+  .data                  PROGBITS         WA     0xb8000      5168       0xb7000
+  .bss                   NOBITS           WA     0xb9430      2008       0xb8430
+  .comment               PROGBITS         MS     0x0          348        0xb8430
+  .shstrtab              STRTAB           -      0x0          251        0xb858c
+
+AI-relevant strings (155406 bytes scanned in allocated data sections)
+  [face] 2 unique (first 2)
+    0x00003f42 .dynstr    _ZNKSt6__ndk16locale9use_facetERNS0_2idE
+    0x000049ff .dynstr    _ZNKSt6__ndk16locale9has_facetERNS0_2idE
+
+JSON written to /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/native/libkwsgmain.so.json

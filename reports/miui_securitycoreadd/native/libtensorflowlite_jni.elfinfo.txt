@@ -1,0 +1,222 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_securitycoreadd/native/libtensorflowlite_jni.so
+==============================================================================
+size        : 1642560 bytes (1.57 MiB)
+sha256      : c402600f2cf171d8a712cfc3af5a2cb911d2ccee5d7a25475dab70813f0db6a2
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x11f60   imagebase: 0x0
+android     : SDK 21, NDK r21b, build 6352462
+soname      : libtensorflowlite_jni.so
+needed      : libm.so, libdl.so, liblog.so, libc.so
+parser      : lief
+counts      : 109 exports, 115 imports, 59 JNI, 26 sections, 7 segments
+symtab/dynsym: 0 / 228
+
+Sections (26)
+  name                   type             flags  address      size       offset
+  .hash                  HASH             A      0x1c8        1708       0x1c8
+  .gnu.hash              GNU_HASH         A      0x878        972        0x878
+  .dynsym                DYNSYM           A      0xc48        5472       0xc48
+  .dynstr                STRTAB           A      0x21a8       6100       0x21a8
+  .gnu.version           GNU_VERSYM       A      0x397c       456        0x397c
+  .gnu.version_d         GNU_VERDEF       A      0x3b48       56         0x3b48
+  .gnu.version_r         GNU_VERNEED      A      0x3b80       96         0x3b80
+  .rela.dyn              RELA             A      0x3be0       52968      0x3be0
+  .rela.plt              RELA             AI     0x10ac8      3144       0x10ac8
+  .plt                   PROGBITS         AX     0x11710      2128       0x11710
+  .text                  PROGBITS         AX     0x11f60      1326124    0x11f60
+  .rodata                PROGBITS         A      0x155b90     78512      0x155b90
+  .eh_frame_hdr          PROGBITS         A      0x168e40     23868      0x168e40
+  .eh_frame              PROGBITS         A      0x16eb80     104624     0x16eb80
+  .gcc_except_table      PROGBITS         A      0x188430     11104      0x188430
+  .note.android.ident    NOTE             A      0x18af90     152        0x18af90
+  .init_array            INIT_ARRAY       WA     0x18c130     680        0x18b130
+  .fini_array            FINI_ARRAY       WA     0x18c3d8     16         0x18b3d8
+  .data.rel.ro           PROGBITS         WA     0x18c3e8     16000      0x18b3e8
+  .dynamic               DYNAMIC          WA     0x190268     560        0x18f268
+  .got                   PROGBITS         WA     0x190498     2920       0x18f498
+  .data                  PROGBITS         WA     0x191000     2024       0x190000
+  .bss                   NOBITS           WA     0x1917f0     7792       0x1907e8
+  .comment               PROGBITS         MS     0x0          220        0x1907e8
+  .shstrtab              STRTAB           -      0x0          247        0x1908c4
+
+JNI entry points (59)
+  0x12398        176        org.tensorflow.lite.NativeInterpreterWrapperExperimental.resetVariableTensors
+      Java_org_tensorflow_lite_NativeInterpreterWrapperExperimental_resetVariableTensors
+  0x12a9c        360        org.tensorflow.lite.NativeInterpreterWrapper.getInputNames
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputNames
+  0x12c04        172        org.tensorflow.lite.NativeInterpreterWrapper.allocateTensors
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_allocateTensors
+  0x12cb0        280        org.tensorflow.lite.NativeInterpreterWrapper.hasUnresolvedFlexOp
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_hasUnresolvedFlexOp
+  0x12dc8        436        org.tensorflow.lite.NativeInterpreterWrapper.getSignatureKeys
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_getSignatureKeys
+  0x130f8        124        org.tensorflow.lite.NativeInterpreterWrapper.getInputTensorIndex
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputTensorIndex
+  0x13174        124        org.tensorflow.lite.NativeInterpreterWrapper.getOutputTensorIndex
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputTensorIndex
+  0x131f0        80         org.tensorflow.lite.NativeInterpreterWrapper.getExecutionPlanLength
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_getExecutionPlanLength
+  0x13240        112        org.tensorflow.lite.NativeInterpreterWrapper.getInputCount
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputCount
+  0x132b0        112        org.tensorflow.lite.NativeInterpreterWrapper.getOutputCount
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputCount
+  0x13320        360        org.tensorflow.lite.NativeInterpreterWrapper.getOutputNames
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputNames
+  0x13488        48         org.tensorflow.lite.NativeInterpreterWrapper.allowFp16PrecisionForFp32
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_allowFp16PrecisionForFp32
+  0x134b8        48         org.tensorflow.lite.NativeInterpreterWrapper.allowBufferHandleOutput
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_allowBufferHandleOutput
+  0x134e8        528        org.tensorflow.lite.NativeInterpreterWrapper.createXNNPACKDelegate
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_createXNNPACKDelegate
+  0x13794        84         org.tensorflow.lite.NativeInterpreterWrapper.createErrorReporter
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_createErrorReporter
+  0x137e8        388        org.tensorflow.lite.NativeInterpreterWrapper.createModel
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_createModel
+  0x1396c        424        org.tensorflow.lite.NativeInterpreterWrapper.createModelWithBuffer
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_createModelWithBuffer
+  0x13b14        1404       org.tensorflow.lite.NativeInterpreterWrapper.createInterpreter
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_createInterpreter
+  0x14264        172        org.tensorflow.lite.NativeInterpreterWrapper.run
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_run
+  0x14310        228        org.tensorflow.lite.NativeInterpreterWrapper.getOutputDataType
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputDataType
+  0x143f4        484        org.tensorflow.lite.NativeInterpreterWrapper.resizeInput
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_resizeInput
+  0x145d8        148        org.tensorflow.lite.NativeInterpreterWrapper.createCancellationFlag
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_createCancellationFlag
+  0x1466c        16         org.tensorflow.lite.NativeInterpreterWrapper.deleteCancellationFlag
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_deleteCancellationFlag
+  0x1467c        20         org.tensorflow.lite.NativeInterpreterWrapper.setCancelled
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_setCancelled
+  0x14690        256        org.tensorflow.lite.NativeInterpreterWrapper.delete
+      Java_org_tensorflow_lite_NativeInterpreterWrapper_delete
+  0x1fb68        176        org.tensorflow.lite.NativeSignatureRunnerWrapper.nativeGetSignatureRunner
+      Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetSignatureRunner
+  0x1fc18        68         org.tensorflow.lite.NativeSignatureRunnerWrapper.nativeGetSubgraphIndex
+      Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetSubgraphIndex
+  0x1fc5c        72         org.tensorflow.lite.NativeSignatureRunnerWrapper.nativeInputNames
+      Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeInputNames
+  0x1fca4        72         org.tensorflow.lite.NativeSignatureRunnerWrapper.nativeOutputNames
+      Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeOutputNames
+  0x1fcec        288        org.tensorflow.lite.NativeSignatureRunnerWrapper.nativeGetInputIndex
+      Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetInputIndex
+  0x1fe0c        288        org.tensorflow.lite.NativeSignatureRunnerWrapper.nativeGetOutputIndex
+      Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeGetOutputIndex
+  0x1ff2c        444        org.tensorflow.lite.NativeSignatureRunnerWrapper.nativeResizeInput
+      Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeResizeInput
+  0x200e8        176        org.tensorflow.lite.NativeSignatureRunnerWrapper.nativeAllocateTensors
+      Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeAllocateTensors
+  0x20198        176        org.tensorflow.lite.NativeSignatureRunnerWrapper.nativeInvoke
+      Java_org_tensorflow_lite_NativeSignatureRunnerWrapper_nativeInvoke
+  0x205ac        88         org.tensorflow.lite.TensorImpl.create
+      Java_org_tensorflow_lite_TensorImpl_create
+  0x20604        292        org.tensorflow.lite.TensorImpl.createSignatureInputTensor
+      Java_org_tensorflow_lite_TensorImpl_createSignatureInputTensor
+  0x20728        288        org.tensorflow.lite.TensorImpl.createSignatureOutputTensor
+      Java_org_tensorflow_lite_TensorImpl_createSignatureOutputTensor
+  0x20848        64         org.tensorflow.lite.TensorImpl.delete
+      Java_org_tensorflow_lite_TensorImpl_delete
+  0x20888        136        org.tensorflow.lite.TensorImpl.buffer
+      Java_org_tensorflow_lite_TensorImpl_buffer
+  0x20910        200        org.tensorflow.lite.TensorImpl.writeDirectBuffer
+      Java_org_tensorflow_lite_TensorImpl_writeDirectBuffer
+  0x209d8        208        org.tensorflow.lite.TensorImpl.readMultiDimensionalArray
+      Java_org_tensorflow_lite_TensorImpl_readMultiDimensionalArray
+  0x20f0c        400        org.tensorflow.lite.TensorImpl.writeMultiDimensionalArray
+      Java_org_tensorflow_lite_TensorImpl_writeMultiDimensionalArray
+  0x212c4        1104       org.tensorflow.lite.TensorImpl.writeScalar
+      Java_org_tensorflow_lite_TensorImpl_writeScalar
+  0x21714        76         org.tensorflow.lite.TensorImpl.dtype
+      Java_org_tensorflow_lite_TensorImpl_dtype
+  0x21760        176        org.tensorflow.lite.TensorImpl.name
+      Java_org_tensorflow_lite_TensorImpl_name
+  0x21810        168        org.tensorflow.lite.TensorImpl.shape
+      Java_org_tensorflow_lite_TensorImpl_shape
+  0x218b8        180        org.tensorflow.lite.TensorImpl.shapeSignature
+      Java_org_tensorflow_lite_TensorImpl_shapeSignature
+  0x2196c        76         org.tensorflow.lite.TensorImpl.numBytes
+      Java_org_tensorflow_lite_TensorImpl_numBytes
+  0x219b8        92         org.tensorflow.lite.TensorImpl.hasDelegateBufferHandle
+      Java_org_tensorflow_lite_TensorImpl_hasDelegateBufferHandle
+  0x21a14        64         org.tensorflow.lite.TensorImpl.index
+      Java_org_tensorflow_lite_TensorImpl_index
+  0x21a54        76         org.tensorflow.lite.TensorImpl.quantizationScale
+      Java_org_tensorflow_lite_TensorImpl_quantizationScale
+  0x21aa0        76         org.tensorflow.lite.TensorImpl.quantizationZeroPoint
+      Java_org_tensorflow_lite_TensorImpl_quantizationZeroPoint
+  0x220d4        4          org.tensorflow.lite.TensorFlowLite.nativeDoNothing
+      Java_org_tensorflow_lite_TensorFlowLite_nativeDoNothing
+  0x220d8        72         org.tensorflow.lite.TensorFlowLite.nativeRuntimeVersion
+      Java_org_tensorflow_lite_TensorFlowLite_nativeRuntimeVersion
+  0x22120        112        org.tensorflow.lite.TensorFlowLite.nativeSchemaVersion
+      Java_org_tensorflow_lite_TensorFlowLite_nativeSchemaVersion
+  0x22190        136        org.tensorflow.lite.XnnpackDelegate.applyDeleteFunction
+      Java_org_tensorflow_lite_XnnpackDelegate_applyDeleteFunction
+  0xa7840        708        org.tensorflow.lite.nnapi.NnApiDelegate.createDelegate
+      Java_org_tensorflow_lite_nnapi_NnApiDelegate_createDelegate
+  0xa7b04        8          org.tensorflow.lite.nnapi.NnApiDelegate.getNnapiErrno
+      Java_org_tensorflow_lite_nnapi_NnApiDelegate_getNnapiErrno
+  0xa7b0c        48         org.tensorflow.lite.nnapi.NnApiDelegate.deleteDelegate
+      Java_org_tensorflow_lite_nnapi_NnApiDelegate_deleteDelegate
+
+AI-relevant strings (311432 bytes scanned in allocated data sections)
+  [tflite] 255 unique (first 20)
+    0x000021c5 .dynstr    Java_org_tensorflow_lite_NativeInterpreterWrapperExperimental_resetVariableTensors
+    0x00002218 .dynstr    TfLiteCheckInitializedOrThrow
+    0x0000226a .dynstr    Java_org_tensorflow_lite_NativeInterpreterWrapper_allocateTensors
+    0x000022ac .dynstr    Java_org_tensorflow_lite_NativeInterpreterWrapper_allowBufferHandleOutput
+    0x000022f6 .dynstr    Java_org_tensorflow_lite_NativeInterpreterWrapper_allowFp16PrecisionForFp32
+    0x00002342 .dynstr    Java_org_tensorflow_lite_NativeInterpreterWrapper_createCancellationFlag
+    0x0000238b .dynstr    Java_org_tensorflow_lite_NativeInterpreterWrapper_createErrorReporter
+    0x000023d1 .dynstr    Java_org_tensorflow_lite_NativeInterpreterWrapper_createInterpreter
+    0x00002415 .dynstr    Java_org_tensorflow_lite_NativeInterpreterWrapper_createModel
+    0x00002453 .dynstr    Java_org_tensorflow_lite_NativeInterpreterWrapper_createModelWithBuffer
+    0x0000249b .dynstr    Java_org_tensorflow_lite_NativeInterpreterWrapper_createXNNPACKDelegate
+    0x000024e3 .dynstr    Java_org_tensorflow_lite_NativeInterpreterWrapper_delete
+    0x0000251c .dynstr    Java_org_tensorflow_lite_NativeInterpreterWrapper_deleteCancellationFlag
+    0x00002565 .dynstr    Java_org_tensorflow_lite_NativeInterpreterWrapper_getExecutionPlanLength
+    0x000025ae .dynstr    Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputCount
+    0x000025ee .dynstr    Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputNames
+    0x0000262e .dynstr    Java_org_tensorflow_lite_NativeInterpreterWrapper_getInputTensorIndex
+    0x00002674 .dynstr    Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputCount
+    0x000026b5 .dynstr    Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputDataType
+    0x000026f9 .dynstr    Java_org_tensorflow_lite_NativeInterpreterWrapper_getOutputNames
+    ... 180 more
+  [model] 5 unique (first 5)
+    0x0015809c .rodata    Unhandled fully-connected weights format
+    0x0015814e .rodata    Unsupported sparse fully-connected weight format.
+    0x0015be53 .rodata    debug.tflite.trace
+    0x0016109d .rodata    Unhandled fully-connected weights format.
+    0x001632d8 .rodata    unsupported non-default weights format in node #%d
+  [nn_runtime] 127 unique (first 20)
+    0x0015ffb4 .rodata    creating NNAPI model
+    0x0015ffff .rodata    creating NNAPI model for given devices
+    0x00160026 .rodata    creating NNAPI compilation
+    0x00160041 .rodata    Attempted to call ANeuralNetworksCompilation_create from NNAPI delegate that is constructed from a support library
+    0x001600d4 .rodata    configuring NNAPI caching
+    0x00160127 .rodata    completing NNAPI compilation
+    0x00160144 .rodata    creating NNAPI burst
+    0x00160183 .rodata    creating NNAPI execution
+    0x0016023e .rodata    associating NNAPI execution input with a memory object
+    0x00160316 .rodata    associating NNAPI execution output to a memory object
+    0x0016034c .rodata    associating NNAPI execution state output to a memory object
+    0x001603fa .rodata    tensorflow/lite/delegates/nnapi/nnapi_delegate.cc
+    0x001604fb .rodata    getting number of NNAPI devices
+    0x0016064c .rodata    nnapi-reference
+    0x0016069a .rodata    Could not find the specified NNAPI accelerator: %s. Must be one of: {%s}.
+    0x001606e4 .rodata    ANEURALNETWORKS_NO_ERROR
+    0x001606fd .rodata    ANEURALNETWORKS_OUT_OF_MEMORY
+    0x0016071b .rodata    ANEURALNETWORKS_INCOMPLETE
+    0x00160736 .rodata    ANEURALNETWORKS_UNEXPECTED_NULL
+    0x00160756 .rodata    ANEURALNETWORKS_BAD_DATA
+    ... 107 more
+  [face] 4 unique (first 4)
+    0x0000371a .dynstr    posix_memalign
+    0x0015b31a .rodata    data_ptr_value % kDefaultTensorAlignment == 0
+    0x0015f79a .rodata    alignment <= arena_alignment_
+    0x0016782e .rodata    alignof (
+  [segment] 1 unique (first 1)
+    0x0015a780 .rodata    SEGMENT_SUM
+
+JSON written to native/libtensorflowlite_jni.elfinfo.json

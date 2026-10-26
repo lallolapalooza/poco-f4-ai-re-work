@@ -1,0 +1,698 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/Biometric/Biometric.apk",
+  "regex": "com\\.android\\.keyguard|com\\.miui\\.face\\.MiuiFaceService|com\\.miui\\.image\\.Yuv",
+  "packages": [],
+  "max": 25,
+  "timeout": 240.0,
+  "jadx": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/jadx/bin/jadx",
+  "classes_scanned": 141,
+  "candidates": [
+    {
+      "class": "com.miui.face.MiuiFaceService",
+      "dex": "classes.dex",
+      "method_count": 51,
+      "access": 1,
+      "matched": [
+        "com.miui.face.miuifaceservice"
+      ],
+      "score": 1051,
+      "rank": 1,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.face.MiuiFaceService.java",
+      "seconds": 1.89
+    },
+    {
+      "class": "com.android.keyguard.faceunlock.Camera2Util",
+      "dex": "classes.dex",
+      "method_count": 27,
+      "access": 1,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1027,
+      "rank": 2,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.android.keyguard.faceunlock.Camera2Util.java",
+      "seconds": 1.56
+    },
+    {
+      "class": "com.android.keyguard.faceunlock.BaseFaceUnlockManager",
+      "dex": "classes.dex",
+      "method_count": 23,
+      "access": 1025,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1023,
+      "rank": 3,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.android.keyguard.faceunlock.BaseFaceUnlockManager.java",
+      "seconds": 1.43
+    },
+    {
+      "class": "com.android.keyguard.FaceEnrollHelper",
+      "dex": "classes.dex",
+      "method_count": 18,
+      "access": 1,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1018,
+      "rank": 4,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.android.keyguard.FaceEnrollHelper.java",
+      "seconds": 1.58
+    },
+    {
+      "class": "com.android.keyguard.faceunlock.FaceUnlockManager",
+      "dex": "classes.dex",
+      "method_count": 13,
+      "access": 1,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1013,
+      "rank": 5,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.android.keyguard.faceunlock.FaceUnlockManager.java",
+      "seconds": 1.5
+    },
+    {
+      "class": "com.android.keyguard.FaceAuthenHelper",
+      "dex": "classes.dex",
+      "method_count": 12,
+      "access": 1,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1012,
+      "rank": 6,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.android.keyguard.FaceAuthenHelper.java",
+      "seconds": 1.5
+    },
+    {
+      "class": "com.miui.image.Yuv",
+      "dex": "classes.dex",
+      "method_count": 10,
+      "access": 1,
+      "matched": [
+        "com.miui.image.yuv"
+      ],
+      "score": 1010,
+      "rank": 7,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.image.Yuv.java",
+      "seconds": 1.3
+    },
+    {
+      "class": "com.android.keyguard.faceunlock.AbstractCameraUtil",
+      "dex": "classes.dex",
+      "method_count": 8,
+      "access": 1025,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1008,
+      "rank": 8,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.android.keyguard.faceunlock.AbstractCameraUtil.java",
+      "seconds": 1.37
+    },
+    {
+      "class": "com.android.keyguard.FaceAuthenHelper$1$1",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 0,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1005,
+      "rank": 9,
+      "selected": true,
+      "status": "failed",
+      "error": "jadx exit 1",
+      "file": null,
+      "seconds": 1.22
+    },
+    {
+      "class": "com.android.keyguard.faceunlock.Camera2Util$1",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 0,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1005,
+      "rank": 10,
+      "selected": true,
+      "status": "failed",
+      "error": "jadx exit 1",
+      "file": null,
+      "seconds": 1.25
+    },
+    {
+      "class": "com.android.keyguard.faceunlock.BaseFaceEnrollHelper",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 1,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1005,
+      "rank": 11,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.android.keyguard.faceunlock.BaseFaceEnrollHelper.java",
+      "seconds": 1.42
+    },
+    {
+      "class": "com.miui.image.Yuv$PlaneWrapper",
+      "dex": "classes.dex",
+      "method_count": 4,
+      "access": 1,
+      "matched": [
+        "com.miui.image.yuv"
+      ],
+      "score": 1004,
+      "rank": 12,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.image.Yuv$PlaneWrapper.java",
+      "seconds": 1.52
+    },
+    {
+      "class": "com.android.keyguard.faceunlock.FaceUnlockCallback",
+      "dex": "classes.dex",
+      "method_count": 4,
+      "access": 1537,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1004,
+      "rank": 13,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.android.keyguard.faceunlock.FaceUnlockCallback.java",
+      "seconds": 1.23
+    },
+    {
+      "class": "com.miui.face.MiuiFaceService$ScreenReceiver",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 1,
+      "matched": [
+        "com.miui.face.miuifaceservice"
+      ],
+      "score": 1003,
+      "rank": 14,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.face.MiuiFaceService$ScreenReceiver.java",
+      "seconds": 1.62
+    },
+    {
+      "class": "com.android.keyguard.faceunlock.Camera2Util$2",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 0,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1003,
+      "rank": 15,
+      "selected": true,
+      "status": "failed",
+      "error": "jadx exit 1",
+      "file": null,
+      "seconds": 1.26
+    },
+    {
+      "class": "com.android.keyguard.faceunlock.FaceUnlockJni",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 1,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1003,
+      "rank": 16,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.android.keyguard.faceunlock.FaceUnlockJni.java",
+      "seconds": 1.18
+    },
+    {
+      "class": "com.miui.face.MiuiFaceService$1",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "com.miui.face.miuifaceservice"
+      ],
+      "score": 1002,
+      "rank": 17,
+      "selected": true,
+      "status": "failed",
+      "error": "jadx exit 1",
+      "file": null,
+      "seconds": 1.14
+    },
+    {
+      "class": "com.miui.face.MiuiFaceService$2",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "com.miui.face.miuifaceservice"
+      ],
+      "score": 1002,
+      "rank": 18,
+      "selected": true,
+      "status": "failed",
+      "error": "jadx exit 1",
+      "file": null,
+      "seconds": 1.23
+    },
+    {
+      "class": "com.miui.face.MiuiFaceService$3",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "com.miui.face.miuifaceservice"
+      ],
+      "score": 1002,
+      "rank": 19,
+      "selected": true,
+      "status": "failed",
+      "error": "jadx exit 1",
+      "file": null,
+      "seconds": 1.29
+    },
+    {
+      "class": "com.miui.face.MiuiFaceService$4",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "com.miui.face.miuifaceservice"
+      ],
+      "score": 1002,
+      "rank": 20,
+      "selected": true,
+      "status": "failed",
+      "error": "jadx exit 1",
+      "file": null,
+      "seconds": 1.2
+    },
+    {
+      "class": "com.miui.face.MiuiFaceService$5",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "com.miui.face.miuifaceservice"
+      ],
+      "score": 1002,
+      "rank": 21,
+      "selected": true,
+      "status": "failed",
+      "error": "jadx exit 1",
+      "file": null,
+      "seconds": 1.18
+    },
+    {
+      "class": "com.android.keyguard.KeyguardUtils",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 1,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1002,
+      "rank": 22,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.android.keyguard.KeyguardUtils.java",
+      "seconds": 1.23
+    },
+    {
+      "class": "com.android.keyguard.FaceAuthenHelper$1",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1002,
+      "rank": 23,
+      "selected": true,
+      "status": "failed",
+      "error": "jadx exit 1",
+      "file": null,
+      "seconds": 1.29
+    },
+    {
+      "class": "com.android.keyguard.FaceEnrollHelper$1",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1002,
+      "rank": 24,
+      "selected": true,
+      "status": "failed",
+      "error": "jadx exit 1",
+      "file": null,
+      "seconds": 1.16
+    },
+    {
+      "class": "com.android.keyguard.FaceEnrollHelper$2",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1002,
+      "rank": 25,
+      "selected": true,
+      "status": "failed",
+      "error": "jadx exit 1",
+      "file": null,
+      "seconds": 1.2
+    },
+    {
+      "class": "com.android.keyguard.FaceEnrollHelper$3",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1002,
+      "rank": 26,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.android.keyguard.FaceEnrollHelper$4",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1002,
+      "rank": 27,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.image.Yuv$$ExternalSyntheticLambda0",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 4113,
+      "matched": [
+        "com.miui.image.yuv"
+      ],
+      "score": 1002,
+      "rank": 28,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.image.Yuv$$ExternalSyntheticLambda1",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 4113,
+      "matched": [
+        "com.miui.image.yuv"
+      ],
+      "score": 1002,
+      "rank": 29,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.image.Yuv$$ExternalSyntheticLambda2",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 4113,
+      "matched": [
+        "com.miui.image.yuv"
+      ],
+      "score": 1002,
+      "rank": 30,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.android.keyguard.faceunlock.IPreviewCallback",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 1537,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1002,
+      "rank": 31,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.android.keyguard.faceunlock.BaseFaceUnlockManager$1",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1002,
+      "rank": 32,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.android.keyguard.FaceAuthenHelper$$ExternalSyntheticLambda0",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 4113,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1002,
+      "rank": 33,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.android.keyguard.FaceAuthenHelper$$ExternalSyntheticLambda1",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 4113,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1002,
+      "rank": 34,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.android.keyguard.FaceAuthenHelper$$ExternalSyntheticLambda2",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 4113,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1002,
+      "rank": 35,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.android.keyguard.FaceAuthenHelper$$ExternalSyntheticLambda3",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 4113,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1002,
+      "rank": 36,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.android.keyguard.FaceEnrollHelper$$ExternalSyntheticLambda0",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 4113,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1002,
+      "rank": 37,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.android.keyguard.faceunlock.Camera2Util$$ExternalSyntheticLambda0",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 4113,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1002,
+      "rank": 38,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.android.keyguard.faceunlock.Camera2Util$$ExternalSyntheticLambda1",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 4113,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1002,
+      "rank": 39,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.android.keyguard.faceunlock.Camera2Util$$ExternalSyntheticLambda2",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 4113,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1002,
+      "rank": 40,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.android.keyguard.faceunlock.Camera2Util$$ExternalSyntheticLambda3",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 4113,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1002,
+      "rank": 41,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.face.MiuiFaceService$ScreenReceiver$$ExternalSyntheticLambda0",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 4113,
+      "matched": [
+        "com.miui.face.miuifaceservice"
+      ],
+      "score": 1002,
+      "rank": 42,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.android.keyguard.faceunlock.BaseFaceUnlockManager$$ExternalSyntheticLambda0",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 4113,
+      "matched": [
+        "com.android.keyguard"
+      ],
+      "score": 1002,
+      "rank": 43,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.image.Yuv$PlaneWrapper-IA",
+      "dex": "classes.dex",
+      "method_count": 0,
+      "access": 4113,
+      "matched": [
+        "com.miui.image.yuv"
+      ],
+      "score": 1000,
+      "rank": 44,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    }
+  ],
+  "decompiled": 14,
+  "elapsed_sec": 33.77
+}

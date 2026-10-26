@@ -1,0 +1,83 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_bulldog/native/libs/libskwai.so
+==============================================================================
+size        : 6515760 bytes (6.21 MiB)
+sha256      : 468b928d18313c85cca82c4929ff2cf1c2a5182e88abfb92a6c9dda8f85fbdd9
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x61330   imagebase: 0x0
+build id    : 288eb8bd9f5e69bedd15b2e7183326882426d331
+android     : SDK 21, NDK r20, build 5594570
+soname      : libskwai.so
+needed      : libklsf.so, libopencv_world.so, libc++_shared.so, libz.so, liblog.so, libGLESv2.so, libandroid.so, libjnigraphics.so, libEGL.so, libc.so, libm.so, libdl.so
+parser      : lief
+counts      : 1039 exports, 376 imports, 0 JNI, 26 sections, 8 segments
+symtab/dynsym: 0 / 1425
+
+Sections (26)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        9832       0x228
+  .gnu.hash              GNU_HASH         A      0x2890       9320       0x2890
+  .dynsym                DYNSYM           A      0x4cf8       34200      0x4cf8
+  .dynstr                STRTAB           A      0xd290       36400      0xd290
+  .gnu.version           GNU_VERSYM       A      0x160c0      2850       0x160c0
+  .gnu.version_r         GNU_VERNEED      A      0x16be8      96         0x16be8
+  .rela.dyn              RELA             A      0x16c48      281352     0x16c48
+  .rela.plt              RELA             AI     0x5b750      14088      0x5b750
+  .plt                   PROGBITS         AX     0x5ee60      9424       0x5ee60
+  .text                  PROGBITS         AX     0x61330      4825636    0x61330
+  .rodata                PROGBITS         A      0x4fb560     287637     0x4fb560
+  .eh_frame_hdr          PROGBITS         A      0x5418f8     124364     0x5418f8
+  .eh_frame              PROGBITS         A      0x55fec8     544160     0x55fec8
+  .gcc_except_table      PROGBITS         A      0x5e4c68     221868     0x5e4c68
+  .note.android.ident    NOTE             A      0x61af14     152        0x61af14
+  .init_array            INIT_ARRAY       WA     0x62beb0     3672       0x61beb0
+  .fini_array            FINI_ARRAY       WA     0x62cd08     16         0x61cd08
+  .data.rel.ro           PROGBITS         WA     0x62cd18     91016      0x61cd18
+  .dynamic               DYNAMIC          WA     0x6430a0     656        0x6330a0
+  .got                   PROGBITS         WA     0x643330     11472      0x633330
+  .data                  PROGBITS         WA     0x646000     896        0x636000
+  .bss                   NOBITS           WA     0x646380     466304     0x636380
+  .comment               PROGBITS         MS     0x0          303        0x636380
+  .shstrtab              STRTAB           -      0x0          251        0x6364af
+
+AI-relevant strings (1674083 bytes scanned in allocated data sections)
+  [model] 2 unique (first 2)
+    0x00505a6a .rodata    weights
+    0x00505ab5 .rodata    .model
+  [face] 42 unique (first 20)
+    0x0000d2bc .dynstr    _ZNKSt6__ndk16locale9use_facetERNS0_2idE
+    0x000103c4 .dynstr    _ZNKSt6__ndk16locale9has_facetERNS0_2idE
+    0x00504b68 .rodata    Faces:  %u
+    0x00505c31 .rodata    face_edge_modifier
+    0x00505d0c .rodata    face_input
+    0x00505d40 .rodata    face_model_params
+    0x00505db4 .rodata    facemask
+    0x00505e12 .rodata    animal_face
+    0x00505eab .rodata    animal_face_model
+    0x00505f30 .rodata    FACE_UPDATE
+    0x005060b8 .rodata    FACE_EDGE_MODIFIER_COMPONENT_LOAD
+    0x0050612b .rodata    ANIMAL_FACE_DATA
+    0x005061e4 .rodata    face_decoration
+    0x00506517 .rodata    depre_face2d_dir=
+    0x00509674 .rodata    face_to_change
+    0x00509dda .rodata    eye_motion
+    0x00509de5 .rodata    eye_motion_type
+    0x00509df5 .rodata    left_eye
+    0x00509dfe .rodata    right_eye
+    0x00509f2c .rodata    align_with_axis
+    ... 22 more
+  [asr] 1 unique (first 1)
+    0x0050539b .rodata    Failed to open codec
+  [model_name] 9 unique (first 9)
+    0x00505aeb .rodata    instance_model
+    0x00505e67 .rodata    hair_model
+    0x00505e84 .rodata    human_key_point_model
+    0x00505e9a .rodata    human_mesh_model
+    0x00505eab .rodata    animal_face_model
+    0x00505ebd .rodata    ar_hand_pose_model
+    0x00505f5a .rodata    TOUCH_MODEL
+    0x0050a58e .rodata    base_model
+    0x0052bf7b .rodata    SUBSURFACE_MODEL
+
+JSON written to native/libskwai.so.json

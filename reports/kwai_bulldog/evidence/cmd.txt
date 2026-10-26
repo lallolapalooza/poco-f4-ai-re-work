@@ -1,0 +1,77 @@
+# Evidence: commands executed for kwai_bulldog
+
+APK = $APK_ROOT/cust/app/customized/partner-com.kwai.bulldog_112/partner-com.kwai.bulldog_112.apk
+PY  = /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python
+T   = $WS/tools
+
+## 1. Inventory
+$PY $T/apk_inventory.py "$APK" --out reports/kwai_bulldog/inventory \
+      --extract-libs --max-file-mb 50 --max-total-mb 90
+# -> com.kwai.bulldog 6.0.20.524206 entries=8146 ai_models=0 ai_libs=14 markers=4
+#    sha256 d18888e3a450569b50769a9a550358e92e4bb158608f0ba04edaafa21c1f9c7d
+#    label "Snack Video", minSdk 21, targetSdk 31, arm64-v8a only, 16 dex
+
+## 2. Variant diff vs kwai_video (zip CRC + size, then sha256 of every lib/*)
+python /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/diff_kwai.py            # -> evidence/zip_diff_raw.json
+python /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/libhash.py              # -> evidence/lib_hashes_vs_video.json
+# 8146 members here vs 8130 in kwai_video; 79/80 native libs byte-identical,
+# only lib/arm64-v8a/libcore.so differs.
+
+## 3. Native inventory (extracted to native/libs)
+for l in libFaceMagic libfacedetectcontext libfaceless-plugin \
+         libksvisionengineplugin libkwaivpp libskwai libtensorflow-lite \
+         libvisionengine; do
+  $PY $T/elf_info.py native/libs/$l.so --json native/$l.so.json --strings-limit 60
+done
+$PY $T/disasm_elf.py native/libs/libfacedetectcontext.so --list-jni   # 26 JNI
+$PY $T/disasm_elf.py native/libs/libykit.so --list-jni                # 30 JNI
+$PY $T/disasm_elf.py native/libs/libFaceMagic.so --list-jni           # 1802 JNI
+$PY $T/carve_models.py <each>.so                                      # evidence/carve_models.txt
+
+# no model container found in any lib. libtensorflow-lite.so hits:
+#   tflite 0x2f7c25 low-confidence (this is the ASCII 'TFL3' schema magic,
+#   xxd shows "The model is not a valid Flatbuffer file\0TFL3\0In...")
+#   model_string 'debug.tflite' at 0x306670 = the string "debug.tflite.trace"
+#   (Android ATrace category), not a model.
+
+## 3b. ykit plugin libs (found by scanning every .so for the JNI name)
+python: for each lib member, search for b'Java_com_kwai_video_westeros_v2_ycnn_YcnnPlugin'
+# -> lib/arm64-v8a/libykit_core_plugin.so (and 'WesterosYcnnExtension' also in
+#    libfaceless-plugin.so, libwesteros.so, libykit_module_plugin.so)
+$PY $T/elf_info.py native/libs/libykit_core_plugin.so --json native/libykit_core_plugin.so.json
+$PY $T/elf_info.py native/libs/libykit_plugin.so      --json native/libykit_plugin.so.json
+$PY $T/elf_info.py native/libs/libykit_module_plugin.so --json native/libykit_module_plugin.so.json
+$PY $T/disasm_elf.py native/libs/libykit_core_plugin.so --list-jni
+#   YcnnPlugin.nativeCreateYcnnPlugin 0x144bc ... nativeSetParamInfo 0x16640
+#   YcnnPluginUtils.nativeGetFaceData 0x15910 (2016 B)
+
+## 4. Embedded ykit JSON config tables (no tensors)
+strings -a -t x native/libs/libykit.so | grep '"68"'
+#   85597e "68": { "alpha0":..., "alpha1":..., "x0":... }   (3D landmark table)
+strings -a -t x native/libs/libykit.so | grep 'KSModel.*\.model' | wc -l   # 102
+strings -a -t x native/libs/libykit.so | grep '_cfg\.\(txt\|json\)' | wc -l # 19
+
+## 5. DEX searches
+$PY $T/strings_dex.py "$APK" --regex 'tflite|ycnn|FaceMagic|visionengine|faceless' --unique
+$PY $T/dex_find.py "$APK" --regex 'org\.tensorflow\.lite'        # runtime only in classes16
+$PY $T/dex_find.py "$APK" --regex 'ycnn|Ycnn|kscnnrenderlib|MagicModel|VisionEngine' --classes-only
+# androguard string->code xrefs on classes5.dex / all dex members:
+#   Lcom/yxcorp/gifshow/util/magic/c; g()  -> "/.magic_model/magic_model"
+#   Lcom/yxcorp/gifshow/util/resource/model/b; <clinit> -> "magic_ycnn_model_*"
+#   Lcom/kwai/video/editorsdk2/EditorSdk2Utils; createDynamicResourcePathConfigMap
+#        -> "magic_ycnn_beautify_assets"
+#   Lcom/kwai/video/devicepersona/benchmarktest/f; f() -> "/facerecognition/ycnnmodel"
+#   Lcom/yxcorp/gifshow/util/resource/model/a$c; getResourceName() -> "voice_detect_mode.tflite"
+
+## 6. Java decompilation (jadx --single-class, see sources/index.md)
+$T/jadx/bin/jadx --single-class <class> --single-class-output <abs>.java \
+     --show-bad-code --no-res "$APK"
+
+## 7. Reimplementation
+cd reimpl && $PY pipeline.py
+cd reimpl && $PY pipeline.py --net 96 --width 320 --height 240 --seed 7 --json
+# exit 0; shapes in reimpl/verify.txt
+
+## 8. Whole-APK TFLite scan
+python: z.read(member).count(b'TFL3') for every member
+# only lib/arm64-v8a/libtensorflow-lite.so (1 occurrence, the schema magic)

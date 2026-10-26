@@ -1,0 +1,861 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/ExtraPhotoGlobal/ExtraPhotoGlobal.apk",
+  "regex": "Relighting|AlgoManager|MiBrain|Megvii|DualPhotoJni|Bokeh",
+  "packages": [
+    "com.miui.extraphoto.refocus"
+  ],
+  "max": 8,
+  "timeout": 240.0,
+  "jadx": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/jadx/bin/jadx",
+  "classes_scanned": 4785,
+  "candidates": [
+    {
+      "class": "com.miui.extraphoto.refocus.manager.AlgoManager$MegviiBokehAlgo",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 1,
+      "matched": [
+        "algomanager",
+        "bokeh",
+        "megvii"
+      ],
+      "score": 3002,
+      "rank": 1,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.extraphoto.refocus.manager.AlgoManager$MegviiBokehAlgo.java",
+      "seconds": 3.82
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.manager.AlgoManager$MiBrainRelightingAlgo",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 1,
+      "matched": [
+        "algomanager",
+        "mibrain",
+        "relighting"
+      ],
+      "score": 3002,
+      "rank": 2,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.extraphoto.refocus.manager.AlgoManager$MiBrainRelightingAlgo.java",
+      "seconds": 3.9
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.manager.AlgoManager$MiBrainSingleBokehAlgo",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 1,
+      "matched": [
+        "algomanager",
+        "bokeh",
+        "mibrain"
+      ],
+      "score": 3002,
+      "rank": 3,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.extraphoto.refocus.manager.AlgoManager$MiBrainSingleBokehAlgo.java",
+      "seconds": 3.71
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.MiBrainRelightingProcessor",
+      "dex": "classes.dex",
+      "method_count": 16,
+      "access": 0,
+      "matched": [
+        "mibrain",
+        "relighting"
+      ],
+      "score": 2016,
+      "rank": 4,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.extraphoto.refocus.core.relighting.MiBrainRelightingProcessor.java",
+      "seconds": 3.54
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.MegviiRelightingProcessor",
+      "dex": "classes.dex",
+      "method_count": 14,
+      "access": 1,
+      "matched": [
+        "megvii",
+        "relighting"
+      ],
+      "score": 2014,
+      "rank": 5,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.extraphoto.refocus.core.relighting.MegviiRelightingProcessor.java",
+      "seconds": 3.56
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.MiBrainRelightingProcessorPortrait",
+      "dex": "classes.dex",
+      "method_count": 14,
+      "access": 1,
+      "matched": [
+        "mibrain",
+        "relighting"
+      ],
+      "score": 2014,
+      "rank": 6,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.extraphoto.refocus.core.relighting.MiBrainRelightingProcessorPortrait.java",
+      "seconds": 3.26
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.manager.MegviiDualPhotoJni",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 1,
+      "matched": [
+        "dualphotojni",
+        "megvii"
+      ],
+      "score": 2005,
+      "rank": 7,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.extraphoto.refocus.manager.MegviiDualPhotoJni.java",
+      "seconds": 3.28
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.MiBrainRelightingProcessorSoftEncrypted",
+      "dex": "classes.dex",
+      "method_count": 5,
+      "access": 0,
+      "matched": [
+        "mibrain",
+        "relighting"
+      ],
+      "score": 2005,
+      "rank": 8,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.extraphoto.refocus.core.relighting.MiBrainRelightingProcessorSoftEncrypted.java",
+      "seconds": 3.55
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.manager.AlgoManager$MiAlgoBokeh",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 1,
+      "matched": [
+        "algomanager",
+        "bokeh"
+      ],
+      "score": 2002,
+      "rank": 9,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.manager.AlgoManager$MiCameraDualBokehAlgo",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 1,
+      "matched": [
+        "algomanager",
+        "bokeh"
+      ],
+      "score": 2002,
+      "rank": 10,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingOperatingFragment",
+      "dex": "classes.dex",
+      "method_count": 78,
+      "access": 1,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1078,
+      "rank": 11,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.manager.DualPhotoJni",
+      "dex": "classes.dex",
+      "method_count": 27,
+      "access": 1,
+      "matched": [
+        "dualphotojni"
+      ],
+      "score": 1027,
+      "rank": 12,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingGestureView",
+      "dex": "classes.dex",
+      "method_count": 24,
+      "access": 1,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1024,
+      "rank": 13,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.manager.MiDualPhotoJni",
+      "dex": "classes.dex",
+      "method_count": 18,
+      "access": 1,
+      "matched": [
+        "dualphotojni"
+      ],
+      "score": 1018,
+      "rank": 14,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingProcessorSoftPortrait",
+      "dex": "classes.dex",
+      "method_count": 14,
+      "access": 1,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1014,
+      "rank": 15,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.adjuest.MegviiAdjustProcessor",
+      "dex": "classes.dex",
+      "method_count": 12,
+      "access": 1,
+      "matched": [
+        "megvii"
+      ],
+      "score": 1012,
+      "rank": 16,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingProcessor",
+      "dex": "classes.dex",
+      "method_count": 12,
+      "access": 1536,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1012,
+      "rank": 17,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingEffectAdapter",
+      "dex": "classes.dex",
+      "method_count": 10,
+      "access": 1,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1010,
+      "rank": 18,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingGestureFragment",
+      "dex": "classes.dex",
+      "method_count": 10,
+      "access": 1,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1010,
+      "rank": 19,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.ArcSoftRelightingProcessor",
+      "dex": "classes.dex",
+      "method_count": 10,
+      "access": 1024,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1010,
+      "rank": 20,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingPresenter",
+      "dex": "classes.dex",
+      "method_count": 9,
+      "access": 1,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1009,
+      "rank": 21,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.MovieRelightingPresenter",
+      "dex": "classes.dex",
+      "method_count": 9,
+      "access": 1,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1009,
+      "rank": 22,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingResourceLoader",
+      "dex": "classes.dex",
+      "method_count": 9,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1009,
+      "rank": 23,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.manager.AlgoManager",
+      "dex": "classes.dex",
+      "method_count": 7,
+      "access": 1,
+      "matched": [
+        "algomanager"
+      ],
+      "score": 1007,
+      "rank": 24,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingGestureView$1",
+      "dex": "classes.dex",
+      "method_count": 7,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1007,
+      "rank": 25,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingProcessorPortrait",
+      "dex": "classes.dex",
+      "method_count": 7,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1007,
+      "rank": 26,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingResourceLoader$LoadResourceTask",
+      "dex": "classes.dex",
+      "method_count": 6,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1006,
+      "rank": 27,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.adjuest.config.PortraitBokehMapping",
+      "dex": "classes.dex",
+      "method_count": 4,
+      "access": 17,
+      "matched": [
+        "bokeh"
+      ],
+      "score": 1004,
+      "rank": 28,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingGestureFragment$1",
+      "dex": "classes.dex",
+      "method_count": 4,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1004,
+      "rank": 29,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingProcessorSoftEncrypted",
+      "dex": "classes.dex",
+      "method_count": 4,
+      "access": 1,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1004,
+      "rank": 30,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingConfig",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1003,
+      "rank": 31,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.RefocusActivity$DualPhotoJniReleaseRunnable",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 0,
+      "matched": [
+        "dualphotojni"
+      ],
+      "score": 1003,
+      "rank": 32,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingOperatingFragment$SaveRunnable",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1003,
+      "rank": 33,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingOperatingFragment$DestroyRunnable",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1003,
+      "rank": 34,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingGestureView$OnPositionChangeListener",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 1537,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1003,
+      "rank": 35,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingOperatingFragment$SetLightSourceRunnable",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1003,
+      "rank": 36,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingOperatingFragment$GesturePositionRunnable",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1003,
+      "rank": 37,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.manager.AlgoManager$Algo",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 1537,
+      "matched": [
+        "algomanager"
+      ],
+      "score": 1002,
+      "rank": 38,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.manager.AlgoManager$ArcSoftAlgo",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 1,
+      "matched": [
+        "algomanager"
+      ],
+      "score": 1002,
+      "rank": 39,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.manager.AlgoManager$AbstractAlgo",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 1025,
+      "matched": [
+        "algomanager"
+      ],
+      "score": 1002,
+      "rank": 40,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingItemHolder",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1002,
+      "rank": 41,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingGestureView$2",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1002,
+      "rank": 42,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.MovieRelightingItemHolder",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1002,
+      "rank": 43,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.AbstractRelightingItemHolder",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 1024,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1002,
+      "rank": 44,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingOperatingFragment$1",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1002,
+      "rank": 45,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingOperatingFragment$2",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1002,
+      "rank": 46,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingOperatingFragment$3",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1002,
+      "rank": 47,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingOperatingFragment$4",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1002,
+      "rank": 48,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingOperatingFragment$5",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1002,
+      "rank": 49,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingOperatingFragment$6",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1002,
+      "rank": 50,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingOperatingFragment$7",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1002,
+      "rank": 51,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingOperatingFragment$ChangeEffectRunnable",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 0,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1002,
+      "rank": 52,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingOperatingFragment$$ExternalSyntheticLambda0",
+      "dex": "classes.dex",
+      "method_count": 2,
+      "access": 4113,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1002,
+      "rank": 53,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingResourceLoader$OnResourceLoadListener",
+      "dex": "classes.dex",
+      "method_count": 1,
+      "access": 1536,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1001,
+      "rank": 54,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    },
+    {
+      "class": "com.miui.extraphoto.refocus.core.relighting.RelightingResourceLoader$1",
+      "dex": "classes.dex",
+      "method_count": 0,
+      "access": 4096,
+      "matched": [
+        "relighting"
+      ],
+      "score": 1000,
+      "rank": 55,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    }
+  ],
+  "decompiled": 8,
+  "elapsed_sec": 28.78
+}

@@ -1,0 +1,270 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libvisionengine.so
+==============================================================================
+size        : 2108736 bytes (2.01 MiB)
+sha256      : d18be8987e734bb2448cb7ef9c94bb4c797bf8a293b14dff43879b97d6c6e734
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x2ea00   imagebase: 0x0
+build id    : f780fe63b06bb5dfbb67ddda408a18f74ab7e8a5
+android     : SDK 21, NDK r20, build 5594570
+soname      : libvisionengine.so
+needed      : libopencv_world.so, libffmpeg.so, libandroid.so, liblog.so, libEGL.so, libGLESv2.so, libOpenSLES.so, libjnigraphics.so, libz.so, libm.so, libc++_shared.so, libdl.so, libc.so
+parser      : lief
+counts      : 236 exports, 308 imports, 95 JNI, 26 sections, 8 segments
+symtab/dynsym: 0 / 554
+
+Sections (26)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        4308       0x228
+  .gnu.hash              GNU_HASH         A      0x1300       2004       0x1300
+  .dynsym                DYNSYM           A      0x1ad8       13296      0x1ad8
+  .dynstr                STRTAB           A      0x4ec8       18693      0x4ec8
+  .gnu.version           GNU_VERSYM       A      0x97ce       1108       0x97ce
+  .gnu.version_r         GNU_VERNEED      A      0x9c28       96         0x9c28
+  .rela.dyn              RELA             A      0x9c88       138624     0x9c88
+  .rela.plt              RELA             AI     0x2ba08      7344       0x2ba08
+  .plt                   PROGBITS         AX     0x2d6c0      4928       0x2d6c0
+  .text                  PROGBITS         AX     0x2ea00      1438780    0x2ea00
+  .rodata                PROGBITS         A      0x18de40     156887     0x18de40
+  .eh_frame_hdr          PROGBITS         A      0x1b4318     32532      0x1b4318
+  .eh_frame              PROGBITS         A      0x1bc230     133696     0x1bc230
+  .gcc_except_table      PROGBITS         A      0x1dcc70     99476      0x1dcc70
+  .note.android.ident    NOTE             A      0x1f5104     152        0x1f5104
+  .init_array            INIT_ARRAY       WA     0x205390     64         0x1f5390
+  .fini_array            FINI_ARRAY       WA     0x2053d0     48         0x1f53d0
+  .data.rel.ro           PROGBITS         WA     0x205400     47664      0x1f5400
+  .dynamic               DYNAMIC          WA     0x210e30     672        0x200e30
+  .got                   PROGBITS         WA     0x2110d0     3880       0x2010d0
+  .data                  PROGBITS         WA     0x212000     984        0x202000
+  .bss                   NOBITS           WA     0x2123e0     37352      0x2023d8
+  .comment               PROGBITS         MS     0x0          489        0x2023d8
+  .shstrtab              STRTAB           -      0x0          251        0x2025c1
+
+JNI entry points (95)
+  0x15bdf4       100        com.kwai.kve.SmartEditTaskBuilder.getDefaultMemoryConfig
+      Java_com_kwai_kve_SmartEditTaskBuilder_getDefaultMemoryConfig
+  0x15be58       12         com.kwai.kve.SmartEditTaskBuilder.setPresentedWidthNative
+      Java_com_kwai_kve_SmartEditTaskBuilder_setPresentedWidthNative
+  0x15be64       12         com.kwai.kve.SmartEditTaskBuilder.setPresentedHeightNative
+      Java_com_kwai_kve_SmartEditTaskBuilder_setPresentedHeightNative
+  0x15be70       8          com.kwai.kve.SmartEditTaskBuilder.setAnalysisDurationLimitNative
+      Java_com_kwai_kve_SmartEditTaskBuilder_setAnalysisDurationLimitNative
+  0x15be78       8          com.kwai.kve.SmartEditTaskBuilder.setMinImageDimRequiredNative
+      Java_com_kwai_kve_SmartEditTaskBuilder_setMinImageDimRequiredNative
+  0x15be80       8          com.kwai.kve.SmartEditTaskBuilder.setMinVideoDimRequiredNative
+      Java_com_kwai_kve_SmartEditTaskBuilder_setMinVideoDimRequiredNative
+  0x15be88       8          com.kwai.kve.SmartEditTaskBuilder.setAnalysisDimLimitNative
+      Java_com_kwai_kve_SmartEditTaskBuilder_setAnalysisDimLimitNative
+  0x15be90       8          com.kwai.kve.SmartEditTaskBuilder.setMaxTotalDurationNative
+      Java_com_kwai_kve_SmartEditTaskBuilder_setMaxTotalDurationNative
+  0x15be98       12         com.kwai.kve.SmartEditTaskBuilder.setMinAssetNumberNative
+      Java_com_kwai_kve_SmartEditTaskBuilder_setMinAssetNumberNative
+  0x15bea4       12         com.kwai.kve.SmartEditTaskBuilder.setMaxPresentedVideoNumberNative
+      Java_com_kwai_kve_SmartEditTaskBuilder_setMaxPresentedVideoNumberNative
+  0x15beb0       12         com.kwai.kve.SmartEditTaskBuilder.setMaxAnalysisImageNumberNative
+      Java_com_kwai_kve_SmartEditTaskBuilder_setMaxAnalysisImageNumberNative
+  0x15bebc       12         com.kwai.kve.SmartEditTaskBuilder.setMaxAnalysisVideoNumberNative
+      Java_com_kwai_kve_SmartEditTaskBuilder_setMaxAnalysisVideoNumberNative
+  0x15bec8       8          com.kwai.kve.SmartEditTaskBuilder.setVideoClipDurationNative
+      Java_com_kwai_kve_SmartEditTaskBuilder_setVideoClipDurationNative
+  0x15bed0       8          com.kwai.kve.SmartEditTaskBuilder.setImageClipDurationNative
+      Java_com_kwai_kve_SmartEditTaskBuilder_setImageClipDurationNative
+  0x15bed8       8          com.kwai.kve.SmartEditTaskBuilder.setDedupThresholdNative
+      Java_com_kwai_kve_SmartEditTaskBuilder_setDedupThresholdNative
+  0x15bee0       8          com.kwai.kve.SmartEditTaskBuilder.setWorstAssetsExcludeRatioNative
+      Java_com_kwai_kve_SmartEditTaskBuilder_setWorstAssetsExcludeRatioNative
+  0x15bee8       584        com.kwai.kve.SmartEditTaskBuilder.setThemes
+      Java_com_kwai_kve_SmartEditTaskBuilder_setThemes
+  0x15c268       324        com.kwai.kve.SmartEditTaskBuilder.setDesignatedTheme
+      Java_com_kwai_kve_SmartEditTaskBuilder_setDesignatedTheme
+  0x15c3ac       324        com.kwai.kve.SmartEditTaskBuilder.setDesignatedMusic
+      Java_com_kwai_kve_SmartEditTaskBuilder_setDesignatedMusic
+  0x15c4f0       324        com.kwai.kve.SmartEditTaskBuilder.setCacheFolder
+      Java_com_kwai_kve_SmartEditTaskBuilder_setCacheFolder
+  0x15c634       8          com.kwai.kve.SmartEditTaskBuilder.setMinFlashImageInterval
+      Java_com_kwai_kve_SmartEditTaskBuilder_setMinFlashImageInterval
+  0x15c63c       16         com.kwai.kve.SmartEditTaskBuilder.suppressRandomness
+      Java_com_kwai_kve_SmartEditTaskBuilder_suppressRandomness
+  0x15c64c       316        com.kwai.kve.SmartEditTaskBuilder.setAlbumType
+      Java_com_kwai_kve_SmartEditTaskBuilder_setAlbumType
+  0x15c788       68         com.kwai.kve.SmartEditTaskBuilder.releaseConfig
+      Java_com_kwai_kve_SmartEditTaskBuilder_releaseConfig
+  0x15c7f0       1976       com.kwai.kve.SmartCoverTask.createHighlightAnalyzer
+      Java_com_kwai_kve_SmartCoverTask_createHighlightAnalyzer
+  0x15cfa8       16         com.kwai.kve.SmartCoverTask.runHighlightAnalyzer
+      Java_com_kwai_kve_SmartCoverTask_runHighlightAnalyzer
+  0x15cfb8       24         com.kwai.kve.SmartCoverTask.releaseHighlightAnalyzer
+      Java_com_kwai_kve_SmartCoverTask_releaseHighlightAnalyzer
+  0x161654       5020       com.kwai.kve.SmartEditTask.createSmartEditTask
+      Java_com_kwai_kve_SmartEditTask_createSmartEditTask
+  0x162ff8       108        com.kwai.kve.SmartEditTask.getAnalysisDurationLimit
+      Java_com_kwai_kve_SmartEditTask_getAnalysisDurationLimit
+  0x163064       108        com.kwai.kve.SmartEditTask.getMinImageDimRequired
+      Java_com_kwai_kve_SmartEditTask_getMinImageDimRequired
+  0x1630d0       108        com.kwai.kve.SmartEditTask.getMinVideoDimRequired
+      Java_com_kwai_kve_SmartEditTask_getMinVideoDimRequired
+  0x16313c       108        com.kwai.kve.SmartEditTask.getAnalysisDimLimit
+      Java_com_kwai_kve_SmartEditTask_getAnalysisDimLimit
+  0x1631a8       108        com.kwai.kve.SmartEditTask.getMaxTotalDuration
+      Java_com_kwai_kve_SmartEditTask_getMaxTotalDuration
+  0x163214       108        com.kwai.kve.SmartEditTask.getVideoClipDuration
+      Java_com_kwai_kve_SmartEditTask_getVideoClipDuration
+  0x163280       108        com.kwai.kve.SmartEditTask.getImageClipDuration
+      Java_com_kwai_kve_SmartEditTask_getImageClipDuration
+  0x1632ec       108        com.kwai.kve.SmartEditTask.getPresentedWidth
+      Java_com_kwai_kve_SmartEditTask_getPresentedWidth
+  0x163358       108        com.kwai.kve.SmartEditTask.getPresentedHeight
+      Java_com_kwai_kve_SmartEditTask_getPresentedHeight
+  0x1633c4       108        com.kwai.kve.SmartEditTask.getMinAssetNumber
+      Java_com_kwai_kve_SmartEditTask_getMinAssetNumber
+  0x163430       108        com.kwai.kve.SmartEditTask.getMaxPresentedVideoNumber
+      Java_com_kwai_kve_SmartEditTask_getMaxPresentedVideoNumber
+  0x16349c       108        com.kwai.kve.SmartEditTask.getMaxAnalysisImageNumber
+      Java_com_kwai_kve_SmartEditTask_getMaxAnalysisImageNumber
+  0x163508       108        com.kwai.kve.SmartEditTask.getMaxAnalysisVideoNumber
+      Java_com_kwai_kve_SmartEditTask_getMaxAnalysisVideoNumber
+  0x163574       24         com.kwai.kve.SmartEditTask.releaseWorker
+      Java_com_kwai_kve_SmartEditTask_releaseWorker
+  0x16358c       16         com.kwai.kve.SmartEditTask.resetWorkerStopFlag
+      Java_com_kwai_kve_SmartEditTask_resetWorkerStopFlag
+  0x16359c       16         com.kwai.kve.SmartEditTask.stopWorker
+      Java_com_kwai_kve_SmartEditTask_stopWorker
+  0x1635ac       3300       com.kwai.kve.SmartEditTask.runWorker
+      Java_com_kwai_kve_SmartEditTask_runWorker
+  0x16432c       424        com.kwai.kve.SmartEditTask.setCacheFolder
+      Java_com_kwai_kve_SmartEditTask_setCacheFolder
+  0x1644d4       660        com.kwai.kve.SmartEditTask.setThemes
+      Java_com_kwai_kve_SmartEditTask_setThemes
+  0x1684a4       1912       com.kwai.kve.SmartGalleryTask.createHighlightAnalyzer
+      Java_com_kwai_kve_SmartGalleryTask_createHighlightAnalyzer
+  0x168c1c       16         com.kwai.kve.SmartGalleryTask.runHighlightAnalyzer
+      Java_com_kwai_kve_SmartGalleryTask_runHighlightAnalyzer
+  0x168c2c       16         com.kwai.kve.SmartGalleryTask.resetHighlightAnalyzerStopFlag
+      Java_com_kwai_kve_SmartGalleryTask_resetHighlightAnalyzerStopFlag
+  0x168c3c       16         com.kwai.kve.SmartGalleryTask.stopHighlightAnalyzer
+      Java_com_kwai_kve_SmartGalleryTask_stopHighlightAnalyzer
+  0x168c4c       24         com.kwai.kve.SmartGalleryTask.releaseHighlightAnalyzer
+      Java_com_kwai_kve_SmartGalleryTask_releaseHighlightAnalyzer
+  0x1693e0       52         com.kwai.kve.CPUImageFrame.createNative
+      Java_com_kwai_kve_CPUImageFrame_createNative
+  0x169414       8          com.kwai.kve.CPUImageFrame.getWidthNative
+      Java_com_kwai_kve_CPUImageFrame_getWidthNative
+  0x16941c       8          com.kwai.kve.CPUImageFrame.setWidthNative
+      Java_com_kwai_kve_CPUImageFrame_setWidthNative
+  0x169424       8          com.kwai.kve.CPUImageFrame.getHeightNative
+      Java_com_kwai_kve_CPUImageFrame_getHeightNative
+  0x16942c       8          com.kwai.kve.CPUImageFrame.setHeightNative
+      Java_com_kwai_kve_CPUImageFrame_setHeightNative
+  0x169434       8          com.kwai.kve.CPUImageFrame.getPixelFormatNative
+      Java_com_kwai_kve_CPUImageFrame_getPixelFormatNative
+  0x16943c       8          com.kwai.kve.CPUImageFrame.setPixelFormatNative
+      Java_com_kwai_kve_CPUImageFrame_setPixelFormatNative
+  0x169444       152        com.kwai.kve.CPUImageFrame.getLineSizeNative
+      Java_com_kwai_kve_CPUImageFrame_getLineSizeNative
+  0x1694dc       144        com.kwai.kve.CPUImageFrame.setLineSizeNative
+      Java_com_kwai_kve_CPUImageFrame_setLineSizeNative
+  0x16956c       728        com.kwai.kve.CPUImageFrame.getDataNative
+      Java_com_kwai_kve_CPUImageFrame_getDataNative
+  0x169844       224        com.kwai.kve.CPUImageFrame.setDataNative
+      Java_com_kwai_kve_CPUImageFrame_setDataNative
+  0x169924       144        com.kwai.kve.CPUImageFrame.releaseNative
+      Java_com_kwai_kve_CPUImageFrame_releaseNative
+  0x1699b4       28         com.kwai.kve.LutEnhancerConfig.getDefaultConfigNative
+      Java_com_kwai_kve_LutEnhancerConfig_getDefaultConfigNative
+  0x1699d0       16         com.kwai.kve.LutEnhancerConfig.getEnhanceMethodNative
+      Java_com_kwai_kve_LutEnhancerConfig_getEnhanceMethodNative
+  0x1699e0       8          com.kwai.kve.LutEnhancerConfig.setEnhanceMethodNative
+      Java_com_kwai_kve_LutEnhancerConfig_setEnhanceMethodNative
+  0x1699e8       8          com.kwai.kve.LutEnhancerConfig.getLutThresholdNative
+      Java_com_kwai_kve_LutEnhancerConfig_getLutThresholdNative
+  0x1699f0       8          com.kwai.kve.LutEnhancerConfig.setLutThresholdNative
+      Java_com_kwai_kve_LutEnhancerConfig_setLutThresholdNative
+  0x1699f8       8          com.kwai.kve.LutEnhancerConfig.isDehazeEnabledNative
+      Java_com_kwai_kve_LutEnhancerConfig_isDehazeEnabledNative
+  0x169a00       4          com.kwai.kve.LutEnhancerConfig.enableDehazeNative
+      Java_com_kwai_kve_LutEnhancerConfig_enableDehazeNative
+  0x169a04       16         com.kwai.kve.LutEnhancerConfig.releaseConfigNative
+      Java_com_kwai_kve_LutEnhancerConfig_releaseConfigNative
+  0x169a14       84         com.kwai.kve.LutEnhancerImpl.createNative
+      Java_com_kwai_kve_LutEnhancerImpl_createNative
+  0x169a68       328        com.kwai.kve.LutEnhancerImpl.processNative
+      Java_com_kwai_kve_LutEnhancerImpl_processNative
+  0x169bb0       24         com.kwai.kve.LutEnhancerImpl 0024EnhanceLutImpl.getDataNative
+      Java_com_kwai_kve_LutEnhancerImpl_00024EnhanceLutImpl_getDataNative
+  0x169bc8       8          com.kwai.kve.LutEnhancerImpl 0024EnhanceLutImpl.getWidthNative
+      Java_com_kwai_kve_LutEnhancerImpl_00024EnhanceLutImpl_getWidthNative
+  0x169bd0       8          com.kwai.kve.LutEnhancerImpl 0024EnhanceLutImpl.getHeightNative
+      Java_com_kwai_kve_LutEnhancerImpl_00024EnhanceLutImpl_getHeightNative
+  0x169bd8       8          com.kwai.kve.LutEnhancerImpl 0024EnhanceLutImpl.getBlockSizeRowNative
+      Java_com_kwai_kve_LutEnhancerImpl_00024EnhanceLutImpl_getBlockSizeRowNative
+  0x169be0       8          com.kwai.kve.LutEnhancerImpl 0024EnhanceLutImpl.getBlockSizeColNative
+      Java_com_kwai_kve_LutEnhancerImpl_00024EnhanceLutImpl_getBlockSizeColNative
+  0x169be8       8          com.kwai.kve.LutEnhancerImpl 0024EnhanceLutImpl.getEnhanceLevelNative
+      Java_com_kwai_kve_LutEnhancerImpl_00024EnhanceLutImpl_getEnhanceLevelNative
+  0x169bf0       8          com.kwai.kve.LutEnhancerImpl 0024EnhanceLutImpl.getWithDehazeNative
+      Java_com_kwai_kve_LutEnhancerImpl_00024EnhanceLutImpl_getWithDehazeNative
+  0x169bf8       16         com.kwai.kve.LutEnhancerImpl 0024EnhanceLutImpl.releaseNative
+      Java_com_kwai_kve_LutEnhancerImpl_00024EnhanceLutImpl_releaseNative
+  0x169c08       84         com.kwai.kve.SmartUploadAnalyzer.createNative
+      Java_com_kwai_kve_SmartUploadAnalyzer_createNative
+  0x169c5c       76         com.kwai.kve.SmartUploadAnalyzer.deleteNative
+      Java_com_kwai_kve_SmartUploadAnalyzer_deleteNative
+  0x169ca8       112        com.kwai.kve.SmartUploadAnalyzer.openNative
+      Java_com_kwai_kve_SmartUploadAnalyzer_openNative
+  0x169d18       108        com.kwai.kve.SmartUploadAnalyzer.openWithModelTypeNative
+      Java_com_kwai_kve_SmartUploadAnalyzer_openWithModelTypeNative
+  0x169d84       488        com.kwai.kve.SmartUploadAnalyzer.analyseNative
+      Java_com_kwai_kve_SmartUploadAnalyzer_analyseNative
+  0x169f6c       80         com.kwai.kve.SmartUploadAnalyzer.getSoftEncEstBitrateNative
+      Java_com_kwai_kve_SmartUploadAnalyzer_getSoftEncEstBitrateNative
+  0x169fbc       80         com.kwai.kve.SmartUploadAnalyzer.getSoftEncMaxBitrateNative
+      Java_com_kwai_kve_SmartUploadAnalyzer_getSoftEncMaxBitrateNative
+  0x16a00c       80         com.kwai.kve.SmartUploadAnalyzer.getHardEncBitrateNative
+      Java_com_kwai_kve_SmartUploadAnalyzer_getHardEncBitrateNative
+  0x16a05c       8          com.kwai.kve.SmartUploadAnalyzer.closeNative
+      Java_com_kwai_kve_SmartUploadAnalyzer_closeNative
+  0x16a064       8          com.kwai.kve.DummyRunner.init
+      Java_com_kwai_kve_DummyRunner_init
+  0x16a06c       124        com.kwai.kve.DummyRunner.run
+      Java_com_kwai_kve_DummyRunner_run
+  0x16a0e8       100        com.kwai.kve.DummyRunner.release
+      Java_com_kwai_kve_DummyRunner_release
+  0x16adb0       220        com.kwai.kve.LogUtil.logVersion
+      Java_com_kwai_kve_LogUtil_logVersion
+
+AI-relevant strings (661564 bytes scanned in allocated data sections)
+  [nn_runtime] 2 unique (first 2)
+    0x0018ded6 .rodata    Please check out gpu inputs or outputs!
+    0x0018deff .rodata    Return current latest gpu pipeline ,please check your index to make right in [-1, index].
+  [face] 23 unique (first 20)
+    0x00005439 .dynstr    _ZNKSt6__ndk16locale9has_facetERNS0_2idE
+    0x00005462 .dynstr    _ZNKSt6__ndk16locale9use_facetERNS0_2idE
+    0x00190ec0 .rodata    inputs[0] of FocusCenterFromFaceLandmarksProcessor is nullptr!
+    0x00190f65 .rodata    inputs[1] of FocusCenterFromFaceLandmarksProcessor is nullptr!
+    0x00190fa4 .rodata    outputs[0] of FocusCenterFromFaceLandmarksProcessor is nullptr!
+    0x00192b4f .rodata    face_score_dag
+    0x00192b5e .rodata    landmarks
+    0x00192b68 .rodata    compute_face_scores
+    0x00192b7c .rodata    face_laplacian_dag
+    0x00192b8f .rodata    face_mask
+    0x00192ba0 .rodata    face_laplacian_stats
+    0x00192bbc .rodata    face_gray_stats
+    0x001a5e73 .rodata    Face detector is null!
+    0x001a8af3 .rodata    Fkve::FaceSource
+    0x001a8b04 .rodata    The Face struct is already normalized!
+    0x001a8b2b .rodata    The Face struct is not normalized, and normalization is not possible in this context!
+    0x001a8b81 .rodata    Can't read face data from file
+    0x001b1a75 .rodata    com/kwai/kve/FaceData
+    0x001b1ab9 .rodata    com/kwai/kve/FaceProxy
+    0x001b1d6f .rodata    getLandmark
+    ... 3 more
+  [asr] 4 unique (first 4)
+    0x001a7847 .rodata    Codec not found.
+    0x001a7858 .rodata    Codec not found
+    0x001a7868 .rodata    Could not open codec.
+    0x001a787e .rodata    Could not open codec
+  [segment] 1 unique (first 1)
+    0x00198d7e .rodata    Unsupported saliency detection method!
+
+JSON written to /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/native/libvisionengine.so.json

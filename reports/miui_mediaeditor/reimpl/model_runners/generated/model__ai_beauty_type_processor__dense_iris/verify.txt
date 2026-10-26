@@ -1,0 +1,5 @@
+model__ai_beauty_type_processor__dense_iris.tflite  subgraph=0 signature=None  PASS
+  output      shape    dtype    max_abs   tol       result
+  Identity    (25, 2)  FLOAT32  1.19e-07  1.00e-04  PASS
+  Identity_1  (25, 2)  FLOAT32  1.53e-05  1.00e-04  PASS
+  2 output(s), max_abs=1.53e-05, status=pass

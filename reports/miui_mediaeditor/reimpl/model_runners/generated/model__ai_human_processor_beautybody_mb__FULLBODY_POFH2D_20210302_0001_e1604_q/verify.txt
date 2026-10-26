@@ -1,0 +1,6 @@
+model__ai_human_processor_beautybody_mb__FULLBODY_POFH2D_20210302_0001_e1604_q.tflite  subgraph=0 signature=None  FAIL
+  output       shape            dtype  max_abs  tol   result
+  Output_hms   (1, 64, 48, 31)  UINT8  254.843  0.02  FAIL
+  Output_pofs  (1, 64, 48, 78)  UINT8  1.69054  0.02  FAIL
+  Output_bbfs  (1, 8, 6, 192)   UINT8  93.7917  0.02  FAIL
+  3 output(s), max_abs=254.843, status=fail

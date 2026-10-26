@@ -1,0 +1,55 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/inventory/libs/lib/arm64-v8a/libaiedit.so
+==============================================================================
+size        : 34640 bytes (0.03 MiB)
+sha256      : c290da3dbe9d63fbc59eef7cdd9a42f70db079567a9bf4856209ea90d66b8105
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x0   imagebase: 0x0
+build id    : 23f9e49f0a2efaea6a7b8e16748a015bae96a99a
+android     : SDK 24, NDK r25b, build 8937393
+soname      : libaiedit.so
+needed      : liblog.so, libMNN.so, libm.so, libdl.so, libc.so
+parser      : lief
+counts      : 13 exports, 37 imports, 3 JNI, 25 sections, 9 segments
+symtab/dynsym: 0 / 54
+
+Sections (25)
+  name                   type             flags  address      size       offset
+  .note.android.ident    NOTE             A      0x238        152        0x238
+  .note.gnu.build-id     NOTE             A      0x2d0        36         0x2d0
+  .dynsym                DYNSYM           A      0x2f8        1296       0x2f8
+  .gnu.version           GNU_VERSYM       A      0x808        108        0x808
+  .gnu.version_r         GNU_VERNEED      A      0x874        64         0x874
+  .gnu.hash              GNU_HASH         A      0x8b8        128        0x8b8
+  .dynstr                STRTAB           A      0x938        1709       0x938
+  .rela.dyn              RELA             A      0xfe8        552        0xfe8
+  .rela.plt              RELA             AI     0x1210       1008       0x1210
+  .rodata                PROGBITS         AMS    0x1600       3804       0x1600
+  .gcc_except_table      PROGBITS         A      0x24dc       168        0x24dc
+  .eh_frame_hdr          PROGBITS         A      0x2584       476        0x2584
+  .eh_frame              PROGBITS         A      0x2760       2020       0x2760
+  .text                  PROGBITS         AX     0x2f44       18800      0x2f44
+  .plt                   PROGBITS         AX     0x78c0       704        0x78c0
+  .data.rel.ro           PROGBITS         WA     0x8b80       144        0x7b80
+  .fini_array            FINI_ARRAY       WA     0x8c10       16         0x7c10
+  .dynamic               DYNAMIC          WA     0x8c20       432        0x7c20
+  .got                   PROGBITS         WA     0x8dd0       8          0x7dd0
+  .got.plt               PROGBITS         WA     0x8dd8       360        0x7dd8
+  .data                  PROGBITS         WA     0x9f40       32         0x7f40
+  .bss                   NOBITS           WA     0x9f60       2112       0x7f60
+  .comment               PROGBITS         MS     0x0          177        0x7f60
+  .shstrtab              STRTAB           -      0x0          248        0x8011
+
+JNI entry points (3)
+  0x3a34         344        com.milab.aieditsdk.AiEdit.init
+      Java_com_milab_aieditsdk_AiEdit_init
+  0x3b8c         52         com.milab.aieditsdk.AiEdit.release
+      Java_com_milab_aieditsdk_AiEdit_release
+  0x3bc0         320        com.milab.aieditsdk.AiEdit.process
+      Java_com_milab_aieditsdk_AiEdit_process
+
+AI-relevant strings (12513 bytes scanned in allocated data sections)
+  [face] 1 unique (first 1)
+    0x00001875 .rodata    DW_EH_PE_aligned pointer encoding not supported
+
+JSON written to reports/miui_mediaeditor/native/libaiedit.elf.json

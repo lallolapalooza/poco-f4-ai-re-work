@@ -1,0 +1,115 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_bulldog/native/libs/libykit_core_plugin.so
+==============================================================================
+size        : 592000 bytes (0.56 MiB)
+sha256      : 41693ab1572190d6dbafd92dbf451052664739986d528020544f55c2e11584ee
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x13d70   imagebase: 0x0
+build id    : 2b1e7c7784e660c55fccaf0f8d2f2d522c5db193
+android     : SDK 21, NDK r21e, build 7075529
+soname      : libykit_core_plugin.so
+needed      : libykit.so, libprotobuf-lite.so, libwesteros.so, libjnigraphics.so, libm.so, libc++_shared.so, libdl.so, libc.so
+parser      : lief
+counts      : 49 exports, 318 imports, 12 JNI, 26 sections, 8 segments
+symtab/dynsym: 0 / 377
+
+Sections (26)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        2568       0x228
+  .gnu.hash              GNU_HASH         A      0xc30        424        0xc30
+  .dynsym                DYNSYM           A      0xdd8        9048       0xdd8
+  .dynstr                STRTAB           A      0x3130       20908      0x3130
+  .gnu.version           GNU_VERSYM       A      0x82dc       754        0x82dc
+  .gnu.version_r         GNU_VERNEED      A      0x85d0       64         0x85d0
+  .rela.dyn              RELA             A      0x8610       34992      0x8610
+  .rela.plt              RELA             AI     0x10ec0      7152       0x10ec0
+  .plt                   PROGBITS         AX     0x12ab0      4800       0x12ab0
+  .text                  PROGBITS         AX     0x13d70      379340     0x13d70
+  .rodata                PROGBITS         A      0x70740      31013      0x70740
+  .eh_frame_hdr          PROGBITS         A      0x78068      9404       0x78068
+  .eh_frame              PROGBITS         A      0x7a528      42248      0x7a528
+  .gcc_except_table      PROGBITS         A      0x84a30      26896      0x84a30
+  .note.android.ident    NOTE             A      0x8b340      152        0x8b340
+  .init_array            INIT_ARRAY       WA     0x8d2a8      48         0x8c2a8
+  .fini_array            FINI_ARRAY       WA     0x8d2d8      16         0x8c2d8
+  .data.rel.ro           PROGBITS         WA     0x8d2e8      12400      0x8c2e8
+  .dynamic               DYNAMIC          WA     0x90358      592        0x8f358
+  .got                   PROGBITS         WA     0x905a8      2648       0x8f5a8
+  .data                  PROGBITS         WA     0x91000      40         0x90000
+  .bss                   NOBITS           WA     0x91030      1664       0x90028
+  .comment               PROGBITS         MS     0x0          220        0x90028
+  .shstrtab              STRTAB           -      0x0          251        0x90104
+
+JNI entry points (12)
+  0x144bc        124        com.kwai.video.westeros.v2.ycnn.YcnnPlugin.nativeCreateYcnnPlugin
+      Java_com_kwai_video_westeros_v2_ycnn_YcnnPlugin_nativeCreateYcnnPlugin
+  0x14538        96         com.kwai.video.westeros.v2.ycnn.YcnnPlugin.nativeDestroyYcnnPlugin
+      Java_com_kwai_video_westeros_v2_ycnn_YcnnPlugin_nativeDestroyYcnnPlugin
+  0x14598        388        com.kwai.video.westeros.v2.ycnn.YcnnPlugin.nativeStartProvideSalientData
+      Java_com_kwai_video_westeros_v2_ycnn_YcnnPlugin_nativeStartProvideSalientData
+  0x1471c        252        com.kwai.video.westeros.v2.ycnn.YcnnPlugin.nativeStopProvideSalientData
+      Java_com_kwai_video_westeros_v2_ycnn_YcnnPlugin_nativeStopProvideSalientData
+  0x14818        1336       com.kwai.video.westeros.v2.ycnn.YcnnPlugin.nativeStartProvideGeneralRecogData
+      Java_com_kwai_video_westeros_v2_ycnn_YcnnPlugin_nativeStartProvideGeneralRecogData
+  0x150fc        256        com.kwai.video.westeros.v2.ycnn.YcnnPlugin.nativeStopProvideGeneralRecogData
+      Java_com_kwai_video_westeros_v2_ycnn_YcnnPlugin_nativeStopProvideGeneralRecogData
+  0x151fc        972        com.kwai.video.westeros.v2.ycnn.YcnnPlugin.nativeStartProvideFaceAttributeData
+      Java_com_kwai_video_westeros_v2_ycnn_YcnnPlugin_nativeStartProvideFaceAttributeData
+  0x15820        240        com.kwai.video.westeros.v2.ycnn.YcnnPlugin.nativeStopProvideFaceAttributeData
+      Java_com_kwai_video_westeros_v2_ycnn_YcnnPlugin_nativeStopProvideFaceAttributeData
+  0x15910        2016       com.kwai.video.westeros.v2.ycnn.YcnnPluginUtils.nativeGetFaceData
+      Java_com_kwai_video_westeros_v2_ycnn_YcnnPluginUtils_nativeGetFaceData
+  0x160f0        432        com.kwai.video.westeros.v2.ycnn.YcnnPlugin.nativeSetOnYcnnModelLoadFinish
+      Java_com_kwai_video_westeros_v2_ycnn_YcnnPlugin_nativeSetOnYcnnModelLoadFinish
+  0x162a0        756        com.kwai.video.westeros.v2.ycnn.YcnnPlugin.nativeSetUploadStatsCallBack
+      Java_com_kwai_video_westeros_v2_ycnn_YcnnPlugin_nativeSetUploadStatsCallBack
+  0x16640        212        com.kwai.video.westeros.v2.ycnn.YcnnPlugin.nativeSetParamInfo
+      Java_com_kwai_video_westeros_v2_ycnn_YcnnPlugin_nativeSetParamInfo
+
+AI-relevant strings (201403 bytes scanned in allocated data sections)
+  [model] 11 unique (first 11)
+    0x00072851 .rodata    kuaishou.westeros.model.YCNNPoint
+    0x00072873 .rodata    kuaishou.westeros.model.YCNNRect
+    0x00072894 .rodata    kuaishou.westeros.model.YCNNFace
+    0x000728b5 .rodata    kuaishou.westeros.model.YCNNFaces
+    0x000728d7 .rodata    kuaishou.westeros.model.YCNNModelInConfig
+    0x00072901 .rodata    kuaishou.westeros.model.YCNNResourceConfig.ycnn_model_path
+    0x0007293c .rodata    kuaishou.westeros.model.YCNNResourceConfig.mmu_model_path
+    0x00072976 .rodata    kuaishou.westeros.model.YCNNResourceConfig.resource_path
+    0x000729af .rodata    kuaishou.westeros.model.YCNNResourceConfig
+    0x000729da .rodata    kuaishou.westeros.model.YcnnFaceAttributeInfo
+    0x00072a08 .rodata    kuaishou.westeros.model.YcnnFaceAttributeResult
+  [face] 22 unique (first 20)
+    0x00003568 .dynstr    _ZN6google8protobuf5Arena15AllocateAlignedEPKSt9type_infom
+    0x00004e08 .dynstr    _ZN5ycnn29YCNNModel12getLandmarksEPNS_15KSFaceDetectOutE
+    0x00004e78 .dynstr    _ZN5ycnn29YCNNModel17setLandmarksParamENS_16KSLandmarksParamE
+    0x00004f35 .dynstr    _ZNKSt6__ndk16locale9use_facetERNS0_2idE
+    0x00007327 .dynstr    _ZN5ycnn29YCNNModel18getAnimalLandmarksEPNS_20KSAnimalLandmarksOutE
+    0x00073e8e .rodata    [YlabPostProvider] - CallBack: No face points!
+    0x00073ebe .rodata    [YlabPostProvider] - CallBack: No face data: roll, yaw and pitch!
+    0x00075bb4 .rodata    YAnimalLandmarks
+    0x00075bc5 .rodata    YDogLandmarks
+    0x0007609b .rodata    useFaceID
+    0x00076120 .rodata    magic_ycnn_model_landmark
+    0x00076171 .rodata    magic_ycnn_model_face_attributes
+    0x000761da .rodata    magic_ycnn_model_face_seg
+    0x00076249 .rodata    magic_ycnn_model_animal_landmarks
+    0x0007626b .rodata    magic_ycnn_model_dog_landmarks
+    0x000762dd .rodata    magic_ycnn_model_face_similarity
+    0x000763a3 .rodata    magic_ycnn_model_gan_face2drawing
+    0x0007666e .rodata    [YlabProvider] CreateGanModel - faceless_res path: %s
+    0x0007680a .rodata    faceAttribute_data
+    0x00076960 .rodata    faceid
+    ... 2 more
+  [segment] 8 unique (first 8)
+    0x00005930 .dynstr    _ZN5ycnn213YCNNModelPost20setHumanMattingParamENS_19KSHumanMattingParamE
+    0x0000694a .dynstr    _ZN5ycnn29YCNNModel10getMattingEPNS_12KSMattingOutE
+    0x00007669 .dynstr    _ZN5ycnn29YCNNModel20getHumanMattingParamEv
+    0x0000771d .dynstr    _ZN5ycnn29YCNNModel20setHumanMattingParamENS_19KSHumanMattingParamE
+    0x00073905 .rodata    modelPath_matting
+    0x00073c31 .rodata    matting_post_texID
+    0x00073c76 .rodata    mattingPostTexID
+    0x000760a5 .rodata    magic_ycnn_model_matting
+
+JSON written to native/libykit_core_plugin.so.json

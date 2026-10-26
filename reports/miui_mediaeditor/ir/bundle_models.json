@@ -1,0 +1,2028 @@
+{
+ "ai_beauty_type_processor/dense_eb.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_beauty_type_processor/dense_eb.tflite",
+  "size": 436824,
+  "inputs": [
+   {
+    "name": "image",
+    "shape": [
+     1,
+     40,
+     40,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     1,
+     13,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_1",
+    "shape": [
+     1,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "CONV_2D": 15,
+   "ADD": 4,
+   "RESHAPE": 2,
+   "FULLY_CONNECTED": 4,
+   "SHAPE": 1,
+   "STRIDED_SLICE": 1,
+   "PACK": 1,
+   "LOGISTIC": 1
+  },
+  "n_ops": 29,
+  "n_tensors": 73,
+  "description": "MLIR Converted."
+ },
+ "ai_beauty_type_processor/dense_eye_iris.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_beauty_type_processor/dense_eye_iris.tflite",
+  "size": 504020,
+  "inputs": [
+   {
+    "name": "image",
+    "shape": [
+     1,
+     64,
+     64,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "eye_s1",
+    "shape": [
+     1,
+     8,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "ht",
+    "shape": [
+     1,
+     64,
+     64,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     1,
+     8,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_1",
+    "shape": [
+     1,
+     25,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_2",
+    "shape": [
+     1,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "CONCATENATION": 1,
+   "MUL": 1,
+   "ADD": 8,
+   "CONV_2D": 22,
+   "RESHAPE": 3,
+   "FULLY_CONNECTED": 5,
+   "SHAPE": 2,
+   "STRIDED_SLICE": 2,
+   "PACK": 2,
+   "LOGISTIC": 1
+  },
+  "n_ops": 47,
+  "n_tensors": 112,
+  "description": "MLIR Converted."
+ },
+ "ai_beauty_type_processor/dense_iris.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_beauty_type_processor/dense_iris.tflite",
+  "size": 200152,
+  "inputs": [
+   {
+    "name": "image",
+    "shape": [
+     1,
+     64,
+     64,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     25,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_1",
+    "shape": [
+     25,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "CONV_2D": 23,
+   "DEPTHWISE_CONV_2D": 6,
+   "ADD": 3,
+   "AVERAGE_POOL_2D": 2,
+   "RESHAPE": 2,
+   "SOFTMAX": 1
+  },
+  "n_ops": 37,
+  "n_tensors": 95,
+  "description": "MLIR Converted."
+ },
+ "ai_beauty_type_processor/dense_mouth.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_beauty_type_processor/dense_mouth.tflite",
+  "size": 453380,
+  "inputs": [
+   {
+    "name": "image",
+    "shape": [
+     1,
+     64,
+     64,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "upper_s1",
+    "shape": [
+     1,
+     18,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "dense_s1",
+    "shape": [
+     1,
+     56,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "ht_upper_s1",
+    "shape": [
+     1,
+     64,
+     64,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "ht_dense_s1",
+    "shape": [
+     1,
+     64,
+     64,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     56,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_1",
+    "shape": [
+     18,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "CONCATENATION": 1,
+   "MUL": 1,
+   "ADD": 9,
+   "CONV_2D": 22,
+   "RESHAPE": 5,
+   "FULLY_CONNECTED": 3
+  },
+  "n_ops": 41,
+  "n_tensors": 101,
+  "description": "MLIR Converted."
+ },
+ "ai_beauty_type_processor/face_landmark_lite_210818_360.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_beauty_type_processor/face_landmark_lite_210818_360.tflite",
+  "size": 484264,
+  "inputs": [
+   {
+    "name": "input",
+    "shape": [
+     1,
+     64,
+     64,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "add_7",
+    "shape": [
+     1,
+     154
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "SUB": 1,
+   "CONV_2D": 28,
+   "ADD": 7,
+   "AVERAGE_POOL_2D": 1,
+   "RESHAPE": 1
+  },
+  "n_ops": 38,
+  "n_tensors": 97,
+  "description": "MLIR Converted."
+ },
+ "ai_beauty_type_processor/model_hair.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_beauty_type_processor/model_hair.tflite",
+  "size": 2791684,
+  "inputs": [
+   {
+    "name": "inputs",
+    "shape": [
+     1,
+     96,
+     96,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     7,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "SUB": 1,
+   "CONV_2D": 27,
+   "PRELU": 25,
+   "DEPTHWISE_CONV_2D": 7,
+   "ADD": 4,
+   "CONCATENATION": 1,
+   "RESHAPE": 1
+  },
+  "n_ops": 66,
+  "n_tensors": 159,
+  "description": "MLIR Converted."
+ },
+ "ai_beauty_type_processor/mouth_checker_14.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_beauty_type_processor/mouth_checker_14.tflite",
+  "size": 32332,
+  "inputs": [
+   {
+    "name": "input",
+    "shape": [
+     1,
+     40,
+     40,
+     3
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "softmax",
+    "shape": [
+     1,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "CONV_2D": 6,
+   "DEPTHWISE_CONV_2D": 2,
+   "MAX_POOL_2D": 2,
+   "AVERAGE_POOL_2D": 1,
+   "RESHAPE": 1,
+   "SOFTMAX": 1
+  },
+  "n_ops": 13,
+  "n_tensors": 31,
+  "description": "TOCO Converted."
+ },
+ "ai_beauty_type_processor/n-0.5_416_0.05_4aspect6.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_beauty_type_processor/n-0.5_416_0.05_4aspect6.tflite",
+  "size": 1864936,
+  "inputs": [
+   {
+    "name": "input_1",
+    "shape": [
+     1,
+     416,
+     416,
+     3
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     1,
+     7098,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_1",
+    "shape": [
+     1,
+     7098,
+     4
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_2",
+    "shape": [
+     1,
+     7098,
+     10
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "MUL": 36,
+   "PAD": 10,
+   "CONV_2D": 66,
+   "MAX_POOL_2D": 1,
+   "CONCATENATION": 28,
+   "DEPTHWISE_CONV_2D": 19,
+   "LOGISTIC": 41,
+   "RESHAPE": 35,
+   "TRANSPOSE": 16,
+   "SPLIT": 13,
+   "RESIZE_NEAREST_NEIGHBOR": 2,
+   "STRIDED_SLICE": 9
+  },
+  "n_ops": 276,
+  "n_tensors": 480,
+  "description": "MLIR Converted."
+ },
+ "ai_beauty_type_processor/n-small_256_0.05_only_a5.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_beauty_type_processor/n-small_256_0.05_only_a5.tflite",
+  "size": 101380,
+  "inputs": [
+   {
+    "name": "input_1",
+    "shape": [
+     1,
+     256,
+     256,
+     3
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     1,
+     3072,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_1",
+    "shape": [
+     1,
+     3072,
+     4
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_2",
+    "shape": [
+     1,
+     3072,
+     10
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "MUL": 15,
+   "PAD": 6,
+   "CONV_2D": 22,
+   "MAX_POOL_2D": 1,
+   "CONCATENATION": 7,
+   "DEPTHWISE_CONV_2D": 8,
+   "LOGISTIC": 16,
+   "RESHAPE": 13,
+   "TRANSPOSE": 6,
+   "SPLIT": 4,
+   "RESIZE_NEAREST_NEIGHBOR": 1,
+   "ADD": 1,
+   "STRIDED_SLICE": 3
+  },
+  "n_ops": 103,
+  "n_tensors": 183,
+  "description": "MLIR Converted."
+ },
+ "ai_beauty_type_processor/s1_112_98.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_beauty_type_processor/s1_112_98.tflite",
+  "size": 2106152,
+  "inputs": [
+   {
+    "name": "inputs",
+    "shape": [
+     1,
+     112,
+     112,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_1",
+    "shape": [
+     98,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "CONV_2D": 38,
+   "DEPTHWISE_CONV_2D": 10,
+   "ADD": 8,
+   "AVERAGE_POOL_2D": 2,
+   "RESHAPE": 2,
+   "SOFTMAX": 1
+  },
+  "n_ops": 61,
+  "n_tensors": 154,
+  "description": "MLIR Converted."
+ },
+ "ai_beauty_type_processor/s2.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_beauty_type_processor/s2.tflite",
+  "size": 594960,
+  "inputs": [
+   {
+    "name": "inputs",
+    "shape": [
+     1,
+     112,
+     112,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "inputs_ht",
+    "shape": [
+     1,
+     112,
+     112,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "inputs_lms",
+    "shape": [
+     1,
+     77,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     1,
+     77,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "CONCATENATION": 1,
+   "MUL": 1,
+   "ADD": 9,
+   "CONV_2D": 27,
+   "AVERAGE_POOL_2D": 1,
+   "SHAPE": 1,
+   "STRIDED_SLICE": 1,
+   "PACK": 1,
+   "RESHAPE": 1
+  },
+  "n_ops": 43,
+  "n_tensors": 106,
+  "description": "MLIR Converted."
+ },
+ "ai_beauty_type_processor/s3.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_beauty_type_processor/s3.tflite",
+  "size": 987788,
+  "inputs": [
+   {
+    "name": "inputs_le",
+    "shape": [
+     1,
+     64,
+     64,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "inputs_leb",
+    "shape": [
+     1,
+     64,
+     64,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "inputs_re",
+    "shape": [
+     1,
+     64,
+     64,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "inputs_reb",
+    "shape": [
+     1,
+     64,
+     64,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "inputs_mouth",
+    "shape": [
+     1,
+     64,
+     64,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "ht_le",
+    "shape": [
+     1,
+     64,
+     64,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "ht_leb",
+    "shape": [
+     1,
+     64,
+     64,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "ht_re",
+    "shape": [
+     1,
+     64,
+     64,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "ht_reb",
+    "shape": [
+     1,
+     64,
+     64,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "ht_mouth",
+    "shape": [
+     1,
+     64,
+     64,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "lm_le",
+    "shape": [
+     1,
+     8,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "lm_leb",
+    "shape": [
+     1,
+     6,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "lm_re",
+    "shape": [
+     1,
+     8,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "lm_reb",
+    "shape": [
+     1,
+     6,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "lm_mouth",
+    "shape": [
+     1,
+     18,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     1,
+     8,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_1",
+    "shape": [
+     1,
+     6,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_2",
+    "shape": [
+     1,
+     8,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_3",
+    "shape": [
+     1,
+     6,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_4",
+    "shape": [
+     1,
+     18,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "CONCATENATION": 5,
+   "MUL": 5,
+   "ADD": 40,
+   "CONV_2D": 120,
+   "AVERAGE_POOL_2D": 5,
+   "SHAPE": 5,
+   "STRIDED_SLICE": 5,
+   "PACK": 5,
+   "RESHAPE": 5
+  },
+  "n_ops": 195,
+  "n_tensors": 466,
+  "description": "MLIR Converted."
+ },
+ "ai_face_beauty_processor/Fprs.0003.Exp007e33_quan1_sm.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_face_beauty_processor/Fprs.0003.Exp007e33_quan1_sm.tflite",
+  "size": 1196952,
+  "inputs": [
+   {
+    "name": "serving_default_image:0",
+    "shape": [
+     1,
+     512,
+     384,
+     3
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "StatefulPartitionedCall:0",
+    "shape": [
+     1,
+     512,
+     384,
+     15
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "QUANTIZE": 13,
+   "CONV_2D": 49,
+   "DEPTHWISE_CONV_2D": 24,
+   "ADD": 14,
+   "AVERAGE_POOL_2D": 4,
+   "RESIZE_NEAREST_NEIGHBOR": 6,
+   "CONCATENATION": 4,
+   "RESIZE_BILINEAR": 1,
+   "SOFTMAX": 1,
+   "DEQUANTIZE": 1
+  },
+  "n_ops": 117,
+  "n_tensors": 268,
+  "description": "MLIR Converted."
+ },
+ "ai_face_beauty_processor/FprsTeeth.0001.Exp002pe99_quan1_sm.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_face_beauty_processor/FprsTeeth.0001.Exp002pe99_quan1_sm.tflite",
+  "size": 598456,
+  "inputs": [
+   {
+    "name": "serving_default_image:0",
+    "shape": [
+     1,
+     192,
+     256,
+     3
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "StatefulPartitionedCall:0",
+    "shape": [
+     1,
+     192,
+     256,
+     4
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "QUANTIZE": 13,
+   "CONV_2D": 49,
+   "DEPTHWISE_CONV_2D": 24,
+   "ADD": 14,
+   "AVERAGE_POOL_2D": 4,
+   "RESIZE_NEAREST_NEIGHBOR": 6,
+   "CONCATENATION": 4,
+   "RESIZE_BILINEAR": 1,
+   "SOFTMAX": 1,
+   "DEQUANTIZE": 1
+  },
+  "n_ops": 117,
+  "n_tensors": 268,
+  "description": "MLIR Converted."
+ },
+ "ai_face_beauty_processor/hair_1209a_acnenet_crop0.1pos0.1_3x24x24_quat.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_face_beauty_processor/hair_1209a_acnenet_crop0.1pos0.1_3x24x24_quat.tflite",
+  "size": 117360,
+  "inputs": [
+   {
+    "name": "input_1",
+    "shape": [
+     1,
+     24,
+     24,
+     3
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     1,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "CONV_2D": 16,
+   "MAX_POOL_2D": 1,
+   "DEPTHWISE_CONV_2D": 6,
+   "ADD": 12,
+   "MUL": 6,
+   "AVERAGE_POOL_2D": 1,
+   "FULLY_CONNECTED": 1,
+   "SOFTMAX": 1
+  },
+  "n_ops": 44,
+  "n_tensors": 100,
+  "description": "TOCO Converted."
+ },
+ "ai_face_beauty_processor/highlight_1209a_acnenet_crop0.2pos0.1_3x24x24_quat.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_face_beauty_processor/highlight_1209a_acnenet_crop0.2pos0.1_3x24x24_quat.tflite",
+  "size": 116640,
+  "inputs": [
+   {
+    "name": "input_1",
+    "shape": [
+     1,
+     24,
+     24,
+     3
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     1,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "CONV_2D": 16,
+   "MAX_POOL_2D": 1,
+   "DEPTHWISE_CONV_2D": 6,
+   "ADD": 12,
+   "MUL": 6,
+   "AVERAGE_POOL_2D": 1,
+   "FULLY_CONNECTED": 1,
+   "SOFTMAX": 1
+  },
+  "n_ops": 44,
+  "n_tensors": 97,
+  "description": "TOCO Converted."
+ },
+ "ai_face_beauty_processor/lines_1209a_acnenet_crop0.1pos0.1_3x24x24_quat.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_face_beauty_processor/lines_1209a_acnenet_crop0.1pos0.1_3x24x24_quat.tflite",
+  "size": 117360,
+  "inputs": [
+   {
+    "name": "input_1",
+    "shape": [
+     1,
+     24,
+     24,
+     3
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     1,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "CONV_2D": 16,
+   "MAX_POOL_2D": 1,
+   "DEPTHWISE_CONV_2D": 6,
+   "ADD": 12,
+   "MUL": 6,
+   "AVERAGE_POOL_2D": 1,
+   "FULLY_CONNECTED": 1,
+   "SOFTMAX": 1
+  },
+  "n_ops": 44,
+  "n_tensors": 100,
+  "description": "TOCO Converted."
+ },
+ "ai_face_beauty_processor/mobile_spade_256_ch16_from16_40000_ft16_ftsave_yunfu.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_face_beauty_processor/mobile_spade_256_ch16_from16_40000_ft16_ftsave_yunfu.tflite",
+  "size": 9968196,
+  "inputs": [
+   {
+    "name": "input_tensor",
+    "shape": [
+     1,
+     256,
+     256,
+     3
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "generator_1/Tanh",
+    "shape": [
+     1,
+     256,
+     256,
+     3
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "RESIZE_BILINEAR": 20,
+   "DEQUANTIZE": 152,
+   "CONV_2D": 62,
+   "DEPTHWISE_CONV_2D": 30,
+   "MUL": 15,
+   "ADD": 21,
+   "TANH": 1
+  },
+  "n_ops": 301,
+  "n_tensors": 474,
+  "description": "TOCO Converted."
+ },
+ "ai_face_beauty_processor/mobile_spade_256_ch16_from16_ftsevere_lr0.0001_117_16001.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_face_beauty_processor/mobile_spade_256_ch16_from16_ftsevere_lr0.0001_117_16001.tflite",
+  "size": 9968400,
+  "inputs": [
+   {
+    "name": "input_tensor",
+    "shape": [
+     1,
+     256,
+     256,
+     3
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "generator_1/Tanh",
+    "shape": [
+     1,
+     256,
+     256,
+     3
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "RESIZE_BILINEAR": 5,
+   "DEQUANTIZE": 152,
+   "CONV_2D": 62,
+   "RESIZE_NEAREST_NEIGHBOR": 15,
+   "DEPTHWISE_CONV_2D": 30,
+   "MUL": 15,
+   "ADD": 21,
+   "TANH": 1
+  },
+  "n_ops": 301,
+  "n_tensors": 474,
+  "description": "TOCO Converted."
+ },
+ "ai_face_beauty_processor/mole_seg_24x24x3_1206_quat.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_face_beauty_processor/mole_seg_24x24x3_1206_quat.tflite",
+  "size": 144408,
+  "inputs": [
+   {
+    "name": "input_1",
+    "shape": [
+     1,
+     24,
+     24,
+     3
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     1,
+     24,
+     24,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "CONV_2D": 15,
+   "MUL": 14,
+   "ADD": 14,
+   "MAX_POOL_2D": 3,
+   "RESIZE_BILINEAR": 3,
+   "CONCATENATION": 3,
+   "LOGISTIC": 1
+  },
+  "n_ops": 53,
+  "n_tensors": 108,
+  "description": "TOCO Converted."
+ },
+ "ai_face_beauty_processor/skin_model_expand_supply_pta18000_quant_resizetrain_seg153.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_face_beauty_processor/skin_model_expand_supply_pta18000_quant_resizetrain_seg153.tflite",
+  "size": 2433488,
+  "inputs": [
+   {
+    "name": "input_layer",
+    "shape": [
+     1,
+     320,
+     320,
+     3
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     1,
+     320,
+     320,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "QUANTIZE": 5,
+   "CONV_2D": 60,
+   "DEPTHWISE_CONV_2D": 30,
+   "ADD": 20,
+   "AVERAGE_POOL_2D": 2,
+   "RESIZE_BILINEAR": 6,
+   "CONCATENATION": 4,
+   "LOGISTIC": 1,
+   "DEQUANTIZE": 1
+  },
+  "n_ops": 129,
+  "n_tensors": 315,
+  "description": "MLIR Converted."
+ },
+ "ai_face_processor_detect_landmark/Fpe.0007.Exp101.ERefine3e70_refine1.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_face_processor_detect_landmark/Fpe.0007.Exp101.ERefine3e70_refine1.tflite",
+  "size": 1473180,
+  "inputs": [
+   {
+    "name": "serving_default_inputs_f14:0",
+    "shape": [
+     1,
+     364,
+     4,
+     48
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "serving_default_inputs_landmark:0",
+    "shape": [
+     1,
+     91,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "StatefulPartitionedCall:0",
+    "shape": [
+     1,
+     91,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "RESHAPE": 4,
+   "STRIDED_SLICE": 91,
+   "CONV_2D": 91,
+   "CONCATENATION": 1,
+   "PRELU": 1,
+   "FULLY_CONNECTED": 1,
+   "ADD": 1
+  },
+  "n_ops": 190,
+  "n_tensors": 562,
+  "description": "MLIR Converted."
+ },
+ "ai_face_processor_detect_landmark/Fpe.0007.Exp101.ERefine3e70_refine2.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_face_processor_detect_landmark/Fpe.0007.Exp101.ERefine3e70_refine2.tflite",
+  "size": 1100456,
+  "inputs": [
+   {
+    "name": "serving_default_inputs_landmark:0",
+    "shape": [
+     1,
+     91,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "serving_default_inputs_f28:0",
+    "shape": [
+     1,
+     364,
+     4,
+     32
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "StatefulPartitionedCall:0",
+    "shape": [
+     1,
+     91,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "RESHAPE": 4,
+   "STRIDED_SLICE": 91,
+   "CONV_2D": 91,
+   "CONCATENATION": 1,
+   "PRELU": 1,
+   "FULLY_CONNECTED": 1,
+   "ADD": 1
+  },
+  "n_ops": 190,
+  "n_tensors": 562,
+  "description": "MLIR Converted."
+ },
+ "ai_face_processor_detect_landmark/Fpe.0007.Exp101.ERefine3e70_refine3.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_face_processor_detect_landmark/Fpe.0007.Exp101.ERefine3e70_refine3.tflite",
+  "size": 948808,
+  "inputs": [
+   {
+    "name": "serving_default_inputs_f56:0",
+    "shape": [
+     1,
+     364,
+     4,
+     24
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   },
+   {
+    "name": "serving_default_inputs_landmark:0",
+    "shape": [
+     1,
+     91,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "StatefulPartitionedCall:4",
+    "shape": [
+     13,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "StatefulPartitionedCall:0",
+    "shape": [
+     91,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "StatefulPartitionedCall:1",
+    "shape": [
+     13,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "StatefulPartitionedCall:5",
+    "shape": [
+     16,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "StatefulPartitionedCall:2",
+    "shape": [
+     16,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "StatefulPartitionedCall:3",
+    "shape": [
+     56,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "RESHAPE": 13,
+   "STRIDED_SLICE": 112,
+   "CONV_2D": 91,
+   "CONCATENATION": 5,
+   "PRELU": 1,
+   "FULLY_CONNECTED": 6,
+   "ADD": 6,
+   "REDUCE_MAX": 5,
+   "REDUCE_MIN": 5,
+   "SUB": 14,
+   "DIV": 5,
+   "MUL": 5,
+   "GATHER": 2
+  },
+  "n_ops": 270,
+  "n_tensors": 663,
+  "description": "MLIR Converted."
+ },
+ "ai_face_processor_detect_landmark/Fpe.0007.Exp101.XScore.s76e150_base.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_face_processor_detect_landmark/Fpe.0007.Exp101.XScore.s76e150_base.tflite",
+  "size": 735956,
+  "inputs": [
+   {
+    "name": "serving_default_inputs:0",
+    "shape": [
+     1,
+     112,
+     112,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "StatefulPartitionedCall:1",
+    "shape": [
+     1,
+     28,
+     28,
+     32
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "StatefulPartitionedCall:3",
+    "shape": [
+     1,
+     14,
+     14,
+     48
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "StatefulPartitionedCall:2",
+    "shape": [
+     1,
+     91,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "StatefulPartitionedCall:5",
+    "shape": [
+     1,
+     1,
+     1,
+     91
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "StatefulPartitionedCall:4",
+    "shape": [
+     1,
+     1,
+     1,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "StatefulPartitionedCall:0",
+    "shape": [
+     1,
+     56,
+     56,
+     24
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "PAD": 15,
+   "CONV_2D": 22,
+   "PRELU": 18,
+   "DEPTHWISE_CONV_2D": 14,
+   "ADD": 7,
+   "CONCATENATION": 1,
+   "RESHAPE": 1,
+   "SOFTMAX": 1,
+   "LOGISTIC": 1
+  },
+  "n_ops": 80,
+  "n_tensors": 175,
+  "description": "MLIR Converted."
+ },
+ "ai_face_processor_detect_landmark/face_landmark_mb360_64.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_face_processor_detect_landmark/face_landmark_mb360_64.tflite",
+  "size": 346788,
+  "inputs": [
+   {
+    "name": "input",
+    "shape": [
+     1,
+     64,
+     64,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "add_7",
+    "shape": [
+     1,
+     154
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "SUB": 1,
+   "CONV_2D": 24,
+   "DEPTHWISE_CONV_2D": 10,
+   "ADD": 7,
+   "AVERAGE_POOL_2D": 1,
+   "RESHAPE": 1
+  },
+  "n_ops": 44,
+  "n_tensors": 115,
+  "description": "MLIR Converted."
+ },
+ "ai_face_processor_detect_landmark/facecheck40_dense_2000000_regress.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_face_processor_detect_landmark/facecheck40_dense_2000000_regress.tflite",
+  "size": 155144,
+  "inputs": [
+   {
+    "name": "input",
+    "shape": [
+     1,
+     40,
+     40,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "detect",
+    "shape": [
+     1,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "DEPTHWISE_CONV_2D": 1,
+   "CONV_2D": 4,
+   "RESHAPE": 1
+  },
+  "n_ops": 6,
+  "n_tensors": 18,
+  "description": "TOCO Converted."
+ },
+ "ai_face_processor_detect_landmark/head.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_face_processor_detect_landmark/head.tflite",
+  "size": 7804,
+  "inputs": [
+   {
+    "name": "input_1",
+    "shape": [
+     1,
+     126
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     1,
+     14
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "FULLY_CONNECTED": 1
+  },
+  "n_ops": 1,
+  "n_tensors": 4,
+  "description": "MLIR Converted."
+ },
+ "ai_face_processor_detect_landmark/n-0.5_416_0.05_4aspect6.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_face_processor_detect_landmark/n-0.5_416_0.05_4aspect6.tflite",
+  "size": 1864936,
+  "inputs": [
+   {
+    "name": "input_1",
+    "shape": [
+     1,
+     416,
+     416,
+     3
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     1,
+     7098,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_1",
+    "shape": [
+     1,
+     7098,
+     4
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_2",
+    "shape": [
+     1,
+     7098,
+     10
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "MUL": 36,
+   "PAD": 10,
+   "CONV_2D": 66,
+   "MAX_POOL_2D": 1,
+   "CONCATENATION": 28,
+   "DEPTHWISE_CONV_2D": 19,
+   "LOGISTIC": 41,
+   "RESHAPE": 35,
+   "TRANSPOSE": 16,
+   "SPLIT": 13,
+   "RESIZE_NEAREST_NEIGHBOR": 2,
+   "STRIDED_SLICE": 9
+  },
+  "n_ops": 276,
+  "n_tensors": 480,
+  "description": "MLIR Converted."
+ },
+ "ai_face_processor_detect_landmark/n-small_256_0.05_only_a5.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_face_processor_detect_landmark/n-small_256_0.05_only_a5.tflite",
+  "size": 101380,
+  "inputs": [
+   {
+    "name": "input_1",
+    "shape": [
+     1,
+     256,
+     256,
+     3
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     1,
+     3072,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_1",
+    "shape": [
+     1,
+     3072,
+     4
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_2",
+    "shape": [
+     1,
+     3072,
+     10
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "MUL": 15,
+   "PAD": 6,
+   "CONV_2D": 22,
+   "MAX_POOL_2D": 1,
+   "CONCATENATION": 7,
+   "DEPTHWISE_CONV_2D": 8,
+   "LOGISTIC": 16,
+   "RESHAPE": 13,
+   "TRANSPOSE": 6,
+   "SPLIT": 4,
+   "RESIZE_NEAREST_NEIGHBOR": 1,
+   "ADD": 1,
+   "STRIDED_SLICE": 3
+  },
+  "n_ops": 103,
+  "n_tensors": 183,
+  "description": "MLIR Converted."
+ },
+ "ai_face_processor_detect_landmark/s1.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_face_processor_detect_landmark/s1.tflite",
+  "size": 672836,
+  "inputs": [
+   {
+    "name": "inputs",
+    "shape": [
+     1,
+     64,
+     64,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     91,
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_1",
+    "shape": [
+     2
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "CONV_2D": 32,
+   "DEPTHWISE_CONV_2D": 9,
+   "ADD": 6,
+   "AVERAGE_POOL_2D": 2,
+   "RESHAPE": 2,
+   "SOFTMAX": 1
+  },
+  "n_ops": 52,
+  "n_tensors": 132,
+  "description": "MLIR Converted."
+ },
+ "ai_human_processor_beautybody_mb/FULLBODY_POFH2D_20210302_0001_e1604_q.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_human_processor_beautybody_mb/FULLBODY_POFH2D_20210302_0001_e1604_q.tflite",
+  "size": 1268024,
+  "inputs": [
+   {
+    "name": "Input_img",
+    "shape": [
+     1,
+     256,
+     192,
+     3
+    ],
+    "dtype": "UINT8",
+    "scale": [
+     1.0
+    ],
+    "zp": [
+     0
+    ]
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Output_hms",
+    "shape": [
+     1,
+     64,
+     48,
+     31
+    ],
+    "dtype": "UINT8",
+    "scale": [
+     1.0401763916015625
+    ]
+   },
+   {
+    "name": "Output_pofs",
+    "shape": [
+     1,
+     64,
+     48,
+     78
+    ],
+    "dtype": "UINT8",
+    "scale": [
+     0.010003185831010342
+    ]
+   },
+   {
+    "name": "Output_bbfs",
+    "shape": [
+     1,
+     8,
+     6,
+     192
+    ],
+    "dtype": "UINT8",
+    "scale": [
+     0.3678106963634491
+    ]
+   }
+  ],
+  "ops": {
+   "PAD": 4,
+   "CONV_2D": 64,
+   "ADD": 16,
+   "DEPTHWISE_CONV_2D": 10,
+   "RESIZE_BILINEAR": 3
+  },
+  "n_ops": 97,
+  "n_tensors": 253,
+  "description": "TOCO Converted."
+ },
+ "ai_human_processor_beautybody_mb/human_detector_retinanet_mobilenetv2_1.0_quant.tflite": {
+  "path": "reports/miui_mediaeditor/work/bundles/ai_human_processor_beautybody_mb/human_detector_retinanet_mobilenetv2_1.0_quant.tflite",
+  "size": 2674640,
+  "inputs": [
+   {
+    "name": "input_1",
+    "shape": [
+     1,
+     320,
+     320,
+     3
+    ],
+    "dtype": "FLOAT32",
+    "scale": [],
+    "zp": []
+   }
+  ],
+  "outputs": [
+   {
+    "name": "Identity",
+    "shape": [
+     1,
+     19125,
+     1
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   },
+   {
+    "name": "Identity_1",
+    "shape": [
+     1,
+     19125,
+     4
+    ],
+    "dtype": "FLOAT32",
+    "scale": []
+   }
+  ],
+  "ops": {
+   "PAD": 5,
+   "CONV_2D": 73,
+   "QUANTIZE": 4,
+   "DEPTHWISE_CONV_2D": 56,
+   "ADD": 12,
+   "SHAPE": 10,
+   "STRIDED_SLICE": 10,
+   "PACK": 8,
+   "RESHAPE": 8,
+   "LOGISTIC": 4,
+   "MUL": 2,
+   "RESIZE_NEAREST_NEIGHBOR": 2,
+   "CONCATENATION": 2,
+   "DEQUANTIZE": 2
+  },
+  "n_ops": 198,
+  "n_tensors": 468,
+  "description": "MLIR Converted."
+ }
+}

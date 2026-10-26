@@ -1,0 +1,10 @@
+{
+  "name": "魅影",
+  "type": "MOVIE_RELIGHTING",
+  "icon": "icon.png",
+  "relightingType": "0x21",
+  "cameraDefinedType": 10,
+  "startColor": "#74BCEE",
+  "endColor": "#74BCEE",
+  "nameResName": "refocus_movie_meiying"
+}

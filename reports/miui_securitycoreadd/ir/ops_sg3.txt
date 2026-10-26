@@ -1,0 +1,35 @@
+# subgraph 3 name='save' role=save inputs=[0] outputs=[0] tensors=34 ops=34
+[  0] CALL_ONCE            inputs=[] outputs=[] options={'InitSubgraphIndex': 6}
+[  1] VAR_HANDLE           inputs=[] outputs=['2:dnn_model/dense/bias2[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73652f62696173'}
+[  2] VAR_HANDLE           inputs=[] outputs=['3:dnn_model/dense/kernel2[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73652f6b65726e656c'}
+[  3] VAR_HANDLE           inputs=[] outputs=['4:dnn_model/dense_1/bias2[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73655f312f62696173'}
+[  4] VAR_HANDLE           inputs=[] outputs=['5:dnn_model/dense_1/kernel2[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73655f312f6b65726e656c'}
+[  5] VAR_HANDLE           inputs=[] outputs=['6:dnn_model/dense_2/bias2[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73655f322f62696173'}
+[  6] VAR_HANDLE           inputs=[] outputs=['7:dnn_model/dense_2/kernel2[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73655f322f6b65726e656c'}
+[  7] VAR_HANDLE           inputs=[] outputs=['8:dnn_model/dense_3/bias2[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73655f332f62696173'}
+[  8] VAR_HANDLE           inputs=[] outputs=['9:dnn_model/dense_3/kernel2[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c2f64656e73655f332f6b65726e656c'}
+[  9] VAR_HANDLE           inputs=[] outputs=['10:dnn_model_1/dense_4/bias2[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f342f62696173'}
+[ 10] VAR_HANDLE           inputs=[] outputs=['11:dnn_model_1/dense_4/kernel2[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f342f6b65726e656c'}
+[ 11] VAR_HANDLE           inputs=[] outputs=['12:dnn_model_1/dense_5/bias2[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f352f62696173'}
+[ 12] VAR_HANDLE           inputs=[] outputs=['13:dnn_model_1/dense_5/kernel2[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f352f6b65726e656c'}
+[ 13] VAR_HANDLE           inputs=[] outputs=['14:dnn_model_1/dense_6/bias2[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f362f62696173'}
+[ 14] VAR_HANDLE           inputs=[] outputs=['15:dnn_model_1/dense_6/kernel2[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f362f6b65726e656c'}
+[ 15] VAR_HANDLE           inputs=[] outputs=['16:dnn_model_1/dense_7/bias2[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f372f62696173'}
+[ 16] VAR_HANDLE           inputs=[] outputs=['17:dnn_model_1/dense_7/kernel2[]:RESOURCE'] options={'Container': '', 'SharedName': '646e6e5f6d6f64656c5f312f64656e73655f372f6b65726e656c'}
+[ 17] READ_VARIABLE        inputs=['13:dnn_model_1/dense_5/kernel2[]:RESOURCE'] outputs=['18:Read_10/ReadVariableOp[3, 128]:FLOAT32'] options={}
+[ 18] READ_VARIABLE        inputs=['12:dnn_model_1/dense_5/bias2[]:RESOURCE'] outputs=['19:Read_11/ReadVariableOp[128]:FLOAT32'] options={}
+[ 19] READ_VARIABLE        inputs=['15:dnn_model_1/dense_6/kernel2[]:RESOURCE'] outputs=['20:Read_12/ReadVariableOp[128, 64]:FLOAT32'] options={}
+[ 20] READ_VARIABLE        inputs=['14:dnn_model_1/dense_6/bias2[]:RESOURCE'] outputs=['21:Read_13/ReadVariableOp[64]:FLOAT32'] options={}
+[ 21] READ_VARIABLE        inputs=['17:dnn_model_1/dense_7/kernel2[]:RESOURCE'] outputs=['22:Read_14/ReadVariableOp[64, 1]:FLOAT32'] options={}
+[ 22] READ_VARIABLE        inputs=['16:dnn_model_1/dense_7/bias2[]:RESOURCE'] outputs=['23:Read_15/ReadVariableOp[1]:FLOAT32'] options={}
+[ 23] READ_VARIABLE        inputs=['2:dnn_model/dense/bias2[]:RESOURCE'] outputs=['24:Read_1/ReadVariableOp[3]:FLOAT32'] options={}
+[ 24] READ_VARIABLE        inputs=['5:dnn_model/dense_1/kernel2[]:RESOURCE'] outputs=['25:Read_2/ReadVariableOp[3, 128]:FLOAT32'] options={}
+[ 25] READ_VARIABLE        inputs=['4:dnn_model/dense_1/bias2[]:RESOURCE'] outputs=['26:Read_3/ReadVariableOp[128]:FLOAT32'] options={}
+[ 26] READ_VARIABLE        inputs=['7:dnn_model/dense_2/kernel2[]:RESOURCE'] outputs=['27:Read_4/ReadVariableOp[128, 64]:FLOAT32'] options={}
+[ 27] READ_VARIABLE        inputs=['6:dnn_model/dense_2/bias2[]:RESOURCE'] outputs=['28:Read_5/ReadVariableOp[64]:FLOAT32'] options={}
+[ 28] READ_VARIABLE        inputs=['9:dnn_model/dense_3/kernel2[]:RESOURCE'] outputs=['29:Read_6/ReadVariableOp[64, 1]:FLOAT32'] options={}
+[ 29] READ_VARIABLE        inputs=['8:dnn_model/dense_3/bias2[]:RESOURCE'] outputs=['30:Read_7/ReadVariableOp[1]:FLOAT32'] options={}
+[ 30] READ_VARIABLE        inputs=['11:dnn_model_1/dense_4/kernel2[]:RESOURCE'] outputs=['31:Read_8/ReadVariableOp[3, 3]:FLOAT32'] options={}
+[ 31] READ_VARIABLE        inputs=['10:dnn_model_1/dense_4/bias2[]:RESOURCE'] outputs=['32:Read_9/ReadVariableOp[3]:FLOAT32'] options={}
+[ 32] READ_VARIABLE        inputs=['3:dnn_model/dense/kernel2[]:RESOURCE'] outputs=['33:Read/ReadVariableOp[3, 3]:FLOAT32'] options={}
+[ 33] CUSTOM               inputs=['0:save_checkpoint_path:0[]:STRING', '1:save/tensor_names[16]:STRING', '33:Read/ReadVariableOp[3, 3]:FLOAT32', '24:Read_1/ReadVariableOp[3]:FLOAT32', '25:Read_2/ReadVariableOp[3, 128]:FLOAT32', '26:Read_3/ReadVariableOp[128]:FLOAT32', '27:Read_4/ReadVariableOp[128, 64]:FLOAT32', '28:Read_5/ReadVariableOp[64]:FLOAT32', '29:Read_6/ReadVariableOp[64, 1]:FLOAT32', '30:Read_7/ReadVariableOp[1]:FLOAT32', '31:Read_8/ReadVariableOp[3, 3]:FLOAT32', '32:Read_9/ReadVariableOp[3]:FLOAT32', '18:Read_10/ReadVariableOp[3, 128]:FLOAT32', '19:Read_11/ReadVariableOp[128]:FLOAT32', '20:Read_12/ReadVariableOp[128, 64]:FLOAT32', '21:Read_13/ReadVariableOp[64]:FLOAT32', '22:Read_14/ReadVariableOp[64, 1]:FLOAT32', '23:Read_15/ReadVariableOp[1]:FLOAT32'] outputs=[] options={}

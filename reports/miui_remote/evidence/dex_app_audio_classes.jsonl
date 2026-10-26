@@ -1,0 +1,5 @@
+{"kind":"class","class":"com.xiaomi.mitv.phone.remotecontroller.common.ui.SpeechVolumeView","dex":"classes2.dex","defined":true,"methods":7,"access":1,"matched":["com.xiaomi.mitv.phone.remotecontroller.common.ui.Spe"]}
+{"kind":"class","class":"com.xiaomi.mitv.phone.remotecontroller.ir.activity.panel.AudioRCActivity$a","dex":"classes2.dex","defined":true,"methods":3,"access":1,"matched":["com.xiaomi.mitv.phone.remotecontroller.ir.activity.panel.Audio"]}
+{"kind":"class","class":"com.xiaomi.mitv.phone.remotecontroller.ir.activity.panel.AudioRCActivity","dex":"classes2.dex","defined":true,"methods":9,"access":1,"matched":["com.xiaomi.mitv.phone.remotecontroller.ir.activity.panel.Audio"]}
+{"kind":"class","class":"com.xiaomi.mitv.phone.remotecontroller.voice.VoiceControlReceiver","dex":"classes3.dex","defined":true,"methods":3,"access":1,"matched":["com.xiaomi.mitv.phone.remotecontroller.voice.Voi"]}
+dex_find: dex=3 classes_scanned=25697 class_hits=4 class_refs=0 method_records=0 emitted=4 (1.03s)

@@ -1,0 +1,1974 @@
+  receiver:
+ , id:
+ - 
+ -paraList 
+ -t 
+ add param Error.
+ cameraId:
+ constructEvent id=
+ detectArea:
+ faceId:
+ failed, the result is 
+ for U and pixel=
+ for V
+ groupId:
+ hasInit: 
+ instead.
+ is authenticating, return
+ mCurrentMonitor: 
+ msgId:
+ nowR:
+ ok
+ param: 
+ permission.
+ preempt:
+ receiver:
+ res:
+ row=
+ sendEvent id=
+ successId:
+ supportR:
+ surface:
+ time: 
+ timeout:
+ userId:
+############################################################
+# SenseTime License
+# License Product: FaceAuth
+# Expiration: 19700101~20990101
+# License SN: 0afba29a-8324-4a70-b741-6d59f6d7da7a
+# 本软件产品为商汤科技的核心软件产品，商汤科技对其拥有著作权。严禁将本软
+# 件产品的整体或部分（包括正式包，测试包，授权文件，模型等）以任何形式泄
+# 露给任何未经商汤科技书面授权的第三方，或者发布到任何有可能使未经商汤科
+# 技书面授权的第三方获取到上述软件产品的公开网络平台（如开源社区、第三方
+# 平台的个人空间等）。如发现上述未经允许泄露或者发布上述软件产品的行为，
+# 商汤科技将追究泄露方或发布方的法律责任。
+# This software product (so called “the PRODUCT”) is one of
+# the key software products of Sensetime Corp. Sensetime Corp.
+# owns the copyright of the PRODUCT. It is seriously forbidden
+# to disclose the whole or part of the PRODUCT (including formal
+# packages, test packages, license documents, models, etc.) in
+# any form to any third party that has not been licensed in
+# written by Sensetime Corp. or publish to any public network
+# platforms (such as open source community, personal space of
+# third party platform, etc.) where third parties that have not
+# been licensed in writing by Sensetime Corp. have possibility
+# to access the PRODUCT. In the event that the above-mentioned
+# unauthorized disclosure or publishing of the PRODUCT is found,
+# Sensetime Corp. will investigate the legal liability of the
+# discloser or the publisher.
+############################################################
+sGfdd4hav5Sr5ibX1RavjaiKWVxSLHJA/5YKZoYIpcV/JALNM+kz8fN+ZBR0
+I1kJNyYn29yRbPODLT7oF7KlfLbggDOdQKLdcGFrlHK3yYwD6dzrA3Z8uxC+
+T13bsauNljhbMkvS+dwiIHLv2sYr1jl3ukABpSiDxuFQ68y1aRFY7wcFAQAA
+AAEAAAB3s4Ys1MVEP9lnOEZQtDWlS1vBMc1JF+OATNU1f94oj1oxrUi6kwVx
+yCb630SWuPFD1sm9CobE9l9/N1H/kEbwF7SMmGEMu1EuroQTFppr7GLYbPGs
+A7DbtHzzL9R5S4YcXVSeoaPwddy369S34lXk5vudM3bLY6K4FFCQ44wS5LQw
+LrN92ohemYAzQ9joP4oNofzKf54VZ4LfbVF25NF13n1QbjrTKePHuTIOMLB1
+x6ruSIX7TJRBgIQWM3rkoWgSHYjazkTnaoLOs9NXfZTiIEzV41LgfZ5cKJpR
+gnsju2hou26AuzzR87DjZ/a7znnh8nmjmJOZA/MGnUJ1m0LTAQABAAAAAAAD
+AAAAAAAAAAAAAADsMfv+5EfZVCH2oNzbUqV+Ted0aTTx2R1eahPmMG+4n/Y4
+SXqBwgDsLt6LJwYk6EuJHaY4dxWw2B/bMCj4BkUH6Fwpym9HH1G8kpjU/kh5
+hWdg1aLvrjtZT+IkeCfdKGLGM3UpasJrMHR8qCTSS07Dc2YaQSZSf1u7YTui
+q2urKhata2GVLW910s5bcH/iKaVinksMv7biiEFr11lSwdE1N2FgKUULlRJV
+gQtLGmPAzkWzj0Kt/Rsc0Cz3cn/6/l7SY7y3
+------------------------------------------------------------
+sGfddy4Tki4UExG47TCs6jF4hCWnOUnatBHGa94YGvgn8RVk1UwpHgC/wf2S
+/emsSk/vobgjyokC/BDwachR9LIEYWP6Gnz3GBkmnlgTpjEP1lLPm2z7xMvl
+ZtFyMXE2xZzqGbeFLccsKLYhAtN/gql9U4Ld2iHe9Wk++pxcPjp0LJuwAQAA
+AAIAAAC0HOP+EsUbB2k2EcJ7CVWZZbEeHCcw5E71GrJLIdExcGmjpy1DEnZS
+dqLfquRNR8+LSG7YfVRmIrjLZDmVgqdpBXRCcjjUc1tBKqRFm7v9bSAmBGBi
+khu8wVHBQHgKJ9V0irOVDX0mQsXNgw4wtIfqYLM9ml7RQtwfG8w4VN5+17mV
+4G5YXqhWFm8uqXjoaHTAxCuOMo5o3qRpFPQkbmxvqpi9anLZ6tzGyDe9+cfW
+8CsetgTz0g/6f+ImZr3ke2MfCb7PhV4wxTiqb6zvPXcPYs/WE5spVSk0qKJT
+dh5XfnysjkO/rCoAkHCJRMt2kYD9mHK560Uuq/QLYvMjFM5zAAAAAAAAAAAA
+AAAAAAAAAAAAAAAd1fnSuJRPn2tbwqRGL0wMwuhiifW57FK/GOccCRWVG3zs
+8oHZsUBUP1IfEDmCqakNcMxocsXr8RDnspz20ShkHt6gw2RkL26W98Oc+ZJV
+5dx1RUPBdJH8JXz3IOXWZUl0eC5dVVWg1pxpRVkUR21A2K7u/kMD1TQ9+ndx
+rtnhcKzv4oeTVBji/OWNUWGZc6tMitZKhiMcqHIxE3B4XRZXrSxHk1XK2icR
+0cuYvZL8PDcROlCiNSy3cf2t
+############################################################
+$SwitchMap$com$ts$faceauth$data$CvPixelFormat
+$VALUES
+$r8$lambda$xMC8M6LLEeW997bBmO6BCC6GGAM
+()V
+(?:[-#+ 0,(<]*)?
+(?:[^%]|%%|(?:%(?:\d+\$)?(?:[-#+ 0,(<]*)?(?:\d+)?(?:\.\d+)?(?:[tT])?(?:[a-zA-Z%])))*
+(?:[tT])?(?:[a-zA-Z%])
+(?:\.\d+)?
+(?:\d+)?
+(?:\d+\$)?
+(I)V
+*>;
+, LENS_FACING: 
+, afterFirstFrameTime = 
+, architecture=
+, bigCoreCount=
+, buffer=
+, crop=
+, errorId:
+, format=
+, height=
+, implementor=
+, intHandlerResult=
+, maxFreq=
+, maybe you have not enrolled or the template file is damaged
+, part=
+, pixelStride=
+, rowStride=
+, smallCoreCount=
+, u=
+, v=
+, vendorCode:
+, y=
+,face++(20, 20, 460, 600),  timeout:
+-$$Nest$fgetcameraCharacteristics
+-$$Nest$fgetisCameraInUse
+-$$Nest$fgetmCameraDevice
+-$$Nest$fgetmCameraHandler
+-$$Nest$fgetmCameraUtil
+-$$Nest$fgetmCaptureSession
+-$$Nest$fgetmContext
+-$$Nest$fgetmCurrentMonitor
+-$$Nest$fgetmDelayedHide
+-$$Nest$fgetmFaceAuthManager
+-$$Nest$fgetmFaceUnlockManager
+-$$Nest$fgetmPendingClients
+-$$Nest$fgetmPreviewCallback
+-$$Nest$fgetmService
+-$$Nest$fgetmTimeout
+-$$Nest$fgetmWorkerHandler
+-$$Nest$fgetrequestBuilder
+-$$Nest$fputmCameraDevice
+-$$Nest$fputmCaptureSession
+-$$Nest$fputmCurrentMonitor
+-$$Nest$fputmIsStopEnroll
+-$$Nest$fputmPreviewCount
+-$$Nest$fputrequestBuilder
+-$$Nest$mconfigRequestBuilder
+-$$Nest$mhasEnrolledFaces
+-$$Nest$minitFaceService
+-$$Nest$monAcquired
+-$$Nest$monAuthenticate
+-$$Nest$monEnrollResult
+-$$Nest$monError
+-$$Nest$monExtCmd
+-$$Nest$monLockoutRest
+-$$Nest$monPreInit
+-$$Nest$monRemoved
+-$$Nest$mstartAuthenClient
+-$$Nest$sfgetmService
+.lic
+/data/data/com.miui.face/files/template_file.data
+/proc/cpuinfo
+/sys/devices/system/cpu/cpu%d/cpufreq/cpuinfo_max_freq
+/system/framework/MiuiBooster.jar
+/system_ext/framework/MiuiBooster.jar
+1.37.4-A140026
+; result：
+;cmd=
+<Any:
+<T:
+<clinit>
+<init>
+>;)V
+>;Z)V
+ACTION_MIUI_REGION_CHANGED
+AE_METERING_MODE
+AE_METERING_MODE_AVERAGE_METERING
+AFEATURE_AE_AVAILABLE_METERING
+ALL
+ANNOTATION_TYPE
+APPLICATION_ID
+ARCHITECTURE
+AREACODE_FILE_NAME
+ARG_INDEX
+ARM_V8
+AbstractCameraUtil.java
+AdjustableOrientation
+An error was received while the camera was on. errorCode: 
+AreaInfo.java
+AuthenticationResult.java
+BGR888
+BGRA8888
+BIG_CORE_FREQ
+BUILD_TYPE
+BaseFaceEnrollHelper.java
+BaseFaceUnlockManager.java
+BoxLayoutAxis
+BuildConfig.java
+CAMERA_AVAILABLE
+CAMERA_DISCONNECTED
+CAMERA_IN_USE
+CAMERA_OPEN_INIT
+CLASS
+CODE_ADD_LOCKOUT_RESET_CALLBACK
+CODE_AUTHENTICATE
+CODE_CANCEL_AUTHENTICATE
+CODE_CANCEL_ENROLL
+CODE_ENROLL
+CODE_EXT_CMD
+CODE_GET_AUTHENTICATOR_ID
+CODE_GET_ENROLLED_FACE_LIST
+CODE_GET_VENDOR_INFO
+CODE_HAS_ENROLLED_FACES
+CODE_POST_ENROLL
+CODE_PRE_ENROLL
+CODE_PRE_INIT_AUTHEN
+CODE_REMOVE
+CODE_RENAME
+CODE_RESET_TIMEOUT
+COMMAND_ENROLL_RESET_ENROLL_LOGIC
+COMMAND_ENROLL_RESUME_ENROLL_LOGIC
+COMMAND_ENROLL_STOP_ENROLL_LOGIC
+CONSTRUCTOR
+CONTROL_AF_MODE
+CONVERSION
+CORE_COUNT
+CPU architecture
+CPU implementer
+CPU part
+CREATOR
+CalendarMonth
+Camera2Util, close camera
+Camera2Util.java
+CameraCharacteristicsVendorTag.java
+CameraDevice onClosed
+CameraDevice onDisconnected
+Capitalization
+ClientMonitor.java
+Constant.java
+Contract.java
+CpuInfo
+CpuInfo{id=
+CpuMaxInfoFormat
+CpuStats
+CpuStats{level=
+Crash msg:
+CrashHandler.java
+CursorType
+CvPixelFormat.java
+D8$$SyntheticClass
+D800
+DEBUG
+DEFAULT_DEVICEID
+DEFAULT_DEVICE_ID
+DEFAULT_SOURCE
+DEFAULT_TARGET
+DEVICE
+DEVICE_HIGHEND
+DEVICE_LEVEL_FOR_CPU
+DEVICE_LEVEL_FOR_GPU
+DEVICE_LEVEL_FOR_RAM
+DEVICE_LEVEL_UNKNOWN
+DEVICE_MIDDLE
+DEVICE_PRIMARY
+DEVICE_UNKNOWN
+DEV_STANDARD_VERSION
+DOWN
+Debug
+DeviceLevel(): Load Class Exception:
+DeviceLevelUtils(): newInstance Exception:
+DeviceUtils
+DeviceUtils.java
+Done with client: 
+ENGLISH
+ERROR_BINDER_CALL
+ERROR_CAMERA_DISCONNECTED
+ERROR_CAMERA_ID
+ERROR_CAMERA_IN_USE
+ERROR_CANCELED
+ERROR_EXCEPTION
+ERROR_MAX_CAMERAS_IN_USE
+ERROR_SERVICE_IS_BUSY
+ERROR_SERVICE_IS_IDLE
+ERROR_TIME_OUT
+EXPOSURE_METERING_AVAILABLE_MODES
+EXPOSURE_METERING_MODE
+EnrollResult.java
+Error
+EventID: 
+EventId 
+FACES_INFO
+FACE_UNLOCK_HAS_FEATURE
+FACE_UNLOCK_VALID_FEATURE
+FIELD
+FILE_NAME
+FLAGS
+FLAVOR
+FaceAuthManager
+FaceAuthManager.java
+FaceAuthNative.java
+FaceAuthResult.java
+FaceAuthenHelper mReleaseIfAuthenticated Runnable run ... ...
+FaceAuthenHelper mStopFromBp Runnable run ... ...
+FaceAuthenHelper.java
+FaceCompat.java
+FaceDetectedCallback.java
+FaceDetectedInfo.java
+FaceEnrollHelper mStartFromBp run ......
+FaceEnrollHelper mStopFromBp run ......
+FaceEnrollHelper.java
+FaceIDInfo.java
+FaceOrientation.java
+FaceUnlockCallback.java
+FaceUnlockJni.java
+FaceUnlockManager setRunOutTime timeout:
+FaceUnlockManager.java
+Fail to get image planes
+FileUtil
+FileUtil.java
+Flow.java
+FlowLayoutAlignment
+FontStyle
+GRAY8
+HEX
+HIGH
+HIGH_DEVICE
+HIGH_FREQ
+HiddenApiBridge.java
+HorizontalAlignment
+III
+IIII
+IIL
+ILI
+ILII
+ILIIIZ
+ILIL
+ILJILILI
+ILL
+ILLI
+ILLII
+ILLIIII
+ILLIIIII
+ILLIIL
+ILLILILLLLII
+ILLL
+IMPLEMENTOR
+IPreviewCallback.java
+IS_INTERNATIONAL_BUILD
+IS_MIUI_LITE_VERSION
+IS_NEED_DUMP
+Identifier.java
+Ignore exception
+Inc ([A-Z]+)([\d]+)
+Info
+InputEventMask
+JLJ
+JLLJ
+JPEG
+JdkConstants.java
+KEYGUARD_PACK
+KEY_FACE_ID
+KEY_LAST_START_TIME
+KEY_NAME
+KEY_START_COUNTS
+KeyguardUtils.java
+LEFT
+LENS_FACING
+LIBRARY_PACKAGE_NAME
+LICENSE_STR
+LII
+LIII
+LIIII
+LIL
+LLD
+LLF
+LLI
+LLII
+LLIII
+LLIIIL
+LLIIIZ
+LLIJ
+LLJ
+LLL
+LLLL
+LLS
+LLZ
+LOCAL_VARIABLE
+LOW
+LOW_DEVICE
+Landroid/app/Application;
+Landroid/content/BroadcastReceiver;
+Landroid/content/ContentResolver;
+Landroid/content/Context;
+Landroid/content/Intent;
+Landroid/content/IntentFilter;
+Landroid/content/SharedPreferences$Editor;
+Landroid/content/SharedPreferences;
+Landroid/content/res/AssetManager;
+Landroid/content/res/Resources;
+Landroid/graphics/Bitmap$CompressFormat;
+Landroid/graphics/Bitmap;
+Landroid/graphics/ImageFormat;
+Landroid/graphics/Point;
+Landroid/graphics/Rect;
+Landroid/graphics/RectF;
+Landroid/graphics/SurfaceTexture;
+Landroid/hardware/camera2/CameraAccessException;
+Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
+Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
+Landroid/hardware/camera2/CameraCaptureSession;
+Landroid/hardware/camera2/CameraCharacteristics$Key;
+Landroid/hardware/camera2/CameraCharacteristics$Key<
+Landroid/hardware/camera2/CameraCharacteristics;
+Landroid/hardware/camera2/CameraDevice$StateCallback;
+Landroid/hardware/camera2/CameraDevice;
+Landroid/hardware/camera2/CameraManager;
+Landroid/hardware/camera2/CaptureRequest$Builder;
+Landroid/hardware/camera2/CaptureRequest$Key;
+Landroid/hardware/camera2/CaptureRequest$Key<
+Landroid/hardware/camera2/CaptureRequest;
+Landroid/hardware/camera2/params/OutputConfiguration;
+Landroid/hardware/camera2/params/SessionConfiguration;
+Landroid/hardware/face/Face;
+Landroid/media/Image$Plane;
+Landroid/media/Image;
+Landroid/media/ImageReader$OnImageAvailableListener;
+Landroid/media/ImageReader;
+Landroid/os/Binder;
+Landroid/os/Build$VERSION;
+Landroid/os/Build;
+Landroid/os/Handler;
+Landroid/os/HandlerThread;
+Landroid/os/IBinder$DeathRecipient;
+Landroid/os/IBinder;
+Landroid/os/Looper;
+Landroid/os/Message;
+Landroid/os/Parcel;
+Landroid/os/Parcelable$Creator;
+Landroid/os/Process;
+Landroid/os/RemoteException;
+Landroid/os/ServiceManager;
+Landroid/preference/PreferenceManager;
+Landroid/provider/Settings$Secure;
+Landroid/text/TextUtils;
+Landroid/util/DisplayMetrics;
+Landroid/util/Log;
+Landroid/util/Slog;
+Landroid/view/Display;
+Landroid/view/Surface;
+Landroid/view/TextureView;
+Landroid/view/WindowManager;
+Landroid/view/WindowMetrics;
+Language.java
+Lcom/android/keyguard/FaceAuthenHelper$$ExternalSyntheticLambda0;
+Lcom/android/keyguard/FaceAuthenHelper$$ExternalSyntheticLambda1;
+Lcom/android/keyguard/FaceAuthenHelper$$ExternalSyntheticLambda2;
+Lcom/android/keyguard/FaceAuthenHelper$$ExternalSyntheticLambda3;
+Lcom/android/keyguard/FaceAuthenHelper$1$1;
+Lcom/android/keyguard/FaceAuthenHelper$1;
+Lcom/android/keyguard/FaceAuthenHelper;
+Lcom/android/keyguard/FaceEnrollHelper$$ExternalSyntheticLambda0;
+Lcom/android/keyguard/FaceEnrollHelper$1;
+Lcom/android/keyguard/FaceEnrollHelper$2;
+Lcom/android/keyguard/FaceEnrollHelper$3;
+Lcom/android/keyguard/FaceEnrollHelper$4;
+Lcom/android/keyguard/FaceEnrollHelper;
+Lcom/android/keyguard/KeyguardUtils;
+Lcom/android/keyguard/faceunlock/AbstractCameraUtil;
+Lcom/android/keyguard/faceunlock/BaseFaceEnrollHelper;
+Lcom/android/keyguard/faceunlock/BaseFaceUnlockManager$$ExternalSyntheticLambda0;
+Lcom/android/keyguard/faceunlock/BaseFaceUnlockManager$1;
+Lcom/android/keyguard/faceunlock/BaseFaceUnlockManager;
+Lcom/android/keyguard/faceunlock/Camera2Util$$ExternalSyntheticLambda0;
+Lcom/android/keyguard/faceunlock/Camera2Util$$ExternalSyntheticLambda1;
+Lcom/android/keyguard/faceunlock/Camera2Util$$ExternalSyntheticLambda2;
+Lcom/android/keyguard/faceunlock/Camera2Util$$ExternalSyntheticLambda3;
+Lcom/android/keyguard/faceunlock/Camera2Util$1;
+Lcom/android/keyguard/faceunlock/Camera2Util$2;
+Lcom/android/keyguard/faceunlock/Camera2Util;
+Lcom/android/keyguard/faceunlock/FaceUnlockCallback;
+Lcom/android/keyguard/faceunlock/FaceUnlockJni;
+Lcom/android/keyguard/faceunlock/FaceUnlockManager;
+Lcom/android/keyguard/faceunlock/IPreviewCallback;
+Lcom/miui/core/R;
+Lcom/miui/face/BuildConfig;
+Lcom/miui/face/CrashHandler;
+Lcom/miui/face/MiuiBioApp$RegionChangedReceiver;
+Lcom/miui/face/MiuiBioApp;
+Lcom/miui/face/MiuiFaceService$1;
+Lcom/miui/face/MiuiFaceService$2;
+Lcom/miui/face/MiuiFaceService$3;
+Lcom/miui/face/MiuiFaceService$4;
+Lcom/miui/face/MiuiFaceService$5;
+Lcom/miui/face/MiuiFaceService$ScreenReceiver$$ExternalSyntheticLambda0;
+Lcom/miui/face/MiuiFaceService$ScreenReceiver;
+Lcom/miui/face/MiuiFaceService;
+Lcom/miui/face/R$array;
+Lcom/miui/face/R$drawable;
+Lcom/miui/face/R$mipmap;
+Lcom/miui/face/R$string;
+Lcom/miui/face/R;
+Lcom/miui/face/base/R;
+Lcom/miui/face/util/CameraCharacteristicsVendorTag;
+Lcom/miui/face/util/CameraCharacteristicsVendorTag<
+Lcom/miui/face/util/ClientMonitor;
+Lcom/miui/face/util/DeviceUtils;
+Lcom/miui/face/util/FileUtil;
+Lcom/miui/face/util/MiSightCompat;
+Lcom/miui/face/util/MtkCCVendorTag;
+Lcom/miui/face/util/MtkVendorTag;
+Lcom/miui/face/util/PreferencesUtils;
+Lcom/miui/face/util/QseeCCVendorTag;
+Lcom/miui/face/util/QseeVendorTag;
+Lcom/miui/face/util/SharedPrefUtil;
+Lcom/miui/face/util/VendorTag;
+Lcom/miui/face/util/VendorTag<
+Lcom/miui/face/util/VendorTagHelper$$ExternalSyntheticLambda0;
+Lcom/miui/face/util/VendorTagHelper;
+Lcom/miui/image/Yuv$$ExternalSyntheticLambda0;
+Lcom/miui/image/Yuv$$ExternalSyntheticLambda1;
+Lcom/miui/image/Yuv$$ExternalSyntheticLambda2;
+Lcom/miui/image/Yuv$PlaneWrapper-IA;
+Lcom/miui/image/Yuv$PlaneWrapper;
+Lcom/miui/image/Yuv;
+Lcom/miui/misight/BuildConfig;
+Lcom/miui/misight/R;
+Lcom/miui/misight/mievent/MiEvent;
+Lcom/miui/misight/mievent/MiSight;
+Lcom/miui/misight/utils/Constant;
+Lcom/ts/faceapi/model/StRect;
+Lcom/ts/faceauth/BuildConfig;
+Lcom/ts/faceauth/FaceAuthManager$1;
+Lcom/ts/faceauth/FaceAuthManager;
+Lcom/ts/faceauth/FaceAuthNative;
+Lcom/ts/faceauth/FaceAuthResult;
+Lcom/ts/faceauth/FaceDetectedCallback;
+Lcom/ts/faceauth/bean/AreaInfo;
+Lcom/ts/faceauth/bean/AuthenticationResult;
+Lcom/ts/faceauth/bean/EnrollResult;
+Lcom/ts/faceauth/data/CvPixelFormat;
+Lcom/ts/faceauth/data/FaceDetectedInfo;
+Lcom/ts/faceauth/data/FaceIDInfo;
+Lcom/ts/faceauth/data/FaceOrientation;
+Lcom/ts/faceauth/data/STImage;
+Lcom/ts/faceauth/data/StFaceAuthMode;
+Lcom/ts/faceauth/data/StFaceAuthStatus;
+Lcom/ts/faceauth/data/StFaceFunctionConfig;
+Lcom/ts/faceauth/data/StFaceGpuPriority;
+Lcom/ts/faceauth/data/StFaceLogLevel;
+Lcom/ts/faceauth/util/FileUtil;
+Lcom/ts/faceauth/util/LogUtil;
+Lcom/ts/faceauthapi/BuildConfig;
+Ldalvik/annotation/AnnotationDefault;
+Ldalvik/annotation/EnclosingClass;
+Ldalvik/annotation/EnclosingMethod;
+Ldalvik/annotation/InnerClass;
+Ldalvik/annotation/MemberClasses;
+Ldalvik/annotation/Signature;
+Ldalvik/annotation/Throws;
+Ldalvik/system/PathClassLoader;
+Lhidden/HiddenApiBridge;
+Lhidden/compat/FaceCompat;
+ListSelectionMode
+Ljava/io/BufferedInputStream;
+Ljava/io/BufferedReader;
+Ljava/io/BufferedWriter;
+Ljava/io/ByteArrayOutputStream;
+Ljava/io/File;
+Ljava/io/FileInputStream;
+Ljava/io/FileNotFoundException;
+Ljava/io/FileOutputStream;
+Ljava/io/FileWriter;
+Ljava/io/IOException;
+Ljava/io/InputStream;
+Ljava/io/InputStreamReader;
+Ljava/io/OutputStream;
+Ljava/io/PrintWriter;
+Ljava/io/Reader;
+Ljava/io/Serializable;
+Ljava/io/Writer;
+Ljava/lang/Boolean;
+Ljava/lang/Byte;
+Ljava/lang/CharSequence;
+Ljava/lang/Class;
+Ljava/lang/Class<
+Ljava/lang/ClassLoader;
+Ljava/lang/CloneNotSupportedException;
+Ljava/lang/Deprecated;
+Ljava/lang/Enum;
+Ljava/lang/Enum<
+Ljava/lang/Exception;
+Ljava/lang/Float;
+Ljava/lang/IllegalAccessException;
+Ljava/lang/InstantiationException;
+Ljava/lang/Integer;
+Ljava/lang/Long;
+Ljava/lang/Math;
+Ljava/lang/NoSuchFieldError;
+Ljava/lang/NoSuchMethodException;
+Ljava/lang/NullPointerException;
+Ljava/lang/Object;
+Ljava/lang/Runnable;
+Ljava/lang/RuntimeException;
+Ljava/lang/Short;
+Ljava/lang/StackTraceElement;
+Ljava/lang/String;
+Ljava/lang/StringBuffer;
+Ljava/lang/StringBuilder;
+Ljava/lang/System;
+Ljava/lang/Thread$UncaughtExceptionHandler;
+Ljava/lang/Thread;
+Ljava/lang/Throwable;
+Ljava/lang/UnsupportedOperationException;
+Ljava/lang/annotation/Annotation;
+Ljava/lang/annotation/Documented;
+Ljava/lang/annotation/ElementType;
+Ljava/lang/annotation/Retention;
+Ljava/lang/annotation/RetentionPolicy;
+Ljava/lang/annotation/Target;
+Ljava/lang/reflect/Constructor;
+Ljava/lang/reflect/Constructor<
+Ljava/lang/reflect/Field;
+Ljava/lang/reflect/InvocationTargetException;
+Ljava/lang/reflect/Method;
+Ljava/nio/Buffer;
+Ljava/nio/ByteBuffer;
+Ljava/nio/charset/Charset;
+Ljava/nio/charset/StandardCharsets;
+Ljava/text/SimpleDateFormat;
+Ljava/util/ArrayList;
+Ljava/util/ArrayList<
+Ljava/util/Arrays;
+Ljava/util/Date;
+Ljava/util/HashMap;
+Ljava/util/HashMap<
+Ljava/util/Iterator;
+Ljava/util/List;
+Ljava/util/List<
+Ljava/util/Locale;
+Ljava/util/NoSuchElementException;
+Ljava/util/Objects;
+Ljava/util/Scanner;
+Ljava/util/UUID;
+Ljava/util/concurrent/Executor;
+Ljava/util/function/Predicate;
+Ljava/util/function/Supplier;
+Ljava/util/function/Supplier<
+Ljava/util/regex/Matcher;
+Ljava/util/regex/Pattern;
+Ljava/util/stream/Stream;
+Lmiui/os/Build;
+Lmiui/util/FeatureParser;
+Lmiuix/animation/utils/DeviceUtils$CpuInfo;
+Lmiuix/animation/utils/DeviceUtils$CpuStats;
+Lmiuix/animation/utils/DeviceUtils;
+Lmiuix/device/DeviceUtils$CpuInfo;
+Lmiuix/device/DeviceUtils$CpuStats;
+Lmiuix/device/DeviceUtils;
+Lmiuix/device/ScreenUtils;
+Lmiuix/devicebaseinfo/BuildConfig;
+Lmiuix/devicebaseinfo/R;
+LogUtil.java
+Lorg/intellij/lang/annotations/Flow;
+Lorg/intellij/lang/annotations/Identifier;
+Lorg/intellij/lang/annotations/JdkConstants$AdjustableOrientation;
+Lorg/intellij/lang/annotations/JdkConstants$BoxLayoutAxis;
+Lorg/intellij/lang/annotations/JdkConstants$CalendarMonth;
+Lorg/intellij/lang/annotations/JdkConstants$CursorType;
+Lorg/intellij/lang/annotations/JdkConstants$FlowLayoutAlignment;
+Lorg/intellij/lang/annotations/JdkConstants$FontStyle;
+Lorg/intellij/lang/annotations/JdkConstants$HorizontalAlignment;
+Lorg/intellij/lang/annotations/JdkConstants$InputEventMask;
+Lorg/intellij/lang/annotations/JdkConstants$ListSelectionMode;
+Lorg/intellij/lang/annotations/JdkConstants$PatternFlags;
+Lorg/intellij/lang/annotations/JdkConstants$TabLayoutPolicy;
+Lorg/intellij/lang/annotations/JdkConstants$TabPlacement;
+Lorg/intellij/lang/annotations/JdkConstants$TitledBorderJustification;
+Lorg/intellij/lang/annotations/JdkConstants$TitledBorderTitlePosition;
+Lorg/intellij/lang/annotations/JdkConstants$TreeSelectionMode;
+Lorg/intellij/lang/annotations/JdkConstants;
+Lorg/intellij/lang/annotations/Language;
+Lorg/intellij/lang/annotations/MagicConstant;
+Lorg/intellij/lang/annotations/Pattern;
+Lorg/intellij/lang/annotations/PrintFormat;
+Lorg/intellij/lang/annotations/PrintFormatPattern;
+Lorg/intellij/lang/annotations/RegExp;
+Lorg/intellij/lang/annotations/Subst;
+Lorg/jetbrains/annotations/Contract;
+Lorg/jetbrains/annotations/Nls$Capitalization;
+Lorg/jetbrains/annotations/Nls;
+Lorg/jetbrains/annotations/NonNls;
+Lorg/jetbrains/annotations/NotNull;
+Lorg/jetbrains/annotations/Nullable;
+Lorg/jetbrains/annotations/PropertyKey;
+Lorg/jetbrains/annotations/TestOnly;
+Lorg/json/JSONArray;
+Lorg/json/JSONException;
+Lorg/json/JSONObject;
+MAX_CAMERAS_IN_USE
+METERING_MODE_CENTER_WEIGHTED
+METERING_MODE_FRAME_AVERAGE
+METERING_MODE_SPOT_METERING
+METHOD
+MG_ATTR_BLUR
+MG_ATTR_EYE_CLOSE
+MG_ATTR_EYE_OCCLUSION
+MG_ATTR_MOUTH_OCCLUSION
+MG_OPEN_CAMERA_FAIL
+MG_OPEN_CAMERA_SUCCESS
+MG_UNLOCK_BAD_LIGHT
+MG_UNLOCK_COMPARE_FAILURE
+MG_UNLOCK_DARKLIGHT
+MG_UNLOCK_FACE_BAD_QUALITY
+MG_UNLOCK_FACE_BLUR
+MG_UNLOCK_FACE_DOWN
+MG_UNLOCK_FACE_MULTI
+MG_UNLOCK_FACE_NOT_COMPLETE
+MG_UNLOCK_FACE_NOT_FOUND
+MG_UNLOCK_FACE_OFFSET_BOTTOM
+MG_UNLOCK_FACE_OFFSET_LEFT
+MG_UNLOCK_FACE_OFFSET_RIGHT
+MG_UNLOCK_FACE_OFFSET_TOP
+MG_UNLOCK_FACE_RISE
+MG_UNLOCK_FACE_ROTATED_LEFT
+MG_UNLOCK_FACE_ROTATED_RIGHT
+MG_UNLOCK_FACE_SCALE_TOO_LARGE
+MG_UNLOCK_FACE_SCALE_TOO_SMALL
+MG_UNLOCK_FAILURE
+MG_UNLOCK_FEATURE_MISS
+MG_UNLOCK_FEATURE_VERSION_ERROR
+MG_UNLOCK_HALF_SHADOW
+MG_UNLOCK_HIGHLIGHT
+MG_UNLOCK_INVALID_ARGUMENT
+MG_UNLOCK_INVALID_HANDLE
+MG_UNLOCK_KEEP
+MG_UNLOCK_LIVENESS_FAILURE
+MG_UNLOCK_LIVENESS_WARNING
+MG_UNLOCK_OK
+MIDDLE
+MIDDLE_DEVICE
+MIDDLE_FREQ
+MIUI_FLAG_VERSION_NULL
+MIUI_FLAG_VERSION_V1
+MIUI_FLAG_VERSION_V2
+MIUI_LITE_ROM
+MIUI_LITE_STOCK_PLUS
+MIUI_LITE_VERSION
+MIUI_MIDDLE_VERSION
+MODEL_PATH
+MSG_FACE_UNLOCK_OPEN_CAMERA_FAIL
+MSG_FACE_UNLOCK_RELEASE
+MSG_FACE_UNLOCK_WORK_TIMEOUT
+MSG_ON_ACQUIRED
+MSG_ON_AUTHENTICATE
+MSG_ON_ENROLL_REUSLT
+MSG_ON_ENUMERATED
+MSG_ON_ERROR
+MSG_ON_EXT_CMD
+MSG_ON_LOACKOUTRESET_CALLBACK
+MSG_ON_PRE_INIT
+MSG_ON_REMOVED
+MT([\d]{2})([\d]+)
+MTK_DIMENSITY
+MT_PATTERN
+MagicConstant.java
+MiEvent.java
+MiSight.java
+MiSightCompat.java
+MiSightSdk
+MiSightSdkMiSight:
+MiuiBioApp onCreate, isSupport:
+MiuiBioApp.java
+MiuiFaceService.java
+Miuiface1
+MtkCCVendorTag.java
+MtkVendorTag.java
+Must have 
+NEW_ENROLL_FILE_NAME
+NV12
+NV21
+Nls.java
+NonNls.java
+NotNull.java
+NotSpecified
+Nullable.java
+OLED_SCREEN_PROPERTY
+OPERATING_MODE
+Open camera failed, try again[
+PACKAGE
+PAD_THRESHOLD
+PARAMETER
+PART
+PERFORMANCE_CLASS
+PERFORMANCE_JAR
+PERFORMANCE_JAR_EXT
+PNG
+POP_CAMERA_DELAY_CREATE_SESSION
+PRECISION
+PRINT_FORMAT
+PROCESSOR
+Pattern.java
+PatternFlags
+Pixel stride for Y plane must be 1 but got 
+PlaneWrapper
+PlaneWrapper{width=
+Please call initHandler first
+PreferencesUtils.java
+PrintFormat.java
+PropertyKey.java
+QUALCOMM
+QUICK_PREVIEW
+QseeCCVendorTag.java
+QseeVendorTag.java
+Qualcomm
+RECEIVER_DESCRIPTOR
+RECEIVER_ON_AUTHENTICATION_FAILED
+RECEIVER_ON_AUTHENTICATION_SUCCEEDED
+RECEIVER_ON_ENROLL_RESULT
+RECEIVER_ON_ERROR
+RECEIVER_ON_EXT_CMD
+RECEIVER_ON_LOCKOUT_RESET
+RECEIVER_ON_ON_ACQUIRED
+RECEIVER_ON_PRE_INIT
+RECEIVER_ON_REMOVED
+RETRY_SLEEP_TIME
+RETURN_METHOD_TARGET
+RGB888
+RGBA8888
+RIGHT
+RegExp.java
+RegionChangedReceiver
+RotateMaskRect
+SDK_INT
+SEPARATOR
+SERVICE_DESCRIPTOR
+SERVICE_NAME
+SM_PATTERN
+SNAPDRAGON1
+SNAPDRAGON2
+SNAPDRAGON3
+SOURCE
+STATUS_SUPPORT
+STATUS_UNSUPPORTED
+STImage.java
+STOCK_DEVICE
+ST_ATTR_EYE_CLOSE
+ST_ATTR_EYE_OCCLUSION
+ST_ATTR_MOUTH_OCCLUSION
+ST_E_AUTH_EXPIRE
+ST_E_COMPARE_FAILURE
+ST_E_FACE_BAD_QUALITY
+ST_E_FACE_OFFSET_BOTTOM
+ST_E_FACE_OFFSET_LEFT
+ST_E_FACE_OFFSET_RIGHT
+ST_E_FACE_OFFSET_TOP
+ST_E_FACE_SCALE_TOO_LARGE
+ST_E_FACE_SCALE_TOO_SMALL
+ST_E_FAIL
+ST_E_FILE_NOT_FOUND
+ST_E_HANDLE
+ST_E_INVALIDARG
+ST_E_INVALID_APPID
+ST_E_INVALID_AUTH
+ST_E_INVALID_FILE_FORMAT
+ST_E_INVALID_PIXEL_FORMAT
+ST_E_LIVENESS_FAILURE
+ST_E_OUTOFMEMORY
+ST_E_UNSUPPORTED
+ST_E_UNZIP_FAILED
+ST_FACEAUTH_MODE_FAST
+ST_FACEAUTH_MODE_NORMAL
+ST_FACE_AUTH_ERROR_ALGO_FILE_DAMAGED
+ST_FACE_AUTH_ERROR_CALLBACK_NOT_BOTH_SET
+ST_FACE_AUTH_ERROR_CREATE_FOLDER_FAILED
+ST_FACE_AUTH_ERROR_DELETE_USER_ID_NOT_EXIST
+ST_FACE_AUTH_ERROR_ENV_PATH_ERROR
+ST_FACE_AUTH_ERROR_EVALUATION_CONFIG
+ST_FACE_AUTH_ERROR_IDENTIFIER_CHECK_FAILED
+ST_FACE_AUTH_ERROR_OPEN_FILE_FAILED
+ST_FACE_AUTH_ERROR_READ_EVALUATION_DIRECTORY
+ST_FACE_AUTH_ERROR_TEECALLBACK_WITH_NORMALCALLBACK
+ST_FACE_AUTH_ERROR_TEMPLDATE_FILE_DAMAGED
+ST_FACE_AUTH_ERROR_TEMPLDATE_FILE_UPPER_LIMIT
+ST_FACE_AUTH_ERROR_WRITE_FILE_FAILED
+ST_FACE_AUTH_STATUS_DETECT_FRAME_SELECT_FAILED
+ST_FACE_AUTH_STATUS_DETECT_NO_FACE
+ST_FACE_AUTH_STATUS_ENROLL_FACE_MULTI_FACE
+ST_FACE_AUTH_STATUS_ENROLL_FACE_OUT_OF_FRAME_RANGE
+ST_FACE_AUTH_STATUS_ENROLL_FACE_WRONG_ORIENTATION
+ST_FACE_AUTH_STATUS_ENROLL_FRAME_RESET
+ST_FACE_AUTH_STATUS_ENROLL_KEEP
+ST_FACE_AUTH_STATUS_ENROLL_NOT_IN_ROI
+ST_FACE_AUTH_STATUS_ENROLL_NOT_SAME_PERSION
+ST_FACE_AUTH_STATUS_ENROLL_NOT_SAME_PERSON
+ST_FACE_AUTH_STATUS_ENROLL_OK
+ST_FACE_AUTH_STATUS_EYE_BLOCKED
+ST_FACE_AUTH_STATUS_EYE_CLOSE
+ST_FACE_AUTH_STATUS_FACE_DIRECTION_DOWN
+ST_FACE_AUTH_STATUS_FACE_DIRECTION_LEFT
+ST_FACE_AUTH_STATUS_FACE_DIRECTION_MIDDLE
+ST_FACE_AUTH_STATUS_FACE_DIRECTION_RIGTH
+ST_FACE_AUTH_STATUS_FACE_DIRECTION_UNDEFINE
+ST_FACE_AUTH_STATUS_FACE_DIRECTION_UP
+ST_FACE_AUTH_STATUS_FACE_DOWN
+ST_FACE_AUTH_STATUS_FACE_LEFT
+ST_FACE_AUTH_STATUS_FACE_RIGHT
+ST_FACE_AUTH_STATUS_FACE_UP
+ST_FACE_AUTH_STATUS_FRAME_OVER_EXPOSE
+ST_FACE_AUTH_STATUS_HACKNESS_FAILED
+ST_FACE_AUTH_STATUS_MOUTH_BLOCKED
+ST_FACE_AUTH_STATUS_NOSE_BLOCKED
+ST_FACE_AUTH_STATUS_OFFSET_BOTTOM
+ST_FACE_AUTH_STATUS_OFFSET_LEFT
+ST_FACE_AUTH_STATUS_OFFSET_RIGHT
+ST_FACE_AUTH_STATUS_OFFSET_TOP
+ST_FACE_AUTH_STATUS_QUALITY_BRIGHTHIGH
+ST_FACE_AUTH_STATUS_QUALITY_BRIGHTLOW
+ST_FACE_AUTH_STATUS_QUALITY_DISTANCE
+ST_FACE_AUTH_STATUS_QUALITY_FACE_MISS
+ST_FACE_AUTH_STATUS_QUALITY_FACE_SIZE_BIG
+ST_FACE_AUTH_STATUS_QUALITY_FACE_SIZE_SMALL
+ST_FACE_AUTH_STATUS_QUALITY_MOUTH
+ST_FACE_AUTH_STATUS_QUALITY_OCCLUSION
+ST_FACE_AUTH_STATUS_QUALITY_SHARP
+ST_FACE_AUTH_STATUS_SELECTOR_FAILED
+ST_FACE_AUTH_STATUS_UNLOCK_FAILED
+ST_FACE_AUTH_STATUS_UNLOCK_OK
+ST_FACE_DOWN
+ST_FACE_ENROLL_NOT_SAME_PERSON
+ST_FACE_ENROLL_REACH_UPPER_LIMIT
+ST_FACE_ENROLL_STATUS_TEMLATE_FILE_NOT_EXIST
+ST_FACE_ENROLL_STATUS_TEMPLDATE_NOT_INCLUDE_FACE_INFO
+ST_FACE_GpuModePriHigh
+ST_FACE_GpuModePriLow
+ST_FACE_GpuModePriNormal
+ST_FACE_LIGHT_TOO_DIM
+ST_FACE_LIGHT_TOO_HIGH
+ST_FACE_MULTI
+ST_FACE_NOSE_OCCLUSION
+ST_FACE_NOT_COMPLETE
+ST_FACE_NOT_FOUND
+ST_FACE_NOT_IN_ROI
+ST_FACE_RISE
+ST_FACE_ROTATED_LEFT
+ST_FACE_ROTATED_RIGHT
+ST_FACE_TEMPLATE_FILE_DAMAGED
+ST_FEATURE_MISS
+ST_FUNCTION_CONFIG_CLOSE_BLOCK_DETECTION
+ST_FUNCTION_CONFIG_CLOSE_EYESTATUS_DETCTION
+ST_FUNCTION_CONFIG_CLOSE_EYE_BLOCK_DETECTION
+ST_FUNCTION_CONFIG_CLOSE_GAZE
+ST_FUNCTION_CONFIG_CLOSE_HACKNESS
+ST_FUNCTION_CONFIG_CLOSE_MOUTH_BLOCK_DETECTION
+ST_FUNCTION_CONFIG_OPEN_NOSE_BLOCK_DETECTION
+ST_KEEP
+ST_OK
+ScreenReceiver
+ScreenUtils
+ScreenUtils.java
+Sentence
+Settings_Secure_getIntForUser
+Settings_Secure_putIntForUser
+SharedPrefUtil.java
+StFaceAuthMode.java
+StFaceAuthStatus.java
+StFaceFunctionConfig.java
+StFaceGpuPriority.java
+StFaceLogLevel.java
+StRect(
+StRect.java
+Subst.java
+Success to config threshold for area code 
+Supported pixel strides for U and V planes are 1 and 2
+TAG
+TAny;>;)TAny;
+TAny;>;)Z
+TAny;>;TAny;)V
+TEXT
+THIS_SOURCE
+THIS_TARGET
+TRUE
+TT;>;
+TT;>;)
+TT;>;)TT;
+TT;>;)V
+TYPE
+TYPE_AUTHEN
+TYPE_CPU
+TYPE_ENROLL
+TYPE_EXT_CMD
+TYPE_GPU
+TYPE_RAM
+TYPE_REMOVE
+TYPE_USE
+TabLayoutPolicy
+TabPlacement
+TestOnly.java
+The method argument (if parameter was annotated) or this container (if instance method was annotated)
+The return value of this method
+This container (if the parameter was annotated) or the return value (if instance method was annotated)
+This context is not associated with a display. You should use createDisplayContext() to create a display context to work with windows.
+Title
+TitledBorderJustification
+TitledBorderTitlePosition
+TreeSelectionMode
+U and V planes must have the same pixel and row strides but got pixel=
+UNKNOWN
+UNLOCK_RETRY_TIME
+UTF_8
+Unexpected client: 
+Unexpected remote exception
+UserHandle_USER_CURRENT
+UserHandle_USER_OWNER
+UserHandle_USER_SYSTEM
+VERSION_CODE
+VERSION_NAME
+VII
+VIIII
+VIL
+VILLL
+VJII
+VJIII
+VJLI
+VLI
+VLII
+VLIIII
+VLIIIL
+VLIIL
+VLIILL
+VLIL
+VLILL
+VLL
+VLLI
+VLLIII
+VLLJ
+VLLL
+VLLLI
+VLLLII
+VLLLIL
+VLLLL
+VLLZ
+VLZ
+VZL
+VendorTag.java
+VendorTagHelper
+VendorTagHelper.java
+WIDTH
+Warning
+YUV420P
+Yuv.java
+Yuv{width=
+ZIJ
+ZILLI
+ZLI
+ZLIL
+ZLJ
+ZLL
+ZLLII
+ZLLZ
+ZLZ
+[B>;
+[I>;
+[Landroid/media/Image$Plane;
+[Lcom/miui/image/Yuv$PlaneWrapper;
+[Lcom/miui/misight/mievent/MiEvent;
+[Lcom/ts/faceauth/data/CvPixelFormat;
+[Lcom/ts/faceauth/data/FaceIDInfo;
+[Lcom/ts/faceauth/data/FaceOrientation;
+[Lcom/ts/faceauth/data/StFaceAuthMode;
+[Lcom/ts/faceauth/data/StFaceGpuPriority;
+[Lcom/ts/faceauth/data/StFaceLogLevel;
+[Ljava/lang/Class;
+[Ljava/lang/Object;
+[Ljava/lang/StackTraceElement;
+[Ljava/lang/String;
+[Lorg/jetbrains/annotations/Nls$Capitalization;
+[^%]|%%
+] json:
+accessFlags
+acquireNextImage
+add
+addAction
+addBool
+addBoolArray
+addFloat
+addFloatArray
+addInt
+addIntArray
+addLoackoutResetCallback callback:
+addLockoutResetCallback
+addLockoutResetMonitor
+addLong
+addLongArray
+addMiEvent
+addMiEventArray
+addService
+addShort
+addShortArray
+addStartCount
+addStr
+addStrArray
+addSuppressed
+addTarget
+an exception occurred
+android.app.ActivityThread
+android.app.ActivityThread Exception:
+android.app.AppGlobals
+android.app.AppGlobals Exception:
+android.intent.action.USER_PRESENT
+android.os.SystemProperties
+angelica
+angelicain
+angelican
+angle
+anyMatch
+app_name
+append
+application
+applicationContext
+apply
+architecture
+area.co
+arg1
+arg2
+array
+asList
+auth
+auth_worker
+authen
+authenticate
+authenticate, packName: 
+available
+bigCoreCount
+binderDied
+booleanValue
+bottom
+buffer
+build
+builder
+cactus
+callback can not be null
+camellia
+camera id: 
+cameraCharacteristics
+can not find the areaCode 
+can not get cameraId
+can not load MiSight
+can not read or write in the dbpath:
+canRead
+canWrite
+cancelAuthenticate
+cancelAuthenticate, packName: 
+cancelEnrollment
+cancelEnrollment token:
+cannon
+capitalization
+cattail
+caught remote exception in linkToDeath: 
+cereus
+change face id
+changeFaceId
+checkPermission
+citrus
+clear
+clone
+close
+closeCamera
+closeCameraImmediately
+closeCameraImmediatelyIfCameraThread
+com.android.systemui
+com.mediatek.3afeature.aeAvailableMetering
+com.mediatek.3afeature.aeMeteringMode
+com.mediatek.configure.setting.initrequest
+com.miui.face
+com.miui.misight
+com.miui.misight.mievent.MiSight
+com.miui.performance.DeviceLevelUtils
+com.ts.faceauth
+com.ts.faceauthapi
+commit
+compare
+compare id is 
+compare native return 
+compare return 
+compare time =
+compile
+compress
+configFaceAuthThresholds
+configRequestBuilder
+configure CameraCaptureSession fail
+constructEvent
+constructEventParam
+contains
+contentEquals
+create
+createByteArray
+createCaptureRequest
+createCaptureSession
+createCaptureSession fail
+createCpuInfo
+createFaceAuth
+createFile
+createFromParcel
+createNewFile
+crop
+current feature count is 
+currentApplication
+currentTimeMillis
+curtana
+dandelion
+decideLevel
+delay close camera
+delete
+delete failed with result 
+deleteAllFace
+deleteFace
+deleteFeature
+deleteFeature faceId = 
+density
+destroy
+destroy(): 
+detectAreaF: 
+device_need_operating_mode
+did not set areaCode yet
+doCpuStats
+drawable
+dump
+durandal
+edit
+enableFaceDetectCallback
+endsWith
+enforceCallingOrSelfPermission
+enforceInterface
+enroll
+enroll, onPreviewFrame  ret:
+enroll, openCameraSucced  ,result: 
+enroll, packName: 
+enrollAreaF: 
+equals
+equalsIgnoreCase
+evaluate
+excalibur
+exception
+execute
+exists
+expected: 
+extCmd
+extCmd, cmd: 
+f$0
+f$1
+face release complete
+faceConstructor
+face_unlock
+face_unlock_has_feature
+face_unlock_valid_feature
+faces_info
+false
+file not exist! path: 
+finalize
+find
+find key: 
+flags
+flagsFromClass
+floatValue
+flush
+forName
+format
+frameCount = 
+get
+get face IDs data error
+getAbsolutePath
+getAction
+getAlgoInfo
+getAppContext
+getAppContext fail
+getApplicationContext
+getAreaCode
+getAssertData
+getAssets
+getAuthStatus
+getAuthenHandler
+getAuthenHelper
+getAvailableCaptureRequestKeys
+getBitsPerPixel
+getBoolean
+getBounds
+getBuffer
+getBytes
+getCameraCharacteristics
+getCameraId
+getCameraIdList
+getCameraManager
+getChipSetFromCpuInfo failed
+getClass
+getClientType
+getConstructor
+getContentFromFileInfo
+getContentResolver
+getContext
+getCpuInfo
+getCpuInfoList
+getCpuLevel
+getCpuStats
+getCropRect
+getDeclaredField
+getDeclaredMethod
+getDefaultDisplay
+getDefaultSharedPreferences
+getDefaultUncaughtExceptionHandler
+getDeviceLevel
+getDeviceLevel failed
+getDeviceLevel failed , e:
+getDeviceLevel1
+getDeviceLevel2
+getDisplay
+getDisplayMetrics
+getEnrollHelper
+getEnrollStatus
+getEnrolledFaceIds
+getEnrolledFaces
+getEnrolledFacesJson
+getEnrolledFaces[
+getEventId
+getFaceDetected
+getFaceIDInfoInTemplate
+getFaceIDInfoInTemplate failed with internal result status 
+getFaceIDsInTemplate
+getFaceId
+getFaceOrientation
+getFaceRect
+getFacesEnrollCount
+getFeatureCount
+getFeatureCount = 
+getFeatureCount failed with internal result status 
+getFilesDir
+getFormat
+getFormatTime
+getFrontFacingCameraId
+getHardwareInfo
+getHeight
+getImageFormat
+getInitialApplication
+getInstance
+getInt
+getIntForUser
+getJSONObject
+getLastStartTime
+getLastUnlockID
+getLicenseFileNameInAssets
+getLong
+getLooper
+getMaximumWindowMetrics
+getMessage
+getMethod
+getMethodName
+getMiEventStr
+getMinLevel
+getMiuiLiteVersion
+getMiuiLiteVersion failed , e:
+getMiuiLiteVersionMethod
+getMiuiMiddleVersion
+getMiuiMiddleVersion failed , e:
+getModelInfo
+getMtkCpuLevel
+getNV21Bytes
+getName
+getNativeStatue
+getOwner
+getParentFile
+getPerf
+getPerf DeviceUtils(): newInstance Exception:
+getPerfClass
+getPixelStride
+getPlanes
+getProductDevice
+getProductDevice failed , e:
+getQualcommCpuLevel
+getReceiver
+getRegion
+getResources
+getRowStride
+getRunOutTime
+getSDKVersion
+getScreenSize
+getScreenSizeDp
+getSharedPreferences
+getStackTrace
+getStartCount
+getStaticObjectField
+getStride
+getString
+getStringArray
+getSurface
+getSurfaceTexture
+getSystem
+getSystemClassLoader
+getSystemService
+getThreadId
+getToken
+getTotalPhysicalMemory
+getTotalRam
+getUUIDName
+getUnlockID
+getValue
+getVersion
+getWidth
+getWindowManager
+getWorkerHandler
+get_frame_nonsequence
+ginkgo
+gram
+group
+handleException
+handleMessage
+handlePassed
+hasEnrolledFaces
+hasInit
+hasMessages
+hasNext
+hasNextLine
+hasRequestKey
+height
+here
+ic_launcher
+ic_launcher_background
+ic_launcher_foreground
+ic_launcher_round
+implementor
+init
+init algo fail
+init all time=
+initAll
+initAll failed mFaceAuthManager null
+initAll result is 
+initAuthenThread
+initDeviceLevelInfo
+initDeviceLevelInfo Fail: Exception:
+initFaceService
+initFaceUnlockUtil
+initHandler
+initLicense
+initPerf
+initPerf DeviceUtils(): newInstance Exception:
+initPerf fail mPerf is still null
+initWorkerInfo
+initlicense failed with result 
+intValue
+intValues
+invoke
+isCameraInUse
+isCurrentThread
+isDigitsOnly
+isExternalScreen
+isFaceFeatureSupport
+isFile
+isFoldDevice
+isInernational:
+isInternalScreen
+isLiteMode
+isLiteV1NewStock failed , e:
+isLiteV1Stock
+isLiteV1StockPlus
+isMiuiLite
+isMiuiLiteRom
+isMiuiLiteRom failed
+isMiuiLiteV1
+isMiuiLiteV2
+isMiuiMiddle
+isNeedGetFrameNonsequence
+isNeedMoreStreamInAuth
+isNeedOperatingMode
+isOled
+isPreInit
+isScreenOled
+isStockDevice
+isSupportPrune
+isSupportPrune failed , e:
+isTablet
+isTagDefined
+isVirtualLightDevice
+it is sunny, skip this frame……
+iterator
+jni_faceunlock
+jni_stfaceunlock_api
+joyeuse
+key_face_id
+key_name
+killProcess
+lambda$hasRequestKey$0
+lambda$new$0$com-miui-image-Yuv
+lambda$new$1$com-miui-image-Yuv
+lambda$new$2
+lambda$new$3$com-android-keyguard-FaceAuthenHelper
+lambda$onReceive$0$com-miui-face-MiuiFaceService$ScreenReceiver
+lambda$openCamera$0$com-android-keyguard-faceunlock-Camera2Util
+lambda$openCameraSucced$0$com-android-keyguard-faceunlock-BaseFaceUnlockManager
+lambda$removeFace$1$com-android-keyguard-FaceAuthenHelper
+lambda$resetFaceEnroll$0$com-android-keyguard-FaceEnrollHelper
+lambda$startPreview$1$com-android-keyguard-faceunlock-Camera2Util
+lambda$stopFromBp$2$com-android-keyguard-FaceAuthenHelper
+lambda$tryPreInitAuth$0$com-android-keyguard-FaceAuthenHelper
+lancelot
+last_start_time
+laurus
+lavender
+lcd
+left
+lemon
+length
+level
+lime
+linkToDeath
+list
+loadClass
+loadLibrary
+lock screen passed
+longValue
+lotus
+mAreaCodeFilePath
+mAreaMap
+mAuthStatus
+mAuthen
+mAuthenHandler
+mAuthenHelper
+mAuthenThread
+mBeginAuth
+mCallback
+mCameraCaptureSessionCallback
+mCameraDevice
+mCameraHandler
+mCameraId
+mCameraManager
+mCameraUtil
+mCanNextFaceInputStep
+mCaptureSession
+mCheckTemplate
+mClientType
+mConstructor
+mContext
+mCpuLevel
+mCtx
+mCurrentClient: 
+mCurrentMonitor
+mDateFormat
+mDefaultHandler
+mDelayedHide
+mDetectRect
+mEnrollHelper
+mEnrollPath
+mEnrollRect
+mEnrollStatus
+mEnrollStep
+mEventId
+mFaceAuthCompareConfig
+mFaceAuthEnrollConfig
+mFaceAuthManager
+mFaceDetectedCallback
+mFaceDownThreshold
+mFaceID
+mFaceId
+mFaceInputStep
+mFaceLeftThreshold
+mFaceRect
+mFaceRightThreshold
+mFaceTopThreshold
+mFaceUnlockManager
+mFeatureCountOfFace
+mFormat
+mFrameCount
+mGetDeviceLevel
+mGetDeviceLevelForWhole
+mGetMiuiLiteVersion
+mGetMiuiMiddleVersion
+mGpuLevel
+mHasFace
+mHasInit
+mHeight
+mImageData
+mImageFormat
+mInstance
+mIsDetected
+mIsDetecting
+mIsPreInit
+mIsStopEnroll
+mIsStopEnroll == true
+mIsSuccess
+mIsSupportPrune
+mIsTrigger
+mLastVersion
+mLevel
+mLivenessModePath
+mLockoutMonitors
+mMiEvent
+mNativeStatus
+mOwner
+mPendingClients
+mPerf
+mPreviewCallback
+mPreviewCount
+mPreviewImageReader
+mRamLevel
+mReceiver
+mReceiver transact fail. 
+mReleaseAfterEnrolled
+mReleaseIfAuthenticated
+mResultCode
+mRetryTime
+mService
+mSkipIfNotFound
+mStartAfterFirstFrame
+mStartFromBp
+mStopFromBp
+mStride
+mSurface
+mTimeout
+mTimestamp
+mToken
+mTotalRam
+mTraceId
+mUnlockUserID
+mWidth
+mWorkerHandler
+mWorkerThread
+matcher
+maxFreq
+merlin
+merlinnfc
+mievent
+min
+mipmap
+miui.face.FaceService
+miui.face.timeline, onAuthenticate All Time:
+miui.face.timeline, onFaceStart, ServicePrepareTime:
+miui.face.timeline, open camera succeed time=
+miui.face.transplant
+miui.intent.action.MIUI_REGION_CHANGED
+miui.os.Build
+miui.permission.USE_INTERNAL_GENERAL_API
+miui.util.HardwareInfo
+miuix.devicebaseinfo
+mkdir failed for dbpath :
+mkdirs
+mkdirs fail
+mode
+model1
+model2
+mojito
+msm
+myLooper
+myPid
+myTid
+name
+name1
+nativeInt
+nativeMallopt
+nativeSendEvent
+need_more_stream_in_auth
+newInstance
+next
+nextLine
+no face
+not find key: 
+null
+obj
+obtain
+obtainMessage
+oled
+olive
+olivelite
+olivewood
+onAcquired
+onAcquired  curMonitor:
+onAuthenticate
+onAuthenticationFailed
+onAuthenticationSucceeded
+onClosed
+onConfigureFailed
+onConfigured
+onCreate
+onDetected
+onDisconnected
+onEnrollResult
+onEnrollResult resetValidat, 
+onError
+onError  curMonitor:
+onExtCmd
+onExtCmd  curMonitor:
+onExtCmd  res:
+onFaceAuthFailed
+onFaceAuthFailed hasFace:
+onFaceAuthenticated
+onFaceDetected
+onFaceHelp
+onFaceHelp help:
+onFaceStart
+onImageAvailable
+onLockoutRest
+onOpened
+onPreInit
+onPreInit curMonitor:
+onPreviewFrame
+onPreviewFrame failed mFaceAuthManager null
+onReceive
+onRemoved
+onRemoved monitor:
+onTransact
+onc
+onclite
+only support ImageFormat.YUV_420_888 for now
+open
+open Camera failed
+open camera fail, because an exception occurred
+open camera2 faild
+openCamera
+openCameraSucced
+ordinal
+org.codeaurora.qcamera3.exposure_metering
+org.codeaurora.qcamera3.exposure_metering.available_modes
+paras: 
+parseInt
+parseLine
+part
+path: 
+perf is null!
+perfClass
+perfClassLoader
+permStr
+persist.sys.muiltdisplay_type
+pine
+pixelStride
+planes
+pomelo
+position
+post
+postAtFrontOfQueue
+postDelayed
+preInitAuth
+preInitAuth, 
+preempt:
+prefix
+printStackTrace
+println
+processor
+pure
+put
+putBoolean
+putInt
+putIntForUser
+putLong
+putString
+rainbow
+randomUUID
+read
+readByteArray
+readInt
+readLine
+readLong
+readString
+readStrongBinder
+receive preview frame time=
+receiver.FaceService
+recycle
+region changed
+registerReceiver
+release
+release memory after enrolled... ...
+release memory... ...
+releaseFaceAuth
+releaseFaceUnlock
+releaseMemory
+releaseOnWorkerThread
+remaining
+remove
+remove token:
+removeCallbacks
+removeClient
+removeFace
+removeFace , SharedPreferenceUtil, faceId: 
+removeMessages
+removeReleaseMessage
+removing leaked reference: 
+requestBuilder
+require
+requireNonNull
+reset
+reset native return 
+resetFaceAuth
+resetFaceEnroll
+resetStartCount
+resourceBundle
+restTimeout
+restTimeout cryptoToken:
+result
+rewind
+right
+ro.config.low_ram.support_miuilite_plus
+ro.display.type
+ro.product.device
+ro.vendor.display.type
+rowStride
+run
+runOnCameraWorkerThread
+runOnFaceUnlockWorkerThread
+sDeviceUseCamera1
+sFaceUnlockManager
+sInstance
+sIsPrimaryScreenOled
+sIsSecondaryScreenOled
+sMultiDisplayType
+sPerfClass
+sPerfClassLoader
+sScreenRealSize
+sStageInFaceUnlockTime
+saveBitmap
+saveBytes
+saveFacesEnrollSuccess
+saveFeature
+saveFeature native return 
+saveFeature return 
+saveFile
+saveString
+sdk version=
+sdm
+send MiEvent fail
+sendEmptyMessage
+sendEmptyMessageDelayed
+sendEvent
+sendLockoutRest
+sendToTarget
+separator
+serialVersionUID
+serv_worker
+set
+set GPU Priority to 
+set threshold for this area code 
+setAccessible
+setAreaCode
+setAreaCode to 
+setAuthenHelper
+setCallback
+setCameraCallback
+setDefaultUncaughtExceptionHandler
+setDetectArea
+setDeviceLevel
+setEnrollHelper
+setEnrollImageNumberForFace
+setEnrollNumberForFace
+setFaceAuthCompareConfig
+setFaceAuthEnrollConfig
+setFaceAuthMode
+setGPUPriority
+setIdentifier
+setImageFormat
+setLastStartTime
+setLogLevel
+setNativeStatus
+setOnImageAvailableListener
+setOrientation
+setPreInit
+setReceiver
+setRepeatingRequest
+setRepeatingRequest fail
+setRepeatingRequest fail, perhaps as expected
+setRequestKey
+setRoi
+setRunOutTime
+setSessionParameters
+setStandByMode
+setSurfaceTexture
+setTeeCommunicationFunc
+setTeeCommunicationFuncAddr
+setTimeout
+shiva
+shortValue
+should delete the old face in template when enroll success
+size
+smallCoreCount
+source
+sourceIsContainer
+split
+stFaceAuthStatusToFaceAuthResult
+st_140026
+standby
+start
+start pendingclient com.android.systemui.
+startAuthen
+startAuthenClient
+startFaceUnlock
+startFaceUnlock failed mFaceAuthManager null
+startNextFaceEnrollStep
+startPreview
+start_count
+startsWith
+stateCallback
+static init(): Load Class Exception:
+static init(): Load MiuiMiddle Class Exception:
+static init(): MiuiBooster is not in this rom
+status
+stopDetect
+stopFaceUnlock
+stopFromBp
+stream
+string
+stringValues
+substring
+suffix
+sunny
+support_face_unlock_region_dom
+support_face_unlock_region_global
+target
+targetIsContainer
+tempView
+template_file.data
+test
+the areaCode is null，clean the areacode
+the dbpath is null
+the faceId is 
+the featureCount is 
+the internal status is 
+the model info is 
+the sdk version is 
+this
+this$0
+this$1
+toByteArray
+toCameraCharacteristicsKey
+toCaptureRequestKey
+toHexString
+toInt
+toLowerCase
+toString
+toUpperCase
+top
+transDeviceLevel
+transact
+trim
+true
+tryPreInitAuth
+trySetRequestKey
+tulip
+type
+uncaughtException
+unexpected error was received while the camera was on. errorCode: 
+unknown code: 
+unlinkToDeath
+v3.0
+val$packName
+val$receiver
+val$timeout
+val$token
+value
+valueOf
+values
+valuesFromClass
+virtual_light_device
+wait and skip this frame……
+wayne
+what
+whyred
+width
+willow
+window
+write
+writeInt
+writeInterfaceToken
+writeLong
+writeNoException
+writeString
+writeToParcel
+writeTypedList
+yyyy.MM.dd-HH.mm.ss
+~~D8{"backend":"dex","compilation-mode":"release","has-checksums":false,"min-api":33,"version":"8.2.47"}
+strings_dex: dex=1 matched=1918 emitted=1918 (0.01s)

@@ -1,0 +1,157 @@
+EAI2 verification - 16 blobs, /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/qcom_voiceactivation/models
+
+A. container parse vs the native loader (evidence/native_dumps/*.txt)
+  63ff0ae5_en-US_001_198088        PASS
+  63ff0ae5_en-US_001_58312         n/a   (native loader refuses this blob; see B)
+  63ff0ae5_en-US_001_64968         PASS
+  63ff0ae5_en-US_001_968           n/a   (native loader refuses this blob; see B)
+  63ff0ae5_en-US_002_1208          PASS
+  63ff0ae5_en-US_002_410552        PASS
+  63ff0ae5_en-US_036_200136        PASS
+  63ff0ae5_en-US_036_67016         PASS
+  63ff0ae5_en-US_038_1224          n/a   (native loader refuses this blob; see B)
+  63ff0ae5_en-US_038_161736        PASS
+  63ff0ae5_en-US_038_43208         n/a   (native loader refuses this blob; see B)
+  63ff0ae5_en-US_038_49864         PASS
+  63ff0ae5_en-US_040_189384        PASS
+  63ff0ae5_en-US_040_56264         PASS
+  general_UV_015_526296            PASS
+  speech_float_speech_0            PASS
+
+B. blobs the floating runtime refuses (header classification)
+  63ff0ae5_en-US_001_198088        native=accepted  parsed reason=none (float, enpu 0)
+  63ff0ae5_en-US_001_58312         native=REFUSED  parsed reason=builder      native reason=builder      PASS
+  63ff0ae5_en-US_001_64968         native=accepted  parsed reason=none (float, enpu 0)
+  63ff0ae5_en-US_001_968           native=REFUSED  parsed reason=builder      native reason=builder      PASS
+  63ff0ae5_en-US_002_1208          native=accepted  parsed reason=none (float, enpu 0)
+  63ff0ae5_en-US_002_410552        native=accepted  parsed reason=none (float, enpu 0)
+  63ff0ae5_en-US_036_200136        native=accepted  parsed reason=none (float, enpu 0)
+  63ff0ae5_en-US_036_67016         native=accepted  parsed reason=none (float, enpu 0)
+  63ff0ae5_en-US_038_1224          native=REFUSED  parsed reason=enpu         native reason=enpu         PASS
+  63ff0ae5_en-US_038_161736        native=accepted  parsed reason=none (float, enpu 0)
+  63ff0ae5_en-US_038_43208         native=REFUSED  parsed reason=fixed-point  native reason=fixed-point  PASS
+  63ff0ae5_en-US_038_49864         native=accepted  parsed reason=none (float, enpu 0)
+  63ff0ae5_en-US_040_189384        native=accepted  parsed reason=none (float, enpu 0)
+  63ff0ae5_en-US_040_56264         native=accepted  parsed reason=none (float, enpu 0)
+  general_UV_015_526296            native=accepted  parsed reason=none (float, enpu 0)
+  speech_float_speech_0            native=accepted  parsed reason=none (float, enpu 0)
+
+C. numeric equivalence - speech_float_speech_0.eai (DNN VAD)
+  tensor  native-vs-numpy  note
+  T00     0.000e+00           match
+  T01     0.000e+00           match
+  T02     0.000e+00           match
+  T03     0.000e+00           match
+  T04     0.000e+00           match
+  T05     0.000e+00           match
+  T06     0.000e+00           match
+  T07     2.635e+00           N/A: native pool aliases this buffer, dump is the last writer's
+  T08     6.775e-01           N/A: native pool aliases this buffer, dump is the last writer's
+  T09     0.000e+00           match (aliased buffer)
+  T10     0.000e+00           match (aliased buffer)
+  T11     2.207e+00           N/A: LSTM internal projection buffer, not a graph value
+  T12     6.767e-01           N/A: LSTM internal projection buffer, not a graph value
+  T13     4.470e-08           match (aliased buffer)
+  T14     4.470e-08           match (aliased buffer)
+  T15     0.000e+00           match (aliased buffer)
+  T16     0.000e+00           match (aliased buffer)
+  T17     4.470e-08           match
+  T18     5.960e-08           match
+  T19     4.470e-08           match
+  graph output (softmax) max|diff| = 0.000e+00  [[0.98474646 0.01525355]]
+
+D. LSTM gate order (independent re-derivation)
+  c = sigmoid(pre[0:24]) * tanh(pre[72:96])      max|diff| = 0.000e+00
+  y = sigmoid(pre[24:48]) * tanh(c)              max|diff| = 0.000e+00
+
+E. structural invariants
+  63ff0ae5_en-US_001_198088        PASS
+  63ff0ae5_en-US_001_58312         n/a (quantised model)
+  63ff0ae5_en-US_001_64968         PASS
+  63ff0ae5_en-US_001_968           n/a (quantised model)
+  63ff0ae5_en-US_002_1208          PASS
+  63ff0ae5_en-US_002_410552        PASS
+  63ff0ae5_en-US_036_200136        PASS
+  63ff0ae5_en-US_036_67016         PASS
+  63ff0ae5_en-US_038_1224          n/a (quantised model)
+  63ff0ae5_en-US_038_161736        PASS
+  63ff0ae5_en-US_038_43208         PASS
+  63ff0ae5_en-US_038_49864         PASS
+  63ff0ae5_en-US_040_189384        PASS
+  63ff0ae5_en-US_040_56264         PASS
+  general_UV_015_526296            PASS
+  speech_float_speech_0            PASS
+
+F. op coverage of the interpreter
+  add            x43  transcribed, unverified
+  argmax         x11  transcribed, unverified
+  batchnorm      x16  transcribed, unverified
+  clip           x9   transcribed, unverified
+  concat         x13  transcribed, unverified
+  conv           x48  transcribed, unverified
+  convtranspose  x1   transcribed, unverified
+  div            x2   transcribed, unverified
+  framer         x40  transcribed, unverified
+  gather         x11  transcribed, unverified
+  gemm           x45  verified
+  globalavgpool  x16  transcribed, unverified
+  gru            x39  transcribed, unverified
+  log            x15  transcribed, unverified
+  logsoftmax     x11  transcribed, unverified
+  lstm           x1   verified
+  matmul         x83  transcribed, unverified
+  mul            x53  transcribed, unverified
+  no_op          x160 verified
+  quantize       x9   transcribed, unverified
+  reduce         x3   transcribed, unverified
+  reducemean     x3   transcribed, unverified
+  relu           x34  verified
+  sigmoid        x22  transcribed, unverified
+  softmax        x13  verified
+  sqrt           x3   transcribed, unverified
+  squeeze        x1   transcribed, unverified
+  sub            x16  transcribed, unverified
+  superadd       x13  transcribed, unverified
+  superconv      x7   transcribed, unverified
+  superdeconv    x1   transcribed, unverified
+  supergemm      x1   transcribed, unverified
+  supersub       x2   transcribed, unverified
+  tanh           x23  transcribed, unverified
+  transpose      x17  transcribed, unverified
+  unsqueeze      x2   transcribed, unverified
+
+graphs fully executable with verified ops: ['speech_float_speech_0']
+
+G. existing front-end pipeline (pipeline.py) - unchanged, re-run here so
+   verify.txt stays the single evidence file
+  | qcom_voiceactivation / OneVoice JAX reimplementation
+  | command: python reimpl/pipeline.py
+  | jax 0.12.0.1  numpy 2.5.4
+  | 
+  | front-end (REAL parameters extracted from libqvasml.so):
+  |   sample_rate=16000 frame=480 hop=160 nfft=512 bins=256 mel=80
+  |   hann_len=480 (support 399) mel_nnz=470 bin_range=5..243
+  |   input pcm: int16 32000 samples (2.00 s)
+  |   mel features: (198, 80)
+  |   numpy-vs-jax front-end max abs diff: 7.629e-06
+  | 
+  | stage shapes (ARCHITECTURE_ONLY weights):
+  |   vad_prob      (198,)
+  |   speech(gated) (198,)  frames=0
+  |   kw_logits     (198, 5)
+  |   mid_logits    (198, 5)
+  | 
+  | decision logic (REAL config values):
+  |   nnvad.threshold=891289/2^20=0.8500 hangover=70 future=0
+  |   FirstStageKW.threshold=26 MiddleStageKW.thresholds=[50, 52, 49, 37, 35]
+  |   first_stage_hit frames=187 middle_stage_hit frames=173
+  | 
+  | status: runs end-to-end; front-end verified against JAX transcription.
+  |         The DNN stages in THIS module use random weights; the real EAI2
+  |         weights are executed by eai_run.py (DNN VAD verified natively,
+  |         see verify_eai.py and GAP_CLOSURE.md).
+  | exit: 0
+  | 
+
+5065 checks, 0 failures
+status: PASS

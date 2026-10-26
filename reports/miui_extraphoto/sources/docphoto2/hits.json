@@ -1,0 +1,76 @@
+{
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/ExtraPhotoGlobal/ExtraPhotoGlobal.apk",
+  "regex": "AssetsUtils|DocumentProcessJNI|DocPhotoAccessUtils",
+  "packages": [],
+  "max": 3,
+  "timeout": 200.0,
+  "jadx": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tools/jadx/bin/jadx",
+  "classes_scanned": 4785,
+  "candidates": [
+    {
+      "class": "com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI",
+      "dex": "classes.dex",
+      "method_count": 15,
+      "access": 1,
+      "matched": [
+        "documentprocessjni"
+      ],
+      "score": 1015,
+      "rank": 1,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.xiaomi.ocr.sdk.imgprocess.DocumentProcessJNI.java",
+      "seconds": 5.45
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.document.DocPhotoAccessUtils$SupportDevice",
+      "dex": "classes.dex",
+      "method_count": 7,
+      "access": 16401,
+      "matched": [
+        "docphotoaccessutils"
+      ],
+      "score": 1007,
+      "rank": 2,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.extraphoto.docphoto.document.DocPhotoAccessUtils$SupportDevice.java",
+      "seconds": 5.56
+    },
+    {
+      "class": "com.miui.extraphoto.docphoto.document.DocPhotoAccessUtils",
+      "dex": "classes.dex",
+      "method_count": 6,
+      "access": 17,
+      "matched": [
+        "docphotoaccessutils"
+      ],
+      "score": 1006,
+      "rank": 3,
+      "selected": true,
+      "status": "ok",
+      "error": "",
+      "file": "classes/com.miui.extraphoto.docphoto.document.DocPhotoAccessUtils.java",
+      "seconds": 7.16
+    },
+    {
+      "class": "com.miui.extraphoto.common.utils.AssetsUtils",
+      "dex": "classes.dex",
+      "method_count": 3,
+      "access": 1,
+      "matched": [
+        "assetsutils"
+      ],
+      "score": 1003,
+      "rank": 4,
+      "selected": false,
+      "status": "not_selected",
+      "error": "",
+      "file": null
+    }
+  ],
+  "decompiled": 3,
+  "elapsed_sec": 18.41
+}

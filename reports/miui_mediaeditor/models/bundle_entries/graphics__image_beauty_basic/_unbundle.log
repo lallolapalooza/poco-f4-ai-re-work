@@ -1,0 +1,48 @@
+image_beauty_basic.bundle: xor_key=0xbe file=2915687B entries=23
+  black.png                                                  method=0 csize=      133 usize=      133 off=        0 ENCRYPTED-PREFIX
+  face_makeup/                                               method=0 csize=        0 usize=        0 off=      172 ENCRYPTED-PREFIX
+  face_makeup/script.js                                      method=8 csize=     3421 usize=    16425 off=      214 ENCRYPTED-PREFIX
+  image_block_fs.glsl                                        method=8 csize=      129 usize=      215 off=     3686
+  image_block_vs.glsl                                        method=8 csize=      133 usize=      190 off=     3864
+  image_choose_face_fs.glsl                                  method=8 csize=       96 usize=      102 off=     4046
+  image_combine_mask_for_perpare_data_fs.glsl                method=8 csize=      138 usize=      296 off=     4197
+  image_fs.glsl                                              method=8 csize=      135 usize=      210 off=     4408
+  image_matrix_fs_1.glsl                                     method=0 csize=       79 usize=       79 off=     4586
+  image_matrix_vs_1.glsl                                     method=8 csize=      151 usize=      246 off=     4717
+  image_merge_mask_for_ar_fs.glsl                            method=8 csize=      236 usize=      597 off=     4920
+  image_merge_mask_fs.glsl                                   method=8 csize=      283 usize=     1021 off=     5217
+  image_nv212rgba_fs.glsl                                    method=8 csize=      404 usize=     1136 off=     5554
+  image_rgba2nv21_fs.glsl                                    method=8 csize=      385 usize=     1220 off=     6011
+  image_set_rectface_to_origin_fs.glsl                       method=8 csize=      212 usize=      473 off=     6449
+  image_vs.glsl                                              method=8 csize=      101 usize=      125 off=     6727
+  jili_threed_ar.png                                         method=8 csize=  1824770 usize=  1948068 off=     6871
+  metadata.json                                              method=8 csize=       88 usize=       92 off=  1831689
+  red_mask_ar1.jpg                                           method=8 csize=     3197 usize=     6907 off=  1831820
+  red_mask_ar2.jpg                                           method=8 csize=     2917 usize=     6787 off=  1835063
+  script.js                                                  method=8 csize=     3631 usize=    18112 off=  1838026
+  threed_makeup.png                                          method=8 csize=  1071279 usize=  2431020 off=  1841696
+  white.png                                                  method=0 csize=      157 usize=      157 off=  2913022
+  CRC32 verified entries: 20 ok, 0 bad (3 skipped in encrypted prefix)
+  SKIP (encrypted prefix): black.png
+  SKIP (encrypted prefix): face_makeup/
+  SKIP (encrypted prefix): face_makeup/script.js
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/image_block_fs.glsl (215 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/image_block_vs.glsl (190 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/image_choose_face_fs.glsl (102 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/image_combine_mask_for_perpare_data_fs.glsl (296 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/image_fs.glsl (210 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/image_matrix_fs_1.glsl (79 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/image_matrix_vs_1.glsl (246 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/image_merge_mask_for_ar_fs.glsl (597 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/image_merge_mask_fs.glsl (1021 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/image_nv212rgba_fs.glsl (1136 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/image_rgba2nv21_fs.glsl (1220 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/image_set_rectface_to_origin_fs.glsl (473 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/image_vs.glsl (125 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/jili_threed_ar.png (1948068 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/metadata.json (92 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/red_mask_ar1.jpg (6907 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/red_mask_ar2.jpg (6787 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/script.js (18112 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/threed_makeup.png (2431020 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_beauty_basic/white.png (157 bytes)

@@ -1,0 +1,15 @@
+{
+  "slug": "miui_mediaeditor",
+  "apk": "22 .bundle containers (70.99 MB) + assets/tflite_langid.tflite.jpg (315,520 B)",
+  "local_files": 767,
+  "bytes": 187099027,
+  "tflite": 74,
+  "bundles": 22,
+  "absent": [
+    "5 TFLite models are in encrypted bundle prefixes and cannot be decrypted: acne_mole_acnenet_1206_3x24x24_quat.tflite, age_gender160_0422.tflite, Bdycntr.0406.Exp387c.x3e210_quan1.tflite, bindi_seg_tiny_2024_0924.tflite, MOBILEONE_S2_SIZE384_EXP30_DATA7.0.0_FP16.tflite.",
+    "3 config.json/metadata entries and 39 shader/image entries in the same encrypted prefixes are also skipped (47 entries total)."
+  ],
+  "notes": "All 22 bundles extracted; 678/726 ZIP entries decrypted; 33/38 TFLite models extracted to models/tflite/. The missing 1024-byte prologue key is U1 in report.md.",
+  "tflite_canonical": 33,
+  "tflite_copies_total": 74
+}

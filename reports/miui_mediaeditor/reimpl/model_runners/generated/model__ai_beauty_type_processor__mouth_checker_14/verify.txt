@@ -1,0 +1,4 @@
+model__ai_beauty_type_processor__mouth_checker_14.tflite  subgraph=0 signature=None  PASS
+  output   shape   dtype    max_abs   tol       result
+  softmax  (1, 2)  FLOAT32  5.36e-07  1.00e-04  PASS
+  1 output(s), max_abs=5.36e-07, status=pass

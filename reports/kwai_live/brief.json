@@ -1,0 +1,71 @@
+{
+  "slug": "kwai_live",
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.kwai.kuaishou.video.live_155/partner-com.kwai.kuaishou.video.live_155.apk",
+  "size": 80280485,
+  "models": [],
+  "libs": [
+    {
+      "name": "lib/arm64-v8a/libFaceMagic.so",
+      "size": 7722568
+    },
+    {
+      "name": "lib/arm64-v8a/libfacedetectcontext.so",
+      "size": 191728
+    },
+    {
+      "name": "lib/arm64-v8a/libfaceless-plugin.so",
+      "size": 1792128
+    },
+    {
+      "name": "lib/arm64-v8a/libksvisionengineplugin.so",
+      "size": 38984
+    },
+    {
+      "name": "lib/arm64-v8a/libkwaiaudio.so",
+      "size": 1829120
+    },
+    {
+      "name": "lib/arm64-v8a/libkwaiplayer.so",
+      "size": 1350328
+    },
+    {
+      "name": "lib/arm64-v8a/libkwaivoip.so",
+      "size": 7666192
+    },
+    {
+      "name": "lib/arm64-v8a/libkwaivpp.so",
+      "size": 5760
+    },
+    {
+      "name": "lib/arm64-v8a/libkwsgmain.so",
+      "size": 757000
+    },
+    {
+      "name": "lib/arm64-v8a/libopencv_world.so",
+      "size": 7863816
+    },
+    {
+      "name": "lib/arm64-v8a/libskwai.so",
+      "size": 6515760
+    },
+    {
+      "name": "lib/arm64-v8a/libtensorflow-lite.so",
+      "size": 3446232
+    },
+    {
+      "name": "lib/arm64-v8a/libvisionengine.so",
+      "size": 2108736
+    },
+    {
+      "name": "lib/arm64-v8a/libwebp_kwai.so",
+      "size": 198768
+    }
+  ],
+  "dex_markers": {
+    "tflite": 2,
+    "visionengine": 3,
+    "FaceMagic": 689,
+    "Lorg/tensorflow/lite": 7
+  },
+  "package": null
+}

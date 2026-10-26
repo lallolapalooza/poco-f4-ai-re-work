@@ -1,0 +1,28 @@
+ai_face_processor_detect_landmark.bundle: xor_key=0x00 file=6450804B entries=13
+  config.json                                                method=8 csize=     2586 usize=    16918 off=        0 ENCRYPTED-PREFIX
+  facecheck40_dense_2000000_regress.tflite                   method=8 csize=   143628 usize=   155144 off=     2627
+  face_landmark_mb360_64.tflite                              method=8 csize=   311280 usize=   346788 off=   146325
+  Fpe.0007.Exp101.ERefine3e70_refine1.tflite                 method=8 csize=  1306041 usize=  1473180 off=   457664
+  Fpe.0007.Exp101.ERefine3e70_refine2.tflite                 method=8 csize=   960313 usize=  1100456 off=  1763777
+  Fpe.0007.Exp101.ERefine3e70_refine3.tflite                 method=8 csize=   812945 usize=   948808 off=  2724162
+  Fpe.0007.Exp101.XScore.s76e150_base.tflite                 method=8 csize=   611504 usize=   735956 off=  3537179
+  head.tflite                                                method=8 csize=     7075 usize=     7804 off=  4148755
+  n-0.5_416_0.05_4aspect6.tflite                             method=8 csize=  1617355 usize=  1864936 off=  4155871
+  n-small_256_0.05_only_a5.tflite                            method=8 csize=    64877 usize=   101380 off=  5773286
+  retina_base_anchor_256_small.txt                           method=8 csize=       40 usize=      118 off=  5838224
+  retina_base_anchor_416.txt                                 method=8 csize=       79 usize=      248 off=  5838326
+  s1.tflite                                                  method=8 csize=   611189 usize=   672836 off=  5838461
+  CRC32 verified entries: 12 ok, 0 bad (1 skipped in encrypted prefix)
+  SKIP (encrypted prefix): config.json
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_processor_detect_landmark/facecheck40_dense_2000000_regress.tflite (155144 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_processor_detect_landmark/face_landmark_mb360_64.tflite (346788 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_processor_detect_landmark/Fpe.0007.Exp101.ERefine3e70_refine1.tflite (1473180 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_processor_detect_landmark/Fpe.0007.Exp101.ERefine3e70_refine2.tflite (1100456 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_processor_detect_landmark/Fpe.0007.Exp101.ERefine3e70_refine3.tflite (948808 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_processor_detect_landmark/Fpe.0007.Exp101.XScore.s76e150_base.tflite (735956 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_processor_detect_landmark/head.tflite (7804 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_processor_detect_landmark/n-0.5_416_0.05_4aspect6.tflite (1864936 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_processor_detect_landmark/n-small_256_0.05_only_a5.tflite (101380 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_processor_detect_landmark/retina_base_anchor_256_small.txt (118 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_processor_detect_landmark/retina_base_anchor_416.txt (248 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_face_processor_detect_landmark/s1.tflite (672836 bytes)

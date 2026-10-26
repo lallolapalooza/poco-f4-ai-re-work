@@ -1,0 +1,718 @@
+================ native/libmegvii_bokeh_jni.so
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_extraphoto/native/libmegvii_bokeh_jni.so
+==============================================================================
+size        : 260048 bytes (0.25 MiB)
+sha256      : 0515b7100830b70d30cab7be2c2565ac360a525a38d80d468ea7d67995a0e8d6
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x83e0   imagebase: 0x0
+build id    : fe60a4bf93f56b92d9078579012492e557e7187f
+android     : SDK 21, NDK r16b, build 4479499
+soname      : libmegvii_bokeh_jni.so
+needed      : libwa_refocus.so, libjnigraphics.so, liblog.so, libc.so, libm.so, libstdc++.so, libdl.so
+parser      : lief
+counts      : 340 exports, 47 imports, 3 JNI, 25 sections, 8 segments
+symtab/dynsym: 0 / 397
+
+Sections (25)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        2648       0x228
+  .dynsym                DYNSYM           A      0xc80        9528       0xc80
+  .dynstr                STRTAB           A      0x31b8       7255       0x31b8
+  .gnu.version           GNU_VERSYM       A      0x4e10       794        0x4e10
+  .gnu.version_r         GNU_VERNEED      A      0x5130       96         0x5130
+  .rela.dyn              RELA             A      0x5190       9168       0x5190
+  .rela.plt              RELA             AI     0x7560       2208       0x7560
+  .plt                   PROGBITS         AX     0x7e00       1504       0x7e00
+  .text                  PROGBITS         AX     0x83e0       186204     0x83e0
+  .rodata                PROGBITS         A      0x35b40      7965       0x35b40
+  .eh_frame_hdr          PROGBITS         A      0x37a60      1988       0x37a60
+  .eh_frame              PROGBITS         A      0x38228      10040      0x38228
+  .gcc_except_table      PROGBITS         A      0x3a960      8948       0x3a960
+  .note.android.ident    NOTE             A      0x3cc54      152        0x3cc54
+  .init_array            INIT_ARRAY       WA     0x4dc48      8          0x3dc48
+  .fini_array            FINI_ARRAY       WA     0x4dc50      16         0x3dc50
+  .data.rel.ro           PROGBITS         WA     0x4dc60      3496       0x3dc60
+  .dynamic               DYNAMIC          WA     0x4ea08      560        0x3ea08
+  .got                   PROGBITS         WA     0x4ec38      960        0x3ec38
+  .data                  PROGBITS         WA     0x4f000      48         0x3f000
+  .bss                   NOBITS           WA     0x4f030      1152       0x3f030
+  .comment               PROGBITS         MS     0x0          100        0x3f030
+  .shstrtab              STRTAB           -      0x0          247        0x3f094
+
+JNI entry points (3)
+  0x8a28         100        com.miui.extraphoto.refocus.manager.MegviiDualPhotoJni.initRefocus
+      Java_com_miui_extraphoto_refocus_manager_MegviiDualPhotoJni_initRefocus
+  0x8a8c         432        com.miui.extraphoto.refocus.manager.MegviiDualPhotoJni.processRefocusWidthHandle
+      Java_com_miui_extraphoto_refocus_manager_MegviiDualPhotoJni_processRefocusWidthHandle
+  0x8c3c         68         com.miui.extraphoto.refocus.manager.MegviiDualPhotoJni.releaseRefocus
+      Java_com_miui_extraphoto_refocus_manager_MegviiDualPhotoJni_releaseRefocus
+
+AI-relevant strings (65914 bytes scanned in allocated data sections)
+  [face] 12 unique (first 12)
+    0x00003bc3 .dynstr    _ZdaPvSt11align_val_t
+    0x00003bd9 .dynstr    _ZdaPvSt11align_val_tRKSt9nothrow_t
+    0x00003c05 .dynstr    _ZdaPvmSt11align_val_t
+    0x00003c31 .dynstr    _ZdlPvSt11align_val_t
+    0x00003c47 .dynstr    _ZdlPvSt11align_val_tRKSt9nothrow_t
+    0x00003c73 .dynstr    _ZdlPvmSt11align_val_t
+    0x00003c9e .dynstr    _ZnamSt11align_val_t
+    0x00003cb3 .dynstr    _ZnamSt11align_val_tRKSt9nothrow_t
+    0x00003cea .dynstr    _ZnwmSt11align_val_t
+    0x00003cff .dynstr    _ZnwmSt11align_val_tRKSt9nothrow_t
+    0x00003d22 .dynstr    posix_memalign
+    0x0003745e .rodata    alignof (
+================ native/libmialgo_portrait.so
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_extraphoto/native/libmialgo_portrait.so
+==============================================================================
+size        : 784608 bytes (0.75 MiB)
+sha256      : fc6c09e63fc6b3deb4705c195324298a7d58052cacc6b49629da3cbb1bfc8e24
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x3e140   imagebase: 0x0
+build id    : e1ac20c1799232f65885084e54357b7991bea61b
+android     : SDK 24, NDK r21e, build 7075529
+soname      : libmialgo_portrait.so
+needed      : libmiphone_bokeh_effect.so, libmiphone_bokeh_gpf.so, libmiphone_bokeh_proc.so, liblog.so, libjnigraphics.so, libm.so, libdl.so, libc.so
+parser      : lief
+counts      : 1973 exports, 147 imports, 0 JNI, 25 sections, 8 segments
+symtab/dynsym: 0 / 2130
+
+Sections (25)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .gnu.hash              GNU_HASH         A      0x228        14108      0x228
+  .dynsym                DYNSYM           A      0x3948       51120      0x3948
+  .dynstr                STRTAB           A      0x100f8      100815     0x100f8
+  .gnu.version           GNU_VERSYM       A      0x28ac8      4260       0x28ac8
+  .gnu.version_r         GNU_VERNEED      A      0x29b70      32         0x29b70
+  .rela.dyn              RELA             A      0x29b90      68016      0x29b90
+  .rela.plt              RELA             AI     0x3a540      9192       0x3a540
+  .plt                   PROGBITS         AX     0x3c930      6160       0x3c930
+  .text                  PROGBITS         AX     0x3e140      383064     0x3e140
+  .rodata                PROGBITS         A      0x9b9a0      21711      0x9b9a0
+  .eh_frame_hdr          PROGBITS         A      0xa0e70      13684      0xa0e70
+  .eh_frame              PROGBITS         A      0xa43e8      57840      0xa43e8
+  .gcc_except_table      PROGBITS         A      0xb25d8      20500      0xb25d8
+  .note.android.ident    NOTE             A      0xb75ec      152        0xb75ec
+  .init_array            INIT_ARRAY       WA     0xb8e68      8          0xb7e68
+  .fini_array            FINI_ARRAY       WA     0xb8e70      16         0xb7e70
+  .data.rel.ro           PROGBITS         WA     0xb8e80      24160      0xb7e80
+  .dynamic               DYNAMIC          WA     0xbece0      576        0xbdce0
+  .got                   PROGBITS         WA     0xbef20      4320       0xbdf20
+  .data                  PROGBITS         WA     0xc0000      240        0xbf000
+  .bss                   NOBITS           WA     0xc00f0      7216       0xbf0f0
+  .comment               PROGBITS         MS     0x0          181        0xbf0f0
+  .shstrtab              STRTAB           -      0x0          251        0xbf1a5
+
+AI-relevant strings (390786 bytes scanned in allocated data sections)
+  [face] 15 unique (first 15)
+    0x00010ad1 .dynstr    _ZNKSt6__ndk16locale9use_facetERNS0_2idE
+    0x00018fd6 .dynstr    _ZNKSt6__ndk16locale9has_facetERNS0_2idE
+    0x0002361d .dynstr    _ZNSt6__ndk15alignEmmRPvRm
+    0x00023dc0 .dynstr    _ZdaPvSt11align_val_t
+    0x00023dd6 .dynstr    _ZdaPvSt11align_val_tRKSt9nothrow_t
+    0x00023e02 .dynstr    _ZdaPvmSt11align_val_t
+    0x00023e2e .dynstr    _ZdlPvSt11align_val_t
+    0x00023e44 .dynstr    _ZdlPvSt11align_val_tRKSt9nothrow_t
+    0x00023e70 .dynstr    _ZdlPvmSt11align_val_t
+    0x00023e9b .dynstr    _ZnamSt11align_val_t
+    0x00023eb0 .dynstr    _ZnamSt11align_val_tRKSt9nothrow_t
+    0x00023ee7 .dynstr    _ZnwmSt11align_val_t
+    0x00023efc .dynstr    _ZnwmSt11align_val_tRKSt9nothrow_t
+    0x00023f1f .dynstr    posix_memalign
+    0x0009fa00 .rodata    alignof (
+  [segment] 3 unique (first 3)
+    0x00028aac .dynstr    libmialgo_portrait.so
+    0x0009ba36 .rodata    MiAlgoPortrait
+    0x0009bb53 .rodata    com/miui/extraphoto/refocus/manager/MiAlgoPortraitJni
+================ native/libmialgo_utils_extraphoto.so
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_extraphoto/native/libmialgo_utils_extraphoto.so
+==============================================================================
+size        : 1051208 bytes (1.00 MiB)
+sha256      : 2b80c8aa72afc46f5000c7ba8984ad3c504424eecc9f2a239eaf04d5232627da
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x0   imagebase: 0x0
+build id    : 168312f698940f86381f3bd0148bd289d7d73262
+android     : SDK 23, NDK r19c, build 5345600
+soname      : libmialgo_utils.so
+needed      : libcdsprpc.so, libOpenCL.so, liblog.so, libm.so, libdl.so, libc.so
+parser      : lief
+counts      : 2137 exports, 142 imports, 0 JNI, 28 sections, 8 segments
+symtab/dynsym: 0 / 2283
+
+Sections (28)
+  name                   type             flags  address      size       offset
+  .note.android.ident    NOTE             A      0x200        152        0x200
+  .note.gnu.build-id     NOTE             A      0x298        36         0x298
+  .dynsym                DYNSYM           A      0x2c0        54792      0x2c0
+  .dynstr                STRTAB           A      0xd8c8       104104     0xd8c8
+  .hash                  HASH             A      0x26f70      17352      0x26f70
+  .gnu.version           GNU_VERSYM       A      0x2b338      4566       0x2b338
+  .gnu.version_d         GNU_VERDEF       A      0x2c510      28         0x2c510
+  .gnu.version_r         GNU_VERNEED      A      0x2c52c      64         0x2c52c
+  .rela.dyn              RELA             A      0x2c570      72576      0x2c570
+  .rela.plt              RELA             AI     0x3e0f0      21600      0x3e0f0
+  .plt                   PROGBITS         AX     0x43550      14432      0x43550
+  .text                  PROGBITS         AX     0x46db0      504720     0x46db0
+  .rodata                PROGBITS         A      0xc2140      31341      0xc2140
+  .gcc_except_table      PROGBITS         A      0xc9bb0      21372      0xc9bb0
+  .eh_frame              PROGBITS         A      0xcef30      80528      0xcef30
+  .eh_frame_hdr          PROGBITS         A      0xe29c0      19212      0xe29c0
+  .fini_array            FINI_ARRAY       WA     0x106a90     24         0xf6a90
+  .data.rel.ro           PROGBITS         WA     0x106ab0     29096      0xf6ab0
+  .init_array            INIT_ARRAY       WA     0x10dc58     8          0xfdc58
+  .dynamic               DYNAMIC          WA     0x10dc60     592        0xfdc60
+  .got                   PROGBITS         WA     0x10deb0     1296       0xfdeb0
+  .got.plt               PROGBITS         WA     0x10e3c0     7224       0xfe3c0
+  .data                  PROGBITS         WA     0x110000     208        0x100000
+  .bss                   NOBITS           WA     0x1100d0     7872       0x1000d0
+  .comment               PROGBITS         MS     0x0          303        0x1000d0
+  .note.gnu.gold-version NOTE             -      0x0          28         0x100200
+  .shstrtab              STRTAB           -      0x0          294        0x10021c
+
+AI-relevant strings (466171 bytes scanned in allocated data sections)
+  [face] 15 unique (first 15)
+    0x0000dd8f .dynstr    _ZNKSt6__ndk16locale9use_facetERNS0_2idE
+    0x00016e82 .dynstr    _ZNKSt6__ndk16locale9has_facetERNS0_2idE
+    0x0001d825 .dynstr    posix_memalign
+    0x0002186f .dynstr    _ZNSt6__ndk15alignEmmRPvRm
+    0x00021ed7 .dynstr    _ZdaPvSt11align_val_t
+    0x00021eed .dynstr    _ZdaPvSt11align_val_tRKSt9nothrow_t
+    0x00021f19 .dynstr    _ZdaPvmSt11align_val_t
+    0x00021f45 .dynstr    _ZdlPvSt11align_val_t
+    0x00021f5b .dynstr    _ZdlPvSt11align_val_tRKSt9nothrow_t
+    0x00021f87 .dynstr    _ZdlPvmSt11align_val_t
+    0x00021fb8 .dynstr    _ZnamSt11align_val_t
+    0x00021fcd .dynstr    _ZnamSt11align_val_tRKSt9nothrow_t
+    0x00022004 .dynstr    _ZnwmSt11align_val_t
+    0x00022019 .dynstr    _ZnwmSt11align_val_tRKSt9nothrow_t
+    0x000c424b .rodata    alignof (
+================ native/libmibrain_relighting_jni.so
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_extraphoto/native/libmibrain_relighting_jni.so
+==============================================================================
+size        : 211088 bytes (0.20 MiB)
+sha256      : 5c914d8e0d658a245748cb4dee198b2072dd4a2367cfebef2b73cbb542b07d68
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0xe0e0   imagebase: 0x0
+build id    : c3291d122132fbdea104d23ffca6dace7407e8fa
+android     : SDK 21, NDK r20, build 5594570
+soname      : libmibrain_relighting_jni.so
+needed      : librelight_only.so, libjnigraphics.so, liblog.so, libc.so, libm.so, libdl.so
+parser      : lief
+counts      : 345 exports, 44 imports, 4 JNI, 25 sections, 8 segments
+symtab/dynsym: 0 / 399
+
+Sections (25)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        2656       0x228
+  .gnu.hash              GNU_HASH         A      0xc88        2732       0xc88
+  .dynsym                DYNSYM           A      0x1738       9576       0x1738
+  .dynstr                STRTAB           A      0x3ca0       7292       0x3ca0
+  .gnu.version           GNU_VERSYM       A      0x591c       798        0x591c
+  .gnu.version_r         GNU_VERNEED      A      0x5c40       64         0x5c40
+  .rela.dyn              RELA             A      0x5c80       30168      0x5c80
+  .rela.plt              RELA             AI     0xd258       2208       0xd258
+  .plt                   PROGBITS         AX     0xdb00       1504       0xdb00
+  .text                  PROGBITS         AX     0xe0e0       110160     0xe0e0
+  .rodata                PROGBITS         A      0x28f30      9537       0x28f30
+  .eh_frame_hdr          PROGBITS         A      0x2b474      3396       0x2b474
+  .eh_frame              PROGBITS         A      0x2c1b8      14704      0x2c1b8
+  .gcc_except_table      PROGBITS         A      0x2fb28      916        0x2fb28
+  .note.android.ident    NOTE             A      0x2febc      152        0x2febc
+  .fini_array            FINI_ARRAY       WA     0x3ff98      16         0x2ff98
+  .data.rel.ro           PROGBITS         WA     0x3ffa8      10896      0x2ffa8
+  .dynamic               DYNAMIC          WA     0x42a38      528        0x32a38
+  .got                   PROGBITS         WA     0x42c48      952        0x32c48
+  .data                  PROGBITS         WA     0x43000      48         0x33000
+  .bss                   NOBITS           WA     0x43030      1152       0x33030
+  .comment               PROGBITS         MS     0x0          303        0x33030
+  .shstrtab              STRTAB           -      0x0          239        0x3315f
+
+JNI entry points (4)
+  0xe7a0         552        com.miui.extraphoto.refocus.manager.MiDualPhotoJni.initBrainRelightingEffect
+      Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_initBrainRelightingEffect
+  0xe9c8         136        com.miui.extraphoto.refocus.manager.MiDualPhotoJni.setBrainRelightingLightSource
+      Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_setBrainRelightingLightSource
+  0xea50         552        com.miui.extraphoto.refocus.manager.MiDualPhotoJni.enableBrainRelightingEffect
+      Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_enableBrainRelightingEffect
+  0xec78         76         com.miui.extraphoto.refocus.manager.MiDualPhotoJni.releaseBrainRelightingHandle
+      Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_releaseBrainRelightingHandle
+
+AI-relevant strings (96675 bytes scanned in allocated data sections)
+  [face] 13 unique (first 13)
+    0x000041c0 .dynstr    _ZdaPvSt11align_val_t
+    0x000041d6 .dynstr    _ZdaPvSt11align_val_tRKSt9nothrow_t
+    0x00004202 .dynstr    _ZdaPvmSt11align_val_t
+    0x0000422e .dynstr    _ZdlPvSt11align_val_t
+    0x00004244 .dynstr    _ZdlPvSt11align_val_tRKSt9nothrow_t
+    0x00004270 .dynstr    _ZdlPvmSt11align_val_t
+    0x0000429b .dynstr    _ZnamSt11align_val_t
+    0x000042b0 .dynstr    _ZnamSt11align_val_tRKSt9nothrow_t
+    0x000042e7 .dynstr    _ZnwmSt11align_val_t
+    0x000042fc .dynstr    _ZnwmSt11align_val_tRKSt9nothrow_t
+    0x0000437b .dynstr    posix_memalign
+    0x000290bc .rodata    [RELIGHT] face center: %d x %d, radius %d
+    0x00029d4f .rodata    alignof (
+================ native/libmicamera_dual_bokeh_jni.so
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_extraphoto/native/libmicamera_dual_bokeh_jni.so
+==============================================================================
+size        : 219264 bytes (0.21 MiB)
+sha256      : 41de8b27556f8480402214b225818039c60db8c34b0688c9f756a1990acb0b4e
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0xf970   imagebase: 0x0
+build id    : 287ad3e197385a794115b8de69e874866dac9549
+android     : SDK 21, NDK r21e, build 7075529
+soname      : libmicamera_dual_bokeh_jni.so
+needed      : libmiphone_refocus_bokeh.so, libmiphone_bokeh_dynSpot.so, libmialgo_utils.so, libjnigraphics.so, liblog.so, libc.so, libm.so, libdl.so
+parser      : lief
+counts      : 393 exports, 51 imports, 9 JNI, 26 sections, 8 segments
+symtab/dynsym: 0 / 454
+
+Sections (26)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        2876       0x228
+  .gnu.hash              GNU_HASH         A      0xd68        3180       0xd68
+  .dynsym                DYNSYM           A      0x19d8       10896      0x19d8
+  .dynstr                STRTAB           A      0x4468       9759       0x4468
+  .gnu.version           GNU_VERSYM       A      0x6a88       908        0x6a88
+  .gnu.version_r         GNU_VERNEED      A      0x6e18       64         0x6e18
+  .rela.dyn              RELA             A      0x6e58       32136      0x6e58
+  .rela.plt              RELA             AI     0xebe0       2064       0xebe0
+  .plt                   PROGBITS         AX     0xf3f0       1408       0xf3f0
+  .text                  PROGBITS         AX     0xf970       104900     0xf970
+  .rodata                PROGBITS         A      0x29338      10881      0x29338
+  .eh_frame_hdr          PROGBITS         A      0x2bdbc      3700       0x2bdbc
+  .eh_frame              PROGBITS         A      0x2cc30      16184      0x2cc30
+  .gcc_except_table      PROGBITS         A      0x30b68      1012       0x30b68
+  .note.android.ident    NOTE             A      0x30f5c      152        0x30f5c
+  .init_array            INIT_ARRAY       WA     0x32ca0      8          0x31ca0
+  .fini_array            FINI_ARRAY       WA     0x32ca8      16         0x31ca8
+  .data.rel.ro           PROGBITS         WA     0x32cb8      11592      0x31cb8
+  .dynamic               DYNAMIC          WA     0x35a00      592        0x34a00
+  .got                   PROGBITS         WA     0x35c50      944        0x34c50
+  .data                  PROGBITS         WA     0x36000      40         0x35000
+  .bss                   NOBITS           WA     0x36030      1168       0x35028
+  .comment               PROGBITS         MS     0x0          220        0x35028
+  .shstrtab              STRTAB           -      0x0          251        0x35104
+
+JNI entry points (9)
+  0x1002c        336        com.miui.extraphoto.refocus.manager.MiDualPhotoJni.initMiCameraRefocus
+      Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_initMiCameraRefocus
+  0x1017c        688        com.miui.extraphoto.refocus.manager.MiDualPhotoJni.processMiCameraRefocusWidthHandle
+      Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_processMiCameraRefocusWidthHandle
+  0x1042c        132        com.miui.extraphoto.refocus.manager.MiDualPhotoJni.releaseMiCameraRefocus
+      Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_releaseMiCameraRefocus
+  0x104b0        160        com.miui.extraphoto.refocus.manager.MiDualPhotoJni.generateNativeMaskImage
+      Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_generateNativeMaskImage
+  0x10550        84         com.miui.extraphoto.refocus.manager.MiDualPhotoJni.releaseNativeMaskImage
+      Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_releaseNativeMaskImage
+  0x10600        968        com.miui.extraphoto.refocus.manager.MiDualPhotoJni.initDynamicSpot
+      Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_initDynamicSpot
+  0x10a60        212        com.miui.extraphoto.refocus.manager.MiDualPhotoJni.processFlickerSpot
+      Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_processFlickerSpot
+  0x10b34        196        com.miui.extraphoto.refocus.manager.MiDualPhotoJni.processSpot
+      Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_processSpot
+  0x10bf8        196        com.miui.extraphoto.refocus.manager.MiDualPhotoJni.releaseDynamicSpot
+      Java_com_miui_extraphoto_refocus_manager_MiDualPhotoJni_releaseDynamicSpot
+
+AI-relevant strings (107040 bytes scanned in allocated data sections)
+  [face] 12 unique (first 12)
+    0x00004e3f .dynstr    _ZdaPvSt11align_val_t
+    0x00004e55 .dynstr    _ZdaPvSt11align_val_tRKSt9nothrow_t
+    0x00004e81 .dynstr    _ZdaPvmSt11align_val_t
+    0x00004ead .dynstr    _ZdlPvSt11align_val_t
+    0x00004ec3 .dynstr    _ZdlPvSt11align_val_tRKSt9nothrow_t
+    0x00004eef .dynstr    _ZdlPvmSt11align_val_t
+    0x00004f1a .dynstr    _ZnamSt11align_val_t
+    0x00004f2f .dynstr    _ZnamSt11align_val_tRKSt9nothrow_t
+    0x00004f66 .dynstr    _ZnwmSt11align_val_t
+    0x00004f7b .dynstr    _ZnwmSt11align_val_tRKSt9nothrow_t
+    0x00004fc0 .dynstr    posix_memalign
+    0x0002a554 .rodata    alignof (
+================ native/libmotion_photo_mace.so
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_extraphoto/native/libmotion_photo_mace.so
+==============================================================================
+size        : 3504680 bytes (3.34 MiB)
+sha256      : c064004bd5a52235cd6be0dc173879af22c45024dcbbcdf918f05262ee2ec489
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x4b100   imagebase: 0x0
+android     : SDK 21, NDK r18b, build 5063045
+soname      : libmace.so
+runpath     : $ORIGIN/../../_solib___Caarch64-linux-android-clang7.0.2-libcpp/:$ORIGIN/_solib___Caarch64-linux-android-clang7.0.2-libcpp/:external/androidndk/ndk/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/7.0.2/lib/linux/aarch64
+needed      : libc++_shared.so, libm.so, libdl.so, liblog.so, libc.so
+parser      : lief
+counts      : 1244 exports, 194 imports, 0 JNI, 26 sections, 7 segments
+symtab/dynsym: 0 / 1443
+
+Sections (26)
+  name                   type             flags  address      size       offset
+  .hash                  HASH             A      0x1c8        9904       0x1c8
+  .dynsym                DYNSYM           A      0x2878       34632      0x2878
+  .dynstr                STRTAB           A      0xafc0       97944      0xafc0
+  .gnu.version           GNU_VERSYM       A      0x22e58      2886       0x22e58
+  .gnu.version_d         GNU_VERDEF       A      0x239a0      56         0x239a0
+  .gnu.version_r         GNU_VERNEED      A      0x239d8      96         0x239d8
+  .rela.dyn              RELA             A      0x23a38      140640     0x23a38
+  .rela.plt              RELA             AI     0x45f98      12480      0x45f98
+  .plt                   PROGBITS         AX     0x49060      8352       0x49060
+  .text                  PROGBITS         AX     0x4b100      2237740    0x4b100
+  .rodata                PROGBITS         A      0x26d630     494361     0x26d630
+  .eh_frame_hdr          PROGBITS         A      0x2e614c     29980      0x2e614c
+  .eh_frame              PROGBITS         A      0x2ed668     144544     0x2ed668
+  .gcc_except_table      PROGBITS         A      0x310b08     223868     0x310b08
+  .note.android.ident    NOTE             A      0x347584     152        0x347584
+  .init_array            INIT_ARRAY       WA     0x358270     680        0x348270
+  .fini_array            FINI_ARRAY       WA     0x358518     24         0x348518
+  .data.rel.ro           PROGBITS         WA     0x358530     39096      0x348530
+  .dynamic               DYNAMIC          WA     0x361de8     544        0x351de8
+  .got                   PROGBITS         WA     0x362008     8160       0x352008
+  .got.plt               PROGBITS         WA     0x363fe8     4184       0x353fe8
+  .data                  PROGBITS         WA     0x365040     8504       0x355040
+  .bss                   NOBITS           WA     0x367180     16704      0x357178
+  .comment               PROGBITS         MS     0x0          302        0x357178
+  .shstrtab              STRTAB           -      0x0          252        0x3572a6
+
+AI-relevant strings (1252735 bytes scanned in allocated data sections)
+  [tflite] 4 unique (first 4)
+    0x00277430 .rodata    ;external/tflite/tensorflow/contrib/lite/kernels/internal/optimized/depthwiseconv_uint8.h;tflite::optimized_ops::DepthwiseConv;1884;9;;
+    0x002774c0 .rodata    ;external/tflite/tensorflow/contrib/lite/kernels/internal/optimized/depthwiseconv_uint8.h;tflite::optimized_ops::DepthwiseConv;1884;57;;
+    0x00277550 .rodata    ;external/tflite/tensorflow/contrib/lite/kernels/internal/optimized/depthwiseconv_uint8_3x3_filter.h;tflite::optimized_ops::DepthwiseConv3x3Filter;3356;9;;
+    0x002775f0 .rodata    ;external/tflite/tensorflow/contrib/lite/kernels/internal/optimized/depthwiseconv_uint8_3x3_filter.h;tflite::optimized_ops::DepthwiseConv3x3Filter;3356;52;;
+  [model] 4 unique (first 4)
+    0x0027b3e3 .rodata    Check failed: input->dim(1) == weight->dim(1) && input->dim(2) == weight->dim(2) && input->dim(3) == weight->dim(3) 
+    0x0027b46d .rodata    The shape of Weight: 
+    0x0027b491 .rodata    Check failed: weight->dim(0) == bias->dim(0) 
+    0x0027b553 .rodata    Check failed: input->dim(1) == weight->dim(2) && input->dim(2) == weight->dim(3) && input->dim(3) == weight->dim(1) 
+  [nn_runtime] 94 unique (first 20)
+    0x0026d83d .rodata    opencl max image size 
+    0x0026e498 .rodata    ./mace/ops/opencl/image/activation.h
+    0x002712cd .rodata    ./mace/ops/opencl/image/addn.h
+    0x00271ad4 .rodata    ./mace/ops/opencl/image/batch_norm.h
+    0x00271efb .rodata    ./mace/ops/opencl/image/batch_to_space.h
+    0x00272309 .rodata    ./mace/ops/opencl/image/bias_add.h
+    0x0027236a .rodata    gpu only support biasadd for 4-dimensional NHWC format tensor
+    0x002729f7 .rodata    ./mace/ops/opencl/image/channel_shuffle.h
+    0x00272ec9 .rodata    ./mace/ops/opencl/image/concat.h
+    0x00272f19 .rodata    Concat opencl kernel only support >=2 elements with axis == 3
+    0x00273696 .rodata    ./mace/ops/opencl/image/conv_2d.h
+    0x002736b8 .rodata    OpenCL conv2d kernel with 
+    0x00273701 .rodata    ./mace/ops/opencl/buffer/conv_2d.h
+    0x00275b53 .rodata    ./mace/ops/opencl/image/crop.h
+    0x00275b93 .rodata    Crop opencl kernel only support 2 elements input
+    0x00275c50 .rodata    MACE opencl only supports cropping channel offset divisible by 4.
+    0x00276126 .rodata    ./mace/ops/opencl/image/deconv_2d.h
+    0x00276d05 .rodata    ./mace/ops/opencl/image/depth_to_space.h
+    0x002770ef .rodata    ./mace/ops/opencl/image/depthwise_conv2d.h
+    0x0027711a .rodata    OpenCL depthwise conv2d kernel with 
+    ... 74 more
+  [face] 12 unique (first 12)
+    0x0000c70d .dynstr    _ZNKSt6__ndk16locale9use_facetERNS0_2idE
+    0x000111ef .dynstr    posix_memalign
+    0x00011b96 .dynstr    _ZNKSt6__ndk16locale9has_facetERNS0_2idE
+    0x00012d15 .dynstr    _ZN6google8protobuf8internal9ArenaImpl15AllocateAlignedEm
+    0x000173b4 .dynstr    _ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE
+    0x00018aa4 .dynstr    _ZN6google8protobuf8internal9ArenaImpl11SerialArena23AllocateAlignedFallbackEm
+    0x00018c86 .dynstr    _ZN6google8protobuf8internal9ArenaImpl23AllocateAlignedFallbackEm
+    0x00018d09 .dynstr    _ZN6google8protobuf8internal9ArenaImpl36AllocateAlignedAndAddCleanupFallbackEmPFvPvE
+    0x0027f5d2 .rodata    align_corners
+    0x00283753 .rodata    buffer offset not aligned
+    0x00288947 .rodata    CL_MISALIGNED_SUB_BUFFER_OFFSET
+    0x002e4355 .rodata    KMP_ALIGN_ALLOC
+================ native/librefocus.so
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_extraphoto/native/librefocus.so
+==============================================================================
+size        : 219280 bytes (0.21 MiB)
+sha256      : 8a145d97338e9e318e934193c4cc8c9f8d00db7d41663c11e180c3b3f12144d6
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0xed10   imagebase: 0x0
+build id    : 4a2f3cf634ff9d043c982081cdd8a26dc8457887
+android     : SDK 21, NDK r20, build 5594570
+soname      : librefocus.so
+needed      : libmpbase.so, libarcsoft_dualcam_refocus.so, libarcsoft_portrait_lighting.so, libjnigraphics.so, liblog.so, libc.so, libm.so, libdl.so
+parser      : lief
+counts      : 361 exports, 56 imports, 20 JNI, 25 sections, 8 segments
+symtab/dynsym: 0 / 427
+
+Sections (25)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        2768       0x228
+  .gnu.hash              GNU_HASH         A      0xcf8        2796       0xcf8
+  .dynsym                DYNSYM           A      0x17e8       10248      0x17e8
+  .dynstr                STRTAB           A      0x3ff0       8749       0x3ff0
+  .gnu.version           GNU_VERSYM       A      0x621e       854        0x621e
+  .gnu.version_r         GNU_VERNEED      A      0x6578       64         0x6578
+  .rela.dyn              RELA             A      0x65b8       30168      0x65b8
+  .rela.plt              RELA             AI     0xdb90       2664       0xdb90
+  .plt                   PROGBITS         AX     0xe600       1808       0xe600
+  .text                  PROGBITS         AX     0xed10       112144     0xed10
+  .rodata                PROGBITS         A      0x2a320      9369       0x2a320
+  .eh_frame_hdr          PROGBITS         A      0x2c7bc      3524       0x2c7bc
+  .eh_frame              PROGBITS         A      0x2d580      15320      0x2d580
+  .gcc_except_table      PROGBITS         A      0x31158      916        0x31158
+  .note.android.ident    NOTE             A      0x314ec      152        0x314ec
+  .fini_array            FINI_ARRAY       WA     0x41ee0      16         0x31ee0
+  .data.rel.ro           PROGBITS         WA     0x41ef0      10896      0x31ef0
+  .dynamic               DYNAMIC          WA     0x44980      560        0x34980
+  .got                   PROGBITS         WA     0x44bb0      1104       0x34bb0
+  .data                  PROGBITS         WA     0x45000      48         0x35000
+  .bss                   NOBITS           WA     0x45030      1152       0x35030
+  .comment               PROGBITS         MS     0x0          303        0x35030
+  .shstrtab              STRTAB           -      0x0          239        0x3515f
+
+JNI entry points (20)
+  0xf4a0         132        com.miui.extraphoto.refocus.manager.DualPhotoJni.initDynamicSpin
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_initDynamicSpin
+  0xf524         116        com.miui.extraphoto.refocus.manager.DualPhotoJni.initDynamicMotion
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_initDynamicMotion
+  0xf598         92         com.miui.extraphoto.refocus.manager.DualPhotoJni.processDynamicMotion
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_processDynamicMotion
+  0xf5f4         92         com.miui.extraphoto.refocus.manager.DualPhotoJni.processDynamicSpin
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_processDynamicSpin
+  0xf650         56         com.miui.extraphoto.refocus.manager.DualPhotoJni.copyImage
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_copyImage
+  0xf688         76         com.miui.extraphoto.refocus.manager.DualPhotoJni.releaseRefocusHandle
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_releaseRefocusHandle
+  0xf6d4         224        com.miui.extraphoto.refocus.manager.DualPhotoJni.processRefocusWithHandle
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_processRefocusWithHandle
+  0xf7b4         292        com.miui.extraphoto.refocus.manager.DualPhotoJni.processRefocus
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_processRefocus
+  0xf8d8         568        com.miui.extraphoto.refocus.manager.DualPhotoJni.configYUVData
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_configYUVData
+  0xfb10         140        com.miui.extraphoto.refocus.manager.DualPhotoJni.configBitmapByNativeImage
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_configBitmapByNativeImage
+  0xfb9c         432        com.miui.extraphoto.refocus.manager.DualPhotoJni.initRelightingEffect
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_initRelightingEffect
+  0xfd4c         112        com.miui.extraphoto.refocus.manager.DualPhotoJni.setRelightingLightSource
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_setRelightingLightSource
+  0xfdbc         320        com.miui.extraphoto.refocus.manager.DualPhotoJni.enableRelightingEffect
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_enableRelightingEffect
+  0xfefc         76         com.miui.extraphoto.refocus.manager.DualPhotoJni.releaseRelightingHandle
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_releaseRelightingHandle
+  0xff48         92         com.miui.extraphoto.refocus.manager.DualPhotoJni.generateNativeImage
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_generateNativeImage
+  0xffa4         60         com.miui.extraphoto.refocus.manager.DualPhotoJni.allocNativeImage
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_allocNativeImage
+  0xffe0         24         com.miui.extraphoto.refocus.manager.DualPhotoJni.releaseNativeImage
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_releaseNativeImage
+  0xfff8         100        com.miui.extraphoto.refocus.manager.DualPhotoJni.generateNativeData
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_generateNativeData
+  0x1005c        72         com.miui.extraphoto.refocus.manager.DualPhotoJni.copyNativeData
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_copyNativeData
+  0x100a4        16         com.miui.extraphoto.refocus.manager.DualPhotoJni.releaseNativeData
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_releaseNativeData
+
+AI-relevant strings (100252 bytes scanned in allocated data sections)
+  [face] 12 unique (first 12)
+    0x00004a98 .dynstr    _ZdaPvSt11align_val_t
+    0x00004aae .dynstr    _ZdaPvSt11align_val_tRKSt9nothrow_t
+    0x00004ada .dynstr    _ZdaPvmSt11align_val_t
+    0x00004b06 .dynstr    _ZdlPvSt11align_val_t
+    0x00004b1c .dynstr    _ZdlPvSt11align_val_tRKSt9nothrow_t
+    0x00004b48 .dynstr    _ZdlPvmSt11align_val_t
+    0x00004b73 .dynstr    _ZnamSt11align_val_t
+    0x00004b88 .dynstr    _ZnamSt11align_val_tRKSt9nothrow_t
+    0x00004bbf .dynstr    _ZnwmSt11align_val_t
+    0x00004bd4 .dynstr    _ZnwmSt11align_val_tRKSt9nothrow_t
+    0x00004c53 .dynstr    posix_memalign
+    0x0002b097 .rodata    alignof (
+  [segment] 1 unique (first 1)
+    0x0000617b .dynstr    libarcsoft_portrait_lighting.so
+================ native/librefocus_mibokeh.so
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_extraphoto/native/librefocus_mibokeh.so
+==============================================================================
+size        : 215184 bytes (0.21 MiB)
+sha256      : 86540c638516a01f60aba5e3ba4a08fad938b093f4f09142f33c71b764f75077
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0xdee0   imagebase: 0x0
+build id    : 61aa835cd33c877cae7736e45dfdbde6ca5c9bf2
+android     : SDK 21, NDK r20, build 5594570
+soname      : librefocus_mibokeh.so
+needed      : libmibokeh_gallery.so, libjnigraphics.so, liblog.so, libc.so, libm.so, libdl.so
+parser      : lief
+counts      : 344 exports, 39 imports, 2 JNI, 25 sections, 8 segments
+symtab/dynsym: 0 / 393
+
+Sections (25)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        2632       0x228
+  .gnu.hash              GNU_HASH         A      0xc70        2728       0xc70
+  .dynsym                DYNSYM           A      0x1718       9432       0x1718
+  .dynstr                STRTAB           A      0x3bf0       7066       0x3bf0
+  .gnu.version           GNU_VERSYM       A      0x578a       786        0x578a
+  .gnu.version_r         GNU_VERNEED      A      0x5aa0       96         0x5aa0
+  .rela.dyn              RELA             A      0x5b00       30168      0x5b00
+  .rela.plt              RELA             AI     0xd0d8       2136       0xd0d8
+  .plt                   PROGBITS         AX     0xd930       1456       0xd930
+  .text                  PROGBITS         AX     0xdee0       113336     0xdee0
+  .rodata                PROGBITS         A      0x29998      9257       0x29998
+  .eh_frame_hdr          PROGBITS         A      0x2bdc4      3388       0x2bdc4
+  .eh_frame              PROGBITS         A      0x2cb00      14640      0x2cb00
+  .gcc_except_table      PROGBITS         A      0x30430      916        0x30430
+  .note.android.ident    NOTE             A      0x307c4      152        0x307c4
+  .fini_array            FINI_ARRAY       WA     0x40fb0      16         0x30fb0
+  .data.rel.ro           PROGBITS         WA     0x40fc0      10896      0x30fc0
+  .dynamic               DYNAMIC          WA     0x43a50      528        0x33a50
+  .got                   PROGBITS         WA     0x43c60      928        0x33c60
+  .data                  PROGBITS         WA     0x44000      48         0x34000
+  .bss                   NOBITS           WA     0x44030      1152       0x34030
+  .comment               PROGBITS         MS     0x0          303        0x34030
+  .shstrtab              STRTAB           -      0x0          239        0x3415f
+
+JNI entry points (2)
+  0xf710         20         com.miui.extraphoto.refocus.manager.DualPhotoJni.processMiRefocus
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_processMiRefocus
+  0xf724         8          com.miui.extraphoto.refocus.manager.DualPhotoJni.processMiRawDepth
+      Java_com_miui_extraphoto_refocus_manager_DualPhotoJni_processMiRawDepth
+
+AI-relevant strings (95849 bytes scanned in allocated data sections)
+  [face] 12 unique (first 12)
+    0x00004025 .dynstr    _ZdaPvSt11align_val_t
+    0x0000403b .dynstr    _ZdaPvSt11align_val_tRKSt9nothrow_t
+    0x00004067 .dynstr    _ZdaPvmSt11align_val_t
+    0x00004093 .dynstr    _ZdlPvSt11align_val_t
+    0x000040a9 .dynstr    _ZdlPvSt11align_val_tRKSt9nothrow_t
+    0x000040d5 .dynstr    _ZdlPvmSt11align_val_t
+    0x00004100 .dynstr    _ZnamSt11align_val_t
+    0x00004115 .dynstr    _ZnamSt11align_val_tRKSt9nothrow_t
+    0x0000414c .dynstr    _ZnwmSt11align_val_t
+    0x00004161 .dynstr    _ZnwmSt11align_val_tRKSt9nothrow_t
+    0x000041e0 .dynstr    posix_memalign
+    0x0002a69f .rodata    alignof (
+================ librelight_only_extraphoto.so (91,925,616 B; not copied, analysed from the APK)
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/xp/librelight_only_extraphoto.so
+==============================================================================
+size        : 91925616 bytes (87.67 MiB)
+sha256      : f98903b8c576cd382a25c9e97b8c71c67b9549654fed1792d84dad10bf120201
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x0   imagebase: 0x0
+build id    : a5a0493732b19d1c12e29920d0e3ba33a061cb9f
+android     : SDK 21, NDK r17-beta2, build 4698735
+soname      : librelight_only.so
+needed      : libGLESv3.so, libEGL.so, liblog.so, libc++_shared.so, libm.so, libdl.so, libc.so
+parser      : lief
+counts      : 846 exports, 416 imports, 12 JNI, 28 sections, 8 segments
+symtab/dynsym: 0 / 1266
+
+Sections (28)
+  name                   type             flags  address      size       offset
+  .note.android.ident    NOTE             A      0x200        152        0x200
+  .note.gnu.build-id     NOTE             A      0x298        36         0x298
+  .dynsym                DYNSYM           A      0x2c0        30384      0x2c0
+  .dynstr                STRTAB           A      0x7970       35748      0x7970
+  .hash                  HASH             A      0x10518      9196       0x10518
+  .gnu.version           GNU_VERSYM       A      0x12904      2532       0x12904
+  .gnu.version_d         GNU_VERDEF       A      0x132e8      28         0x132e8
+  .gnu.version_r         GNU_VERNEED      A      0x13304      96         0x13304
+  .rela.dyn              RELA             A      0x13368      67848      0x13368
+  .rela.plt              RELA             AI     0x23c70      10056      0x23c70
+  .plt                   PROGBITS         AX     0x263b8      6736       0x263b8
+  .text                  PROGBITS         AX     0x27e20      1580260    0x27e20
+  .rodata                PROGBITS         A      0x1a9b40     6493077    0x1a9b40
+  .gcc_except_table      PROGBITS         A      0x7daed8     495564     0x7daed8
+  .eh_frame              PROGBITS         A      0x853ea8     124936     0x853ea8
+  .eh_frame_hdr          PROGBITS         A      0x8726b0     29868      0x8726b0
+  .fini_array            FINI_ARRAY       WA     0x898590     8          0x888590
+  .init_array            INIT_ARRAY       WA     0x898598     3616       0x888598
+  .data.rel.ro           PROGBITS         WA     0x8993c0     21536      0x8893c0
+  .dynamic               DYNAMIC          WA     0x89e7e0     608        0x88e7e0
+  .got                   PROGBITS         WA     0x89ea40     2192       0x88ea40
+  .got.plt               PROGBITS         WA     0x89f2d0     3376       0x88f2d0
+  .data                  PROGBITS         WA     0x8a0000     82944760   0x890000
+  .bss                   NOBITS           WA     0x57ba300    646308     0x57aa2f8
+  .comment               PROGBITS         MS     0x0          303        0x57aa2f8
+  .note.gnu.gold-version NOTE             -      0x0          28         0x57aa428
+  .shstrtab              STRTAB           -      0x0          294        0x57aa444
+
+JNI entry points (12)
+  0x72c24        1260       com.xiaomi.utils.MP4Utils.concateMP4FilesJni
+      Java_com_xiaomi_utils_MP4Utils_concateMP4FilesJni
+  0x73234        1536       com.xiaomi.utils.MP4Utils.probeMP4VideoInfoJni
+      Java_com_xiaomi_utils_MP4Utils_probeMP4VideoInfoJni
+  0x738a4        232        com.xiaomi.utils.PerformanceDetect.timeUsedToSmoothJni
+      Java_com_xiaomi_utils_PerformanceDetect_timeUsedToSmoothJni
+  0x7398c        232        com.xiaomi.utils.PerformanceDetect.timeUsedToStickerRenderJni
+      Java_com_xiaomi_utils_PerformanceDetect_timeUsedToStickerRenderJni
+  0x73a74        228        com.xiaomi.utils.PerformanceDetect.timeUsedToFilterJni
+      Java_com_xiaomi_utils_PerformanceDetect_timeUsedToFilterJni
+  0x73b58        236        com.xiaomi.utils.PerformanceDetect.timeUsedToSmoothStickerRenderJni
+      Java_com_xiaomi_utils_PerformanceDetect_timeUsedToSmoothStickerRenderJni
+  0x73c44        232        com.xiaomi.utils.PerformanceDetect.timeUsedToSmoothFilterJni
+      Java_com_xiaomi_utils_PerformanceDetect_timeUsedToSmoothFilterJni
+  0x73d2c        232        com.xiaomi.utils.PerformanceDetect.timeUsedToStickerRenderFilterJni
+      Java_com_xiaomi_utils_PerformanceDetect_timeUsedToStickerRenderFilterJni
+  0x73e14        236        com.xiaomi.utils.PerformanceDetect.timeUsedToSmoothStickerRenderFilterJni
+      Java_com_xiaomi_utils_PerformanceDetect_timeUsedToSmoothStickerRenderFilterJni
+  0x7405c        668        com.xiaomi.utils.Logger.Log
+      Java_com_xiaomi_utils_Logger_Log
+  0x74b5c        772        com.xiaomi.MediaRecord.SystemUtil.Init
+      Java_com_xiaomi_MediaRecord_SystemUtil_Init
+  0x74e60        548        com.xiaomi.MediaRecord.SystemUtil.UnInit
+      Java_com_xiaomi_MediaRecord_SystemUtil_UnInit
+
+AI-relevant strings (90275617 bytes scanned in allocated data sections)
+  [nn_runtime] 1 unique (first 1)
+    0x001ad1e8 .rodata    GPUImageProcessing: because of sles not setup correctly, GPU are not runned on this machine.
+  [face] 44 unique (first 20)
+    0x000079b4 .dynstr    _ZNKSt6__ndk16locale9use_facetERNS0_2idE
+    0x0000832f .dynstr    _ZNKSt6__ndk16locale9has_facetERNS0_2idE
+    0x0000db11 .dynstr    memalign
+    0x0000f488 .dynstr    x264_memcpy_aligned_neon
+    0x0000f4a1 .dynstr    x264_memzero_aligned_neon
+    0x001ab9a2 .rodata    eye_left
+    0x001ab9ab .rodata    Get the var: eye left location var failed.
+    0x001ab9d6 .rodata    eye_right
+    0x001ab9e0 .rodata    Get the var: eye right location var failed.
+    0x001aba0c .rodata    eye_left_radius
+    0x001aba1c .rodata    Get the var: eye_left_radius location var failed.
+    0x001aba4e .rodata    eye_right_radius
+    0x001abaff .rodata    face_0_left
+    0x001abb0b .rodata    face_1_left
+    0x001abb17 .rodata    face_0_right
+    0x001abb24 .rodata    face_1_right
+    0x001abb31 .rodata    face_count
+    0x001abb3c .rodata    faceEyeParams
+    0x001abde8 .rodata    faceThinRatio
+    0x001abe27 .rodata    _eye_left_x
+  [asr] 43 unique (first 20)
+    0x001a9b5c .rodata    app::audio
+    0x001ae4c2 .rodata     audio media name:
+    0x001ae518 .rodata     audio bit rate:
+    0x001afcde .rodata    DecoderPipeline::OnInitializeDecoder() invalid codec (pt=%d, name=%s) received - 1
+    0x001b0287 .rodata    Unregister pull audio source.
+    0x001b02a5 .rodata    ~DecoderPipeline() failed to de-register transport callback (Audio coding module)
+    0x001b02f7 .rodata    ~DecoderPipeline() failed to de-register VAD callback (Audio coding module)
+    0x001b1834 .rodata    ResetDecoderPipeline() failed to de-register transport callback (Audio coding module)
+    0x001b188a .rodata    ResetDecoderPipeline() failed to de-register VAD callback (Audio coding module)
+    0x001b1a31 .rodata    audio jni debug :manager SetAndroidAudioDeviceObjects 
+    0x001b2502 .rodata    The video avc hw codec address is 
+    0x001b2525 .rodata    video hevc hw codec destructor:
+    0x001b2c23 .rodata    Codec type and name mismatch.
+    0x001b2c58 .rodata    Invalid codec resolution 
+    0x001b5281 .rodata    Opus
+    0x001b5286 .rodata    mdia.minf.stbl.stsd.Opus.channelCount
+    0x001b52ac .rodata    mdia.minf.stbl.stsd.Opus.samplingRate
+    0x001b7efc .rodata    audio
+    0x001bc151 .rodata    The audio time scale is different. file1:
+    0x001bc265 .rodata    The timescale audio:
+  [segment] 8 unique (first 8)
+    0x001b6ce1 .rodata    segmentDuration
+    0x001b74b2 .rodata    bool google_breakpad::FindElfSegment(const void *, uint32_t, const void **, size_t *, int *)
+    0x001b750f .rodata    segment_start
+    0x001b751d .rodata    segment_size
+    0x001b792b .rodata    void google_breakpad::(anonymous namespace)::FindElfClassSegment(const char *, typename ElfClass::Word, const void **, size_t *) [ElfClass = google_breakpad::ElfClass32]
+    0x001b79d5 .rodata    void google_breakpad::(anonymous namespace)::FindElfClassSegment(const char *, typename ElfClass::Word, const void **, size_t *) [ElfClass = google_breakpad::ElfClass64]
+    0x001c90ea .rodata    elst.entries.segmentDuration
+    0x001cb459 .rodata    /home/zoujun/workspace/code1218/MediaPlayer/ijkmedia/mediaprocess/filters/cpu_filters/relight/mi_portrait_3d_lighting_image.cpp

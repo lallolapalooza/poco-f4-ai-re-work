@@ -1,0 +1,24 @@
+# Cross-check of the classic cascade semantics against OpenCV 5's CascadeClassifier
+# (reimpl/ref/ref_haar.cpp, built against the system OpenCV 5.0 xobjdetect module).
+#
+# 1) The synthetic 20x20 template (reimpl/assets/patch20.pgm) passes all 20 stages
+#    under reimpl/haar.py.  Embedded in a 60x60 canvas at (10,10), OpenCV detects it:
+#    -> proves the model data + traversal + integral/area-normalisation used by
+#       haar.py reproduce OpenCV's decision for the base window size.
+$ /tmp/ref_haar .../haarcascade_frontalface_alt2.xml /tmp/patch60.pgm 20 1.1 1
+detections=1
+9 9 23 23
+
+# 2) Random noise: both implementations reject everything.
+$ /tmp/ref_haar .../haarcascade_frontalface_alt2.xml /tmp/noise.pgm 20 1.1 1
+detections=0
+
+# 3) A 240x240 synthetic face is detected by OpenCV 5 at (28,33,184,184) while the
+#    classic integral formulation in haar.py treats the same content differently.
+#    (exact box passes 11/20 stages; best nearby ladder window (31,34,179) passes
+#    17/20).  The residual difference is the sub-pixel rect rounding convention at
+#    scale > 1 (OpenCV 5's xobjdetect evaluator rounds differently from the
+#    classic calc_offsets path embedded in libcamplat).  Recorded as an unknown.
+$ /tmp/ref_haar .../haarcascade_frontalface_alt2.xml /tmp/face.pgm 40 1.1 1
+detections=1
+28 33 184 184

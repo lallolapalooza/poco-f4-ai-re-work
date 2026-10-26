@@ -1,0 +1,32 @@
+{
+  "file": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libtensorflow-lite.so",
+  "size": 3446232,
+  "sha256": "6ef8898d73f366db4ccf2d94738b916a67fba685f5d3941134a79b1f7911167f",
+  "findings": [
+    {
+      "kind": "tflite",
+      "offset": 3111973,
+      "size": null,
+      "end": null,
+      "confidence": "low",
+      "note": "TFLite flatbuffer (root table did not validate); size unknown (flatbuffer has no length prefix)",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libtensorflow-lite.so' of='OUT' bs=1M iflag=skip_bytes skip=3111973 status=none",
+      "magic_offset": 3111977
+    },
+    {
+      "kind": "model_string",
+      "offset": 3171952,
+      "size": 12,
+      "end": 3171964,
+      "confidence": "string",
+      "note": "model-name string 'debug.tflite'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libtensorflow-lite.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=3171952 count=12 status=none",
+      "occurrences": 1
+    }
+  ],
+  "counts": {
+    "tflite": 1,
+    "model_string": 1
+  },
+  "notes": []
+}

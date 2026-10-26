@@ -1,0 +1,9 @@
+{"kind":"class","class":"com.xiaomi.mtb.aiservices.AiWeakSignalForecastService$1","dex":"classes.dex","defined":true,"methods":2,"access":0,"matched":["AiWeakSignalForecastService"]}
+{"kind":"class","class":"com.xiaomi.mtb.aiservices.AiWeakSignalForecastService$2","dex":"classes.dex","defined":true,"methods":2,"access":0,"matched":["AiWeakSignalForecastService"]}
+{"kind":"class","class":"com.xiaomi.mtb.aiservices.AiWeakSignalForecastService$infoItem","dex":"classes.dex","defined":true,"methods":6,"access":0,"matched":["AiWeakSignalForecastService"]}
+{"kind":"class","class":"com.xiaomi.mtb.aiservices.AiWeakSignalForecastService","dex":"classes.dex","defined":true,"methods":37,"access":1,"matched":["AiWeakSignalForecastService"]}
+{"kind":"class","class":"com.xiaomi.mtb.aiservices.IAiWeakSignal","dex":"classes.dex","defined":true,"methods":1,"access":1537,"matched":["IAiWeakSignal"]}
+{"kind":"class","class":"com.xiaomi.mtb.aiservices.IAiWeakSignal$Default","dex":"classes.dex","defined":true,"methods":3,"access":1,"matched":["IAiWeakSignal"]}
+{"kind":"class","class":"com.xiaomi.mtb.aiservices.IAiWeakSignal$Stub$Proxy","dex":"classes.dex","defined":true,"methods":4,"access":0,"matched":["IAiWeakSignal"]}
+{"kind":"class","class":"com.xiaomi.mtb.aiservices.IAiWeakSignal$Stub","dex":"classes.dex","defined":true,"methods":4,"access":1025,"matched":["IAiWeakSignal"]}
+{"kind":"class","class":"com.xiaomi.mtb.aiservices.AiWeakSignalForecastService$3","dex":"classes.dex","defined":true,"methods":2,"access":0,"matched":["AiWeakSignalForecastService"]}

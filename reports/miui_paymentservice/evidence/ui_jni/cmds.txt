@@ -1,0 +1,41 @@
+Commands used for the UI/camera -> JNI patch (2026-10-24).
+All paths relative to $WS = /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work
+PY = /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python
+
+APK="$APK_ROOT/product/app/PaymentService_Global/PaymentService_Global.apk"
+R=reports/miui_paymentservice
+
+# 1. Targeted decompilation of the consumer side (jadx, one class at a time)
+for c in com.xiaomi.payment.channel.VoucherFragment com.xiaomi.payment.entryData.CameraIntentData \
+         com.xiaomi.payment.entryData.CameraIntentData\$a com.xiaomi.payment.entry.a \
+         com.xiaomi.payment.entry.IEntry com.xiaomi.payment.o.l com.xiaomi.payment.o.h \
+         com.xiaomi.payment.l.c com.xiaomi.payment.l.f com.mipay.common.data.v0 \
+         com.mipay.common.data.h0; do
+  $WS/tools/jadx/bin/jadx --single-class "$c" --show-bad-code --no-res \
+      --single-class-output "$R/sources/consumer/${c}.java" "$APK"
+done
+
+# 2. Bytecode xref: who references CameraIntentData (finds VoucherFragment.j0)
+$PY $R/evidence/ui_jni/probe_xref.py > $R/evidence/ui_jni/xref.txt
+
+# 3. Mask geometry / layout / strings from resources.arsc + res/layout/mibi_capture.xml
+$PY $R/evidence/ui_jni/probe_resources.py > $R/evidence/ui_jni/resources.txt
+
+# 4. JNI + accessor disassembly from the shipped arm64 library
+$PY $WS/tools/disasm_elf.py $R/inventory/libs/lib/arm64-v8a/libdigit_ocr.so --addr 0x14840 --size 0xb0 -o -
+$PY $WS/tools/disasm_elf.py $R/inventory/libs/lib/arm64-v8a/libdigit_ocr.so --addr 0x148f0 --size 0x58 -o -
+$PY $WS/tools/disasm_elf.py $R/inventory/libs/lib/arm64-v8a/libdigit_ocr.so --addr 0x1497c --size 0x148 -o -
+$PY $WS/tools/disasm_elf.py $R/inventory/libs/lib/arm64-v8a/libdigit_ocr.so --addr 0x14ac4 --size 0x84 -o -
+$PY $WS/tools/disasm_elf.py $R/inventory/libs/lib/arm64-v8a/libdigit_ocr.so --addr 0x14c08 --size 0x8 -o -
+$PY $WS/tools/disasm_elf.py $R/inventory/libs/lib/arm64-v8a/libdigit_ocr.so --addr 0x14c10 --size 0x34 -o -
+$PY $WS/tools/disasm_elf.py $R/inventory/libs/lib/arm64-v8a/libdigit_ocr.so --addr 0x291c4 --size 0x10 -o -
+$PY $WS/tools/disasm_elf.py $R/inventory/libs/lib/arm64-v8a/libdigit_ocr.so --addr 0x2ca94 --size 0x64 -o -
+$PY $WS/tools/disasm_elf.py $R/inventory/libs/lib/arm64-v8a/libdigit_ocr.so --addr 0x2a968 --size 0x3d0 -o -
+  (concatenated into evidence/ui_jni/jni_disasm.txt)
+
+# 5. Exported JNI symbols (nativeEndProcess is only exported for the legacy class)
+nm -D --defined-only $R/inventory/libs/lib/arm64-v8a/libdigit_ocr.so | grep -i 'EndProcess\|Java_com' \
+   > $R/evidence/ui_jni/exported_jni_symbols.txt
+
+# 6. Native strings: no frame persistence, model dump D:\123.txt, log "ocrdebug len=%d"
+strings -a $R/inventory/libs/lib/arm64-v8a/libdigit_ocr.so | grep -Ei '\.txt|/sdcard|\.jpg|\.png|ocrdebug|log'

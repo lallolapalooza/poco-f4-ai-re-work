@@ -1,0 +1,22 @@
+# verify.txt — miui_remote reimplementation
+# generated: 2026-10-24T04:56:43Z
+# python: Python 3.12.12
+
+$ cd reimpl && $PY pipeline.py
+
+An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+model    : libmibrainvad2.so:mdata_vad (embedded, offset 0x4fd90)
+graph    : input() -> affine(840->300) -> pnorm(100) -> affine(100->300) -> pnorm(100) -> normalize() -> normalize() -> affine(100->2) -> softmax()
+W1/b1    : (300, 840) (300,)
+W3/b3    : (300, 100) (300,)
+W7/b7    : (2, 100) (2,)
+pcm      : (48000,) int16 3.00 s
+mfcc     : (298, 40) mean -1.436 std 20.722
+cmvn     : (298, 40) mode=online
+stacked  : (298, 840)
+logits   : (298, 2)
+posterior: (298,) min 0.0000 max 1.0000
+segments : [(0, 298)] (frames @10 ms)
+silence  : (98,) max 1.0000
+
+exit_status=0

@@ -1,0 +1,27 @@
+# Validation / deliverable check (2026-10-24)
+
+$ /usr/bin/python3 -c "import jsonschema,json; s=json.load(open('SCHEMA.json')); \
+    d=json.load(open('reports/snapchat/findings.json')); jsonschema.validate(d,s); print('jsonschema OK')"
+jsonschema OK
+
+$ python3 -m json.tool reports/snapchat/findings.json >/dev/null && echo JSON_PARSE_OK
+JSON_PARSE_OK
+
+$ grep -cE '^## [0-9]' reports/snapchat/PIPELINE.md
+9
+
+findings.json: features=8, models=8, data_pipelines=5, unknowns=11
+data_pipelines ids:
+  lens_cv_camera                 confirmed
+  mlkit_barcode_face             inferred
+  aifactory_deferred_dnn         inferred
+  libclient_learned_search_voiceml confirmed
+  memories_face_clustering       inferred
+
+Referenced evidence:
+  PIPELINE.md (9 sections)
+  report.md  -> "Data-path addendum: camera → lenses, contracts, external boundaries"
+  evidence/07_camera_lens_trace.txt
+  evidence/08_external_boundaries.txt
+  native/jni_binding_table.txt
+  native/libclient_strings.txt

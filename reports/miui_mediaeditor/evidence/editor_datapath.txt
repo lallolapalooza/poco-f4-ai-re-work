@@ -1,0 +1,134 @@
+# Editor data-path evidence (miui_mediaeditor)
+# generated 2026-10-24T05:55:43Z
+
+## APK / libs
+$ sha256sum MIMediaEditorGlobal.apk
+98e2ce9e30e21d47f1b912b14721bf85fae044c045105da9561b4778b54bd976  /run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/data-app/MIMediaEditorGlobal/MIMediaEditorGlobal.apk
+
+## bundle assets (unzip -l)
+$ unzip -l "$APK" | grep "\.bundle$"
+     2915687  assets/graphics/image_beauty_basic.bundle
+       18457  assets/graphics/image_beauty_bodyslim.bundle
+     4103446  assets/graphics/image_beauty_facebeauty.bundle
+      340615  assets/graphics/image_beauty_facewarp.bundle
+     3994454  assets/graphics/image_editor_enhance.bundle
+      174160  assets/graphics/image_editor_scenebeauty.bundle
+      374406  assets/makeup/item_bundle/jingdian.bundle
+      123080  assets/makeup/item_bundle/jingfu.bundle
+      231584  assets/makeup/item_bundle/liti.bundle
+       84719  assets/makeup/item_bundle/nanshi.bundle
+      385035  assets/makeup/item_bundle/oumei.bundle
+      196743  assets/makeup/item_bundle/wenrou.bundle
+    10299493  assets/model/ai_beauty_type_processor.bundle
+     1912131  assets/model/ai_face_attribute_processor.bundle
+    21870544  assets/model/ai_face_beauty_processor.bundle
+      512057  assets/model/ai_face_bindi_seg_processor.bundle
+     6450804  assets/model/ai_face_processor_detect_landmark.bundle
+     6244199  assets/model/ai_human_processor_beautybody_mb.bundle
+    10741303  assets/model/ai_photo_editing_processor_scene_recog.bundle
+        4769  assets/graphics/image_editor_autocrop.bundle
+        6111  assets/graphics/image_editor_idphoto.bundle
+        5532  assets/graphics/image_editor_portrait.bundle
+
+## makeup bundle entries (reimpl/unbundle.py list)
+$ python reimpl/unbundle.py list /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/me_bundles/assets/makeup/item_bundle/jingdian.bundle
+jingdian.bundle: xor_key=0x94 file=374406B entries=12
+  brow_mask_2.png                                            method=8 csize=    31358 usize=    33249 off=        0 ENCRYPTED-PREFIX
+  eye113_29.png                                              method=8 csize=    44178 usize=    48522 off=    31403
+  eye13_20.png                                               method=8 csize=    98278 usize=   104841 off=    75624
+  eye23_56.png                                               method=8 csize=    69160 usize=    73325 off=   173944
+  eye33_20.png                                               method=8 csize=    16268 usize=    17491 off=   243146
+  face_sh_2.png                                              method=8 csize=    11572 usize=    16064 off=   259456
+  face_yy.png                                                method=8 csize=    32687 usize=    36475 off=   271071
+  gg1.png                                                    method=8 csize=    33460 usize=    38421 off=   303799
+  makeup_config.json                                         method=8 csize=      460 usize=     2144 off=   337296
+  mask1.png                                                  method=8 csize=     7890 usize=     8831 off=   337804
+  mask2_15.png                                               method=8 csize=    26906 usize=    28773 off=   345733
+  script.js                                                  method=8 csize=      429 usize=     1116 off=   372681
+  CRC32 verified entries: 11 ok, 0 bad (1 skipped in encrypted prefix)
+
+$ python reimpl/unbundle.py list /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/me_bundles/assets/makeup/item_bundle/jingfu.bundle
+jingfu.bundle: xor_key=0xe6 file=123080B entries=7
+  brow_mask.png                                              method=8 csize=    31358 usize=    33249 off=        0 ENCRYPTED-PREFIX
+  ggpgj.png                                                  method=8 csize=    28737 usize=    33875 off=    31401
+  makeup_config.json                                         method=8 csize=      315 usize=     1093 off=    60177
+  mask1.png                                                  method=8 csize=     7890 usize=     8831 off=    60540
+  mask2.png                                                  method=8 csize=    11246 usize=    12190 off=    68469
+  script.js                                                  method=8 csize=      429 usize=     1116 off=    79754
+  sh.png                                                     method=8 csize=    42045 usize=    46197 off=    80222
+  CRC32 verified entries: 6 ok, 0 bad (1 skipped in encrypted prefix)
+
+$ python reimpl/unbundle.py list /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/me_bundles/assets/makeup/item_bundle/liti.bundle
+liti.bundle: xor_key=0x0d file=231584B entries=11
+  brow_mask_2.png                                            method=8 csize=    53591 usize=    56486 off=        0 ENCRYPTED-PREFIX
+  eye_jiemao_12.png                                          method=8 csize=    57039 usize=    61185 off=    53636
+  eye__4.png                                                 method=8 csize=    25948 usize=    29931 off=   110722
+  eye___2.png                                                method=8 csize=     4999 usize=     7257 off=   136710
+  face_yy.png                                                method=8 csize=    32687 usize=    36475 off=   141750
+  ltgg_3.png                                                 method=8 csize=    31331 usize=    35632 off=   174478
+  makeup_config.json                                         method=8 csize=      440 usize=     1990 off=   205849
+  mask1.png                                                  method=8 csize=     4394 usize=     5574 off=   206337
+  mask2.png                                                  method=8 csize=     5008 usize=     5912 off=   210770
+  script.js                                                  method=8 csize=      429 usize=     1116 off=   215817
+  wr_sh_yqj_2.png                                            method=8 csize=    14088 usize=    18495 off=   216285
+  CRC32 verified entries: 10 ok, 0 bad (1 skipped in encrypted prefix)
+
+$ python reimpl/unbundle.py list /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/me_bundles/assets/makeup/item_bundle/nanshi.bundle
+nanshi.bundle: xor_key=0xc5 file=84719B entries=4
+  face_yy2_7.png                                             method=8 csize=    51986 usize=    57489 off=        0 ENCRYPTED-PREFIX
+  gg_nan.png                                                 method=8 csize=    31449 usize=    36729 off=    52030
+  makeup_config.json                                         method=8 csize=      175 usize=      471 off=    83519
+  script.js                                                  method=8 csize=      429 usize=     1116 off=    83742
+  CRC32 verified entries: 3 ok, 0 bad (1 skipped in encrypted prefix)
+
+$ python reimpl/unbundle.py list /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/me_bundles/assets/makeup/item_bundle/oumei.bundle
+oumei.bundle: xor_key=0x01 file=385035B entries=13
+  eye113_15.png                                              method=8 csize=    69787 usize=    73444 off=        0 ENCRYPTED-PREFIX
+  eye114_7.png                                               method=8 csize=    20954 usize=    25452 off=    69830
+  eye13_29.png                                               method=8 csize=    83534 usize=    91540 off=    90826
+  eye23_2.png                                                method=8 csize=    60209 usize=    63933 off=   174402
+  eye33_3.png                                                method=8 csize=    10714 usize=    12191 off=   234652
+  face_sh_3.png                                              method=8 csize=    19060 usize=    22335 off=   245407
+  face_yy_2.png                                              method=8 csize=    32687 usize=    36475 off=   264510
+  gg1_25.png                                                 method=8 csize=    33460 usize=    38421 off=   297240
+  makeup_config.json                                         method=8 csize=      484 usize=     2275 off=   330740
+  mask1.png                                                  method=8 csize=     4394 usize=     5574 off=   331272
+  mask2.png                                                  method=8 csize=     5008 usize=     5912 off=   335705
+  mm2_8.png                                                  method=8 csize=    42431 usize=    45386 off=   340752
+  script.js                                                  method=8 csize=      429 usize=     1116 off=   383222
+  CRC32 verified entries: 12 ok, 0 bad (1 skipped in encrypted prefix)
+
+$ python reimpl/unbundle.py list /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/me_bundles/assets/makeup/item_bundle/wenrou.bundle
+wenrou.bundle: xor_key=0x9f file=196743B entries=9
+  brow_mask.png                                              method=8 csize=    35481 usize=    38568 off=        0 ENCRYPTED-PREFIX
+  eye_jiemao_11.png                                          method=8 csize=    50701 usize=    54869 off=    35524
+  eye__7.png                                                 method=8 csize=    56118 usize=    58303 off=    86272
+  makeup_config.json                                         method=8 csize=      448 usize=     1672 off=   142430
+  mask1.png                                                  method=8 csize=     4394 usize=     5574 off=   142926
+  mask2.png                                                  method=8 csize=     5008 usize=     5912 off=   147359
+  script.js                                                  method=8 csize=      429 usize=     1116 off=   152406
+  wrgg.png                                                   method=8 csize=    28697 usize=    33756 off=   152874
+  wr_sh_xpf_3.png                                            method=8 csize=    14113 usize=    18479 off=   181609
+  CRC32 verified entries: 8 ok, 0 bad (1 skipped in encrypted prefix)
+
+## face warp bundle entries
+  browlocation.png                                           method=8 csize=    10155 usize=   164364 off=        0 ENCRYPTED-PREFIX
+  face_warp.json                                             method=8 csize=    18394 usize=   111979 off=   130005
+  image_brow_location_fs.glsl                                method=8 csize=      441 usize=     1241 off=   260561
+  image_brow_space_fs.glsl                                   method=8 csize=      412 usize=     1165 off=   261059
+  image_brow_warp_fs.glsl                                    method=8 csize=      332 usize=      828 off=   261525
+  image_cheekbone_warp_fs.glsl                               method=8 csize=      374 usize=     1071 off=   261910
+  image_chin_warp_fs.glsl                                    method=8 csize=      395 usize=     1162 off=   262342
+  image_choose_skin_for_warp_fs.glsl                         method=8 csize=      416 usize=     1625 off=   262790
+  image_eye_brown_fs.glsl                                    method=8 csize=     1758 usize=     7522 off=   263270
+  image_eye_rot_fs.glsl                                      method=8 csize=      363 usize=     1119 off=   265081
+  image_eye_space_fs.glsl                                    method=8 csize=      363 usize=     1119 off=   265495
+  image_eye_warp_fs.glsl                                     method=8 csize=      363 usize=     1119 off=   265911
+  image_face_narrow_fs.glsl                                  method=8 csize=      447 usize=     1367 off=   266326
+  image_face_small_fs.glsl                                   method=8 csize=      453 usize=     1378 off=   266828
+  image_face_thinning_fs.glsl                                method=8 csize=      447 usize=     1367 off=   267335
+  image_face_v_fs.glsl                                       method=8 csize=      447 usize=     1367 off=   267839
+  image_forehead_fs.glsl                                     method=8 csize=      812 usize=     3273 off=   268336
+  image_global_gaussian_for_white_fs.glsl                    method=8 csize=      356 usize=     1154 off=   269200
+  image_global_gaussian_for_white_vs.glsl                    method=8 csize=      222 usize=      486 off=   269625
+  image_lowerjaw_warp_fs.glsl                                method=8 csize=      391 usize=     1128 off=   269916

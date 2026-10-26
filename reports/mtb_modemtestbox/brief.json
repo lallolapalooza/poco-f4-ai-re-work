@@ -1,0 +1,19 @@
+{
+  "slug": "mtb_modemtestbox",
+  "apk": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/system_ext/app/ModemTestBox/ModemTestBox.apk",
+  "size": 2348152,
+  "models": [
+    {
+      "name": "assets/0.3_new_0410_less.tflite",
+      "size": 112544,
+      "magic": "TFLite",
+      "extracted": "models/0.3_new_0410_less.tflite"
+    }
+  ],
+  "libs": [],
+  "dex_markers": {
+    "Lorg/tensorflow/lite": 20,
+    "tflite": 1
+  },
+  "package": null
+}

@@ -1,0 +1,29 @@
+# verify.txt - miui_biometric reimpl
+# date: 2026-10-24T04:47:54Z
+# python: 3.12.12 jax 0.12.0.1 numpy 2.5.4
+# command: cd reports/miui_biometric/reimpl && python pipeline.py
+
+miui_biometric / SenseTime FaceAuth pipeline  [ARCHITECTURE_ONLY]
+weights: NOT recovered (encrypted __res_* blobs) -> random init
+
+  input_preprocessed       [1, 112, 112, 3]
+  input_nv21_frame         [1, 460800]
+  boxes                    [196, 4]
+  det_scores               [196]
+  landmarks                [1, 106, 2]
+  pose                     [1, 3]
+  eye_state                [1, 2]
+  quality                  [1]
+  liveness                 [1]
+  embedding                [1, 512]
+  match_similarity         [1]
+
+  embedding norm          1.000000
+  quality                 0.675995
+  liveness                0.630972
+  self match similarity   1.000000
+  landmarks[0]            [0.48187307 0.6686115 ]
+  pose                    [ 4.510412e-01  4.880316e-01 -3.437810e-04]
+  noise-frame liveness    0.595333
+
+EXIT_STATUS=0

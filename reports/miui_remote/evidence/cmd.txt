@@ -1,0 +1,89 @@
+# Command transcript — miui_remote (XMRemoteController.apk)
+# PY=/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/tooling/venv312/bin/python  T=$WS/tools
+# APK="/run/media/asdf/.../product/data-app/XMRemoteController/XMRemoteController.apk"
+# WS=.../re_work/reports/miui_remote
+
+## 0. identity
+sha256sum "$APK"
+  -> 6a955dfc5ef67f1b7cd4094108ec019d419c9e9541546d3e249fdde9354eb9a6
+
+## 1. inventory (manifest, permissions, native libs, model assets)
+$PY $T/apk_inventory.py "$APK" --out inventory --extract-libs --extract-models \
+    --max-file-mb 50 --max-total-mb 90
+  -> package com.duokan.phone.remotecontroller 6.6.6R entries=2649 ai_models=0 ai_libs=10
+  -> ABIs arm64-v8a, armeabi-v7a; 68 activities / 7 services / 8 receivers / 8 providers
+  -> extracted 10 libs (5.53 MB) -> inventory/libs/lib/<abi>/*.so
+
+## 2. ELF facts + JNI exports
+for l in libmibrainjni libmibrainsdk libmibrainvad2 libmibraindec libairkanopus-jni; do
+  $PY $T/elf_info.py inventory/libs/lib/arm64-v8a/$l.so --json native/elf/$l.json > native/elf/$l.txt
+  $PY $T/disasm_elf.py inventory/libs/lib/arm64-v8a/$l.so --list-jni
+done
+  -> libmibrainjni: 36 JNI, links libmibrainsdk
+  -> libmibrainvad2: 5 JNI + CornVad/Soil C++ exports + mdata_vad (0x4fd90, 1132916 B)
+  -> libmibraindec: 5 JNI (MibrainMp3Decoder), "MPEG Audio Decoder 0.15.1 (beta)"
+  -> libmibrainsdk: 0 JNI, exports vadInit/vadCheckBegin/vadCheckEnd/vadUninit
+
+## 3. dex feature discovery
+$PY $T/dex_find.py "$APK" --regex 'voice|speech|asr|vad|mibrain|ifly|recognize|wakeup|record' --classes-only
+  -> evidence/dex_classes_voice.jsonl (140 records)
+$PY $T/strings_dex.py "$APK" --regex 'voice|speech|ifly|asr|wakeup|mibrain|assistant|recognize' \
+    --unique --out evidence/dex_strings_voice.jsonl      -> 611 strings
+$PY $T/strings_dex.py "$APK" --regex 'xiaomi\.com|wss?://|/speech|mibrain|MiSpeech|appId|apiKey' \
+    --unique --format plain > evidence/dex_strings_endpoints.txt   -> 237 strings
+
+## 4. xref scan (const-strings + invoke targets) over classes{2,3}.dex
+# custom androguard pass over code items (see evidence/dex_xrefs.txt)
+  -> app voice wrapper: Lcg/l; (VoiceControlManager) + Lcg/k; (VoiceControlActivity)
+  -> lib loaders: Mibrainsdk.loadMibrainLibs -> mibrainsdk/mibrainjni;
+                  MibrainVad2.init -> mibrainvad2; MibrainMp3Decoder.<clinit> -> mibraindec
+
+## 5. Java decompilation (single-class jadx, -j 1)
+for c in cg.l cg.k wf.e0 com.xiaomi.ai.SpeechEngine com.xiaomi.ai.c com.xiaomi.ai.AsrRequest \
+         com.xiaomi.ai.mibrain.MibrainVad2 com.xiaomi.ai.mibrain.MibrainVad \
+         com.xiaomi.ai.mibrain.MibrainRequest com.xiaomi.ai.mibrain.MibrainNativeRequest \
+         com.xiaomi.ai.mibrain.MibrainRequestParamsBuilder com.xiaomi.ai.mibrain.Mibrainsdk \
+         com.xiaomi.ai.mibrain.MibrainDecoder com.miui.voiceassist.mvs.client.MvsClientManager \
+         com.xiaomi.mitv.phone.remotecontroller.voice.VoiceControlReceiver \
+         com.xiaomi.mitv.phone.remotecontroller.common.ui.SpeechVolumeView ; do
+  $T/jadx/bin/jadx --single-class "$c" --single-class-output sources/classes/<c>.java \
+      --show-bad-code --no-res -j 1 "$APK"
+done
+
+## 6. manifest
+# androguard AXMLPrinter -> evidence/AndroidManifest.txt
+
+## 7. native disassembly (capstone) and Ghidra pseudocode
+$PY $T/disasm_elf.py libmibrainvad2.so --symbol <sym> --out native/asm/<sym>.s
+  symbols: Java_..._newVad/hasVoice/createTask, CornEngineInit, CornLoadModelBin,
+           CornEngineProcess, ComponentLoad(+tail), ComponentPaddingLoad,
+           ComponentPnormLoad, ComponentAffineLoad, ComponentConvolutionLoad,
+           ComponentGruLoad, ComponentLstmLoad, ComponentPoolingLoad,
+           ComponentSpliceLoad, ComponentSoftmaxLoad, ComponentFixedscaleLoad,
+           SoilMode, SoilLoadBinInt, SoilLoadBinArrayFloat, LoadDependence, SoilInit,
+           ModelComponentType, GetComponentNum
+flock $WS/logs/ghidra.lock -c '$T/ghidra_decompile.sh libmibrainvad2.so native/ghidra_vad2.c \
+     "Java_.*|CornLoadModelBin|SoilInit|ComponentLoad|ComponentConvolutionLoad|ComponentGruLoad|\
+ComponentLstmLoad|ComponentAffineLoad|ComponentNormalizeLoad|CornSpectProcessPack|CornMfccCompute|\
+CornCmvnCompute|CornDecode|CornDetectVoice|CornSmoothPosterior|CornMelBankInitial|\
+CornFeatureInitialize|CornEngineProcess" --timeout 1200 --max-functions 48'
+  -> functions in output: 48 (162,879 bytes)
+
+## 8. model extraction + parse
+# mdata_vad: symbol value 0x4fd90, size 0x114974 (mdata_vad_length @0x164704)
+$PY - <<'PY'   # slice .rodata -> models/vad_2.1.0_0.binn
+...
+PY
+  -> 1132916 B, sha256 5e4d9ff470f763883bb6a2c6043e009059b855f97da9aa73fe3c4bda55816c66
+$PY reimpl/vad_model.py models/vad_2.1.0_0.binn > ir/vad_model_ir.json
+  -> 9 components; affine W shapes (300,840)/(300,100)/(2,100); stream consumed exactly
+
+## 9. reimplementation
+cd reimpl && $PY pipeline.py > verify.txt
+  -> pcm (48000,) int16 3.00 s
+  -> mfcc (298,40) -> stacked (298,840) -> logits (298,2) -> posterior (298,)
+  -> exit_status=0
+
+## 10. schema validation
+$PY evidence/validate_findings.py ../../SCHEMA.json findings.json
+  -> VALID: findings.json conforms to ../../SCHEMA.json

@@ -1,0 +1,69 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_remote/inventory/libs/lib/arm64-v8a/libmibrainsdk.so
+==============================================================================
+size        : 1022800 bytes (0.98 MiB)
+sha256      : 370dd095079a88a4b1a7791df92996372cb8fb5fd6c2bfa920b2cb50620ba8dc
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0xaed0   imagebase: 0x0
+build id    : 22c6d56cf595b94928c0815537037449271e2964
+android     : SDK 21, NDK r16b, build 4479499
+soname      : libmibrainsdk.so
+needed      : liblog.so, libstdc++.so, libm.so, libc.so, libdl.so
+parser      : lief
+counts      : 167 exports, 123 imports, 0 JNI, 25 sections, 8 segments
+symtab/dynsym: 0 / 300
+
+Sections (25)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        2260       0x228
+  .dynsym                DYNSYM           A      0xb00        7200       0xb00
+  .dynstr                STRTAB           A      0x2720       6448       0x2720
+  .gnu.version           GNU_VERSYM       A      0x4050       600        0x4050
+  .gnu.version_r         GNU_VERNEED      A      0x42a8       96         0x42a8
+  .rela.dyn              RELA             A      0x4308       20472      0x4308
+  .rela.plt              RELA             AI     0x9300       4248       0x9300
+  .plt                   PROGBITS         AX     0xa3a0       2864       0xa3a0
+  .text                  PROGBITS         AX     0xaed0       698356     0xaed0
+  .rodata                PROGBITS         A      0xb56d0      83541      0xb56d0
+  .eh_frame_hdr          PROGBITS         A      0xc9d28      12260      0xc9d28
+  .eh_frame              PROGBITS         A      0xccd10      78168      0xccd10
+  .gcc_except_table      PROGBITS         A      0xdfe68      440        0xdfe68
+  .note.android.ident    NOTE             A      0xe0020      152        0xe0020
+  .init_array            INIT_ARRAY       WA     0xf0cf8      24         0xe0cf8
+  .fini_array            FINI_ARRAY       WA     0xf0d10      16         0xe0d10
+  .data.rel.ro           PROGBITS         WA     0xf0d20      9984       0xe0d20
+  .dynamic               DYNAMIC          WA     0xf3420      528        0xe3420
+  .got                   PROGBITS         WA     0xf3630      2512       0xe3630
+  .data                  PROGBITS         WA     0xf4000      87024      0xe4000
+  .bss                   NOBITS           WA     0x1093f0     83208      0xf93f0
+  .comment               PROGBITS         MS     0x0          39         0xf93f0
+  .shstrtab              STRTAB           -      0x0          247        0xf9417
+
+AI-relevant strings (316009 bytes scanned in allocated data sections)
+  [face] 1 unique (first 1)
+    0x000c97f8 .rodata    alignof 
+  [asr] 50 unique (first 20)
+    0x0000293a .dynstr    _Z36miBrainGenerateWeakupAudioDataHeaderP15_wakeupdatainfo
+    0x00002ca9 .dynstr    miBrainSdkSendWakeupData
+    0x000b5970 .rodata    miBrainDebugAddWakeupData start to send %d
+    0x000b59e0 .rodata    miBrainDebugAddWakeupData MAX size is 60*1000
+    0x000b5af0 .rodata    ws://speech-staging.ai.xiaomi.com/speech/v1.0/dump
+    0x000b5b28 .rodata    wss://speech-preview.ai.xiaomi.com/speech/v1.0/dump
+    0x000b5b60 .rodata    wss://speech.ai.xiaomi.com/speech/v1.0/dump
+    0x000b5ba8 .rodata    WAKEUP_AUDIO
+    0x000b5bb8 .rodata    codec
+    0x000b5bf0 .rodata    wakeup_vendor
+    0x000b5c00 .rodata    wakeup_word
+    0x000b5c10 .rodata    wakeup_type
+    0x000b5ce0 .rodata    wakeup URL %s
+    0x000b5e08 .rodata    miBrainSdkStartRequest _initParams.asrParams.vad=%d
+    0x000b69c0 .rodata    Audio-Compress-Algo
+    0x000b69f0 .rodata    Opus-Frame-Size
+    0x000b7230 .rodata    uploading thread exit take time=%lld asr take=%lld,nlp take=%lld,tts take=%lld
+    0x000b75d0 .rodata    1 total audio max is %d
+    0x000b76e0 .rodata     total audio max is %d
+    0x000b77f8 .rodata    allocate vad buffer failed
+    ... 30 more
+
+JSON written to native/elf/libmibrainsdk.json

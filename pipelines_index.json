@@ -1,0 +1,124 @@
+{
+  "targets": [
+    {
+      "slug": "miui_securitycenter",
+      "app": "MIUI Security (com.miui.securitycenter)",
+      "desc": "SMS spam/phishing cascade, new TFLite engine, delegated AI subtitles/UltraClear",
+      "data_pipelines": 7,
+      "features": 6,
+      "reimpl": "verified"
+    },
+    {
+      "slug": "miui_securitycoreadd",
+      "app": "Security Core Add (com.miui.securitycore)",
+      "desc": "AI auto-brightness inference + on-device training",
+      "data_pipelines": 2,
+      "features": 5,
+      "reimpl": "verified"
+    },
+    {
+      "slug": "miui_mediaeditor",
+      "app": "Mi Media Editor (com.miui.mediaeditor)",
+      "desc": "Face/body beauty, scene recognition, makeup, inpaint",
+      "data_pipelines": 4,
+      "features": 7,
+      "reimpl": "verified"
+    },
+    {
+      "slug": "miui_extraphoto",
+      "app": "ExtraPhoto (com.miui.extraphoto)",
+      "desc": "Document scan, relighting, dual-cam bokeh",
+      "data_pipelines": 3,
+      "features": 10,
+      "reimpl": "runs_unverified"
+    },
+    {
+      "slug": "miui_biometric",
+      "app": "Biometric face unlock",
+      "desc": "Enroll/auth, liveness, embedding, template match",
+      "data_pipelines": 2,
+      "features": 4,
+      "reimpl": "architecture_only"
+    },
+    {
+      "slug": "miui_paymentservice",
+      "app": "Payment Service",
+      "desc": "Card digit OCR (HOG + LIBSVM)",
+      "data_pipelines": 1,
+      "features": 1,
+      "reimpl": "verified"
+    },
+    {
+      "slug": "miui_remote",
+      "app": "Mi Remote (XMRemoteController)",
+      "desc": "Voice capture -> VAD -> cloud ASR/NLU -> IR/TTS",
+      "data_pipelines": 2,
+      "features": 5,
+      "reimpl": "runs_unverified"
+    },
+    {
+      "slug": "qcom_voiceactivation",
+      "app": "Qualcomm Voice Activation",
+      "desc": "Always-on keyword detection/enrollment (OneVoice)",
+      "data_pipelines": 2,
+      "features": 6,
+      "reimpl": "architecture_only"
+    },
+    {
+      "slug": "mtb_modemtestbox",
+      "app": "Modem Test Box",
+      "desc": "Radio-metric weak-signal forecast (TFLite)",
+      "data_pipelines": 1,
+      "features": 1,
+      "reimpl": "verified"
+    },
+    {
+      "slug": "snapchat",
+      "app": "Snapchat",
+      "desc": "Haar/ERT/ORB lens CV, ML Kit, deferred .dnn.enc",
+      "data_pipelines": 5,
+      "features": 8,
+      "reimpl": "verified"
+    },
+    {
+      "slug": "tiktok_musically",
+      "app": "TikTok (musically)",
+      "desc": "Face detect/landmark/age -> video effects",
+      "data_pipelines": 2,
+      "features": 6,
+      "reimpl": "architecture_only"
+    },
+    {
+      "slug": "tiktok_trill",
+      "app": "TikTok (trill)",
+      "desc": "Face detect/landmark/age -> video effects",
+      "data_pipelines": 2,
+      "features": 5,
+      "reimpl": "architecture_only"
+    },
+    {
+      "slug": "kwai_video",
+      "app": "Kwai",
+      "desc": "Camera -> YCNN face/beauty -> encode",
+      "data_pipelines": 4,
+      "features": 6,
+      "reimpl": "architecture_only"
+    },
+    {
+      "slug": "kwai_bulldog",
+      "app": "Kwai Bulldog",
+      "desc": "Camera -> YCNN face/beauty -> encode",
+      "data_pipelines": 3,
+      "features": 6,
+      "reimpl": "architecture_only"
+    },
+    {
+      "slug": "kwai_live",
+      "app": "Kwai Live",
+      "desc": "Live camera+audio -> effects -> push",
+      "data_pipelines": 3,
+      "features": 9,
+      "reimpl": "runs_unverified"
+    }
+  ]
+}

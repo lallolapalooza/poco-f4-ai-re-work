@@ -1,0 +1,16 @@
+jingfu.bundle: xor_key=0xe6 file=123080B entries=7
+  brow_mask.png                                              method=8 csize=    31358 usize=    33249 off=        0 ENCRYPTED-PREFIX
+  ggpgj.png                                                  method=8 csize=    28737 usize=    33875 off=    31401
+  makeup_config.json                                         method=8 csize=      315 usize=     1093 off=    60177
+  mask1.png                                                  method=8 csize=     7890 usize=     8831 off=    60540
+  mask2.png                                                  method=8 csize=    11246 usize=    12190 off=    68469
+  script.js                                                  method=8 csize=      429 usize=     1116 off=    79754
+  sh.png                                                     method=8 csize=    42045 usize=    46197 off=    80222
+  CRC32 verified entries: 6 ok, 0 bad (1 skipped in encrypted prefix)
+  SKIP (encrypted prefix): brow_mask.png
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__jingfu/ggpgj.png (33875 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__jingfu/makeup_config.json (1093 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__jingfu/mask1.png (8831 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__jingfu/mask2.png (12190 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__jingfu/script.js (1116 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/makeup__item_bundle__jingfu/sh.png (46197 bytes)

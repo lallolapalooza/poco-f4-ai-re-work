@@ -1,0 +1,54 @@
+{
+  "build_errors": [
+    {
+      "index": 40,
+      "op": "RESHAPE",
+      "reason": "RESHAPE requires a constant new shape (input 1, tensor 104) but it is dynamic"
+    },
+    {
+      "index": 43,
+      "op": "RESHAPE",
+      "reason": "RESHAPE requires a constant new shape (input 1, tensor 107) but it is dynamic"
+    },
+    {
+      "index": 44,
+      "op": "ADD",
+      "reason": "tensor 108 (model_1/reshape/Reshape) is read before it is produced"
+    }
+  ],
+  "hint": "An op requires a compile-time constant (shape/axes/slice bounds) that is computed dynamically in this graph.",
+  "model": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/tflite/model__ai_beauty_type_processor__dense_eye_iris.tflite",
+  "model_conversion": {
+    "reason": "subgraph 0 'main' needs dynamic parameters: op 40 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 104) but it is dynamic; op 43 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 107) but it is dynamic; op 44 (ADD): tensor 108 (model_1/reshape/Reshape) is read before it is produced",
+    "signature_key": null,
+    "status": "unsupported",
+    "subgraph_index": 0
+  },
+  "reason": "subgraph 0 'main' needs dynamic parameters: op 40 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 104) but it is dynamic; op 43 (RESHAPE): RESHAPE requires a constant new shape (input 1, tensor 107) but it is dynamic; op 44 (ADD): tensor 108 (model_1/reshape/Reshape) is read before it is produced",
+  "signature_key": null,
+  "stateful": false,
+  "status": "unsupported_params",
+  "subgraph_index": 0,
+  "subgraph_name": "main",
+  "subgraph_role": "inference",
+  "subgraphs": [
+    {
+      "index": 0,
+      "inputs": [
+        "image",
+        "eye_s1",
+        "ht"
+      ],
+      "name": "main",
+      "outputs": [
+        "Identity",
+        "Identity_1",
+        "Identity_2"
+      ],
+      "role": "inference",
+      "stateful": false,
+      "unsupported_ops": []
+    }
+  ],
+  "unsupported_ops": []
+}

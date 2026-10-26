@@ -1,0 +1,111 @@
+{
+  "file": "/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libskwai.so",
+  "size": 6515760,
+  "sha256": "468b928d18313c85cca82c4929ff2cf1c2a5182e88abfb92a6c9dda8f85fbdd9",
+  "findings": [
+    {
+      "kind": "model_string",
+      "offset": 5266155,
+      "size": 14,
+      "end": 5266169,
+      "confidence": "string",
+      "note": "model-name string 'instance_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libskwai.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=5266155 count=14 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 5267037,
+      "size": 9,
+      "end": 5267046,
+      "confidence": "string",
+      "note": "model-name string 'ear_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libskwai.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=5267037 count=9 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 5267047,
+      "size": 10,
+      "end": 5267057,
+      "confidence": "string",
+      "note": "model-name string 'hair_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libskwai.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=5267047 count=10 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 5267076,
+      "size": 21,
+      "end": 5267097,
+      "confidence": "string",
+      "note": "model-name string 'human_key_point_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libskwai.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=5267076 count=21 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 5267098,
+      "size": 16,
+      "end": 5267114,
+      "confidence": "string",
+      "note": "model-name string 'human_mesh_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libskwai.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=5267098 count=16 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 5267115,
+      "size": 17,
+      "end": 5267132,
+      "confidence": "string",
+      "note": "model-name string 'animal_face_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libskwai.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=5267115 count=17 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 5267133,
+      "size": 18,
+      "end": 5267151,
+      "confidence": "string",
+      "note": "model-name string 'ar_hand_pose_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libskwai.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=5267133 count=18 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 5267290,
+      "size": 11,
+      "end": 5267301,
+      "confidence": "string",
+      "note": "model-name string 'TOUCH_MODEL'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libskwai.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=5267290 count=11 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 5285262,
+      "size": 10,
+      "end": 5285272,
+      "confidence": "string",
+      "note": "model-name string 'base_model'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libskwai.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=5285262 count=10 status=none",
+      "occurrences": 1
+    },
+    {
+      "kind": "model_string",
+      "offset": 5422971,
+      "size": 16,
+      "end": 5422987,
+      "confidence": "string",
+      "note": "model-name string 'SUBSURFACE_MODEL'",
+      "dd": "dd if='/run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/kwai_live/inventory/libs/lib/arm64-v8a/libskwai.so' of='OUT' bs=1M iflag=skip_bytes,count_bytes skip=5422971 count=16 status=none",
+      "occurrences": 1
+    }
+  ],
+  "counts": {
+    "model_string": 10
+  },
+  "notes": []
+}

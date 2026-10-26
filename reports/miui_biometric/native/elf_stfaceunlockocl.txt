@@ -1,0 +1,130 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/samples/android/libstfaceunlockocl.so
+==============================================================================
+size        : 106744488 bytes (101.80 MiB)
+sha256      : ea711f433005fd1a2410c31339f0e1a1715b0e194abaf62403a0776ecdaabffc
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x89210   imagebase: 0x0
+soname      : libstfaceunlockocl.so
+needed      : libOpenCL.so, liblog.so, libm.so, libc.so, libdl.so
+parser      : lief
+counts      : 909 exports, 355 imports, 0 JNI, 32 sections, 6 segments
+symtab/dynsym: 41090 / 1475
+
+Sections (32)
+  name                   type             flags  address      size       offset
+  .hash                  HASH             A      0x190        10032      0x190
+  .dynsym                DYNSYM           A      0x28c0       35400      0x28c0
+  .dynstr                STRTAB           A      0xb308       67698      0xb308
+  .gnu.version           GNU_VERSYM       A      0x1bb7a      2950       0x1bb7a
+  .gnu.version_r         GNU_VERNEED      A      0x1c700      96         0x1c700
+  .rela.dyn              RELA             A      0x1c760      437904     0x1c760
+  .rela.plt              RELA             AI     0x875f0      4296       0x875f0
+  .plt                   PROGBITS         AX     0x886c0      2896       0x886c0
+  .text                  PROGBITS         AX     0x89210      7113820    0x89210
+  .rodata                PROGBITS         A      0x751e70     74120752   0x751e70
+  .eh_frame_hdr          PROGBITS         A      0x4e01ca0    117868     0x4e01ca0
+  .eh_frame              PROGBITS         A      0x4e1e910    733952     0x4e1e910
+  .gcc_except_table      PROGBITS         A      0x4ed1c10    125928     0x4ed1c10
+  .init_array            INIT_ARRAY       WA     0x4f012b0    1144       0x4ef12b0
+  .fini_array            FINI_ARRAY       WA     0x4f01728    16         0x4ef1728
+  .data.rel.ro           PROGBITS         WA     0x4f01740    157568     0x4ef1740
+  .dynamic               DYNAMIC          WA     0x4f27ec0    544        0x4f17ec0
+  .got                   PROGBITS         WA     0x4f280e0    12072      0x4f180e0
+  .data                  PROGBITS         WA     0x4f2c000    16412480   0x4f1c000
+  .bss                   NOBITS           WA     0x5ed2f40    218456     0x5ec2f40
+  .comment               PROGBITS         MS     0x0          39         0x5ec2f40
+  .debug_aranges         PROGBITS         -      0x0          38096      0x5ec2f67
+  .debug_info            PROGBITS         -      0x0          1919453    0x5ecc437
+  .debug_abbrev          PROGBITS         -      0x0          126346     0x60a0e14
+  .debug_line            PROGBITS         -      0x0          351457     0x60bfb9e
+  .debug_str             PROGBITS         MS     0x0          291863     0x611587f
+  .debug_loc             PROGBITS         -      0x0          1888765    0x615cc96
+  .debug_ranges          PROGBITS         -      0x0          487024     0x6329e93
+  .shstrtab              STRTAB           -      0x0          313        0x63a0d03
+  .symtab                SYMTAB           -      0x0          986160     0x63a0e40
+  .strtab                STRTAB           -      0x0          1288243    0x6491a70
+
+AI-relevant strings (92240700 bytes scanned in allocated data sections)
+  [model] 132 unique (first 20)
+    0x0075bd50 .rodata    caffe_model
+    0x04dcc050 .rodata    detector.model
+    0x04dcd2a8 .rodata        Caffe         
+    0x04dd01d0 .rodata    /rel.prototxt
+    0x04dd0978 .rodata    WARNING: class label %d specified in weight is not found
+    0x04de25c0 .rodata    caffe.BlobShape
+    0x04de25d0 .rodata    caffe.BlobProto
+    0x04de25e0 .rodata    caffe.BlobProtoVector
+    0x04de25f8 .rodata    caffe.QuantizeParameter
+    0x04de2610 .rodata    caffe.Datum
+    0x04de2620 .rodata    caffe.FillerParameter
+    0x04de2638 .rodata    caffe.NetParameter
+    0x04de2650 .rodata    caffe.SolverParameter
+    0x04de2668 .rodata    caffe.SolverState
+    0x04de2680 .rodata    caffe.NetState
+    0x04de2690 .rodata    caffe.NetStateRule
+    0x04de26a8 .rodata    caffe.ParamSpec
+    0x04de26b8 .rodata    caffe.LayerParameter
+    0x04de26d0 .rodata    caffe.Convolution3dParameter
+    0x04de26f0 .rodata    caffe.ConvolutionTranspose3dParameter
+    ... 112 more
+  [nn_runtime] 32 unique (first 20)
+    0x00016bcd .dynstr    __Adreno__android18_bcl_binary_data
+    0x00016bf1 .dynstr    __Adreno__android18_bcl_binary_data_size
+    0x00017040 .dynstr    __Adreno__android17_bcl_binary_data
+    0x00017064 .dynstr    __Adreno__android17_bcl_binary_data_size
+    0x00018164 .dynstr    __Adreno__android12_bcl_binary_data
+    0x00018188 .dynstr    __Adreno__android12_bcl_binary_data_size
+    0x000185f5 .dynstr    __Adreno_bcl_binary_data
+    0x0001860e .dynstr    __Adreno_bcl_binary_data_size
+    0x0001862c .dynstr    __Adreno__android11_bcl_binary_data
+    0x00018650 .dynstr    __Adreno__android11_bcl_binary_data_size
+    0x000186c2 .dynstr    __Adreno__android13_bcl_binary_data
+    0x000186e6 .dynstr    __Adreno__android13_bcl_binary_data_size
+    0x00018cbb .dynstr    __Adreno__android16_bcl_binary_data
+    0x00018cdf .dynstr    __Adreno__android16_bcl_binary_data_size
+    0x00019407 .dynstr    __Adreno__android15_bcl_binary_data
+    0x0001942b .dynstr    __Adreno__android15_bcl_binary_data_size
+    0x000197ba .dynstr    __Adreno__android14_bcl_binary_data
+    0x000197de .dynstr    __Adreno__android14_bcl_binary_data_size
+    0x0075d9a0 .rodata    %s(%d): %s the gpu priority is %d
+    0x00765728 .rodata    %s(%d): gpu device name: %s
+    ... 12 more
+  [face] 616 unique (first 20)
+    0x0000b325 .dynstr    st_face_algorithm_info
+    0x0000b39e .dynstr    st_face_init_license
+    0x0000b3b3 .dynstr    st_face_open_log
+    0x0000b3c4 .dynstr    st_face_get_version
+    0x0000b7e1 .dynstr    st_auth_set_face_orientation
+    0x0000b81c .dynstr    st_auth_set_faceid_image_number
+    0x0000b84a .dynstr    st_auth_delete_face
+    0x0000b85e .dynstr    st_auth_delete_all_face
+    0x0000b89b .dynstr    st_auth_set_faceauth_mode
+    0x0000ba23 .dynstr    st_auth_get_faceid_count_tee
+    0x0000ba40 .dynstr    st_auth_get_faceid_count_ree_callback
+    0x0000ba66 .dynstr    st_auth_get_faceid_count_ree_auto
+    0x0000ba88 .dynstr    st_auth_set_facedetect_callback
+    0x0000d011 .dynstr    _ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFZN13ThreadManagerISt5_BindIFSt7_Mem_fnIMN12stfaceunlock19FaceHacknessManagerEFiPK10st_image_tPK9st_face_t19st_face_orientationPfEESt10shared_ptrIS7_ESt12_PlaceholderILi1EESL_ILi2EESL_ILi3EESL_ILi4EEEEJSA_SD_SE_SF_EE11StartThreadEPKcEUlvE_vEEEESaISY_ELN9__gnu_cxx12_Lock_policyE2EED2Ev
+    0x0000d170 .dynstr    _ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFZN13ThreadManagerISt5_BindIFSt7_Mem_fnIMN12stfaceunlock19FaceHacknessManagerEFiPK10st_image_tPK9st_face_t19st_face_orientationPfEESt10shared_ptrIS7_ESt12_PlaceholderILi1EESL_ILi2EESL_ILi3EESL_ILi4EEEEJSA_SD_SE_SF_EE11StartThreadEPKcEUlvE_vEEEESaISY_ELN9__gnu_cxx12_Lock_policyE2EED1Ev
+    0x0000d2cf .dynstr    _ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFZN13ThreadManagerISt5_BindIFSt7_Mem_fnIMN12stfaceunlock19FaceHacknessManagerEFiPK10st_image_tPK9st_face_t19st_face_orientationPfEESt10shared_ptrIS7_ESt12_PlaceholderILi1EESL_ILi2EESL_ILi3EESL_ILi4EEEEJSA_SD_SE_SF_EE11StartThreadEPKcEUlvE_vEEEESaISY_ELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv
+    0x0000d438 .dynstr    _ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFZN13ThreadManagerISt5_BindIFSt7_Mem_fnIMN12stfaceunlock17FaceVerifyManagerEFiPK10st_image_tPK9st_face_tPP12st_feature_tPjEESt10shared_ptrIS7_ESt12_PlaceholderILi1EESN_ILi2EESN_ILi3EESN_ILi4EEEEJSA_SD_SG_SH_EE11StartThreadEPKcEUlvE_vEEEESaIS10_ELN9__gnu_cxx12_Lock_policyE2EED2Ev
+    0x0000d591 .dynstr    _ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFZN13ThreadManagerISt5_BindIFSt7_Mem_fnIMN12stfaceunlock17FaceVerifyManagerEFiPK10st_image_tPK9st_face_tPP12st_feature_tPjEESt10shared_ptrIS7_ESt12_PlaceholderILi1EESN_ILi2EESN_ILi3EESN_ILi4EEEEJSA_SD_SG_SH_EE11StartThreadEPKcEUlvE_vEEEESaIS10_ELN9__gnu_cxx12_Lock_policyE2EED1Ev
+    0x0000d6ea .dynstr    _ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFZN13ThreadManagerISt5_BindIFSt7_Mem_fnIMN12stfaceunlock17FaceVerifyManagerEFiPK10st_image_tPK9st_face_tPP12st_feature_tPjEESt10shared_ptrIS7_ESt12_PlaceholderILi1EESN_ILi2EESN_ILi3EESN_ILi4EEEEJSA_SD_SG_SH_EE11StartThreadEPKcEUlvE_vEEEESaIS10_ELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv
+    0x0000d84d .dynstr    _ZNSt23_Sp_counted_ptr_inplaceINSt6thread5_ImplISt12_Bind_simpleIFZN13ThreadManagerISt5_BindIFSt7_Mem_fnIMN12stfaceunlock17FaceVerifyManagerEFiPK10st_image_tPK9st_face_tPP12st_feature_tPjEESt10shared_ptrIS7_ESt12_PlaceholderILi1EESN_ILi2EESN_ILi3EESN_ILi4EEEEJSA_SD_SG_SH_EE11StartThreadEPKcEUlvE_vEEEESaIS10_ELN9__gnu_cxx12_Lock_policyE2EED0Ev
+    ... 180 more
+  [asr] 2 unique (first 2)
+    0x050508f4 .data      aSr.lJ[NC
+    0x0585032f .data      VAD#
+  [model_name] 10 unique (first 10)
+    0x0075bb88 .rodata    M_Hunter_CommonFace_Gray_ppl_360_9_2_5_v2_origin_model
+    0x0075bbd0 .rodata    M_Align_occlusion_106_1_19_3_model
+    0x0075bc00 .rodata    M_Align_occlusion_106_360_1_7_1_model
+    0x0075bc30 .rodata    M_Align_CalcPose_Ann_106_2_3_0_model
+    0x0075bc60 .rodata    M_Align_Deepface_Eye_State_Analysis_3_7_8_model
+    0x0075bc90 .rodata    IM_RGB_Liveness_General_Full_FP32_10_1_65_half_compression_v2_origin_model
+    0x0075bce0 .rodata    M_Verify_MobileNetV2T6_Common_3_135_0_half_compression_v2_origin_model
+    0x0075bd28 .rodata    M_Attribute_MTNet_Quality_1_0_0_model
+    0x0075bd50 .rodata    caffe_model
+    0x04dcc050 .rodata    detector.model
+
+JSON written to /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_biometric/native/elf_stfaceunlockocl.json

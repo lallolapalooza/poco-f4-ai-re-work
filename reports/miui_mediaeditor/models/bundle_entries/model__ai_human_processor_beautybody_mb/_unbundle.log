@@ -1,0 +1,12 @@
+ai_human_processor_beautybody_mb.bundle: xor_key=0xd5 file=6244199B entries=5
+  Bdycntr.0406.Exp387c.x3e210_quan1.tflite                   method=8 csize=  3209851 usize=  4387368 off=        0 ENCRYPTED-PREFIX
+  config.json                                                method=8 csize=     1003 usize=     4320 off=  3209921
+  FULLBODY_POFH2D_20210302_0001_e1604_q.tflite               method=8 csize=   974609 usize=  1268024 off=  3210965
+  human_detector_retinanet_mobilenetv2_1.0_quant.tflite      method=8 csize=  2057276 usize=  2674640 off=  4185648
+  retinanet_base_anchor_beautybody.txt                       method=8 csize=      582 usize=     1955 off=  6243007
+  CRC32 verified entries: 4 ok, 0 bad (1 skipped in encrypted prefix)
+  SKIP (encrypted prefix): Bdycntr.0406.Exp387c.x3e210_quan1.tflite
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_human_processor_beautybody_mb/config.json (4320 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_human_processor_beautybody_mb/FULLBODY_POFH2D_20210302_0001_e1604_q.tflite (1268024 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_human_processor_beautybody_mb/human_detector_retinanet_mobilenetv2_1.0_quant.tflite (2674640 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/model__ai_human_processor_beautybody_mb/retinanet_base_anchor_beautybody.txt (1955 bytes)

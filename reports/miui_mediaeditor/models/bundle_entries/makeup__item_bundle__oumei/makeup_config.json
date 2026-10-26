@@ -1,0 +1,101 @@
+
+{
+    "blend_type_tex_eye": 2,
+    "blend_type_tex_eye2": 4,
+    "blend_type_tex_eye3": 0,
+    "blend_type_tex_eye4": 0,
+    "makeup_eye_color": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "makeup_eye_color2": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "makeup_eye_color3": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "tex_eye": "eye114_7.png",
+    "tex_eye2": "eye113_15.png",
+    "tex_eye3": "eye13_29.png",
+    "makeup_intensity_eye": 0.8,
+    "makeup_name": "Group_1_13",
+    "blend_type_tex_eyeLiner": 0,
+    "makeup_eyeLiner_color": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "tex_eyeLiner": "eye33_3.png",
+    "makeup_intensity_eyeLiner": 0.8,
+    "blend_type_tex_eyeLash": 0,
+    "makeup_eyelash_color": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "tex_eyelash": "eye23_2.png",
+    "makeup_intensity_eyelash": 0.8,
+    "blend_type_tex_shadow": 0,
+    "makeup_shadow_color": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "tex_shadow": "face_yy_2.png",
+    "makeup_intensity_shadow": 0.8,
+    "blend_type_tex_blusher": 0,
+    "blend_type_tex_blusher2": 0,
+    "makeup_blusher_color": [
+        0.7568627595901489,
+        0.30980393290519714,
+        0.09803921729326248,
+        1.0
+    ],
+    "tex_blusher": "face_sh_3.png",
+    "makeup_intensity_blusher": 0.9,
+    "blend_type_tex_lip": 0,
+    "makeup_lip_color": [
+        0.6980392336845398,
+        0.4470588266849518,
+        0.4000000059604645,
+        1.0
+    ],
+    "is_two_color": 0,
+    "tex_lip_mask_zz": "mask2.png",
+    "tex_lip_mask_bz": "mask1.png",
+    "lip_type": 2,
+    "makeup_intensity_lip": 1.0,
+    "blend_type_tex_highlight": 2,
+    "makeup_highlight_color": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "tex_highlight": "gg1_25.png",
+    "makeup_intensity_highlight": 0.5,
+    "blend_type_tex_brown": 0,
+    "makeup_eyeBrow_color": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "tex_eyeBrow": "mm2_8.png",
+    "brow_warp": 0.0,
+    "brow_warp_type": 2,
+    "use_brow_v2": 1,
+    "makeup_intensity_eyeBrow": 0.8,
+    "use_eye_v2": 0
+}

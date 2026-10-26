@@ -1,0 +1,47 @@
+$ python tools/apk_inventory.py "$APK" --out inventory --extract-models --extract-libs --max-file-mb 50 --max-total-mb 90
+
+# APK inventory: Kwai
+
+`/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.kwai.video_33/partner-com.kwai.video_33.apk`
+
+| Field | Value |
+|---|---|
+| Package | com.kwai.video |
+| Version | 6.0.20.524206 |
+| Version code | 524206 |
+| Label | Kwai |
+| Min SDK | 21 |
+| Target SDK | 31 |
+| Main activity | com.yxcorp.gifshow.homepage.HomeActivity |
+| Size | 80706484 |
+| SHA-256 | a0050c589bf6d748e2c721c86e5e0f5e254e594aa88822fe304810af9611f98e |
+| ABIs | ['arm64-v8a'] |
+| Components | activities=173, services=42, receivers=34, providers=23 |
+| Permissions | 68 |
+| Zip entries | 8130 |
+
+## Groups
+
+| Group | Files | Uncompressed bytes |
+|---|---:|---:|
+| dex | 16 | 53947100 |
+| native_libs | 80 | 114312920 |
+| model_assets | 0 | 0 |
+| configs | 4246 | 10400611 |
+| other | 3788 | 10555781 |
+
+## AI artifacts
+
+### Model assets (0)
+
+_none_
+
+### Native libs matching the parent keyword set (14)
+
+| Library | Size | Match |
+|---|---:|---|
+| `lib/arm64-v8a/libFaceMagic.so` | 7722568 | face |
+| `lib/arm64-v8a/libfacedetectcontext.so` | 191728 | face |
+| `lib/arm64-v8a/libfaceless-plugin.so` | 1792128 | face |
+| `lib/arm64-v8a/libksvisionengineplugin.so` | 38984 | vision |
+| `lib/arm64-v8a/libkwaiaudio.so` | 1829120 | ai |

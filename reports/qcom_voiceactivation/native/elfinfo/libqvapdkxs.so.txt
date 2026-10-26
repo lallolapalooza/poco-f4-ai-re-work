@@ -1,0 +1,46 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/qcom_voiceactivation/native/libs/libqvapdkxs.so
+==============================================================================
+size        : 71328 bytes (0.07 MiB)
+sha256      : 79ff47e4b3b0fcd8a46e04960f0f24e6bace089502ac5e9745997dbbcbde20b8
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x0   imagebase: 0x0
+build id    : 56904876d793a6710f98a8c908dd096f
+soname      : libqvapdkxs.so
+needed      : libeai_floating.so, libstdc++.so, liblog.so, libm.so, libc.so, libdl.so
+parser      : lief
+counts      : 14 exports, 19 imports, 0 JNI, 27 sections, 12 segments
+symtab/dynsym: 0 / 34
+
+Sections (27)
+  name                   type             flags  address      size       offset
+  .note.android.ident    NOTE             A      0x2e0        24         0x2e0
+  .note.gnu.build-id     NOTE             A      0x2f8        32         0x2f8
+  .note.gnu.property     NOTE             A      0x318        32         0x318
+  .dynsym                DYNSYM           A      0x338        816        0x338
+  .gnu.version           GNU_VERSYM       A      0x668        68         0x668
+  .gnu.version_r         GNU_VERNEED      A      0x6ac        96         0x6ac
+  .gnu.hash              GNU_HASH         A      0x710        116        0x710
+  .hash                  HASH             A      0x784        280        0x784
+  .dynstr                STRTAB           A      0x89c        517        0x89c
+  .rela.dyn              ANDROID_RELA     A      0xaa8        34         0xaa8
+  .relr.dyn              ANDROID_RELR     A      0xad0        40         0xad0
+  .rela.plt              RELA             AI     0xaf8        432        0xaf8
+  .rodata                PROGBITS         AMS    0xcb0        5391       0xcb0
+  .eh_frame_hdr          PROGBITS         A      0x21c0       1348       0x21c0
+  .eh_frame              PROGBITS         A      0x2708       5564       0x2708
+  .text                  PROGBITS         AX     0x4000       41356      0x4000
+  .plt                   PROGBITS         AX     0xe190       464        0xe190
+  .data.rel.ro           PROGBITS         WA     0xf000       56         0xf000
+  .fini_array            FINI_ARRAY       WA     0xf038       16         0xf038
+  .dynamic               DYNAMIC          WA     0xf048       512        0xf048
+  .got                   PROGBITS         WA     0xf248       24         0xf248
+  .got.plt               PROGBITS         WA     0xf260       168        0xf260
+  .data                  PROGBITS         WA     0x10310      5176       0xf310
+  .bss                   NOBITS           WA     0x11748      20         0x10748
+  .shstrtab              STRTAB           -      0x0          265        0x10748
+  .gnu_debugdata         PROGBITS         -      0x0          1932       0x10851
+
+AI-relevant strings (20742 bytes scanned in allocated data sections)
+
+JSON written to reports/qcom_voiceactivation/native/elfinfo/libqvapdkxs.so.json

@@ -1,0 +1,41 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/tiktok_trill/native/libByteAIDT.so
+==============================================================================
+size        : 18264 bytes (0.02 MiB)
+sha256      : e3b4331efe5f09e197eca7247a4c96a2fd0834e7dc2b9ce0728e9b6d5759ce6e
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0xf20   imagebase: 0x0
+build id    : de6f9cf2fd3895ae1063f53fe668074bb67e99e3
+android     : SDK 21, NDK r21b, build 6352462
+soname      : libByteAIDT.so
+needed      : liblog.so, libbytedt.so, libprotobuf-lite.so, libc++_shared.so, libAndroidPitayaCore.so, libm.so, libdl.so, libc.so
+parser      : lief
+counts      : 0 exports, 23 imports, 0 JNI, 23 sections, 8 segments
+symtab/dynsym: 0 / 33
+
+Sections (23)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        208        0x228
+  .gnu.hash              GNU_HASH         A      0x2f8        28         0x2f8
+  .dynsym                DYNSYM           A      0x318        792        0x318
+  .dynstr                STRTAB           A      0x630        914        0x630
+  .gnu.version           GNU_VERSYM       A      0x9c2        66         0x9c2
+  .gnu.version_r         GNU_VERNEED      A      0xa08        32         0xa08
+  .rela.dyn              RELA             A      0xa28        312        0xa28
+  .rela.plt              RELA             AI     0xb60        552        0xb60
+  .plt                   PROGBITS         AX     0xd90        400        0xd90
+  .text                  PROGBITS         AX     0xf20        7672       0xf20
+  .rodata                PROGBITS         A      0x2d18       208        0x2d18
+  .eh_frame_hdr          PROGBITS         A      0x2de8       724        0x2de8
+  .eh_frame              PROGBITS         A      0x30c0       2672       0x30c0
+  .note.android.ident    NOTE             A      0x3b30       152        0x3b30
+  .init_array            INIT_ARRAY       WA     0x4c50       8          0x3c50
+  .fini_array            FINI_ARRAY       WA     0x4c58       16         0x3c58
+  .data.rel.ro           PROGBITS         WA     0x4c68       112        0x3c68
+  .dynamic               DYNAMIC          WA     0x4cd8       592        0x3cd8
+  .got                   PROGBITS         WA     0x4f28       216        0x3f28
+  .comment               PROGBITS         MS     0x0          181        0x4000
+  .shstrtab              STRTAB           -      0x0          222        0x40b5
+
+AI-relevant strings (7640 bytes scanned in allocated data sections)

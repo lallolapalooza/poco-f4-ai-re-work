@@ -1,0 +1,116 @@
+{
+    "version": "v4.0.1",
+    "timestamp": "2023-11-10_15:56:23",
+    "max_humans": 1,
+    "reset_every_n_frames": 0,
+    "detect_every_n_frames": 10,
+    "detect_every_n_frames_when_no_human": 5,
+    "human_detector": {
+        "model": {
+            "type": "tflite",
+            "tflite_model_param": {
+                "tflite_name": "human_detector_retinanet_mobilenetv2_1.0_quant.tflite",
+                "tflite_use_dsp": false,
+                "tflite_use_xnnpack": 0
+            }
+        },
+        "anchor_file_name": "retinanet_base_anchor_beautybody.txt",
+        "image_height": 320,
+        "image_width": 320,
+        "image_channels": 3,
+        "threshold": 0.7,
+        "Nt": 0.5,
+        "sigma": 0.5,
+        "nms_method": 1,
+        "is_abs_value": false
+    },
+    "use_human_keypoint": true,
+    "human_keypoint": {
+        "scene_state": "imgslim",
+        "use_human_keypoint_processor_dance": false,
+        "human_keypoint_processor_dance": "",
+        "use_human_keypoint_processor_selfie": false,
+        "human_keypoint_processor_selfie": "",
+        "use_human_keypoint_processor_slim": false,
+        "human_keypoint_processor_slim": "",
+        "use_human_keypoint_processor_imgslim": true,
+        "human_keypoint_processor_imgslim": {
+            "scene_state": "imgslim",
+            "human_keypoint_detector": {
+                "model": {
+                    "type": "tflite",
+                    "tflite_model_param": {
+                        "tflite_name": "Bdycntr.0406.Exp387c.x3e210_quan1.tflite",
+                        "tflite_use_dsp": false,
+                        "threads": 2,
+                        "tflite_use_xnnpack": 1
+                    }
+                },
+                "is_async": false,
+                "with_precoord": false,
+                "with_bdycntr": true,
+                "num_bdycntr_keypoints": 67,
+                "image_height": 384,
+                "image_width": 288,
+                "image_channels": 3,
+                "heatmap_height": 96,
+                "heatmap_width": 72,
+                "num_keypoints": 25,
+                "estimate_mode": "MaxAveWeight",
+                "estimate_size": 12,
+                "ave_threshold": 0.2,
+                "bbox_expand_scale": 1.15
+            },
+            "joint_valid_threshold": 0.2,
+            "rect_expand_size": 1.15,
+            "use_2ds_filter": true,
+            "filter_2ds_w": 0.14,
+            "filter_2ds_frame_size": 10,
+            "skeleton_joint_valid_threshold": 0.5,
+            "skeleton_valid_threshold": 0.65,
+            "use_bdycntr_shoulder_local_optimize": false,
+            "with_human_pofb_detector": true,
+            "rect_expand_size_pofb": 1.3,
+            "human_pofb_detector": {
+                "model": {
+                    "type": "tflite",
+                    "tflite_model_param": {
+                        "tflite_name": "FULLBODY_POFH2D_20210302_0001_e1604_q.tflite",
+                        "tflite_use_dsp": false,
+                        "tflite_use_xnnpack": true,
+                        "threads": 1
+                    }
+                },
+                "is_async": false,
+                "image_height": 256,
+                "image_width": 192,
+                "image_channels": 3,
+                "heatmap_height": 64,
+                "heatmap_width": 48,
+                "pofb_width": 1,
+                "estimate_mode": "MaxAveWeight",
+                "estimate_size": 10,
+                "ave_threshold": 0.0,
+                "pofb_redundancy_threshold": 0.35,
+                "scene_state": "dance",
+                "with_contact": false,
+                "contact_threshold": 0.63,
+                "bbfs_width": 6,
+                "bbfs_height": 8,
+                "bbfs_channels": 192,
+                "heatmap_peak": 255.0,
+                "pofb_model_type": "pofbh2d"
+            }
+        },
+        "use_human_face_approximate": true,
+        "human_face_approximate": {
+            "approximate_type": "default"
+        }
+    },
+    "use_human_segmentation": false,
+    "human_segmentation": "",
+    "use_human_driver": false,
+    "human_driver": "",
+    "use_human_action": false,
+    "human_action": ""
+}

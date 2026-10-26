@@ -1,0 +1,122 @@
+[
+  {
+    "slug": "miui_securitycenter",
+    "name": "MIUISecurityCenterGlobal",
+    "rel": "product/priv-app/MIUISecurityCenterGlobal/MIUISecurityCenterGlobal.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/MIUISecurityCenterGlobal/MIUISecurityCenterGlobal.apk",
+    "size": 93987501,
+    "sha256": "35eefc4d8bbf03bbf0b759199ab258b5113c4dfdba59188fa8136c2b187c56c6"
+  },
+  {
+    "slug": "miui_securitycoreadd",
+    "name": "SecurityCoreAdd",
+    "rel": "product/app/SecurityCoreAdd/SecurityCoreAdd.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/SecurityCoreAdd/SecurityCoreAdd.apk",
+    "size": 32473507,
+    "sha256": "e87d13eb3f6ecb31b845027811f71707a0392a5737dbb19f3497f1870ece3761"
+  },
+  {
+    "slug": "miui_mediaeditor",
+    "name": "MIMediaEditorGlobal",
+    "rel": "product/data-app/MIMediaEditorGlobal/MIMediaEditorGlobal.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/data-app/MIMediaEditorGlobal/MIMediaEditorGlobal.apk",
+    "size": 216457464,
+    "sha256": "98e2ce9e30e21d47f1b912b14721bf85fae044c045105da9561b4778b54bd976"
+  },
+  {
+    "slug": "miui_extraphoto",
+    "name": "ExtraPhotoGlobal",
+    "rel": "product/priv-app/ExtraPhotoGlobal/ExtraPhotoGlobal.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/priv-app/ExtraPhotoGlobal/ExtraPhotoGlobal.apk",
+    "size": 228682351,
+    "sha256": "35c602409bdb40614be77f49b483efabde09cfaafd207fe75a4c814213462b2b"
+  },
+  {
+    "slug": "miui_biometric",
+    "name": "Biometric",
+    "rel": "product/app/Biometric/Biometric.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/Biometric/Biometric.apk",
+    "size": 107301666,
+    "sha256": "7be477e2a28139d0ccd5c9c43e0f88d8afa8627cf4c8bd829af6bcde6bcee111"
+  },
+  {
+    "slug": "miui_paymentservice",
+    "name": "PaymentService_Global",
+    "rel": "product/app/PaymentService_Global/PaymentService_Global.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/app/PaymentService_Global/PaymentService_Global.apk",
+    "size": 36181276,
+    "sha256": "1b8e2bb07232021a635e031371b3370607c6dfdc6f11e4f01df5959f9c7927fd"
+  },
+  {
+    "slug": "miui_remote",
+    "name": "XMRemoteController",
+    "rel": "product/data-app/XMRemoteController/XMRemoteController.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/product/data-app/XMRemoteController/XMRemoteController.apk",
+    "size": 35905205,
+    "sha256": "6a955dfc5ef67f1b7cd4094108ec019d419c9e9541546d3e249fdde9354eb9a6"
+  },
+  {
+    "slug": "qcom_voiceactivation",
+    "name": "QualcommVoiceActivation",
+    "rel": "system_ext/priv-app/QualcommVoiceActivation/QualcommVoiceActivation.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/system_ext/priv-app/QualcommVoiceActivation/QualcommVoiceActivation.apk",
+    "size": 47391029,
+    "sha256": "565f8818b189d4cc0c90ad383f068093292fe51ac89ca8c1cc1d9680a7a32863"
+  },
+  {
+    "slug": "mtb_modemtestbox",
+    "name": "ModemTestBox",
+    "rel": "system_ext/app/ModemTestBox/ModemTestBox.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/system_ext/app/ModemTestBox/ModemTestBox.apk",
+    "size": 2348152,
+    "sha256": "26b04faec0b6b01a9f08b373c4138121bd81d5bbb419a59ddcd3975266dac0c9"
+  },
+  {
+    "slug": "snapchat",
+    "name": "Snapchat",
+    "rel": "cust/app/customized/partner-com.snapchat.android_200/partner-com.snapchat.android_200.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.snapchat.android_200/partner-com.snapchat.android_200.apk",
+    "size": 92250637,
+    "sha256": "70147a34fd974522a43a142ad1a5c81a0698b74663a3933e88bde30846a50238"
+  },
+  {
+    "slug": "tiktok_musically",
+    "name": "TikTok (musically)",
+    "rel": "cust/app/customized/partner-com.zhiliaoapp.musically_100/partner-com.zhiliaoapp.musically_100.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.zhiliaoapp.musically_100/partner-com.zhiliaoapp.musically_100.apk",
+    "size": 118824480,
+    "sha256": "3a488bed7ae1b2da18a947161a94a312ae64ad01137339774d37d5847909f2f9"
+  },
+  {
+    "slug": "tiktok_trill",
+    "name": "TikTok (trill)",
+    "rel": "cust/app/customized/partner-com.ss.android.ugc.trill_101/partner-com.ss.android.ugc.trill_101.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.ss.android.ugc.trill_101/partner-com.ss.android.ugc.trill_101.apk",
+    "size": 118846600,
+    "sha256": "c6e9b326f424800373384076f2490553c25aa29a1b358081e8633b9e6d8b59cc"
+  },
+  {
+    "slug": "kwai_video",
+    "name": "Kwai",
+    "rel": "cust/app/customized/partner-com.kwai.video_33/partner-com.kwai.video_33.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.kwai.video_33/partner-com.kwai.video_33.apk",
+    "size": 80706484,
+    "sha256": "a0050c589bf6d748e2c721c86e5e0f5e254e594aa88822fe304810af9611f98e"
+  },
+  {
+    "slug": "kwai_bulldog",
+    "name": "Kwai Bulldog",
+    "rel": "cust/app/customized/partner-com.kwai.bulldog_112/partner-com.kwai.bulldog_112.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.kwai.bulldog_112/partner-com.kwai.bulldog_112.apk",
+    "size": 80257412,
+    "sha256": "d18888e3a450569b50769a9a550358e92e4bb158608f0ba04edaafa21c1f9c7d"
+  },
+  {
+    "slug": "kwai_live",
+    "name": "Kwai Live",
+    "rel": "cust/app/customized/partner-com.kwai.kuaishou.video.live_155/partner-com.kwai.kuaishou.video.live_155.apk",
+    "path": "/run/media/asdf/30620d0d-1e41-4d55-af08-b4de2fb9c517/xiaomi poco f4 system/cust/app/customized/partner-com.kwai.kuaishou.video.live_155/partner-com.kwai.kuaishou.video.live_155.apk",
+    "size": 80280485,
+    "sha256": "642f1cbfa4d4cfa4e9424e214f6295bf456cf7d220f74f9ca0bf5ba4743acbe9"
+  }
+]

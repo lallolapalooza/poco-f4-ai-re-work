@@ -1,0 +1,1 @@
+VALID: findings.json conforms to /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/SCHEMA.json

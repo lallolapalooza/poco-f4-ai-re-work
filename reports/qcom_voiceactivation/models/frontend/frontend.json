@@ -1,0 +1,11 @@
+{
+ "frame_len": 480,
+ "hop": 160,
+ "nfft": 512,
+ "n_bins": 256,
+ "n_mel": 80,
+ "sample_rate": 16000,
+ "hann_len": 480,
+ "mel_taps": 470,
+ "source": "libqvasml.so .data udk_hann_window/udk_mel_filter_*"
+}

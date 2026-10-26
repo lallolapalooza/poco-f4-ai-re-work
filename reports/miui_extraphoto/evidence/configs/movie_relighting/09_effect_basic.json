@@ -1,0 +1,10 @@
+{
+  "name": "梦境",
+  "type": "MOVIE_RELIGHTING",
+  "icon": "icon.png",
+  "relightingType": "0x28",
+  "cameraDefinedType": 17,
+  "startColor": "#74BCEE",
+  "endColor": "#74BCEE",
+  "nameResName": "refocus_movie_mengjing"
+}

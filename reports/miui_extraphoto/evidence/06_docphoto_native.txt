@@ -1,0 +1,53 @@
+# doc photo native library / MACE model names
+$ strings -n 5 /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/session_tmp/xp/libdoc_photo_process.so | grep model names
+demoiring_model
+dewarp_coarse_model
+dewarp_fine_model
+enhance_model
+handwrite_model
+hed_model
+inpaint_coarse_model
+inpaint_fine_model
+mace_cl_compiled_program.bin
+segment_model
+
+$ strings -n 8 ... | grep -E 'EdgeDet|Relu_|Concat_' (embedded MACE graph node names)
+Concat_180
+EdgeDet/ASPP/combine/Conv2D_bn_offset:0
+EdgeDet/ASPP/combine/Relu
+EdgeDet/ASPP/combine/Relu:0
+EdgeDet/ASPP/combine/weights:0
+EdgeDet/ASPP/concat
+EdgeDet/ASPP/concat:0
+EdgeDet/ASPP/conv_pool/conv/Conv2D_bn_offset:0
+EdgeDet/ASPP/conv_pool/conv/Relu
+EdgeDet/ASPP/conv_pool/conv/Relu:0
+EdgeDet/ASPP/conv_pool/conv/weights:0
+EdgeDet/ASPP/conv_pool/pool
+EdgeDet/ASPP/conv_pool/pool:0
+EdgeDet/ASPP/conv_pool/ResizeBilinear
+EdgeDet/ASPP/conv_pool/ResizeBilinear:0
+EdgeDet/ASPP/conv_RF_17_depth/depthwise_bn_offset:0
+EdgeDet/ASPP/conv_RF_17_depth/depthwise_weights:0
+EdgeDet/ASPP/conv_RF_17_depth/Relu
+EdgeDet/ASPP/conv_RF_17_depth/Relu:0
+EdgeDet/ASPP/conv_RF_17_point/Conv2D_bn_offset:0
+
+$ strings -n 8 ... | grep -E 'MACE|MaceEngine|mace forward net'
+CoarseInpaintModel mace forward net time use: 
+Create MaceEngine from model graph proto and weights data
+Create MaceEngine from model pb
+Creating SerialEngine, MACE version: 
+demoire mace forward net time use: 
+enhace mace forward net time use: 
+FineInpaintModel mace forward net time use: 
+handwrite mace forward net time use: 
+mace_cl_compiled_program.bin
+NSt6__ndk114default_deleteIN4mace10MaceEngineEEE
+NSt6__ndk120__shared_ptr_pointerIPN4mace10MaceEngineENS_14default_deleteIS2_EENS_9allocatorIS2_EEEE
+[out-remove] --- OutSegmentModel mace forward net time use: 
+
+# MACE OpenCL cache (asset) header
+00000000: 0ab3 120a 5461 6374 6976 6174 696f 6e20  ....Tactivation 
+00000010: 2d44 434d 445f 4441 5441 5f54 5950 453d  -DCMD_DATA_TYPE=
+00000020: 6620 2d44 4441 5441 5f54 5950 453d 666c  f -DDATA_TYPE=fl

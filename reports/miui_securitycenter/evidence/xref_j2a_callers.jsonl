@@ -1,0 +1,15 @@
+{"dex": "classes2.dex", "callee_class": "Lj2/a;", "callee_method": "a", "caller_class": "Lj2/a$a;", "caller_method": "run"}
+{"dex": "classes2.dex", "callee_class": "Lj2/a;", "callee_method": "c", "caller_class": "Lj2/a$a;", "caller_method": "run"}
+{"dex": "classes2.dex", "callee_class": "Lj2/a;", "callee_method": "d", "caller_class": "Lj2/a$a;", "caller_method": "run"}
+{"dex": "classes2.dex", "callee_class": "Lj2/a;", "callee_method": "e", "caller_class": "Lj2/a$a;", "caller_method": "run"}
+{"dex": "classes2.dex", "callee_class": "Lj2/a;", "callee_method": "f", "caller_class": "Lj2/a$a;", "caller_method": "run"}
+{"dex": "classes2.dex", "callee_class": "Lj2/a;", "callee_method": "b", "caller_class": "Lj2/a$a;", "caller_method": "run"}
+{"dex": "classes2.dex", "callee_class": "Lj2/a;", "callee_method": "l", "caller_class": "Lj2/a;", "caller_method": "d"}
+{"dex": "classes2.dex", "callee_class": "Lj2/a;", "callee_method": "j", "caller_class": "Lj2/a;", "caller_method": "f"}
+{"dex": "classes2.dex", "callee_class": "Lj2/a;", "callee_method": "g", "caller_class": "Lj2/a;", "caller_method": "g"}
+{"dex": "classes2.dex", "callee_class": "Lj2/a;", "callee_method": "i", "caller_class": "Lj2/a;", "caller_method": "j"}
+{"dex": "classes2.dex", "callee_class": "Lj2/a;", "callee_method": "g", "caller_class": "Lj2/a;", "caller_method": "j"}
+{"dex": "classes2.dex", "callee_class": "Lj2/a;", "callee_method": "m", "caller_class": "Lj2/a;", "caller_method": "h"}
+{"dex": "classes2.dex", "callee_class": "Lj2/a;", "callee_method": "<init>", "caller_class": "Lcom/miui/antispam/policy/SmartSmsFilterPolicy;", "caller_method": "<init>"}
+{"dex": "classes2.dex", "callee_class": "Lj2/a;", "callee_method": "k", "caller_class": "Lcom/miui/antispam/policy/SmartSmsFilterPolicy;", "caller_method": "initSmsEngine"}
+{"dex": "classes2.dex", "callee_class": "Lj2/a;", "callee_method": "h", "caller_class": "Lcom/miui/antispam/policy/SmartSmsFilterPolicy;", "caller_method": "shouldFilter"}

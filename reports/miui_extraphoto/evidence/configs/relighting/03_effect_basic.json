@@ -1,0 +1,10 @@
+{
+  "name": "电影光",
+  "type": "RELIGHTING",
+  "icon": "icon.png",
+  "startColor": "#E4A7FF",
+  "endColor": "#F0A3FF",
+  "relightingType": "0x17",
+  "cameraDefinedType": 3,
+  "nameResName": "refocus_relighting_dianying"
+}

@@ -1,0 +1,67 @@
+# xref scan over classes.dex/classes2.dex/classes3.dex
+# emitting (caller class | method | instruction) for AI-related targets
+
+== classes.dex: 0 xrefs
+
+== classes2.dex: 0 xrefs
+
+== classes3.dex: 86 xrefs
+Lcg/l;.<init>()V | v0, v1, Lcg/l;->j Lcom/xiaomi/ai/AsrListener;
+Lcg/l;.<init>()V | v0, v1, Lcg/l;->k Lcom/xiaomi/ai/NlpListener;
+Lcg/l;.<init>()V | v0, v1, Lcg/l;->l Lcom/xiaomi/ai/TtsListener;
+Lcg/l;.k()V | v0, v1, v2, v3, Lcom/xiaomi/ai/SpeechEngine;->createEngine(Landroid/content/Context; I Ljava/lang/String; Ljava/lang/String;)Lcom/xiaomi/ai/SpeechEngine;
+Lcg/l;.k()V | v0, v6, Lcg/l;->a Lcom/xiaomi/ai/SpeechEngine;
+Lcg/l;.k()V | v0, v5, v2, v3, Lcom/xiaomi/ai/SpeechEngine;->setEnv(I Ljava/lang/String; Ljava/lang/String;)V
+Lcg/l;.k()V | v0, v4, v2, v3, Lcom/xiaomi/ai/SpeechEngine;->setEnv(I Ljava/lang/String; Ljava/lang/String;)V
+Lcg/l;.k()V | v1, v6, Lcg/l;->a Lcom/xiaomi/ai/SpeechEngine;
+Lcg/l;.k()V | v1, v0, Lcom/xiaomi/ai/SpeechEngine;->setUserAgent(Ljava/lang/String;)V
+Lcg/l;.k()V | v1, v6, Lcg/l;->j Lcom/xiaomi/ai/AsrListener;
+Lcg/l;.k()V | v0, v1, Lcom/xiaomi/ai/SpeechEngine;->setAsrLisnter(Lcom/xiaomi/ai/AsrListener;)V
+Lcg/l;.k()V | v1, v6, Lcg/l;->k Lcom/xiaomi/ai/NlpListener;
+Lcg/l;.k()V | v0, v1, Lcom/xiaomi/ai/SpeechEngine;->setNlpListener(Lcom/xiaomi/ai/NlpListener;)V
+Lcg/l;.k()V | v1, v6, Lcg/l;->l Lcom/xiaomi/ai/TtsListener;
+Lcg/l;.k()V | v0, v1, Lcom/xiaomi/ai/SpeechEngine;->setTtsListener(Lcom/xiaomi/ai/TtsListener;)V
+Lcg/l;.n(Ljava/lang/String;)V | v0, Lcom/xiaomi/ai/TtsRequest;
+Lcg/l;.n(Ljava/lang/String;)V | v0, Lcom/xiaomi/ai/TtsRequest;-><init>()V
+Lcg/l;.n(Ljava/lang/String;)V | v0, v2, Lcom/xiaomi/ai/TtsRequest;->setTextToSpeak(Ljava/lang/String;)V
+Lcg/l;.n(Ljava/lang/String;)V | v2, v1, Lcg/l;->a Lcom/xiaomi/ai/SpeechEngine;
+Lcg/l;.n(Ljava/lang/String;)V | v2, v0, Lcom/xiaomi/ai/SpeechEngine;->speak(Lcom/xiaomi/ai/TtsRequest;)V
+Lcg/l;.o()V | v0, v12, Lcg/l;->g Lcom/xiaomi/ai/AsrRequest;
+Lcg/l;.o()V | v0, Lcom/xiaomi/ai/AsrRequest;
+Lcg/l;.o()V | v0, Lcom/xiaomi/ai/AsrRequest;-><init>()V
+Lcg/l;.o()V | v0, v5, Lcom/xiaomi/ai/AsrRequest;->setUseVad(Z)V
+Lcg/l;.o()V | v0, v12, Lcg/l;->h Lcom/xiaomi/ai/NlpRequest;
+Lcg/l;.o()V | v0, Lcom/xiaomi/ai/NlpRequest;
+Lcg/l;.o()V | v0, Lcom/xiaomi/ai/NlpRequest;-><init>()V
+Lcg/l;.o()V | v0, v12, Lcg/l;->i Lcom/xiaomi/ai/TtsRequest;
+Lcg/l;.o()V | v2, v12, Lcg/l;->g Lcom/xiaomi/ai/AsrRequest;
+Lcg/l;.o()V | v2, v0, Lcom/xiaomi/ai/AsrRequest;->setLang(Ljava/lang/String;)V
+Lcg/l;.o()V | v0, Lcom/xiaomi/ai/SpeechEngine$ParamBuilder;
+Lcg/l;.o()V | v0, Lcom/xiaomi/ai/SpeechEngine$ParamBuilder;-><init>()V
+Lcg/l;.o()V | v2, v12, Lcg/l;->h Lcom/xiaomi/ai/NlpRequest;
+Lcg/l;.o()V | v2, v3, v1, Lcom/xiaomi/ai/NlpRequest;->setContext(Ljava/lang/String; Ljava/lang/String;)V
+Lcg/l;.o()V | v0, Lcom/xiaomi/ai/SpeechEngine$ParamBuilder;->needAsr()Lcom/xiaomi/ai/SpeechEngine$ParamBuilder;
+Lcg/l;.o()V | v1, v2, Lcom/xiaomi/ai/SpeechEngine$ParamBuilder;->setAsrRequest(Lcom/xiaomi/ai/AsrRequest;)Lcom/xiaomi/ai/SpeechEngine$ParamBuilder;
+Lcg/l;.o()V | v1, Lcom/xiaomi/ai/SpeechEngine$ParamBuilder;->needNlp()Lcom/xiaomi/ai/SpeechEngine$ParamBuilder;
+Lcg/l;.o()V | v1, v2, Lcom/xiaomi/ai/SpeechEngine$ParamBuilder;->setNlpRequest(Lcom/xiaomi/ai/NlpRequest;)Lcom/xiaomi/ai/SpeechEngine$ParamBuilder;
+Lcg/l;.o()V | v1, v12, Lcg/l;->a Lcom/xiaomi/ai/SpeechEngine;
+Lcg/l;.o()V | v1, v0, Lcom/xiaomi/ai/SpeechEngine;->startIntegrally(Lcom/xiaomi/ai/SpeechEngine$ParamBuilder;)V
+Lcg/l;.q()V | v0, v1, Lcg/l;->a Lcom/xiaomi/ai/SpeechEngine;
+Lcg/l;.q()V | v0, Lcom/xiaomi/ai/SpeechEngine;->endSpeech()V
+Lcg/l$b;.onResult(Lcom/xiaomi/ai/SpeechResult;)V | v14, Lcom/xiaomi/ai/SpeechResult;->getResponse()Ljava/lang/String;
+Lcg/l$b;.onResult(Lcom/xiaomi/ai/SpeechResult;)V | v14, Lcom/xiaomi/ai/SpeechResult;->getAnswer()Ljava/lang/String;
+Lcg/l$b;.onResult(Lcom/xiaomi/ai/SpeechResult;)V | v14, Lcom/xiaomi/ai/SpeechResult;->getQuery()Ljava/lang/String;
+Lqh/c;.c()I | v0, Lcom/xiaomi/ai/utils/q;->a(Landroid/telephony/TelephonyManager;)I
+Lcg/l$a;.<init>(Lcg/l;)V | v0, Lcom/xiaomi/ai/AsrListener$SimpleAsrListener;-><init>()V
+Lcg/l$a;.onError(Lcom/xiaomi/ai/SpeechError;)V | v5, Lcom/xiaomi/ai/SpeechError;->toString()Ljava/lang/String;
+Lcg/l$a;.onError(Lcom/xiaomi/ai/SpeechError;)V | v5, Lcom/xiaomi/ai/SpeechError;->getErrCode()I
+Lcg/l$a;.onError(Lcom/xiaomi/ai/SpeechError;)V | v5, Lcom/xiaomi/ai/SpeechError;->getErrType()I
+Lcg/l$a;.onError(Lcom/xiaomi/ai/SpeechError;)V | v5, Lcom/xiaomi/ai/SpeechError;->getErrMsg()Ljava/lang/String;
+Lcg/l$a;.onPartialResults(Lcom/xiaomi/ai/SpeechResult;)V | v0, v2, Lcg/l$f;->f(Lcom/xiaomi/ai/SpeechResult;)V
+Lcg/l$a;.onResults(Lcom/xiaomi/ai/SpeechResult;)V | v2, Lcom/xiaomi/ai/SpeechResult;->getResponse()Ljava/lang/String;
+Lcg/l$a;.onResults(Lcom/xiaomi/ai/SpeechResult;)V | v0, v2, Lcg/l$f;->c(Lcom/xiaomi/ai/SpeechResult;)V
+Lcg/k;.c(Lcom/xiaomi/ai/SpeechResult;)V | v3, Lcom/xiaomi/ai/SpeechResult;->getAction()Ljava/lang/String;
+Lcg/k;.c(Lcom/xiaomi/ai/SpeechResult;)V | v3, Lcom/xiaomi/ai/SpeechResult;->getQuery()Ljava/lang/String;
+Lcg/k;.c(Lcom/xiaomi/ai/SpeechResult;)V | v3, Lcom/xiaomi/ai/SpeechResult;->getAnswerText()Ljava/lang/String;
+Lcg/k;.c(Lcom/xiaomi/ai/SpeechResult;)V | v3, Lcom/xiaomi/ai/SpeechResult;->getAnswer()Ljava/lang/String;
+

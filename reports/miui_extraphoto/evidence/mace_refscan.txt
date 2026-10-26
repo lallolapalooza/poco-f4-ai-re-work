@@ -1,0 +1,49 @@
+file      : native/libdoc_photo_process.so (25029048 B)
+.text     : 0x68b80..0x4356f8   .rodata: 0x435700..0x16d80ad
+model region 0x16020d8..0x160cb60 (43656 B)
+weight payloads 0x4387cc..0x4c5c2c, 0x4c5cb0..0x608da4, 0x608e28..0x74bf1c, 0x74bfb4..0xa50a00, 0xa50a98..0x14cef08, 0x14cef8c..0x16020d4
+
+1. R_AARCH64_RELATIVE relocations with addend in model region : 0
+   R_AARCH64_RELATIVE relocations with addend in payload      : 0
+2. adrp+add targets inside model region (<=12 insns)          : 1128
+     0x1605528 x627  -> b'Create tensor '
+     0x1602145 x488  -> b'Create operator '
+     0x16020e0 x6    -> b'Create net '
+     0x16020fa x6    -> b'Create operators'
+     0x16063cf x1    -> b'20'
+   (all of the above are MACE runtime log string literals that the linker interleaved with the
+    model name streams; no tensor name, record table or payload byte is targeted)
+   adrp+add targets inside payload regions                    : 6
+     0x4387cc x1 -> b'C.F,\x05-\x00\x00(\xb63.\x8a4\xb8\xae'
+     0x4c5cb0 x1 -> b'\xe5\x89\xdb\x06\xc7\x86H\x80\xd6\x0e\xda\x8f\xc3\x07T\r'
+     0x608e28 x1 -> b'g\n\x00\x80\x00\x00\x00\x80\x00\x00\x00\x00\x00\x80\x00\x00'
+     0x74bfb4 x1 -> b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+     0xa50a98 x1 -> b'd&\xf4>\x83\rn>N\x00\xc6>\xe7f\xb5\xbd'
+     0x14cef8c x1 -> b')\xc4\x00\x00\xae\xbc\x87;\x80\xbb\x13\xbfR)\x17\xbe'
+3. movz/movk absolute constants in model region               : 0
+   movz/movk absolute constants in payload regions            : 0
+4. ldr-literal 64-bit constants in model region               : 0
+   ldr-literal 64-bit constants in payload regions            : 0
+5. protobuf framing of model strings in .rodata:
+   hed_model              plain occurrences=1  pb-framed (0x0a/0x22 len)=0
+   enhance_model          plain occurrences=3  pb-framed (0x0a/0x22 len)=0
+   dewarp_coarse_model    plain occurrences=1  pb-framed (0x0a/0x22 len)=0
+   dewarp_fine_model      plain occurrences=1  pb-framed (0x0a/0x22 len)=0
+   EdgeDet/MobilenetV1    plain occurrences=92  pb-framed (0x0a/0x22 len)=0
+   inference/generator    plain occurrences=469  pb-framed (0x0a/0x22 len)=0
+   pred_segment:0         plain occurrences=1  pb-framed (0x0a/0x22 len)=0
+   op type Conv2D               pb-framed (field 4,string)=0
+   op type DepthwiseConv2d      pb-framed (field 4,string)=0
+   op type FullyConnected       pb-framed (field 4,string)=0
+   op type StridedSlice         pb-framed (field 4,string)=0
+
+verdict:
+  * model DESCRIPTION blocks (0x16020d8..0x160cb60) are referenced by nothing: 0 relocations,
+    and the only adrp+add hits inside the region are MACE runtime log literals interleaved
+    with the name streams ('Create operator ', 'Create tensor ', 'Create net ').
+  * model WEIGHTS are reachable only through the constant-returning getters listed in
+    step 2 payload hits (adrp x0/add x0,#imm/ret and movz/movk/ret pairs, consumed by the
+    loader at 0xafbc4).  Those two instructions per getter are the entire link between
+    code and the 18 MB of fp16 bytes; nothing else points at them.
+  * no protobuf/NetDef framing of the model names exists anywhere in the image, so the
+    operator graph is not stored statically.

@@ -1,0 +1,50 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/tiktok_trill/native/libgaia_lib.so
+==============================================================================
+size        : 415728 bytes (0.40 MiB)
+sha256      : 913a0fbab010828d6d2488eb62219a77317614210185f9ad135a2738b8e9b28a
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x24730   imagebase: 0x0
+build id    : 271339ca15956617e60e2d00be62c12027103799
+android     : SDK 21, NDK r21b, build 6352462
+soname      : libgaia_lib.so
+needed      : liblog.so, libm.so, libc++_shared.so, libdl.so, libc.so
+parser      : lief
+counts      : 927 exports, 119 imports, 0 JNI, 25 sections, 8 segments
+symtab/dynsym: 0 / 1056
+
+Sections (25)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        8356       0x228
+  .gnu.hash              GNU_HASH         A      0x22d0       6832       0x22d0
+  .dynsym                DYNSYM           A      0x3d80       25344      0x3d80
+  .dynstr                STRTAB           A      0xa080       79318      0xa080
+  .gnu.version           GNU_VERSYM       A      0x1d656      2112       0x1d656
+  .gnu.version_r         GNU_VERNEED      A      0x1de98      96         0x1de98
+  .rela.dyn              RELA             A      0x1def8      12240      0x1def8
+  .rela.plt              RELA             AI     0x20ec8      8640       0x20ec8
+  .plt                   PROGBITS         AX     0x23090      5792       0x23090
+  .text                  PROGBITS         AX     0x24730      211776     0x24730
+  .rodata                PROGBITS         A      0x58270      10507      0x58270
+  .eh_frame_hdr          PROGBITS         A      0x5ab7c      6588       0x5ab7c
+  .eh_frame              PROGBITS         A      0x5c538      26792      0x5c538
+  .note.android.ident    NOTE             A      0x62de0      152        0x62de0
+  .init_array            INIT_ARRAY       WA     0x63f98      32         0x62f98
+  .fini_array            FINI_ARRAY       WA     0x63fb8      16         0x62fb8
+  .data.rel.ro           PROGBITS         WA     0x63fc8      3584       0x62fc8
+  .dynamic               DYNAMIC          WA     0x64dc8      544        0x63dc8
+  .got                   PROGBITS         WA     0x64fe8      4120       0x63fe8
+  .data                  PROGBITS         WA     0x66000      16         0x65000
+  .bss                   NOBITS           WA     0x66010      5200       0x65010
+  .comment               PROGBITS         MS     0x0          181        0x65010
+  .shstrtab              STRTAB           -      0x0          233        0x650c5
+
+AI-relevant strings (195325 bytes scanned in allocated data sections)
+  [face] 6 unique (first 6)
+    0x0000c1a5 .dynstr    _ZN13AmazingEngine10Matrix4x4f13alignAxisWithEiRKNS_8Vector3fE
+    0x0000f04a .dynstr    _ZNKSt6__ndk16locale9use_facetERNS0_2idE
+    0x0001c581 .dynstr    _ZN13AmazingEngine18stbtt_GetBakedQuadEPKNS_15stbtt_bakedcharEiiiPfS3_PNS_18stbtt_aligned_quadEi
+    0x0001c675 .dynstr    _ZN13AmazingEngine19stbtt_GetPackedQuadEPKNS_16stbtt_packedcharEiiiPfS3_PNS_18stbtt_aligned_quadEi
+    0x00059366 .rodata    align >= DefaultMemoryAlignment && align <= 16 * 1024 && IsPowerOfTwo(align)
+    0x00059501 .rodata    align != 0

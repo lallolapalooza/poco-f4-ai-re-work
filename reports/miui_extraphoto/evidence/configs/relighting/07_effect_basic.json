@@ -1,0 +1,10 @@
+{
+  "name": "树叶光",
+  "type": "RELIGHTING",
+  "icon": "icon.png",
+  "startColor": "#D4ADFF",
+  "endColor": "#E0AAFE",
+  "relightingType": "0x14",
+  "cameraDefinedType": 7,
+  "nameResName": "refocus_relighting_shuye"
+}

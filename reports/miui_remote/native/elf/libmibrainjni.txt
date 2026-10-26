@@ -1,0 +1,128 @@
+==============================================================================
+ELF: /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_remote/inventory/libs/lib/arm64-v8a/libmibrainjni.so
+==============================================================================
+size        : 46792 bytes (0.04 MiB)
+sha256      : ba1caeee75d5b9d60ff1947b464b242152e4af22a9577f4efddced2cc83a8ba6
+format      : ELF64 DYN AARCH64, little-endian, SYSTEMV
+entrypoint  : 0x2fe0   imagebase: 0x0
+build id    : 69b334f7bc1d2e3e9576720fa8762fea391c1261
+android     : SDK 21, NDK r16b, build 4479499
+soname      : libmibrainjni.so
+needed      : liblog.so, libmibrainsdk.so, libstdc++.so, libm.so, libc.so, libdl.so
+parser      : lief
+counts      : 58 exports, 50 imports, 36 JNI, 23 sections, 8 segments
+symtab/dynsym: 0 / 118
+
+Sections (23)
+  name                   type             flags  address      size       offset
+  .note.gnu.build-id     NOTE             A      0x200        36         0x200
+  .hash                  HASH             A      0x228        868        0x228
+  .dynsym                DYNSYM           A      0x590        2832       0x590
+  .dynstr                STRTAB           A      0x10a0       4803       0x10a0
+  .gnu.version           GNU_VERSYM       A      0x2364       236        0x2364
+  .gnu.version_r         GNU_VERNEED      A      0x2450       32         0x2450
+  .rela.dyn              RELA             A      0x2470       48         0x2470
+  .rela.plt              RELA             AI     0x24a0       1704       0x24a0
+  .plt                   PROGBITS         AX     0x2b50       1168       0x2b50
+  .text                  PROGBITS         AX     0x2fe0       23580      0x2fe0
+  .rodata                PROGBITS         AMS    0x8c00       2344       0x8c00
+  .eh_frame_hdr          PROGBITS         A      0x9528       580        0x9528
+  .eh_frame              PROGBITS         A      0x9770       3520       0x9770
+  .note.android.ident    NOTE             A      0xa530       152        0xa530
+  .init_array            INIT_ARRAY       WA     0x1ab68      8          0xab68
+  .fini_array            FINI_ARRAY       WA     0x1ab70      16         0xab70
+  .dynamic               DYNAMIC          WA     0x1ab80      544        0xab80
+  .got                   PROGBITS         WA     0x1ada0      608        0xada0
+  .data                  PROGBITS         WA     0x1b000      8          0xb000
+  .bss                   NOBITS           WA     0x1b008      32         0xb008
+  .comment               PROGBITS         MS     0x0          39         0xb008
+  .shstrtab              STRTAB           -      0x0          216        0xb02f
+
+JNI entry points (36)
+  0x36a4         168        com.xiaomi.ai.mibrain.MibrainOauthManager.newInstance
+      Java_com_xiaomi_ai_mibrain_MibrainOauthManager_newInstance
+  0x374c         764        com.xiaomi.ai.mibrain.MibrainOauthManager.init
+      Java_com_xiaomi_ai_mibrain_MibrainOauthManager_init
+  0x3a48         480        com.xiaomi.ai.mibrain.MibrainOauthManager.getAccessToken
+      Java_com_xiaomi_ai_mibrain_MibrainOauthManager_getAccessToken
+  0x3c28         36         com.xiaomi.ai.mibrain.MibrainOauthManager.releaseInstance
+      Java_com_xiaomi_ai_mibrain_MibrainOauthManager_releaseInstance
+  0x3c4c         312        com.xiaomi.ai.mibrain.MibrainOauthManager.setAnonymousAuth
+      Java_com_xiaomi_ai_mibrain_MibrainOauthManager_setAnonymousAuth
+  0x3d84         380        com.xiaomi.ai.mibrain.MibrainOauthManager.updateAnonymousArgs
+      Java_com_xiaomi_ai_mibrain_MibrainOauthManager_updateAnonymousArgs
+  0x3f00         348        com.xiaomi.ai.mibrain.MibrainOauthManager.genAnonymousAuthorization
+      Java_com_xiaomi_ai_mibrain_MibrainOauthManager_genAnonymousAuthorization
+  0x405c         8          com.xiaomi.ai.mibrain.MibrainOauthManager.unInit
+      Java_com_xiaomi_ai_mibrain_MibrainOauthManager_unInit
+  0x4064         12         com.xiaomi.ai.mibrain.MibrainOauthManager.setTimeout
+      Java_com_xiaomi_ai_mibrain_MibrainOauthManager_setTimeout
+  0x4070         12         com.xiaomi.ai.mibrain.MibrainOauthManager.setEnv
+      Java_com_xiaomi_ai_mibrain_MibrainOauthManager_setEnv
+  0x407c         12         com.xiaomi.ai.mibrain.MibrainOauthManager.setPt
+      Java_com_xiaomi_ai_mibrain_MibrainOauthManager_setPt
+  0x4088         4          com.xiaomi.ai.mibrain.MibrainNativeRequest.newContext
+      Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_newContext
+  0x408c         4          com.xiaomi.ai.mibrain.MibrainNativeRequest.deleteContext
+      Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_deleteContext
+  0x4090         4          com.xiaomi.ai.mibrain.MibrainNativeRequest.startRequest
+      Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_startRequest
+  0x4094         4          com.xiaomi.ai.mibrain.MibrainNativeRequest.addData
+      Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_addData
+  0x4098         4          com.xiaomi.ai.mibrain.MibrainNativeRequest.addNlpData
+      Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_addNlpData
+  0x409c         4          com.xiaomi.ai.mibrain.MibrainNativeRequest.addDataRaw
+      Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_addDataRaw
+  0x40a0         4          com.xiaomi.ai.mibrain.MibrainNativeRequest.stopRequest
+      Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_stopRequest
+  0x40a4         4          com.xiaomi.ai.mibrain.MibrainNativeRequest.setDebugLogLevel
+      Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_setDebugLogLevel
+  0x40a8         4          com.xiaomi.ai.mibrain.MibrainNativeRequest.setLogHookEnable
+      Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_setLogHookEnable
+  0x40ac         4          com.xiaomi.ai.mibrain.MibrainNativeRequest.getResourceDetails
+      Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_getResourceDetails
+  0x40b0         4          com.xiaomi.ai.mibrain.MibrainNativeRequest.getAnonymousAuthorization
+      Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_getAnonymousAuthorization
+  0x40b4         4          com.xiaomi.ai.mibrain.MibrainNativeRequest.newWakeUpRequestParams
+      Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_newWakeUpRequestParams
+  0x40b8         4          com.xiaomi.ai.mibrain.MibrainNativeRequest.releaseWakeUpRequestParams
+      Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_releaseWakeUpRequestParams
+  0x40bc         4          com.xiaomi.ai.mibrain.MibrainNativeRequest.sendWakeUpRequest
+      Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_sendWakeUpRequest
+  0x40c0         4          com.xiaomi.ai.mibrain.MibrainNativeRequest.startUploadRequest
+      Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_startUploadRequest
+  0x40c4         4          com.xiaomi.ai.mibrain.MibrainNativeRequest.addUploadData
+      Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_addUploadData
+  0x40c8         4          com.xiaomi.ai.mibrain.MibrainNativeRequest.endUploadData
+      Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_endUploadData
+  0x886c         252        com.xiaomi.ai.mibrain.MibrainUtils.base64
+      Java_com_xiaomi_ai_mibrain_MibrainUtils_base64
+  0x8968         248        com.xiaomi.ai.mibrain.MibrainUtils.sha1
+      Java_com_xiaomi_ai_mibrain_MibrainUtils_sha1
+  0x8a60         8          com.xiaomi.ai.mibrain.MibrainVad.newVad
+      Java_com_xiaomi_ai_mibrain_MibrainVad_newVad
+  0x8a68         8          com.xiaomi.ai.mibrain.MibrainVad.releaseVad
+      Java_com_xiaomi_ai_mibrain_MibrainVad_releaseVad
+  0x8a70         48         com.xiaomi.ai.mibrain.MibrainVad.vadInit
+      Java_com_xiaomi_ai_mibrain_MibrainVad_vadInit
+  0x8aa4         156        com.xiaomi.ai.mibrain.MibrainVad.vadCheckBegin
+      Java_com_xiaomi_ai_mibrain_MibrainVad_vadCheckBegin
+  0x8b40         156        com.xiaomi.ai.mibrain.MibrainVad.vadCheckEnd
+      Java_com_xiaomi_ai_mibrain_MibrainVad_vadCheckEnd
+  0x8bdc         32         com.xiaomi.ai.mibrain.MibrainVad.vadUnInit
+      Java_com_xiaomi_ai_mibrain_MibrainVad_vadUnInit
+
+AI-relevant strings (18339 bytes scanned in allocated data sections)
+  [asr] 10 unique (first 10)
+    0x00001be7 .dynstr    Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_newWakeUpRequestParams
+    0x00001c2e .dynstr    _Z37mibrain_sdk_new_wakeup_request_paramsP7_JNIEnvP8_jobjectii
+    0x00001c6d .dynstr    Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_releaseWakeUpRequestParams
+    0x00001cb8 .dynstr    _Z41mibrain_sdk_release_wakeup_request_paramsP7_JNIEnvP8_jobjectx
+    0x00001cfa .dynstr    Java_com_xiaomi_ai_mibrain_MibrainNativeRequest_sendWakeUpRequest
+    0x00001d3c .dynstr    _Z28mibrain_sdk_send_wakeup_dataP7_JNIEnvP8_jobjectxS2_
+    0x00008ed8 .rodata    onMiBrainSdkWakeupDataEnd failed !!!!
+    0x000093e0 .rodata    needWakeupData
+    0x000093f0 .rodata    wakeupInfo
+    0x000094f0 .rodata    codec
+
+JSON written to native/elf/libmibrainjni.json

@@ -1,0 +1,7566 @@
+{
+ "source": "libdoc_photo_process.so (.rodata)",
+ "rodata_vaddr": 4413184,
+ "rodata_size": 19540397,
+ "rodata_sha256": "cbfac2f0e32012f1dff584bdb9fdfa12249d17eea95483afd5a57bea17a8d57d",
+ "model_region": {
+  "start": 23077080,
+  "end": 23120736
+ },
+ "model_region_bytes": 43656,
+ "block_count": 5,
+ "blocks": [
+  {
+   "index": 0,
+   "start": 23077088,
+   "end": 23092192,
+   "size": 15104,
+   "name_count": 283,
+   "names_bytes": 13346,
+   "names_sha256": "1be68244afd9998bb3fe3bebcac06f195e574382dc646ea4159b1a281dc6ed61",
+   "tensor_record_count": 105,
+   "table_run_count": 1,
+   "table_invalid_slots": 1,
+   "table_bytes": 1696,
+   "table_sha256": "6bdad52e9b8fc758296d14a2954f8fbfdbe3aa428e5dff7d2fb6c80f7b73fc0e",
+   "record_offset_min": 8,
+   "record_offset_max_end": 578653,
+   "record_size_min": 1,
+   "record_size_max": 18432,
+   "record_size_sum": 289318,
+   "payload_bytes": 578656,
+   "payload": {
+    "law": "byte_offset + 2*fp16_count",
+    "records": 105,
+    "tensor_bytes_min": 2,
+    "tensor_bytes_max": 36864,
+    "first_offset": 8,
+    "max_tensor_end": 578654,
+    "payload_bytes": 578656,
+    "slack_bytes": 2,
+    "covered_bytes": 578636,
+    "coverage": 0.999965,
+    "gap_count": 6,
+    "gap_bytes": 18,
+    "overlaps": 0,
+    "offset0_tensor": false,
+    "proven": true
+   },
+   "op_histogram": {
+    "Eltwise": 1,
+    "Conv2D": 1,
+    "StridedSlice": 1,
+    "ScalarMath": 1,
+    "Stack": 1,
+    "Concat": 1
+   },
+   "first_names": [
+    "Create net ",
+    "default_graph",
+    "Create operators",
+    "filter_format",
+    "framework_type"
+   ],
+   "last_names": [
+    "inference/clip_by_value/Minimum",
+    "inference/clip_by_value/Minimum:0",
+    "inference/clip_by_value",
+    "inference/clip_by_value:0",
+    "inference/mul"
+   ],
+   "name_provenance": {
+    "inference/": 255,
+    "<op-named>": 28
+   },
+   "trailer": {
+    "offset": 23077080,
+    "value": 578656
+   },
+   "segments": [
+    {
+     "kind": "names",
+     "start": 23077088,
+     "end": 23090434,
+     "size": 13346
+    },
+    {
+     "kind": "table",
+     "start": 23090496,
+     "end": 23092192,
+     "size": 1696
+    }
+   ],
+   "tensor_records": [
+    [
+     8,
+     864
+    ],
+    [
+     17352,
+     32
+    ],
+    [
+     578632,
+     1
+    ],
+    [
+     578636,
+     1
+    ],
+    [
+     578640,
+     1
+    ],
+    [
+     578644,
+     1
+    ],
+    [
+     578648,
+     1
+    ],
+    [
+     578652,
+     1
+    ],
+    [
+     17416,
+     512
+    ],
+    [
+     18440,
+     16
+    ],
+    [
+     18472,
+     2304
+    ],
+    [
+     23080,
+     16
+    ],
+    [
+     23112,
+     512
+    ],
+    [
+     24136,
+     32
+    ],
+    [
+     24200,
+     512
+    ],
+    [
+     25224,
+     16
+    ],
+    [
+     25256,
+     2304
+    ],
+    [
+     1736,
+     32
+    ],
+    [
+     29864,
+     16
+    ],
+    [
+     29896,
+     512
+    ],
+    [
+     30920,
+     32
+    ],
+    [
+     30984,
+     512
+    ],
+    [
+     32008,
+     16
+    ],
+    [
+     32040,
+     2304
+    ],
+    [
+     36648,
+     16
+    ],
+    [
+     36680,
+     512
+    ],
+    [
+     37704,
+     32
+    ],
+    [
+     37768,
+     512
+    ],
+    [
+     1800,
+     512
+    ],
+    [
+     38792,
+     16
+    ],
+    [
+     38824,
+     2304
+    ],
+    [
+     43432,
+     16
+    ],
+    [
+     43464,
+     512
+    ],
+    [
+     44488,
+     32
+    ],
+    [
+     44552,
+     512
+    ],
+    [
+     45576,
+     16
+    ],
+    [
+     45608,
+     2304
+    ],
+    [
+     50216,
+     16
+    ],
+    [
+     50248,
+     1024
+    ],
+    [
+     2824,
+     16
+    ],
+    [
+     52296,
+     32
+    ],
+    [
+     52360,
+     9216
+    ],
+    [
+     70792,
+     32
+    ],
+    [
+     70856,
+     9216
+    ],
+    [
+     89288,
+     32
+    ],
+    [
+     89352,
+     9216
+    ],
+    [
+     107784,
+     32
+    ],
+    [
+     107848,
+     9216
+    ],
+    [
+     126280,
+     32
+    ],
+    [
+     126344,
+     9216
+    ],
+    [
+     2856,
+     2304
+    ],
+    [
+     144776,
+     32
+    ],
+    [
+     144840,
+     18432
+    ],
+    [
+     181704,
+     32
+    ],
+    [
+     181768,
+     9216
+    ],
+    [
+     200200,
+     32
+    ],
+    [
+     200264,
+     9216
+    ],
+    [
+     218696,
+     32
+    ],
+    [
+     218760,
+     9216
+    ],
+    [
+     237192,
+     32
+    ],
+    [
+     237256,
+     9216
+    ],
+    [
+     7464,
+     16
+    ],
+    [
+     255688,
+     32
+    ],
+    [
+     255752,
+     9216
+    ],
+    [
+     274184,
+     32
+    ],
+    [
+     274248,
+     18432
+    ],
+    [
+     311112,
+     32
+    ],
+    [
+     311176,
+     9216
+    ],
+    [
+     329608,
+     32
+    ],
+    [
+     329672,
+     9216
+    ],
+    [
+     348104,
+     32
+    ],
+    [
+     348168,
+     9216
+    ],
+    [
+     7496,
+     304
+    ],
+    [
+     366600,
+     32
+    ],
+    [
+     366664,
+     9216
+    ],
+    [
+     385096,
+     32
+    ],
+    [
+     385160,
+     9216
+    ],
+    [
+     403592,
+     32
+    ],
+    [
+     403656,
+     9216
+    ],
+    [
+     422088,
+     32
+    ],
+    [
+     422152,
+     9216
+    ],
+    [
+     440584,
+     32
+    ],
+    [
+     440648,
+     9216
+    ],
+    [
+     8104,
+     16
+    ],
+    [
+     459080,
+     32
+    ],
+    [
+     459144,
+     9216
+    ],
+    [
+     477576,
+     32
+    ],
+    [
+     477640,
+     9216
+    ],
+    [
+     496072,
+     32
+    ],
+    [
+     496136,
+     9216
+    ],
+    [
+     514568,
+     32
+    ],
+    [
+     514632,
+     9216
+    ],
+    [
+     533064,
+     32
+    ],
+    [
+     533128,
+     9216
+    ],
+    [
+     8136,
+     4608
+    ],
+    [
+     551560,
+     32
+    ],
+    [
+     551624,
+     9216
+    ],
+    [
+     570056,
+     32
+    ],
+    [
+     570120,
+     512
+    ],
+    [
+     571144,
+     16
+    ],
+    [
+     571176,
+     2304
+    ],
+    [
+     575784,
+     16
+    ],
+    [
+     575816,
+     512
+    ],
+    [
+     576840,
+     32
+    ],
+    [
+     576904,
+     864
+    ]
+   ],
+   "payload_array_index": [
+    0
+   ],
+   "payload_tensors": [
+    {
+     "offset": 8,
+     "elements": 864,
+     "bytes": 1728,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.12305,
+     "mean": -0.001004,
+     "std": 0.127226,
+     "zeros": 0.0
+    },
+    {
+     "offset": 17352,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0976,
+     "mean": 0.025999,
+     "std": 0.037741,
+     "zeros": 0.0
+    },
+    {
+     "offset": 578632,
+     "elements": 1,
+     "bytes": 2,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0,
+     "mean": 0.0,
+     "std": 0.0,
+     "zeros": 0.0
+    },
+    {
+     "offset": 578636,
+     "elements": 1,
+     "bytes": 2,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0,
+     "mean": 0.0,
+     "std": 0.0,
+     "zeros": 0.0
+    },
+    {
+     "offset": 578640,
+     "elements": 1,
+     "bytes": 2,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0,
+     "mean": 0.0,
+     "std": 0.0,
+     "zeros": 0.0
+    },
+    {
+     "offset": 578644,
+     "elements": 1,
+     "bytes": 2,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0,
+     "mean": 0.0,
+     "std": 0.0,
+     "zeros": 0.0
+    },
+    {
+     "offset": 578648,
+     "elements": 1,
+     "bytes": 2,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0,
+     "mean": 0.0,
+     "std": 0.0,
+     "zeros": 0.0
+    },
+    {
+     "offset": 578652,
+     "elements": 1,
+     "bytes": 2,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0,
+     "mean": 0.0,
+     "std": 0.0,
+     "zeros": 0.0
+    },
+    {
+     "offset": 17416,
+     "elements": 512,
+     "bytes": 1024,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.65039,
+     "mean": -0.005484,
+     "std": 0.216494,
+     "zeros": 0.0
+    },
+    {
+     "offset": 18440,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.07159,
+     "mean": 0.007619,
+     "std": 0.03914,
+     "zeros": 0.0
+    },
+    {
+     "offset": 18472,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.32373,
+     "mean": 0.001191,
+     "std": 0.089371,
+     "zeros": 0.0
+    },
+    {
+     "offset": 23080,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.05054,
+     "mean": 0.005086,
+     "std": 0.022802,
+     "zeros": 0.0
+    },
+    {
+     "offset": 23112,
+     "elements": 512,
+     "bytes": 1024,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.36914,
+     "mean": 0.000153,
+     "std": 0.233672,
+     "zeros": 0.0
+    },
+    {
+     "offset": 24136,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.14563,
+     "mean": 0.01376,
+     "std": 0.042254,
+     "zeros": 0.0
+    },
+    {
+     "offset": 24200,
+     "elements": 512,
+     "bytes": 1024,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.84082,
+     "mean": -0.009161,
+     "std": 0.213205,
+     "zeros": 0.0
+    },
+    {
+     "offset": 25224,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.06274,
+     "mean": -0.005008,
+     "std": 0.033318,
+     "zeros": 0.0
+    },
+    {
+     "offset": 25256,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.29761,
+     "mean": 0.003364,
+     "std": 0.084705,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1736,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.12036,
+     "mean": 0.016153,
+     "std": 0.04538,
+     "zeros": 0.0
+    },
+    {
+     "offset": 29864,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.03348,
+     "mean": -0.004778,
+     "std": 0.018925,
+     "zeros": 0.0
+    },
+    {
+     "offset": 29896,
+     "elements": 512,
+     "bytes": 1024,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.54541,
+     "mean": 0.012378,
+     "std": 0.194715,
+     "zeros": 0.0
+    },
+    {
+     "offset": 30920,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.1759,
+     "mean": 0.013121,
+     "std": 0.06289,
+     "zeros": 0.0
+    },
+    {
+     "offset": 30984,
+     "elements": 512,
+     "bytes": 1024,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.47339,
+     "mean": -0.008554,
+     "std": 0.186762,
+     "zeros": 0.0
+    },
+    {
+     "offset": 32008,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.06799,
+     "mean": 0.000209,
+     "std": 0.03233,
+     "zeros": 0.0
+    },
+    {
+     "offset": 32040,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.34033,
+     "mean": 0.001582,
+     "std": 0.087,
+     "zeros": 0.0
+    },
+    {
+     "offset": 36648,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0567,
+     "mean": 0.003564,
+     "std": 0.027871,
+     "zeros": 0.0
+    },
+    {
+     "offset": 36680,
+     "elements": 512,
+     "bytes": 1024,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.62939,
+     "mean": -0.000113,
+     "std": 0.195114,
+     "zeros": 0.0
+    },
+    {
+     "offset": 37704,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.12683,
+     "mean": 0.013722,
+     "std": 0.05276,
+     "zeros": 0.0
+    },
+    {
+     "offset": 37768,
+     "elements": 512,
+     "bytes": 1024,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.51465,
+     "mean": -0.012165,
+     "std": 0.188049,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1800,
+     "elements": 512,
+     "bytes": 1024,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.73926,
+     "mean": -0.015133,
+     "std": 0.216028,
+     "zeros": 0.0
+    },
+    {
+     "offset": 38792,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.14124,
+     "mean": -0.024379,
+     "std": 0.047756,
+     "zeros": 0.0
+    },
+    {
+     "offset": 38824,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.29175,
+     "mean": -0.001679,
+     "std": 0.085396,
+     "zeros": 0.0
+    },
+    {
+     "offset": 43432,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.09448,
+     "mean": -0.023165,
+     "std": 0.039393,
+     "zeros": 0.0
+    },
+    {
+     "offset": 43464,
+     "elements": 512,
+     "bytes": 1024,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.61719,
+     "mean": 0.001697,
+     "std": 0.197067,
+     "zeros": 0.0
+    },
+    {
+     "offset": 44488,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.14978,
+     "mean": 0.032009,
+     "std": 0.053379,
+     "zeros": 0.0
+    },
+    {
+     "offset": 44552,
+     "elements": 512,
+     "bytes": 1024,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.49268,
+     "mean": 0.005785,
+     "std": 0.192691,
+     "zeros": 0.0
+    },
+    {
+     "offset": 45576,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0766,
+     "mean": 0.003972,
+     "std": 0.039103,
+     "zeros": 0.0
+    },
+    {
+     "offset": 45608,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.3186,
+     "mean": -0.004621,
+     "std": 0.086598,
+     "zeros": 0.0
+    },
+    {
+     "offset": 50216,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.08551,
+     "mean": 0.002212,
+     "std": 0.040213,
+     "zeros": 0.0
+    },
+    {
+     "offset": 50248,
+     "elements": 1024,
+     "bytes": 2048,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.52393,
+     "mean": 0.003103,
+     "std": 0.158327,
+     "zeros": 0.0
+    },
+    {
+     "offset": 2824,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.11041,
+     "mean": -0.00775,
+     "std": 0.0371,
+     "zeros": 0.0
+    },
+    {
+     "offset": 52296,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.15698,
+     "mean": 0.042357,
+     "std": 0.043976,
+     "zeros": 0.0
+    },
+    {
+     "offset": 52360,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.38843,
+     "mean": 0.002687,
+     "std": 0.074834,
+     "zeros": 0.0
+    },
+    {
+     "offset": 70792,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.19543,
+     "mean": 0.038683,
+     "std": 0.060674,
+     "zeros": 0.0
+    },
+    {
+     "offset": 70856,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.49658,
+     "mean": 0.000566,
+     "std": 0.076897,
+     "zeros": 0.0
+    },
+    {
+     "offset": 89288,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.09546,
+     "mean": 0.022879,
+     "std": 0.037269,
+     "zeros": 0.0
+    },
+    {
+     "offset": 89352,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.73779,
+     "mean": 0.000508,
+     "std": 0.073611,
+     "zeros": 0.0
+    },
+    {
+     "offset": 107784,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.13892,
+     "mean": 0.020276,
+     "std": 0.032031,
+     "zeros": 0.0
+    },
+    {
+     "offset": 107848,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.87061,
+     "mean": -0.000184,
+     "std": 0.072595,
+     "zeros": 0.0
+    },
+    {
+     "offset": 126280,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.08099,
+     "mean": 0.010219,
+     "std": 0.033221,
+     "zeros": 0.0
+    },
+    {
+     "offset": 126344,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.39209,
+     "mean": 0.000599,
+     "std": 0.068896,
+     "zeros": 0.0
+    },
+    {
+     "offset": 2856,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.33789,
+     "mean": -0.001135,
+     "std": 0.09612,
+     "zeros": 0.0
+    },
+    {
+     "offset": 144776,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.07922,
+     "mean": 0.012567,
+     "std": 0.031472,
+     "zeros": 0.0
+    },
+    {
+     "offset": 144840,
+     "elements": 18432,
+     "bytes": 36864,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.64258,
+     "mean": -0.000134,
+     "std": 0.066333,
+     "zeros": 0.0
+    },
+    {
+     "offset": 181704,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.11597,
+     "mean": 0.021179,
+     "std": 0.035151,
+     "zeros": 0.0
+    },
+    {
+     "offset": 181768,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.36304,
+     "mean": -0.001049,
+     "std": 0.074328,
+     "zeros": 0.0
+    },
+    {
+     "offset": 200200,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.09686,
+     "mean": 0.015415,
+     "std": 0.027364,
+     "zeros": 0.0
+    },
+    {
+     "offset": 200264,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.57373,
+     "mean": 0.000141,
+     "std": 0.075127,
+     "zeros": 0.0
+    },
+    {
+     "offset": 218696,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.04523,
+     "mean": 0.010246,
+     "std": 0.020162,
+     "zeros": 0.0
+    },
+    {
+     "offset": 218760,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.38794,
+     "mean": 0.001015,
+     "std": 0.070436,
+     "zeros": 0.0
+    },
+    {
+     "offset": 237192,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.06119,
+     "mean": 0.013648,
+     "std": 0.019301,
+     "zeros": 0.0
+    },
+    {
+     "offset": 237256,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.36963,
+     "mean": -0.001058,
+     "std": 0.072683,
+     "zeros": 0.0
+    },
+    {
+     "offset": 7464,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.08569,
+     "mean": -0.002006,
+     "std": 0.042876,
+     "zeros": 0.0
+    },
+    {
+     "offset": 255688,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.06854,
+     "mean": 0.015542,
+     "std": 0.023769,
+     "zeros": 0.0
+    },
+    {
+     "offset": 255752,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.41479,
+     "mean": -3.2e-05,
+     "std": 0.071966,
+     "zeros": 0.0
+    },
+    {
+     "offset": 274184,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.10236,
+     "mean": 0.020193,
+     "std": 0.03223,
+     "zeros": 0.0
+    },
+    {
+     "offset": 274248,
+     "elements": 18432,
+     "bytes": 36864,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.44702,
+     "mean": -0.001364,
+     "std": 0.067832,
+     "zeros": 0.0
+    },
+    {
+     "offset": 311112,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.20325,
+     "mean": 0.015149,
+     "std": 0.048445,
+     "zeros": 0.0
+    },
+    {
+     "offset": 311176,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.51514,
+     "mean": -0.002338,
+     "std": 0.078331,
+     "zeros": 0.0
+    },
+    {
+     "offset": 329608,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.2417,
+     "mean": 0.005332,
+     "std": 0.049493,
+     "zeros": 0.0
+    },
+    {
+     "offset": 329672,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.47046,
+     "mean": -0.000913,
+     "std": 0.076041,
+     "zeros": 0.0
+    },
+    {
+     "offset": 348104,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.14758,
+     "mean": 0.004598,
+     "std": 0.036698,
+     "zeros": 0.0
+    },
+    {
+     "offset": 348168,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.50684,
+     "mean": -0.002618,
+     "std": 0.078628,
+     "zeros": 0.0
+    },
+    {
+     "offset": 7496,
+     "elements": 304,
+     "bytes": 608,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.70654,
+     "mean": 0.002752,
+     "std": 0.243065,
+     "zeros": 0.0
+    },
+    {
+     "offset": 366600,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.20984,
+     "mean": -0.000934,
+     "std": 0.042944,
+     "zeros": 0.0
+    },
+    {
+     "offset": 366664,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.39209,
+     "mean": -0.001518,
+     "std": 0.077549,
+     "zeros": 0.0
+    },
+    {
+     "offset": 385096,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.09271,
+     "mean": 0.004987,
+     "std": 0.033196,
+     "zeros": 0.0
+    },
+    {
+     "offset": 385160,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.45044,
+     "mean": -0.002876,
+     "std": 0.079673,
+     "zeros": 0.0
+    },
+    {
+     "offset": 403592,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.16821,
+     "mean": 0.005837,
+     "std": 0.043134,
+     "zeros": 0.0
+    },
+    {
+     "offset": 403656,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.51465,
+     "mean": -0.00329,
+     "std": 0.082574,
+     "zeros": 0.0
+    },
+    {
+     "offset": 422088,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.07788,
+     "mean": -0.000164,
+     "std": 0.035249,
+     "zeros": 0.0
+    },
+    {
+     "offset": 422152,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.49219,
+     "mean": -0.003798,
+     "std": 0.082526,
+     "zeros": 0.0
+    },
+    {
+     "offset": 440584,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.09717,
+     "mean": 0.006533,
+     "std": 0.037703,
+     "zeros": 0.0
+    },
+    {
+     "offset": 440648,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.40552,
+     "mean": -0.002436,
+     "std": 0.080473,
+     "zeros": 0.0
+    },
+    {
+     "offset": 8104,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.15674,
+     "mean": 0.040442,
+     "std": 0.05253,
+     "zeros": 0.0
+    },
+    {
+     "offset": 459080,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.14124,
+     "mean": -0.001151,
+     "std": 0.042964,
+     "zeros": 0.0
+    },
+    {
+     "offset": 459144,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.44287,
+     "mean": -0.002492,
+     "std": 0.077559,
+     "zeros": 0.0
+    },
+    {
+     "offset": 477576,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0921,
+     "mean": 0.001582,
+     "std": 0.033954,
+     "zeros": 0.0
+    },
+    {
+     "offset": 477640,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.65283,
+     "mean": -0.000917,
+     "std": 0.079389,
+     "zeros": 0.0
+    },
+    {
+     "offset": 496072,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.151,
+     "mean": 0.003237,
+     "std": 0.036788,
+     "zeros": 0.0
+    },
+    {
+     "offset": 496136,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.78125,
+     "mean": -0.001014,
+     "std": 0.076937,
+     "zeros": 0.0
+    },
+    {
+     "offset": 514568,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.11945,
+     "mean": -0.002148,
+     "std": 0.033171,
+     "zeros": 0.0
+    },
+    {
+     "offset": 514632,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.47607,
+     "mean": 0.001484,
+     "std": 0.076616,
+     "zeros": 0.0
+    },
+    {
+     "offset": 533064,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.23682,
+     "mean": 0.000291,
+     "std": 0.054001,
+     "zeros": 0.0
+    },
+    {
+     "offset": 533128,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.86035,
+     "mean": 0.003479,
+     "std": 0.078928,
+     "zeros": 0.0
+    },
+    {
+     "offset": 8136,
+     "elements": 4608,
+     "bytes": 9216,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.28711,
+     "mean": 0.002499,
+     "std": 0.11706,
+     "zeros": 0.0
+    },
+    {
+     "offset": 551560,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.06119,
+     "mean": -0.000101,
+     "std": 0.026457,
+     "zeros": 0.0
+    },
+    {
+     "offset": 551624,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.90186,
+     "mean": 0.006094,
+     "std": 0.085901,
+     "zeros": 0.0
+    },
+    {
+     "offset": 570056,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.05383,
+     "mean": 0.002945,
+     "std": 0.02093,
+     "zeros": 0.0
+    },
+    {
+     "offset": 570120,
+     "elements": 512,
+     "bytes": 1024,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.51562,
+     "mean": 0.004188,
+     "std": 0.217941,
+     "zeros": 0.0
+    },
+    {
+     "offset": 571144,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.02737,
+     "mean": 0.003215,
+     "std": 0.009446,
+     "zeros": 0.0
+    },
+    {
+     "offset": 571176,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.32837,
+     "mean": 0.002935,
+     "std": 0.099414,
+     "zeros": 0.0
+    },
+    {
+     "offset": 575784,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.07172,
+     "mean": -0.010805,
+     "std": 0.034097,
+     "zeros": 0.0
+    },
+    {
+     "offset": 575816,
+     "elements": 512,
+     "bytes": 1024,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.07031,
+     "mean": 0.007974,
+     "std": 0.258935,
+     "zeros": 0.0
+    },
+    {
+     "offset": 576840,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.25195,
+     "mean": 0.002374,
+     "std": 0.048595,
+     "zeros": 0.0
+    },
+    {
+     "offset": 576904,
+     "elements": 864,
+     "bytes": 1728,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.5835,
+     "mean": -0.000332,
+     "std": 0.101695,
+     "zeros": 0.0
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "start": 23092200,
+   "end": 23097832,
+   "size": 5632,
+   "name_count": 369,
+   "names_bytes": 3049,
+   "names_sha256": "f9c01a93c27dd70a8298ee535653cc8962911ac9c7c18d559916f3570eb13154",
+   "tensor_record_count": 160,
+   "table_run_count": 1,
+   "table_invalid_slots": 0,
+   "table_bytes": 2560,
+   "table_sha256": "1b49c896bbcf3c1f495c011cfef4b2261545e2a1741088fc92c6e38a1518de5a",
+   "record_offset_min": 0,
+   "record_offset_max_end": 1323220,
+   "record_size_min": 2,
+   "record_size_max": 46080,
+   "record_size_sum": 661626,
+   "payload_bytes": 1323252,
+   "payload": {
+    "law": "byte_offset + 2*fp16_count",
+    "records": 160,
+    "tensor_bytes_min": 4,
+    "tensor_bytes_max": 92160,
+    "first_offset": 0,
+    "max_tensor_end": 1323252,
+    "payload_bytes": 1323252,
+    "slack_bytes": 0,
+    "covered_bytes": 1323252,
+    "coverage": 1.0,
+    "gap_count": 0,
+    "gap_bytes": 0,
+    "overlaps": 0,
+    "offset0_tensor": true,
+    "proven": true
+   },
+   "op_histogram": {
+    "DepthwiseConv2d": 1,
+    "FullyConnected": 1
+   },
+   "first_names": [
+    "Div_1",
+    "dewarp_466",
+    "Sub_3",
+    "dewarp_468",
+    "Clip_6"
+   ],
+   "last_names": [
+    "1106",
+    "dewarp_937",
+    "Clip_295",
+    "1108",
+    "1110"
+   ],
+   "name_provenance": {
+    "<op-named>": 235,
+    "<numeric-node-id>": 134
+   },
+   "trailer": {
+    "offset": 23092192,
+    "value": 1323252
+   },
+   "segments": [
+    {
+     "kind": "names",
+     "start": 23092200,
+     "end": 23095249,
+     "size": 3049
+    },
+    {
+     "kind": "table",
+     "start": 23095264,
+     "end": 23097824,
+     "size": 2560
+    }
+   ],
+   "tensor_records": [
+    [
+     0,
+     64
+    ],
+    [
+     128,
+     3072
+    ],
+    [
+     8932,
+     144
+    ],
+    [
+     624852,
+     4320
+    ],
+    [
+     633492,
+     480
+    ],
+    [
+     634452,
+     38400
+    ],
+    [
+     711252,
+     80
+    ],
+    [
+     711412,
+     38400
+    ],
+    [
+     788212,
+     480
+    ],
+    [
+     789172,
+     4320
+    ],
+    [
+     797812,
+     480
+    ],
+    [
+     798772,
+     38400
+    ],
+    [
+     875572,
+     80
+    ],
+    [
+     9220,
+     16
+    ],
+    [
+     875732,
+     5120
+    ],
+    [
+     885972,
+     64
+    ],
+    [
+     886100,
+     46080
+    ],
+    [
+     978260,
+     64
+    ],
+    [
+     978388,
+     5120
+    ],
+    [
+     988628,
+     64
+    ],
+    [
+     988756,
+     12288
+    ],
+    [
+     1013332,
+     64
+    ],
+    [
+     1013460,
+     24576
+    ],
+    [
+     1062612,
+     384
+    ],
+    [
+     9252,
+     128
+    ],
+    [
+     1063380,
+     3456
+    ],
+    [
+     1070292,
+     384
+    ],
+    [
+     1071060,
+     24576
+    ],
+    [
+     1120212,
+     64
+    ],
+    [
+     1120340,
+     24576
+    ],
+    [
+     1169492,
+     384
+    ],
+    [
+     1170260,
+     3456
+    ],
+    [
+     1177172,
+     384
+    ],
+    [
+     1177940,
+     12288
+    ],
+    [
+     1202516,
+     32
+    ],
+    [
+     9508,
+     8
+    ],
+    [
+     1202580,
+     6144
+    ],
+    [
+     1214868,
+     192
+    ],
+    [
+     1215252,
+     1728
+    ],
+    [
+     1218708,
+     192
+    ],
+    [
+     1219092,
+     6144
+    ],
+    [
+     1231380,
+     32
+    ],
+    [
+     1231444,
+     6144
+    ],
+    [
+     1243732,
+     192
+    ],
+    [
+     1244116,
+     1728
+    ],
+    [
+     1247572,
+     192
+    ],
+    [
+     9524,
+     384
+    ],
+    [
+     1247956,
+     3072
+    ],
+    [
+     1254100,
+     16
+    ],
+    [
+     1254132,
+     1536
+    ],
+    [
+     1257204,
+     96
+    ],
+    [
+     1257396,
+     864
+    ],
+    [
+     1259124,
+     96
+    ],
+    [
+     1259316,
+     3072
+    ],
+    [
+     1265460,
+     32
+    ],
+    [
+     1265524,
+     6144
+    ],
+    [
+     1277812,
+     192
+    ],
+    [
+     10292,
+     48
+    ],
+    [
+     1278196,
+     1728
+    ],
+    [
+     1281652,
+     192
+    ],
+    [
+     1282036,
+     6144
+    ],
+    [
+     1294324,
+     32
+    ],
+    [
+     1294388,
+     6144
+    ],
+    [
+     1306676,
+     192
+    ],
+    [
+     1307060,
+     1728
+    ],
+    [
+     1310516,
+     192
+    ],
+    [
+     1310900,
+     6144
+    ],
+    [
+     1323188,
+     32
+    ],
+    [
+     10388,
+     432
+    ],
+    [
+     11252,
+     48
+    ],
+    [
+     11348,
+     768
+    ],
+    [
+     12884,
+     16
+    ],
+    [
+     6272,
+     16
+    ],
+    [
+     12916,
+     1536
+    ],
+    [
+     15988,
+     96
+    ],
+    [
+     16180,
+     864
+    ],
+    [
+     17908,
+     96
+    ],
+    [
+     18100,
+     1536
+    ],
+    [
+     21172,
+     16
+    ],
+    [
+     21204,
+     1536
+    ],
+    [
+     24276,
+     96
+    ],
+    [
+     24468,
+     864
+    ],
+    [
+     26196,
+     96
+    ],
+    [
+     6304,
+     256
+    ],
+    [
+     26388,
+     1536
+    ],
+    [
+     29460,
+     16
+    ],
+    [
+     29492,
+     1536
+    ],
+    [
+     32564,
+     96
+    ],
+    [
+     32756,
+     864
+    ],
+    [
+     34484,
+     96
+    ],
+    [
+     34676,
+     1536
+    ],
+    [
+     37748,
+     16
+    ],
+    [
+     37780,
+     1536
+    ],
+    [
+     40852,
+     96
+    ],
+    [
+     6816,
+     32
+    ],
+    [
+     41044,
+     864
+    ],
+    [
+     42772,
+     96
+    ],
+    [
+     42964,
+     1536
+    ],
+    [
+     46036,
+     16
+    ],
+    [
+     46068,
+     1536
+    ],
+    [
+     49140,
+     96
+    ],
+    [
+     49332,
+     864
+    ],
+    [
+     51060,
+     96
+    ],
+    [
+     51252,
+     3072
+    ],
+    [
+     57396,
+     32
+    ],
+    [
+     6880,
+     512
+    ],
+    [
+     57460,
+     6144
+    ],
+    [
+     69748,
+     192
+    ],
+    [
+     70132,
+     1728
+    ],
+    [
+     73588,
+     192
+    ],
+    [
+     73972,
+     6144
+    ],
+    [
+     86260,
+     32
+    ],
+    [
+     86324,
+     6144
+    ],
+    [
+     98612,
+     192
+    ],
+    [
+     98996,
+     1728
+    ],
+    [
+     102452,
+     192
+    ],
+    [
+     7904,
+     2
+    ],
+    [
+     102836,
+     6144
+    ],
+    [
+     115124,
+     32
+    ],
+    [
+     115188,
+     6144
+    ],
+    [
+     127476,
+     192
+    ],
+    [
+     127860,
+     1728
+    ],
+    [
+     131316,
+     192
+    ],
+    [
+     131700,
+     6144
+    ],
+    [
+     143988,
+     32
+    ],
+    [
+     144052,
+     6144
+    ],
+    [
+     156340,
+     192
+    ],
+    [
+     7908,
+     64
+    ],
+    [
+     156724,
+     1728
+    ],
+    [
+     160180,
+     192
+    ],
+    [
+     160564,
+     9216
+    ],
+    [
+     178996,
+     48
+    ],
+    [
+     179092,
+     13824
+    ],
+    [
+     206740,
+     288
+    ],
+    [
+     207316,
+     2592
+    ],
+    [
+     212500,
+     288
+    ],
+    [
+     213076,
+     13824
+    ],
+    [
+     240724,
+     48
+    ],
+    [
+     8036,
+     432
+    ],
+    [
+     240820,
+     13824
+    ],
+    [
+     268468,
+     288
+    ],
+    [
+     269044,
+     2592
+    ],
+    [
+     274228,
+     288
+    ],
+    [
+     274804,
+     13824
+    ],
+    [
+     302452,
+     48
+    ],
+    [
+     302548,
+     13824
+    ],
+    [
+     330196,
+     288
+    ],
+    [
+     330772,
+     2592
+    ],
+    [
+     335956,
+     288
+    ],
+    [
+     8900,
+     16
+    ],
+    [
+     336532,
+     23040
+    ],
+    [
+     382612,
+     80
+    ],
+    [
+     382772,
+     38400
+    ],
+    [
+     459572,
+     480
+    ],
+    [
+     460532,
+     4320
+    ],
+    [
+     469172,
+     480
+    ],
+    [
+     470132,
+     38400
+    ],
+    [
+     546932,
+     80
+    ],
+    [
+     547092,
+     38400
+    ],
+    [
+     623892,
+     480
+    ]
+   ],
+   "payload_array_index": [
+    1,
+    2
+   ],
+   "payload_tensors": [
+    {
+     "offset": 0,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.00093,
+     "mean": 5.6e-05,
+     "std": 0.000276,
+     "zeros": 0.0
+    },
+    {
+     "offset": 128,
+     "elements": 3072,
+     "bytes": 6144,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.06177,
+     "mean": -0.0001,
+     "std": 0.00587,
+     "zeros": 0.0
+    },
+    {
+     "offset": 8932,
+     "elements": 144,
+     "bytes": 288,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 7.53906,
+     "mean": -0.008887,
+     "std": 1.067646,
+     "zeros": 0.375
+    },
+    {
+     "offset": 624852,
+     "elements": 4320,
+     "bytes": 8640,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.69141,
+     "mean": 0.025505,
+     "std": 0.164157,
+     "zeros": 0.3563
+    },
+    {
+     "offset": 633492,
+     "elements": 480,
+     "bytes": 960,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.02048,
+     "mean": 0.000414,
+     "std": 0.005835,
+     "zeros": 0.3563
+    },
+    {
+     "offset": 634452,
+     "elements": 38400,
+     "bytes": 76800,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.72168,
+     "mean": -0.001485,
+     "std": 0.129423,
+     "zeros": 0.3563
+    },
+    {
+     "offset": 711252,
+     "elements": 80,
+     "bytes": 160,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.04327,
+     "mean": 0.001233,
+     "std": 0.015903,
+     "zeros": 0.0
+    },
+    {
+     "offset": 711412,
+     "elements": 38400,
+     "bytes": 76800,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.5957,
+     "mean": 0.000453,
+     "std": 0.077348,
+     "zeros": 0.3229
+    },
+    {
+     "offset": 788212,
+     "elements": 480,
+     "bytes": 960,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.03271,
+     "mean": -0.004203,
+     "std": 0.007117,
+     "zeros": 0.3229
+    },
+    {
+     "offset": 789172,
+     "elements": 4320,
+     "bytes": 8640,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.75977,
+     "mean": 0.081545,
+     "std": 0.161468,
+     "zeros": 0.3229
+    },
+    {
+     "offset": 797812,
+     "elements": 480,
+     "bytes": 960,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.02281,
+     "mean": -0.001241,
+     "std": 0.006278,
+     "zeros": 0.3229
+    },
+    {
+     "offset": 798772,
+     "elements": 38400,
+     "bytes": 76800,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.05371,
+     "mean": 0.000202,
+     "std": 0.140815,
+     "zeros": 0.3314
+    },
+    {
+     "offset": 875572,
+     "elements": 80,
+     "bytes": 160,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.06348,
+     "mean": 0.00121,
+     "std": 0.016675,
+     "zeros": 0.0
+    },
+    {
+     "offset": 9220,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.12054,
+     "mean": 0.020962,
+     "std": 0.035273,
+     "zeros": 0.375
+    },
+    {
+     "offset": 875732,
+     "elements": 5120,
+     "bytes": 10240,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.53516,
+     "mean": 0.00028,
+     "std": 0.04596,
+     "zeros": 0.0
+    },
+    {
+     "offset": 885972,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.01573,
+     "mean": 0.000795,
+     "std": 0.004775,
+     "zeros": 0.0
+    },
+    {
+     "offset": 886100,
+     "elements": 46080,
+     "bytes": 92160,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.37183,
+     "mean": 8.5e-05,
+     "std": 0.034592,
+     "zeros": 0.0
+    },
+    {
+     "offset": 978260,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.02834,
+     "mean": -0.00506,
+     "std": 0.009059,
+     "zeros": 0.0
+    },
+    {
+     "offset": 978388,
+     "elements": 5120,
+     "bytes": 10240,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.60498,
+     "mean": 6.7e-05,
+     "std": 0.098697,
+     "zeros": 0.0
+    },
+    {
+     "offset": 988628,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.01668,
+     "mean": 0.000472,
+     "std": 0.005407,
+     "zeros": 0.0
+    },
+    {
+     "offset": 988756,
+     "elements": 12288,
+     "bytes": 24576,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.94043,
+     "mean": -0.006526,
+     "std": 0.120505,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1013332,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.03616,
+     "mean": 0.011154,
+     "std": 0.012079,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1013460,
+     "elements": 24576,
+     "bytes": 49152,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.24707,
+     "mean": -0.000505,
+     "std": 0.056869,
+     "zeros": 0.6172
+    },
+    {
+     "offset": 1062612,
+     "elements": 384,
+     "bytes": 768,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.06003,
+     "mean": 0.002072,
+     "std": 0.008266,
+     "zeros": 0.6172
+    },
+    {
+     "offset": 9252,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.17383,
+     "mean": -0.078679,
+     "std": 0.831695,
+     "zeros": 0.375
+    },
+    {
+     "offset": 1063380,
+     "elements": 3456,
+     "bytes": 6912,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 2.10156,
+     "mean": 0.019744,
+     "std": 0.134746,
+     "zeros": 0.6172
+    },
+    {
+     "offset": 1070292,
+     "elements": 384,
+     "bytes": 768,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.04797,
+     "mean": 0.000513,
+     "std": 0.004785,
+     "zeros": 0.6172
+    },
+    {
+     "offset": 1071060,
+     "elements": 24576,
+     "bytes": 49152,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.07617,
+     "mean": -0.001927,
+     "std": 0.112938,
+     "zeros": 0.7966
+    },
+    {
+     "offset": 1120212,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.06268,
+     "mean": 0.003648,
+     "std": 0.015628,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1120340,
+     "elements": 24576,
+     "bytes": 49152,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.09863,
+     "mean": 0.000238,
+     "std": 0.053391,
+     "zeros": 0.4505
+    },
+    {
+     "offset": 1169492,
+     "elements": 384,
+     "bytes": 768,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.09052,
+     "mean": 0.00093,
+     "std": 0.008848,
+     "zeros": 0.4505
+    },
+    {
+     "offset": 1170260,
+     "elements": 3456,
+     "bytes": 6912,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.19531,
+     "mean": 0.018326,
+     "std": 0.120742,
+     "zeros": 0.4505
+    },
+    {
+     "offset": 1177172,
+     "elements": 384,
+     "bytes": 768,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0284,
+     "mean": 0.001224,
+     "std": 0.004946,
+     "zeros": 0.4505
+    },
+    {
+     "offset": 1177940,
+     "elements": 12288,
+     "bytes": 24576,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.625,
+     "mean": -0.000344,
+     "std": 0.319628,
+     "zeros": 0.5878
+    },
+    {
+     "offset": 1202516,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.46606,
+     "mean": -0.009472,
+     "std": 0.122885,
+     "zeros": 0.2188
+    },
+    {
+     "offset": 9508,
+     "elements": 8,
+     "bytes": 16,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.22754,
+     "mean": 0.035187,
+     "std": 0.096685,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1202580,
+     "elements": 6144,
+     "bytes": 12288,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0,
+     "mean": 0.0,
+     "std": 0.0,
+     "zeros": 1.0
+    },
+    {
+     "offset": 1214868,
+     "elements": 192,
+     "bytes": 384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0,
+     "mean": 0.0,
+     "std": 0.0,
+     "zeros": 1.0
+    },
+    {
+     "offset": 1215252,
+     "elements": 1728,
+     "bytes": 3456,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0,
+     "mean": 0.0,
+     "std": 0.0,
+     "zeros": 1.0
+    },
+    {
+     "offset": 1218708,
+     "elements": 192,
+     "bytes": 384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0,
+     "mean": 0.0,
+     "std": 0.0,
+     "zeros": 1.0
+    },
+    {
+     "offset": 1219092,
+     "elements": 6144,
+     "bytes": 12288,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0,
+     "mean": 0.0,
+     "std": 0.0,
+     "zeros": 1.0
+    },
+    {
+     "offset": 1231380,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.00015,
+     "mean": 1e-05,
+     "std": 4.5e-05,
+     "zeros": 0.2188
+    },
+    {
+     "offset": 1231444,
+     "elements": 6144,
+     "bytes": 12288,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.49121,
+     "mean": -0.000178,
+     "std": 0.015141,
+     "zeros": 0.9959
+    },
+    {
+     "offset": 1243732,
+     "elements": 192,
+     "bytes": 384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0082,
+     "mean": 4.3e-05,
+     "std": 0.00059,
+     "zeros": 0.9948
+    },
+    {
+     "offset": 1244116,
+     "elements": 1728,
+     "bytes": 3456,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.8999,
+     "mean": 0.000276,
+     "std": 0.034067,
+     "zeros": 0.9948
+    },
+    {
+     "offset": 1247572,
+     "elements": 192,
+     "bytes": 384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.00328,
+     "mean": 1.7e-05,
+     "std": 0.000236,
+     "zeros": 0.9948
+    },
+    {
+     "offset": 9524,
+     "elements": 384,
+     "bytes": 768,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.52393,
+     "mean": -0.001843,
+     "std": 0.111208,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1247956,
+     "elements": 3072,
+     "bytes": 6144,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.3916,
+     "mean": -0.000453,
+     "std": 0.025103,
+     "zeros": 0.9997
+    },
+    {
+     "offset": 1254100,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0179,
+     "mean": 0.001119,
+     "std": 0.004333,
+     "zeros": 0.9375
+    },
+    {
+     "offset": 1254132,
+     "elements": 1536,
+     "bytes": 3072,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.14844,
+     "mean": -0.000678,
+     "std": 0.029422,
+     "zeros": 0.9987
+    },
+    {
+     "offset": 1257204,
+     "elements": 96,
+     "bytes": 192,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.05286,
+     "mean": 0.000719,
+     "std": 0.005596,
+     "zeros": 0.9792
+    },
+    {
+     "offset": 1257396,
+     "elements": 864,
+     "bytes": 1728,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.87451,
+     "mean": 0.005374,
+     "std": 0.062619,
+     "zeros": 0.9792
+    },
+    {
+     "offset": 1259124,
+     "elements": 96,
+     "bytes": 192,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.03906,
+     "mean": -0.000418,
+     "std": 0.003966,
+     "zeros": 0.9792
+    },
+    {
+     "offset": 1259316,
+     "elements": 3072,
+     "bytes": 6144,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.61523,
+     "mean": -0.000268,
+     "std": 0.037729,
+     "zeros": 0.9922
+    },
+    {
+     "offset": 1265460,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.04388,
+     "mean": 0.001701,
+     "std": 0.011405,
+     "zeros": 0.2188
+    },
+    {
+     "offset": 1265524,
+     "elements": 6144,
+     "bytes": 12288,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.99072,
+     "mean": -0.000463,
+     "std": 0.034333,
+     "zeros": 0.9797
+    },
+    {
+     "offset": 1277812,
+     "elements": 192,
+     "bytes": 384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.08594,
+     "mean": 0.000822,
+     "std": 0.008748,
+     "zeros": 0.974
+    },
+    {
+     "offset": 10292,
+     "elements": 48,
+     "bytes": 96,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.04794,
+     "mean": 0.014502,
+     "std": 0.014888,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1278196,
+     "elements": 1728,
+     "bytes": 3456,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 2.04883,
+     "mean": 0.001202,
+     "std": 0.095588,
+     "zeros": 0.974
+    },
+    {
+     "offset": 1281652,
+     "elements": 192,
+     "bytes": 384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.05099,
+     "mean": 0.000477,
+     "std": 0.004323,
+     "zeros": 0.974
+    },
+    {
+     "offset": 1282036,
+     "elements": 6144,
+     "bytes": 12288,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.17969,
+     "mean": -0.000822,
+     "std": 0.094972,
+     "zeros": 0.9878
+    },
+    {
+     "offset": 1294324,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.29297,
+     "mean": 0.004162,
+     "std": 0.083147,
+     "zeros": 0.2188
+    },
+    {
+     "offset": 1294388,
+     "elements": 6144,
+     "bytes": 12288,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.34766,
+     "mean": -0.000226,
+     "std": 0.036799,
+     "zeros": 0.9797
+    },
+    {
+     "offset": 1306676,
+     "elements": 192,
+     "bytes": 384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.06378,
+     "mean": 0.000598,
+     "std": 0.00528,
+     "zeros": 0.974
+    },
+    {
+     "offset": 1307060,
+     "elements": 1728,
+     "bytes": 3456,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 2.05469,
+     "mean": 0.003317,
+     "std": 0.088378,
+     "zeros": 0.974
+    },
+    {
+     "offset": 1310516,
+     "elements": 192,
+     "bytes": 384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.01036,
+     "mean": 8.5e-05,
+     "std": 0.000782,
+     "zeros": 0.974
+    },
+    {
+     "offset": 1310900,
+     "elements": 6144,
+     "bytes": 12288,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 2.68164,
+     "mean": 0.000238,
+     "std": 0.072812,
+     "zeros": 0.9959
+    },
+    {
+     "offset": 1323188,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.06403,
+     "mean": 0.001212,
+     "std": 0.016243,
+     "zeros": 0.25
+    },
+    {
+     "offset": 10388,
+     "elements": 432,
+     "bytes": 864,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.21484,
+     "mean": -0.007886,
+     "std": 0.265852,
+     "zeros": 0.0
+    },
+    {
+     "offset": 11252,
+     "elements": 48,
+     "bytes": 96,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.05542,
+     "mean": 0.009613,
+     "std": 0.013319,
+     "zeros": 0.0
+    },
+    {
+     "offset": 11348,
+     "elements": 768,
+     "bytes": 1536,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.17188,
+     "mean": 0.00639,
+     "std": 0.336498,
+     "zeros": 0.0
+    },
+    {
+     "offset": 12884,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.09955,
+     "mean": -0.008644,
+     "std": 0.045214,
+     "zeros": 0.0
+    },
+    {
+     "offset": 6272,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.00019,
+     "mean": -1.2e-05,
+     "std": 4.7e-05,
+     "zeros": 0.9375
+    },
+    {
+     "offset": 12916,
+     "elements": 1536,
+     "bytes": 3072,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.93652,
+     "mean": -0.001505,
+     "std": 0.16906,
+     "zeros": 0.0104
+    },
+    {
+     "offset": 15988,
+     "elements": 96,
+     "bytes": 192,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.03497,
+     "mean": 0.006557,
+     "std": 0.010898,
+     "zeros": 0.0104
+    },
+    {
+     "offset": 16180,
+     "elements": 864,
+     "bytes": 1728,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.87207,
+     "mean": 0.013045,
+     "std": 0.242433,
+     "zeros": 0.0104
+    },
+    {
+     "offset": 17908,
+     "elements": 96,
+     "bytes": 192,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.04108,
+     "mean": 0.002499,
+     "std": 0.009995,
+     "zeros": 0.0104
+    },
+    {
+     "offset": 18100,
+     "elements": 1536,
+     "bytes": 3072,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.59375,
+     "mean": -0.004232,
+     "std": 0.426088,
+     "zeros": 0.0104
+    },
+    {
+     "offset": 21172,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.09613,
+     "mean": 0.010471,
+     "std": 0.043799,
+     "zeros": 0.0
+    },
+    {
+     "offset": 21204,
+     "elements": 1536,
+     "bytes": 3072,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.1875,
+     "mean": -0.0071,
+     "std": 0.152791,
+     "zeros": 0.0625
+    },
+    {
+     "offset": 24276,
+     "elements": 96,
+     "bytes": 192,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.06891,
+     "mean": 0.001404,
+     "std": 0.016286,
+     "zeros": 0.0625
+    },
+    {
+     "offset": 24468,
+     "elements": 864,
+     "bytes": 1728,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.54541,
+     "mean": 0.012089,
+     "std": 0.15412,
+     "zeros": 0.0625
+    },
+    {
+     "offset": 26196,
+     "elements": 96,
+     "bytes": 192,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.05078,
+     "mean": 0.004781,
+     "std": 0.010237,
+     "zeros": 0.0625
+    },
+    {
+     "offset": 6304,
+     "elements": 256,
+     "bytes": 512,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.00057,
+     "mean": -2e-06,
+     "std": 5.8e-05,
+     "zeros": 0.9375
+    },
+    {
+     "offset": 26388,
+     "elements": 1536,
+     "bytes": 3072,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.21875,
+     "mean": -0.006147,
+     "std": 0.399658,
+     "zeros": 0.0625
+    },
+    {
+     "offset": 29460,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.08081,
+     "mean": 0.011954,
+     "std": 0.037349,
+     "zeros": 0.0
+    },
+    {
+     "offset": 29492,
+     "elements": 1536,
+     "bytes": 3072,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.47632,
+     "mean": 0.006898,
+     "std": 0.099811,
+     "zeros": 0.2917
+    },
+    {
+     "offset": 32564,
+     "elements": 96,
+     "bytes": 192,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.04825,
+     "mean": 0.008988,
+     "std": 0.010153,
+     "zeros": 0.2917
+    },
+    {
+     "offset": 32756,
+     "elements": 864,
+     "bytes": 1728,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.84131,
+     "mean": 0.00545,
+     "std": 0.168105,
+     "zeros": 0.2917
+    },
+    {
+     "offset": 34484,
+     "elements": 96,
+     "bytes": 192,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.03763,
+     "mean": 0.000791,
+     "std": 0.008031,
+     "zeros": 0.2917
+    },
+    {
+     "offset": 34676,
+     "elements": 1536,
+     "bytes": 3072,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.23145,
+     "mean": 0.001305,
+     "std": 0.245939,
+     "zeros": 0.2917
+    },
+    {
+     "offset": 37748,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.01778,
+     "mean": -0.000989,
+     "std": 0.009182,
+     "zeros": 0.0
+    },
+    {
+     "offset": 37780,
+     "elements": 1536,
+     "bytes": 3072,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.53467,
+     "mean": -0.003708,
+     "std": 0.111264,
+     "zeros": 0.0938
+    },
+    {
+     "offset": 40852,
+     "elements": 96,
+     "bytes": 192,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.02583,
+     "mean": 0.009764,
+     "std": 0.008526,
+     "zeros": 0.0938
+    },
+    {
+     "offset": 6816,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.056,
+     "mean": 0.001442,
+     "std": 0.01954,
+     "zeros": 0.2188
+    },
+    {
+     "offset": 41044,
+     "elements": 864,
+     "bytes": 1728,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.65771,
+     "mean": 0.009539,
+     "std": 0.180103,
+     "zeros": 0.0938
+    },
+    {
+     "offset": 42772,
+     "elements": 96,
+     "bytes": 192,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.02852,
+     "mean": -0.000278,
+     "std": 0.007336,
+     "zeros": 0.0938
+    },
+    {
+     "offset": 42964,
+     "elements": 1536,
+     "bytes": 3072,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.10547,
+     "mean": 0.002255,
+     "std": 0.287629,
+     "zeros": 0.0938
+    },
+    {
+     "offset": 46036,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.02028,
+     "mean": 0.000592,
+     "std": 0.009401,
+     "zeros": 0.0
+    },
+    {
+     "offset": 46068,
+     "elements": 1536,
+     "bytes": 3072,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.64893,
+     "mean": 0.004161,
+     "std": 0.141715,
+     "zeros": 0.0938
+    },
+    {
+     "offset": 49140,
+     "elements": 96,
+     "bytes": 192,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.039,
+     "mean": 0.003943,
+     "std": 0.011254,
+     "zeros": 0.0938
+    },
+    {
+     "offset": 49332,
+     "elements": 864,
+     "bytes": 1728,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.62354,
+     "mean": 0.041472,
+     "std": 0.178983,
+     "zeros": 0.0938
+    },
+    {
+     "offset": 51060,
+     "elements": 96,
+     "bytes": 192,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.06311,
+     "mean": 0.004722,
+     "std": 0.011101,
+     "zeros": 0.0938
+    },
+    {
+     "offset": 51252,
+     "elements": 3072,
+     "bytes": 6144,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.20117,
+     "mean": 0.00711,
+     "std": 0.205771,
+     "zeros": 0.0938
+    },
+    {
+     "offset": 57396,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.04352,
+     "mean": -0.003206,
+     "std": 0.017647,
+     "zeros": 0.0
+    },
+    {
+     "offset": 6880,
+     "elements": 512,
+     "bytes": 1024,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.00297,
+     "mean": -3.5e-05,
+     "std": 0.000703,
+     "zeros": 0.2207
+    },
+    {
+     "offset": 57460,
+     "elements": 6144,
+     "bytes": 12288,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.32837,
+     "mean": 0.000831,
+     "std": 0.07107,
+     "zeros": 0.3646
+    },
+    {
+     "offset": 69748,
+     "elements": 192,
+     "bytes": 384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.03232,
+     "mean": 0.007588,
+     "std": 0.008696,
+     "zeros": 0.3646
+    },
+    {
+     "offset": 70132,
+     "elements": 1728,
+     "bytes": 3456,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.77002,
+     "mean": -0.00325,
+     "std": 0.15127,
+     "zeros": 0.3646
+    },
+    {
+     "offset": 73588,
+     "elements": 192,
+     "bytes": 384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0266,
+     "mean": 0.000802,
+     "std": 0.005368,
+     "zeros": 0.3646
+    },
+    {
+     "offset": 73972,
+     "elements": 6144,
+     "bytes": 12288,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.9292,
+     "mean": -0.002812,
+     "std": 0.158919,
+     "zeros": 0.3646
+    },
+    {
+     "offset": 86260,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0321,
+     "mean": 0.000313,
+     "std": 0.009137,
+     "zeros": 0.0
+    },
+    {
+     "offset": 86324,
+     "elements": 6144,
+     "bytes": 12288,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.40039,
+     "mean": 0.000177,
+     "std": 0.07195,
+     "zeros": 0.4531
+    },
+    {
+     "offset": 98612,
+     "elements": 192,
+     "bytes": 384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.02835,
+     "mean": 0.003845,
+     "std": 0.007208,
+     "zeros": 0.4531
+    },
+    {
+     "offset": 98996,
+     "elements": 1728,
+     "bytes": 3456,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.78369,
+     "mean": 0.012695,
+     "std": 0.138181,
+     "zeros": 0.4531
+    },
+    {
+     "offset": 102452,
+     "elements": 192,
+     "bytes": 384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.03085,
+     "mean": -0.000287,
+     "std": 0.006329,
+     "zeros": 0.4531
+    },
+    {
+     "offset": 7904,
+     "elements": 2,
+     "bytes": 4,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.06659,
+     "mean": -0.037407,
+     "std": 0.029182,
+     "zeros": 0.0
+    },
+    {
+     "offset": 102836,
+     "elements": 6144,
+     "bytes": 12288,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.17676,
+     "mean": 0.000745,
+     "std": 0.141646,
+     "zeros": 0.4531
+    },
+    {
+     "offset": 115124,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.01157,
+     "mean": 0.000362,
+     "std": 0.005189,
+     "zeros": 0.0
+    },
+    {
+     "offset": 115188,
+     "elements": 6144,
+     "bytes": 12288,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.68604,
+     "mean": 0.000991,
+     "std": 0.071458,
+     "zeros": 0.5052
+    },
+    {
+     "offset": 127476,
+     "elements": 192,
+     "bytes": 384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.03818,
+     "mean": 0.002296,
+     "std": 0.007494,
+     "zeros": 0.5052
+    },
+    {
+     "offset": 127860,
+     "elements": 1728,
+     "bytes": 3456,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.88428,
+     "mean": 0.022982,
+     "std": 0.13163,
+     "zeros": 0.5052
+    },
+    {
+     "offset": 131316,
+     "elements": 192,
+     "bytes": 384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.03104,
+     "mean": -0.001142,
+     "std": 0.006853,
+     "zeros": 0.5052
+    },
+    {
+     "offset": 131700,
+     "elements": 6144,
+     "bytes": 12288,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.02637,
+     "mean": -0.002537,
+     "std": 0.133067,
+     "zeros": 0.5052
+    },
+    {
+     "offset": 143988,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.02492,
+     "mean": 0.000813,
+     "std": 0.007593,
+     "zeros": 0.0
+    },
+    {
+     "offset": 144052,
+     "elements": 6144,
+     "bytes": 12288,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.57275,
+     "mean": -3.2e-05,
+     "std": 0.095836,
+     "zeros": 0.1354
+    },
+    {
+     "offset": 156340,
+     "elements": 192,
+     "bytes": 384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.05255,
+     "mean": 0.006813,
+     "std": 0.010547,
+     "zeros": 0.1354
+    },
+    {
+     "offset": 7908,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.22864,
+     "mean": 0.000675,
+     "std": 0.087052,
+     "zeros": 0.25
+    },
+    {
+     "offset": 156724,
+     "elements": 1728,
+     "bytes": 3456,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.88818,
+     "mean": 0.020186,
+     "std": 0.193191,
+     "zeros": 0.1354
+    },
+    {
+     "offset": 160180,
+     "elements": 192,
+     "bytes": 384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.04935,
+     "mean": 0.003497,
+     "std": 0.009801,
+     "zeros": 0.1354
+    },
+    {
+     "offset": 160564,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.75488,
+     "mean": 0.002005,
+     "std": 0.173152,
+     "zeros": 0.1354
+    },
+    {
+     "offset": 178996,
+     "elements": 48,
+     "bytes": 96,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.04138,
+     "mean": -0.002956,
+     "std": 0.017251,
+     "zeros": 0.0
+    },
+    {
+     "offset": 179092,
+     "elements": 13824,
+     "bytes": 27648,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.37964,
+     "mean": 0.001314,
+     "std": 0.067808,
+     "zeros": 0.434
+    },
+    {
+     "offset": 206740,
+     "elements": 288,
+     "bytes": 576,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.02951,
+     "mean": 0.002317,
+     "std": 0.007244,
+     "zeros": 0.434
+    },
+    {
+     "offset": 207316,
+     "elements": 2592,
+     "bytes": 5184,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.8374,
+     "mean": 0.017509,
+     "std": 0.149897,
+     "zeros": 0.434
+    },
+    {
+     "offset": 212500,
+     "elements": 288,
+     "bytes": 576,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.02769,
+     "mean": 0.000516,
+     "std": 0.006136,
+     "zeros": 0.434
+    },
+    {
+     "offset": 213076,
+     "elements": 13824,
+     "bytes": 27648,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.00293,
+     "mean": 0.002207,
+     "std": 0.137822,
+     "zeros": 0.434
+    },
+    {
+     "offset": 240724,
+     "elements": 48,
+     "bytes": 96,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.04929,
+     "mean": -0.001907,
+     "std": 0.016321,
+     "zeros": 0.0
+    },
+    {
+     "offset": 8036,
+     "elements": 432,
+     "bytes": 864,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.30542,
+     "mean": 0.000222,
+     "std": 0.052578,
+     "zeros": 0.375
+    },
+    {
+     "offset": 240820,
+     "elements": 13824,
+     "bytes": 27648,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.45239,
+     "mean": -0.001184,
+     "std": 0.066908,
+     "zeros": 0.5243
+    },
+    {
+     "offset": 268468,
+     "elements": 288,
+     "bytes": 576,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.03464,
+     "mean": 0.000249,
+     "std": 0.007308,
+     "zeros": 0.5243
+    },
+    {
+     "offset": 269044,
+     "elements": 2592,
+     "bytes": 5184,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.90625,
+     "mean": 0.032132,
+     "std": 0.145041,
+     "zeros": 0.5243
+    },
+    {
+     "offset": 274228,
+     "elements": 288,
+     "bytes": 576,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.03131,
+     "mean": -0.00068,
+     "std": 0.0072,
+     "zeros": 0.5243
+    },
+    {
+     "offset": 274804,
+     "elements": 13824,
+     "bytes": 27648,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.0625,
+     "mean": 0.001482,
+     "std": 0.126499,
+     "zeros": 0.5243
+    },
+    {
+     "offset": 302452,
+     "elements": 48,
+     "bytes": 96,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.03418,
+     "mean": -0.004177,
+     "std": 0.013632,
+     "zeros": 0.0
+    },
+    {
+     "offset": 302548,
+     "elements": 13824,
+     "bytes": 27648,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.3833,
+     "mean": -0.000202,
+     "std": 0.074447,
+     "zeros": 0.0382
+    },
+    {
+     "offset": 330196,
+     "elements": 288,
+     "bytes": 576,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.03784,
+     "mean": -0.003056,
+     "std": 0.01094,
+     "zeros": 0.0382
+    },
+    {
+     "offset": 330772,
+     "elements": 2592,
+     "bytes": 5184,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.47412,
+     "mean": 0.037026,
+     "std": 0.13652,
+     "zeros": 0.0382
+    },
+    {
+     "offset": 335956,
+     "elements": 288,
+     "bytes": 576,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.03937,
+     "mean": 0.003408,
+     "std": 0.008018,
+     "zeros": 0.0382
+    },
+    {
+     "offset": 8900,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.08856,
+     "mean": 0.031371,
+     "std": 0.031678,
+     "zeros": 0.375
+    },
+    {
+     "offset": 336532,
+     "elements": 23040,
+     "bytes": 46080,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.72705,
+     "mean": -0.000923,
+     "std": 0.114802,
+     "zeros": 0.0382
+    },
+    {
+     "offset": 382612,
+     "elements": 80,
+     "bytes": 160,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.04156,
+     "mean": 0.002153,
+     "std": 0.013406,
+     "zeros": 0.0
+    },
+    {
+     "offset": 382772,
+     "elements": 38400,
+     "bytes": 76800,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.396,
+     "mean": 0.000293,
+     "std": 0.066922,
+     "zeros": 0.3875
+    },
+    {
+     "offset": 459572,
+     "elements": 480,
+     "bytes": 960,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.02376,
+     "mean": 0.003983,
+     "std": 0.005558,
+     "zeros": 0.3875
+    },
+    {
+     "offset": 460532,
+     "elements": 4320,
+     "bytes": 8640,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.74316,
+     "mean": -0.000788,
+     "std": 0.170302,
+     "zeros": 0.3875
+    },
+    {
+     "offset": 469172,
+     "elements": 480,
+     "bytes": 960,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.01932,
+     "mean": 0.000676,
+     "std": 0.004345,
+     "zeros": 0.3875
+    },
+    {
+     "offset": 470132,
+     "elements": 38400,
+     "bytes": 76800,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.76416,
+     "mean": 0.000281,
+     "std": 0.123621,
+     "zeros": 0.3875
+    },
+    {
+     "offset": 546932,
+     "elements": 80,
+     "bytes": 160,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.03059,
+     "mean": -0.00022,
+     "std": 0.011113,
+     "zeros": 0.0
+    },
+    {
+     "offset": 547092,
+     "elements": 38400,
+     "bytes": 76800,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.37939,
+     "mean": -9.1e-05,
+     "std": 0.071394,
+     "zeros": 0.3563
+    },
+    {
+     "offset": 623892,
+     "elements": 480,
+     "bytes": 960,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.02039,
+     "mean": 0.001044,
+     "std": 0.005014,
+     "zeros": 0.3563
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "start": 23097840,
+   "end": 23106912,
+   "size": 9072,
+   "name_count": 226,
+   "names_bytes": 8151,
+   "names_sha256": "7c36f483b1353eefccce3c5e81fe97a45484fdeac21e11ca5c7939ceb39e341c",
+   "tensor_record_count": 57,
+   "table_run_count": 1,
+   "table_invalid_slots": 0,
+   "table_bytes": 912,
+   "table_sha256": "3fa498512fb17028d3f5cbabe317bf16a17307bedb0dcd4c2f12de60936f1cd5",
+   "record_offset_min": 0,
+   "record_offset_max_end": 3164316,
+   "record_size_min": 3,
+   "record_size_max": 294912,
+   "record_size_sum": 1582356,
+   "payload_bytes": 3164748,
+   "payload": {
+    "law": "byte_offset + 2*fp16_count",
+    "records": 57,
+    "tensor_bytes_min": 6,
+    "tensor_bytes_max": 589824,
+    "first_offset": 0,
+    "max_tensor_end": 3164748,
+    "payload_bytes": 3164748,
+    "slack_bytes": 0,
+    "covered_bytes": 3164712,
+    "coverage": 0.999989,
+    "gap_count": 6,
+    "gap_bytes": 36,
+    "overlaps": 0,
+    "offset0_tensor": true,
+    "proven": true
+   },
+   "op_histogram": {
+    "Activation": 1,
+    "Deconv2D": 1
+   },
+   "first_names": [
+    "inference/generator/input_conv/BiasAdd",
+    "inference/generator/input_conv/weights:0",
+    "inference/generator/input_conv/biases:0",
+    "inference/generator/input_conv/BiasAdd:0",
+    "inference/generator/input_conv/mul"
+   ],
+   "last_names": [
+    "inference/generator/out/Tanh:0",
+    "inference/generator/mul_1",
+    "inference/generator/mul_1:0",
+    "inference/generator/add_1",
+    "inference/generator/add_1:0"
+   ],
+   "name_provenance": {
+    "inference/": 219,
+    "<op-named>": 7
+   },
+   "trailer": {
+    "offset": 23097832,
+    "value": 3164748
+   },
+   "segments": [
+    {
+     "kind": "names",
+     "start": 23097840,
+     "end": 23105991,
+     "size": 8151
+    },
+    {
+     "kind": "table",
+     "start": 23106000,
+     "end": 23106912,
+     "size": 912
+    }
+   ],
+   "tensor_records": [
+    [
+     0,
+     131072
+    ],
+    [
+     262144,
+     3
+    ],
+    [
+     276620,
+     2048
+    ],
+    [
+     280716,
+     32
+    ],
+    [
+     280780,
+     9216
+    ],
+    [
+     299212,
+     32
+    ],
+    [
+     299276,
+     18432
+    ],
+    [
+     336140,
+     4
+    ],
+    [
+     336156,
+     8192
+    ],
+    [
+     352540,
+     64
+    ],
+    [
+     352668,
+     36864
+    ],
+    [
+     426396,
+     64
+    ],
+    [
+     262152,
+     81
+    ],
+    [
+     426524,
+     73728
+    ],
+    [
+     573980,
+     4
+    ],
+    [
+     573996,
+     32768
+    ],
+    [
+     639532,
+     128
+    ],
+    [
+     639788,
+     147456
+    ],
+    [
+     934700,
+     128
+    ],
+    [
+     934956,
+     294912
+    ],
+    [
+     1524780,
+     128
+    ],
+    [
+     1525036,
+     32768
+    ],
+    [
+     1590572,
+     256
+    ],
+    [
+     262316,
+     4
+    ],
+    [
+     1591084,
+     294912
+    ],
+    [
+     2180908,
+     128
+    ],
+    [
+     2181164,
+     147456
+    ],
+    [
+     2476076,
+     128
+    ],
+    [
+     2476332,
+     147456
+    ],
+    [
+     2771244,
+     128
+    ],
+    [
+     2771500,
+     73728
+    ],
+    [
+     2918956,
+     64
+    ],
+    [
+     2919084,
+     36864
+    ],
+    [
+     2992812,
+     64
+    ],
+    [
+     262332,
+     192
+    ],
+    [
+     2992940,
+     36864
+    ],
+    [
+     3066668,
+     64
+    ],
+    [
+     3066796,
+     18432
+    ],
+    [
+     3103660,
+     32
+    ],
+    [
+     3103724,
+     9216
+    ],
+    [
+     3122156,
+     32
+    ],
+    [
+     3122220,
+     9216
+    ],
+    [
+     3140652,
+     32
+    ],
+    [
+     3140716,
+     4608
+    ],
+    [
+     3149932,
+     16
+    ],
+    [
+     262716,
+     16
+    ],
+    [
+     3149964,
+     2304
+    ],
+    [
+     3154572,
+     16
+    ],
+    [
+     3154604,
+     2304
+    ],
+    [
+     3159212,
+     16
+    ],
+    [
+     3159244,
+     2304
+    ],
+    [
+     3163852,
+     16
+    ],
+    [
+     3163884,
+     432
+    ],
+    [
+     262748,
+     2304
+    ],
+    [
+     267356,
+     16
+    ],
+    [
+     267388,
+     4608
+    ],
+    [
+     276604,
+     4
+    ]
+   ],
+   "payload_array_index": [
+    3
+   ],
+   "payload_tensors": [
+    {
+     "offset": 0,
+     "elements": 131072,
+     "bytes": 262144,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0,
+     "mean": 0.0,
+     "std": 0.0,
+     "zeros": 1.0
+    },
+    {
+     "offset": 262144,
+     "elements": 3,
+     "bytes": 6,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.01364,
+     "mean": -0.006529,
+     "std": 0.005068,
+     "zeros": 0.0
+    },
+    {
+     "offset": 276620,
+     "elements": 2048,
+     "bytes": 4096,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.35522,
+     "mean": 0.000912,
+     "std": 0.065949,
+     "zeros": 0.0
+    },
+    {
+     "offset": 280716,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.36035,
+     "mean": 0.268958,
+     "std": 0.598314,
+     "zeros": 0.0
+    },
+    {
+     "offset": 280780,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.03809,
+     "mean": -0.009315,
+     "std": 0.101709,
+     "zeros": 0.0
+    },
+    {
+     "offset": 299212,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 2.17773,
+     "mean": -0.101846,
+     "std": 0.623176,
+     "zeros": 0.0
+    },
+    {
+     "offset": 299276,
+     "elements": 18432,
+     "bytes": 36864,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.87402,
+     "mean": 0.001388,
+     "std": 0.147293,
+     "zeros": 0.0
+    },
+    {
+     "offset": 336140,
+     "elements": 4,
+     "bytes": 8,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1e-05,
+     "mean": 2e-06,
+     "std": 3e-06,
+     "zeros": 0.5
+    },
+    {
+     "offset": 336156,
+     "elements": 8192,
+     "bytes": 16384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.22461,
+     "mean": 0.000696,
+     "std": 0.034991,
+     "zeros": 0.0
+    },
+    {
+     "offset": 352540,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 4.29297,
+     "mean": 0.062162,
+     "std": 1.273971,
+     "zeros": 0.0
+    },
+    {
+     "offset": 352668,
+     "elements": 36864,
+     "bytes": 73728,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.68604,
+     "mean": -0.004951,
+     "std": 0.066521,
+     "zeros": 0.0
+    },
+    {
+     "offset": 426396,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.27344,
+     "mean": -0.282097,
+     "std": 1.367051,
+     "zeros": 0.0
+    },
+    {
+     "offset": 262152,
+     "elements": 81,
+     "bytes": 162,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.54932,
+     "mean": 0.078877,
+     "std": 0.12896,
+     "zeros": 0.0
+    },
+    {
+     "offset": 426524,
+     "elements": 73728,
+     "bytes": 147456,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 2.17188,
+     "mean": -0.006753,
+     "std": 0.190551,
+     "zeros": 0.0
+    },
+    {
+     "offset": 573980,
+     "elements": 4,
+     "bytes": 8,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.0,
+     "mean": 1e-06,
+     "std": 2e-06,
+     "zeros": 0.5
+    },
+    {
+     "offset": 573996,
+     "elements": 32768,
+     "bytes": 65536,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.2561,
+     "mean": -0.00017,
+     "std": 0.037918,
+     "zeros": 0.0
+    },
+    {
+     "offset": 639532,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 6.05078,
+     "mean": 0.110795,
+     "std": 1.307414,
+     "zeros": 0.0
+    },
+    {
+     "offset": 639788,
+     "elements": 147456,
+     "bytes": 294912,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.55273,
+     "mean": -0.0052,
+     "std": 0.075964,
+     "zeros": 0.0
+    },
+    {
+     "offset": 934700,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.91211,
+     "mean": 0.060828,
+     "std": 1.313697,
+     "zeros": 0.0
+    },
+    {
+     "offset": 934956,
+     "elements": 294912,
+     "bytes": 589824,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.98193,
+     "mean": -0.005352,
+     "std": 0.104604,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1524780,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.9624,
+     "mean": -0.029348,
+     "std": 0.24618,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1525036,
+     "elements": 32768,
+     "bytes": 65536,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.8418,
+     "mean": 0.003684,
+     "std": 0.106934,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1590572,
+     "elements": 256,
+     "bytes": 512,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.1377,
+     "mean": -0.079036,
+     "std": 0.352447,
+     "zeros": 0.0
+    },
+    {
+     "offset": 262316,
+     "elements": 4,
+     "bytes": 8,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3e-05,
+     "mean": 8e-06,
+     "std": 1.3e-05,
+     "zeros": 0.5
+    },
+    {
+     "offset": 1591084,
+     "elements": 294912,
+     "bytes": 589824,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.70068,
+     "mean": -0.000887,
+     "std": 0.114129,
+     "zeros": 0.0
+    },
+    {
+     "offset": 2180908,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.07617,
+     "mean": -0.060392,
+     "std": 0.27912,
+     "zeros": 0.0
+    },
+    {
+     "offset": 2181164,
+     "elements": 147456,
+     "bytes": 294912,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.55078,
+     "mean": -0.004917,
+     "std": 0.115206,
+     "zeros": 0.0
+    },
+    {
+     "offset": 2476076,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.39453,
+     "mean": -0.05657,
+     "std": 0.374558,
+     "zeros": 0.0
+    },
+    {
+     "offset": 2476332,
+     "elements": 147456,
+     "bytes": 294912,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.66992,
+     "mean": -0.007188,
+     "std": 0.116174,
+     "zeros": 0.0
+    },
+    {
+     "offset": 2771244,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.7041,
+     "mean": -0.038,
+     "std": 0.191246,
+     "zeros": 0.0
+    },
+    {
+     "offset": 2771500,
+     "elements": 73728,
+     "bytes": 147456,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.62549,
+     "mean": -0.009392,
+     "std": 0.117921,
+     "zeros": 0.0
+    },
+    {
+     "offset": 2918956,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.33447,
+     "mean": -0.064895,
+     "std": 0.105592,
+     "zeros": 0.0
+    },
+    {
+     "offset": 2919084,
+     "elements": 36864,
+     "bytes": 73728,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.61572,
+     "mean": -0.006373,
+     "std": 0.111563,
+     "zeros": 0.0
+    },
+    {
+     "offset": 2992812,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.46387,
+     "mean": -0.026883,
+     "std": 0.110134,
+     "zeros": 0.0
+    },
+    {
+     "offset": 262332,
+     "elements": 192,
+     "bytes": 384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.28882,
+     "mean": -0.003985,
+     "std": 0.082004,
+     "zeros": 0.0
+    },
+    {
+     "offset": 2992940,
+     "elements": 36864,
+     "bytes": 73728,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.87451,
+     "mean": -0.01353,
+     "std": 0.123258,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3066668,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.22253,
+     "mean": -0.022979,
+     "std": 0.076768,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3066796,
+     "elements": 18432,
+     "bytes": 36864,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.63281,
+     "mean": -0.008331,
+     "std": 0.127869,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3103660,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.15491,
+     "mean": 0.009193,
+     "std": 0.062661,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3103724,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.69531,
+     "mean": -0.003824,
+     "std": 0.127531,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3122156,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.3418,
+     "mean": 0.00417,
+     "std": 0.094227,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3122220,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.86572,
+     "mean": -0.008338,
+     "std": 0.131148,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3140652,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.14844,
+     "mean": -0.009607,
+     "std": 0.046119,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3140716,
+     "elements": 4608,
+     "bytes": 9216,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.94287,
+     "mean": -0.006409,
+     "std": 0.138072,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3149932,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.15076,
+     "mean": -0.009512,
+     "std": 0.066869,
+     "zeros": 0.0
+    },
+    {
+     "offset": 262716,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.8501,
+     "mean": 0.107129,
+     "std": 0.342021,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3149964,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.76025,
+     "mean": -0.00767,
+     "std": 0.146246,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3154572,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.42578,
+     "mean": -0.019053,
+     "std": 0.22083,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3154604,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.36621,
+     "mean": 0.003817,
+     "std": 0.141748,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3159212,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.23755,
+     "mean": -0.034364,
+     "std": 0.125268,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3159244,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.1709,
+     "mean": -0.017634,
+     "std": 0.15639,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3163852,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.50439,
+     "mean": 0.019751,
+     "std": 0.291143,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3163884,
+     "elements": 432,
+     "bytes": 864,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.58838,
+     "mean": -0.001061,
+     "std": 0.100311,
+     "zeros": 0.0
+    },
+    {
+     "offset": 262748,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.31934,
+     "mean": -0.001493,
+     "std": 0.173661,
+     "zeros": 0.0
+    },
+    {
+     "offset": 267356,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.68994,
+     "mean": 0.188342,
+     "std": 0.367525,
+     "zeros": 0.0
+    },
+    {
+     "offset": 267388,
+     "elements": 4608,
+     "bytes": 9216,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 2.20898,
+     "mean": 0.001837,
+     "std": 0.163083,
+     "zeros": 0.0
+    },
+    {
+     "offset": 276604,
+     "elements": 4,
+     "bytes": 8,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 2e-05,
+     "mean": 4e-06,
+     "std": 7e-06,
+     "zeros": 0.5
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "start": 23106920,
+   "end": 23109680,
+   "size": 2760,
+   "name_count": 119,
+   "names_bytes": 1858,
+   "names_sha256": "4cf916152e5ffade5bf53c17fc01ce5085dd95d2a6989fd807af81fa96086673",
+   "tensor_record_count": 56,
+   "table_run_count": 1,
+   "table_invalid_slots": 0,
+   "table_bytes": 896,
+   "table_sha256": "87c302a19935e1ceb6cd294e2b8361d7553a0e53625f04d8322878791391ffb8",
+   "record_offset_min": 0,
+   "record_offset_max_end": 9233520,
+   "record_size_min": 12,
+   "record_size_max": 589824,
+   "record_size_sum": 2750748,
+   "payload_bytes": 11002992,
+   "payload": {
+    "law": "byte_offset + 2*fp16_count",
+    "records": 56,
+    "tensor_bytes_min": 24,
+    "tensor_bytes_max": 1179648,
+    "first_offset": 0,
+    "max_tensor_end": 9823344,
+    "payload_bytes": 11002992,
+    "slack_bytes": 1179648,
+    "covered_bytes": 5501496,
+    "coverage": 0.5,
+    "gap_count": 55,
+    "gap_bytes": 4321848,
+    "overlaps": 0,
+    "offset0_tensor": true,
+    "proven": false
+   },
+   "op_histogram": {
+    "ResizeNearestNeighbor": 1,
+    "DepthToSpace": 1
+   },
+   "first_names": [
+    "Mul_1",
+    "Relu_3",
+    "model.conv1.conv2d.weight",
+    "model.conv1.conv2d.bias",
+    "Relu_5"
+   ],
+   "last_names": [
+    "CRD",
+    "DepthToSpace",
+    "Clip_70",
+    "143",
+    "Mul_72"
+   ],
+   "name_provenance": {
+    "model.*": 56,
+    "<op-named>": 51,
+    "<numeric-node-id>": 12
+   },
+   "trailer": {
+    "offset": 23106912,
+    "value": 11002992
+   },
+   "segments": [
+    {
+     "kind": "names",
+     "start": 23106920,
+     "end": 23108778,
+     "size": 1858
+    },
+    {
+     "kind": "table",
+     "start": 23108784,
+     "end": 23109680,
+     "size": 896
+    }
+   ],
+   "tensor_records": [
+    [
+     0,
+     16
+    ],
+    [
+     64,
+     432
+    ],
+    [
+     1570432,
+     12
+    ],
+    [
+     1570480,
+     1728
+    ],
+    [
+     1577392,
+     128
+    ],
+    [
+     1577904,
+     294912
+    ],
+    [
+     2757552,
+     64
+    ],
+    [
+     2757808,
+     73728
+    ],
+    [
+     3052720,
+     32
+    ],
+    [
+     3052848,
+     18432
+    ],
+    [
+     3126576,
+     16
+    ],
+    [
+     3126640,
+     4608
+    ],
+    [
+     1792,
+     32
+    ],
+    [
+     3145072,
+     128
+    ],
+    [
+     3145584,
+     147456
+    ],
+    [
+     3735408,
+     128
+    ],
+    [
+     3735920,
+     147456
+    ],
+    [
+     4325744,
+     64
+    ],
+    [
+     4326000,
+     36864
+    ],
+    [
+     4473456,
+     64
+    ],
+    [
+     4473712,
+     36864
+    ],
+    [
+     4621168,
+     32
+    ],
+    [
+     4621296,
+     9216
+    ],
+    [
+     1920,
+     4608
+    ],
+    [
+     4658160,
+     32
+    ],
+    [
+     4658288,
+     9216
+    ],
+    [
+     4695152,
+     16
+    ],
+    [
+     4695216,
+     2304
+    ],
+    [
+     4704432,
+     16
+    ],
+    [
+     4704496,
+     2304
+    ],
+    [
+     4713712,
+     16
+    ],
+    [
+     4713776,
+     2304
+    ],
+    [
+     4722992,
+     16
+    ],
+    [
+     4723056,
+     2304
+    ],
+    [
+     20352,
+     64
+    ],
+    [
+     4732272,
+     32
+    ],
+    [
+     4732400,
+     9216
+    ],
+    [
+     4769264,
+     32
+    ],
+    [
+     4769392,
+     9216
+    ],
+    [
+     4806256,
+     64
+    ],
+    [
+     4806512,
+     36864
+    ],
+    [
+     4953968,
+     64
+    ],
+    [
+     4954224,
+     36864
+    ],
+    [
+     5101680,
+     128
+    ],
+    [
+     5102192,
+     147456
+    ],
+    [
+     20608,
+     18432
+    ],
+    [
+     5692016,
+     128
+    ],
+    [
+     5692528,
+     147456
+    ],
+    [
+     6282352,
+     256
+    ],
+    [
+     6283376,
+     589824
+    ],
+    [
+     8642672,
+     256
+    ],
+    [
+     8643696,
+     589824
+    ],
+    [
+     94336,
+     128
+    ],
+    [
+     94848,
+     73728
+    ],
+    [
+     389760,
+     256
+    ],
+    [
+     390784,
+     294912
+    ]
+   ],
+   "payload_array_index": [
+    4
+   ],
+   "payload_tensors": [
+    {
+     "offset": 0,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1767.0,
+     "mean": 77.512741,
+     "std": 454.963593,
+     "zeros": 0.0
+    },
+    {
+     "offset": 64,
+     "elements": 432,
+     "bytes": 864,
+     "dtype": "float16",
+     "finite": 0.9838,
+     "absmax": 59840.0,
+     "mean": -671.661621,
+     "std": 9264.480469,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1570432,
+     "elements": 12,
+     "bytes": 24,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 343.5,
+     "mean": 16.310183,
+     "std": 105.244194,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1570480,
+     "elements": 1728,
+     "bytes": 3456,
+     "dtype": "float16",
+     "finite": 0.98669,
+     "absmax": 64000.0,
+     "mean": -188.020676,
+     "std": 7250.16748,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1577392,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 0.98438,
+     "absmax": 15184.0,
+     "mean": -39.26302,
+     "std": 2338.702881,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1577904,
+     "elements": 294912,
+     "bytes": 589824,
+     "dtype": "float16",
+     "finite": 0.98446,
+     "absmax": 65504.0,
+     "mean": 6.770344,
+     "std": 7239.618652,
+     "zeros": 0.0
+    },
+    {
+     "offset": 2757552,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 0.98438,
+     "absmax": 22560.0,
+     "mean": -600.314331,
+     "std": 3172.621826,
+     "zeros": 0.0
+    },
+    {
+     "offset": 2757808,
+     "elements": 73728,
+     "bytes": 147456,
+     "dtype": "float16",
+     "finite": 0.98443,
+     "absmax": 65504.0,
+     "mean": 0.109899,
+     "std": 7164.191895,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3052720,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 32592.0,
+     "mean": -1832.820312,
+     "std": 7189.979004,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3052848,
+     "elements": 18432,
+     "bytes": 36864,
+     "dtype": "float16",
+     "finite": 0.98486,
+     "absmax": 65248.0,
+     "mean": 37.421494,
+     "std": 7315.747559,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3126576,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 10968.0,
+     "mean": -629.330383,
+     "std": 2672.202881,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3126640,
+     "elements": 4608,
+     "bytes": 9216,
+     "dtype": "float16",
+     "finite": 0.98416,
+     "absmax": 65024.0,
+     "mean": -204.244614,
+     "std": 7581.407715,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1792,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 0.96875,
+     "absmax": 55360.0,
+     "mean": -1636.052124,
+     "std": 9832.899414,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3145072,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 0.96094,
+     "absmax": 29024.0,
+     "mean": 519.496521,
+     "std": 3876.187012,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3145584,
+     "elements": 147456,
+     "bytes": 294912,
+     "dtype": "float16",
+     "finite": 0.98459,
+     "absmax": 65504.0,
+     "mean": -35.874401,
+     "std": 7355.1875,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3735408,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 0.98438,
+     "absmax": 50592.0,
+     "mean": -377.665009,
+     "std": 4957.319824,
+     "zeros": 0.0
+    },
+    {
+     "offset": 3735920,
+     "elements": 147456,
+     "bytes": 294912,
+     "dtype": "float16",
+     "finite": 0.98434,
+     "absmax": 65504.0,
+     "mean": -4.405519,
+     "std": 7328.694336,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4325744,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 0.98438,
+     "absmax": 57824.0,
+     "mean": -331.265076,
+     "std": 9233.353516,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4326000,
+     "elements": 36864,
+     "bytes": 73728,
+     "dtype": "float16",
+     "finite": 0.98443,
+     "absmax": 65472.0,
+     "mean": -44.181541,
+     "std": 7218.79541,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4473456,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 52512.0,
+     "mean": -1327.722656,
+     "std": 11402.544922,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4473712,
+     "elements": 36864,
+     "bytes": 73728,
+     "dtype": "float16",
+     "finite": 0.98465,
+     "absmax": 65504.0,
+     "mean": 44.79425,
+     "std": 7267.365234,
+     "zeros": 0.0001
+    },
+    {
+     "offset": 4621168,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 0.96875,
+     "absmax": 2846.0,
+     "mean": 90.132622,
+     "std": 503.544495,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4621296,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 0.98318,
+     "absmax": 65408.0,
+     "mean": 19.744644,
+     "std": 7172.780762,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1920,
+     "elements": 4608,
+     "bytes": 9216,
+     "dtype": "float16",
+     "finite": 0.98351,
+     "absmax": 65152.0,
+     "mean": 122.664276,
+     "std": 7481.017578,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4658160,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 46752.0,
+     "mean": -466.30481,
+     "std": 11598.657227,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4658288,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 0.98644,
+     "absmax": 65408.0,
+     "mean": -87.323586,
+     "std": 7888.66748,
+     "zeros": 0.0001
+    },
+    {
+     "offset": 4695152,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 50560.0,
+     "mean": 3393.096191,
+     "std": 12210.978516,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4695216,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 0.98611,
+     "absmax": 65248.0,
+     "mean": -94.577995,
+     "std": 8372.719727,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4704432,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1705.0,
+     "mean": -106.087067,
+     "std": 412.865692,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4704496,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 0.98394,
+     "absmax": 64992.0,
+     "mean": 28.344883,
+     "std": 7176.88916,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4713712,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 73.875,
+     "mean": 3.110956,
+     "std": 27.750196,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4713776,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 0.98394,
+     "absmax": 63936.0,
+     "mean": 48.101856,
+     "std": 7082.467773,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4722992,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 9280.0,
+     "mean": -416.720093,
+     "std": 2335.442627,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4723056,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 0.98611,
+     "absmax": 62816.0,
+     "mean": 51.360825,
+     "std": 6909.989258,
+     "zeros": 0.0
+    },
+    {
+     "offset": 20352,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 0.96875,
+     "absmax": 42976.0,
+     "mean": 1519.238525,
+     "std": 7782.771973,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4732272,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 0.96875,
+     "absmax": 30800.0,
+     "mean": -1351.117554,
+     "std": 5759.045898,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4732400,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 0.98372,
+     "absmax": 65344.0,
+     "mean": 55.179428,
+     "std": 7369.658691,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4769264,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 17104.0,
+     "mean": 471.378967,
+     "std": 3616.356201,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4769392,
+     "elements": 9216,
+     "bytes": 18432,
+     "dtype": "float16",
+     "finite": 0.98427,
+     "absmax": 65248.0,
+     "mean": 115.910347,
+     "std": 7416.377441,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4806256,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 0.98438,
+     "absmax": 40960.0,
+     "mean": 981.237061,
+     "std": 8036.458984,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4806512,
+     "elements": 36864,
+     "bytes": 73728,
+     "dtype": "float16",
+     "finite": 0.9847,
+     "absmax": 65504.0,
+     "mean": 63.386913,
+     "std": 7418.538086,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4953968,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 0.96875,
+     "absmax": 13136.0,
+     "mean": -89.208138,
+     "std": 2094.291992,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4954224,
+     "elements": 36864,
+     "bytes": 73728,
+     "dtype": "float16",
+     "finite": 0.98492,
+     "absmax": 65504.0,
+     "mean": 42.858372,
+     "std": 7257.708984,
+     "zeros": 0.0
+    },
+    {
+     "offset": 5101680,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 63104.0,
+     "mean": 428.441101,
+     "std": 7689.317871,
+     "zeros": 0.0
+    },
+    {
+     "offset": 5102192,
+     "elements": 147456,
+     "bytes": 294912,
+     "dtype": "float16",
+     "finite": 0.98468,
+     "absmax": 65504.0,
+     "mean": 10.221354,
+     "std": 7222.833496,
+     "zeros": 0.0
+    },
+    {
+     "offset": 20608,
+     "elements": 18432,
+     "bytes": 36864,
+     "dtype": "float16",
+     "finite": 0.98562,
+     "absmax": 65440.0,
+     "mean": 17.774212,
+     "std": 7274.373047,
+     "zeros": 0.0
+    },
+    {
+     "offset": 5692016,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 0.97656,
+     "absmax": 58720.0,
+     "mean": 443.429169,
+     "std": 8777.229492,
+     "zeros": 0.0
+    },
+    {
+     "offset": 5692528,
+     "elements": 147456,
+     "bytes": 294912,
+     "dtype": "float16",
+     "finite": 0.98448,
+     "absmax": 65504.0,
+     "mean": 30.313354,
+     "std": 7266.730469,
+     "zeros": 0.0
+    },
+    {
+     "offset": 6282352,
+     "elements": 256,
+     "bytes": 512,
+     "dtype": "float16",
+     "finite": 0.98438,
+     "absmax": 59648.0,
+     "mean": -218.804871,
+     "std": 7656.242188,
+     "zeros": 0.0
+    },
+    {
+     "offset": 6283376,
+     "elements": 589824,
+     "bytes": 1179648,
+     "dtype": "float16",
+     "finite": 0.98438,
+     "absmax": 65504.0,
+     "mean": 1.212404,
+     "std": 7304.104492,
+     "zeros": 0.0
+    },
+    {
+     "offset": 8642672,
+     "elements": 256,
+     "bytes": 512,
+     "dtype": "float16",
+     "finite": 0.98828,
+     "absmax": 58464.0,
+     "mean": -266.436401,
+     "std": 8091.680176,
+     "zeros": 0.0
+    },
+    {
+     "offset": 8643696,
+     "elements": 589824,
+     "bytes": 1179648,
+     "dtype": "float16",
+     "finite": 0.98433,
+     "absmax": 65504.0,
+     "mean": 4.048202,
+     "std": 7299.830078,
+     "zeros": 0.0
+    },
+    {
+     "offset": 94336,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 0.98438,
+     "absmax": 59520.0,
+     "mean": -641.104309,
+     "std": 7688.598145,
+     "zeros": 0.0
+    },
+    {
+     "offset": 94848,
+     "elements": 73728,
+     "bytes": 147456,
+     "dtype": "float16",
+     "finite": 0.9848,
+     "absmax": 65472.0,
+     "mean": 44.086845,
+     "std": 7412.194824,
+     "zeros": 0.0
+    },
+    {
+     "offset": 389760,
+     "elements": 256,
+     "bytes": 512,
+     "dtype": "float16",
+     "finite": 0.97656,
+     "absmax": 64992.0,
+     "mean": 274.258789,
+     "std": 8664.743164,
+     "zeros": 0.0
+    },
+    {
+     "offset": 390784,
+     "elements": 294912,
+     "bytes": 589824,
+     "dtype": "float16",
+     "finite": 0.98437,
+     "absmax": 65504.0,
+     "mean": -33.554985,
+     "std": 7254.097656,
+     "zeros": 0.0
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "start": 23109688,
+   "end": 23120736,
+   "size": 11048,
+   "name_count": 202,
+   "names_bytes": 9635,
+   "names_sha256": "226454f3c1d40069d84ca8f7c0fbd9501783d1be24697e4f90c081c20ddb1aeb",
+   "tensor_record_count": 88,
+   "table_run_count": 1,
+   "table_invalid_slots": 0,
+   "table_bytes": 1408,
+   "table_sha256": "58474b5a26ca15316f2cee6c6cb6a593c0c1d096b9c29fe9c586a7d08d9e7777",
+   "record_offset_min": 0,
+   "record_offset_max_end": 1257368,
+   "record_size_min": 1,
+   "record_size_max": 81920,
+   "record_size_sum": 628898,
+   "payload_bytes": 1257800,
+   "payload": {
+    "law": "byte_offset + 2*fp16_count",
+    "records": 88,
+    "tensor_bytes_min": 2,
+    "tensor_bytes_max": 163840,
+    "first_offset": 0,
+    "max_tensor_end": 1257800,
+    "payload_bytes": 1257800,
+    "slack_bytes": 0,
+    "covered_bytes": 1257796,
+    "coverage": 0.999997,
+    "gap_count": 2,
+    "gap_bytes": 4,
+    "overlaps": 0,
+    "offset0_tensor": true,
+    "proven": true
+   },
+   "op_histogram": {},
+   "first_names": [
+    "EdgeDet/MobilenetV1/Conv2d_0/Relu",
+    "EdgeDet/MobilenetV1/Conv2d_0/weights:0",
+    "EdgeDet/MobilenetV1/Conv2d_0/Conv2D_bn_offset:0",
+    "EdgeDet/MobilenetV1/Conv2d_0/Relu:0",
+    "EdgeDet/MobilenetV1/Conv2d_1_depthwise_depth/Relu"
+   ],
+   "last_names": [
+    "EdgeDet/segment_head/Conv/BatchNorm/FusedBatchNorm:0",
+    "EdgeDet/segment_head/ResizeBilinear",
+    "EdgeDet/segment_head/ResizeBilinear:0",
+    "pred_segment",
+    "pred_segment:0"
+   ],
+   "name_provenance": {
+    "EdgeDet/": 198,
+    "<op-named>": 4
+   },
+   "trailer": {
+    "offset": 23109680,
+    "value": 1257800
+   },
+   "segments": [
+    {
+     "kind": "names",
+     "start": 23109688,
+     "end": 23119323,
+     "size": 9635
+    },
+    {
+     "kind": "table",
+     "start": 23119328,
+     "end": 23120736,
+     "size": 1408
+    }
+   ],
+   "tensor_records": [
+    [
+     0,
+     1
+    ],
+    [
+     4,
+     32
+    ],
+    [
+     5000,
+     32
+    ],
+    [
+     5064,
+     288
+    ],
+    [
+     5640,
+     32
+    ],
+    [
+     5704,
+     2048
+    ],
+    [
+     9800,
+     64
+    ],
+    [
+     9928,
+     576
+    ],
+    [
+     11080,
+     64
+    ],
+    [
+     11208,
+     8192
+    ],
+    [
+     27592,
+     128
+    ],
+    [
+     27848,
+     1152
+    ],
+    [
+     68,
+     32
+    ],
+    [
+     30152,
+     128
+    ],
+    [
+     30408,
+     16384
+    ],
+    [
+     63176,
+     128
+    ],
+    [
+     63432,
+     1152
+    ],
+    [
+     65736,
+     128
+    ],
+    [
+     65992,
+     81920
+    ],
+    [
+     229832,
+     128
+    ],
+    [
+     230088,
+     16384
+    ],
+    [
+     262856,
+     128
+    ],
+    [
+     263112,
+     16384
+    ],
+    [
+     132,
+     1024
+    ],
+    [
+     295880,
+     128
+    ],
+    [
+     296136,
+     1152
+    ],
+    [
+     298440,
+     128
+    ],
+    [
+     298696,
+     16384
+    ],
+    [
+     331464,
+     128
+    ],
+    [
+     331720,
+     1152
+    ],
+    [
+     334024,
+     128
+    ],
+    [
+     334280,
+     16384
+    ],
+    [
+     367048,
+     128
+    ],
+    [
+     367304,
+     1152
+    ],
+    [
+     2180,
+     32
+    ],
+    [
+     369608,
+     128
+    ],
+    [
+     369864,
+     32768
+    ],
+    [
+     435400,
+     256
+    ],
+    [
+     435912,
+     65536
+    ],
+    [
+     566984,
+     256
+    ],
+    [
+     567496,
+     2304
+    ],
+    [
+     572104,
+     256
+    ],
+    [
+     572616,
+     65536
+    ],
+    [
+     703688,
+     256
+    ],
+    [
+     704200,
+     2304
+    ],
+    [
+     2244,
+     288
+    ],
+    [
+     708808,
+     256
+    ],
+    [
+     709320,
+     65536
+    ],
+    [
+     840392,
+     256
+    ],
+    [
+     840904,
+     2304
+    ],
+    [
+     845512,
+     256
+    ],
+    [
+     846024,
+     65536
+    ],
+    [
+     977096,
+     256
+    ],
+    [
+     977608,
+     2304
+    ],
+    [
+     982216,
+     256
+    ],
+    [
+     982728,
+     65536
+    ],
+    [
+     2820,
+     1
+    ],
+    [
+     1113800,
+     256
+    ],
+    [
+     1114312,
+     2304
+    ],
+    [
+     1118920,
+     256
+    ],
+    [
+     1119432,
+     32768
+    ],
+    [
+     1184968,
+     128
+    ],
+    [
+     1185224,
+     1152
+    ],
+    [
+     1187528,
+     128
+    ],
+    [
+     1187784,
+     16384
+    ],
+    [
+     1220552,
+     128
+    ],
+    [
+     1220808,
+     1152
+    ],
+    [
+     2824,
+     32
+    ],
+    [
+     1223112,
+     128
+    ],
+    [
+     1223368,
+     8192
+    ],
+    [
+     1239752,
+     64
+    ],
+    [
+     1239880,
+     576
+    ],
+    [
+     1241032,
+     64
+    ],
+    [
+     1241160,
+     4096
+    ],
+    [
+     1249352,
+     64
+    ],
+    [
+     1249480,
+     576
+    ],
+    [
+     1250632,
+     64
+    ],
+    [
+     1250760,
+     2048
+    ],
+    [
+     2888,
+     32
+    ],
+    [
+     1254856,
+     32
+    ],
+    [
+     1254920,
+     288
+    ],
+    [
+     1255496,
+     32
+    ],
+    [
+     1255560,
+     512
+    ],
+    [
+     1256584,
+     16
+    ],
+    [
+     1256616,
+     144
+    ],
+    [
+     1256904,
+     16
+    ],
+    [
+     1256936,
+     432
+    ],
+    [
+     2952,
+     1024
+    ]
+   ],
+   "payload_array_index": [
+    5
+   ],
+   "payload_tensors": [
+    {
+     "offset": 0,
+     "elements": 1,
+     "bytes": 2,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 4.16016,
+     "mean": -4.160156,
+     "std": 0.0,
+     "zeros": 0.0
+    },
+    {
+     "offset": 4,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 11.21094,
+     "mean": 0.309542,
+     "std": 2.742414,
+     "zeros": 0.0
+    },
+    {
+     "offset": 5000,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.88086,
+     "mean": 0.331017,
+     "std": 1.567987,
+     "zeros": 0.0
+    },
+    {
+     "offset": 5064,
+     "elements": 288,
+     "bytes": 576,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.71973,
+     "mean": 0.022696,
+     "std": 0.288904,
+     "zeros": 0.0
+    },
+    {
+     "offset": 5640,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 5.94141,
+     "mean": 0.93031,
+     "std": 1.918244,
+     "zeros": 0.0
+    },
+    {
+     "offset": 5704,
+     "elements": 2048,
+     "bytes": 4096,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.80664,
+     "mean": 0.003162,
+     "std": 0.409276,
+     "zeros": 0.0
+    },
+    {
+     "offset": 9800,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 4.57812,
+     "mean": 0.217473,
+     "std": 1.601411,
+     "zeros": 0.0
+    },
+    {
+     "offset": 9928,
+     "elements": 576,
+     "bytes": 1152,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.13477,
+     "mean": -0.002802,
+     "std": 0.233473,
+     "zeros": 0.0
+    },
+    {
+     "offset": 11080,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 6.99219,
+     "mean": 0.101274,
+     "std": 1.950613,
+     "zeros": 0.0
+    },
+    {
+     "offset": 11208,
+     "elements": 8192,
+     "bytes": 16384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.18164,
+     "mean": 0.012089,
+     "std": 0.317928,
+     "zeros": 0.0
+    },
+    {
+     "offset": 27592,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 4.00391,
+     "mean": 0.012716,
+     "std": 1.395308,
+     "zeros": 0.0
+    },
+    {
+     "offset": 27848,
+     "elements": 1152,
+     "bytes": 2304,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.68945,
+     "mean": -0.003343,
+     "std": 0.245542,
+     "zeros": 0.0
+    },
+    {
+     "offset": 68,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 4.94141,
+     "mean": -0.175216,
+     "std": 1.915365,
+     "zeros": 0.0
+    },
+    {
+     "offset": 30152,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 6.88281,
+     "mean": -0.167327,
+     "std": 1.789115,
+     "zeros": 0.0
+    },
+    {
+     "offset": 30408,
+     "elements": 16384,
+     "bytes": 32768,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 4.08984,
+     "mean": 0.009149,
+     "std": 0.271825,
+     "zeros": 0.0
+    },
+    {
+     "offset": 63176,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.78906,
+     "mean": 0.245242,
+     "std": 0.790138,
+     "zeros": 0.0
+    },
+    {
+     "offset": 63432,
+     "elements": 1152,
+     "bytes": 2304,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.68945,
+     "mean": -0.009787,
+     "std": 0.531137,
+     "zeros": 0.0
+    },
+    {
+     "offset": 65736,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.82715,
+     "mean": 0.289224,
+     "std": 0.44864,
+     "zeros": 0.0
+    },
+    {
+     "offset": 65992,
+     "elements": 81920,
+     "bytes": 163840,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.37329,
+     "mean": -0.001331,
+     "std": 0.042568,
+     "zeros": 0.0
+    },
+    {
+     "offset": 229832,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 5.33984,
+     "mean": 0.627785,
+     "std": 1.446544,
+     "zeros": 0.0
+    },
+    {
+     "offset": 230088,
+     "elements": 16384,
+     "bytes": 32768,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.43164,
+     "mean": -0.021383,
+     "std": 0.475319,
+     "zeros": 0.0
+    },
+    {
+     "offset": 262856,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.74316,
+     "mean": 0.059258,
+     "std": 0.565821,
+     "zeros": 0.0
+    },
+    {
+     "offset": 263112,
+     "elements": 16384,
+     "bytes": 32768,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.63574,
+     "mean": -0.008444,
+     "std": 0.103549,
+     "zeros": 0.0
+    },
+    {
+     "offset": 132,
+     "elements": 1024,
+     "bytes": 2048,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.48047,
+     "mean": -0.020309,
+     "std": 0.292167,
+     "zeros": 0.0
+    },
+    {
+     "offset": 295880,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.57617,
+     "mean": 0.079104,
+     "std": 0.500622,
+     "zeros": 0.0
+    },
+    {
+     "offset": 296136,
+     "elements": 1152,
+     "bytes": 2304,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 5.96875,
+     "mean": 0.019621,
+     "std": 1.245725,
+     "zeros": 0.0
+    },
+    {
+     "offset": 298440,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.09277,
+     "mean": 0.056758,
+     "std": 0.368361,
+     "zeros": 0.0
+    },
+    {
+     "offset": 298696,
+     "elements": 16384,
+     "bytes": 32768,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.37793,
+     "mean": -0.006362,
+     "std": 0.069531,
+     "zeros": 0.0
+    },
+    {
+     "offset": 331464,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.80664,
+     "mean": 0.022451,
+     "std": 0.601272,
+     "zeros": 0.0
+    },
+    {
+     "offset": 331720,
+     "elements": 1152,
+     "bytes": 2304,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 5.63281,
+     "mean": 0.050965,
+     "std": 1.016922,
+     "zeros": 0.0
+    },
+    {
+     "offset": 334024,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.2793,
+     "mean": 0.130327,
+     "std": 0.412755,
+     "zeros": 0.0
+    },
+    {
+     "offset": 334280,
+     "elements": 16384,
+     "bytes": 32768,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.63965,
+     "mean": -0.004043,
+     "std": 0.075349,
+     "zeros": 0.0
+    },
+    {
+     "offset": 367048,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.62012,
+     "mean": 0.159356,
+     "std": 0.570922,
+     "zeros": 0.0
+    },
+    {
+     "offset": 367304,
+     "elements": 1152,
+     "bytes": 2304,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 5.41016,
+     "mean": -0.007799,
+     "std": 0.857906,
+     "zeros": 0.0
+    },
+    {
+     "offset": 2180,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 4.0625,
+     "mean": 0.798552,
+     "std": 1.277063,
+     "zeros": 0.0
+    },
+    {
+     "offset": 369608,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.22266,
+     "mean": 0.184966,
+     "std": 0.873946,
+     "zeros": 0.0
+    },
+    {
+     "offset": 369864,
+     "elements": 32768,
+     "bytes": 65536,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.67529,
+     "mean": -0.003755,
+     "std": 0.082773,
+     "zeros": 0.0
+    },
+    {
+     "offset": 435400,
+     "elements": 256,
+     "bytes": 512,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 5.71484,
+     "mean": -0.255388,
+     "std": 1.808334,
+     "zeros": 0.0
+    },
+    {
+     "offset": 435912,
+     "elements": 65536,
+     "bytes": 131072,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.70703,
+     "mean": -0.00396,
+     "std": 0.080651,
+     "zeros": 0.0
+    },
+    {
+     "offset": 566984,
+     "elements": 256,
+     "bytes": 512,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 4.69922,
+     "mean": 0.421326,
+     "std": 1.507752,
+     "zeros": 0.0
+    },
+    {
+     "offset": 567496,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 4.625,
+     "mean": 0.110815,
+     "std": 0.476347,
+     "zeros": 0.0
+    },
+    {
+     "offset": 572104,
+     "elements": 256,
+     "bytes": 512,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 8.74219,
+     "mean": -0.547074,
+     "std": 2.115393,
+     "zeros": 0.0
+    },
+    {
+     "offset": 572616,
+     "elements": 65536,
+     "bytes": 131072,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.90576,
+     "mean": -0.002645,
+     "std": 0.096365,
+     "zeros": 0.0
+    },
+    {
+     "offset": 703688,
+     "elements": 256,
+     "bytes": 512,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 7.01562,
+     "mean": 0.764566,
+     "std": 1.630495,
+     "zeros": 0.0
+    },
+    {
+     "offset": 704200,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.34766,
+     "mean": 0.030179,
+     "std": 0.468778,
+     "zeros": 0.0
+    },
+    {
+     "offset": 2244,
+     "elements": 288,
+     "bytes": 576,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.6582,
+     "mean": -0.01376,
+     "std": 0.124618,
+     "zeros": 0.0
+    },
+    {
+     "offset": 708808,
+     "elements": 256,
+     "bytes": 512,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 6.39844,
+     "mean": -0.202431,
+     "std": 1.908646,
+     "zeros": 0.0
+    },
+    {
+     "offset": 709320,
+     "elements": 65536,
+     "bytes": 131072,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.8916,
+     "mean": -0.002435,
+     "std": 0.086462,
+     "zeros": 0.0
+    },
+    {
+     "offset": 840392,
+     "elements": 256,
+     "bytes": 512,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 6.33203,
+     "mean": 0.620932,
+     "std": 1.864932,
+     "zeros": 0.0
+    },
+    {
+     "offset": 840904,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.39844,
+     "mean": 0.04737,
+     "std": 0.462173,
+     "zeros": 0.0
+    },
+    {
+     "offset": 845512,
+     "elements": 256,
+     "bytes": 512,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 5.42578,
+     "mean": 0.420888,
+     "std": 1.490822,
+     "zeros": 0.0
+    },
+    {
+     "offset": 846024,
+     "elements": 65536,
+     "bytes": 131072,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.08984,
+     "mean": -0.001989,
+     "std": 0.081492,
+     "zeros": 0.0
+    },
+    {
+     "offset": 977096,
+     "elements": 256,
+     "bytes": 512,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 8.35156,
+     "mean": 0.574439,
+     "std": 1.963778,
+     "zeros": 0.0
+    },
+    {
+     "offset": 977608,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.79102,
+     "mean": 0.061235,
+     "std": 0.50735,
+     "zeros": 0.0
+    },
+    {
+     "offset": 982216,
+     "elements": 256,
+     "bytes": 512,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 4.52734,
+     "mean": 0.487362,
+     "std": 1.488821,
+     "zeros": 0.0
+    },
+    {
+     "offset": 982728,
+     "elements": 65536,
+     "bytes": 131072,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.73535,
+     "mean": -0.001048,
+     "std": 0.072875,
+     "zeros": 0.0
+    },
+    {
+     "offset": 2820,
+     "elements": 1,
+     "bytes": 2,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 2.48633,
+     "mean": -2.486328,
+     "std": 0.0,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1113800,
+     "elements": 256,
+     "bytes": 512,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 5.84766,
+     "mean": 0.637625,
+     "std": 1.568891,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1114312,
+     "elements": 2304,
+     "bytes": 4608,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 4.95312,
+     "mean": -0.020641,
+     "std": 0.67056,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1118920,
+     "elements": 256,
+     "bytes": 512,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 6.26562,
+     "mean": 1.043606,
+     "std": 1.555865,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1119432,
+     "elements": 32768,
+     "bytes": 65536,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.35156,
+     "mean": -0.001275,
+     "std": 0.087422,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1184968,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 7.76953,
+     "mean": 1.735428,
+     "std": 2.191238,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1185224,
+     "elements": 1152,
+     "bytes": 2304,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.08594,
+     "mean": 0.118126,
+     "std": 0.569852,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1187528,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.91992,
+     "mean": 0.372855,
+     "std": 1.295486,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1187784,
+     "elements": 16384,
+     "bytes": 32768,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.09375,
+     "mean": -0.003306,
+     "std": 0.080815,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1220552,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 7.77344,
+     "mean": 1.208681,
+     "std": 2.00532,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1220808,
+     "elements": 1152,
+     "bytes": 2304,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 5.26562,
+     "mean": -0.02604,
+     "std": 0.798707,
+     "zeros": 0.0
+    },
+    {
+     "offset": 2824,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 0.85742,
+     "mean": -0.158676,
+     "std": 0.515202,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1223112,
+     "elements": 128,
+     "bytes": 256,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 5.96875,
+     "mean": 1.539996,
+     "std": 1.900565,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1223368,
+     "elements": 8192,
+     "bytes": 16384,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.50879,
+     "mean": -0.001541,
+     "std": 0.131925,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1239752,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 15.57031,
+     "mean": 2.002528,
+     "std": 3.64186,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1239880,
+     "elements": 576,
+     "bytes": 1152,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 6.125,
+     "mean": 0.03102,
+     "std": 0.713206,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1241032,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 7.49219,
+     "mean": 0.565818,
+     "std": 2.051669,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1241160,
+     "elements": 4096,
+     "bytes": 8192,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 2.63477,
+     "mean": -0.006802,
+     "std": 0.157078,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1249352,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 227.875,
+     "mean": -2.451732,
+     "std": 28.719194,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1249480,
+     "elements": 576,
+     "bytes": 1152,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 48.28125,
+     "mean": 0.101071,
+     "std": 2.244296,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1250632,
+     "elements": 64,
+     "bytes": 128,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 22.75,
+     "mean": 0.742012,
+     "std": 5.870194,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1250760,
+     "elements": 2048,
+     "bytes": 4096,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.27148,
+     "mean": -0.006994,
+     "std": 0.354081,
+     "zeros": 0.001
+    },
+    {
+     "offset": 2888,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 3.875,
+     "mean": -0.052117,
+     "std": 1.524916,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1254856,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 18.03125,
+     "mean": 2.44392,
+     "std": 3.873863,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1254920,
+     "elements": 288,
+     "bytes": 576,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 20.35938,
+     "mean": -0.629685,
+     "std": 3.118203,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1255496,
+     "elements": 32,
+     "bytes": 64,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 10.5,
+     "mean": 1.183714,
+     "std": 4.265384,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1255560,
+     "elements": 512,
+     "bytes": 1024,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 5.33594,
+     "mean": -0.00888,
+     "std": 0.522521,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1256584,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 9.13281,
+     "mean": 1.40431,
+     "std": 2.607525,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1256616,
+     "elements": 144,
+     "bytes": 288,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 68.125,
+     "mean": -2.857603,
+     "std": 10.428577,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1256904,
+     "elements": 16,
+     "bytes": 32,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 5.85156,
+     "mean": 1.316321,
+     "std": 2.501732,
+     "zeros": 0.0
+    },
+    {
+     "offset": 1256936,
+     "elements": 432,
+     "bytes": 864,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 11.46875,
+     "mean": -0.016559,
+     "std": 1.226726,
+     "zeros": 0.0
+    },
+    {
+     "offset": 2952,
+     "elements": 1024,
+     "bytes": 2048,
+     "dtype": "float16",
+     "finite": 1.0,
+     "absmax": 1.1084,
+     "mean": -0.007549,
+     "std": 0.238444,
+     "zeros": 0.0
+    }
+   ]
+  }
+ ],
+ "descriptors": {
+  "hed_model": {
+   "strings": [
+    "hed_model",
+    "hed_input",
+    "img_output"
+   ],
+   "dims": [
+    [
+     1,
+     384,
+     384,
+     3
+    ],
+    [
+     1,
+     384,
+     384,
+     2
+    ]
+   ]
+  },
+  "enhance_model": {
+   "strings": [
+    "enhance_model",
+    "img_input"
+   ],
+   "dims": [
+    [
+     1,
+     512,
+     512,
+     3
+    ]
+   ]
+  },
+  "dewarp_fine_model": {
+   "strings": [
+    "dewarp_fine_model"
+   ],
+   "dims": [
+    [
+     1,
+     193,
+     193,
+     3
+    ],
+    [
+     1,
+     385,
+     385,
+     3
+    ],
+    [
+     1,
+     385,
+     385,
+     2
+    ]
+   ]
+  }
+ },
+ "payload_arrays": [
+  {
+   "ptr": 4425676,
+   "size": 578656,
+   "getter": 726676,
+   "size_getter": 726688
+  },
+  {
+   "ptr": 5004464,
+   "size": 1323252,
+   "getter": 727080,
+   "size_getter": 727092
+  },
+  {
+   "ptr": 6327848,
+   "size": 1323252,
+   "getter": 727484,
+   "size_getter": 727496
+  },
+  {
+   "ptr": 7651252,
+   "size": 3164748,
+   "getter": 727888,
+   "size_getter": 727900
+  },
+  {
+   "ptr": 10816152,
+   "size": 11002992,
+   "getter": 728292,
+   "size_getter": 728304
+  },
+  {
+   "ptr": 21819276,
+   "size": 1257800,
+   "getter": 728696,
+   "size_getter": 728708
+  }
+ ],
+ "payload_regions_candidate": [
+  {
+   "label": "int8_zero_point_0x80",
+   "start": 5060352,
+   "end": 7915264,
+   "size": 2854912,
+   "sha256": "94b1cbcc8390454308adcf70dd061533924e0886f4a00a22589e7202e8dd682d",
+   "byte_mean": 50.9239,
+   "frac_0x80": 0.16092,
+   "frac_0x00": 0.57459,
+   "claimed_as_tensor": false
+  },
+  {
+   "label": "fp16_like",
+   "start": 7915264,
+   "end": 23076864,
+   "size": 15161600,
+   "sha256": "b5e8f9385426b0d37fe05c392eaf4c3e62c6b29d66c202310f69309288400b00",
+   "byte_mean": 122.7066,
+   "frac_0x80": 0.00296,
+   "frac_0x00": 0.003,
+   "fp16_finite_frac": 0.988667,
+   "fp16_p999": 62688.0,
+   "fp16_std": 6189.2349,
+   "fp16_frac_abs_le_1": 0.48204,
+   "claimed_as_tensor": false
+  }
+ ],
+ "graph_decoded": false,
+ "inference_available": false,
+ "notes": [
+  "name streams are provably delimited (NUL-terminated tokens, gap<=8B)",
+  "record tables are provably delimited (16B u64 pairs, values < 0x4000000)",
+  "blocks are provably delimited by the (u32 0, u32 payload_bytes) trailers",
+  "record law: u64 byte_offset + u64 fp16_element_count, tensor body is 2*count bytes inside the block payload (verified for 4/5 blocks)",
+  "payload bases come from the six (const float16_t*, uint32_t) getters in .text (adrp+add;ret / movz+movk;ret) consumed by the model loader at 0xafbc4; each block is joined to a payload by its trailer size",
+  "the operator graph (NetDef) is NOT in this binary: no protobuf framing exists in .rodata and the description blocks are referenced by no instruction/relocation, so operator wiring and per-tensor shapes cannot be reconstructed (see GAP_CLOSURE.md)"
+ ],
+ "graph_decoded_note": "weights + tensor byte ranges recovered; graph not"
+}

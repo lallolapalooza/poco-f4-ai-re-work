@@ -1,0 +1,4 @@
+model__ai_face_beauty_processor__FprsTeeth.0001.Exp002pe99_quan1_sm.tflite  subgraph=0 signature=serving_default  FAIL
+  output   shape             dtype    max_abs   tol       result
+  softmax  (1, 192, 256, 4)  FLOAT32  0.933594  1.00e-04  FAIL
+  1 output(s), max_abs=0.933594, status=fail

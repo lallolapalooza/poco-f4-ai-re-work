@@ -1,0 +1,69 @@
+struct field
+   +0    class_name                     const char *
+   +8    field_name                     const char *
+   +16   field_type                     const char *
+   +24   jfield                         jfieldID *
+struct fields_t
+   +0    rect_left                      jfieldID
+   +8    rect_top                       jfieldID
+   +16   rect_right                     jfieldID
+   +24   rect_bottom                    jfieldID
+   +32   rect_constructor               jmethodID
+   +40   image_data                     jfieldID
+   +48   image_format                   jfieldID
+   +56   image_width                    jfieldID
+   +64   image_height                   jfieldID
+   +72   image_stride                   jfieldID
+   +80   face_id                        jfieldID
+   +88   feature_count                  jfieldID
+   +96   faceidinfo_constructor         jmethodID
+   +104  is_face_detected               jfieldID
+   +112  detect_face_rect               jfieldID
+   +120  face_detectedinfo_constructor  jmethodID
+   +128  facedetect_callback            jmethodID
+struct st_detect_t
+struct st_face_id_info_t
+struct st_image_t
+   +0    data                           unsigned char *
+   +8    pixel_format                   st_pixel_format
+   +12   width                          int
+   +16   height                         int
+   +20   stride                         int
+struct st_keypoint_info_t
+struct st_template_info_t
+   +0    face_id_count                  int
+   +4    verify_model_version           int
+   +8    identifier                     char *
+   +16   st_per_face_id_info            st_face_id_info_t *
+
+void Java_com_ts_faceauth_FaceAuthNative_auth(JNIEnv * env, jobject obj, jobject stimage, jint config, jintArray faceids, jintArray _resultcode)
+void Java_com_ts_faceauth_FaceAuthNative_createFaceAuth(JNIEnv * env, jobject obj, jstring j_dir_path, jint config, jintArray _resultcode)
+jint Java_com_ts_faceauth_FaceAuthNative_deleteAllFace(JNIEnv * env, jobject obj)
+jint Java_com_ts_faceauth_FaceAuthNative_deleteFace(JNIEnv * env, jobject obj, jint faceid)
+void Java_com_ts_faceauth_FaceAuthNative_enableFaceDetectCallback(JNIEnv * env, jobject obj, jboolean isEnable)
+jint Java_com_ts_faceauth_FaceAuthNative_enroll(JNIEnv * env, jobject obj, jobject stimage, jint config, jintArray _resultcode)
+jint Java_com_ts_faceauth_FaceAuthNative_evaluate(JNIEnv * env, jobject obj, jstring inputPath, jstring outputPath, jint imageFormat, jint width, jint height, jint orientation, jint faceauth_mode)
+jstring Java_com_ts_faceauth_FaceAuthNative_getAlgoInfo(JNIEnv * env, jobject obj)
+jobjectArray Java_com_ts_faceauth_FaceAuthNative_getFaceIDInfoInTemplate(JNIEnv * env, jobject obj, jintArray _resultcode)
+jint Java_com_ts_faceauth_FaceAuthNative_getLastUnlockID(JNIEnv * env, jobject obj, jintArray _resultcode)
+jstring Java_com_ts_faceauth_FaceAuthNative_getSDKVersion(JNIEnv * env, jobject obj)
+jint Java_com_ts_faceauth_FaceAuthNative_initLicense(JNIEnv * env, jobject obj, jstring _license)
+void Java_com_ts_faceauth_FaceAuthNative_releaseFaceAuth(JNIEnv * env, jobject obj)
+jint Java_com_ts_faceauth_FaceAuthNative_resetFaceAuth(JNIEnv * env, jobject obj)
+jint Java_com_ts_faceauth_FaceAuthNative_setAreaCode(JNIEnv * env, jobject obj, jint area_code)
+jint Java_com_ts_faceauth_FaceAuthNative_setEnrollNumberForFace(JNIEnv * env, jobject obj, jint number)
+jint Java_com_ts_faceauth_FaceAuthNative_setFaceAuthMode(JNIEnv * env, jobject obj, jint mode)
+void Java_com_ts_faceauth_FaceAuthNative_setGPUPriority(JNIEnv * env, jobject obj, jint priority)
+void Java_com_ts_faceauth_FaceAuthNative_setIdentifier(JNIEnv * env, jobject obj, jstring j_identifier, jintArray _resultcode)
+void Java_com_ts_faceauth_FaceAuthNative_setLogLevel(JNIEnv * env, jobject obj, jint log_level)
+void Java_com_ts_faceauth_FaceAuthNative_setOrientation(JNIEnv * env, jobject obj, jint orientation, jintArray _resultcode)
+void Java_com_ts_faceauth_FaceAuthNative_setRoi(JNIEnv * env, jobject obj, jobject facerect, jintArray _resultcode)
+void Java_com_ts_faceauth_FaceAuthNative_setStandByMode(JNIEnv * env, jobject obj)
+jint Java_com_ts_faceauth_FaceAuthNative_setTeeCommunicationFunc(JNIEnv * env, jobject obj)
+jint Java_com_ts_faceauth_FaceAuthNative_setTeeCommunicationFuncAddr(JNIEnv * env, jobject obj, jlong teeCommunicationFunc)
+int find_fields(JNIEnv * env, field * fields, int count)
+st_rect_t java_rect_to_st_rect_t(JNIEnv * env, jobject jrect)
+jbyteArray java_stimage_to_st_image_t(JNIEnv * env, jobject java_stimage, st_image_t * image)
+int register_fields(JNIEnv * env)
+jobject st_detect_to_java_face_detected_info(JNIEnv * env, P_ST_DETECT detect_result)
+jobjectArray st_faceid_info_array_to_java_faceidinfo(JNIEnv * env, st_face_id_info_t * p_faceid_info_array, int face_idinfo_count, int version)

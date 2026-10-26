@@ -1,0 +1,18 @@
+image_editor_autocrop.bundle: xor_key=0x21 file=4769B entries=8
+  image_block_fs.glsl                                        method=8 csize=      141 usize=      291 off=        0 ENCRYPTED-PREFIX
+  image_block_model_vs.glsl                                  method=8 csize=      155 usize=      274 off=      190 ENCRYPTED-PREFIX
+  image_block_screen_fs.glsl                                 method=8 csize=      334 usize=      907 off=      400 ENCRYPTED-PREFIX
+  image_block_vs.glsl                                        method=8 csize=      133 usize=      190 off=      790 ENCRYPTED-PREFIX
+  image_fs.glsl                                              method=8 csize=      199 usize=      558 off=      972 ENCRYPTED-PREFIX
+  image_vs.glsl                                              method=8 csize=      101 usize=      125 off=     1214
+  metadata.json                                              method=8 csize=       88 usize=       92 off=     1358
+  script.js                                                  method=8 csize=     2318 usize=    12895 off=     1489
+  CRC32 verified entries: 3 ok, 0 bad (5 skipped in encrypted prefix)
+  SKIP (encrypted prefix): image_block_fs.glsl
+  SKIP (encrypted prefix): image_block_model_vs.glsl
+  SKIP (encrypted prefix): image_block_screen_fs.glsl
+  SKIP (encrypted prefix): image_block_vs.glsl
+  SKIP (encrypted prefix): image_fs.glsl
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_editor_autocrop/image_vs.glsl (125 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_editor_autocrop/metadata.json (92 bytes)
+  wrote /run/media/asdf/db69437b-ed35-414a-8bd1-bade16b06830/re_work/reports/miui_mediaeditor/models/bundle_entries/graphics__image_editor_autocrop/script.js (12895 bytes)
